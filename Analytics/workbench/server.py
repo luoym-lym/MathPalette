@@ -13,17 +13,21 @@ from pathlib import Path
 from urllib.parse import unquote, urlparse
 
 from review_store import Workbench
+from quick_test import QuickTests
 from workbench_io import (ROOT, WorkbenchError, atomic_json, contained_path, load_config,
                           parse_json, read_json)
 
 
-def make_handler(workbench):
+def make_handler(workbench, quick_tests=None):
+    quick_tests = quick_tests or QuickTests(workbench)
     class Handler(BaseHTTPRequestHandler):
         def log_message(self, format, *args):
             if self.path not in ("/api/state", "/api/context"):
                 super().log_message(format, *args)
 
         def _send(self, data, content_type="application/json; charset=utf-8", status=200):
+            if isinstance(data, dict) and "review_token" in data and "questions" in data:
+                data = {**data, "quick_test": quick_tests.snapshot(data)}
             if not isinstance(data, bytes):
                 data = json.dumps(data, ensure_ascii=False, allow_nan=False).encode("utf-8")
             self.send_response(status)
@@ -94,6 +98,7 @@ def make_handler(workbench):
                     return self._send(contained_path(workbench.root / "reproduced", name).read_bytes(), "image/png")
                 static = {"/": ("index.html", "text/html; charset=utf-8"),
                           "/app.js": ("app.js", "text/javascript; charset=utf-8"),
+                          "/quick-test.js": ("quick-test.js", "text/javascript; charset=utf-8"),
                           "/drawing-board.js": ("drawing-board.js", "text/javascript; charset=utf-8"),
                           "/style.css": ("style.css", "text/css; charset=utf-8")}
                 if path in static:
@@ -123,10 +128,12 @@ def make_handler(workbench):
                     return self._send(workbench.submit(body["plugin_path"], body["context_token"], body.get("replace")))
                 if path == "/api/highlight":
                     return self._send(workbench.highlight(body["question_id"], body["object_id"]))
-                if path in ("/api/navigate", "/api/review", "/api/drawing-preview", "/api/drawing-submit", "/api/collect", "/api/reopen", "/api/delete-accepted", "/api/shutdown"):
+                if path in ("/api/navigate", "/api/review", "/api/drawing-preview", "/api/drawing-submit", "/api/collect", "/api/reopen", "/api/delete-accepted", "/api/shutdown", "/api/quick-test"):
                     token = self.headers.get("X-Review-Token", "")
                     if not hmac.compare_digest(token, workbench.review_token):
                         raise WorkbenchError("页面会话已过期；请刷新工作台。", 403, "invalid_session")
+                    if path == "/api/quick-test":
+                        return self._send(quick_tests.start(body), status=202)
                     if path == "/api/shutdown":
                         self._send({"stopping": True})
                         threading.Thread(target=self.server.shutdown, daemon=True).start()
@@ -175,6 +182,7 @@ def main():
         config["dataset_root"] = str(args.output_dir.resolve().parent)
     workbench = Workbench(config, lambda line: print(line, flush=True))
     registry = workbench.state_dir / "service.json"
+    quick_tests = None
     try:
         if args.check:
             print(json.dumps({"questions_checked": len(workbench.active_questions()), "noop_pixels_match": True,
@@ -184,7 +192,8 @@ def main():
                              ensure_ascii=False, indent=2))
             return
         port = args.port if args.port is not None else config["port"]
-        server = ThreadingHTTPServer((config["host"], port), make_handler(workbench))
+        quick_tests = QuickTests(workbench)
+        server = ThreadingHTTPServer((config["host"], port), make_handler(workbench, quick_tests))
         server.daemon_threads = False
         url = f"http://127.0.0.1:{server.server_port}"
         atomic_json(registry, {"url": url, "pid": os.getpid(), "session_id": workbench.session_id})
@@ -198,6 +207,8 @@ def main():
         finally:
             server.server_close()
     finally:
+        if quick_tests:
+            quick_tests.close()
         workbench.close()
         if registry.exists() and read_json(registry).get("session_id") == workbench.session_id:
             registry.unlink()

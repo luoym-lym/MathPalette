@@ -1,5 +1,5 @@
 @echo off
 setlocal
 cd /d "%~dp0workbench"
-python -B launch_workbench.py %*
+python -X utf8 -B launch_workbench.py %*
 if errorlevel 1 pause

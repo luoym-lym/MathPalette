@@ -480,6 +480,27 @@ class Workbench:
             return {"valid": True, "human_reviewed": False, "normalized_plugin": plugin,
                     "parameter_key": canonical_hash(plugin)}
 
+    def quick_test_input(self, qid, cid, token, displayed_pixel, displayed_parameter):
+        """Read precisely the displayed candidate; never include answer or plugin hints."""
+        with self.lock:
+            self._check_context(qid, token, cid)
+            candidate = self.progress["candidates"].get(cid)
+            if (not candidate or candidate["question_id"] != qid or candidate["status"] != "pending" or
+                    self.progress["questions"][qid]["candidate_id"] != cid or
+                    candidate["pixel_sha256"] != displayed_pixel or candidate["parameter_key"] != displayed_parameter):
+                raise WorkbenchError("候选已更新，请等待当前图片载入后再测试。", 409, "stale_candidate")
+            if self.job and self.job["question_id"] == qid:
+                raise WorkbenchError("正在生成新候选，请稍候再测试。", 409, "generating")
+            self.adapter.assert_baseline()
+            self._verify_package(candidate)
+            image = self._package_file(candidate, "image.png").read_bytes()
+            if hashlib.sha256(image).hexdigest() != candidate["png_sha256"]:
+                raise WorkbenchError("候选图片在读取时改变，请刷新后重试。", 409, "integrity_error")
+            packet = {key: candidate[key] for key in
+                      ("question_id", "candidate_id", "pixel_sha256", "png_sha256", "parameter_key")}
+            packet.update(question=self.adapter.records[qid]["question"], input_revision=self.context()["input_revision"])
+            return packet, image
+
     def drawing_scene(self, qid):
         from drawing_board import describe_scene
         with RENDER_LOCK:
@@ -612,10 +633,12 @@ class Workbench:
                 recipe.update(slot_id=new_slot,
                     image_path=(self.output_relative / qid / "images" / f"{new_slot}.png").as_posix(),
                     plugin_path=(self.output_relative / qid / "plugins" / f"{new_slot}.json").as_posix())
-                saved_candidate = progress["candidates"][recipe["candidate_id"]]
-                saved_candidate.update(slot_id=new_slot, formal_image_path=recipe["image_path"],
-                                       formal_plugin_path=recipe["plugin_path"])
-            deleted = progress["candidates"][cid]
+                saved_candidate = progress["candidates"].get(recipe["candidate_id"])
+                if saved_candidate:
+                    saved_candidate.update(slot_id=new_slot, formal_image_path=recipe["image_path"],
+                                           formal_plugin_path=recipe["plugin_path"])
+            # A cold restore has durable recipes, but no old candidate packages.
+            deleted = progress["candidates"].setdefault(cid, copy.deepcopy(removed))
             deleted.update(status="deleted", deleted_at=deleted_at, deletion_backup=backup_relative)
             for key in ("slot_id", "formal_image_path", "formal_plugin_path"):
                 deleted.pop(key, None)

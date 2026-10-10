@@ -7,8 +7,10 @@
 双击本目录的 `start_workbench.cmd`，或数据集目录的 `start_special_workbench.cmd`。打开 http://127.0.0.1:8767 。也可以从 Research 目录执行：
 
 ```powershell
-python -B MathPalette/Analytics/workbench/server.py
+python -X utf8 -B MathPalette/Analytics/workbench/launch_workbench.py
 ```
+
+启动器会检查 `requirements.txt` 和已通过 recipes 中冻结的环境版本，自动寻找匹配的 Python，并打印实际使用的路径与版本。它会检查当前 Python、项目虚拟环境、本机 Miniconda/Anaconda 和 PATH；也可用 `MATHPALETTE_PYTHON` 指定解释器完整路径。当前正式环境为 Python 3.13.9、Matplotlib 3.11.2、NumPy 2.5.3、Pillow 12.3.0。没有匹配环境时会在渲染前停止并列出版本差异，保留原图和收集记录。
 
 1. 在左侧选择题目，核对原图、题干、答案，点击“打开画板”。
 2. 选择红点工具并点击放点；辅助线工具点击两个端点或拖动；曲线样式工具点击原曲线，再选择颜色或实线/虚线。
@@ -38,6 +40,16 @@ Analytics/special_variant/
 
 插件和 recipes 格式沿用原工作台，保存精确坐标、对象 ID、颜色、线型、参数/图片哈希、人工审核时间。未 Pass 的画板预览不会成为正式数据。C 数量由人工决定，不自动补齐。
 
+## Quick Test
+
+在画板完成标注后点击「提交到当前候选」，或由 agent 提交候选，再点击候选图右上角的 **Quick Test**。工作台会用 **MiniMax-M3** 读取题干和这张候选图，以关闭思考的模式直接回答，展示回答、用时和 token 数。以前测试中保存的思考内容仍可查看。标准答案、原图、标注意图及绘图参数不发送给模型；不调用 judge，也不自动 Pass / No Pass。
+
+使用项目根目录 `.env` 中的 `MINIMAX_API_KEY`，当前已配置为中国区订阅接口 `https://api.minimaxi.com/v1`。Key 只由服务端读取。`config.json` 的 `quick_test` 控制模型和接口；修改配置后重新双击 CMD。请求设置 `thinking: {"type": "disabled"}`，不发送 `max_tokens` 或 `max_completion_tokens`，也不设置本地等待超时。实际输出长度仍由模型服务决定。
+
+每次手动点击调用一次模型；运行期间禁用重复调用，不自动重试。切题、替换候选后不会将旧结果显示在新候选上。每个候选只保存最近一次测试到 `.runtime/analytics_special/quick_tests/`，刷新页面可恢复；这些输出属于临时工作记录，不进入正式数据。请求失败后可以手动重试；接口若返回长度截断，页面会显示提示。
+
+官方高速版名称是 `MiniMax-M2.7-highspeed`，M2.7 不接受原生图片输入，因此本功能按用户选择使用 M3。接口说明：[MiniMax 图片输入与思考输出](https://platform.minimax.io/docs/api-reference/text-openai-api)。
+
 ## 更新未完成题目与重启
 
 编辑未完成题目的题干、答案、绘图函数或原图后，重新双击数据集目录 `start_special_workbench.cmd` 即可。启动入口会先正常停止当前服务，再启动新服务读取最新输入。原题改动须用户重新审核；既有 Special 不自动获得与新原题兼容的资格。
@@ -48,7 +60,7 @@ Analytics/special_variant/
 
 ## 与 agent 协同
 
-让 agent 先阅读本目录 `agent_prompt.md`。你也可以在画板点击“提交候选，交给 agent”，再让 agent 修改该候选。所有方案最终由你在网页 Pass / No Pass；agent 不代替你审核。
+让 agent 先阅读本目录 `agent_prompt.md`。你也可以在画板点击“提交到当前候选”，再让 agent 修改该候选。所有方案最终由你在网页 Pass / No Pass；agent 不代替你审核。
 
 从 Research 目录运行：
 
@@ -63,8 +75,8 @@ python -B MathPalette/Analytics/workbench/agent_cli.py submit --plugin MathPalet
 ## 重绘与检查
 
 ```powershell
-python -B MathPalette/Analytics/workbench/server.py --check
-python -B MathPalette/Analytics/Analytics/special_variant/Ana01/draw_variants.py C01
+python -X utf8 -B MathPalette/Analytics/workbench/launch_workbench.py --check
+python -B MathPalette/Analytics/special_variant/Ana01/draw_variants.py C01
 ```
 
 重绘默认保存到工作台 `reproduced/`，不覆盖正式图片。函数提供 `draw_C01(output_path=None)`。文本使用 DejaVu Sans，部分中文字形不受支持，优先使用数学标签。

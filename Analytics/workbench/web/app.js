@@ -20,6 +20,7 @@ function controls() {
   const ready = connected && !busy && state?.candidate?.status === "pending" && originalLoaded &&
     loaded?.id === state.candidate.candidate_id && loaded?.pixel === state.candidate.pixel_sha256 && loaded?.parameter === state.candidate.parameter_key;
   $("pass").disabled = $("reject").disabled = !ready;
+  window.quickTest?.controls(ready);
   $("reject-note").disabled = busy || !state?.candidate;
   $("original-zoom").disabled = !originalLoaded;
   $("candidate-zoom").disabled = !loaded;
@@ -151,6 +152,7 @@ function render(next) {
   }
   listQuestions(); errors(); controls();
   window.drawingBoard?.onState(state);
+  window.quickTest?.onState(state);
 }
 
 function renderObjects() {

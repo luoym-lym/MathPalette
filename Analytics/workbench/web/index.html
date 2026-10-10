@@ -6,6 +6,7 @@
   <title>MathPalette · 二次收集 C 工作台</title>
   <link rel="stylesheet" href="/style.css">
   <script src="/app.js" defer></script>
+  <script src="/quick-test.js" defer></script>
   <script src="/drawing-board.js" defer></script>
 </head>
 <body>
@@ -34,13 +35,20 @@
           <button id="original-zoom" class="image-button" aria-label="放大原图到 768×768" disabled><img id="original-image" alt="当前题目原图"></button>
           <div class="image-footer">点击图片放大 · 固定坐标 [−8, 8]</div>
         </section>
-        <section class="image-card"><div class="card-heading"><h2>当前候选</h2><span id="candidate-count">等待提交</span></div>
+        <section class="image-card"><div class="card-heading"><h2>当前候选</h2><div class="candidate-actions"><span id="candidate-count">等待提交</span><button id="quick-test-button" disabled>Quick Test</button></div></div>
           <div id="candidate-frame" class="candidate-frame"><button id="candidate-zoom" class="image-button" aria-label="放大候选图到 768×768" hidden disabled><img id="candidate-image" alt="待人工审核的 C 候选图"></button>
             <div id="waiting" class="waiting"><span class="waiting-symbol">＋</span><strong>等待 agent 提交方案</strong><p>在另一个终端与 agent 讨论标记，<br>提交成功后，候选会自动出现在这里。</p></div>
           </div>
           <div class="image-footer" id="candidate-id">没有待审候选</div>
         </section>
       </div>
+      <section id="quick-test-panel" class="quick-test-panel" aria-label="候选图 Quick Test" hidden>
+        <div class="quick-test-heading"><h2>Quick Test <span id="quick-test-model">MiniMax-M3</span></h2><span id="quick-test-status" role="status"></span></div>
+        <p id="quick-test-hint" class="muted">发送题干和当前候选图，查看模型回答；已关闭思考，不自动判分。</p>
+        <div id="quick-test-error" class="error" role="alert" hidden></div>
+        <p id="quick-test-warning" class="quick-test-warning" hidden>接口返回了长度截断，以下内容可能不完整。</p>
+        <div id="quick-test-output" hidden><h3>模型回答</h3><pre id="quick-test-answer"></pre><details id="quick-test-thinking-details" open hidden><summary>模型思考</summary><pre id="quick-test-thinking"></pre></details></div>
+      </section>
       <section id="candidate-info" class="candidate-info" hidden><h2>方案与操作</h2><p id="description"></p><p id="intent" class="muted"></p><ul id="action-summary"></ul><details><summary>查看冻结插件参数</summary><pre id="candidate-params"></pre></details></section>
       <section class="review-bar" aria-label="人工审核">
         <div class="review-help"><strong>由你决定是否收集</strong><span id="review-hint">收到候选并完成载入后可审核。</span></div>
@@ -87,10 +95,10 @@
         <div id="board-message" role="status">正在载入画板…</div>
       </section>
     </div>
-    <div class="board-footer"><span id="board-save-hint">预览与正式图片使用同一个渲染器。</span><div class="board-button-row"><button id="board-submit" disabled>提交候选，交给 agent</button><button id="board-pass" class="pass" disabled>Pass · 收集这张图</button></div></div>
+    <div class="board-footer"><span id="board-save-hint">预览与正式图片使用同一个渲染器。</span><div class="board-button-row"><button id="board-submit" disabled>提交到当前候选</button><button id="board-pass" class="pass" disabled>Pass · 收集这张图</button></div></div>
   </dialog>
   <dialog id="prompt-dialog"><div class="dialog-heading"><strong>与终端 agent 协作</strong><button id="close-prompt" aria-label="关闭提示词">关闭 ✕</button></div>
-    <ol class="instructions"><li>启动工作台并选择题目。</li><li>在另一个终端让 agent 阅读 <code>MathPalette/fine_grained_special_workbench/agent_prompt.md</code>，用自然语言描述标记。</li><li>agent 读取 context、制作插件并提交；本页自动展示候选。</li><li>查看原图与候选，点击 Pass 收集，或 No Pass 拒绝并继续讨论。</li></ol>
+    <ol class="instructions"><li>启动工作台并选择题目。</li><li>在另一个终端让 agent 阅读 <code>MathPalette/Analytics/workbench/agent_prompt.md</code>，用自然语言描述标记。</li><li>agent 读取 context、制作插件并提交；本页自动展示候选。</li><li>需要时点击 Quick Test 查看模型回答，再由你决定 Pass 或 No Pass。</li></ol>
     <div class="prompt-heading"><strong>标记 agent 提示词</strong><button id="copy-prompt">复制提示词</button></div><label class="sr-only" for="prompt-text">Agent 提示词全文</label><textarea id="prompt-text" readonly></textarea>
   </dialog>
 </body>

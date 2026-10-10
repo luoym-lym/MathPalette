@@ -52,13 +52,17 @@ python -m pip install -r requirements.txt
 python -X utf8 -B dataset_tools/catalog.py check
 python -X utf8 -B dataset_tools/catalog.py build
 python -X utf8 -B Analytics/dataset_generator/generate_base_variants.py check --redraw
-python -X utf8 -B Analytics/workbench/server.py --check
+python -X utf8 -B Analytics/workbench/launch_workbench.py --check
 python -X utf8 -B dataset_tools/geometry_dataset.py PlaneGeometry Plane01
 python -X utf8 -B dataset_tools/geometry_dataset.py SolidGeometry Solid01
 python -X utf8 -B Analytics/special_variant/Ana01/draw_variants.py C01
 ```
 
 工作台仅展示正式 Analytics 题。Ana01～Ana20 的 Collect 状态保留，新 MathVerse 25 题等待人工制作 Special。平面、立体的 Base / Special 尚未启用。
+
+双击 CMD 时，工作台启动器会自动寻找与正式数据冻结版本匹配的 Python，避免系统 Python 与 Conda 环境混用导致像素校验失败。启动窗口会显示实际解释器路径和依赖版本；也可通过 `MATHPALETTE_PYTHON` 指定匹配的解释器。
+
+候选图右上角提供 **Quick Test**：使用 `.env` 中的 `MINIMAX_API_KEY` 调用中国区 MiniMax-M3，关闭思考后直接回答候选图对应的题目，不设置本地输出上限。画板标注后先点击「提交到当前候选」即可测试；不接入 judge，不自动收集，结果只保存在 `.runtime/analytics_special/quick_tests/`。
 
 评测程序在 `Analytics/evaluation/`，默认读取项目根目录 `.env`。评测会调用模型 API；本次清理只检查数据加载与本地重绘，没有运行模型评测。新增结果默认写入 `.runtime/evaluation/`。
 
