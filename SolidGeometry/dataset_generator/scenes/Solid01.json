@@ -1,6 +1,6 @@
 {
   "scene_schema_version": "1.0.0",
-  "protocol_version": "1.1.0",
+  "protocol_version": "1.2.0",
   "id": "Solid01",
   "status": "formal_candidate",
   "subject": "SolidGeometry",
@@ -59,29 +59,44 @@
       0.0
     ],
     "M_y": [
-      0.0,
-      0.0,
-      0.0
+      4.200000000000001,
+      3.08,
+      3.08
     ],
     "M_z": [
       0.0,
       0.0,
       -5.5
+    ],
+    "M_AB": [
+      -7.5,
+      0.0,
+      5.5
+    ],
+    "M_BF": [
+      -7.5,
+      -5.5,
+      0.0
+    ],
+    "M_FG": [
+      0.0,
+      -5.5,
+      -5.5
     ]
   },
   "projection": {
     "kind": "oblique",
-    "name": "Frozen cavalier parallel projection",
+    "name": "Source-matched frozen parallel projection",
     "matrix": [
       [
-        -1,
-        -0.82,
-        0
+        -1.396629213483146,
+        -0.6797752808988763,
+        0.0
       ],
       [
-        0,
-        0.41,
-        1
+        -0.46554307116104865,
+        0.3876404494382022,
+        1.0
       ]
     ],
     "origin": [
@@ -94,19 +109,19 @@
       0
     ],
     "toward_viewer": [
-      -0.6044299021853569,
-      0.7371096368114108,
-      -0.30221495109267843
+      -0.38309620583589343,
+      0.7870885683537447,
+      -0.4834551505993038
     ]
   },
   "view": {
     "xlim": [
-      -13.564011765291161,
-      15.62014452492596
+      -16.06656823961508,
+      18.41518954428905
     ],
     "ylim": [
-      -14.4582574747535,
-      14.725898815463621
+      -17.112495655237577,
+      17.369262128666552
     ],
     "layout": {
       "method": "frozen_content_fit",
@@ -123,8 +138,8 @@
   },
   "visibility": {
     "mode": "frozen_intervals",
-    "projection_sha256": "e3e6940ed802fc746006fc9c24d94d3695ee2c0e6b0d7283eb7cceef4300ffcf",
-    "notes": "Authored edge visibility is frozen for this projection; renderer performs no automatic occlusion."
+    "projection_sha256": "3a89d1c3e5bbd7578f6508a66d6b1edec5df405e5f62232d00b6a6b601620307",
+    "notes": "Rechecked source: AE, EF, EH hidden; other cuboid edges visible. DF and HF are auxiliary diagonals. Face slopes and vertex ordering match source."
   },
   "objects": [
     {
@@ -270,7 +285,233 @@
       "linestyle": "dashed"
     }
   ],
-  "dimensions": [
+  "dimensions": [],
+  "labels": [
+    {
+      "id": "vertex_A",
+      "type": "vertex",
+      "text": "A",
+      "anchor": "A",
+      "offset_pt": [
+        -1,
+        13
+      ]
+    },
+    {
+      "id": "vertex_B",
+      "type": "vertex",
+      "text": "B",
+      "anchor": "B",
+      "offset_pt": [
+        2.0,
+        14.0
+      ]
+    },
+    {
+      "id": "vertex_C",
+      "type": "vertex",
+      "text": "C",
+      "anchor": "C",
+      "offset_pt": [
+        6.0,
+        15.0
+      ]
+    },
+    {
+      "id": "vertex_D",
+      "type": "vertex",
+      "text": "D",
+      "anchor": "D",
+      "offset_pt": [
+        -5.0,
+        12.0
+      ]
+    },
+    {
+      "id": "vertex_E",
+      "type": "vertex",
+      "text": "E",
+      "anchor": "E",
+      "offset_pt": [
+        -1.0,
+        -14.0
+      ]
+    },
+    {
+      "id": "vertex_F",
+      "type": "vertex",
+      "text": "F",
+      "anchor": "F",
+      "offset_pt": [
+        7,
+        -10
+      ]
+    },
+    {
+      "id": "vertex_G",
+      "type": "vertex",
+      "text": "G",
+      "anchor": "G",
+      "offset_pt": [
+        0,
+        -13
+      ]
+    },
+    {
+      "id": "vertex_H",
+      "type": "vertex",
+      "text": "H",
+      "anchor": "H",
+      "offset_pt": [
+        -9.0,
+        -6.0
+      ]
+    },
+    {
+      "id": "label_y",
+      "type": "text",
+      "text": "y cm",
+      "anchor": "M_y",
+      "offset_pt": [
+        0,
+        18
+      ]
+    },
+    {
+      "id": "label_z",
+      "type": "text",
+      "text": "z cm",
+      "anchor": "M_z",
+      "offset_pt": [
+        0,
+        -13
+      ]
+    },
+    {
+      "id": "dimension_text_AB",
+      "type": "text",
+      "text": "11 cm",
+      "anchor": "M_AB",
+      "offset_pt": [
+        4.0,
+        22.0
+      ]
+    },
+    {
+      "id": "dimension_text_BF",
+      "type": "text",
+      "text": "11 cm",
+      "anchor": "M_BF",
+      "offset_pt": [
+        26.0,
+        0.0
+      ]
+    },
+    {
+      "id": "dimension_text_FG",
+      "type": "text",
+      "text": "15 cm",
+      "anchor": "M_FG",
+      "offset_pt": [
+        1.0,
+        -18.0
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "cuboid_ab",
+      "type": "distance",
+      "points": [
+        "A",
+        "B"
+      ],
+      "value": 11,
+      "basis": "Source dimension AB=11 cm."
+    },
+    {
+      "id": "cuboid_bf",
+      "type": "distance",
+      "points": [
+        "B",
+        "F"
+      ],
+      "value": 11,
+      "basis": "Source dimension BF=11 cm."
+    },
+    {
+      "id": "cuboid_fg",
+      "type": "distance",
+      "points": [
+        "F",
+        "G"
+      ],
+      "value": 15,
+      "basis": "Source dimension FG=15 cm."
+    },
+    {
+      "id": "AB_perpendicular_BF",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "F"
+        ]
+      ],
+      "basis": "Cuboid geometry; source right angle at F uses BF and HF."
+    },
+    {
+      "id": "FG_perpendicular_BF",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "F",
+          "G"
+        ],
+        [
+          "B",
+          "F"
+        ]
+      ],
+      "basis": "Cuboid geometry; source right angle at F uses BF and HF."
+    },
+    {
+      "id": "AB_perpendicular_FG",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "F",
+          "G"
+        ]
+      ],
+      "basis": "Cuboid geometry; source right angle at F uses BF and HF."
+    },
+    {
+      "id": "BF_perpendicular_HF",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "B",
+          "F"
+        ],
+        [
+          "H",
+          "F"
+        ]
+      ],
+      "basis": "Cuboid geometry; source right angle at F uses BF and HF."
+    }
+  ],
+  "ambiguities": [],
+  "source_dimension_bindings": [
     {
       "id": "AB_11",
       "type": "distance",
@@ -331,149 +572,5 @@
       ],
       "basis": "Dimension read from source diagram."
     }
-  ],
-  "labels": [
-    {
-      "id": "vertex_A",
-      "type": "vertex",
-      "text": "A",
-      "anchor": "A",
-      "offset_pt": [
-        -10.5,
-        10.5
-      ]
-    },
-    {
-      "id": "vertex_B",
-      "type": "vertex",
-      "text": "B",
-      "anchor": "B",
-      "offset_pt": [
-        0.0,
-        15.0
-      ]
-    },
-    {
-      "id": "vertex_C",
-      "type": "vertex",
-      "text": "C",
-      "anchor": "C",
-      "offset_pt": [
-        -64.5,
-        -16.5
-      ]
-    },
-    {
-      "id": "vertex_D",
-      "type": "vertex",
-      "text": "D",
-      "anchor": "D",
-      "offset_pt": [
-        -9.0,
-        0.0
-      ]
-    },
-    {
-      "id": "vertex_E",
-      "type": "vertex",
-      "text": "E",
-      "anchor": "E",
-      "offset_pt": [
-        30.0,
-        24.0
-      ]
-    },
-    {
-      "id": "vertex_F",
-      "type": "vertex",
-      "text": "F",
-      "anchor": "F",
-      "offset_pt": [
-        12.0,
-        0.0
-      ]
-    },
-    {
-      "id": "vertex_G",
-      "type": "vertex",
-      "text": "G",
-      "anchor": "G",
-      "offset_pt": [
-        -13.5,
-        -7.5
-      ]
-    },
-    {
-      "id": "vertex_H",
-      "type": "vertex",
-      "text": "H",
-      "anchor": "H",
-      "offset_pt": [
-        -9.0,
-        0.0
-      ]
-    },
-    {
-      "id": "label_y",
-      "type": "text",
-      "text": "y cm",
-      "anchor": "M_y",
-      "offset_pt": [
-        0.0,
-        40.0
-      ]
-    },
-    {
-      "id": "label_z",
-      "type": "text",
-      "text": "z cm",
-      "anchor": "M_z",
-      "offset_pt": [
-        0.0,
-        -48.0
-      ]
-    }
-  ],
-  "constraints": [
-    {
-      "id": "cuboid_ab",
-      "type": "distance",
-      "points": [
-        "A",
-        "B"
-      ],
-      "value": 11,
-      "basis": "Source dimension AB=11 cm."
-    },
-    {
-      "id": "cuboid_bf",
-      "type": "distance",
-      "points": [
-        "B",
-        "F"
-      ],
-      "value": 11,
-      "basis": "Source dimension BF=11 cm."
-    },
-    {
-      "id": "cuboid_fg",
-      "type": "distance",
-      "points": [
-        "F",
-        "G"
-      ],
-      "value": 15,
-      "basis": "Source dimension FG=15 cm."
-    }
-  ],
-  "ambiguities": [],
-  "provenance": {
-    "source_key": "s3184"
-  },
-  "answer_verification": {
-    "status": "verified",
-    "reasoning": "Cuboid side lengths are AB=11 cm, BF=11 cm, and FG=15 cm. The space diagonal is DF=sqrt(11^2+11^2+15^2)=sqrt(467)=21.61 cm.",
-    "verified_answer": "21.61 cm",
-    "issue": null
-  }
+  ]
 }

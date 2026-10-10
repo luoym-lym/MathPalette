@@ -2,17 +2,17 @@
   "scene_schema_version": "1.0.0",
   "protocol_version": "1.2.0",
   "id": "Plane06",
-  "status": "verified",
+  "status": "corrected",
   "source_dataset": "MathVerse",
   "source_image": "../../originals/Plane06.png",
   "view": {
     "xlim": [
-      -0.6278874304701478,
-      9.614166909591953
+      -5.750952788909505,
+      5.698576458788201
     ],
     "ylim": [
-      -2.366642307151719,
-      7.875412032910382
+      -5.73025866409792,
+      5.719270583599786
     ],
     "layout": {
       "method": "frozen_content_fit",
@@ -28,32 +28,34 @@
     }
   },
   "points": {
-    "A": [
+    "O": [
       0,
       0
     ],
+    "A": [
+      -5,
+      0
+    ],
     "B": [
-      3,
+      5,
       0
-    ],
-    "C": [
-      9,
-      0
-    ],
-    "E": [
-      3,
-      2
     ],
     "D": [
-      9,
-      6
+      -2.499999999999999,
+      4.330127018922194
     ],
-    "ACmid": [
-      4.5,
-      -0.45
+    "C": [
+      2.5000000000000004,
+      4.330127018922193
     ]
   },
   "objects": [
+    {
+      "id": "circle",
+      "type": "circle",
+      "center": "O",
+      "radius": 5
+    },
     {
       "id": "AB",
       "type": "segment",
@@ -63,11 +65,27 @@
       ]
     },
     {
-      "id": "BC",
+      "id": "AD",
       "type": "segment",
       "points": [
-        "B",
+        "A",
+        "D"
+      ]
+    },
+    {
+      "id": "DC",
+      "type": "segment",
+      "points": [
+        "D",
         "C"
+      ]
+    },
+    {
+      "id": "CB",
+      "type": "segment",
+      "points": [
+        "C",
+        "B"
       ]
     },
     {
@@ -79,54 +97,20 @@
       ]
     },
     {
-      "id": "BE",
-      "type": "segment",
+      "id": "angle_arc_given_BAC",
+      "type": "angle_arc",
       "points": [
         "B",
-        "E"
-      ]
-    },
-    {
-      "id": "CD",
-      "type": "segment",
-      "points": [
-        "C",
-        "D"
-      ]
-    },
-    {
-      "id": "AE",
-      "type": "segment",
-      "points": [
         "A",
-        "E"
-      ]
+        "C"
+      ],
+      "radius_pt": 16
     },
     {
-      "id": "ED",
-      "type": "segment",
-      "points": [
-        "E",
-        "D"
-      ]
-    },
-    {
-      "id": "right_B",
-      "type": "right_angle",
-      "points": [
-        "A",
-        "B",
-        "E"
-      ]
-    },
-    {
-      "id": "right_C",
-      "type": "right_angle",
-      "points": [
-        "B",
-        "C",
-        "D"
-      ]
+      "id": "center_O",
+      "type": "point",
+      "point": "O",
+      "filled": true
     }
   ],
   "labels": [
@@ -135,8 +119,8 @@
       "type": "vertex",
       "point": "A",
       "offset_pt": [
-        -12.0,
-        -13.5
+        -13.5,
+        -9.0
       ]
     },
     {
@@ -144,8 +128,8 @@
       "type": "vertex",
       "point": "B",
       "offset_pt": [
-        0.0,
-        -18.0
+        13.5,
+        -9.0
       ]
     },
     {
@@ -154,7 +138,7 @@
       "point": "C",
       "offset_pt": [
         12.0,
-        -15.0
+        12.0
       ]
     },
     {
@@ -162,132 +146,109 @@
       "type": "vertex",
       "point": "D",
       "offset_pt": [
-        12.0,
-        12.0
+        -10.5,
+        13.5
       ]
     },
     {
-      "id": "v_E",
+      "id": "v_O",
       "type": "vertex",
-      "point": "E",
-      "offset_pt": [
-        -15,
-        15
-      ]
-    },
-    {
-      "id": "AB3",
-      "type": "text",
-      "anchor": "B",
-      "text": "3",
-      "offset_pt": [
-        -16.0,
-        -24.0
-      ]
-    },
-    {
-      "id": "AC9",
-      "type": "text",
-      "anchor": "ACmid",
-      "text": "9",
+      "point": "O",
       "offset_pt": [
         0.0,
-        -18.666666666666664
+        -15.0
       ]
     },
     {
-      "id": "BE2",
-      "type": "text",
-      "anchor": "E",
-      "text": "2",
+      "id": "given_BAC",
+      "type": "angle",
+      "points": [
+        "B",
+        "A",
+        "C"
+      ],
+      "degrees": 30,
+      "radius_pt": 56.0,
+      "arc_id": "angle_arc_given_BAC",
       "offset_pt": [
-        26,
-        -12
+        0.9704285513936384,
+        -4.288677098180902
       ]
     }
   ],
   "constraints": [
     {
-      "id": "AB3",
-      "type": "distance",
+      "id": "BAC30",
+      "type": "angle",
       "points": [
-        "A",
-        "B"
-      ],
-      "value": 3
-    },
-    {
-      "id": "AC9",
-      "type": "distance",
-      "points": [
+        "B",
         "A",
         "C"
       ],
-      "value": 9
+      "degrees": 30
     },
     {
-      "id": "BE2",
-      "type": "distance",
-      "points": [
-        "B",
-        "E"
-      ],
-      "value": 2
-    },
-    {
-      "id": "ABperpBE",
-      "type": "perpendicular",
-      "segments": [
-        [
-          "A",
-          "B"
-        ],
-        [
-          "B",
-          "E"
-        ]
-      ]
-    },
-    {
-      "id": "BCperpCD",
-      "type": "perpendicular",
-      "segments": [
-        [
-          "B",
-          "C"
-        ],
-        [
-          "C",
-          "D"
-        ]
-      ]
-    },
-    {
-      "id": "A_E_D",
+      "id": "ABdiameter",
       "type": "collinear",
       "points": [
         "A",
-        "E",
-        "D"
+        "O",
+        "B"
       ]
+    },
+    {
+      "id": "AD_eq_DC",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "D",
+          "C"
+        ]
+      ]
+    },
+    {
+      "id": "on_A",
+      "type": "on_circle",
+      "point": "A",
+      "center": "O",
+      "radius": 5
+    },
+    {
+      "id": "on_B",
+      "type": "on_circle",
+      "point": "B",
+      "center": "O",
+      "radius": 5
+    },
+    {
+      "id": "on_C",
+      "type": "on_circle",
+      "point": "C",
+      "center": "O",
+      "radius": 5
+    },
+    {
+      "id": "on_D",
+      "type": "on_circle",
+      "point": "D",
+      "center": "O",
+      "radius": 5
     }
   ],
   "ambiguities": [],
-  "query": "As shown in the figure, the tree CD is ()\nChoices:\nA:6米\nB:7.5米\nC:8米\nD:8.5米",
-  "answer": "A",
+  "query": "As shown in the figure, arcs AD and CD are equal. Find the measure of angle DAC: ____.",
+  "answer": "30°",
   "answer_type": "numeric",
   "subject": "PlaneGeometry",
   "level": "middle_school",
-  "provenance": {
-    "source_key": "s314",
-    "source_answer": "A",
-    "previous_model_response": "Since \\(AB=3\\text{ m}\\) and \\(BC=9\\text{ m}\\),\n\n\\[\nAC=AB+BC=3+9=12\\text{ m}.\n\\]\n\nTriangles \\(\\triangle ABE\\) and \\(\\triangle ACD\\) are similar (right triangles sharing angle \\(A\\)). Thus,\n\n\\[\n\\frac{AB}{AC}=\\frac{BE}{CD}\n\\]\n\n\\[\n\\frac{3}{12}=\\frac{2}{CD}\n\\quad\\Rightarrow\\quad CD=8\\text{ m}.\n\\]\n\nTherefore, the tree is 8 meters tall — C.",
-    "correction": "Source GT A/6 m corrected to 8 m from similar triangles."
-  },
-  "answer_verification": {
-    "status": "verified",
-    "verified_answer": "A",
-    "issue": "",
-    "reasoning": "AC=9 and AB=3. Similar right triangles ABE and ACD have scale factor AC/AB=3, so CD=3*BE=6 m, matching source GT A."
+  "question_revision": {
+    "instruction": "Plane09把选择题改成填空题，答案为30°，同时O点处点一个黑点。",
+    "source_question": "As shown in the figure, arc AD = arc CD. Then angle DAC is equal to ()\nChoices:\nA:70°\nB:45°\nC:30°\nD:25°",
+    "source_answer": "B",
+    "source_answer_issue": "MathVerse source GT B/45° conflicts with the geometric result 30°; preserve the original GT in provenance."
   }
 }

@@ -1,4 +1,4 @@
-"""Frozen MathVerse question Plane03; source key s214."""
+"""Frozen MathVerse question Plane03; source key s244."""
 from pathlib import Path
 import sys
 _PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -10,9 +10,9 @@ class Plane03:
     def __init__(self):
         self.id = 'Plane03'
         self.source_dataset = 'MathVerse'
-        self.query = 'As shown in the figure, If point D happens to fall on AB, then the degree of angle DOB is ()\nChoices:\nA:40°\nB:30°\nC:38°\nD:15°'
-        self.answer = 'A'
-        self.answer_type = 'choice'
+        self.query = 'As shown in the figure, in the inscribed pentagon ABCDE of circle O, find the measure of angle B: ____.'
+        self.answer = '95°'
+        self.answer_type = 'numeric'
         self.subject = 'PlaneGeometry'
         self.level = 'middle_school'
         self.scene_path = Path(__file__).with_name("scenes") / "Plane03.json"

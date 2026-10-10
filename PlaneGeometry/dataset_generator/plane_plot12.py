@@ -1,4 +1,4 @@
-"""Frozen MathVerse question Plane12; source key s704."""
+"""Frozen MathVerse question Plane12; source key s1924."""
 from pathlib import Path
 import sys
 _PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -10,9 +10,9 @@ class Plane12:
     def __init__(self):
         self.id = 'Plane12'
         self.source_dataset = 'MathVerse'
-        self.query = 'then the height of the building is ()\nChoices:\nA:10m\nB:12m\nC:15m\nD:22.5m'
-        self.answer = 'A'
-        self.answer_type = 'numeric'
+        self.query = 'Consider the adjacent figure:\n\nSolve for the exact value of x.'
+        self.answer = '\\[\\frac{\\sqrt{30}}{2}\\]'
+        self.answer_type = 'exact'
         self.subject = 'PlaneGeometry'
         self.level = 'high_school'
         self.scene_path = Path(__file__).with_name("scenes") / "Plane12.json"

@@ -1,4 +1,4 @@
-"""Frozen MathVerse question Solid08; source key s3419."""
+"""Frozen MathVerse question Solid08; source key s3424."""
 from pathlib import Path
 import sys
 _PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -10,9 +10,9 @@ class Solid08:
     def __init__(self):
         self.id = 'Solid08'
         self.source_dataset = 'MathVerse'
-        self.query = 'Calculate the area of the divider correct to two decimal places, using your rounded answer from the previous part.'
-        self.answer = '\\[94.59 \\mathrm{m}^2\\]'
-        self.answer_type = 'number'
+        self.query = 'Find L.'
+        self.answer = '14'
+        self.answer_type = 'length'
         self.subject = 'SolidGeometry'
         self.level = 'medium'
         self.scene_path = Path(__file__).with_name("scenes") / "Solid08.json"

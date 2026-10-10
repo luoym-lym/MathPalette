@@ -1,96 +1,91 @@
 {
   "scene_schema_version": "1.0.0",
-  "protocol_version": "1.1.0",
+  "protocol_version": "1.2.0",
   "id": "Solid13",
   "status": "formal_candidate",
   "subject": "SolidGeometry",
   "source_dataset": "MathVerse",
   "source_image": "../../originals/Solid13.png",
-  "source_note": "MathVerse testmini Vision Dominant source s3524.",
-  "query": "Find the surface area of the trapezoidal prism.\n\nGive your answer to the nearest one decimal place.",
-  "answer": "\\[577.0 \\mathrm{cm}^2\\]",
+  "source_note": "MathVerse testmini Vision Dominant source s3559.",
+  "query": "Find the surface area of the pyramid.\n\nRound your answer to two decimal places.",
+  "answer": "\\[288.68 \\mathrm{mm}^2\\]",
   "answer_type": "number",
   "level": "medium",
-  "world_unit": "cm",
+  "world_unit": "mm",
   "points": {
     "A": [
-      0,
-      0,
+      -5,
+      -5,
       0
     ],
     "B": [
-      13,
-      0,
+      5,
+      -5,
       0
     ],
     "C": [
-      13,
-      0,
-      3
-    ],
-    "D": [
-      0,
-      0,
-      10
-    ],
-    "A2": [
-      0,
-      10,
-      0
-    ],
-    "B2": [
-      13,
-      10,
-      0
-    ],
-    "C2": [
-      13,
-      10,
-      3
-    ],
-    "D2": [
-      0,
-      10,
-      10
-    ],
-    "M_left10": [
-      0.0,
-      0.0,
-      5.0
-    ],
-    "M_bottom13": [
-      6.5,
-      0.0,
-      0.0
-    ],
-    "M_right3": [
-      13.0,
-      0.0,
-      1.5
-    ],
-    "M_depth10": [
-      13,
+      5,
       5,
       0
     ],
-    "M_top_y": [
-      6.5,
+    "D": [
+      -5,
+      5,
+      0
+    ],
+    "O": [
+      0,
+      0,
+      0
+    ],
+    "V": [
+      0,
+      0,
+      8
+    ],
+    "RA": [
+      0.45,
+      0,
+      0
+    ],
+    "RB": [
+      0.45,
+      0,
+      0.45
+    ],
+    "RC": [
+      0,
+      0,
+      0.45
+    ],
+    "M_SIDE": [
       0.0,
-      6.5
+      -5.0,
+      0.0
+    ],
+    "M_H": [
+      0.0,
+      0.0,
+      4.0
+    ],
+    "M_RIGHT": [
+      5,
+      0,
+      0
     ]
   },
   "projection": {
     "kind": "oblique",
-    "name": "Frozen oblique parallel view",
+    "name": "Source-matched oblique square-pyramid projection; depth foreshortening frozen",
     "matrix": [
       [
         1,
-        0.82,
+        0.34,
         0
       ],
       [
         0,
-        0.41,
+        0.3,
         1
       ]
     ],
@@ -104,19 +99,19 @@
       0
     ],
     "toward_viewer": [
-      0.6044299021853569,
-      -0.7371096368114108,
-      0.30221495109267843
+      0.30965442990349523,
+      -0.9107483232455742,
+      0.27322449697367224
     ]
   },
   "view": {
     "xlim": [
-      -0.5387574582956702,
-      21.773656943574615
+      -7.047448734435899,
+      7.110563545487117
     ],
     "ylim": [
-      -4.518276544723276,
-      17.79413785714701
+      -4.093239180777301,
+      10.064773099145714
     ],
     "layout": {
       "method": "frozen_content_fit",
@@ -133,8 +128,8 @@
   },
   "visibility": {
     "mode": "frozen_intervals",
-    "projection_sha256": "bc33af1a952cac1f7da60aa4446783b22039ad7ee2b20b5c0f3355ede2b16388",
-    "notes": "Visibility frozen by authored edge intervals; renderer does not infer occlusion."
+    "projection_sha256": "5d45e5be30131f70047e216d047424a84bc72670946d16c7f89f8e9f38598104",
+    "notes": "Direct original-image audit; visible/hidden intervals frozen independently for this projection. Source-omitted hidden edges are not supplemented."
   },
   "objects": [
     {
@@ -164,7 +159,7 @@
         "C",
         "D"
       ],
-      "visibility": "visible",
+      "visibility": "hidden",
       "role": "edge"
     },
     {
@@ -174,152 +169,181 @@
         "D",
         "A"
       ],
-      "visibility": "visible",
+      "visibility": "hidden",
       "role": "edge"
     },
     {
-      "id": "A2B2",
+      "id": "VA",
       "type": "segment",
       "points": [
-        "A2",
-        "B2"
+        "V",
+        "A"
       ],
       "visibility": "visible",
       "role": "edge"
     },
     {
-      "id": "B2C2",
+      "id": "VB",
       "type": "segment",
       "points": [
-        "B2",
-        "C2"
+        "V",
+        "B"
       ],
       "visibility": "visible",
       "role": "edge"
     },
     {
-      "id": "C2D2",
+      "id": "VC",
       "type": "segment",
       "points": [
-        "C2",
-        "D2"
+        "V",
+        "C"
       ],
       "visibility": "visible",
       "role": "edge"
     },
     {
-      "id": "D2A2",
+      "id": "VD",
       "type": "segment",
       "points": [
-        "D2",
-        "A2"
+        "V",
+        "D"
       ],
-      "visibility": "visible",
+      "visibility": "hidden",
       "role": "edge"
     },
     {
-      "id": "AA2",
+      "id": "vertical_height_VO",
       "type": "segment",
       "points": [
-        "A",
-        "A2"
+        "V",
+        "O"
       ],
       "visibility": "visible",
-      "role": "edge"
+      "role": "auxiliary",
+      "linestyle": "solid"
     },
     {
-      "id": "BB2",
+      "id": "right_angle_a",
       "type": "segment",
       "points": [
-        "B",
-        "B2"
+        "RA",
+        "RB"
       ],
       "visibility": "visible",
-      "role": "edge"
+      "role": "auxiliary"
     },
     {
-      "id": "CC2",
+      "id": "right_angle_b",
       "type": "segment",
       "points": [
-        "C",
-        "C2"
+        "RB",
+        "RC"
       ],
       "visibility": "visible",
-      "role": "edge"
+      "role": "auxiliary"
     },
     {
-      "id": "DD2",
+      "id": "right_angle_c",
       "type": "segment",
       "points": [
-        "D",
-        "D2"
+        "O",
+        "RA"
       ],
       "visibility": "visible",
-      "role": "edge"
+      "role": "auxiliary"
     }
   ],
   "dimensions": [],
   "labels": [
     {
-      "id": "left10",
+      "id": "given_height",
       "type": "text",
-      "text": "10 cm",
-      "anchor": "M_left10",
+      "text": "8 mm",
+      "anchor": "M_H",
       "offset_pt": [
-        29.333333333333332,
-        0.0
+        -30,
+        0
       ]
     },
     {
-      "id": "base13",
+      "id": "given_side_right",
       "type": "text",
-      "text": "13 cm",
-      "anchor": "M_bottom13",
+      "text": "10 mm",
+      "anchor": "M_RIGHT",
       "offset_pt": [
-        57.33333333333333,
-        -14.666666666666666
+        36,
+        -22
       ]
     },
     {
-      "id": "right3",
+      "id": "given_side_front",
       "type": "text",
-      "text": "3 cm",
-      "anchor": "M_right3",
+      "text": "10 mm",
+      "anchor": "M_SIDE",
       "offset_pt": [
-        -24.0,
-        0.0
-      ]
-    },
-    {
-      "id": "depth10",
-      "type": "text",
-      "text": "10 cm",
-      "anchor": "M_depth10",
-      "offset_pt": [
-        13.333333333333332,
-        -20.0
-      ]
-    },
-    {
-      "id": "top_y",
-      "type": "text",
-      "text": "y cm",
-      "anchor": "M_top_y",
-      "offset_pt": [
-        -6.666666666666666,
-        25.333333333333332
+        0,
+        -15
       ]
     }
   ],
-  "constraints": [],
+  "constraints": [
+    {
+      "id": "height",
+      "type": "distance",
+      "points": [
+        "O",
+        "V"
+      ],
+      "value": 8,
+      "basis": "Source perpendicular height."
+    },
+    {
+      "id": "side",
+      "type": "distance",
+      "points": [
+        "A",
+        "B"
+      ],
+      "value": 10,
+      "basis": "Source square base edge."
+    },
+    {
+      "id": "height_perpendicular_base",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "O",
+          "V"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "basis": "Source right angle at height foot; marker constructed in the actual x-z plane."
+    },
+    {
+      "id": "base_square_sides",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "basis": "Source square pyramid / equal base dimensions."
+    }
+  ],
   "ambiguities": [],
-  "provenance": {
-    "source_key": "s3524"
-  },
-  "answer_verification": {
-    "status": "needs_review",
-    "verified_answer": "576.6 cm^2",
-    "issue": "Exact surface area is 576.648... cm^2, which rounds to 576.6. Raw GT 577.0 follows if slant sqrt(218) is first rounded to 14.8 and the perimeter is then taken as 40.8; note intermediate rounding.",
-    "reasoning": "Front trapezoid area=(10+3)*13/2=84.5 cm^2; slant side y=sqrt(218). Prism SA=2*84.5+10*(10+3+13+sqrt(218))=576.648... cm^2."
+  "question_revision": {
+    "instruction": "solid16答案改成核验结果。",
+    "source_question": "Find the surface area of the pyramid.\n\nRound your answer to two decimal places.",
+    "source_answer": "\\[288.6 \\mathrm{m}^2\\]",
+    "change": "Answer corrected to independently verified288.68 mm^2."
   }
 }

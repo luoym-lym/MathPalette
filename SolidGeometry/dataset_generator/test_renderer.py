@@ -81,6 +81,36 @@ class SolidRendererTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "Dimension disagrees"):
             renderer.validate_scene(self.scene)
 
+    def test_distance_range_has_dashes_and_connected_projected_endpoints(self):
+        fig, checks = renderer.render_scene(self.scene)
+        try:
+            lines = {line.get_gid(): line for line in fig.axes[0].lines}
+            distance = self.scene["dimensions"][0]
+            a, b = renderer.project(self.scene, [self.scene["points"][ref] for ref in distance["points"]])
+            start, end, span = [lines["true_depth" + suffix] for suffix in ("_start", "_end", "_range")]
+            np.testing.assert_allclose(start.get_xydata()[0], a)
+            np.testing.assert_allclose(end.get_xydata()[0], b)
+            np.testing.assert_allclose(span.get_xydata(), [start.get_xydata()[1], end.get_xydata()[1]])
+            np.testing.assert_allclose(start.get_xydata()[1] - a, end.get_xydata()[1] - b)
+            self.assertAlmostEqual(float(np.dot(start.get_xydata()[1] - a, b - a)), 0)
+            self.assertTrue(span.is_dashed())
+            self.assertFalse(start.is_dashed())
+            self.assertFalse(end.is_dashed())
+            self.assertEqual(next(c for c in checks if c["type"] == "dimension")["style"], "Plane02_parallel_dashed")
+        finally:
+            renderer.plt.close(fig)
+
+    def test_distance_range_rejects_zero_or_nonperpendicular_offset(self):
+        for offset in ([0, 0], [3, 1]):
+            self.scene["dimensions"][0]["offset_pt"] = offset
+            with self.assertRaisesRegex(ValueError, "perpendicular in projection"):
+                renderer.validate_scene(self.scene)
+
+    def test_symbolic_distance_label_does_not_expose_construction_value(self):
+        self.scene["dimensions"][0]["text"] = "h m"
+        _, checks = renderer.image_bytes(self.scene)
+        self.assertEqual(next(c for c in checks if c["type"] == "dimension")["text"], "h m")
+
     def test_changed_projection_invalidates_frozen_visibility(self):
         self.scene["projection"]["offset"][0] = 0.1
         with self.assertRaisesRegex(ValueError, "Visibility is stale"):

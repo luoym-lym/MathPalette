@@ -13,8 +13,6 @@
 
 正式题目另需独立核对答案后登记。仅图示样例以 `status="redraw_example"` 保存，不冒充已审核题目或已 Pass 的 Special。
 
-几何题采用用户逐题审核后入库：完成重绘、Agent 检查及答案核验的题目仍是候选，保存在 `pending_dataset.jsonl` 和导入索引。只有用户明确说对应题号审核通过，才写入正式 `dataset.jsonl` 和根目录 `question_bank.jsonl`。通过记录由 `dataset_tools/question_review.py` 保存到 `imports/mathverse_vision_dominant/question_user_reviews.json`，记录用户原话、时间及场景、来源图、机器协议、PNG/SVG 的内容指纹。相同内容重新生成时保留通过记录；内容改变时待重新审核。审核状态独立于 `answer_verification`，所有候选和疑点保留。函数与解析几何原题也采用明确通过后入库规则。
-
 ## 2. 文件布局与编号
 
 ```text
@@ -27,7 +25,7 @@ PlaneGeometry/
     test_renderer.py                    独立构造场景的通用核对
 ```
 
-未来正式题目使用 `Plane01`、`Plane02`……连续编号，与 Ana 系列独立。推荐每题一个 `plane_plotNN.py` 和 `class PlaneNN`，在构造函数中显式记录 `self.id`、真实的 `self.source_dataset`、`self.query`、`self.answer`、`self.answer_type`、`self.subject="PlaneGeometry"`、`self.level`。没有题干和答案的样例不占正式题号。
+正式题目使用 `Plane01`、`Plane02`……连续编号，与 Ana 系列独立。推荐每题一个 `plane_plotNN.py` 和 `class PlaneNN`，在构造函数中显式记录 `self.id`、真实的 `self.source_dataset`、`self.query`、`self.answer`、`self.answer_type`、`self.subject="PlaneGeometry"`、`self.level`。没有题干和答案的样例不占正式题号。
 
 数据路径使用相对于分支或样例目录的路径，不写个人机器绝对路径。导入模块不生成文件。
 
@@ -72,11 +70,19 @@ PlaneGeometry/
 
 角弧从该角的第一条射线延伸到第二条射线，圆心为角顶点；优角按明确的优角方向画弧。冻结弧半径，保持弧线与角标文字有间隔；嵌套角不能共用弧线或重叠成多重描边。
 
+### 距离范围标识（2026-10-10 补充）
+
+需要明确整段或子段范围时，统一采用 Plane02 的样式：在被测线段旁画一条与其平行的黑色虚线，两端用黑色实线连接到被测端点，数值或字母放在虚线中部旁侧。主标识虚线沿用机器协议的 `[4,3] pt`，连接线为 1 pt 实线；不使用箭头、独立端帽或括号。文字与线留出间隔，不截断几何边，不用白底遮罩。
+
+适用情形包括相邻子段、同一方向的总长和局部长度、跨越中间顶点的距离，以及文字靠近多条边而归属不清的距离。普通边长、半径或高度的标签已经明确对应唯一线段时，可继续使用旁侧文字，不为所有长度强制添加尺寸线。
+
+两个尺寸端点必须由被测端点作同一平移得到，连接线与被测方向垂直；多组范围标识按层次错开。标签保存 `segment_points`，场景的 `distance_markers` 保存被测端点、尺寸端点、虚线 ID、连接线 ID 与标签 ID，避免把总长错标成子段。尺寸对象采用 `role="dimension"`，不代表新增辅助线或几何条件。构造并核对三条标识线后，按完整包围盒重新检查布局。
+
 ## 5. 冻结场景与重绘接口
 
 构图按几何线条、填充、标签、角弧、关系标记及尺寸线的完整可见范围计算包围盒。包围盒中心与画布中心偏差不超过 2 px；最长边占比目标为 86%，允许 1 个百分点误差，全部内容至少保留 5% 外边距。仅改变方形视窗进行统一放大和平移，保持长宽比例；不得通过截图裁切、拉伸或改变输出尺寸实现放大。纵横长图的短边允许自然留白。
 
-制作时调用 `dataset_tools/geometry_layout.py` 拟合并冻结 `view.xlim`、`view.ylim` 和 `view.layout`；正式重绘仍关闭 autoscale。字号改变后重新检查标签与边线的间隔，可调整页面标注偏移，不改变标签绑定、点坐标和角弧含义。
+制作时拟合并冻结 `view.xlim`、`view.ylim` 和 `view.layout`；正式重绘仍关闭 autoscale。字号改变后重新检查标签与边线的间隔，可调整页面标注偏移，不改变标签绑定、点坐标和角弧含义。
 
 场景采用 `scene_schema_version="1.0.0"` 与 `protocol_version="1.2.0"`，至少包含以下字段：
 
@@ -121,3 +127,8 @@ python -B PlaneGeometry/dataset_generator/test_renderer.py
 - 相同场景两次重绘像素一致；报告保存输入、输出哈希、依赖版本和几何核对明细。
 - 自动数值核对与人工验收分开表述，未把自动生成称作用户 Pass。
 
+
+
+## 正式数据收集（2026-10-10 更新）
+
+本分支 `dataset.jsonl` 只包含正式通过题。用户审核记录统一在项目根目录 `provenance/approvals.json`，清理后的文件与版本指纹由 `dataset_tools/catalog.py check` 校验。未通过新题在独立暂存区制作，不放入正式清单。运行状态和临时重绘写 `.runtime/`。

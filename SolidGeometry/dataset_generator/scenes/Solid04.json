@@ -1,6 +1,6 @@
 {
   "scene_schema_version": "1.0.0",
-  "protocol_version": "1.1.0",
+  "protocol_version": "1.2.0",
   "id": "Solid04",
   "status": "formal_candidate",
   "subject": "SolidGeometry",
@@ -21,91 +21,101 @@
     "topC": [
       0,
       0,
-      58
-    ],
-    "bx": [
-      43.0,
-      0,
-      0
-    ],
-    "tx": [
-      43.0,
-      0,
-      58
-    ],
-    "bz": [
-      0,
-      0,
-      58
+      128
     ],
     "leftBot": [
-      -43.0,
+      -43,
       0,
       0
     ],
     "leftTop": [
-      -43.0,
+      -43,
       0,
-      58
+      128
     ],
     "rightBot": [
-      43.0,
+      43,
       0,
       0
     ],
     "rightTop": [
-      43.0,
+      43,
       0,
-      58
+      128
     ],
-    "M_HEIGHT": [
-      53,
+    "M_R": [
+      -21.5,
       0,
-      29
+      128
     ],
     "dimBot": [
-      53,
+      60,
       0,
       0
     ],
     "dimTop": [
-      53,
+      60,
       0,
-      58
+      128
     ],
-    "capBL": [
-      51.5,
+    "M_HEIGHT": [
+      60,
+      0,
+      64.0
+    ],
+    "extBottom": [
+      70,
       0,
       0
     ],
-    "capBR": [
-      54.5,
+    "extTop": [
+      70,
+      0,
+      128
+    ],
+    "arrow_bottom_tip": [
+      60,
       0,
       0
     ],
-    "capTL": [
-      51.5,
+    "arrow_bottom_L": [
+      55,
       0,
-      58
+      5
     ],
-    "capTR": [
-      54.5,
+    "arrow_bottom_R": [
+      65,
       0,
-      58
+      5
+    ],
+    "arrow_top_tip": [
+      60,
+      0,
+      128
+    ],
+    "arrow_top_L": [
+      55,
+      0,
+      123
+    ],
+    "arrow_top_R": [
+      65,
+      0,
+      123
     ]
   },
   "projection": {
     "kind": "oblique",
-    "name": "Oblique vertical-cylinder projection",
+    "name": "Source-matched frozen schematic parallel projection",
     "matrix": [
       [
         1,
-        0.65,
+        0,
         0
       ],
       [
         0,
-        0.35,
+        0.3,
         1
       ]
     ],
@@ -119,19 +129,19 @@
       0
     ],
     "toward_viewer": [
-      0.5229366913609342,
-      -0.8045179867091296,
-      0.2815812953481953
+      0.0,
+      -0.9578262852211513,
+      0.2873478855663454
     ]
   },
   "view": {
     "xlim": [
-      -54.29338003441967,
-      67.96032035167491
+      -64.71935150515205,
+      96.78682351969334
     ],
     "ylim": [
-      -32.075924267121366,
-      90.17777611897321
+      -16.759224463327087,
+      144.7469505615183
     ],
     "layout": {
       "method": "frozen_content_fit",
@@ -148,8 +158,8 @@
   },
   "visibility": {
     "mode": "frozen_intervals",
-    "projection_sha256": "87227792d6486be275d1fba1f0e58d03b30a744166931820d77d2828a2f1bd58",
-    "notes": "Authored edge visibility is frozen for this projection; renderer performs no automatic occlusion."
+    "projection_sha256": "573d3a2ed9136bedc7d195093d382453127a02519c1994141eac809566c2d08c",
+    "notes": "Top rim fully visible. Bottom upper half 0..180 hidden and lower half180..360 visible. Side silhouettes at horizontal ellipse extrema x=±43; radius drawn left rim to center, no invented center dot."
   },
   "objects": [
     {
@@ -167,7 +177,7 @@
         1,
         0
       ],
-      "radius": 43.0,
+      "radius": 43,
       "domain_deg": [
         0,
         360
@@ -196,22 +206,22 @@
         1,
         0
       ],
-      "radius": 43.0,
+      "radius": 43,
       "domain_deg": [
-        0,
-        180
+        180,
+        360
       ],
       "intervals": [
         {
-          "start_deg": 0,
-          "end_deg": 180,
+          "start_deg": 180,
+          "end_deg": 360,
           "visibility": "visible",
           "samples": 361
         }
       ]
     },
     {
-      "id": "bottom_rear",
+      "id": "bottom_hidden",
       "type": "circular_arc",
       "role": "silhouette",
       "center": "botC",
@@ -225,15 +235,15 @@
         1,
         0
       ],
-      "radius": 43.0,
+      "radius": 43,
       "domain_deg": [
-        180,
-        360
+        0,
+        180
       ],
       "intervals": [
         {
-          "start_deg": 180,
-          "end_deg": 360,
+          "start_deg": 0,
+          "end_deg": 180,
           "visibility": "hidden",
           "samples": 361
         }
@@ -247,7 +257,7 @@
         "leftTop"
       ],
       "visibility": "visible",
-      "role": "edge"
+      "role": "silhouette"
     },
     {
       "id": "right_silhouette",
@@ -257,61 +267,14 @@
         "rightTop"
       ],
       "visibility": "visible",
-      "role": "edge"
+      "role": "silhouette"
     },
     {
-      "id": "top_center_marker",
-      "type": "point",
-      "point": "topC",
-      "visibility": "visible",
-      "role": "given_point"
-    },
-    {
-      "id": "height_dimension_line",
+      "id": "source_radius",
       "type": "segment",
       "points": [
-        "dimBot",
-        "dimTop"
-      ],
-      "visibility": "visible",
-      "role": "auxiliary"
-    },
-    {
-      "id": "height_extension_top",
-      "type": "segment",
-      "points": [
-        "rightTop",
-        "dimTop"
-      ],
-      "visibility": "visible",
-      "role": "auxiliary"
-    },
-    {
-      "id": "height_extension_bottom",
-      "type": "segment",
-      "points": [
-        "rightBot",
-        "dimBot"
-      ],
-      "visibility": "visible",
-      "role": "auxiliary"
-    },
-    {
-      "id": "height_tick_top",
-      "type": "segment",
-      "points": [
-        "capTL",
-        "capTR"
-      ],
-      "visibility": "visible",
-      "role": "auxiliary"
-    },
-    {
-      "id": "height_tick_bottom",
-      "type": "segment",
-      "points": [
-        "capBL",
-        "capBR"
+        "leftTop",
+        "topC"
       ],
       "visibility": "visible",
       "role": "auxiliary"
@@ -319,35 +282,36 @@
   ],
   "dimensions": [
     {
-      "id": "radius_43",
+      "id": "height_range",
       "type": "distance",
       "points": [
-        "topC",
-        "tx"
+        "rightBot",
+        "rightTop"
       ],
-      "value": 43,
+      "value": 128,
       "unit": "mm",
       "decimals": 0,
       "offset_pt": [
-        0.0,
-        0.0
+        52,
+        0
       ],
       "label_offset_pt": [
-        6.666666666666667,
-        12.0
+        25,
+        0
       ],
-      "basis": "Dimension read from source diagram."
+      "basis": "Source symbolic height h.128 is schematic construction only, not given data or the answer.",
+      "text": "h mm"
     }
   ],
   "labels": [
     {
-      "id": "label_h",
+      "id": "radius_text",
       "type": "text",
-      "text": "h mm",
-      "anchor": "M_HEIGHT",
+      "text": "43 mm",
+      "anchor": "M_R",
       "offset_pt": [
-        26.666666666666664,
-        0.0
+        0,
+        10
       ]
     }
   ],
@@ -356,21 +320,56 @@
       "id": "given_radius",
       "type": "distance",
       "points": [
-        "topC",
-        "tx"
+        "leftTop",
+        "topC"
       ],
       "value": 43,
-      "basis": "Source label 43 mm is a radius."
+      "basis": "Source left rim to center segment is radius 43 mm."
+    },
+    {
+      "id": "left_cylinder_tangent",
+      "type": "projected_tangent",
+      "circle": "bottom_front",
+      "point": "leftBot",
+      "segment": [
+        "leftBot",
+        "leftTop"
+      ],
+      "basis": "True projected cylinder silhouette tangent."
+    },
+    {
+      "id": "right_cylinder_tangent",
+      "type": "projected_tangent",
+      "circle": "bottom_front",
+      "point": "rightBot",
+      "segment": [
+        "rightBot",
+        "rightTop"
+      ],
+      "basis": "True projected cylinder silhouette tangent."
     }
   ],
-  "ambiguities": [],
-  "provenance": {
-    "source_key": "s3294"
-  },
-  "answer_verification": {
-    "status": "verified",
-    "verified_answer": "58 mm",
-    "issue": null,
-    "reasoning": "For a closed cylinder, S=2*pi*r^2+2*pi*r*h. With S=27288 mm^2 and r=43 mm, h=(27288-2*pi*43^2)/(2*pi*43)=58.01 mm, which rounds to 58 mm."
-  }
+  "ambiguities": [
+    {
+      "id": "symbolic_height_layout",
+      "description": "h is unknown. The drawing-only height 128 mm sets source schematic aspect ratio; it is not a given or the computed answer. The query independently determines h."
+    }
+  ],
+  "source_dimension_bindings": [
+    {
+      "id": "radius",
+      "points": [
+        "leftTop",
+        "topC"
+      ],
+      "value": 43,
+      "unit": "mm"
+    }
+  ],
+  "style_revisions": [
+    {
+      "instruction": "立体几何也和平面几何统一一下。",
+      "change": "Distance ranges migrated to Plane02 parallel dashes and solid endpoint connections."
+    }
+  ]
 }

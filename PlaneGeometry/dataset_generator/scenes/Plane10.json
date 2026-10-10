@@ -2,17 +2,17 @@
   "scene_schema_version": "1.0.0",
   "protocol_version": "1.2.0",
   "id": "Plane10",
-  "status": "verified",
+  "status": "needs_review",
   "source_dataset": "MathVerse",
   "source_image": "../../originals/Plane10.png",
   "view": {
     "xlim": [
-      -5.276289548404543,
-      5.276289548404543
+      -1.0098945313096621,
+      15.169047985582093
     ],
     "ylim": [
-      -5.298663848576808,
-      5.253915248232278
+      -4.308344121588192,
+      11.870598395303563
     ],
     "layout": {
       "method": "frozen_content_fit",
@@ -28,46 +28,28 @@
     }
   },
   "points": {
-    "O": [
+    "A": [
+      10.648976575756894,
+      0
+    ],
+    "B": [
       0,
       0
     ],
-    "A": [
-      -1.7101007166283426,
-      -4.698463103929543
+    "C": [
+      10.648976575756894,
+      7.456493672563599
     ],
-    "B": [
-      1.7101007166283448,
-      -4.698463103929542
+    "D": [
+      14.15238261627931,
+      2.453111318983227
     ],
-    "P": [
-      -3.2139380484326967,
-      3.83022221559489
+    "BCm": [
+      5.324488287878447,
+      3.7282468362817993
     ]
   },
   "objects": [
-    {
-      "id": "circle",
-      "type": "circle",
-      "center": "O",
-      "radius": 5
-    },
-    {
-      "id": "OA",
-      "type": "segment",
-      "points": [
-        "O",
-        "A"
-      ]
-    },
-    {
-      "id": "OB",
-      "type": "segment",
-      "points": [
-        "O",
-        "B"
-      ]
-    },
     {
       "id": "AB",
       "type": "segment",
@@ -77,49 +59,83 @@
       ]
     },
     {
-      "id": "PA",
+      "id": "BC",
       "type": "segment",
       "points": [
-        "P",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "AC",
+      "type": "segment",
+      "points": [
+        "A",
+        "C"
+      ]
+    },
+    {
+      "id": "CD",
+      "type": "segment",
+      "points": [
+        "C",
+        "D"
+      ]
+    },
+    {
+      "id": "DA",
+      "type": "segment",
+      "points": [
+        "D",
         "A"
       ]
     },
     {
-      "id": "PB",
-      "type": "segment",
+      "id": "rightA",
+      "type": "right_angle",
       "points": [
-        "P",
-        "B"
+        "B",
+        "A",
+        "C"
       ]
     },
     {
-      "id": "angle_arc_given_AOB",
+      "id": "rightC",
+      "type": "right_angle",
+      "points": [
+        "B",
+        "C",
+        "D"
+      ]
+    },
+    {
+      "id": "rightD",
+      "type": "right_angle",
+      "points": [
+        "C",
+        "D",
+        "A"
+      ]
+    },
+    {
+      "id": "arc35",
       "type": "angle_arc",
       "points": [
         "A",
-        "O",
-        "B"
+        "B",
+        "C"
       ],
       "radius_pt": 16
     }
   ],
   "labels": [
     {
-      "id": "v_O",
-      "type": "vertex",
-      "point": "O",
-      "offset_pt": [
-        0.0,
-        13.5
-      ]
-    },
-    {
       "id": "v_A",
       "type": "vertex",
       "point": "A",
       "offset_pt": [
-        -12.0,
-        -12.0
+        0.0,
+        -15.0
       ]
     },
     {
@@ -127,84 +143,118 @@
       "type": "vertex",
       "point": "B",
       "offset_pt": [
-        12.0,
-        -12.0
+        -13.5,
+        -13.5
       ]
     },
     {
-      "id": "v_P",
+      "id": "v_C",
       "type": "vertex",
-      "point": "P",
+      "point": "C",
+      "offset_pt": [
+        0.0,
+        15.0
+      ]
+    },
+    {
+      "id": "v_D",
+      "type": "vertex",
+      "point": "D",
+      "offset_pt": [
+        13.5,
+        0.0
+      ]
+    },
+    {
+      "id": "BC13",
+      "type": "text",
+      "anchor": "BCm",
+      "text": "13",
       "offset_pt": [
         -12.0,
-        12.0
+        13.333333333333332
       ]
     },
     {
-      "id": "given_AOB",
+      "id": "given_B",
       "type": "angle",
       "points": [
         "A",
-        "O",
-        "B"
+        "B",
+        "C"
       ],
-      "degrees": 40,
-      "radius_pt": 96.0,
-      "arc_id": "angle_arc_given_AOB",
+      "degrees": 35,
+      "radius_pt": 48.0,
+      "arc_id": "arc35",
       "offset_pt": [
-        -10,
-        -20
+        1.1286794742936856,
+        -4.249350112695689
       ]
     }
   ],
   "constraints": [
     {
-      "id": "AOB40",
+      "id": "BC13",
+      "type": "distance",
+      "points": [
+        "B",
+        "C"
+      ],
+      "value": 13
+    },
+    {
+      "id": "B35",
       "type": "angle",
       "points": [
         "A",
-        "O",
-        "B"
+        "B",
+        "C"
       ],
-      "degrees": 40
+      "degrees": 35
     },
     {
-      "id": "on_A",
-      "type": "on_circle",
-      "point": "A",
-      "center": "O",
-      "radius": 5
+      "id": "rightA",
+      "type": "angle",
+      "points": [
+        "B",
+        "A",
+        "C"
+      ],
+      "degrees": 90
     },
     {
-      "id": "on_B",
-      "type": "on_circle",
-      "point": "B",
-      "center": "O",
-      "radius": 5
+      "id": "rightC",
+      "type": "angle",
+      "points": [
+        "B",
+        "C",
+        "D"
+      ],
+      "degrees": 90
     },
     {
-      "id": "on_P",
-      "type": "on_circle",
-      "point": "P",
-      "center": "O",
-      "radius": 5
+      "id": "rightD",
+      "type": "angle",
+      "points": [
+        "C",
+        "D",
+        "A"
+      ],
+      "degrees": 90
     }
   ],
-  "ambiguities": [],
-  "query": "As shown in the figure, then the degree of angle APB is ()\nChoices:\nA:80°\nB:140°\nC:20°\nD:50°",
-  "answer": "C",
-  "answer_type": "choice",
+  "ambiguities": [
+    "No relation links side AD or CD to triangle ABC beyond shared AC."
+  ],
+  "query": "\\[Consider the following diagram:Find the size of \\angle ACD.\\]",
+  "answer": "35°",
+  "answer_type": "angle",
   "subject": "PlaneGeometry",
-  "level": "middle_school",
-  "provenance": {
-    "source_key": "s479",
-    "source_answer": "C",
-    "previous_model_response": "Since \\(OA=OB\\) are radii, \\(\\triangle AOB\\) is isosceles. Given \\(\\angle OAB=40^\\circ\\), we also have \\(\\angle ABO=40^\\circ\\).\n\nThus,\n\\[\n\\angle AOB=180^\\circ-40^\\circ-40^\\circ=100^\\circ.\n\\]\n\nThe inscribed angle \\(\\angle APB\\) subtending arc \\(AB\\) is half the corresponding central angle:\n\\[\n\\angle APB=\\frac12\\angle AOB=50^\\circ.\n\\]\n\nD"
-  },
-  "answer_verification": {
-    "status": "verified",
-    "verified_answer": "C",
-    "issue": "",
-    "reasoning": "Central angle AOB=40 and inscribed angle APB intercept the same arc. Thus APB=20 degrees, choice C."
+  "level": "high_school",
+  "question_revision": {
+    "instruction": "Plane26?????35?",
+    "source_question": "\\[Consider the following diagram:Find the size of \\angle ACD.\\]",
+    "source_answer": "35掳",
+    "source_answer_issue": "The source answer has the intended value 35, but its degree sign is malformed in the imported text; the current answer is normalized to 35?."
   }
 }

@@ -1,9 +1,19 @@
 # MathPalette 工作说明
 
-创建或修改本项目题目、Base 变体和数据流程前，阅读项目根目录的 [MATHPALETTE_PROTOCOL.md](MATHPALETTE_PROTOCOL.md)，并按题型阅读对应分支协议。
+创建或修改题目、变体和数据流程前，阅读根目录 `MATHPALETTE_PROTOCOL.md` 以及对应分支协议。
 
-函数与解析几何数据在 `Analytics/fine_grained_dataset/`。Base 使用该数据集的 `dataset_generator/generate_base_variants.py` 自动生成，每题从 Base1～Base6 不放回抽取四种。Special 使用 `Analytics/fine_grained_special_workbench/`，等待用户 Pass / Collect。旧 A/B 人工工作台规范仅供历史回放。
+仅用户明确确认的原题进入正式数据。三个分支 `dataset.jsonl` 都只包含正式题；根目录 `question_bank.jsonl` 是 `dataset_tools/catalog.py build` 生成的汇总。不得恢复旧候选清单或把 Special Pass/Collect 当成原题通过。
 
-平面几何使用 `PlaneGeometry/REDRAW_PROTOCOL.md` 和 `PlaneGeometry/dataset_generator/protocol.json`。立体几何使用 `SolidGeometry/REDRAW_PROTOCOL.md` 和 `SolidGeometry/dataset_generator/protocol.json`，须分别冻结三维几何、投影与可见性。两个几何分支均提供重绘器，尚未启用 Base / Special 流程；只有图片的重绘样例不占正式题号。
+正式题号统一：Analytics 的 DynaMath 使用 Ana01～Ana20，MathVerse 使用 Ana21～Ana45；几何题使用 Plane01～Plane16、Solid01～Solid16。新增题号继续递增，不复用、不建立另一套 formal/candidate 编号。
 
-所有分支（包括函数与解析几何）均按用户逐题审核，只有明确通过题号后才加入根目录正式 `question_bank.jsonl`。平面、立体正式题写入分支 `dataset.jsonl`；Analytics 的原 `fine_grained_dataset/dataset.jsonl` 保持冻结候选输入，正式题另用 `approved_dataset.jsonl`。未通过题保留在分支 `pending_dataset.jsonl` 和根目录 `pending_questions.jsonl`，全部候选在 `question_candidates.jsonl`。不能把 Agent 检查、数学核验或 Special 变体 Pass/Collect 当成原题通过。使用 `dataset_tools/question_review.py` 记录用户原话和当前内容指纹，再运行导入目录 `build_catalog.py` 同步索引。已通过内容改变时待重新审核。
+用户通过原话、时间及当前内容指纹在 `provenance/approvals.json`。改题干、答案、绘图输入或原图时，须用户重新确认后更新记录。迁移仅在题干、答案及像素一致的核验通过后更新路径/编号指纹，保留旧指纹和原审核时间。
+
+使用 `dataset_tools/question_review.py 分支 题号 --instruction "用户明确通过原话"` 保存审核并同步索引；不得用修改指令、数学检查或本工具执行成功代替用户批准。
+
+Base 使用 `Analytics/dataset_generator/generate_base_variants.py`，每题从 Base1～Base6 不放回抽四种。Special 使用 `Analytics/workbench/`，由用户 Pass / Collect。不得伪造通过记录。
+
+平面、立体分别使用分支 `REDRAW_PROTOCOL.md` 和 `dataset_generator/protocol.json`；立体须分别冻结三维几何、投影和可见性。两个几何分支尚未启用 Base/Special。
+
+未通过的新题在独立暂存区制作，不写进正式目录或清单。临时输出放 `.runtime/`；运行时缓存、日志和预览不作为正式数据。来源图片缺失时如实记录，不用重绘图冒充。
+
+用户已明确要求删除旧评测日志和分数，不从旧实验报告恢复这些文件。清理不修改 `.git` 历史或 `.env`。

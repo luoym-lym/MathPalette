@@ -1,4 +1,4 @@
-"""Frozen MathVerse question Plane06; source key s314."""
+"""Frozen MathVerse question Plane06; source key s454."""
 from pathlib import Path
 import sys
 _PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -10,8 +10,8 @@ class Plane06:
     def __init__(self):
         self.id = 'Plane06'
         self.source_dataset = 'MathVerse'
-        self.query = 'As shown in the figure, the tree CD is ()\nChoices:\nA:6米\nB:7.5米\nC:8米\nD:8.5米'
-        self.answer = 'A'
+        self.query = 'As shown in the figure, arcs AD and CD are equal. Find the measure of angle DAC: ____.'
+        self.answer = '30°'
         self.answer_type = 'numeric'
         self.subject = 'PlaneGeometry'
         self.level = 'middle_school'

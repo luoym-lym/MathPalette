@@ -1,6 +1,6 @@
 # MathPalette 立体几何重绘协议
 
-版本：1.1.0（2026-10-10）。适用于 `MathPalette/SolidGeometry/`。沿用平面几何的统一画布、冻结输入、代码重绘与核对报告，独立规定三维几何、投影、可见性和空间标注。机器样式以 [protocol.json](dataset_generator/protocol.json) 为准。
+版本：1.2.0（2026-10-10）。适用于 `MathPalette/SolidGeometry/`。沿用平面几何的统一画布、冻结输入、代码重绘与核对报告，独立规定三维几何、投影、可见性和空间标注。机器样式以 [protocol.json](dataset_generator/protocol.json) 为准。
 
 ## 1. 每道图示的流程
 
@@ -12,8 +12,6 @@
 6. 重绘两次核对像素一致，保存来源、场景、协议、渲染器、入口脚本及输出哈希、依赖版本和核对明细。
 
 正式题目须另行核对题干、答案和来源再登记。自动几何检查、Agent 图像检查和用户 Pass / Collect 是不同状态，不相互代替。
-
-几何题采用用户逐题审核后入库：完成重绘、Agent 检查及答案核验的题目仍是候选，保存在 `pending_dataset.jsonl` 和导入索引。只有用户明确说对应题号审核通过，才写入正式 `dataset.jsonl` 和根目录 `question_bank.jsonl`。通过记录由 `dataset_tools/question_review.py` 保存到 `imports/mathverse_vision_dominant/question_user_reviews.json`，记录用户原话、时间及场景、来源图、机器协议、PNG/SVG 的内容指纹。相同内容重新生成时保留通过记录；内容改变时待重新审核。审核状态独立于 `answer_verification`，所有候选和疑点保留。函数与解析几何原题也采用明确通过后入库规则。
 
 ## 2. 文件布局与编号
 
@@ -30,7 +28,7 @@ SolidGeometry/
 
 正式题号使用 `Solid01`、`Solid02`……，与 `Ana`、`Plane` 独立；推荐 `solid_plotNN.py` 和 `class SolidNN`，在构造函数中显式记录 `self.id`、真实的 `self.source_dataset`、`self.query`、`self.answer`、`self.answer_type`、`self.subject="SolidGeometry"`、`self.level`。样例使用 `SolidExampleNN`。
 
-新增题目时，将来源图保存在 `originals/`、PNG / SVG 保存在 `image/`、冻结场景保存在 `dataset_generator/scenes/`、核对报告保存在 `dataset_generator/reports/`，各文件按题号命名。当前分支仅保留协议、配置与通用重绘器。
+新增题目时，将来源图保存在 `originals/`、PNG / SVG 保存在 `image/`、冻结场景保存在 `dataset_generator/scenes/`、核对报告保存在 `dataset_generator/reports/`，各文件按题号命名。当前正式题、场景和程序均按题号保存。
 
 数据路径相对分支根目录；场景中的 `source_image` 相对场景文件。源码导入不写文件。`source_dataset="UserProvidedImage"` 只表示当前获取方式，须同时注明原始数据集未知，不能冒称 MathVerse、DynaMath 或 Custom。
 
@@ -86,21 +84,31 @@ screen_xy = matrix @ (world_xyz - origin) + offset
 | 坐标系统 | 默认隐藏坐标轴、网格、刻度和边框；坐标题须声明专用规则。 |
 | 线条 | 黑色、1 pt、固定抗锯齿；可见实线、隐藏虚线；不以更粗轮廓暗示额外条件。 |
 | 字体 | DejaVu Sans、黑色；点名 18 pt，数值、单位、角标及其他文字 16 pt；点名斜体，数值与单位正体，未标顶点不额外画点。 |
-| 尺寸线 | 绑定被测三维点/对象，保存显示偏移；当前支持原图式端帽，端帽长 7 pt。不把尺寸线画成实体棱，不自行把端帽改为箭头。 |
+| 尺寸线 | 与平面几何一致，采用平行虚线和两端实线连接；绑定被测三维端点，投影后保存垂直于被测方向的页面偏移。不使用箭头、独立端帽或括号。 |
 | 标签 | 用 pt 保存偏移，默认水平；同时保存对齐方向；不添加遮罩。尺寸数值由已核对的世界长度及冻结小数位生成，单位与场景一致。 |
 | 关系标记 | 仅保留原有直角、等长、平行、角弧等标记；空间直角标记在对应三维平面内构造后投影，不强行画成屏幕直角。 |
 | 曲线 | 三维圆弧经同一投影采样；每个区间样本数冻结，投影折线弦误差 ≤ 0.1 px，不能随运行随机调整。 |
 
 尺寸线偏移不修改数学端点；标签拥挤时只调整标签与统一构图。尺寸标注锚点可以是内部构造点，但不能因其存在在成图中添加点名、半径线或轴线。
 
+### 距离范围标识（2026-10-10 补充）
+
+需要明确整段或子段范围时，统一采用平面几何 Plane02 的样式：在被测线段的投影旁画与其平行的黑色虚线，两端用黑色实线连接到被测端点的投影，数值或字母放在虚线中部旁侧。虚线为 `[4,3] pt`，连接线为 1 pt 实线；不使用箭头、独立端帽或括号。文字与线留出间隔，不截断几何边，不用白底遮罩。原图旧式尺寸箭头、端帽和括号改为这一样式，其数值、单位、测量范围保持原样。
+
+适用情形与平面几何一致：相邻子段、同一方向的总长和局部长度、跨越中间顶点的距离，以及文字靠近多条边而归属不清的距离。普通边长、半径或高度已经明确对应唯一线段时，可以继续使用旁侧文字，不强制添加尺寸线。
+
+`dimensions` 保存被测三维端点 `points`、真实长度 `value`、单位、冻结小数位、页面偏移 `offset_pt` 和文字偏移 `label_offset_pt`。文字默认由真实长度生成；未知量（如 h mm）或来源没有单位的数值可以保存 `text`，不得把构造用的长度作为题目条件显示。测量语义在三维中核对；标识线在二维投影后的页面中构造，两端使用相同平移且连接线与投影方向垂直。这些线仅为距离标识，不属于实体棱、隐藏线或解题辅助线，不修改三维模型、投影与可见性。
+
+重绘器自动核对真实长度、投影方向、垂直偏移和端点绑定，报告记录 `style="Plane02_parallel_dashed"`。标注改变后重新冻结方形视窗并检查文字间隔。相邻范围可共用连接位置，但不得叠加重复描边。
+
 
 构图按几何轮廓、面填充、标签、标记及尺寸线的完整可见范围计算包围盒。包围盒中心与画布中心偏差不超过 2 px；最长边占比目标为 86%，允许 1 个百分点误差，全部内容至少保留 5% 外边距。仅改变二维方形视窗进行统一放大和平移，保持长宽比例；不得通过截图裁切、拉伸或改变输出尺寸实现放大。
 
-制作时调用 `dataset_tools/geometry_layout.py` 拟合并冻结 `view.xlim`、`view.ylim` 和 `view.layout`；正式重绘仍关闭 autoscale。字号改变后重新检查标签与边线的间隔，可调整页面标注和尺寸线偏移；三维坐标、投影矩阵、可见区间和尺寸绑定保持原样。
+制作时拟合并冻结 `view.xlim`、`view.ylim` 和 `view.layout`；正式重绘仍关闭 autoscale。字号改变后重新检查标签与边线的间隔，可调整页面标注和尺寸线偏移；三维坐标、投影矩阵、可见区间和尺寸绑定保持原样。
 
 ## 6. 冻结场景与重绘接口
 
-使用 `scene_schema_version="1.0.0"`、`protocol_version="1.1.0"`。
+使用 `scene_schema_version="1.0.0"`、`protocol_version="1.2.0"`。
 
 | 字段 | 内容 |
 | --- | --- |
@@ -115,7 +123,7 @@ screen_xy = matrix @ (world_xyz - origin) + offset
 | `constraints` | 明确条件或构造检查及其 `basis`，不能把构造条件冒称题设 |
 | `ambiguities` | 未提供信息、采用的解释及其限制 |
 
-公共重绘器提供 `draw(scene_path, output_path=None)`、`validate_scene(scene)`、`image_bytes(scene, vector=False)`。当前实现 `segment`、`polyline`、`circular_arc`、`face`、`point`，以及端帽尺寸线、点名/文字标签；曲面本身由其可见边界表达，不自动生成网格线。当前约束为 `distance`、`equal_length`、`parallel`、`perpendicular`、`collinear`、`coplanar`、`on_circle`、`angle`、`projected_tangent`。
+公共重绘器提供 `draw(scene_path, output_path=None)`、`validate_scene(scene)`、`image_bytes(scene, vector=False)`。当前实现 `segment`、`polyline`、`circular_arc`、`face`、`point`，以及 Plane02 式距离范围标识、点名/文字标签；曲面本身由其可见边界表达，不自动生成网格线。当前约束为 `distance`、`equal_length`、`parallel`、`perpendicular`、`collinear`、`coplanar`、`on_circle`、`angle`、`projected_tangent`。
 
 直线/射线须先按冻结视窗裁剪成三维显示端点并保存无界语义。空间关系标记、复杂截面、球面、透视和自动消隐的通用构造尚未实现；新增对象或约束须先实现与校验再使用。未知类型、无穷坐标、失配版本、错误尺寸或退化投影明确报错，不静默忽略。
 
@@ -137,3 +145,8 @@ python -B SolidGeometry/dataset_generator/test_renderer.py
 - 输出不透明 768×768，字体、线宽和留白统一；标签不遮边、不越界。
 - 同输入两次输出像素一致；报告绑定场景、投影、源图、协议、脚本、渲染器和环境。
 - 已实际查看 PNG 并单独记录检查范围；自动报告初始为待视觉检查，不自动声称用户审核通过。
+
+
+## 正式数据收集（2026-10-10 更新）
+
+本分支 `dataset.jsonl` 只包含正式通过题。用户审核记录统一在项目根目录 `provenance/approvals.json`，清理后的文件与版本指纹由 `dataset_tools/catalog.py check` 校验。未通过新题在独立暂存区制作，不放入正式清单。运行状态和临时重绘写 `.runtime/`。

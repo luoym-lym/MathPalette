@@ -1,82 +1,87 @@
 {
   "scene_schema_version": "1.0.0",
-  "protocol_version": "1.1.0",
+  "protocol_version": "1.2.0",
   "id": "Solid14",
   "status": "formal_candidate",
   "subject": "SolidGeometry",
   "source_dataset": "MathVerse",
   "source_image": "../../originals/Solid14.png",
-  "source_note": "MathVerse testmini Vision Dominant source s3534.",
-  "query": "Find the surface area of the figure shown.\n\nGive your answer to the nearest two decimal places.",
-  "answer": "\\[200.49 \\mathrm{cm}^2\\]",
+  "source_note": "MathVerse testmini Vision Dominant source s3574.",
+  "query": "Find the surface area of the figure shown, rounded to two decimal places.",
+  "answer": "\\[520.55 \\mathrm{cm}^2\\]",
   "answer_type": "number",
   "level": "medium",
   "world_unit": "cm",
   "points": {
-    "A": [
+    "O0": [
       0,
       0,
       0
     ],
-    "B": [
+    "O1": [
+      0,
       12,
-      0,
       0
     ],
-    "C": [
-      9,
-      0,
-      5
-    ],
-    "D": [
+    "U0": [
       0,
       0,
       5
     ],
-    "A2": [
+    "R0": [
+      5,
       0,
-      3,
       0
     ],
-    "B2": [
+    "U1": [
+      0,
       12,
-      3,
-      0
-    ],
-    "C2": [
-      9,
-      3,
       5
     ],
-    "D2": [
-      0,
-      3,
-      5
-    ],
-    "M_bottom12": [
-      6.0,
-      0.0,
-      0.0
-    ],
-    "M_top9": [
-      4.5,
-      0.0,
-      5.0
-    ],
-    "M_left5": [
-      0.0,
-      0.0,
-      2.5
-    ],
-    "M_depth3": [
+    "R1": [
+      5,
       12,
-      1.5,
       0
+    ],
+    "M_RADIUS": [
+      2.5,
+      0,
+      0
+    ],
+    "M_LENGTH": [
+      0,
+      6,
+      0
+    ],
+    "T00": [
+      -2.23606797749979,
+      0,
+      4.47213595499958
+    ],
+    "T01": [
+      -2.23606797749979,
+      12,
+      4.47213595499958
+    ],
+    "T10": [
+      2.236067977499789,
+      0,
+      -4.47213595499958
+    ],
+    "T11": [
+      2.236067977499789,
+      12,
+      -4.47213595499958
+    ],
+    "LengthLabel": [
+      2.236067977499789,
+      6,
+      -4.47213595499958
     ]
   },
   "projection": {
     "kind": "oblique",
-    "name": "Frozen oblique parallel view",
+    "name": "Frozen cavalier parallel projection",
     "matrix": [
       [
         1,
@@ -106,12 +111,12 @@
   },
   "view": {
     "xlim": [
-      -1.7202650499093304,
-      14.871241039834146
+      -5.511354673697497,
+      15.376433858532767
     ],
     "ylim": [
-      -5.249752469752835,
-      11.34175361999064
+      -7.991006467342522,
+      12.896782064887741
     ],
     "layout": {
       "method": "frozen_content_fit",
@@ -128,183 +133,237 @@
   },
   "visibility": {
     "mode": "frozen_intervals",
-    "projection_sha256": "bc33af1a952cac1f7da60aa4446783b22039ad7ee2b20b5c0f3355ede2b16388",
-    "notes": "Visibility frozen by authored edge intervals; renderer does not infer occlusion."
+    "projection_sha256": "259e06bb5025dfa8943be11ccd2b71ac1c2e085915c0120b9354286389c8fe0d",
+    "notes": "Direct original-image audit; visible/hidden intervals frozen independently for this projection. Source-omitted hidden edges are not supplemented."
   },
   "objects": [
     {
-      "id": "AB",
+      "id": "front_sector_outline",
+      "type": "circular_arc",
+      "role": "silhouette",
+      "center": "O0",
+      "u": [
+        1,
+        0,
+        0
+      ],
+      "v": [
+        0,
+        0,
+        1
+      ],
+      "radius": 5,
+      "domain_deg": [
+        90,
+        360
+      ],
+      "intervals": [
+        {
+          "start_deg": 90,
+          "end_deg": 360,
+          "visibility": "visible",
+          "samples": 361
+        }
+      ]
+    },
+    {
+      "id": "back_sector_outline",
+      "type": "circular_arc",
+      "role": "silhouette",
+      "center": "O1",
+      "u": [
+        1,
+        0,
+        0
+      ],
+      "v": [
+        0,
+        0,
+        1
+      ],
+      "radius": 5,
+      "domain_deg": [
+        90,
+        360
+      ],
+      "intervals": [
+        {
+          "start_deg": 90,
+          "end_deg": 116.56505117707799,
+          "visibility": "visible",
+          "samples": 721
+        },
+        {
+          "start_deg": 116.56505117707799,
+          "end_deg": 296.565051177078,
+          "visibility": "hidden",
+          "samples": 721
+        },
+        {
+          "start_deg": 296.565051177078,
+          "end_deg": 360,
+          "visibility": "visible",
+          "samples": 721
+        }
+      ]
+    },
+    {
+      "id": "radial_top_front",
       "type": "segment",
       "points": [
-        "A",
-        "B"
+        "O0",
+        "U0"
       ],
       "visibility": "visible",
       "role": "edge"
     },
     {
-      "id": "BC",
+      "id": "radial_side_front",
       "type": "segment",
       "points": [
-        "B",
-        "C"
+        "O0",
+        "R0"
       ],
       "visibility": "visible",
       "role": "edge"
     },
     {
-      "id": "CD",
+      "id": "radial_top_back",
       "type": "segment",
       "points": [
-        "C",
-        "D"
+        "O1",
+        "U1"
       ],
       "visibility": "visible",
       "role": "edge"
     },
     {
-      "id": "DA",
+      "id": "radial_side_back",
       "type": "segment",
       "points": [
-        "D",
-        "A"
+        "O1",
+        "R1"
       ],
       "visibility": "visible",
       "role": "edge"
     },
     {
-      "id": "A2B2",
+      "id": "top_generator",
       "type": "segment",
       "points": [
-        "A2",
-        "B2"
+        "U0",
+        "U1"
       ],
       "visibility": "visible",
       "role": "edge"
     },
     {
-      "id": "B2C2",
+      "id": "side_generator",
       "type": "segment",
       "points": [
-        "B2",
-        "C2"
+        "R0",
+        "R1"
       ],
       "visibility": "visible",
       "role": "edge"
     },
     {
-      "id": "C2D2",
+      "id": "inner_cut_ridge",
       "type": "segment",
       "points": [
-        "C2",
-        "D2"
+        "O0",
+        "O1"
       ],
       "visibility": "visible",
       "role": "edge"
     },
     {
-      "id": "D2A2",
+      "id": "curved_surface_tangent_0",
       "type": "segment",
       "points": [
-        "D2",
-        "A2"
+        "T00",
+        "T01"
       ],
       "visibility": "visible",
-      "role": "edge"
+      "role": "silhouette"
     },
     {
-      "id": "AA2",
+      "id": "curved_surface_tangent_1",
       "type": "segment",
       "points": [
-        "A",
-        "A2"
+        "T10",
+        "T11"
       ],
       "visibility": "visible",
-      "role": "edge"
-    },
-    {
-      "id": "BB2",
-      "type": "segment",
-      "points": [
-        "B",
-        "B2"
-      ],
-      "visibility": "visible",
-      "role": "edge"
-    },
-    {
-      "id": "CC2",
-      "type": "segment",
-      "points": [
-        "C",
-        "C2"
-      ],
-      "visibility": "visible",
-      "role": "edge"
-    },
-    {
-      "id": "DD2",
-      "type": "segment",
-      "points": [
-        "D",
-        "D2"
-      ],
-      "visibility": "visible",
-      "role": "edge"
+      "role": "silhouette"
     }
   ],
   "dimensions": [],
   "labels": [
     {
-      "id": "bottom12",
-      "type": "text",
-      "text": "12 cm",
-      "anchor": "M_bottom12",
-      "offset_pt": [
-        5.333333333333333,
-        9.333333333333332
-      ]
-    },
-    {
-      "id": "top9",
-      "type": "text",
-      "text": "9 cm",
-      "anchor": "M_top9",
-      "offset_pt": [
-        5.333333333333333,
-        9.333333333333332
-      ]
-    },
-    {
-      "id": "left5",
+      "id": "radius_5",
       "type": "text",
       "text": "5 cm",
-      "anchor": "M_left5",
+      "anchor": "M_RADIUS",
       "offset_pt": [
-        -21.333333333333332,
-        12.0
+        0,
+        -17
       ]
     },
     {
-      "id": "depth3",
+      "id": "length_12_label",
       "type": "text",
-      "text": "3 cm",
-      "anchor": "M_depth3",
+      "text": "12 cm",
+      "anchor": "LengthLabel",
       "offset_pt": [
-        10.666666666666666,
-        -18.666666666666664
+        0,
+        -24
       ]
     }
   ],
-  "constraints": [],
-  "ambiguities": [],
-  "provenance": {
-    "source_key": "s3534"
-  },
-  "answer_verification": {
-    "status": "verified",
-    "verified_answer": "200.49 cm^2",
-    "issue": null,
-    "reasoning": "Trapezoid bases 12 and 9 cm with height 5 cm give area 52.5 cm^2; slanted side is sqrt(5^2+3^2)=sqrt(34). Prism length is 3 cm. SA=2*52.5+3*(12+9+5+sqrt(34))=200.49 cm^2."
-  }
+  "constraints": [
+    {
+      "id": "analytic_tangent_0",
+      "type": "projected_tangent",
+      "circle": "front_sector_outline",
+      "point": "T00",
+      "segment": [
+        "T00",
+        "T01"
+      ],
+      "basis": "Construction: projected curved cylinder contour tangent to the circular end, not an added physical edge."
+    },
+    {
+      "id": "analytic_tangent_1",
+      "type": "projected_tangent",
+      "circle": "front_sector_outline",
+      "point": "T10",
+      "segment": [
+        "T10",
+        "T11"
+      ],
+      "basis": "Construction: projected curved cylinder contour tangent to the circular end, not an added physical edge."
+    },
+    {
+      "id": "radius",
+      "type": "distance",
+      "points": [
+        "O0",
+        "R0"
+      ],
+      "value": 5,
+      "basis": "Source 5 cm radial edge."
+    },
+    {
+      "id": "length",
+      "type": "distance",
+      "points": [
+        "O0",
+        "O1"
+      ],
+      "value": 12,
+      "basis": "Source 12 cm axial length."
+    }
+  ],
+  "ambiguities": []
 }

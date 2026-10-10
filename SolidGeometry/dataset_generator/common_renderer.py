@@ -121,7 +121,17 @@ def plane_residual(points):
 
 
 def dimension_text(item):
-    return f"{item['value']:.{item['decimals']}f} {item['unit']}"
+    return item.get("text") or f"{item['value']:.{item['decimals']}f} {item['unit']}".rstrip()
+
+
+def dimension_geometry(scene, item, units_per_pt):
+    """Bind true 3D endpoints to a perpendicular offset in the projected page."""
+    a, b = project(scene, [point(scene, ref) for ref in item["points"]])
+    shift = finite(item["offset_pt"], (2,), item["id"]) * units_per_pt
+    direction = unit(b - a)
+    if np.linalg.norm(shift) <= 1e-12 or abs(float(np.dot(shift, direction))) > 1e-8 * np.linalg.norm(shift):
+        raise ValueError(f"Distance range offset must be nonzero and perpendicular in projection: {item['id']}")
+    return a, b, a + shift, b + shift
 
 
 def validate_scene(scene, protocol=None):
@@ -313,13 +323,16 @@ def validate_scene(scene, protocol=None):
             raise ValueError(f"Dimension disagrees with 3D geometry: {item['id']}")
         if type(item["decimals"]) is not int or not 0 <= item["decimals"] <= 8:
             raise ValueError("Dimension decimal precision must be frozen.")
-        finite(item["offset_pt"], (2,), item["id"])
+        dimension_geometry(scene, item, 1.0)
         finite(item["label_offset_pt"], (2,), item["id"])
-        unit(project(scene, b) - project(scene, a))
+        if "text" in item and (not isinstance(item["text"], str) or not item["text"].strip()):
+            raise ValueError("Dimension label override must be nonempty text.")
         if not item.get("basis"):
             raise ValueError("Dimension interpretation needs source evidence.")
         checks.append({"id": item["id"], "type": "dimension", "text": dimension_text(item),
-                       "measured_world_length": measured, "unit": item["unit"], "basis": item["basis"], "passed": True})
+                       "measured_world_length": measured, "unit": item["unit"], "basis": item["basis"],
+                       "style": "Plane02_parallel_dashed", "points": item["points"],
+                       "projected_perpendicular_connections": True, "passed": True})
     for item in scene["labels"]:
         if item["type"] not in ("vertex", "text") or not item.get("text"):
             raise ValueError(f"Unsupported or empty label: {item['id']}")
@@ -351,9 +364,10 @@ def render_scene(scene, protocol=None, *, check_layout=True):
             units_per_pt = np.ptp(scene["view"]["xlim"]) / ax.bbox.width * fig.dpi / 72
             artists, lines, texts = [], [], []
 
-            def line(xy, name, visibility="visible", auxiliary=False, linewidth=None):
+            def line(xy, name, visibility="visible", auxiliary=False, linewidth=None, dash_pattern=None, dimension=False):
                 pattern = (stroke["hidden_dash_pattern_pt"] if visibility == "hidden"
                            else stroke["auxiliary_dash_pattern_pt"])
+                pattern = dash_pattern or pattern
                 dashed = visibility == "hidden" or auxiliary
                 artist = ax.plot(*np.asarray(xy).T, color=stroke["color"],
                                  linewidth=linewidth or stroke["linewidth_pt"],
@@ -361,6 +375,8 @@ def render_scene(scene, protocol=None, *, check_layout=True):
                                  solid_capstyle=stroke["capstyle"], dash_capstyle=stroke["dash_capstyle"],
                                  antialiased=stroke["antialiased"], clip_on=False,
                                  zorder=2 if visibility == "hidden" else 3)[0]
+                if dimension:
+                    artist.set_gid(name)
                 artists.append((name, artist))
                 lines.append(artist)
 
@@ -398,15 +414,18 @@ def render_scene(scene, protocol=None, *, check_layout=True):
                                      markeredgewidth=protocol["point"]["edge_linewidth_pt"], zorder=4)[0]
                     artists.append((item["id"], artist))
 
+            connection_keys = set()
             for item in scene["dimensions"]:
-                a, b = project(scene, [point(scene, ref) for ref in item["points"]])
-                delta = np.array(item["offset_pt"]) * units_per_pt
-                a, b = a + delta, b + delta
-                direction = unit(b - a)
-                cap = np.array([-direction[1], direction[0]]) * protocol["dimension"]["cap_length_pt"] * units_per_pt / 2
-                for xy in ([a, b], [a - cap, a + cap], [b - cap, b + cap]):
-                    line(xy, item["id"], linewidth=protocol["dimension"]["linewidth_pt"])
-                label(dimension_text(item), (a + b) / 2, item["label_offset_pt"], item["id"] + "_text",
+                a, b, p, q = dimension_geometry(scene, item, units_per_pt)
+                line([p, q], item["id"] + "_range", auxiliary=True,
+                     linewidth=protocol["dimension"]["linewidth_pt"],
+                     dash_pattern=protocol["dimension"]["range_dash_pattern_pt"], dimension=True)
+                for suffix, xy in (("_start", [a, p]), ("_end", [b, q])):
+                    key = tuple(sorted(tuple(np.round(endpoint, 12)) for endpoint in xy))
+                    if key not in connection_keys:
+                        line(xy, item["id"] + suffix, linewidth=protocol["dimension"]["linewidth_pt"], dimension=True)
+                        connection_keys.add(key)
+                label(dimension_text(item), (p + q) / 2, item["label_offset_pt"], item["id"] + "_text",
                       item.get("ha", "center"), item.get("va", "center"))
             for item in scene["labels"]:
                 label(item["text"], project(scene, point(scene, item["anchor"])), item["offset_pt"],

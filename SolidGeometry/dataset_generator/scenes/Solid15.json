@@ -1,126 +1,71 @@
 {
   "scene_schema_version": "1.0.0",
-  "protocol_version": "1.1.0",
+  "protocol_version": "1.2.0",
   "id": "Solid15",
   "status": "formal_candidate",
   "subject": "SolidGeometry",
   "source_dataset": "MathVerse",
   "source_image": "../../originals/Solid15.png",
-  "source_note": "MathVerse testmini Vision Dominant source s3544.",
-  "query": "Find the surface area of the square pyramid.\n\nRound your answer to one decimal place.",
-  "answer": "\\[256.2 \\mathrm{m}^2\\]",
-  "answer_type": "number",
+  "source_note": "MathVerse testmini Vision Dominant source s3589.",
+  "query": "Consider the two similar spheres shown.\n\n\nFind the volume of Sphere A, in simplest exact form.",
+  "answer": "\\[36\\pi \\mathrm{cm}^3\\]",
+  "answer_type": "expression",
   "level": "medium",
   "world_unit": "cm",
   "points": {
-    "A": [
-      -5,
-      -5,
-      0
-    ],
-    "B": [
-      5,
-      -5,
-      0
-    ],
-    "C": [
-      5,
-      5,
-      0
-    ],
-    "D": [
-      -5,
-      5,
-      0
-    ],
-    "O": [
+    "Oa": [
       0,
       0,
       0
     ],
-    "V": [
+    "Ob": [
+      22,
       0,
+      0
+    ],
+    "Apole": [
+      0,
+      0,
+      3
+    ],
+    "Bpole": [
+      22,
+      0,
+      12
+    ],
+    "Arim": [
+      2.673019572565104,
+      0,
+      1.3619714992186402
+    ],
+    "Brim": [
+      22,
+      0,
+      12
+    ],
+    "MA": [
+      1.336509786282552,
+      0,
+      0.6809857496093201
+    ],
+    "MB": [
+      22,
       0,
       6
-    ],
-    "RA": [
-      0.8,
-      0,
-      0
-    ],
-    "RB": [
-      0.8,
-      0.8,
-      0
-    ],
-    "RC": [
-      0,
-      0.8,
-      0
-    ],
-    "M_SIDE": [
-      0.0,
-      -5.0,
-      0.0
-    ],
-    "M_H": [
-      0.0,
-      0.0,
-      3.0
-    ],
-    "T0a": [
-      0.0,
-      -4.55,
-      0.0
-    ],
-    "T0b": [
-      0.0,
-      -5.45,
-      0.0
-    ],
-    "T1a": [
-      4.55,
-      0.0,
-      0.0
-    ],
-    "T1b": [
-      5.45,
-      0.0,
-      0.0
-    ],
-    "T2a": [
-      0.0,
-      4.55,
-      0.0
-    ],
-    "T2b": [
-      0.0,
-      5.45,
-      0.0
-    ],
-    "T3a": [
-      -4.55,
-      0.0,
-      0.0
-    ],
-    "T3b": [
-      -5.45,
-      0.0,
-      0.0
     ]
   },
   "projection": {
-    "kind": "oblique",
-    "name": "Frozen oblique parallel view",
+    "kind": "orthographic",
+    "name": "Orthographic sphere projection, camera toward -y",
     "matrix": [
       [
         1,
-        0.82,
+        0,
         0
       ],
       [
         0,
-        0.41,
+        0,
         1
       ]
     ],
@@ -134,19 +79,19 @@
       0
     ],
     "toward_viewer": [
-      0.6044299021853569,
-      -0.7371096368114108,
-      0.30221495109267843
+      0,
+      -1,
+      0
     ]
   },
   "view": {
     "xlim": [
-      -9.557002940778801,
-      9.557002940778801
+      -3.918404460055987,
+      34.93827931538006
     ],
     "ylim": [
-      -7.6681241455591636,
-      11.445881735998439
+      -18.45290966838932,
+      20.403774107046726
     ],
     "layout": {
       "method": "frozen_content_fit",
@@ -163,177 +108,142 @@
   },
   "visibility": {
     "mode": "frozen_intervals",
-    "projection_sha256": "bc33af1a952cac1f7da60aa4446783b22039ad7ee2b20b5c0f3355ede2b16388",
-    "notes": "Visibility frozen by authored edge intervals; renderer does not infer occlusion."
+    "projection_sha256": "e45642f49d02a47eebb33755d4d5c266fe5b62b6e5f43bac835a06b98760cc00",
+    "notes": "Direct original-image audit; visible/hidden intervals frozen independently for this projection. Source-omitted hidden edges are not supplemented."
   },
   "objects": [
     {
-      "id": "AB",
-      "type": "segment",
-      "points": [
-        "A",
-        "B"
+      "id": "sphere_A_outline",
+      "type": "circular_arc",
+      "role": "silhouette",
+      "center": "Oa",
+      "u": [
+        1,
+        0,
+        0
       ],
-      "visibility": "visible",
-      "role": "edge"
+      "v": [
+        0,
+        0,
+        1
+      ],
+      "radius": 3,
+      "domain_deg": [
+        0,
+        360
+      ],
+      "intervals": [
+        {
+          "start_deg": 0,
+          "end_deg": 360,
+          "visibility": "visible",
+          "samples": 721
+        }
+      ]
     },
     {
-      "id": "BC",
-      "type": "segment",
-      "points": [
-        "B",
-        "C"
+      "id": "sphere_B_outline",
+      "type": "circular_arc",
+      "role": "silhouette",
+      "center": "Ob",
+      "u": [
+        1,
+        0,
+        0
       ],
-      "visibility": "visible",
-      "role": "edge"
+      "v": [
+        0,
+        0,
+        1
+      ],
+      "radius": 12,
+      "domain_deg": [
+        0,
+        360
+      ],
+      "intervals": [
+        {
+          "start_deg": 0,
+          "end_deg": 360,
+          "visibility": "visible",
+          "samples": 721
+        }
+      ]
     },
     {
-      "id": "CD",
-      "type": "segment",
-      "points": [
-        "C",
-        "D"
-      ],
-      "visibility": "hidden",
-      "role": "edge"
-    },
-    {
-      "id": "DA",
-      "type": "segment",
-      "points": [
-        "D",
-        "A"
-      ],
-      "visibility": "hidden",
-      "role": "edge"
-    },
-    {
-      "id": "VA",
-      "type": "segment",
-      "points": [
-        "V",
-        "A"
-      ],
-      "visibility": "visible",
-      "role": "edge"
-    },
-    {
-      "id": "VB",
-      "type": "segment",
-      "points": [
-        "V",
-        "B"
-      ],
-      "visibility": "visible",
-      "role": "edge"
-    },
-    {
-      "id": "VC",
-      "type": "segment",
-      "points": [
-        "V",
-        "C"
-      ],
-      "visibility": "visible",
-      "role": "edge"
-    },
-    {
-      "id": "VD",
-      "type": "segment",
-      "points": [
-        "V",
-        "D"
-      ],
-      "visibility": "hidden",
-      "role": "edge"
-    },
-    {
-      "id": "vertical_height_VO",
-      "type": "segment",
-      "points": [
-        "V",
-        "O"
-      ],
-      "visibility": "visible",
+      "id": "sphere_A_great_circle",
+      "type": "circular_arc",
       "role": "auxiliary",
-      "linestyle": "dashed"
+      "center": "Oa",
+      "u": [
+        0.8910065241883679,
+        0,
+        0.45399049973954675
+      ],
+      "v": [
+        -0.17251638990102777,
+        0.9249864863877743,
+        0.3385824791915798
+      ],
+      "radius": 3,
+      "domain_deg": [
+        0,
+        360
+      ],
+      "intervals": [
+        {
+          "start_deg": 0,
+          "end_deg": 360,
+          "visibility": "visible",
+          "samples": 721
+        }
+      ]
     },
     {
-      "id": "right_angle_1",
+      "id": "sphere_B_great_circle",
+      "type": "circular_arc",
+      "role": "auxiliary",
+      "center": "Ob",
+      "u": [
+        0,
+        0,
+        1
+      ],
+      "v": [
+        0.34,
+        0.9404254356406998,
+        0
+      ],
+      "radius": 12,
+      "domain_deg": [
+        0,
+        360
+      ],
+      "intervals": [
+        {
+          "start_deg": 0,
+          "end_deg": 360,
+          "visibility": "visible",
+          "samples": 721
+        }
+      ]
+    },
+    {
+      "id": "radius_A",
       "type": "segment",
       "points": [
-        "O",
-        "RA"
+        "Oa",
+        "Arim"
       ],
       "visibility": "visible",
       "role": "auxiliary"
     },
     {
-      "id": "right_angle_2",
+      "id": "radius_B",
       "type": "segment",
       "points": [
-        "RA",
-        "RB"
-      ],
-      "visibility": "visible",
-      "role": "auxiliary"
-    },
-    {
-      "id": "right_angle_3",
-      "type": "segment",
-      "points": [
-        "RB",
-        "RC"
-      ],
-      "visibility": "visible",
-      "role": "auxiliary"
-    },
-    {
-      "id": "right_angle_4",
-      "type": "segment",
-      "points": [
-        "RC",
-        "O"
-      ],
-      "visibility": "visible",
-      "role": "auxiliary"
-    },
-    {
-      "id": "equal_tick_1",
-      "type": "segment",
-      "points": [
-        "T0a",
-        "T0b"
-      ],
-      "visibility": "visible",
-      "role": "auxiliary"
-    },
-    {
-      "id": "equal_tick_2",
-      "type": "segment",
-      "points": [
-        "T1a",
-        "T1b"
-      ],
-      "visibility": "visible",
-      "role": "auxiliary"
-    },
-    {
-      "id": "equal_tick_3",
-      "type": "segment",
-      "points": [
-        "T2a",
-        "T2b"
-      ],
-      "visibility": "visible",
-      "role": "auxiliary"
-    },
-    {
-      "id": "equal_tick_4",
-      "type": "segment",
-      "points": [
-        "T3a",
-        "T3b"
+        "Ob",
+        "Brim"
       ],
       "visibility": "visible",
       "role": "auxiliary"
@@ -342,35 +252,72 @@
   "dimensions": [],
   "labels": [
     {
-      "id": "given_height",
+      "id": "sphere_A",
       "type": "text",
-      "text": "6 cm",
-      "anchor": "M_H",
+      "text": "A",
+      "anchor": "Apole",
       "offset_pt": [
-        50.0,
-        0.0
+        0,
+        18
       ]
     },
     {
-      "id": "given_side",
+      "id": "sphere_B",
       "type": "text",
-      "text": "10 cm",
-      "anchor": "M_SIDE",
+      "text": "B",
+      "anchor": "Bpole",
       "offset_pt": [
-        -40.0,
-        13.333333333333332
+        0,
+        18
+      ]
+    },
+    {
+      "id": "radius_3",
+      "type": "text",
+      "text": "3",
+      "anchor": "Oa",
+      "offset_pt": [
+        16,
+        -20
+      ]
+    },
+    {
+      "id": "radius_12",
+      "type": "text",
+      "text": "12",
+      "anchor": "Ob",
+      "offset_pt": [
+        0,
+        -15
       ]
     }
   ],
-  "constraints": [],
-  "ambiguities": [],
-  "provenance": {
-    "source_key": "s3544"
-  },
-  "answer_verification": {
-    "status": "needs_review",
-    "verified_answer": "256.2 cm^2",
-    "issue": "Raw GT unit m^2 conflicts with the diagram?s cm labels; the computed value is 256.2 cm^2.",
-    "reasoning": "Square base side 10 cm and vertical height 6 cm. Face slant height sqrt(6^2+5^2)=sqrt(61). SA=100+4*(1/2*10*sqrt(61))=100+20*sqrt(61)=256.2 cm^2."
-  }
+  "constraints": [
+    {
+      "id": "source_radius_A",
+      "type": "distance",
+      "points": [
+        "Oa",
+        "Arim"
+      ],
+      "value": 3,
+      "basis": "Source segment runs from center to surface, not across diameter."
+    },
+    {
+      "id": "source_radius_B",
+      "type": "distance",
+      "points": [
+        "Ob",
+        "Brim"
+      ],
+      "value": 12,
+      "basis": "Source segment runs from top surface to center."
+    }
+  ],
+  "ambiguities": [
+    {
+      "id": "source_not_to_scale",
+      "description": "Source draws spheres with different illustrative scales (about 1:1.6 apparent radii); true radii 3 and 12 use one common projection and uniform page scale."
+    }
+  ]
 }

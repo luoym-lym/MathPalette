@@ -2,17 +2,17 @@
   "scene_schema_version": "1.0.0",
   "protocol_version": "1.2.0",
   "id": "Plane07",
-  "status": "needs_review",
+  "status": "corrected",
   "source_dataset": "MathVerse",
   "source_image": "../../originals/Plane07.png",
   "view": {
     "xlim": [
-      -2.208254227134788,
-      2.208254227134788
+      -5.316344947097437,
+      5.652542989934969
     ],
     "ylim": [
-      -2.105836008286094,
-      2.310672445983482
+      -5.25810394980927,
+      5.710783987223136
     ],
     "layout": {
       "method": "frozen_content_fit",
@@ -33,20 +33,16 @@
       0
     ],
     "A": [
-      0,
-      2
+      3.061616997868383e-16,
+      5.0
     ],
     "B": [
-      -1.7320508076,
-      -1
+      -4.330127018922193,
+      -2.5000000000000004
     ],
     "C": [
-      1.7320508076,
-      -1
-    ],
-    "OBm": [
-      -0.8660254038,
-      -0.5
+      4.92403876506104,
+      -0.868240888334652
     ]
   },
   "objects": [
@@ -54,7 +50,29 @@
       "id": "circle",
       "type": "circle",
       "center": "O",
-      "radius": 2
+      "radius": 5
+    },
+    {
+      "id": "point_O",
+      "type": "point",
+      "point": "O",
+      "filled": true
+    },
+    {
+      "id": "OB",
+      "type": "segment",
+      "points": [
+        "O",
+        "B"
+      ]
+    },
+    {
+      "id": "OC",
+      "type": "segment",
+      "points": [
+        "O",
+        "C"
+      ]
     },
     {
       "id": "AB",
@@ -73,28 +91,22 @@
       ]
     },
     {
-      "id": "BC",
-      "type": "segment",
-      "points": [
-        "B",
-        "C"
-      ]
-    },
-    {
-      "id": "OB",
-      "type": "segment",
-      "points": [
-        "O",
-        "B"
-      ]
-    },
-    {
-      "id": "angle_arc_given_A",
+      "id": "angle_arc_given_ABO",
       "type": "angle_arc",
       "points": [
-        "B",
         "A",
-        "C"
+        "B",
+        "O"
+      ],
+      "radius_pt": 16
+    },
+    {
+      "id": "angle_arc_given_ACO",
+      "type": "angle_arc",
+      "points": [
+        "A",
+        "C",
+        "O"
       ],
       "radius_pt": 16
     }
@@ -105,8 +117,8 @@
       "type": "vertex",
       "point": "A",
       "offset_pt": [
-        0.0,
-        15.0
+        10.5,
+        12.0
       ]
     },
     {
@@ -114,8 +126,8 @@
       "type": "vertex",
       "point": "B",
       "offset_pt": [
-        -15.0,
-        -12.0
+        -13.5,
+        -7.5
       ]
     },
     {
@@ -123,7 +135,7 @@
       "type": "vertex",
       "point": "C",
       "offset_pt": [
-        15.0,
+        12.0,
         -12.0
       ]
     },
@@ -132,91 +144,96 @@
       "type": "vertex",
       "point": "O",
       "offset_pt": [
-        -13.5,
-        12.0
+        15,
+        15
       ]
     },
     {
-      "id": "given2",
-      "type": "text",
-      "anchor": "OBm",
-      "text": "2",
-      "offset_pt": [
-        -16,
-        -28
-      ]
-    },
-    {
-      "id": "given_A",
+      "id": "given_ABO",
       "type": "angle",
       "points": [
-        "B",
         "A",
-        "C"
+        "B",
+        "O"
       ],
-      "degrees": 60,
-      "radius_pt": 40.0,
-      "arc_id": "angle_arc_given_A"
+      "degrees": 30,
+      "radius_pt": 80.0,
+      "arc_id": "angle_arc_given_ABO",
+      "offset_pt": [
+        0.0,
+        -9.473903143468002e-15
+      ]
+    },
+    {
+      "id": "given_ACO",
+      "type": "angle",
+      "points": [
+        "A",
+        "C",
+        "O"
+      ],
+      "degrees": 40,
+      "radius_pt": 56.0,
+      "arc_id": "angle_arc_given_ACO",
+      "offset_pt": [
+        -2.6611230160570756,
+        -5.222747987755179
+      ]
     }
   ],
   "constraints": [
     {
-      "id": "A60",
+      "id": "ABO30",
       "type": "angle",
       "points": [
-        "B",
         "A",
-        "C"
+        "B",
+        "O"
       ],
-      "degrees": 60
+      "degrees": 30
+    },
+    {
+      "id": "ACO40",
+      "type": "angle",
+      "points": [
+        "A",
+        "C",
+        "O"
+      ],
+      "degrees": 40
     },
     {
       "id": "on_A",
       "type": "on_circle",
       "point": "A",
       "center": "O",
-      "radius": 2
+      "radius": 5
     },
     {
       "id": "on_B",
       "type": "on_circle",
       "point": "B",
       "center": "O",
-      "radius": 2
+      "radius": 5
     },
     {
       "id": "on_C",
       "type": "on_circle",
       "point": "C",
       "center": "O",
-      "radius": 2
-    },
-    {
-      "id": "OB2",
-      "type": "distance",
-      "points": [
-        "O",
-        "B"
-      ],
-      "value": 2
+      "radius": 5
     }
   ],
-  "ambiguities": [
-    "The 2 label is faint and its leader/segment anchor cannot be identified conclusively."
-  ],
-  "query": "As shown in the figure, circle O is the circumscribed circle of triangle ABC. then the length of BC is ()\nChoices:\nA:√{3}\nB:2√{3}\nC:4\nD:4√{3}",
-  "answer": "B",
+  "ambiguities": [],
+  "query": "As shown in the figure, then the degree of angle BOC is ()\nChoices:\nA:60°\nB:70°\nC:120°\nD:140°",
+  "answer": "D",
   "answer_type": "choice",
   "subject": "PlaneGeometry",
-  "level": "middle_school",
-  "provenance": {
-    "source_key": "s429",
+  "level": "high_school",
+  "question_revision": {
+    "instruction": "Plane14答案改成D。",
+    "source_question": "As shown in the figure, then the degree of angle BOC is ()\nChoices:\nA:60°\nB:70°\nC:120°\nD:140°",
     "source_answer": "B",
-    "previous_model_response": "Let \\(D\\) be the foot of the perpendicular from center \\(O\\) to chord \\(BC\\). The inscribed angle is\n\n\\[\n\\angle BAC=60^\\circ,\n\\]\n\nso the corresponding central angle is\n\n\\[\n\\angle BOC=120^\\circ.\n\\]\n\nSince \\(OD\\perp BC\\), it bisects \\(\\angle BOC\\), giving \\(\\angle BOD=60^\\circ\\). In right triangle \\(BOD\\),\n\n\\[\nOD=OB\\cos60^\\circ.\n\\]\n\nGiven \\(OD=2\\),\n\n\\[\nOB=\\frac{2}{\\cos60^\\circ}=4.\n\\]\n\nThus,\n\n\\[\nBC=2\\cdot OB\\sin60^\\circ\n=2\\cdot4\\cdot\\frac{\\sqrt3}{2}\n=4\\sqrt3.\n\\]\n\nTherefore, the correct answer is D."
-  },
-  "answer_verification": {
-    "status": "verified",
-    "verified_answer": "B",
-    "reasoning": "OB is explicitly labeled 2, so the circumradius is 2. The inscribed angle A is 60 degrees and intercepts BC; therefore BC=2R sin(60 degrees)=2 sqrt(3), choice B."
+    "source_answer_issue": "MathVerse 来源答案 B/70° 与图中条件推出的 ∠BOC=140° 不符；用户将当前答案改为 D，来源答案保留。"
   }
 }

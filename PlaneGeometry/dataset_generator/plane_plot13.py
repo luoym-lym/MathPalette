@@ -1,4 +1,4 @@
-"""Frozen MathVerse question Plane13; source key s719."""
+"""Frozen MathVerse question Plane13; source key s2059."""
 from pathlib import Path
 import sys
 _PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -10,9 +10,9 @@ class Plane13:
     def __init__(self):
         self.id = 'Plane13'
         self.source_dataset = 'MathVerse'
-        self.query = '\\[The height h of the racket hit is ()\nChoices:\nA:\\frac{8}{5}m\nB:\\frac{4}{3}m\nC:1m\nD:\\frac{8}{15}m\\]'
-        self.answer = 'D'
-        self.answer_type = 'choice'
+        self.query = 'This is part of a piece of jewellery. It is made out of a metal plate base, and gold plated wire (of negligible thickness) runs around the outside.\n\nWhat is the area covered by the metal plate base?\n\nGive your answer correct to two decimal places.'
+        self.answer = 'Area $=70.69 \\mathrm{~mm}^{2}$'
+        self.answer_type = 'area'
         self.subject = 'PlaneGeometry'
         self.level = 'high_school'
         self.scene_path = Path(__file__).with_name("scenes") / "Plane13.json"

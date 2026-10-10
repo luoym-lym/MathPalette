@@ -1,4 +1,4 @@
-"""Frozen MathVerse question Plane05; source key s274."""
+"""Frozen MathVerse question Plane05; source key s449."""
 from pathlib import Path
 import sys
 _PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -10,8 +10,8 @@ class Plane05:
     def __init__(self):
         self.id = 'Plane05'
         self.source_dataset = 'MathVerse'
-        self.query = 'As shown in the figure, and the radial OM bisects angle AOC, then the degree of angle CON is ()\nChoices:\nA:65°\nB:55°\nC:45°\nD:35°'
-        self.answer = 'B'
+        self.query = 'As shown in the figure, then the degree of the angle of circumference angle ACB is ____.'
+        self.answer = '25°'
         self.answer_type = 'numeric'
         self.subject = 'PlaneGeometry'
         self.level = 'middle_school'

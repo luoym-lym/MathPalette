@@ -1,6 +1,6 @@
 {
   "scene_schema_version": "1.0.0",
-  "protocol_version": "1.1.0",
+  "protocol_version": "1.2.0",
   "id": "Solid03",
   "status": "formal_candidate",
   "subject": "SolidGeometry",
@@ -67,6 +67,21 @@
       0,
       0,
       -0.92
+    ],
+    "T0": [
+      0.4114365078599612,
+      0,
+      -0.8228730157199228
+    ],
+    "T1": [
+      0.4114365078599612,
+      2.49,
+      -0.8228730157199228
+    ],
+    "R_LEFT_BOTTOM": [
+      -0.92,
+      0,
+      -0.92
     ]
   },
   "projection": {
@@ -101,12 +116,12 @@
   },
   "view": {
     "xlim": [
-      -1.0179842431041184,
-      3.0706465179341143
+      -1.913195567385266,
+      3.0906871649654484
     ],
     "ylim": [
-      -2.0927018452075448,
-      1.9959289158306877
+      -2.345412775925766,
+      2.6584699564249483
     ],
     "layout": {
       "method": "frozen_content_fit",
@@ -124,7 +139,7 @@
   "visibility": {
     "mode": "frozen_intervals",
     "projection_sha256": "259e06bb5025dfa8943be11ccd2b71ac1c2e085915c0120b9354286389c8fe0d",
-    "notes": "Authored edge visibility is frozen for this projection; renderer performs no automatic occlusion."
+    "notes": "Rear semicircle hidden 180..296.565051177078, exposed 296.565051177078..360. Lower axial outline uses tangent at 296.565051177078, never the projected lowest circle point. Both source diameters and open rims visible."
   },
   "objects": [
     {
@@ -152,12 +167,12 @@
           "start_deg": 180,
           "end_deg": 360,
           "visibility": "visible",
-          "samples": 301
+          "samples": 361
         }
       ]
     },
     {
-      "id": "back_hidden_interval",
+      "id": "back_hidden",
       "type": "circular_arc",
       "role": "silhouette",
       "center": "B",
@@ -181,12 +196,12 @@
           "start_deg": 180,
           "end_deg": 296.565051177078,
           "visibility": "hidden",
-          "samples": 201
+          "samples": 361
         }
       ]
     },
     {
-      "id": "back_visible_interval",
+      "id": "back_visible",
       "type": "circular_arc",
       "role": "silhouette",
       "center": "B",
@@ -210,16 +225,26 @@
           "start_deg": 296.565051177078,
           "end_deg": 360,
           "visibility": "visible",
-          "samples": 201
+          "samples": 361
         }
       ]
     },
     {
-      "id": "right_rim",
+      "id": "front_diameter",
       "type": "segment",
       "points": [
-        "Fbottom",
-        "Bbottom"
+        "FL",
+        "Ft"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "back_diameter",
+      "type": "segment",
+      "points": [
+        "BL",
+        "Bt"
       ],
       "visibility": "visible",
       "role": "edge"
@@ -243,6 +268,16 @@
       ],
       "visibility": "visible",
       "role": "edge"
+    },
+    {
+      "id": "curved_surface_tangent",
+      "type": "segment",
+      "points": [
+        "T0",
+        "T1"
+      ],
+      "visibility": "visible",
+      "role": "silhouette"
     }
   ],
   "dimensions": [
@@ -251,52 +286,85 @@
       "type": "distance",
       "points": [
         "F",
-        "R0"
+        "Fbottom"
       ],
       "value": 0.92,
       "unit": "m",
       "decimals": 2,
       "offset_pt": [
-        0.0,
-        0.0
+        -115,
+        0
       ],
       "label_offset_pt": [
-        -80.0,
-        -80.0
+        -36,
+        0
       ],
-      "basis": "Height .92 m is the semicircle radius per frozen source interpretation."
+      "basis": "Source external vertical depth from open rim level to bottom is half-cylinder radius 0.92 m."
     },
     {
       "id": "length",
       "type": "distance",
       "points": [
-        "Ft",
-        "Bt"
+        "FL",
+        "BL"
       ],
       "value": 2.49,
       "unit": "m",
       "decimals": 2,
       "offset_pt": [
-        0.0,
-        0.0
+        -10.733126291998989,
+        21.466252583997978
       ],
       "label_offset_pt": [
-        0.0,
-        24.0
+        -13.416407864998735,
+        26.83281572999747
       ],
-      "basis": "Dimension read from source diagram."
+      "basis": "Source external axial-length bracket above the left open rim."
     }
   ],
   "labels": [],
-  "constraints": [],
+  "constraints": [
+    {
+      "id": "radius_value",
+      "type": "distance",
+      "points": [
+        "F",
+        "Fbottom"
+      ],
+      "value": 0.92,
+      "basis": "Source depth 0.92 m equals semicircle radius."
+    },
+    {
+      "id": "length_value",
+      "type": "distance",
+      "points": [
+        "F",
+        "B"
+      ],
+      "value": 2.49,
+      "basis": "Source axial dimension 2.49 m."
+    },
+    {
+      "id": "surface_tangent",
+      "type": "projected_tangent",
+      "circle": "front_semicircle",
+      "point": "T0",
+      "segment": [
+        "T0",
+        "T1"
+      ],
+      "basis": "Analytic half-cylinder silhouette tangent under frozen projection."
+    }
+  ],
   "ambiguities": [],
-  "provenance": {
-    "source_key": "s3289"
+  "construction_notes": {
+    "tangent_angle_deg": 296.565051177078,
+    "solid": "Half-cylinder below z=0; two closed semicircular ends and open rectangular top; no thickness invented."
   },
-  "answer_verification": {
-    "status": "verified",
-    "reasoning": "For a half-cylinder trough with r=0.92 m and L=2.49 m, outside curved area is (pi*r)*L; two semicircular ends total pi*r^2. Exclude the open rectangular top. SA=pi*0.92*2.49+pi*0.92^2=9.86 m^2.",
-    "verified_answer": "9.86 m^2",
-    "issue": null
-  }
+  "style_revisions": [
+    {
+      "instruction": "立体几何也和平面几何统一一下。",
+      "change": "Distance ranges migrated to Plane02 parallel dashes and solid endpoint connections."
+    }
+  ]
 }

@@ -1,4 +1,4 @@
-"""Frozen MathVerse question Plane11; source key s584."""
+"""Frozen MathVerse question Plane11; source key s1859."""
 from pathlib import Path
 import sys
 _PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -10,9 +10,9 @@ class Plane11:
     def __init__(self):
         self.id = 'Plane11'
         self.source_dataset = 'MathVerse'
-        self.query = 'then the height of the paper is ()\nChoices:\nA:3cm\nB:2√{2}cm\nC:3√{2}cm\nD:4√{2}cm'
-        self.answer = 'B'
-        self.answer_type = 'choice'
+        self.query = '\\[Consider the adjacent figure:\n\nSolve for the unknown \\theta . Leave your answer in degrees.\\]'
+        self.answer = '\\[60^\\circ \\]'
+        self.answer_type = 'angle'
         self.subject = 'PlaneGeometry'
         self.level = 'high_school'
         self.scene_path = Path(__file__).with_name("scenes") / "Plane11.json"

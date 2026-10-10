@@ -1,17 +1,17 @@
 {
   "scene_schema_version": "1.0.0",
-  "protocol_version": "1.1.0",
+  "protocol_version": "1.2.0",
   "id": "Solid06",
   "status": "formal_candidate",
   "subject": "SolidGeometry",
   "source_dataset": "MathVerse",
   "source_image": "../../originals/Solid06.png",
-  "source_note": "MathVerse testmini Vision Dominant source s3404; source diagram reconstructed in 3D.",
-  "query": "Calculate the area of the divider correct to two decimal places, using your rounded answer from the previous part.",
-  "answer": "\\[75.15 \\mathrm{m}^2\\]",
-  "answer_type": "number",
+  "source_note": "MathVerse testmini Vision Dominant source s3414; source diagram reconstructed in 3D.",
+  "query": "Find the length of AF in terms of AB, BD and DF.",
+  "answer": "\\[\\sqrt{AB^2+BD^2+DF^2}\\]",
+  "answer_type": "expression",
   "level": "medium",
-  "world_unit": "cm",
+  "world_unit": "unit",
   "points": {
     "A": [
       0,
@@ -19,94 +19,44 @@
       0
     ],
     "B": [
-      19,
+      3,
       0,
       0
     ],
     "C": [
-      19,
-      10,
+      0,
+      4,
       0
     ],
     "D": [
-      19,
-      10,
-      7
+      3,
+      4,
+      0
     ],
     "E": [
       0,
-      10,
-      0
+      4,
+      5
     ],
     "F": [
-      0,
-      10,
-      7
-    ],
-    "G": [
-      0,
-      0,
-      7
-    ],
-    "H": [
-      19,
-      0,
-      7
-    ],
-    "MAB": [
-      9.5,
-      0.0,
-      0.0
-    ],
-    "MBC": [
-      19.0,
-      5.0,
-      0.0
-    ],
-    "MCD": [
-      19.0,
-      10.0,
-      3.5
-    ],
-    "MZ": [
-      12.666666666666666,
-      6.666666666666667,
-      2.3333333333333335
-    ],
-    "M_AB": [
-      9.5,
-      0.0,
-      0.0
-    ],
-    "M_BC": [
-      19.0,
-      5.0,
-      0.0
-    ],
-    "M_CD": [
-      19.0,
-      10.0,
-      3.5
-    ],
-    "M_AC": [
-      9.5,
-      5.0,
-      0.0
+      3,
+      4,
+      5
     ]
   },
   "projection": {
     "kind": "oblique",
-    "name": "Frozen oblique parallel view",
+    "name": "Source-matched frozen schematic parallel projection",
     "matrix": [
       [
         1,
-        0.82,
+        1.2564935064935063,
         0
       ],
       [
-        0,
-        0.41,
-        1
+        -0.5974025974025974,
+        0.3214285714285714,
+        1.1688311688311688
       ]
     ],
     "origin": [
@@ -119,19 +69,19 @@
       0
     ],
     "toward_viewer": [
-      0.6044299021853569,
-      -0.7371096368114108,
-      0.30221495109267843
+      0.6794292984199141,
+      -0.5407344287166241,
+      0.4959658315339166
     ]
   },
   "view": {
     "xlim": [
-      -1.8290621516993042,
-      30.79524295628746
+      -1.0851149429061415,
+      9.07880565427854
     ],
     "ylim": [
-      -10.981665903067125,
-      21.64263920491964
+      -2.383887773084407,
+      7.7800328241002745
     ],
     "layout": {
       "method": "frozen_content_fit",
@@ -148,8 +98,8 @@
   },
   "visibility": {
     "mode": "frozen_intervals",
-    "projection_sha256": "bc33af1a952cac1f7da60aa4446783b22039ad7ee2b20b5c0f3355ede2b16388",
-    "notes": "Visibility intervals frozen manually against this projection; no automatic occlusion."
+    "projection_sha256": "e1b162f1e940316b46818323f1d4c0d731a93b66931b14046ef2af39e0fea10d",
+    "notes": "Source AC,CD,CE hidden; AB,AE,BD,DF,BF,EF visible; AF target diagonal visible. Projection preserves AB/EF parallel down-right and AC/BD up-right."
   },
   "objects": [
     {
@@ -163,11 +113,61 @@
       "role": "edge"
     },
     {
-      "id": "BC",
+      "id": "AC",
+      "type": "segment",
+      "points": [
+        "A",
+        "C"
+      ],
+      "visibility": "hidden",
+      "role": "edge"
+    },
+    {
+      "id": "CE",
+      "type": "segment",
+      "points": [
+        "C",
+        "E"
+      ],
+      "visibility": "hidden",
+      "role": "edge"
+    },
+    {
+      "id": "EA",
+      "type": "segment",
+      "points": [
+        "E",
+        "A"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "BD",
       "type": "segment",
       "points": [
         "B",
-        "C"
+        "D"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "DF",
+      "type": "segment",
+      "points": [
+        "D",
+        "F"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "FB",
+      "type": "segment",
+      "points": [
+        "F",
+        "B"
       ],
       "visibility": "visible",
       "role": "edge"
@@ -179,46 +179,6 @@
         "C",
         "D"
       ],
-      "visibility": "visible",
-      "role": "edge"
-    },
-    {
-      "id": "DH",
-      "type": "segment",
-      "points": [
-        "D",
-        "H"
-      ],
-      "visibility": "visible",
-      "role": "edge"
-    },
-    {
-      "id": "HG",
-      "type": "segment",
-      "points": [
-        "H",
-        "G"
-      ],
-      "visibility": "visible",
-      "role": "edge"
-    },
-    {
-      "id": "GA",
-      "type": "segment",
-      "points": [
-        "G",
-        "A"
-      ],
-      "visibility": "visible",
-      "role": "edge"
-    },
-    {
-      "id": "AE",
-      "type": "segment",
-      "points": [
-        "A",
-        "E"
-      ],
       "visibility": "hidden",
       "role": "edge"
     },
@@ -229,80 +189,18 @@
         "E",
         "F"
       ],
-      "visibility": "hidden",
-      "role": "edge"
-    },
-    {
-      "id": "FG",
-      "type": "segment",
-      "points": [
-        "F",
-        "G"
-      ],
       "visibility": "visible",
       "role": "edge"
     },
     {
-      "id": "EH",
+      "id": "AF_target",
       "type": "segment",
       "points": [
-        "E",
-        "H"
-      ],
-      "visibility": "hidden",
-      "role": "edge"
-    },
-    {
-      "id": "BF",
-      "type": "segment",
-      "points": [
-        "B",
+        "A",
         "F"
       ],
       "visibility": "visible",
-      "role": "edge"
-    },
-    {
-      "id": "AC_divider",
-      "type": "segment",
-      "points": [
-        "A",
-        "C"
-      ],
-      "visibility": "visible",
-      "role": "section"
-    },
-    {
-      "id": "AD_divider",
-      "type": "segment",
-      "points": [
-        "A",
-        "D"
-      ],
-      "visibility": "visible",
-      "role": "section"
-    },
-    {
-      "id": "CD_divider",
-      "type": "segment",
-      "points": [
-        "C",
-        "D"
-      ],
-      "visibility": "visible",
-      "role": "section"
-    },
-    {
-      "id": "divider",
-      "type": "face",
-      "points": [
-        "A",
-        "C",
-        "D"
-      ],
-      "role": "region",
-      "visibility": "visible",
-      "semantic_fill_reason": "The source cyan region marks the divider plane."
+      "role": "auxiliary"
     }
   ],
   "dimensions": [],
@@ -313,8 +211,8 @@
       "text": "A",
       "anchor": "A",
       "offset_pt": [
-        -9.0,
-        0.0
+        -9,
+        -3
       ]
     },
     {
@@ -323,8 +221,8 @@
       "text": "B",
       "anchor": "B",
       "offset_pt": [
-        -6.0,
-        -10.5
+        0,
+        -13
       ]
     },
     {
@@ -333,8 +231,8 @@
       "text": "C",
       "anchor": "C",
       "offset_pt": [
-        9.0,
-        0.0
+        -15,
+        13
       ]
     },
     {
@@ -343,60 +241,77 @@
       "text": "D",
       "anchor": "D",
       "offset_pt": [
-        9.0,
-        0.0
+        9,
+        -5
       ]
     },
     {
-      "id": "given_AB",
-      "type": "text",
-      "text": "19 cm",
-      "anchor": "M_AB",
+      "id": "vertex_E",
+      "type": "vertex",
+      "text": "E",
+      "anchor": "E",
       "offset_pt": [
-        -5.333333333333333,
-        -9.333333333333332
+        0,
+        12
       ]
     },
     {
-      "id": "given_BC",
-      "type": "text",
-      "text": "10 cm",
-      "anchor": "M_BC",
+      "id": "vertex_F",
+      "type": "vertex",
+      "text": "F",
+      "anchor": "F",
       "offset_pt": [
-        10.666666666666666,
-        -17.333333333333332
-      ]
-    },
-    {
-      "id": "given_CD",
-      "type": "text",
-      "text": "7 cm",
-      "anchor": "M_CD",
-      "offset_pt": [
-        24.0,
-        0.0
-      ]
-    },
-    {
-      "id": "unknown_z",
-      "type": "text",
-      "text": "z cm",
-      "anchor": "M_AC",
-      "offset_pt": [
-        80,
-        55
+        8,
+        9
       ]
     }
   ],
-  "constraints": [],
-  "ambiguities": [],
-  "provenance": {
-    "source_key": "s3404"
-  },
-  "answer_verification": {
-    "status": "needs_review",
-    "verified_answer": "75.15 cm^2",
-    "issue": "Raw GT uses m^2 although every supplied length is labeled cm; the numeric value matches area in cm^2, not m^2.",
-    "reasoning": "The divider is triangle ACD. CD=7 cm and AC is a base diagonal sqrt(19^2+10^2)=sqrt(461); area=(1/2)*7*sqrt(461)=75.15 cm^2."
-  }
+  "constraints": [
+    {
+      "id": "AB_BD_perp",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "basis": "Right triangular prism: AB perpendicular to BD."
+    },
+    {
+      "id": "BD_DF_perp",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "B",
+          "D"
+        ],
+        [
+          "D",
+          "F"
+        ]
+      ],
+      "basis": "Right triangle BDF, as modeled by source diagram."
+    },
+    {
+      "id": "AB_DF_perp",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "D",
+          "F"
+        ]
+      ],
+      "basis": "Right prism extrusion AB perpendicular to triangle BDF plane."
+    }
+  ],
+  "ambiguities": []
 }

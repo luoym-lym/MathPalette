@@ -1,86 +1,86 @@
 {
   "scene_schema_version": "1.0.0",
-  "protocol_version": "1.1.0",
+  "protocol_version": "1.2.0",
   "id": "Solid16",
   "status": "formal_candidate",
   "subject": "SolidGeometry",
   "source_dataset": "MathVerse",
   "source_image": "../../originals/Solid16.png",
-  "source_note": "MathVerse testmini Vision Dominant source s3559.",
-  "query": "Find the surface area of the pyramid.\n\nRound your answer to two decimal places.",
-  "answer": "\\[288.6 \\mathrm{m}^2\\]",
+  "source_note": "MathVerse testmini Vision Dominant source s3634.",
+  "query": "Calculate the volume of the rectangular prism in the figure.",
+  "answer": "$1690cm^2$",
   "answer_type": "number",
   "level": "medium",
-  "world_unit": "mm",
+  "world_unit": "cm",
   "points": {
     "A": [
-      -5,
-      -5,
+      0,
+      0,
       0
     ],
     "B": [
-      5,
-      -5,
+      13,
+      0,
       0
     ],
     "C": [
-      5,
-      5,
+      13,
+      13,
       0
     ],
     "D": [
-      -5,
-      5,
+      0,
+      13,
       0
     ],
-    "O": [
+    "E": [
       0,
       0,
-      0
+      10
     ],
-    "V": [
+    "F": [
+      13,
       0,
+      10
+    ],
+    "G": [
+      13,
+      13,
+      10
+    ],
+    "H": [
       0,
-      8
+      13,
+      10
     ],
-    "RA": [
-      0.8,
-      0,
-      0
-    ],
-    "RB": [
-      0.8,
-      0.8,
-      0
-    ],
-    "RC": [
-      0,
-      0.8,
-      0
-    ],
-    "M_SIDE": [
+    "M13a": [
+      6.5,
       0.0,
-      -5.0,
       0.0
     ],
-    "M_H": [
+    "M13b": [
+      0,
+      6.5,
+      0
+    ],
+    "M10": [
+      13.0,
       0.0,
-      0.0,
-      4.0
+      5.0
     ]
   },
   "projection": {
     "kind": "oblique",
-    "name": "Frozen oblique parallel view",
+    "name": "Source-matched oblique prism projection; hidden edges omitted as in source",
     "matrix": [
       [
         1,
-        0.82,
+        -0.52,
         0
       ],
       [
         0,
-        0.41,
+        0.18,
         1
       ]
     ],
@@ -94,19 +94,19 @@
       0
     ],
     "toward_viewer": [
-      0.6044299021853569,
-      -0.7371096368114108,
-      0.30221495109267843
+      -0.4555798095276477,
+      -0.8761150183223995,
+      0.1577007032980319
     ]
   },
   "view": {
     "xlim": [
-      -9.557002940778801,
-      9.557002940778801
+      -7.323381974383926,
+      16.234614796840887
     ],
     "ylim": [
-      -6.602131735998439,
-      12.511874145559164
+      -6.0932863325595905,
+      17.464710438665225
     ],
     "layout": {
       "method": "frozen_content_fit",
@@ -123,8 +123,8 @@
   },
   "visibility": {
     "mode": "frozen_intervals",
-    "projection_sha256": "bc33af1a952cac1f7da60aa4446783b22039ad7ee2b20b5c0f3355ede2b16388",
-    "notes": "Visibility frozen by authored edge intervals; renderer does not infer occlusion."
+    "projection_sha256": "52b671cdfad20ac5e58f72932468972220d31cdbf9f1eb3709c9263b8a432a79",
+    "notes": "Direct original-image audit; visible/hidden intervals frozen independently for this projection. Source-omitted hidden edges are not supplemented."
   },
   "objects": [
     {
@@ -138,23 +138,63 @@
       "role": "edge"
     },
     {
-      "id": "BC",
+      "id": "EF",
       "type": "segment",
       "points": [
-        "B",
-        "C"
+        "E",
+        "F"
       ],
       "visibility": "visible",
       "role": "edge"
     },
     {
-      "id": "CD",
+      "id": "FG",
       "type": "segment",
       "points": [
-        "C",
-        "D"
+        "F",
+        "G"
       ],
-      "visibility": "hidden",
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "GH",
+      "type": "segment",
+      "points": [
+        "G",
+        "H"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "HE",
+      "type": "segment",
+      "points": [
+        "H",
+        "E"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "AE",
+      "type": "segment",
+      "points": [
+        "A",
+        "E"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "BF",
+      "type": "segment",
+      "points": [
+        "B",
+        "F"
+      ],
+      "visibility": "visible",
       "role": "edge"
     },
     {
@@ -164,133 +204,104 @@
         "D",
         "A"
       ],
-      "visibility": "hidden",
-      "role": "edge"
-    },
-    {
-      "id": "VA",
-      "type": "segment",
-      "points": [
-        "V",
-        "A"
-      ],
       "visibility": "visible",
       "role": "edge"
     },
     {
-      "id": "VB",
+      "id": "DH",
       "type": "segment",
       "points": [
-        "V",
-        "B"
+        "D",
+        "H"
       ],
       "visibility": "visible",
       "role": "edge"
-    },
-    {
-      "id": "VC",
-      "type": "segment",
-      "points": [
-        "V",
-        "C"
-      ],
-      "visibility": "visible",
-      "role": "edge"
-    },
-    {
-      "id": "VD",
-      "type": "segment",
-      "points": [
-        "V",
-        "D"
-      ],
-      "visibility": "hidden",
-      "role": "edge"
-    },
-    {
-      "id": "vertical_height_VO",
-      "type": "segment",
-      "points": [
-        "V",
-        "O"
-      ],
-      "visibility": "visible",
-      "role": "auxiliary",
-      "linestyle": "dashed"
-    },
-    {
-      "id": "right_angle_1",
-      "type": "segment",
-      "points": [
-        "O",
-        "RA"
-      ],
-      "visibility": "visible",
-      "role": "auxiliary"
-    },
-    {
-      "id": "right_angle_2",
-      "type": "segment",
-      "points": [
-        "RA",
-        "RB"
-      ],
-      "visibility": "visible",
-      "role": "auxiliary"
-    },
-    {
-      "id": "right_angle_3",
-      "type": "segment",
-      "points": [
-        "RB",
-        "RC"
-      ],
-      "visibility": "visible",
-      "role": "auxiliary"
-    },
-    {
-      "id": "right_angle_4",
-      "type": "segment",
-      "points": [
-        "RC",
-        "O"
-      ],
-      "visibility": "visible",
-      "role": "auxiliary"
     }
   ],
   "dimensions": [],
   "labels": [
     {
-      "id": "given_height",
+      "id": "dimension_13a",
       "type": "text",
-      "text": "8 mm",
-      "anchor": "M_H",
+      "text": "13 cm",
+      "anchor": "M13a",
       "offset_pt": [
-        36.0,
-        0.0
+        0,
+        -17
       ]
     },
     {
-      "id": "given_side",
+      "id": "dimension_13b",
       "type": "text",
-      "text": "10 mm",
-      "anchor": "M_SIDE",
+      "text": "13 cm",
+      "anchor": "M13b",
       "offset_pt": [
-        5.333333333333333,
-        9.333333333333332
+        -8,
+        -19
+      ]
+    },
+    {
+      "id": "dimension_10",
+      "type": "text",
+      "text": "10 cm",
+      "anchor": "M10",
+      "offset_pt": [
+        33,
+        0
       ]
     }
   ],
-  "constraints": [],
-  "ambiguities": [],
-  "provenance": {
-    "source_key": "s3559"
-  },
-  "answer_verification": {
-    "status": "needs_review",
-    "verified_answer": "288.68 mm^2",
-    "issue": "Raw GT unit m^2 conflicts with the diagram?s mm labels; unrounded result is 288.68 mm^2.",
-    "reasoning": "For side 10 mm and perpendicular height 8 mm, base area is 100 mm^2 and each triangular face has slant height sqrt(8^2+5^2). Total=100+4*(1/2*10*sqrt(89))=288.679... mm^2, or 288.68 mm^2."
-  }
+  "constraints": [
+    {
+      "id": "length",
+      "type": "distance",
+      "points": [
+        "A",
+        "B"
+      ],
+      "value": 13,
+      "basis": "Source prism/cube edge label."
+    },
+    {
+      "id": "depth",
+      "type": "distance",
+      "points": [
+        "A",
+        "D"
+      ],
+      "value": 13,
+      "basis": "Source second 13 cm edge / all cube sides equal."
+    },
+    {
+      "id": "height",
+      "type": "distance",
+      "points": [
+        "A",
+        "E"
+      ],
+      "value": 10,
+      "basis": "Source 10 cm label / all cube sides equal."
+    },
+    {
+      "id": "orthogonal_edges",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "D"
+        ]
+      ],
+      "basis": "Source rectangular prism / cube."
+    }
+  ],
+  "ambiguities": [
+    {
+      "id": "hidden_edges_omitted",
+      "description": "Original displays only the nine visible edges; hidden rear/bottom edges intentionally omitted, never supplemented."
+    }
+  ]
 }

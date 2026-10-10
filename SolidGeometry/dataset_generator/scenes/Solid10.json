@@ -1,87 +1,107 @@
 {
   "scene_schema_version": "1.0.0",
-  "protocol_version": "1.1.0",
+  "protocol_version": "1.2.0",
   "id": "Solid10",
   "status": "formal_candidate",
   "subject": "SolidGeometry",
   "source_dataset": "MathVerse",
   "source_image": "../../originals/Solid10.png",
-  "source_note": "MathVerse testmini Vision Dominant source s3449.",
-  "query": "Find the volume of the half cylinder. Rounding to two decimal places.",
-  "answer": "Volume $=502.65 \\mathrm{~cm}^{3}$",
+  "source_note": "MathVerse testmini Vision Dominant source s3524. Source and previous redraw independently inspected; source-based GPT-6.1-Sol medium rebuild 2026-10-10.",
+  "query": "Find the surface area of the trapezoidal prism.\n\nGive your answer to the nearest one decimal place.",
+  "answer": "\\[577.0 \\mathrm{cm}^2\\]",
   "answer_type": "number",
   "level": "medium",
   "world_unit": "cm",
   "points": {
-    "F": [
+    "A": [
       0,
       0,
       0
     ],
     "B": [
-      0,
-      20,
-      0
-    ],
-    "Fleft": [
-      -8,
+      13,
       0,
       0
     ],
-    "Fright": [
-      8,
+    "C": [
+      13,
       0,
+      3
+    ],
+    "D": [
+      0,
+      0,
+      10
+    ],
+    "A2": [
+      0,
+      10,
       0
     ],
-    "Bleft": [
-      -8,
-      20,
+    "B2": [
+      13,
+      10,
       0
     ],
-    "Bright": [
-      8,
-      20,
-      0
+    "C2": [
+      13,
+      10,
+      3
     ],
-    "Fbot": [
+    "D2": [
       0,
-      0,
-      -8
+      10,
+      10
     ],
-    "Bbot": [
-      0,
-      20,
-      -8
-    ],
-    "M_LENGTH": [
+    "M_left10": [
       0.0,
-      10.0,
-      0.0
+      0.0,
+      5.0
     ],
-    "M_RAD": [
-      -4.0,
+    "M_bottom13": [
+      6.5,
       0.0,
       0.0
     ],
-    "M_LEN": [
-      -8.0,
+    "M_right3": [
+      13.0,
+      0.0,
+      1.5
+    ],
+    "M_depth10": [
+      13,
+      5,
+      0
+    ],
+    "M_top_y": [
+      6.5,
+      0.0,
+      6.5
+    ],
+    "M_back_y": [
+      6.5,
       10.0,
-      0.0
+      6.5
+    ],
+    "M_back3": [
+      13.0,
+      10.0,
+      1.5
     ]
   },
   "projection": {
     "kind": "oblique",
-    "name": "Frozen oblique parallel view",
+    "name": "Source-matched parallel projection",
     "matrix": [
       [
-        1,
-        0.82,
-        0
+        1.0,
+        0.26,
+        0.0
       ],
       [
-        0,
-        0.41,
-        1
+        0.0,
+        0.38,
+        1.13
       ]
     ],
     "origin": [
@@ -94,19 +114,19 @@
       0
     ],
     "toward_viewer": [
-      0.6044299021853569,
-      -0.7371096368114108,
-      0.30221495109267843
+      0.2392798187621015,
+      -0.9203069952388518,
+      0.3094837683104104
     ]
   },
   "view": {
     "xlim": [
-      -8.858877045650301,
-      25.20725667527993
+      -2.6645669472431335,
+      17.893511295132768
     ],
     "ylim": [
-      -16.960728897502154,
-      17.105404823428078
+      -3.180465419537927,
+      17.377612822837975
     ],
     "layout": {
       "method": "frozen_content_fit",
@@ -123,131 +143,240 @@
   },
   "visibility": {
     "mode": "frozen_intervals",
-    "projection_sha256": "bc33af1a952cac1f7da60aa4446783b22039ad7ee2b20b5c0f3355ede2b16388",
-    "notes": "Visibility frozen by authored edge intervals; renderer does not infer occlusion."
+    "projection_sha256": "ae7656921bd264d6d9de595ea310ec79c857dd3ca1282ea6535c1f0009bf3342",
+    "notes": "Recomputed source-visible boundaries for this projection; omitted edges explicitly follow source. No automatic occlusion."
   },
   "objects": [
     {
-      "id": "front_half",
-      "type": "circular_arc",
-      "role": "silhouette",
-      "center": "F",
-      "u": [
-        1,
-        0,
-        0
-      ],
-      "v": [
-        0,
-        0,
-        1
-      ],
-      "radius": 8,
-      "domain_deg": [
-        180,
-        360
-      ],
-      "intervals": [
-        {
-          "start_deg": 180,
-          "end_deg": 360,
-          "visibility": "visible",
-          "samples": 361
-        }
-      ]
-    },
-    {
-      "id": "back_half",
-      "type": "circular_arc",
-      "role": "silhouette",
-      "center": "B",
-      "u": [
-        1,
-        0,
-        0
-      ],
-      "v": [
-        0,
-        0,
-        1
-      ],
-      "radius": 8,
-      "domain_deg": [
-        180,
-        360
-      ],
-      "intervals": [
-        {
-          "start_deg": 180,
-          "end_deg": 360,
-          "visibility": "hidden",
-          "samples": 361
-        }
-      ]
-    },
-    {
-      "id": "rim_l",
+      "id": "A_B",
       "type": "segment",
       "points": [
-        "Fleft",
-        "Bleft"
+        "A",
+        "B"
       ],
       "visibility": "visible",
       "role": "edge"
     },
     {
-      "id": "rim_r",
+      "id": "B_C",
       "type": "segment",
       "points": [
-        "Fright",
-        "Bright"
+        "B",
+        "C"
       ],
       "visibility": "visible",
       "role": "edge"
     },
     {
-      "id": "bottom_gen",
+      "id": "C_D",
       "type": "segment",
       "points": [
-        "Fbot",
-        "Bbot"
+        "C",
+        "D"
       ],
       "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "D_A",
+      "type": "segment",
+      "points": [
+        "D",
+        "A"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "D_D2",
+      "type": "segment",
+      "points": [
+        "D",
+        "D2"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "C_C2",
+      "type": "segment",
+      "points": [
+        "C",
+        "C2"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "B_B2",
+      "type": "segment",
+      "points": [
+        "B",
+        "B2"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "D2_C2",
+      "type": "segment",
+      "points": [
+        "D2",
+        "C2"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "C2_B2",
+      "type": "segment",
+      "points": [
+        "C2",
+        "B2"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "A_A2",
+      "type": "segment",
+      "points": [
+        "A",
+        "A2"
+      ],
+      "visibility": "hidden",
+      "role": "edge"
+    },
+    {
+      "id": "A2_B2",
+      "type": "segment",
+      "points": [
+        "A2",
+        "B2"
+      ],
+      "visibility": "hidden",
+      "role": "edge"
+    },
+    {
+      "id": "A2_D2",
+      "type": "segment",
+      "points": [
+        "A2",
+        "D2"
+      ],
+      "visibility": "hidden",
       "role": "edge"
     }
   ],
   "dimensions": [],
   "labels": [
     {
-      "id": "given_radius",
+      "id": "left",
       "type": "text",
-      "text": "8 cm",
-      "anchor": "M_RAD",
+      "text": "10 cm",
+      "anchor": "M_left10",
       "offset_pt": [
-        8.0,
-        0.0
+        -30,
+        0
       ]
     },
     {
-      "id": "given_length",
+      "id": "bottom",
       "type": "text",
-      "text": "20 cm",
-      "anchor": "M_LEN",
+      "text": "13 cm",
+      "anchor": "M_bottom13",
       "offset_pt": [
-        -5.333333333333333,
-        20.0
+        0,
+        -18
+      ]
+    },
+    {
+      "id": "right",
+      "type": "text",
+      "text": "3 cm",
+      "anchor": "M_back3",
+      "offset_pt": [
+        25,
+        0
+      ]
+    },
+    {
+      "id": "depth",
+      "type": "text",
+      "text": "10 cm",
+      "anchor": "M_depth10",
+      "offset_pt": [
+        40,
+        -10
+      ]
+    },
+    {
+      "id": "y",
+      "type": "text",
+      "text": "y cm",
+      "anchor": "M_back_y",
+      "offset_pt": [
+        0,
+        30
       ]
     }
   ],
-  "constraints": [],
-  "ambiguities": [],
-  "provenance": {
-    "source_key": "s3449"
-  },
-  "answer_verification": {
-    "status": "needs_review",
-    "verified_answer": "2010.62 cm^3",
-    "issue": "8 cm is marked from the cross-section center to the rim, so it is the radius. Volume for a half-cylinder of radius 8 cm and length 20 cm is 0.5*pi*8^2*20=2010.62 cm^3, conflicting with raw GT 502.65, which requires radius 4 cm.",
-    "reasoning": "Preserved source radius8cm and length20cm; did not reinterpret as diameter."
-  }
+  "constraints": [
+    {
+      "id": "world_distance0",
+      "type": "distance",
+      "points": [
+        "A",
+        "B"
+      ],
+      "value": 13,
+      "basis": "Source explicit dimension."
+    },
+    {
+      "id": "world_distance1",
+      "type": "distance",
+      "points": [
+        "A",
+        "D"
+      ],
+      "value": 10,
+      "basis": "Source explicit dimension."
+    },
+    {
+      "id": "world_distance2",
+      "type": "distance",
+      "points": [
+        "B",
+        "C"
+      ],
+      "value": 3,
+      "basis": "Source explicit dimension."
+    },
+    {
+      "id": "world_distance3",
+      "type": "distance",
+      "points": [
+        "B",
+        "B2"
+      ],
+      "value": 10,
+      "basis": "Source explicit dimension."
+    },
+    {
+      "id": "world_perpendicular",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "D"
+        ]
+      ],
+      "basis": "Right cuboid/prism/cylinder construction, not measured screen angle."
+    }
+  ],
+  "ambiguities": []
 }

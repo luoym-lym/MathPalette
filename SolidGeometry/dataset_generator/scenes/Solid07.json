@@ -1,17 +1,17 @@
 {
   "scene_schema_version": "1.0.0",
-  "protocol_version": "1.1.0",
+  "protocol_version": "1.2.0",
   "id": "Solid07",
   "status": "formal_candidate",
   "subject": "SolidGeometry",
   "source_dataset": "MathVerse",
   "source_image": "../../originals/Solid07.png",
-  "source_note": "MathVerse testmini Vision Dominant source s3414; source diagram reconstructed in 3D.",
-  "query": "Find the length of AF in terms of AB, BD and DF.",
-  "answer": "\\[\\sqrt{AB^2+BD^2+DF^2}\\]",
-  "answer_type": "expression",
+  "source_note": "MathVerse testmini Vision Dominant source s3419; source diagram reconstructed in 3D. Source and previous redraw independently inspected; source-based GPT-6.1-Sol medium rebuild 2026-10-10.",
+  "query": "Calculate the area of the divider correct to two decimal places, using your rounded answer from the previous part.",
+  "answer": "\\[94.59 \\mathrm{cm}^2\\]",
+  "answer_type": "number",
   "level": "medium",
-  "world_unit": "unit",
+  "world_unit": "cm",
   "points": {
     "A": [
       0,
@@ -19,44 +19,94 @@
       0
     ],
     "B": [
-      3,
+      19,
       0,
       0
     ],
     "C": [
-      0,
-      4,
+      19,
+      9,
       0
     ],
     "D": [
-      3,
-      4,
-      0
+      19,
+      9,
+      9
     ],
     "E": [
       0,
-      4,
-      5
+      9,
+      0
     ],
     "F": [
-      3,
-      4,
-      5
+      0,
+      9,
+      9
+    ],
+    "G": [
+      0,
+      0,
+      9
+    ],
+    "H": [
+      19,
+      0,
+      9
+    ],
+    "MAB": [
+      9.5,
+      0.0,
+      0.0
+    ],
+    "MBC": [
+      19.0,
+      4.5,
+      0.0
+    ],
+    "MCD": [
+      19.0,
+      9.0,
+      4.5
+    ],
+    "MZ": [
+      12.666666666666666,
+      6.0,
+      3.0
+    ],
+    "M_AB": [
+      9.5,
+      0.0,
+      0.0
+    ],
+    "M_BC": [
+      19.0,
+      4.5,
+      0.0
+    ],
+    "M_CD": [
+      19.0,
+      9.0,
+      4.5
+    ],
+    "M_AC": [
+      9.5,
+      4.5,
+      0.0
     ]
   },
   "projection": {
     "kind": "oblique",
-    "name": "Frozen oblique parallel view",
+    "name": "Source-matched parallel projection",
     "matrix": [
       [
-        1,
-        0.82,
-        0
+        1.0,
+        0.69,
+        0.0
       ],
       [
-        0,
-        0.41,
-        1
+        0.0,
+        0.4,
+        1.1
       ]
     ],
     "origin": [
@@ -69,19 +119,19 @@
       0
     ],
     "toward_viewer": [
-      0.6044299021853569,
-      -0.7371096368114108,
-      0.30221495109267843
+      0.5440781931990524,
+      -0.7885191205783368,
+      0.28673422566484974
     ]
   },
   "view": {
     "xlim": [
-      -0.6518941926659219,
-      6.936296039307602
+      -1.6776574894475011,
+      28.82701179210117
     ],
     "ylim": [
-      -0.44397301749365736,
-      7.144217214479866
+      -8.694102509840484,
+      21.81056677170819
     ],
     "layout": {
       "method": "frozen_content_fit",
@@ -98,12 +148,24 @@
   },
   "visibility": {
     "mode": "frozen_intervals",
-    "projection_sha256": "bc33af1a952cac1f7da60aa4446783b22039ad7ee2b20b5c0f3355ede2b16388",
-    "notes": "Visibility intervals frozen manually against this projection; no automatic occlusion."
+    "projection_sha256": "26b34f0db3b3dba3f2d0281c09567ec36e05e20033fb3403241ebb4f299147f0",
+    "notes": "Recomputed source-visible boundaries for this projection; omitted edges explicitly follow source. No automatic occlusion."
   },
   "objects": [
     {
-      "id": "AB",
+      "id": "divider",
+      "type": "face",
+      "points": [
+        "A",
+        "C",
+        "D"
+      ],
+      "role": "region",
+      "visibility": "visible",
+      "semantic_fill_reason": "Source color identifies triangular divider."
+    },
+    {
+      "id": "A_B",
       "type": "segment",
       "points": [
         "A",
@@ -113,168 +175,251 @@
       "role": "edge"
     },
     {
-      "id": "AC",
+      "id": "B_C",
       "type": "segment",
       "points": [
-        "A",
+        "B",
         "C"
       ],
-      "visibility": "hidden",
+      "visibility": "visible",
       "role": "edge"
     },
     {
-      "id": "CE",
+      "id": "C_D",
       "type": "segment",
       "points": [
         "C",
-        "E"
+        "D"
       ],
-      "visibility": "hidden",
+      "visibility": "visible",
       "role": "edge"
     },
     {
-      "id": "EA",
+      "id": "D_H",
       "type": "segment",
       "points": [
-        "E",
+        "D",
+        "H"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "H_G",
+      "type": "segment",
+      "points": [
+        "H",
+        "G"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "G_A",
+      "type": "segment",
+      "points": [
+        "G",
         "A"
       ],
       "visibility": "visible",
       "role": "edge"
     },
     {
-      "id": "BD",
+      "id": "G_F",
       "type": "segment",
       "points": [
-        "B",
-        "D"
-      ],
-      "visibility": "visible",
-      "role": "edge"
-    },
-    {
-      "id": "DF",
-      "type": "segment",
-      "points": [
-        "D",
+        "G",
         "F"
       ],
       "visibility": "visible",
       "role": "edge"
     },
     {
-      "id": "FB",
+      "id": "F_D",
       "type": "segment",
       "points": [
         "F",
-        "B"
+        "D"
       ],
       "visibility": "visible",
       "role": "edge"
     },
     {
-      "id": "CD",
+      "id": "B_H",
       "type": "segment",
       "points": [
-        "C",
-        "D"
+        "B",
+        "H"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "A_E",
+      "type": "segment",
+      "points": [
+        "A",
+        "E"
       ],
       "visibility": "hidden",
       "role": "edge"
     },
     {
-      "id": "EF",
+      "id": "E_F",
       "type": "segment",
       "points": [
         "E",
         "F"
       ],
-      "visibility": "visible",
+      "visibility": "hidden",
       "role": "edge"
     },
     {
-      "id": "AF_target",
+      "id": "E_C",
       "type": "segment",
       "points": [
-        "A",
-        "F"
+        "E",
+        "C"
       ],
-      "visibility": "visible",
-      "role": "auxiliary"
+      "visibility": "hidden",
+      "role": "edge"
     }
   ],
   "dimensions": [],
   "labels": [
     {
-      "id": "vertex_A",
+      "id": "vertexA",
       "type": "vertex",
       "text": "A",
       "anchor": "A",
       "offset_pt": [
-        -10.807031244991126,
-        -8.090616519758276
+        -9,
+        -9
       ]
     },
     {
-      "id": "vertex_B",
+      "id": "vertexB",
       "type": "vertex",
       "text": "B",
       "anchor": "B",
       "offset_pt": [
-        -3.2593375022878406,
-        -13.100638115991913
+        -3,
+        -13
       ]
     },
     {
-      "id": "vertex_C",
+      "id": "vertexC",
       "type": "vertex",
       "text": "C",
       "anchor": "C",
       "offset_pt": [
-        -12.0,
-        -21.0
+        8,
+        -4
       ]
     },
     {
-      "id": "vertex_D",
+      "id": "vertexD",
       "type": "vertex",
       "text": "D",
       "anchor": "D",
       "offset_pt": [
-        12.393578221854174,
-        -5.352496507124682
+        8,
+        6
       ]
     },
     {
-      "id": "vertex_E",
-      "type": "vertex",
-      "text": "E",
-      "anchor": "E",
+      "id": "ab",
+      "type": "text",
+      "text": "19 cm",
+      "anchor": "M_AB",
       "offset_pt": [
-        -1.4072400568735253,
-        13.42645431312119
+        0,
+        -16
       ]
     },
     {
-      "id": "vertex_F",
-      "type": "vertex",
-      "text": "F",
-      "anchor": "F",
+      "id": "bc",
+      "type": "text",
+      "text": "9 cm",
+      "anchor": "M_BC",
       "offset_pt": [
-        7.501798394716801,
-        11.223770348907912
+        18,
+        -28
+      ]
+    },
+    {
+      "id": "cd",
+      "type": "text",
+      "text": "9 cm",
+      "anchor": "M_CD",
+      "offset_pt": [
+        29,
+        0
+      ]
+    },
+    {
+      "id": "z",
+      "type": "text",
+      "text": "z cm",
+      "anchor": "M_AC",
+      "offset_pt": [
+        0,
+        -4
       ]
     }
   ],
-  "constraints": [],
+  "constraints": [
+    {
+      "id": "world_distance0",
+      "type": "distance",
+      "points": [
+        "A",
+        "B"
+      ],
+      "value": 19,
+      "basis": "Source explicit dimension."
+    },
+    {
+      "id": "world_distance1",
+      "type": "distance",
+      "points": [
+        "B",
+        "C"
+      ],
+      "value": 9,
+      "basis": "Source explicit dimension."
+    },
+    {
+      "id": "world_distance2",
+      "type": "distance",
+      "points": [
+        "C",
+        "D"
+      ],
+      "value": 9,
+      "basis": "Source explicit dimension."
+    },
+    {
+      "id": "world_perpendicular",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "basis": "Right cuboid/prism/cylinder construction, not measured screen angle."
+    }
+  ],
   "ambiguities": [],
-  "provenance": {
-    "source_key": "s3414"
-  },
-  "answer_verification": {
-    "status": "verified",
-    "verified_answer": "sqrt(AB^2+BD^2+DF^2)",
-    "issue": null,
-    "reasoning": "The right triangular prism has AB, BD, and DF mutually perpendicular. Apply the Pythagorean theorem twice: BF^2=BD^2+DF^2 and AF^2=AB^2+BF^2, hence AF=sqrt(AB^2+BD^2+DF^2)."
+  "question_revision": {
+    "instruction": "Solid 08也是。",
+    "source_question": "Calculate the area of the divider correct to two decimal places, using your rounded answer from the previous part.",
+    "source_answer": "\\[94.59 \\mathrm{m}^2\\]",
+    "change": "Answer unit corrected to cm^2, following user request for Solid06."
   }
 }

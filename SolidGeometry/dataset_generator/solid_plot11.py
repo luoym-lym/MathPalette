@@ -1,4 +1,4 @@
-"""Frozen MathVerse question Solid11; source key s3484."""
+"""Frozen MathVerse question Solid11; source key s3534."""
 from pathlib import Path
 import sys
 _PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -10,8 +10,8 @@ class Solid11:
     def __init__(self):
         self.id = 'Solid11'
         self.source_dataset = 'MathVerse'
-        self.query = 'Find the volume of the figure shown.\n\nRound your answer to two decimal places.'
-        self.answer = 'Volume $=874.93 \\mathrm{~cm}^{3}$'
+        self.query = 'Find the surface area of the figure shown.\n\nGive your answer to the nearest two decimal places.'
+        self.answer = '\\[200.49 \\mathrm{cm}^2\\]'
         self.answer_type = 'number'
         self.subject = 'SolidGeometry'
         self.level = 'medium'

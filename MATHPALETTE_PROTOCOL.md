@@ -1,15 +1,14 @@
-# MathPalette 协议入口
+# MathPalette 数据协议
 
-版本：2026-10-10。创建或修改题目、重绘图及变体前，先按题型阅读下列分支协议。
+版本：3.0.0，2026-10-10。本目录只保留正式通过的数据及其必要运行依赖。
 
-| 题型 | 协议与机器配置 | 当前流程 |
-| --- | --- | --- |
-| 函数与解析几何 | [Analytics 制作协议](Analytics/MATHPALETTE_PROTOCOL.md) | 冻结候选，用户逐题通过后正式入库；自动 Base；Special 另由用户 Pass / Collect。 |
-| 平面几何 | [重绘协议](PlaneGeometry/REDRAW_PROTOCOL.md)、[机器配置](PlaneGeometry/dataset_generator/protocol.json) | 独立重绘，用户逐题通过后正式入库；Base / Special 尚未启用。 |
-| 立体几何 | [重绘协议](SolidGeometry/REDRAW_PROTOCOL.md)、[机器配置](SolidGeometry/dataset_generator/protocol.json) | 冻结三维几何、投影和显隐，用户逐题通过后正式入库；Base / Special 尚未启用。 |
+1. **统一身份。** 同一道题的正式清单、图片、脚本、Base 和 Special 使用同一题号。Analytics 当前为 Ana01～Ana45，PlaneGeometry 为 Plane01～Plane16，SolidGeometry 为 Solid01～Solid16。旧题号仅供迁移追溯。
+2. **用户通过后收集。** 当前 77 题包含用户本次明确确认的旧 20 道 DynaMath。其余 57 题沿用既有用户通过原话与时间；Agent 数学检查、图像核验和 Special Pass 不替代原题审核。
+3. **最小正式记录。** 保留题号、来源、当前题干、答案、答案类型、重绘图、来源图、绘图程序；几何题另保留冻结场景。来源图缺失写 `null`。有改编或来源答案冲突时保留必要来源说明。
+4. **可复现依赖。** 公共绘图器、机器协议、固定坐标、投影/显隐区间、依赖版本和变体 recipes 均属于必要文件。PNG 可直接使用，SVG 可从冻结场景导出，不保留重复矢量产物。
+5. **通过记录。** `provenance/approvals.json` 保存用户原话、原通过时间和内容指纹。当前内容改变后校验失败，必须重新获得用户确认；不能自动刷新指纹冒充审核。清理迁移保留旧指纹，并核对所有原图和变体像素不变。
+6. **索引。** 各分支 `dataset.jsonl` 是正式清单，根目录 `question_bank.jsonl` 是派生汇总。运行 `python -X utf8 -B dataset_tools/catalog.py build` 更新，`check` 检查审核指纹、文件与变体。工作台、Base 和评测入口读取正式清单。
+7. **变体。** Analytics 自动生成四份 Base；Special 由用户逐份 Pass，整题 Collect。每份保留插件、图片、recipes 和重绘入口。平面、立体暂不生成 Base/Special，操作集合另定。
+8. **暂存隔离。** 未通过新题放在独立暂存区。只有明确通过并完成校验后才迁入正式目录、记录审核并更新索引。临时重绘、服务缓存、草稿及评测结果写 `.runtime/`。
 
-各分支的坐标、几何语义和渲染器分别维护；不能把函数图的网格、刻度操作直接套入几何图。只有图片的材料可以制作 `redraw_example`，不推测题干、答案或真实来源数据集，也不占用正式题号。
-
-函数、解析几何、平面和立体几何均须用户明确通过对应题号后，才加入根目录正式 `question_bank.jsonl`。所有候选保存在 `question_candidates.jsonl`，待审题在 `pending_questions.jsonl`。平面、立体分支 `dataset.jsonl` 仅包含已通过题目；Analytics 保留原 `fine_grained_dataset/dataset.jsonl` 作为 Base/Special 的冻结候选输入，正式题使用 `approved_dataset.jsonl`，待审题使用 `pending_dataset.jsonl`。用户审核记录在 `imports/mathverse_vision_dominant/question_user_reviews.json`，绑定当前题干、答案及绘图内容；内容改变后待重新审核。Agent 检查、答案核验、原题用户通过和 Special Pass/Collect 分别记录，不能相互代替。
-
-函数数据与当前工作台分别在 `Analytics/fine_grained_dataset/`、`Analytics/fine_grained_special_workbench/`。旧 A/B 人工工作台仅用于历史回放。分支说明见 [Analytics](Analytics/README.md)、[PlaneGeometry](PlaneGeometry/README.md)、[SolidGeometry](SolidGeometry/README.md)。
+分支规则：[Analytics](Analytics/MATHPALETTE_PROTOCOL.md)、[PlaneGeometry](PlaneGeometry/REDRAW_PROTOCOL.md)、[SolidGeometry](SolidGeometry/REDRAW_PROTOCOL.md)。

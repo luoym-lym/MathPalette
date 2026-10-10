@@ -7,12 +7,12 @@
   "source_image": "../../originals/Plane15.png",
   "view": {
     "xlim": [
-      -5.60046412806743,
-      5.60046412806743
+      -0.28066337213891,
+      4.273664604127317
     ],
     "ylim": [
-      -5.562560297183494,
-      5.638367958951366
+      -1.25651744303689,
+      3.297810533229337
     ],
     "layout": {
       "method": "frozen_content_fit",
@@ -28,29 +28,52 @@
     }
   },
   "points": {
-    "O": [
+    "A": [
       0,
       0
     ],
-    "A": [
-      -0.8682408883346516,
-      -4.92403876506104
-    ],
     "B": [
-      2.5000000000000004,
-      -4.330127018922193
+      0,
+      2
     ],
     "C": [
-      0.8682408883346521,
-      4.92403876506104
+      2,
+      2
+    ],
+    "D": [
+      4,
+      2
+    ],
+    "E": [
+      4,
+      1
+    ],
+    "F": [
+      4,
+      0
     ]
   },
   "objects": [
     {
-      "id": "circle",
-      "type": "circle",
-      "center": "O",
-      "radius": 5
+      "id": "rectangle",
+      "type": "polygon",
+      "points": [
+        "A",
+        "F",
+        "D",
+        "B"
+      ]
+    },
+    {
+      "id": "shade",
+      "type": "polygon",
+      "points": [
+        "A",
+        "C",
+        "E",
+        "F"
+      ],
+      "semantic_fill": true
     },
     {
       "id": "AC",
@@ -61,38 +84,12 @@
       ]
     },
     {
-      "id": "AB",
+      "id": "CE",
       "type": "segment",
       "points": [
-        "A",
-        "B"
+        "C",
+        "E"
       ]
-    },
-    {
-      "id": "BC",
-      "type": "segment",
-      "points": [
-        "B",
-        "C"
-      ]
-    },
-    {
-      "id": "OB",
-      "type": "segment",
-      "points": [
-        "O",
-        "B"
-      ]
-    },
-    {
-      "id": "angle_arc_given_AOB",
-      "type": "angle_arc",
-      "points": [
-        "A",
-        "O",
-        "B"
-      ],
-      "radius_pt": 16
     }
   ],
   "labels": [
@@ -110,8 +107,8 @@
       "type": "vertex",
       "point": "B",
       "offset_pt": [
-        12.0,
-        -12.0
+        -12.0,
+        12.0
       ]
     },
     {
@@ -119,94 +116,92 @@
       "type": "vertex",
       "point": "C",
       "offset_pt": [
+        0.0,
+        13.5
+      ]
+    },
+    {
+      "id": "v_D",
+      "type": "vertex",
+      "point": "D",
+      "offset_pt": [
         12.0,
         12.0
       ]
     },
     {
-      "id": "v_O",
+      "id": "v_E",
       "type": "vertex",
-      "point": "O",
+      "point": "E",
       "offset_pt": [
-        -13.5,
-        12.0
+        12.0,
+        0.0
       ]
     },
     {
-      "id": "given_AOB",
-      "type": "angle",
-      "points": [
-        "A",
-        "O",
-        "B"
-      ],
-      "degrees": 40,
-      "radius_pt": 64.0,
-      "arc_id": "angle_arc_given_AOB",
+      "id": "v_F",
+      "type": "vertex",
+      "point": "F",
       "offset_pt": [
-        -2.6053233644537006e-14,
-        -9.473903143468002e-15
+        12.0,
+        -12.0
       ]
     }
   ],
   "constraints": [
     {
-      "id": "AOB40",
-      "type": "angle",
-      "points": [
-        "A",
-        "O",
-        "B"
-      ],
-      "degrees": 40
-    },
-    {
-      "id": "AOC_straight",
-      "type": "collinear",
-      "points": [
-        "A",
-        "O",
-        "C"
+      "id": "CmidBD",
+      "type": "equal_length",
+      "segments": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "C",
+          "D"
+        ]
       ]
     },
     {
-      "id": "on_A",
-      "type": "on_circle",
-      "point": "A",
-      "center": "O",
-      "radius": 5
+      "id": "EmidDF",
+      "type": "equal_length",
+      "segments": [
+        [
+          "D",
+          "E"
+        ],
+        [
+          "E",
+          "F"
+        ]
+      ]
     },
     {
-      "id": "on_B",
-      "type": "on_circle",
-      "point": "B",
-      "center": "O",
-      "radius": 5
-    },
-    {
-      "id": "on_C",
-      "type": "on_circle",
-      "point": "C",
-      "center": "O",
-      "radius": 5
+      "id": "rectanglesides",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "F"
+        ]
+      ]
     }
   ],
   "ambiguities": [],
-  "query": "As shown in the figure, then the degree of angle AOB is ()\nChoices:\nA:40°\nB:50°\nC:80°\nD:100°",
-  "answer": "C",
-  "answer_type": "choice",
+  "query": "In rectangle ABDF above, C and E are midpoints of sides BD and DF, respectively. What fraction of the area of the rectangle is shaded?",
+  "answer": "5/8",
+  "answer_type": "fraction",
   "subject": "PlaneGeometry",
   "level": "high_school",
-  "provenance": {
-    "source_key": "s874",
-    "source_answer": "C",
-    "previous_model_response": "The \\(40^\\circ\\) marking is the central angle formed by rays \\(OA\\) and \\(OB\\). Therefore,\n\n\\[\n\\angle AOB=40^\\circ.\n\\]\n\nA",
-    "correction": "Source 80? corrected to 40?."
-  },
-  "answer_verification": {
-    "status": "corrected",
-    "verified_answer": "A",
-    "issue": "Independent derivation conflicts with the source GT; retain source and report this candidate.",
-    "reasoning": "The marked central angle AOB is 40 degrees, the requested angle and choice A. This differs from source GT C/80."
+  "question_revision": {
+    "instruction": "Plane37答案改成核验结果。",
+    "source_question": "In rectangle ABDF above, C and E are midpoints of sides BD and DF, respectively. What fraction of the area of the rectangle is shaded?",
+    "source_answer": "0",
+    "change": "Answer corrected to the independently verified shaded fraction 5/8."
   }
 }

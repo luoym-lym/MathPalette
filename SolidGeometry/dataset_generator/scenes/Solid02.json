@@ -1,6 +1,6 @@
 {
   "scene_schema_version": "1.0.0",
-  "protocol_version": "1.1.0",
+  "protocol_version": "1.2.0",
   "id": "Solid02",
   "status": "formal_candidate",
   "subject": "SolidGeometry",
@@ -42,6 +42,26 @@
       5.0,
       15,
       0.0
+    ],
+    "T0": [
+      2.236067977499789,
+      0,
+      -4.47213595499958
+    ],
+    "T1": [
+      2.236067977499789,
+      15,
+      -4.47213595499958
+    ],
+    "M_R": [
+      2.5,
+      0.0,
+      0.0
+    ],
+    "M_L": [
+      2.236067977499789,
+      7.5,
+      -4.47213595499958
     ]
   },
   "projection": {
@@ -76,12 +96,12 @@
   },
   "view": {
     "xlim": [
-      -5.566294750165257,
-      17.89268363905414
+      -5.5560676141905665,
+      17.874137968710446
     ],
     "ylim": [
-      -8.664977610441957,
-      14.794000778777443
+      -8.654713602040424,
+      14.77549198086059
     ],
     "layout": {
       "method": "frozen_content_fit",
@@ -99,7 +119,7 @@
   "visibility": {
     "mode": "frozen_intervals",
     "projection_sha256": "259e06bb5025dfa8943be11ccd2b71ac1c2e085915c0120b9354286389c8fe0d",
-    "notes": "Authored edge visibility is frozen for this projection; renderer performs no automatic occlusion."
+    "notes": "Back sector exposed 90..116.56505117707798, hidden 116.56505117707798..296.565051177078, exposed 296.565051177078..360; tangent generators computed analytically from source projection. Front outline and three cut-face axial edges visible."
   },
   "objects": [
     {
@@ -132,7 +152,7 @@
       ]
     },
     {
-      "id": "back_sector_outline",
+      "id": "back_exposed_upper",
       "type": "circular_arc",
       "role": "silhouette",
       "center": "O1",
@@ -149,13 +169,71 @@
       "radius": 5,
       "domain_deg": [
         90,
-        360
+        116.56505117707798
       ],
       "intervals": [
         {
           "start_deg": 90,
-          "end_deg": 360,
+          "end_deg": 116.56505117707798,
+          "visibility": "visible",
+          "samples": 361
+        }
+      ]
+    },
+    {
+      "id": "back_occluded",
+      "type": "circular_arc",
+      "role": "silhouette",
+      "center": "O1",
+      "u": [
+        1,
+        0,
+        0
+      ],
+      "v": [
+        0,
+        0,
+        1
+      ],
+      "radius": 5,
+      "domain_deg": [
+        116.56505117707798,
+        296.565051177078
+      ],
+      "intervals": [
+        {
+          "start_deg": 116.56505117707798,
+          "end_deg": 296.565051177078,
           "visibility": "hidden",
+          "samples": 361
+        }
+      ]
+    },
+    {
+      "id": "back_exposed_lower",
+      "type": "circular_arc",
+      "role": "silhouette",
+      "center": "O1",
+      "u": [
+        1,
+        0,
+        0
+      ],
+      "v": [
+        0,
+        0,
+        1
+      ],
+      "radius": 5,
+      "domain_deg": [
+        296.565051177078,
+        360
+      ],
+      "intervals": [
+        {
+          "start_deg": 296.565051177078,
+          "end_deg": 360,
+          "visibility": "visible",
           "samples": 361
         }
       ]
@@ -219,51 +297,51 @@
       ],
       "visibility": "visible",
       "role": "edge"
-    }
-  ],
-  "dimensions": [
-    {
-      "id": "radius_5",
-      "type": "distance",
-      "points": [
-        "O0",
-        "R0"
-      ],
-      "value": 5,
-      "unit": "cm",
-      "decimals": 0,
-      "offset_pt": [
-        0.0,
-        0.0
-      ],
-      "label_offset_pt": [
-        -9.333333333333334,
-        -16.0
-      ],
-      "basis": "The 5 cm source label is the radius from the cross-section center to the rim."
     },
     {
-      "id": "length_15",
-      "type": "distance",
+      "id": "center_cut_edge",
+      "type": "segment",
       "points": [
         "O0",
         "O1"
       ],
-      "value": 15,
-      "unit": "cm",
-      "decimals": 0,
-      "offset_pt": [
-        0.0,
-        0.0
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "curved_surface_tangent",
+      "type": "segment",
+      "points": [
+        "T0",
+        "T1"
       ],
-      "label_offset_pt": [
-        -21.333333333333332,
-        12.0
-      ],
-      "basis": "Dimension read from source diagram."
+      "visibility": "visible",
+      "role": "silhouette"
     }
   ],
-  "labels": [],
+  "dimensions": [],
+  "labels": [
+    {
+      "id": "radius_text",
+      "type": "text",
+      "text": "5 cm",
+      "anchor": "M_R",
+      "offset_pt": [
+        0,
+        -15
+      ]
+    },
+    {
+      "id": "length_text",
+      "type": "text",
+      "text": "15 cm",
+      "anchor": "M_L",
+      "offset_pt": [
+        8,
+        -18
+      ]
+    }
+  ],
   "constraints": [
     {
       "id": "sector_radius",
@@ -284,16 +362,23 @@
       ],
       "value": 15,
       "basis": "Source axial length label."
+    },
+    {
+      "id": "surface_tangent",
+      "type": "projected_tangent",
+      "circle": "front_sector_outline",
+      "point": "T0",
+      "segment": [
+        "T0",
+        "T1"
+      ],
+      "basis": "Analytic cylinder silhouette tangent under frozen projection."
     }
   ],
   "ambiguities": [],
-  "provenance": {
-    "source_key": "s3209"
-  },
-  "answer_verification": {
-    "status": "verified",
-    "reasoning": "The cross-section is a 270-degree sector (three quarters of a disk), radius 5 cm, extruded 15 cm. V=(3/4)*pi*5^2*15=281.25*pi=883.57 cm^3.",
-    "verified_answer": "883.57 cm^3",
-    "issue": null
+  "construction_notes": {
+    "tangent_angle_deg": 296.565051177078,
+    "tangent_check": "(-sin(t),cos(t)) is parallel to projected axis (0.82,0.41).",
+    "solid": "270 degree disk sector times [0,15] along y; open quadrant is x>0,z>0."
   }
 }

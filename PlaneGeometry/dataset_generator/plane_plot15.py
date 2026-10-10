@@ -1,4 +1,4 @@
-"""Frozen MathVerse question Plane15; source key s874."""
+"""Frozen MathVerse question Plane15; source key s3834."""
 from pathlib import Path
 import sys
 _PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -10,9 +10,9 @@ class Plane15:
     def __init__(self):
         self.id = 'Plane15'
         self.source_dataset = 'MathVerse'
-        self.query = 'As shown in the figure, then the degree of angle AOB is ()\nChoices:\nA:40°\nB:50°\nC:80°\nD:100°'
-        self.answer = 'C'
-        self.answer_type = 'choice'
+        self.query = 'In rectangle ABDF above, C and E are midpoints of sides BD and DF, respectively. What fraction of the area of the rectangle is shaded?'
+        self.answer = '5/8'
+        self.answer_type = 'fraction'
         self.subject = 'PlaneGeometry'
         self.level = 'high_school'
         self.scene_path = Path(__file__).with_name("scenes") / "Plane15.json"

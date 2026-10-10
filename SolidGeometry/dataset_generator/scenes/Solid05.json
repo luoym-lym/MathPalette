@@ -1,82 +1,112 @@
 {
   "scene_schema_version": "1.0.0",
-  "protocol_version": "1.1.0",
+  "protocol_version": "1.2.0",
   "id": "Solid05",
   "status": "formal_candidate",
   "subject": "SolidGeometry",
   "source_dataset": "MathVerse",
   "source_image": "../../originals/Solid05.png",
-  "source_note": "MathVerse testmini Vision Dominant source s3389; source diagram reconstructed in 3D.",
-  "query": "\\[Now, if the size of \\angle VAW is \\theta °, find \\theta  to two decimal places.\\]",
-  "answer": "68.34",
+  "source_note": "MathVerse testmini Vision Dominant source s3404; source diagram reconstructed in 3D.",
+  "query": "Calculate the area of the divider correct to two decimal places, using your rounded answer from the previous part.",
+  "answer": "\\[75.15 \\mathrm{cm}^2\\]",
   "answer_type": "number",
   "level": "medium",
   "world_unit": "cm",
   "points": {
     "A": [
-      -6,
-      -6,
+      0,
+      0,
       0
     ],
     "B": [
-      6,
-      -6,
+      19,
+      0,
       0
     ],
     "C": [
-      6,
-      6,
+      19,
+      10,
       0
     ],
     "D": [
-      -6,
-      6,
+      19,
+      10,
+      7
+    ],
+    "E": [
+      0,
+      10,
       0
     ],
-    "W": [
+    "F": [
       0,
-      0,
-      0
+      10,
+      7
     ],
-    "V": [
+    "G": [
       0,
       0,
-      21.37755832643195
+      7
     ],
-    "MVA": [
-      -3.0,
-      -3.0,
-      10.688779163215974
+    "H": [
+      19,
+      0,
+      7
+    ],
+    "MAB": [
+      9.5,
+      0.0,
+      0.0
     ],
     "MBC": [
-      6.0,
+      19.0,
+      5.0,
+      0.0
+    ],
+    "MCD": [
+      19.0,
+      10.0,
+      3.5
+    ],
+    "MZ": [
+      12.666666666666666,
+      6.666666666666667,
+      2.3333333333333335
+    ],
+    "M_AB": [
+      9.5,
       0.0,
       0.0
     ],
-    "MAC": [
-      0.0,
-      0.0,
+    "M_BC": [
+      19.0,
+      5.0,
       0.0
     ],
-    "angle_center_A": [
-      -6,
-      -6,
-      0
+    "M_CD": [
+      19.0,
+      10.0,
+      3.5
+    ],
+    "M_AC": [
+      9.5,
+      5.0,
+      0.0
     ]
   },
   "projection": {
     "kind": "oblique",
-    "name": "Frozen oblique parallel view",
+    "name": "Source-matched frozen schematic parallel projection",
     "matrix": [
       [
         1,
-        0.82,
+        0.6820512820512821,
         0
       ],
       [
         0,
-        0.41,
-        1
+        0.38974358974358975,
+        1.415140415140415
       ]
     ],
     "origin": [
@@ -89,19 +119,19 @@
       0
     ],
     "toward_viewer": [
-      0.6044299021853569,
-      -0.7371096368114108,
-      0.30221495109267843
+      0.5494262888061235,
+      -0.8055498219337901,
+      0.2218563444014373
     ]
   },
   "view": {
     "xlim": [
-      -13.626703928074146,
-      13.135887822101282
+      -1.4636181458786375,
+      29.381503546674594
     ],
     "ylim": [
-      -4.151533922931138,
-      22.611057827244288
+      -8.587257409985629,
+      22.257864282567603
     ],
     "layout": {
       "method": "frozen_content_fit",
@@ -118,8 +148,8 @@
   },
   "visibility": {
     "mode": "frozen_intervals",
-    "projection_sha256": "bc33af1a952cac1f7da60aa4446783b22039ad7ee2b20b5c0f3355ede2b16388",
-    "notes": "Visibility intervals frozen manually against this projection; no automatic occlusion."
+    "projection_sha256": "301387d9e7e4cad512324be0cf7c5cb039a14e251424699bdd85ddf934dcba0c",
+    "notes": "Correct twelve cuboid edges; AE, EF, EC hidden. False B-to-far-top-left diagonal removed. Divider ACD fill retained without source-absent black section borders."
   },
   "objects": [
     {
@@ -149,139 +179,122 @@
         "C",
         "D"
       ],
-      "visibility": "hidden",
+      "visibility": "visible",
       "role": "edge"
     },
     {
-      "id": "DA",
+      "id": "DH",
       "type": "segment",
       "points": [
         "D",
+        "H"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "HG",
+      "type": "segment",
+      "points": [
+        "H",
+        "G"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "GA",
+      "type": "segment",
+      "points": [
+        "G",
         "A"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "AE",
+      "type": "segment",
+      "points": [
+        "A",
+        "E"
       ],
       "visibility": "hidden",
       "role": "edge"
     },
     {
-      "id": "VA",
+      "id": "EF",
       "type": "segment",
       "points": [
-        "V",
-        "A"
+        "E",
+        "F"
       ],
-      "visibility": "visible",
+      "visibility": "hidden",
       "role": "edge"
     },
     {
-      "id": "VB",
+      "id": "EC",
       "type": "segment",
       "points": [
-        "V",
-        "B"
-      ],
-      "visibility": "visible",
-      "role": "edge"
-    },
-    {
-      "id": "VC",
-      "type": "segment",
-      "points": [
-        "V",
+        "E",
         "C"
       ],
-      "visibility": "visible",
+      "visibility": "hidden",
       "role": "edge"
     },
     {
-      "id": "VD",
+      "id": "FD",
       "type": "segment",
       "points": [
-        "V",
+        "F",
         "D"
       ],
-      "visibility": "hidden",
+      "visibility": "visible",
       "role": "edge"
     },
     {
-      "id": "VW",
+      "id": "FG",
       "type": "segment",
       "points": [
-        "V",
-        "W"
+        "F",
+        "G"
       ],
-      "visibility": "hidden",
+      "visibility": "visible",
       "role": "edge"
     },
     {
-      "id": "AC",
+      "id": "BH",
       "type": "segment",
       "points": [
-        "A",
-        "C"
+        "B",
+        "H"
       ],
       "visibility": "visible",
-      "role": "auxiliary"
+      "role": "edge"
     },
     {
-      "id": "AW",
-      "type": "segment",
+      "id": "divider",
+      "type": "face",
       "points": [
         "A",
-        "W"
+        "C",
+        "D"
       ],
+      "role": "region",
       "visibility": "visible",
-      "role": "auxiliary"
-    },
-    {
-      "id": "theta_arc",
-      "type": "circular_arc",
-      "role": "auxiliary",
-      "center": "A",
-      "u": [
-        0.2608695652173913,
-        0.2608695652173913,
-        0.9294590576709543
-      ],
-      "v": [
-        0.6572268025143901,
-        0.6572268025143901,
-        -0.36892527714080736
-      ],
-      "radius": 1.3,
-      "domain_deg": [
-        0,
-        68.35064839502282
-      ],
-      "intervals": [
-        {
-          "start_deg": 0,
-          "end_deg": 68.35064839502282,
-          "visibility": "visible",
-          "samples": 40
-        }
-      ]
+      "semantic_fill_reason": "Source cyan triangle ACD is divider; no black outlines AD/AC in source."
     }
   ],
   "dimensions": [],
   "labels": [
-    {
-      "id": "vertex_V",
-      "type": "vertex",
-      "text": "V",
-      "anchor": "V",
-      "offset_pt": [
-        12.0,
-        3.0
-      ]
-    },
     {
       "id": "vertex_A",
       "type": "vertex",
       "text": "A",
       "anchor": "A",
       "offset_pt": [
-        -9.0,
-        9.0
+        -5,
+        -13
       ]
     },
     {
@@ -290,8 +303,8 @@
       "text": "B",
       "anchor": "B",
       "offset_pt": [
-        -6.0,
-        -10.5
+        -2,
+        -13
       ]
     },
     {
@@ -300,8 +313,8 @@
       "text": "C",
       "anchor": "C",
       "offset_pt": [
-        12.0,
-        0.0
+        8,
+        -6
       ]
     },
     {
@@ -310,75 +323,117 @@
       "text": "D",
       "anchor": "D",
       "offset_pt": [
-        -10.5,
-        10.5
+        9,
+        8
       ]
     },
     {
-      "id": "vertex_W",
-      "type": "vertex",
-      "text": "W",
-      "anchor": "W",
-      "offset_pt": [
-        30,
-        25
-      ]
-    },
-    {
-      "id": "given_23cm",
+      "id": "AB_length",
       "type": "text",
-      "text": "23 cm",
-      "anchor": "MVA",
+      "text": "19 cm",
+      "anchor": "M_AB",
       "offset_pt": [
-        -21.333333333333332,
-        21.333333333333332
+        0,
+        -14
       ]
     },
     {
-      "id": "given_12cm",
+      "id": "BC_length",
       "type": "text",
-      "text": "12 cm",
-      "anchor": "MBC",
+      "text": "10 cm",
+      "anchor": "M_BC",
       "offset_pt": [
-        5.333333333333333,
-        -20.0
+        25,
+        -23
+      ]
+    },
+    {
+      "id": "CD_length",
+      "type": "text",
+      "text": "7 cm",
+      "anchor": "M_CD",
+      "offset_pt": [
+        27,
+        0
       ]
     },
     {
       "id": "unknown_z",
       "type": "text",
       "text": "z cm",
-      "anchor": "MAC",
+      "anchor": "M_AC",
       "offset_pt": [
-        -9.333333333333332,
-        -16.0
+        0,
+        -12
       ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "AB_19",
+      "type": "distance",
+      "points": [
+        "A",
+        "B"
+      ],
+      "value": 19,
+      "basis": "Source AB19 cm."
     },
     {
-      "id": "theta_label",
-      "type": "text",
-      "text": "θ°",
-      "anchor": "A",
-      "offset_pt": [
-        -20.0,
-        -16.0
-      ]
-    }
-  ],
-  "constraints": [],
-  "ambiguities": [
+      "id": "BC_10",
+      "type": "distance",
+      "points": [
+        "B",
+        "C"
+      ],
+      "value": 10,
+      "basis": "Source BC10 cm."
+    },
     {
-      "id": "angle_unit_glyph",
-      "description": "The source query contains a corrupted glyph after ?; interpreted as degrees."
+      "id": "CD_7",
+      "type": "distance",
+      "points": [
+        "C",
+        "D"
+      ],
+      "value": 7,
+      "basis": "Source CD7 cm."
+    },
+    {
+      "id": "AB_BC_perp",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "basis": "Cuboid base perpendicular edges."
+    },
+    {
+      "id": "AC_CD_perp",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "basis": "Vertical CD perpendicular to base plane."
     }
   ],
-  "provenance": {
-    "source_key": "s3389"
-  },
-  "answer_verification": {
-    "status": "needs_review",
-    "verified_answer": "68.34 degrees (using rounded AW=8.49 cm); exact dimensions give 68.35 degrees",
-    "issue": "The word ?Now? signals dependence on the rounded result from the preceding part. Using AW rounded to 8.49 cm gives 68.34 degrees; using exact AW=12/sqrt(2) gives 68.35 degrees. Preserve raw GT 68.34.",
-    "reasoning": "cos(theta)=AW/VA. With prior-part rounding: arccos(8.49/23)=68.34 degrees. Without intermediate rounding, arccos((12/sqrt(2))/23)=68.35 degrees. This is a rounding-dependence issue."
+  "ambiguities": [],
+  "question_revision": {
+    "instruction": "solid06把答案单位改成cm^2",
+    "source_question": "Calculate the area of the divider correct to two decimal places, using your rounded answer from the previous part.",
+    "source_answer": "\\[75.15 \\mathrm{m}^2\\]"
   }
 }

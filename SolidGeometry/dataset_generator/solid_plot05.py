@@ -1,4 +1,4 @@
-"""Frozen MathVerse question Solid05; source key s3389."""
+"""Frozen MathVerse question Solid05; source key s3404."""
 from pathlib import Path
 import sys
 _PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -10,8 +10,8 @@ class Solid05:
     def __init__(self):
         self.id = 'Solid05'
         self.source_dataset = 'MathVerse'
-        self.query = '\\[Now, if the size of \\angle VAW is \\theta °, find \\theta  to two decimal places.\\]'
-        self.answer = '68.34'
+        self.query = 'Calculate the area of the divider correct to two decimal places, using your rounded answer from the previous part.'
+        self.answer = '\\[75.15 \\mathrm{cm}^2\\]'
         self.answer_type = 'number'
         self.subject = 'SolidGeometry'
         self.level = 'medium'
