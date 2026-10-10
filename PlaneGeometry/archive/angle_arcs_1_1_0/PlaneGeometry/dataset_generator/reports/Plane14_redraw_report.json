@@ -1,0 +1,119 @@
+{
+  "id": "Plane14",
+  "status": "corrected",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s724",
+    "sample_id": 724,
+    "problem_id": 145,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Plane Geometry",
+    "source_subfield": "Angle",
+    "question": "As shown in the figure, then the degree of angle BOC is ()\nChoices:\nA:60°\nB:70°\nC:120°\nD:140°",
+    "source_answer": "B",
+    "source_image": "sources/s724.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      196,
+      188
+    ],
+    "source_image_sha256": "62a9d634cf8d668879be6ad7a6a3fd7086836b94cbc4bd95f27e3aa9cadce7e9",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "As shown in the figure, then the degree of angle BOC is ()\nChoices:\nA:60°\nB:70°\nC:120°\nD:140°",
+  "answer": "B",
+  "answer_type": "choice",
+  "answer_verification": {
+    "status": "corrected",
+    "verified_answer": "D",
+    "issue": "Independent derivation conflicts with the source GT; retain source and report this candidate.",
+    "reasoning": "Radii OA=OB make angle AOB=120 from base angles 30. Radii OA=OC make angle AOC=100 from base angles 40. Therefore BOC=140 degrees, choice D, differing from source GT B/70."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "PlaneGeometry/originals/Plane14.png",
+      "sha256": "62a9d634cf8d668879be6ad7a6a3fd7086836b94cbc4bd95f27e3aa9cadce7e9"
+    },
+    "scene": {
+      "path": "PlaneGeometry/dataset_generator/scenes/Plane14.json",
+      "sha256": "eda9371c05bca7060866165654f9f18bb3ac881c9e813a67b4482cfdb58a7378"
+    },
+    "protocol": {
+      "path": "PlaneGeometry/dataset_generator/protocol.json",
+      "sha256": "741e1e99ad4fa85f9d74e9d82408eca16fd1381eba3acf14d8567490dcbde98f"
+    },
+    "renderer": {
+      "path": "PlaneGeometry/dataset_generator/common_renderer.py",
+      "sha256": "a5113ef647f45f4ebfd2c3b30f27cf410735e08d6d1f201b93886b90c7c2f903"
+    },
+    "question_script": {
+      "path": "PlaneGeometry/dataset_generator/plane_plot14.py",
+      "sha256": "a49d0a87184310db15e277bf92c962e5af39b055aad1d58be1238f77acc38991"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "8860f5bd272fbb14230a10b83860e56a759e7e30a2c2850d74013689d759ec64"
+    },
+    "written_protocol": {
+      "path": "PlaneGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "771a241bb076304851a5e5eec400ec26092e947f07002bb80acfb9fcef546e7f"
+    }
+  },
+  "output_png": "PlaneGeometry/image/Plane14.png",
+  "output_png_sha256": "c98c519028133c67aef8420a0cbd5ebb628b913836ef667adcc2032a2467224a",
+  "output_svg": "PlaneGeometry/image/Plane14.svg",
+  "output_svg_sha256": "bb0512313efc8be0558cd4f937b9edb46b9a996109e1f6a6d4e792739b31f00a",
+  "rgba_pixel_sha256": "ca92cdeb5e1ef8edd3fdb93385e41a924d4b4734ed9e261c7125722aa7b64cfb",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "ABO30",
+      "type": "angle",
+      "measured": 30.000000000000004,
+      "passed": true
+    },
+    {
+      "id": "ACO40",
+      "type": "angle",
+      "measured": 40.00000000000001,
+      "passed": true
+    },
+    {
+      "id": "on_A",
+      "type": "on_circle",
+      "measured": 5.0,
+      "passed": true
+    },
+    {
+      "id": "on_B",
+      "type": "on_circle",
+      "measured": 5.0,
+      "passed": true
+    },
+    {
+      "id": "on_C",
+      "type": "on_circle",
+      "measured": 4.999999999999999,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.0.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T15:01:10.364363+00:00",
+    "image_sha256": "c98c519028133c67aef8420a0cbd5ebb628b913836ef667adcc2032a2467224a",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  }
+}

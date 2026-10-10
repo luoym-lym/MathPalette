@@ -1,0 +1,119 @@
+{
+  "id": "Plane28",
+  "status": "verified",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s1829",
+    "sample_id": 1829,
+    "problem_id": 366,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Plane Geometry",
+    "source_subfield": "Applied",
+    "question": "Find the height of the lighthouse to the nearest tenth of a metre.",
+    "source_answer": "4.6 m",
+    "source_image": "sources/s1829.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      322,
+      296
+    ],
+    "source_image_sha256": "f1340605db234a42009b547cce8d64ff9476457a1f71b7ab8879f59625ae21e7",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "Find the height of the lighthouse to the nearest tenth of a metre.",
+  "answer": "4.6 m",
+  "answer_type": "numeric",
+  "answer_verification": {
+    "status": "verified",
+    "verified_answer": "4.6 m",
+    "issue": "",
+    "reasoning": "With horizontal distance 27, the two sightline distances 34 and 37 give heights sqrt(34^2-27^2) and sqrt(37^2-27^2). Their difference rounds to 4.6 m, matching the source."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "PlaneGeometry/originals/Plane28.png",
+      "sha256": "f1340605db234a42009b547cce8d64ff9476457a1f71b7ab8879f59625ae21e7"
+    },
+    "scene": {
+      "path": "PlaneGeometry/dataset_generator/scenes/Plane28.json",
+      "sha256": "7eecd02dc8d44ee4a6171dc8f76480e0c7100ebf659ab34403c15b71eb24a01c"
+    },
+    "protocol": {
+      "path": "PlaneGeometry/dataset_generator/protocol.json",
+      "sha256": "741e1e99ad4fa85f9d74e9d82408eca16fd1381eba3acf14d8567490dcbde98f"
+    },
+    "renderer": {
+      "path": "PlaneGeometry/dataset_generator/common_renderer.py",
+      "sha256": "a5113ef647f45f4ebfd2c3b30f27cf410735e08d6d1f201b93886b90c7c2f903"
+    },
+    "question_script": {
+      "path": "PlaneGeometry/dataset_generator/plane_plot28.py",
+      "sha256": "3e8a82197d5e80de5fc50832ecb8af20222af58d187f35e51c9674bedd12f0b8"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "8860f5bd272fbb14230a10b83860e56a759e7e30a2c2850d74013689d759ec64"
+    },
+    "written_protocol": {
+      "path": "PlaneGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "771a241bb076304851a5e5eec400ec26092e947f07002bb80acfb9fcef546e7f"
+    }
+  },
+  "output_png": "PlaneGeometry/image/Plane28.png",
+  "output_png_sha256": "4814d264a9e6a70487549b59acbbaf4f1cf8ed1cfcfaee94bd98c63631499690",
+  "output_svg": "PlaneGeometry/image/Plane28.svg",
+  "output_svg_sha256": "ebbe2e0db9911e434c60382875c1150f5ee3e289262ec1cec27a0a04dc9b5d37",
+  "rgba_pixel_sha256": "4e8c1c61e1da4c6ae3cabaf4cc182839f5e05af280c402066ca5df0fb7a5772e",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "ground27",
+      "type": "distance",
+      "measured": 27.0,
+      "passed": true
+    },
+    {
+      "id": "slant34",
+      "type": "distance",
+      "measured": 34.0,
+      "passed": true
+    },
+    {
+      "id": "slant37",
+      "type": "distance",
+      "measured": 37.0,
+      "passed": true
+    },
+    {
+      "id": "height",
+      "type": "distance",
+      "measured": 4.634242961575211,
+      "passed": true
+    },
+    {
+      "id": "vertical",
+      "type": "perpendicular",
+      "measured": 0.0,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.0.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T15:01:12.784888+00:00",
+    "image_sha256": "4814d264a9e6a70487549b59acbbaf4f1cf8ed1cfcfaee94bd98c63631499690",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  }
+}

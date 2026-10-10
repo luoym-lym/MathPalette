@@ -1,0 +1,122 @@
+{
+  "id": "Solid14",
+  "status": "formal_candidate",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s3534",
+    "sample_id": 3534,
+    "problem_id": 707,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Solid Geometry",
+    "source_subfield": "Area",
+    "question": "Find the surface area of the figure shown.\n\nGive your answer to the nearest two decimal places.",
+    "source_answer": "\\[200.49 \\mathrm{cm}^2\\]",
+    "source_image": "sources/s3534.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      434,
+      272
+    ],
+    "source_image_sha256": "d00629f2da74272311c87ec6a5589e0d893dc70028872a870477568da1c8a25b",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "Find the surface area of the figure shown.\n\nGive your answer to the nearest two decimal places.",
+  "answer": "\\[200.49 \\mathrm{cm}^2\\]",
+  "answer_type": "number",
+  "answer_verification": {
+    "status": "verified",
+    "verified_answer": "200.49 cm^2",
+    "issue": null,
+    "reasoning": "Trapezoid bases 12 and 9 cm with height 5 cm give area 52.5 cm^2; slanted side is sqrt(5^2+3^2)=sqrt(34). Prism length is 3 cm. SA=2*52.5+3*(12+9+5+sqrt(34))=200.49 cm^2."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "SolidGeometry/originals/Solid14.png",
+      "sha256": "d00629f2da74272311c87ec6a5589e0d893dc70028872a870477568da1c8a25b"
+    },
+    "scene": {
+      "path": "SolidGeometry/dataset_generator/scenes/Solid14.json",
+      "sha256": "96fb5b630421778adaa529ea749017c1bf6072fb5302d6639ad97c761a2360bd"
+    },
+    "protocol": {
+      "path": "SolidGeometry/dataset_generator/protocol.json",
+      "sha256": "e66f71cd4872a2dd2aeffcc462fa227695dbd3fc5658133e98180348c7643ad9"
+    },
+    "renderer": {
+      "path": "SolidGeometry/dataset_generator/common_renderer.py",
+      "sha256": "e4313d0559ebbd3677218b3301d5ddb4f022213a3a35609fc15007370abe1e16"
+    },
+    "question_script": {
+      "path": "SolidGeometry/dataset_generator/solid_plot14.py",
+      "sha256": "72f87abcd0202e8424c8ca2e8c311a309e81d6a4c62277411d101750b4ee1df5"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "80b8da25f7befd14f571509b50635949f8733bb605b1d7f32369e72b443942b2"
+    },
+    "written_protocol": {
+      "path": "SolidGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "24d79f3157a969e7564c38f33f8bc9435a608266ae2a69149096217d7d8aa7d8"
+    },
+    "layout_helper": {
+      "path": "dataset_tools/geometry_layout.py",
+      "sha256": "a35ce82cf4b4f7eef0cae0aa5d49e304f3f1c86bda68e95f5fc649a3ece99f2d"
+    }
+  },
+  "output_png": "SolidGeometry/image/Solid14.png",
+  "output_png_sha256": "95579521ce6b3db74fe9788b7a202b5904e5d5527284b21825ff91eec2dd9e4d",
+  "output_svg": "SolidGeometry/image/Solid14.svg",
+  "output_svg_sha256": "aef93ae9d763544d3333a7973a48491044432ebdc1e92cbae9a4bf14c37e1290",
+  "rgba_pixel_sha256": "f0610964242dbb12d6e6ecaefc8b124b7922d66f34114b608d61620e097d46dd",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "projection_and_visibility",
+      "type": "projection",
+      "passed": true,
+      "projection_sha256": "bc33af1a952cac1f7da60aa4446783b22039ad7ee2b20b5c0f3355ede2b16388",
+      "automatic_occlusion": false
+    },
+    {
+      "id": "layout",
+      "type": "layout",
+      "outer_margin_fraction": 0.05,
+      "label_line_overlap": false,
+      "label_label_overlap": false,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.1.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T17:25:29.942312+00:00",
+    "image_sha256": "95579521ce6b3db74fe9788b7a202b5904e5d5527284b21825ff91eec2dd9e4d",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  },
+  "layout": {
+    "content_bbox_px": [
+      55,
+      250,
+      714,
+      517
+    ],
+    "long_side_fraction": 0.8580729166666666,
+    "center_offset_px": [
+      0.5,
+      -0.5
+    ],
+    "minimum_outer_margin_fraction": 0.0703125
+  }
+}

@@ -1,0 +1,208 @@
+"""Schema validation, frozen C actions and offline deterministic redraw."""
+from __future__ import annotations
+
+import copy
+import math
+import re
+from pathlib import Path
+
+from matplotlib.patches import Patch
+
+from renderer_adapter import RENDER_LOCK, RendererAdapter, scene_png
+from workbench_io import (GENERATOR_VERSION, ROOT, SCHEMA_VERSION, WorkbenchError, atomic_write,
+                          canonical_hash, contained_path, environment_versions, file_hash,
+                          load_config, protect_output_paths, read_json, renderer_fingerprint)
+
+
+def check_schema(value, rule, schema, path="plugin"):
+    """Validate the exact keyword subset used by the bundled JSON Schema.
+
+    No remote schema loading or executable expressions. Booleans are not numbers;
+    every numeric value must be finite, including JSON numeric overflow.
+    """
+    if "$ref" in rule:
+        return check_schema(value, schema["$defs"][rule["$ref"].split("/")[-1]], schema, path)
+    if "oneOf" in rule:
+        matches, errors = 0, []
+        for option in rule["oneOf"]:
+            try:
+                check_schema(value, option, schema, path)
+                matches += 1
+            except WorkbenchError as error:
+                errors.append(str(error))
+        if matches != 1:
+            action_type = value.get("type") if isinstance(value, dict) else None
+            supported = ("add_point", "add_line", "set_curve_style", "add_text")
+            if action_type in supported:
+                return check_schema(value, schema["$defs"][action_type], schema, path)
+            raise WorkbenchError(f"{path}.type：未知动作 {action_type!r}；支持 {', '.join(supported)}。")
+        return
+    typ = rule.get("type")
+    try:
+        finite_number = type(value) in (int, float) and math.isfinite(value)
+    except OverflowError:
+        finite_number = False
+    valid = {"object": isinstance(value, dict), "array": isinstance(value, list),
+             "string": isinstance(value, str), "boolean": type(value) is bool,
+             "number": finite_number}
+    if typ and not valid.get(typ, False):
+        raise WorkbenchError(f"{path}：需要 {typ}，数值必须有限。")
+    if "const" in rule and (type(value) is not type(rule["const"]) or value != rule["const"]):
+        raise WorkbenchError(f"{path}：必须为 {rule['const']!r}。")
+    if "enum" in rule and value not in rule["enum"]:
+        raise WorkbenchError(f"{path}：允许值为 {rule['enum']}。")
+    if typ == "object":
+        missing = set(rule.get("required", [])) - value.keys()
+        extra = value.keys() - rule.get("properties", {}).keys()
+        if missing:
+            raise WorkbenchError(f"{path}：缺少字段 {', '.join(sorted(missing))}。")
+        if extra and rule.get("additionalProperties") is False:
+            raise WorkbenchError(f"{path}：不允许字段 {', '.join(sorted(extra))}。")
+        for key, item in value.items():
+            if key in rule.get("properties", {}):
+                check_schema(item, rule["properties"][key], schema, f"{path}.{key}")
+    elif typ == "array":
+        if not rule.get("minItems", 0) <= len(value) <= rule.get("maxItems", math.inf):
+            raise WorkbenchError(f"{path}：数组长度须在 {rule.get('minItems', 0)}～{rule.get('maxItems', '∞')}。")
+        for index, item in enumerate(value):
+            check_schema(item, rule["items"], schema, f"{path}[{index}]")
+    elif typ == "string":
+        if not rule.get("minLength", 0) <= len(value) <= rule.get("maxLength", math.inf):
+            raise WorkbenchError(f"{path}：文字长度不符合要求。")
+        if "pattern" in rule and re.search(rule["pattern"], value) is None:
+            raise WorkbenchError(f"{path}：格式不符合 {rule['pattern']}。")
+    elif typ == "number":
+        if value < rule.get("minimum", -math.inf) or value > rule.get("maximum", math.inf):
+            raise WorkbenchError(f"{path}：数值超出允许范围。")
+        if "exclusiveMinimum" in rule and value <= rule["exclusiveMinimum"]:
+            raise WorkbenchError(f"{path}：必须大于 {rule['exclusiveMinimum']}。")
+
+
+class PluginRenderer:
+    def __init__(self, config, adapter, metadata):
+        self.config, self.adapter, self.metadata = config, adapter, metadata
+        self.schema = read_json(ROOT / "plugin.schema.json")
+
+    def normalize(self, plugin):
+        check_schema(plugin, self.schema, self.schema)
+        qid = plugin["question_id"]
+        if qid not in self.metadata:
+            raise WorkbenchError(f"不存在题目 {qid}。")
+        objects = {obj["id"]: obj for obj in self.metadata[qid]["objects"]}
+        used = set(objects)
+        normalized = copy.deepcopy(plugin)
+        normalized.setdefault("description", "")
+        normalized.setdefault("intent", "")
+        for index, action in enumerate(normalized["params"]["actions"]):
+            action_type = action["type"]
+            for key, value in self.config["defaults"][action_type].items():
+                action.setdefault(key, copy.deepcopy(value))
+            if action_type == "set_curve_style":
+                target = objects.get(action["target"])
+                if not target or not target.get("styleable"):
+                    raise WorkbenchError(f"actions[{index}].target：{action['target']} 不是可修改的原曲线/轮廓。")
+            else:
+                if action["id"] in used:
+                    raise WorkbenchError(f"actions[{index}].id：{action['id']} 与原对象或已有动作冲突。")
+                used.add(action["id"])
+            if action_type == "add_line":
+                if action["endpoints"][0] == action["endpoints"][1]:
+                    raise WorkbenchError(f"actions[{index}]：线段端点不能相同。")
+                if "dash_pattern_pt" in action:
+                    if action["linestyle"] != "dashed" or len(action["dash_pattern_pt"]) % 2:
+                        raise WorkbenchError(f"actions[{index}]：dash_pattern_pt 需偶数个长度且 linestyle=dashed。")
+                elif action["linestyle"] == "dashed":
+                    action["dash_pattern_pt"] = [3.7, 1.6]
+            if "color" in action:
+                action["color"] = action["color"].upper()
+        check_schema(normalized, self.schema, self.schema)
+        return normalized
+
+    def render(self, plugin, frozen=False):
+        plugin = copy.deepcopy(plugin) if frozen else self.normalize(plugin)
+        check_schema(plugin, self.schema, self.schema)
+        qid = plugin["question_id"]
+        with RENDER_LOCK:
+            scene = self.adapter.scene(qid)
+            try:
+                _, original_digest = scene_png(scene)
+                if original_digest != self.metadata[qid]["original_pixel_sha256"]:
+                    raise WorkbenchError(f"{qid} 原场景已改变。", 409, "baseline_mismatch")
+                for action in plugin["params"]["actions"]:
+                    typ = action["type"]
+                    if typ == "set_curve_style":
+                        artist = scene.artists.get(action["target"])
+                        if artist is None:
+                            raise WorkbenchError("冻结参数的目标对象不存在。", 409, "object_changed")
+                        if isinstance(artist, Patch):
+                            artist.set_edgecolor(action["color"])
+                        else:
+                            artist.set_color(action["color"])
+                        artist.set_linewidth(action["linewidth_pt"])
+                        artist.set_linestyle("--" if action["linestyle"] == "dashed" else "-")
+                    elif typ == "add_point":
+                        scene.ax.scatter(*action["xy"], s=action["size_pt2"], marker="o",
+                                         facecolors=action["color"] if action["filled"] else "#FFFFFF",
+                                         edgecolors=action["color"], linewidths=action["edge_linewidth_pt"],
+                                         zorder=10, clip_on=True)
+                    elif typ == "add_line":
+                        (a, b) = action["endpoints"]
+                        line, = scene.ax.plot([a[0], b[0]], [a[1], b[1]], color=action["color"],
+                                              linewidth=action["linewidth_pt"], marker=None,
+                                              linestyle="--" if action["linestyle"] == "dashed" else "-",
+                                              solid_capstyle="butt", dash_capstyle="butt", zorder=9, clip_on=True)
+                        if "dash_pattern_pt" in action:
+                            # Explicit pattern is in pt; disable Matplotlib's linewidth scaling.
+                            import matplotlib as mpl
+                            with mpl.rc_context({"lines.scale_dashes": False}):
+                                line.set_linestyle((0, action["dash_pattern_pt"]))
+                    else:
+                        scene.ax.text(*action["xy"], action["text"], color=action["color"],
+                                      fontsize=action["fontsize_pt"], fontfamily=self.adapter.renderer.FONT_FAMILY,
+                                      ha=action["ha"], va=action["va"], zorder=11, clip_on=True)
+                # The original finalize has already locked axes. It must not run again here.
+                data, digest = scene_png(scene)
+                if digest == original_digest:
+                    raise WorkbenchError("候选没有实际像素变化：标记可能全在视窗外、被遮挡或样式相同。", code="no_visual_change")
+                return plugin, data, digest
+            finally:
+                scene.close()
+
+
+def render_special_recipe(recipe, output_path=None, config_path=None):
+    """Offline redraw from a reviewed, frozen recipe; never consult drafts."""
+    config = load_config(config_path)
+    protect_output_paths(config)
+    if (recipe.get("generator_version") != GENERATOR_VERSION or
+            recipe.get("plugin_schema_version") != SCHEMA_VERSION or recipe.get("status") != "passed"):
+        raise WorkbenchError("recipe 不是当前版本的人工作品；拒绝跨版本重绘。", 409, "version_mismatch")
+    if recipe.get("environment") != environment_versions():
+        raise WorkbenchError("重绘依赖版本与通过时不同。", 409, "environment_changed")
+    if (recipe.get("renderer_sha256") != renderer_fingerprint() or
+            recipe.get("schema_sha256") != file_hash(ROOT / "plugin.schema.json")):
+        raise WorkbenchError("重绘执行器或 schema 文件与通过时不同。", 409, "renderer_changed")
+    adapter = RendererAdapter(config)
+    if adapter.manifest["fingerprint"] != recipe["baseline_fingerprint"]:
+        raise WorkbenchError("重绘输入基线不一致。", 409, "baseline_changed")
+    plugin = {key: copy.deepcopy(recipe[key]) for key in (
+        "plugin_schema_version", "question_id", "category", "operation", "description", "intent", "params")}
+    if canonical_hash(plugin) != recipe["parameter_key"]:
+        raise WorkbenchError("recipe 参数与冻结哈希不符。", 409, "integrity_error")
+    metadata = {recipe["question_id"]: adapter.inspect_question(recipe["question_id"])}
+    renderer = PluginRenderer(config, adapter, metadata)
+    _, data, digest = renderer.render(plugin, frozen=True)
+    if digest != recipe["pixel_sha256"]:
+        raise WorkbenchError("重绘像素不等于已通过图；没有写入输出。", 409, "reproduction_mismatch")
+    target = Path(output_path).resolve() if output_path else contained_path(
+        Path(config["runtime_dir"]) / "reproduced", f"{recipe['question_id']}/{recipe['slot_id']}.png")
+    protected = [Path(config[k]).resolve() for k in ("original_image_dir", "question_class_dir", "output_dir")]
+    protected.append(Path(config["dataset_root"]) / "base_variant")
+    if any(target.is_relative_to(p) for p in protected) or target in adapter.input_files.values():
+        raise WorkbenchError("重绘不能覆盖只读输入、A/B 或正式 C 文件。", code="unsafe_path")
+    runtime = Path(config["runtime_dir"])
+    if (target.suffix.lower() != ".png" or
+            target.is_relative_to(runtime) and not target.is_relative_to(runtime / "reproduced") or
+            target.is_relative_to(ROOT) and not target.is_relative_to(ROOT / "reproduced")):
+        raise WorkbenchError("重绘须写入 PNG，且不能覆盖工作台程序、状态、草稿或候选。", code="unsafe_path")
+    atomic_write(target, data)
+    return {"image_path": str(target), "pixel_sha256": digest, "matches_accepted": True}

@@ -1,0 +1,101 @@
+{
+  "id": "Plane32",
+  "status": "needs_review",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s2054",
+    "sample_id": 2054,
+    "problem_id": 411,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Plane Geometry",
+    "source_subfield": "Length",
+    "question": "Consider the sector below. \n\nCalculate the perimeter of the sector. Round your answer to two decimal places.",
+    "source_answer": "Perimeter $=257.73 \\mathrm{~m}$",
+    "source_image": "sources/s2054.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      725,
+      488
+    ],
+    "source_image_sha256": "2d768bf8f6719e33bc1fcc673a208ca93f96811ff89ed2a0441ea154bbfbe9b7",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "Consider the sector below. \n\nCalculate the perimeter of the sector. Round your answer to two decimal places.",
+  "answer": "Perimeter $=257.73 \\mathrm{~m}$",
+  "answer_type": "numeric",
+  "answer_verification": {
+    "status": "needs_review",
+    "verified_answer": null,
+    "issue": "Source conditions do not permit a unique verified answer.",
+    "reasoning": "Radius 32.2 m is legible but the sector angle or arc measure is not. The perimeter cannot be uniquely computed."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "PlaneGeometry/originals/Plane32.png",
+      "sha256": "2d768bf8f6719e33bc1fcc673a208ca93f96811ff89ed2a0441ea154bbfbe9b7"
+    },
+    "scene": {
+      "path": "PlaneGeometry/dataset_generator/scenes/Plane32.json",
+      "sha256": "75b12ec0fbca0c07a143b2435d2262805da18a41e981e503032e67a4e5dda763"
+    },
+    "protocol": {
+      "path": "PlaneGeometry/dataset_generator/protocol.json",
+      "sha256": "741e1e99ad4fa85f9d74e9d82408eca16fd1381eba3acf14d8567490dcbde98f"
+    },
+    "renderer": {
+      "path": "PlaneGeometry/dataset_generator/common_renderer.py",
+      "sha256": "a5113ef647f45f4ebfd2c3b30f27cf410735e08d6d1f201b93886b90c7c2f903"
+    },
+    "question_script": {
+      "path": "PlaneGeometry/dataset_generator/plane_plot32.py",
+      "sha256": "41389502e119db3ead78a6d81c6b6b6056a3061a5d4efa0bf2839b50dd7cb17e"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "8860f5bd272fbb14230a10b83860e56a759e7e30a2c2850d74013689d759ec64"
+    },
+    "written_protocol": {
+      "path": "PlaneGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "771a241bb076304851a5e5eec400ec26092e947f07002bb80acfb9fcef546e7f"
+    }
+  },
+  "output_png": "PlaneGeometry/image/Plane32.png",
+  "output_png_sha256": "5b8ddb115fd91c0c1968903fcb8aec0dac40c92fa373fd2106037650b672745f",
+  "output_svg": "PlaneGeometry/image/Plane32.svg",
+  "output_svg_sha256": "25d23b4003bd0b54118013d3745de5b2491cafe105a45883eaca46622990f24f",
+  "rgba_pixel_sha256": "90889b2805e173f386c7b061eea2da370a5fffc1905680fba45c91328edf2814",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "OA32",
+      "type": "distance",
+      "measured": 32.2,
+      "passed": true
+    },
+    {
+      "id": "OB32",
+      "type": "distance",
+      "measured": 32.2,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.0.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T15:01:13.396769+00:00",
+    "image_sha256": "5b8ddb115fd91c0c1968903fcb8aec0dac40c92fa373fd2106037650b672745f",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  }
+}

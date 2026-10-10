@@ -1,0 +1,151 @@
+{
+  "id": "Plane02",
+  "status": "verified",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s209",
+    "sample_id": 209,
+    "problem_id": 42,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Plane Geometry",
+    "source_subfield": "Applied",
+    "question": "It is known that BC parallel PQ, AB:AP = 2.0:5.0, then the length of CQ is ()\nChoices:\nA:8cm\nB:12cm\nC:30cm\nD:50cm",
+    "source_answer": "B",
+    "source_image": "sources/s209.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      298,
+      246
+    ],
+    "source_image_sha256": "d9ae999b891894f2ab91ef372d5ca15a2a28a814f90f9daaf79d422e58a1949d",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "It is known that BC parallel PQ, AB:AP = 2.0:5.0, then the length of CQ is ()\nChoices:\nA:8cm\nB:12cm\nC:30cm\nD:50cm",
+  "answer": "B",
+  "answer_type": "choice",
+  "answer_verification": {
+    "status": "verified",
+    "verified_answer": "B",
+    "issue": "",
+    "reasoning": "AQ=20 and similar triangles give AC/AQ=AB/AP=2/5. Therefore AC=8 and CQ=12 cm, choice B."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "PlaneGeometry/originals/Plane02.png",
+      "sha256": "d9ae999b891894f2ab91ef372d5ca15a2a28a814f90f9daaf79d422e58a1949d"
+    },
+    "scene": {
+      "path": "PlaneGeometry/dataset_generator/scenes/Plane02.json",
+      "sha256": "080affc282bffd1f8673516e3421ec998c003145917da4d9f03341fa643a3725"
+    },
+    "protocol": {
+      "path": "PlaneGeometry/dataset_generator/protocol.json",
+      "sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+    },
+    "renderer": {
+      "path": "PlaneGeometry/dataset_generator/common_renderer.py",
+      "sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b"
+    },
+    "question_script": {
+      "path": "PlaneGeometry/dataset_generator/plane_plot02.py",
+      "sha256": "ff75891b73f3299dfe2c26d41f7ac89bb9306832dc09df661dbf0bdf270af515"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "9dce5802c3be8d96402681d7d875b07bdf9bdacd4f02c1b8334496086e62659d"
+    },
+    "written_protocol": {
+      "path": "PlaneGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "35ffc43f988e98111024e9cbaa5c2be3c60cbfe3a0cfa1124e210628ee125261"
+    },
+    "layout_helper": {
+      "path": "dataset_tools/geometry_layout.py",
+      "sha256": "a35ce82cf4b4f7eef0cae0aa5d49e304f3f1c86bda68e95f5fc649a3ece99f2d"
+    }
+  },
+  "output_png": "PlaneGeometry/image/Plane02.png",
+  "output_png_sha256": "dfa1d71fe8ad336d3fb294ea83a3792d3af70037faadc27f6219c2e077ea8978",
+  "output_svg": "PlaneGeometry/image/Plane02.svg",
+  "output_svg_sha256": "020062979c1e504ecdede4a1796df7a3e003fc7ce98ea34ab7c9adf99c18f131",
+  "rgba_pixel_sha256": "a015e776d936e6bece92000dfb4dd03ce1d797ba7b7a539783dc9b8572100c21",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "parallel_BC_PQ",
+      "type": "parallel",
+      "measured": 0.0,
+      "passed": true
+    },
+    {
+      "id": "collinear_ABP",
+      "type": "between",
+      "measured": 1.000044491661356e-11,
+      "passed": true
+    },
+    {
+      "id": "collinear_ACQ",
+      "type": "between",
+      "measured": 1.000044491661356e-11,
+      "passed": true
+    },
+    {
+      "id": "AQ20",
+      "type": "distance",
+      "measured": 20.000000000009724,
+      "passed": true
+    },
+    {
+      "id": "AB2_AP5",
+      "type": "distance",
+      "measured": 8.00000000002121,
+      "passed": true
+    },
+    {
+      "id": "AP20",
+      "type": "distance",
+      "measured": 20.000000000009724,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.2.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": true,
+    "reviewed_at_utc": "2026-10-09T17:50:19.935895+00:00",
+    "image_sha256": "dfa1d71fe8ad336d3fb294ea83a3792d3af70037faadc27f6219c2e077ea8978",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "user_review": {
+    "status": "registered",
+    "user_pass": true,
+    "reviewer": "user",
+    "approved_at_utc": "2026-10-09T17:51:56.001341+00:00",
+    "content_sha256": "606bcd53bae1fc0807e8d4a88ecdb6109512f516c32c004dc021f0d46fede48b",
+    "approved_content_sha256": "606bcd53bae1fc0807e8d4a88ecdb6109512f516c32c004dc021f0d46fede48b"
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  },
+  "layout": {
+    "content_bbox_px": [
+      38,
+      62,
+      728,
+      659
+    ],
+    "long_side_fraction": 0.8984375,
+    "center_offset_px": [
+      -1.0,
+      -23.5
+    ],
+    "minimum_outer_margin_fraction": 0.049479166666666664
+  }
+}

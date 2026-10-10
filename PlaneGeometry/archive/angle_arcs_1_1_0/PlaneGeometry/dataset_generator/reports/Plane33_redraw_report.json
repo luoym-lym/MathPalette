@@ -1,0 +1,100 @@
+{
+  "id": "Plane33",
+  "status": "needs_review",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s2059",
+    "sample_id": 2059,
+    "problem_id": 412,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Plane Geometry",
+    "source_subfield": "Applied",
+    "question": "This is part of a piece of jewellery. It is made out of a metal plate base, and gold plated wire (of negligible thickness) runs around the outside.\n\nWhat is the area covered by the metal plate base?\n\nGive your answer correct to two decimal places.",
+    "source_answer": "Area $=70.69 \\mathrm{~mm}^{2}$",
+    "source_image": "sources/s2059.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      749,
+      436
+    ],
+    "source_image_sha256": "cdc98bfb1c255956bf8f93537dc8e17efea8d7f3bce3a11a04e4f27eb9be59ce",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "This is part of a piece of jewellery. It is made out of a metal plate base, and gold plated wire (of negligible thickness) runs around the outside.\n\nWhat is the area covered by the metal plate base?\n\nGive your answer correct to two decimal places.",
+  "answer": "Area $=70.69 \\mathrm{~mm}^{2}$",
+  "answer_type": "area",
+  "answer_verification": {
+    "status": "verified",
+    "verified_answer": "70.69 mm^2",
+    "reasoning": "There are two radius-6 quarter-circles and two radius-3 quarter-circles. Total shaded area = 2(1/4 pi 6^2)+2(1/4 pi 3^2)=22.5 pi=70.6858..., which rounds to 70.69 mm^2, matching the source GT."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "PlaneGeometry/originals/Plane33.png",
+      "sha256": "cdc98bfb1c255956bf8f93537dc8e17efea8d7f3bce3a11a04e4f27eb9be59ce"
+    },
+    "scene": {
+      "path": "PlaneGeometry/dataset_generator/scenes/Plane33.json",
+      "sha256": "99dccd9b7c6be9041fdc7e46f69a281bc3b2f89f933beca64cc70cc8e4f85f05"
+    },
+    "protocol": {
+      "path": "PlaneGeometry/dataset_generator/protocol.json",
+      "sha256": "741e1e99ad4fa85f9d74e9d82408eca16fd1381eba3acf14d8567490dcbde98f"
+    },
+    "renderer": {
+      "path": "PlaneGeometry/dataset_generator/common_renderer.py",
+      "sha256": "a5113ef647f45f4ebfd2c3b30f27cf410735e08d6d1f201b93886b90c7c2f903"
+    },
+    "question_script": {
+      "path": "PlaneGeometry/dataset_generator/plane_plot33.py",
+      "sha256": "2714d6b58a4f4cd6e83bc43acc5109f133ae5bfab4efef2e0d43f2c65a9298cb"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "8860f5bd272fbb14230a10b83860e56a759e7e30a2c2850d74013689d759ec64"
+    },
+    "written_protocol": {
+      "path": "PlaneGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "771a241bb076304851a5e5eec400ec26092e947f07002bb80acfb9fcef546e7f"
+    }
+  },
+  "output_png": "PlaneGeometry/image/Plane33.png",
+  "output_png_sha256": "77d7e3211dea7f352e0472a83f3450e068d140188d21a2b6b329aca6c69fb80c",
+  "output_svg": "PlaneGeometry/image/Plane33.svg",
+  "output_svg_sha256": "5459dc6f3d2f6e5b3b772733cf715ed662e3a9f4c5b06ba8b261bb1cd1c3e372",
+  "rgba_pixel_sha256": "323f1e9607da9a361f8e793d54d64201bdc6500423db34a80cda7afcda3d43ba",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "r6_length",
+      "type": "distance",
+      "measured": 5.999999999999999,
+      "passed": true
+    },
+    {
+      "id": "r3_length",
+      "type": "distance",
+      "measured": 2.9999999999999996,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.0.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T15:01:13.590047+00:00",
+    "image_sha256": "77d7e3211dea7f352e0472a83f3450e068d140188d21a2b6b329aca6c69fb80c",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  }
+}

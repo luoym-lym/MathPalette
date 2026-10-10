@@ -1,0 +1,101 @@
+{
+  "id": "Plane18",
+  "status": "verified",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s1149",
+    "sample_id": 1149,
+    "problem_id": 230,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Plane Geometry",
+    "source_subfield": "Angle",
+    "question": "\\[Find m \\angle 2 if m \\widehat B C = 30 and m \\widehat A D = 20.\nChoices:\nA:20\nB:25\nC:30\nD:155\\]",
+    "source_answer": "D",
+    "source_image": "sources/s1149.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      363,
+      300
+    ],
+    "source_image_sha256": "5d6d036d0eaf251a2ac14b16b462203f6e51a5c422549ea4f6e53b02d82476d0",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "\\[Find m \\angle 2 if m \\widehat B C = 30 and m \\widehat A D = 20.\nChoices:\nA:20\nB:25\nC:30\nD:155\\]",
+  "answer": "D",
+  "answer_type": "choice",
+  "answer_verification": {
+    "status": "verified",
+    "verified_answer": "D",
+    "issue": "",
+    "reasoning": "The source labels arcs BC=30 and AD=20. Chords AC and DB intersect; angle 1=(30+20)/2=25, and adjacent angle 2=155 degrees (choice D). The numeric result is not drawn in the figure."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "PlaneGeometry/originals/Plane18.png",
+      "sha256": "5d6d036d0eaf251a2ac14b16b462203f6e51a5c422549ea4f6e53b02d82476d0"
+    },
+    "scene": {
+      "path": "PlaneGeometry/dataset_generator/scenes/Plane18.json",
+      "sha256": "947c5bb2e6ab09834e77c6789d8fc9bbdbc4b65f6c6fbc17c2836345bc171db3"
+    },
+    "protocol": {
+      "path": "PlaneGeometry/dataset_generator/protocol.json",
+      "sha256": "741e1e99ad4fa85f9d74e9d82408eca16fd1381eba3acf14d8567490dcbde98f"
+    },
+    "renderer": {
+      "path": "PlaneGeometry/dataset_generator/common_renderer.py",
+      "sha256": "a5113ef647f45f4ebfd2c3b30f27cf410735e08d6d1f201b93886b90c7c2f903"
+    },
+    "question_script": {
+      "path": "PlaneGeometry/dataset_generator/plane_plot18.py",
+      "sha256": "67307df8b68781099d09da27d575064711de84a4bba67f63ff8c04e218203ad7"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "8860f5bd272fbb14230a10b83860e56a759e7e30a2c2850d74013689d759ec64"
+    },
+    "written_protocol": {
+      "path": "PlaneGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "771a241bb076304851a5e5eec400ec26092e947f07002bb80acfb9fcef546e7f"
+    }
+  },
+  "output_png": "PlaneGeometry/image/Plane18.png",
+  "output_png_sha256": "ee3294bc7651f70e33725648442a0e30b22f78903720ba92a642aa8c19a59c05",
+  "output_svg": "PlaneGeometry/image/Plane18.svg",
+  "output_svg_sha256": "141a7521bba0c59e7766cdcdb125e586dc4e136755508a4a75721f331a4ef80f",
+  "rgba_pixel_sha256": "ddec30c092782d41940a9b4962b9c293fa047d7a277c6105357bfe6cdf899074",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "arcBC30",
+      "type": "angle",
+      "measured": 29.999999999999993,
+      "passed": true
+    },
+    {
+      "id": "arcAD20",
+      "type": "angle",
+      "measured": 20.00000000000001,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.0.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T15:01:11.020545+00:00",
+    "image_sha256": "ee3294bc7651f70e33725648442a0e30b22f78903720ba92a642aa8c19a59c05",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  }
+}

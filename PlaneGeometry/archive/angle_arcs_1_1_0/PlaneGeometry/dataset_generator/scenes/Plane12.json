@@ -1,0 +1,271 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.0.0",
+  "id": "Plane12",
+  "status": "corrected",
+  "source_dataset": "MathVerse",
+  "source_image": "../../originals/Plane12.png",
+  "view": {
+    "xlim": [
+      -20,
+      20
+    ],
+    "ylim": [
+      -20,
+      20
+    ]
+  },
+  "points": {
+    "C": [
+      0,
+      0
+    ],
+    "A": [
+      3,
+      0
+    ],
+    "B": [
+      18,
+      0
+    ],
+    "T": [
+      3,
+      2
+    ],
+    "H": [
+      18,
+      12
+    ]
+  },
+  "objects": [
+    {
+      "id": "ground_CA",
+      "type": "segment",
+      "points": [
+        "C",
+        "A"
+      ]
+    },
+    {
+      "id": "ground_AB",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "small_vertical",
+      "type": "segment",
+      "points": [
+        "A",
+        "T"
+      ]
+    },
+    {
+      "id": "building",
+      "type": "segment",
+      "points": [
+        "B",
+        "H"
+      ]
+    },
+    {
+      "id": "sightline",
+      "type": "segment",
+      "points": [
+        "C",
+        "H"
+      ],
+      "linestyle": "dashed"
+    },
+    {
+      "id": "sightline_AT",
+      "type": "segment",
+      "points": [
+        "T",
+        "H"
+      ],
+      "linestyle": "dashed"
+    },
+    {
+      "id": "right_A",
+      "type": "right_angle",
+      "points": [
+        "C",
+        "A",
+        "T"
+      ]
+    },
+    {
+      "id": "right_B",
+      "type": "right_angle",
+      "points": [
+        "A",
+        "B",
+        "H"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "v_C",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        0,
+        -10
+      ]
+    },
+    {
+      "id": "v_A",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        0,
+        -10
+      ]
+    },
+    {
+      "id": "v_B",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        0,
+        -10
+      ]
+    },
+    {
+      "id": "v_T",
+      "type": "vertex",
+      "point": "T",
+      "offset_pt": [
+        7,
+        8
+      ]
+    },
+    {
+      "id": "v_H",
+      "type": "vertex",
+      "point": "H",
+      "offset_pt": [
+        8,
+        8
+      ]
+    },
+    {
+      "id": "CA3",
+      "type": "text",
+      "anchor": "A",
+      "text": "3",
+      "offset_pt": [
+        -15,
+        -16
+      ]
+    },
+    {
+      "id": "AB15",
+      "type": "text",
+      "anchor": "A",
+      "text": "15",
+      "offset_pt": [
+        55,
+        -16
+      ]
+    },
+    {
+      "id": "AT2",
+      "type": "text",
+      "anchor": "T",
+      "text": "2",
+      "offset_pt": [
+        14,
+        0
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "CA3",
+      "type": "distance",
+      "points": [
+        "C",
+        "A"
+      ],
+      "value": 3
+    },
+    {
+      "id": "AB15",
+      "type": "distance",
+      "points": [
+        "A",
+        "B"
+      ],
+      "value": 15
+    },
+    {
+      "id": "AT2",
+      "type": "distance",
+      "points": [
+        "A",
+        "T"
+      ],
+      "value": 2
+    },
+    {
+      "id": "sight_collinear",
+      "type": "collinear",
+      "points": [
+        "C",
+        "T",
+        "H"
+      ]
+    },
+    {
+      "id": "vert_perp",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "T"
+        ]
+      ]
+    },
+    {
+      "id": "building_perp",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "H"
+        ]
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "query": "then the height of the building is ()\nChoices:\nA:10m\nB:12m\nC:15m\nD:22.5m",
+  "answer": "A",
+  "answer_type": "numeric",
+  "subject": "PlaneGeometry",
+  "level": "high_school",
+  "provenance": {
+    "source_key": "s704",
+    "source_answer": "A",
+    "previous_model_response": "The dashed lines are parallel sun rays, so the two height\u2013shadow triangles are similar.\n\n- Small object height: \\(2\\text{ m}\\)\n- Its shadow: \\(3\\text{ m}\\)\n- Building shadow: \\(3+15=18\\text{ m}\\)\n\nThus,\n\\[\n\\frac{h}{18}=\\frac{2}{3}\n\\]\n\\[\nh=12\\text{ m}\n\\]\n\nB",
+    "correction": "Source GT 10m corrected to 12m."
+  },
+  "answer_verification": {
+    "status": "corrected",
+    "verified_answer": "12 m",
+    "issue": "Independent derivation conflicts with the source GT; retain source and report this candidate.",
+    "reasoning": "The sightline passes through a 2 m reference at A, with CA=3 and AB=15. Similar triangles give building height 2*(18/3)=12 m, differing from source GT 10 m."
+  }
+}

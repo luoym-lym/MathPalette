@@ -1,0 +1,144 @@
+{
+  "id": "Plane35",
+  "status": "corrected",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s2134",
+    "sample_id": 2134,
+    "problem_id": 427,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Plane Geometry",
+    "source_subfield": "Applied",
+    "question": "A boat is at the current point. Write down the bearing that the boat should travel on to return to the starting point.",
+    "source_answer": "N 34° W",
+    "source_image": "sources/s2134.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      347,
+      382
+    ],
+    "source_image_sha256": "ac338cb47a471ead996c8c0444fee540a22cf3cd418258a9c1a306fda803c8a0",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "A boat is at the current point. Write down the bearing that the boat should travel on to return to the starting point.",
+  "answer": "N 34° W",
+  "answer_type": "text",
+  "answer_verification": {
+    "status": "verified",
+    "verified_answer": "N 34 degrees W",
+    "reasoning": "The two legs have east components 12 sin14? and 16 sin49?, and south components 12 cos14? and 16 cos49?. From the current point back to Start, the displacement is 22.1405 km north and 14.9784 km west, giving bearing N arctan(14.9784/22.1405) W = N34.1?W, matching the source answer rounded to a whole degree."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "PlaneGeometry/originals/Plane35.png",
+      "sha256": "ac338cb47a471ead996c8c0444fee540a22cf3cd418258a9c1a306fda803c8a0"
+    },
+    "scene": {
+      "path": "PlaneGeometry/dataset_generator/scenes/Plane35.json",
+      "sha256": "e72be6ffb817248069fd0268e04627152efc539f3ba7eec89c250df87b7f9ac1"
+    },
+    "protocol": {
+      "path": "PlaneGeometry/dataset_generator/protocol.json",
+      "sha256": "a5cccd93ef351ef88528d51c370c5b86beb709e043bd8ab8895b64cde1e4f900"
+    },
+    "renderer": {
+      "path": "PlaneGeometry/dataset_generator/common_renderer.py",
+      "sha256": "649d82586597eabe78fb4594233049dc734be5bfa58a1a1619b760a83747d2b7"
+    },
+    "question_script": {
+      "path": "PlaneGeometry/dataset_generator/plane_plot35.py",
+      "sha256": "52a58a856812aa02755df5dab2cb43ff14a5f9006e63b5426f9df199d0f38120"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "8860f5bd272fbb14230a10b83860e56a759e7e30a2c2850d74013689d759ec64"
+    },
+    "written_protocol": {
+      "path": "PlaneGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "ddf61ea1b6d35179a27c41d3ce270a29fb18a7827d7a2729201645cd61229bf6"
+    }
+  },
+  "output_png": "PlaneGeometry/image/Plane35.png",
+  "output_png_sha256": "051ed3a6ea11d544ca98741d3343b70730739138b6669cb47c32dc7d3a983364",
+  "output_svg": "PlaneGeometry/image/Plane35.svg",
+  "output_svg_sha256": "5a4a900397189a61eb234c846a9cf47fe8ce5a115cac07f0d828a6ee47cd5ffd",
+  "rgba_pixel_sha256": "94ae8644d81284c6ff3f9d38ecab4fdcb9e5546f60b2b9dc77d4a9d96445abb5",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "leg12",
+      "type": "distance",
+      "measured": 12.000000000000002,
+      "passed": true
+    },
+    {
+      "id": "leg16",
+      "type": "distance",
+      "measured": 15.999999999999998,
+      "passed": true
+    },
+    {
+      "id": "bearing14",
+      "type": "angle",
+      "measured": 14.000000000000027,
+      "passed": true
+    },
+    {
+      "id": "bearing49",
+      "type": "angle",
+      "measured": 48.99999999999999,
+      "passed": true
+    },
+    {
+      "id": "arc_binding_start14",
+      "type": "angle_annotation",
+      "label_id": "start14",
+      "arc_id": "arc14",
+      "measured": 1,
+      "passed": true
+    },
+    {
+      "id": "arc_binding_turn49",
+      "type": "angle_annotation",
+      "label_id": "turn49",
+      "arc_id": "arc49",
+      "measured": 1,
+      "passed": true
+    },
+    {
+      "id": "arc_binding_unknown_b",
+      "type": "angle_annotation",
+      "label_id": "unknown_b",
+      "arc_id": "arcb",
+      "measured": 1,
+      "passed": true
+    },
+    {
+      "id": "arc_binding_unknown_a",
+      "type": "angle_annotation",
+      "label_id": "unknown_a",
+      "arc_id": "arca",
+      "measured": 1,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.1.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T16:59:26.277611+00:00",
+    "image_sha256": "051ed3a6ea11d544ca98741d3343b70730739138b6669cb47c32dc7d3a983364",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  }
+}

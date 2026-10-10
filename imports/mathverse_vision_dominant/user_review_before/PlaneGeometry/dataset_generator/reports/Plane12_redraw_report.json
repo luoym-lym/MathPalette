@@ -1,0 +1,143 @@
+{
+  "id": "Plane12",
+  "status": "corrected",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s704",
+    "sample_id": 704,
+    "problem_id": 141,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Plane Geometry",
+    "source_subfield": "Applied",
+    "question": "then the height of the building is ()\nChoices:\nA:10m\nB:12m\nC:15m\nD:22.5m",
+    "source_answer": "A",
+    "source_image": "sources/s704.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      330,
+      183
+    ],
+    "source_image_sha256": "92f3dd8d7b88d6a25f0f87937f01027223964824a3885c93941c3344168f3c4e",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "then the height of the building is ()\nChoices:\nA:10m\nB:12m\nC:15m\nD:22.5m",
+  "answer": "A",
+  "answer_type": "numeric",
+  "answer_verification": {
+    "status": "corrected",
+    "verified_answer": "12 m",
+    "issue": "Independent derivation conflicts with the source GT; retain source and report this candidate.",
+    "reasoning": "The sightline passes through a 2 m reference at A, with CA=3 and AB=15. Similar triangles give building height 2*(18/3)=12 m, differing from source GT 10 m."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "PlaneGeometry/originals/Plane12.png",
+      "sha256": "92f3dd8d7b88d6a25f0f87937f01027223964824a3885c93941c3344168f3c4e"
+    },
+    "scene": {
+      "path": "PlaneGeometry/dataset_generator/scenes/Plane12.json",
+      "sha256": "19eaa4a1fc82edd2642829bba197d80585977bb62043827f207b31dc4258864e"
+    },
+    "protocol": {
+      "path": "PlaneGeometry/dataset_generator/protocol.json",
+      "sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+    },
+    "renderer": {
+      "path": "PlaneGeometry/dataset_generator/common_renderer.py",
+      "sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b"
+    },
+    "question_script": {
+      "path": "PlaneGeometry/dataset_generator/plane_plot12.py",
+      "sha256": "9d487af68d9673674cbbc5701fa9fcf64f44b7b7666d940ad47ecd99becd43d9"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "80b8da25f7befd14f571509b50635949f8733bb605b1d7f32369e72b443942b2"
+    },
+    "written_protocol": {
+      "path": "PlaneGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "e27401b48833214594092de784cdf421bbf987d50529844d9c98545ebc386829"
+    },
+    "layout_helper": {
+      "path": "dataset_tools/geometry_layout.py",
+      "sha256": "a35ce82cf4b4f7eef0cae0aa5d49e304f3f1c86bda68e95f5fc649a3ece99f2d"
+    }
+  },
+  "output_png": "PlaneGeometry/image/Plane12.png",
+  "output_png_sha256": "11bbd2564798fb77cc621c9f0ade9ea6098e11ff4f0cf0fd01e22166d2b87093",
+  "output_svg": "PlaneGeometry/image/Plane12.svg",
+  "output_svg_sha256": "401feddf014e2e5189d2083a828fb1231a576fa4481d572325246ae50802536b",
+  "rgba_pixel_sha256": "d5d02faa49e9823a9ad78ae4db376428f6144b2d6890cad7915dcac58e12302c",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "CA3",
+      "type": "distance",
+      "measured": 3.0,
+      "passed": true
+    },
+    {
+      "id": "AB15",
+      "type": "distance",
+      "measured": 15.0,
+      "passed": true
+    },
+    {
+      "id": "AT2",
+      "type": "distance",
+      "measured": 2.0,
+      "passed": true
+    },
+    {
+      "id": "sight_collinear",
+      "type": "collinear",
+      "measured": 0.0,
+      "passed": true
+    },
+    {
+      "id": "vert_perp",
+      "type": "perpendicular",
+      "measured": 0.0,
+      "passed": true
+    },
+    {
+      "id": "building_perp",
+      "type": "perpendicular",
+      "measured": 0.0,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.2.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T17:26:34.204344+00:00",
+    "image_sha256": "11bbd2564798fb77cc621c9f0ade9ea6098e11ff4f0cf0fd01e22166d2b87093",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  },
+  "layout": {
+    "content_bbox_px": [
+      54,
+      143,
+      713,
+      625
+    ],
+    "long_side_fraction": 0.8580729166666666,
+    "center_offset_px": [
+      -0.5,
+      0.0
+    ],
+    "minimum_outer_margin_fraction": 0.0703125
+  }
+}

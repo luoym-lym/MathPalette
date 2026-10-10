@@ -1,0 +1,152 @@
+{
+  "id": "Solid01",
+  "status": "formal_candidate",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s3184",
+    "sample_id": 3184,
+    "problem_id": 637,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Solid Geometry",
+    "source_subfield": "Length",
+    "question": "We want to find $y$, the length of the diagonal $DF$.\n\nCalculate $y$ to two decimal places.",
+    "source_answer": "$y=21.61$",
+    "source_image": "sources/s3184.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      746,
+      431
+    ],
+    "source_image_sha256": "1f9b52cced03c5d7c1bd9fa5b308714d0b47f03353c8847cc75b0c6f86fa7e9a",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "We want to find $y$, the length of the diagonal $DF$.\n\nCalculate $y$ to two decimal places.",
+  "answer": "$y=21.61$",
+  "answer_type": "number",
+  "answer_verification": {
+    "status": "verified",
+    "reasoning": "Cuboid side lengths are AB=11 cm, BF=11 cm, and FG=15 cm. The space diagonal is DF=sqrt(11^2+11^2+15^2)=sqrt(467)=21.61 cm.",
+    "verified_answer": "21.61 cm",
+    "issue": null
+  },
+  "inputs": {
+    "source_image": {
+      "path": "SolidGeometry/originals/Solid01.png",
+      "sha256": "1f9b52cced03c5d7c1bd9fa5b308714d0b47f03353c8847cc75b0c6f86fa7e9a"
+    },
+    "scene": {
+      "path": "SolidGeometry/dataset_generator/scenes/Solid01.json",
+      "sha256": "652efe73d8707a48565bff6313a2d7ee6d9a72ba5c42b902681dd7f3f17e1149"
+    },
+    "protocol": {
+      "path": "SolidGeometry/dataset_generator/protocol.json",
+      "sha256": "7c63cb30a6a6735b3fd607b68001442220a901824b384c405e00c45f57f30131"
+    },
+    "renderer": {
+      "path": "SolidGeometry/dataset_generator/common_renderer.py",
+      "sha256": "30af6cd2be3757532b3eb4e64fb935617aaec881e25eb721af0c1ddcaa018e5c"
+    },
+    "question_script": {
+      "path": "SolidGeometry/dataset_generator/solid_plot01.py",
+      "sha256": "7eb276b513260ac7a26f6057fcfa7486f31672688f4e8f476277d190f8881754"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "8860f5bd272fbb14230a10b83860e56a759e7e30a2c2850d74013689d759ec64"
+    },
+    "written_protocol": {
+      "path": "SolidGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "645d867d11f06dc38a4f0240feb7e5f65dd6cc1233b6accbb1dc07cffd43a04d"
+    }
+  },
+  "output_png": "SolidGeometry/image/Solid01.png",
+  "output_png_sha256": "a8f65ac0f2e67783d3bf69705714941cd19fb7542b5d5a33488c59d2920e5f88",
+  "output_svg": "SolidGeometry/image/Solid01.svg",
+  "output_svg_sha256": "84843d867eb44d70b2cd333ce6ecff7cf6437cef846947bfc193df84e39a4b67",
+  "rgba_pixel_sha256": "92fd1dffff88cb62212dd1364de47bba1c63f55f6f471602a1687b55162b5b01",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "projection_and_visibility",
+      "type": "projection",
+      "passed": true,
+      "projection_sha256": "e3e6940ed802fc746006fc9c24d94d3695ee2c0e6b0d7283eb7cceef4300ffcf",
+      "automatic_occlusion": false
+    },
+    {
+      "id": "cuboid_ab",
+      "type": "distance",
+      "basis": "Source dimension AB=11 cm.",
+      "measured": 11.0,
+      "passed": true
+    },
+    {
+      "id": "cuboid_bf",
+      "type": "distance",
+      "basis": "Source dimension BF=11 cm.",
+      "measured": 11.0,
+      "passed": true
+    },
+    {
+      "id": "cuboid_fg",
+      "type": "distance",
+      "basis": "Source dimension FG=15 cm.",
+      "measured": 15.0,
+      "passed": true
+    },
+    {
+      "id": "AB_11",
+      "type": "dimension",
+      "text": "11 cm",
+      "measured_world_length": 11.0,
+      "unit": "cm",
+      "basis": "Dimension read from source diagram.",
+      "passed": true
+    },
+    {
+      "id": "BF_11",
+      "type": "dimension",
+      "text": "11 cm",
+      "measured_world_length": 11.0,
+      "unit": "cm",
+      "basis": "Dimension read from source diagram.",
+      "passed": true
+    },
+    {
+      "id": "FG_15",
+      "type": "dimension",
+      "text": "15 cm",
+      "measured_world_length": 15.0,
+      "unit": "cm",
+      "basis": "Dimension read from source diagram.",
+      "passed": true
+    },
+    {
+      "id": "layout",
+      "type": "layout",
+      "outer_margin_fraction": 0.08,
+      "label_line_overlap": false,
+      "label_label_overlap": false,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.0.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T15:15:27.564958+00:00",
+    "image_sha256": "a8f65ac0f2e67783d3bf69705714941cd19fb7542b5d5a33488c59d2920e5f88",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  }
+}

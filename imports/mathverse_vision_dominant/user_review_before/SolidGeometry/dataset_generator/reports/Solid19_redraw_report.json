@@ -1,0 +1,146 @@
+{
+  "id": "Solid19",
+  "status": "formal_candidate",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s3599",
+    "sample_id": 3599,
+    "problem_id": 720,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Solid Geometry",
+    "source_subfield": "Volume",
+    "question": "Two similar cylinders as shown in the figure, find the fully simplified ratio of the volume of the larger cylinder to the volume of the smaller cylinder.",
+    "source_answer": "100",
+    "source_image": "sources/s3599.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      314,
+      216
+    ],
+    "source_image_sha256": "900ea81e219b965e6ea1f1b475b9984f921217c0cd36380bee65f7afcf09f480",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "Two similar cylinders as shown in the figure, find the fully simplified ratio of the volume of the larger cylinder to the volume of the smaller cylinder.",
+  "answer": "100",
+  "answer_type": "ratio",
+  "answer_verification": {
+    "status": "needs_review",
+    "verified_answer": "64:1",
+    "issue": "The volume labels give 5760:90=64:1, conflicting with raw GT 100. For similar cylinders, the linear scale factor is cube_root(64)=4, so c=4*20=80 cm; this also requires consistent implied radii.",
+    "reasoning": "The volume ratio is 5760/90=64. For similar cylinders, the linear scale factor is cube_root(64)=4, so the larger height is c=4*20=80 cm."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "SolidGeometry/originals/Solid19.png",
+      "sha256": "900ea81e219b965e6ea1f1b475b9984f921217c0cd36380bee65f7afcf09f480"
+    },
+    "scene": {
+      "path": "SolidGeometry/dataset_generator/scenes/Solid19.json",
+      "sha256": "94729d47cb914b888526d1fecda119a53c73ee547da90123328c291ab5d57432"
+    },
+    "protocol": {
+      "path": "SolidGeometry/dataset_generator/protocol.json",
+      "sha256": "e66f71cd4872a2dd2aeffcc462fa227695dbd3fc5658133e98180348c7643ad9"
+    },
+    "renderer": {
+      "path": "SolidGeometry/dataset_generator/common_renderer.py",
+      "sha256": "e4313d0559ebbd3677218b3301d5ddb4f022213a3a35609fc15007370abe1e16"
+    },
+    "question_script": {
+      "path": "SolidGeometry/dataset_generator/solid_plot19.py",
+      "sha256": "e666c181504f1ba600277bc87d7bd41c96ae00ea38535eee46a55d994aec5d62"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "80b8da25f7befd14f571509b50635949f8733bb605b1d7f32369e72b443942b2"
+    },
+    "written_protocol": {
+      "path": "SolidGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "24d79f3157a969e7564c38f33f8bc9435a608266ae2a69149096217d7d8aa7d8"
+    },
+    "layout_helper": {
+      "path": "dataset_tools/geometry_layout.py",
+      "sha256": "a35ce82cf4b4f7eef0cae0aa5d49e304f3f1c86bda68e95f5fc649a3ece99f2d"
+    }
+  },
+  "output_png": "SolidGeometry/image/Solid19.png",
+  "output_png_sha256": "15466448a668357da785a8fb50b0e87cb50b529af92d07a64eb7c5ebaf70fcbf",
+  "output_svg": "SolidGeometry/image/Solid19.svg",
+  "output_svg_sha256": "a8419838b18148f58be8551b150fcbc80aa12f3e2f8d00208beb4d331858cadb",
+  "rgba_pixel_sha256": "cbabef2fcf92a54ce8aa1233dd877bdea739a4f3620fb4c1e749883897c96458",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "projection_and_visibility",
+      "type": "projection",
+      "passed": true,
+      "projection_sha256": "23d60d17452ed95a4efa9177a59565afc2d0963ae966dfd811ea07ba9434d522",
+      "automatic_occlusion": false
+    },
+    {
+      "id": "large_bottom",
+      "type": "arc_sampling",
+      "max_chord_error_px": 0.001431675331048428,
+      "passed": true
+    },
+    {
+      "id": "large_top",
+      "type": "arc_sampling",
+      "max_chord_error_px": 0.001431675331048428,
+      "passed": true
+    },
+    {
+      "id": "small_bottom",
+      "type": "arc_sampling",
+      "max_chord_error_px": 0.000357918832762107,
+      "passed": true
+    },
+    {
+      "id": "small_top",
+      "type": "arc_sampling",
+      "max_chord_error_px": 0.000357918832762107,
+      "passed": true
+    },
+    {
+      "id": "layout",
+      "type": "layout",
+      "outer_margin_fraction": 0.05,
+      "label_line_overlap": false,
+      "label_label_overlap": false,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.1.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T17:25:30.838526+00:00",
+    "image_sha256": "15466448a668357da785a8fb50b0e87cb50b529af92d07a64eb7c5ebaf70fcbf",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  },
+  "layout": {
+    "content_bbox_px": [
+      55,
+      122,
+      714,
+      646
+    ],
+    "long_side_fraction": 0.8580729166666666,
+    "center_offset_px": [
+      0.5,
+      0.0
+    ],
+    "minimum_outer_margin_fraction": 0.0703125
+  }
+}

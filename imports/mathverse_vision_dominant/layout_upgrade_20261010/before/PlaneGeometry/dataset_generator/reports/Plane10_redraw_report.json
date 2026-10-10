@@ -1,0 +1,121 @@
+{
+  "id": "Plane10",
+  "status": "verified",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s479",
+    "sample_id": 479,
+    "problem_id": 96,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Plane Geometry",
+    "source_subfield": "Angle",
+    "question": "As shown in the figure, then the degree of angle APB is ()\nChoices:\nA:80°\nB:140°\nC:20°\nD:50°",
+    "source_answer": "C",
+    "source_image": "sources/s479.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      217,
+      204
+    ],
+    "source_image_sha256": "6f8458b5b1fec92e795af25e845243259e6a652e88247d3f325b3a522a46cbbe",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "As shown in the figure, then the degree of angle APB is ()\nChoices:\nA:80°\nB:140°\nC:20°\nD:50°",
+  "answer": "C",
+  "answer_type": "choice",
+  "answer_verification": {
+    "status": "verified",
+    "verified_answer": "C",
+    "issue": "",
+    "reasoning": "Central angle AOB=40 and inscribed angle APB intercept the same arc. Thus APB=20 degrees, choice C."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "PlaneGeometry/originals/Plane10.png",
+      "sha256": "6f8458b5b1fec92e795af25e845243259e6a652e88247d3f325b3a522a46cbbe"
+    },
+    "scene": {
+      "path": "PlaneGeometry/dataset_generator/scenes/Plane10.json",
+      "sha256": "83b1baab0e5ae4b2bea3e5f3948f894a04d2d1cbd361952ea4f6e66ee71e0a52"
+    },
+    "protocol": {
+      "path": "PlaneGeometry/dataset_generator/protocol.json",
+      "sha256": "a5cccd93ef351ef88528d51c370c5b86beb709e043bd8ab8895b64cde1e4f900"
+    },
+    "renderer": {
+      "path": "PlaneGeometry/dataset_generator/common_renderer.py",
+      "sha256": "649d82586597eabe78fb4594233049dc734be5bfa58a1a1619b760a83747d2b7"
+    },
+    "question_script": {
+      "path": "PlaneGeometry/dataset_generator/plane_plot10.py",
+      "sha256": "cc1d73b030fb18eb140160204d9c0bfb85c39d6b33a8d50092ce33142eb435b6"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "8860f5bd272fbb14230a10b83860e56a759e7e30a2c2850d74013689d759ec64"
+    },
+    "written_protocol": {
+      "path": "PlaneGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "ddf61ea1b6d35179a27c41d3ce270a29fb18a7827d7a2729201645cd61229bf6"
+    }
+  },
+  "output_png": "PlaneGeometry/image/Plane10.png",
+  "output_png_sha256": "5e057c05ebccd47ea5be52055f8a50b8b66e28c081b43b9dbeddb114168cbd72",
+  "output_svg": "PlaneGeometry/image/Plane10.svg",
+  "output_svg_sha256": "85b4d224f810a0f9d330ce3b4f9f80838a4387bb4ecbda1810dba6c6dc535943",
+  "rgba_pixel_sha256": "2720cae1ac8d9ec1a007136aad87a50db8b58fd70222153fe30887579daf0cd7",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "AOB40",
+      "type": "angle",
+      "measured": 40.00000000000001,
+      "passed": true
+    },
+    {
+      "id": "on_A",
+      "type": "on_circle",
+      "measured": 5.0,
+      "passed": true
+    },
+    {
+      "id": "on_B",
+      "type": "on_circle",
+      "measured": 5.0,
+      "passed": true
+    },
+    {
+      "id": "on_P",
+      "type": "on_circle",
+      "measured": 5.0,
+      "passed": true
+    },
+    {
+      "id": "arc_binding_given_AOB",
+      "type": "angle_annotation",
+      "label_id": "given_AOB",
+      "arc_id": "angle_arc_given_AOB",
+      "measured": 1,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.1.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T16:59:22.036436+00:00",
+    "image_sha256": "5e057c05ebccd47ea5be52055f8a50b8b66e28c081b43b9dbeddb114168cbd72",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  }
+}

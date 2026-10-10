@@ -1,0 +1,154 @@
+{
+  "id": "Plane20",
+  "status": "needs_review",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s1379",
+    "sample_id": 1379,
+    "problem_id": 276,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Plane Geometry",
+    "source_subfield": "Angle",
+    "question": "\\[Find m \\widehat C B.\nChoices:\nA:24\nB:33\nC:67\nD:134\\]",
+    "source_answer": "C",
+    "source_image": "sources/s1379.jpg",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      573,
+      558
+    ],
+    "source_image_sha256": "43d4b98676e56ca56d825bfefacc7ec3cdbe16cc08256724857bb9b3194ab483",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "\\[Find m \\widehat C B.\nChoices:\nA:24\nB:33\nC:67\nD:134\\]",
+  "answer": "C",
+  "answer_type": "choice",
+  "answer_verification": {
+    "status": "needs_review",
+    "verified_answer": "C (67 degrees)",
+    "issue": "Radius 13 and chord 24 imply central angle COD about 134.8 degrees, while the source labels it 134 degrees; record as rounded source data.",
+    "reasoning": "OB is perpendicular to chord CD at X, so CX=12. In right triangle OCX, OC=13 and CX=12, so angle COX=arcsin(12/13), about 67 degrees. Since OX lies on OB, arc CB is about 67 degrees (choice C)."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "PlaneGeometry/originals/Plane20.png",
+      "sha256": "43d4b98676e56ca56d825bfefacc7ec3cdbe16cc08256724857bb9b3194ab483"
+    },
+    "scene": {
+      "path": "PlaneGeometry/dataset_generator/scenes/Plane20.json",
+      "sha256": "cdbd1515457c79ae308213e77ca3ab7f2295c9b2a03508557df354c86b0f1330"
+    },
+    "protocol": {
+      "path": "PlaneGeometry/dataset_generator/protocol.json",
+      "sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+    },
+    "renderer": {
+      "path": "PlaneGeometry/dataset_generator/common_renderer.py",
+      "sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b"
+    },
+    "question_script": {
+      "path": "PlaneGeometry/dataset_generator/plane_plot20.py",
+      "sha256": "5562364ffeb9d8e59590eee0b8379898fe73320478ee547400bade10f36f65c5"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "80b8da25f7befd14f571509b50635949f8733bb605b1d7f32369e72b443942b2"
+    },
+    "written_protocol": {
+      "path": "PlaneGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "e27401b48833214594092de784cdf421bbf987d50529844d9c98545ebc386829"
+    },
+    "layout_helper": {
+      "path": "dataset_tools/geometry_layout.py",
+      "sha256": "a35ce82cf4b4f7eef0cae0aa5d49e304f3f1c86bda68e95f5fc649a3ece99f2d"
+    }
+  },
+  "output_png": "PlaneGeometry/image/Plane20.png",
+  "output_png_sha256": "9b0e13f0271b1478abfbf887de9583b18b7143ca4bb7d0a412f407477d1548c6",
+  "output_svg": "PlaneGeometry/image/Plane20.svg",
+  "output_svg_sha256": "0194421bf213f57d885fc33abde5bd4746d762f48e5b43ff7aa7908f143c613f",
+  "rgba_pixel_sha256": "776f7528f523d64da2da9b61c24efb5c9a9e8b8a527ca37ba6c21a18fef6b127",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "OC13",
+      "type": "distance",
+      "measured": 13.000000000000002,
+      "passed": true
+    },
+    {
+      "id": "CD24",
+      "type": "distance",
+      "measured": 24.000000000000004,
+      "passed": true
+    },
+    {
+      "id": "OXperpCD",
+      "type": "perpendicular",
+      "measured": 0.0,
+      "passed": true
+    },
+    {
+      "id": "XmidCD",
+      "type": "equal_length",
+      "measured": [
+        12.000000000000002,
+        12.000000000000002
+      ],
+      "passed": true
+    },
+    {
+      "id": "OXBcollinear",
+      "type": "collinear",
+      "measured": 0.0,
+      "passed": true
+    },
+    {
+      "id": "Bcircle",
+      "type": "on_circle",
+      "measured": 13.000000000000002,
+      "passed": true
+    },
+    {
+      "id": "arc_binding_given134",
+      "type": "angle_annotation",
+      "label_id": "given134",
+      "arc_id": "angle_arc_given134",
+      "measured": 1,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.2.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T17:26:35.759140+00:00",
+    "image_sha256": "9b0e13f0271b1478abfbf887de9583b18b7143ca4bb7d0a412f407477d1548c6",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  },
+  "layout": {
+    "content_bbox_px": [
+      53,
+      54,
+      714,
+      713
+    ],
+    "long_side_fraction": 0.8606770833333334,
+    "center_offset_px": [
+      -0.5,
+      -0.5
+    ],
+    "minimum_outer_margin_fraction": 0.06901041666666667
+  }
+}

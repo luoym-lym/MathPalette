@@ -1,0 +1,283 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "Plane19",
+  "status": "verified",
+  "source_dataset": "MathVerse",
+  "source_image": "../../originals/Plane19.png",
+  "view": {
+    "xlim": [
+      -1.2090074632586045,
+      16.512506573894193
+    ],
+    "ylim": [
+      -11.554706964417369,
+      6.166807072735429
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "points": {
+    "A": [
+      0.0,
+      0.0
+    ],
+    "C": [
+      15.454813220625095,
+      0.0
+    ],
+    "B": [
+      5.656854249492381,
+      -5.656854249492381
+    ],
+    "F": [
+      5.656854249492381,
+      0.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "AB",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "BC",
+      "type": "segment",
+      "points": [
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "AC",
+      "type": "segment",
+      "points": [
+        "A",
+        "C"
+      ]
+    },
+    {
+      "id": "BF",
+      "type": "segment",
+      "points": [
+        "B",
+        "F"
+      ]
+    },
+    {
+      "id": "right_F",
+      "type": "right_angle",
+      "points": [
+        "B",
+        "F",
+        "C"
+      ]
+    },
+    {
+      "id": "angle_arc_angle_A",
+      "type": "angle_arc",
+      "points": [
+        "B",
+        "A",
+        "C"
+      ],
+      "radius_pt": 16
+    },
+    {
+      "id": "angle_arc_angle_C",
+      "type": "angle_arc",
+      "points": [
+        "A",
+        "C",
+        "B"
+      ],
+      "radius_pt": 16
+    }
+  ],
+  "labels": [
+    {
+      "id": "v_A",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        -12.0,
+        12.0
+      ]
+    },
+    {
+      "id": "v_B",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        -12.0,
+        -12.0
+      ]
+    },
+    {
+      "id": "v_C",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        12.0,
+        -12.0
+      ]
+    },
+    {
+      "id": "v_F",
+      "type": "vertex",
+      "point": "F",
+      "offset_pt": [
+        0.0,
+        13.5
+      ]
+    },
+    {
+      "id": "AB8",
+      "type": "text",
+      "anchor": "A",
+      "text": "8",
+      "offset_pt": [
+        -18.666666666666664,
+        -20.0
+      ]
+    },
+    {
+      "id": "angle_A",
+      "type": "angle",
+      "points": [
+        "B",
+        "A",
+        "C"
+      ],
+      "degrees": 45,
+      "radius_pt": 40.0,
+      "arc_id": "angle_arc_angle_A",
+      "offset_pt": [
+        1.5430281576944176,
+        4.449719300000621
+      ]
+    },
+    {
+      "id": "angle_C",
+      "type": "angle",
+      "points": [
+        "A",
+        "C",
+        "B"
+      ],
+      "degrees": 30,
+      "radius_pt": 56.0,
+      "arc_id": "angle_arc_angle_C",
+      "offset_pt": [
+        -0.9704285513936384,
+        4.2886770981809
+      ]
+    },
+    {
+      "id": "x",
+      "type": "text",
+      "anchor": "F",
+      "text": "x",
+      "offset_pt": [
+        16.0,
+        -13.333333333333332
+      ]
+    },
+    {
+      "id": "y",
+      "type": "text",
+      "anchor": "F",
+      "text": "y",
+      "offset_pt": [
+        26.6666666667,
+        20
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "AB8",
+      "type": "distance",
+      "points": [
+        "A",
+        "B"
+      ],
+      "value": 8
+    },
+    {
+      "id": "A45",
+      "type": "angle",
+      "points": [
+        "B",
+        "A",
+        "C"
+      ],
+      "degrees": 45
+    },
+    {
+      "id": "C30",
+      "type": "angle",
+      "points": [
+        "A",
+        "C",
+        "B"
+      ],
+      "degrees": 30
+    },
+    {
+      "id": "rightF",
+      "type": "angle",
+      "points": [
+        "B",
+        "F",
+        "C"
+      ],
+      "degrees": 90
+    },
+    {
+      "id": "altitude",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "F"
+        ]
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "query": "\\[Find x.\nChoices:\nA:4\nB:4 \\sqrt { 2 }\nC:4 \\sqrt { 3 }\nD:8\\]",
+  "answer": "B",
+  "answer_type": "choice",
+  "subject": "PlaneGeometry",
+  "level": "high_school",
+  "provenance": {
+    "source_key": "s1189",
+    "source_answer": "B",
+    "previous_model_response": "The large triangle has angles \\(45^\\circ\\), \\(30^\\circ\\), and \\(90^\\circ\\), so it is a \\(45^\\circ\\!-\\!45^\\circ\\!-\\!30^\\circ\\) triangle. Since the side of length \\(8\\) is opposite \\(30^\\circ\\), the hypotenuse is\n\n\\[\nAC=2(8)=16.\n\\]\n\nThe other leg is \\(8\\sqrt3\\). Using the area in two ways,\n\n\\[\n\\frac12(8)(8\\sqrt3)=\\frac12(16)x.\n\\]\n\nThus,\n\n\\[\nx=4\\sqrt3.\n\\]\n\n\\(\\boxed{\\text{C}}\\)"
+  },
+  "answer_verification": {
+    "status": "verified",
+    "verified_answer": "B",
+    "issue": "",
+    "reasoning": "In the right triangle, x=8*sin(45 degrees)=4sqrt(2), choice B."
+  }
+}

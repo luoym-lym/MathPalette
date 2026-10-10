@@ -1,0 +1,129 @@
+{
+  "id": "Plane03",
+  "status": "needs_review",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s214",
+    "sample_id": 214,
+    "problem_id": 43,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Plane Geometry",
+    "source_subfield": "Angle",
+    "question": "As shown in the figure, If point D happens to fall on AB, then the degree of angle DOB is ()\nChoices:\nA:40°\nB:30°\nC:38°\nD:15°",
+    "source_answer": "A",
+    "source_image": "sources/s214.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      276,
+      209
+    ],
+    "source_image_sha256": "396d04bf984eb6ef747db8a954a4f56445ab59b6e08b21b4cbb9057381113562",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "As shown in the figure, If point D happens to fall on AB, then the degree of angle DOB is ()\nChoices:\nA:40°\nB:30°\nC:38°\nD:15°",
+  "answer": "A",
+  "answer_type": "choice",
+  "answer_verification": {
+    "status": "needs_review",
+    "verified_answer": null,
+    "issue": "Source conditions do not permit a unique verified answer.",
+    "reasoning": "D lies on AB, but the source gives no condition fixing B along that line. Moving B changes angle DOB, so the target is not unique."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "PlaneGeometry/originals/Plane03.png",
+      "sha256": "396d04bf984eb6ef747db8a954a4f56445ab59b6e08b21b4cbb9057381113562"
+    },
+    "scene": {
+      "path": "PlaneGeometry/dataset_generator/scenes/Plane03.json",
+      "sha256": "c9945427a972ebc083607e29b17c8c16f5e7a389528c109463baa24a5ab8e241"
+    },
+    "protocol": {
+      "path": "PlaneGeometry/dataset_generator/protocol.json",
+      "sha256": "a5cccd93ef351ef88528d51c370c5b86beb709e043bd8ab8895b64cde1e4f900"
+    },
+    "renderer": {
+      "path": "PlaneGeometry/dataset_generator/common_renderer.py",
+      "sha256": "649d82586597eabe78fb4594233049dc734be5bfa58a1a1619b760a83747d2b7"
+    },
+    "question_script": {
+      "path": "PlaneGeometry/dataset_generator/plane_plot03.py",
+      "sha256": "3c97a8de3bb46a02d005edce34bbea606bb59668fd9e19d2ffa0b523ffe89a8d"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "8860f5bd272fbb14230a10b83860e56a759e7e30a2c2850d74013689d759ec64"
+    },
+    "written_protocol": {
+      "path": "PlaneGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "ddf61ea1b6d35179a27c41d3ce270a29fb18a7827d7a2729201645cd61229bf6"
+    }
+  },
+  "output_png": "PlaneGeometry/image/Plane03.png",
+  "output_png_sha256": "15586a22b6fd566421a1fcb4292cef91ffcf8a425bd0d92d935bfc2789f08df4",
+  "output_svg": "PlaneGeometry/image/Plane03.svg",
+  "output_svg_sha256": "72609ed4474b2c68463f1f526a6907da0a8f1d0d8342d1d7558b2b4f3cd85af4",
+  "rgba_pixel_sha256": "f059362fe50f8a0cd13213b4cf7322d4452af90f647011cbb2fbf504796acb88",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "AOD30",
+      "type": "angle",
+      "measured": 29.999999999999993,
+      "passed": true
+    },
+    {
+      "id": "AOC100",
+      "type": "angle",
+      "measured": 100.0,
+      "passed": true
+    },
+    {
+      "id": "A_D_B_collinear",
+      "type": "collinear",
+      "measured": 2.220446049250313e-16,
+      "passed": true
+    },
+    {
+      "id": "D_between_AB",
+      "type": "between",
+      "measured": 2.220446049250313e-16,
+      "passed": true
+    },
+    {
+      "id": "arc_binding_given_AOD",
+      "type": "angle_annotation",
+      "label_id": "given_AOD",
+      "arc_id": "angle_arc_given_AOD",
+      "measured": 1,
+      "passed": true
+    },
+    {
+      "id": "arc_binding_given_AOC",
+      "type": "angle_annotation",
+      "label_id": "given_AOC",
+      "arc_id": "angle_arc_given_AOC",
+      "measured": 1,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.1.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T16:59:20.860367+00:00",
+    "image_sha256": "15586a22b6fd566421a1fcb4292cef91ffcf8a425bd0d92d935bfc2789f08df4",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  }
+}

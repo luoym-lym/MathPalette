@@ -1,0 +1,268 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.0.0",
+  "id": "Solid07",
+  "status": "formal_candidate",
+  "subject": "SolidGeometry",
+  "source_dataset": "MathVerse",
+  "source_image": "../../originals/Solid07.png",
+  "source_note": "MathVerse testmini Vision Dominant source s3414; source diagram reconstructed in 3D.",
+  "query": "Find the length of AF in terms of AB, BD and DF.",
+  "answer": "\\[\\sqrt{AB^2+BD^2+DF^2}\\]",
+  "answer_type": "expression",
+  "level": "medium",
+  "world_unit": "unit",
+  "points": {
+    "A": [
+      0,
+      0,
+      0
+    ],
+    "B": [
+      3,
+      0,
+      0
+    ],
+    "C": [
+      0,
+      4,
+      0
+    ],
+    "D": [
+      3,
+      4,
+      0
+    ],
+    "E": [
+      0,
+      4,
+      5
+    ],
+    "F": [
+      3,
+      4,
+      5
+    ]
+  },
+  "projection": {
+    "kind": "oblique",
+    "name": "Frozen oblique parallel view",
+    "matrix": [
+      [
+        1,
+        0.82,
+        0
+      ],
+      [
+        0,
+        0.41,
+        1
+      ]
+    ],
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "toward_viewer": [
+      0.6044299021853569,
+      -0.7371096368114108,
+      0.30221495109267843
+    ]
+  },
+  "view": {
+    "xlim": [
+      -8,
+      8
+    ],
+    "ylim": [
+      -8,
+      8
+    ]
+  },
+  "visibility": {
+    "mode": "frozen_intervals",
+    "projection_sha256": "bc33af1a952cac1f7da60aa4446783b22039ad7ee2b20b5c0f3355ede2b16388",
+    "notes": "Visibility intervals frozen manually against this projection; no automatic occlusion."
+  },
+  "objects": [
+    {
+      "id": "AB",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "AC",
+      "type": "segment",
+      "points": [
+        "A",
+        "C"
+      ],
+      "visibility": "hidden",
+      "role": "edge"
+    },
+    {
+      "id": "CE",
+      "type": "segment",
+      "points": [
+        "C",
+        "E"
+      ],
+      "visibility": "hidden",
+      "role": "edge"
+    },
+    {
+      "id": "EA",
+      "type": "segment",
+      "points": [
+        "E",
+        "A"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "BD",
+      "type": "segment",
+      "points": [
+        "B",
+        "D"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "DF",
+      "type": "segment",
+      "points": [
+        "D",
+        "F"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "FB",
+      "type": "segment",
+      "points": [
+        "F",
+        "B"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "CD",
+      "type": "segment",
+      "points": [
+        "C",
+        "D"
+      ],
+      "visibility": "hidden",
+      "role": "edge"
+    },
+    {
+      "id": "EF",
+      "type": "segment",
+      "points": [
+        "E",
+        "F"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "AF_target",
+      "type": "segment",
+      "points": [
+        "A",
+        "F"
+      ],
+      "visibility": "visible",
+      "role": "auxiliary"
+    }
+  ],
+  "dimensions": [],
+  "labels": [
+    {
+      "id": "vertex_A",
+      "type": "vertex",
+      "text": "A",
+      "anchor": "A",
+      "offset_pt": [
+        -7.2046874966607515,
+        -5.3937443465055175
+      ]
+    },
+    {
+      "id": "vertex_B",
+      "type": "vertex",
+      "text": "B",
+      "anchor": "B",
+      "offset_pt": [
+        -2.1728916681918937,
+        -8.733758743994608
+      ]
+    },
+    {
+      "id": "vertex_C",
+      "type": "vertex",
+      "text": "C",
+      "anchor": "C",
+      "offset_pt": [
+        -8,
+        -14
+      ]
+    },
+    {
+      "id": "vertex_D",
+      "type": "vertex",
+      "text": "D",
+      "anchor": "D",
+      "offset_pt": [
+        8.262385481236116,
+        -3.568331004749788
+      ]
+    },
+    {
+      "id": "vertex_E",
+      "type": "vertex",
+      "text": "E",
+      "anchor": "E",
+      "offset_pt": [
+        -0.9381600379156836,
+        8.950969542080793
+      ]
+    },
+    {
+      "id": "vertex_F",
+      "type": "vertex",
+      "text": "F",
+      "anchor": "F",
+      "offset_pt": [
+        5.001198929811201,
+        7.482513565938608
+      ]
+    }
+  ],
+  "constraints": [],
+  "ambiguities": [],
+  "provenance": {
+    "source_key": "s3414"
+  },
+  "answer_verification": {
+    "status": "verified",
+    "verified_answer": "sqrt(AB^2+BD^2+DF^2)",
+    "issue": null,
+    "reasoning": "The right triangular prism has AB, BD, and DF mutually perpendicular. Apply the Pythagorean theorem twice: BF^2=BD^2+DF^2 and AF^2=AB^2+BF^2, hence AF=sqrt(AB^2+BD^2+DF^2)."
+  }
+}

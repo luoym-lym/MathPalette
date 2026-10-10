@@ -1,0 +1,226 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.1.0",
+  "id": "Plane25",
+  "status": "needs_review",
+  "source_dataset": "MathVerse",
+  "source_image": "../../originals/Plane25.png",
+  "view": {
+    "xlim": [
+      -1.7999999999999998,
+      11.8
+    ],
+    "ylim": [
+      -3.9699999999999998,
+      9.629999999999999
+    ]
+  },
+  "points": {
+    "A": [
+      0,
+      0
+    ],
+    "D": [
+      10,
+      0
+    ],
+    "B": [
+      2.8068082328881467,
+      4.32210565797078
+    ],
+    "C": [
+      2.8068082328881467,
+      0
+    ],
+    "mAB": [
+      1.4034041164440734,
+      2.16105282898539
+    ],
+    "mBD": [
+      6.403404116444073,
+      2.16105282898539
+    ]
+  },
+  "objects": [
+    {
+      "id": "AB",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "BD",
+      "type": "segment",
+      "points": [
+        "B",
+        "D"
+      ]
+    },
+    {
+      "id": "AD",
+      "type": "segment",
+      "points": [
+        "A",
+        "D"
+      ]
+    },
+    {
+      "id": "BC",
+      "type": "segment",
+      "points": [
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "right_C",
+      "type": "right_angle",
+      "points": [
+        "B",
+        "C",
+        "A"
+      ]
+    },
+    {
+      "id": "arc57",
+      "type": "angle_arc",
+      "points": [
+        "B",
+        "A",
+        "D"
+      ],
+      "radius_pt": 16
+    },
+    {
+      "id": "arc31",
+      "type": "angle_arc",
+      "points": [
+        "A",
+        "D",
+        "B"
+      ],
+      "radius_pt": 16
+    }
+  ],
+  "labels": [
+    {
+      "id": "v_A",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        -8,
+        -8
+      ]
+    },
+    {
+      "id": "v_B",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        0,
+        10
+      ]
+    },
+    {
+      "id": "v_C",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        0,
+        -10
+      ]
+    },
+    {
+      "id": "v_D",
+      "type": "vertex",
+      "point": "D",
+      "offset_pt": [
+        8,
+        -8
+      ]
+    },
+    {
+      "id": "AB58",
+      "type": "text",
+      "anchor": "mAB",
+      "text": "58",
+      "offset_pt": [
+        -7,
+        0
+      ]
+    },
+    {
+      "id": "BD72",
+      "type": "text",
+      "anchor": "mBD",
+      "text": "72",
+      "offset_pt": [
+        7,
+        0
+      ]
+    },
+    {
+      "id": "angleA",
+      "type": "angle",
+      "points": [
+        "B",
+        "A",
+        "D"
+      ],
+      "degrees": 57,
+      "radius_pt": 36.0,
+      "arc_id": "arc57",
+      "offset_pt": [
+        7.105427357601002e-15,
+        0.0
+      ]
+    },
+    {
+      "id": "angleD",
+      "type": "angle",
+      "points": [
+        "A",
+        "D",
+        "B"
+      ],
+      "degrees": 31,
+      "radius_pt": 42.0,
+      "arc_id": "arc31",
+      "offset_pt": [
+        -0.7767019036884477,
+        -3.317996875811719
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "right_C",
+      "type": "angle",
+      "points": [
+        "B",
+        "C",
+        "A"
+      ],
+      "degrees": 90
+    }
+  ],
+  "ambiguities": [
+    "Source side lengths and base angles imply unequal heights."
+  ],
+  "query": "Consider the following diagram. Hence, find AD correct to two decimal places.",
+  "answer": "93.31",
+  "answer_type": "length",
+  "subject": "PlaneGeometry",
+  "level": "high_school",
+  "provenance": {
+    "source_key": "s1774",
+    "source_answer": "93.31",
+    "previous_model_response": "The third angle is\n\n\\[\n\\angle B=180^\\circ-(57^\\circ+31^\\circ)=92^\\circ.\n\\]\n\nUsing the sine rule in \\(\\triangle ABD\\):\n\n\\[\n\\frac{AD}{\\sin 92^\\circ}=\\frac{BD}{\\sin 57^\\circ}\n\\]\n\n\\[\nAD=\\frac{72\\sin 92^\\circ}{\\sin 57^\\circ}\\approx 85.7979.\n\\]\n\nTherefore, correct to two decimal places,\n\n\\[\n\\boxed{AD=85.80}\n\\]"
+  },
+  "answer_verification": {
+    "status": "needs_review",
+    "reasoning": "The source shows AB=58, BD=72, base angles 57 and 31 degrees, and an altitude at C. These lengths and angles are mutually inconsistent, so the intended geometry cannot be verified; the drawing preserves all source givens as visible annotations."
+  }
+}

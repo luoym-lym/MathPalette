@@ -1,0 +1,164 @@
+{
+  "id": "Plane03",
+  "status": "needs_review",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s214",
+    "sample_id": 214,
+    "problem_id": 43,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Plane Geometry",
+    "source_subfield": "Angle",
+    "question": "As shown in the figure, If point D happens to fall on AB, then the degree of angle DOB is ()\nChoices:\nA:40°\nB:30°\nC:38°\nD:15°",
+    "source_answer": "A",
+    "source_image": "sources/s214.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      276,
+      209
+    ],
+    "source_image_sha256": "396d04bf984eb6ef747db8a954a4f56445ab59b6e08b21b4cbb9057381113562",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "As shown in the figure, If point D happens to fall on AB, then the degree of angle DOB is ()\nChoices:\nA:40°\nB:30°\nC:38°\nD:15°",
+  "answer": "A",
+  "answer_type": "choice",
+  "answer_verification": {
+    "status": "needs_review",
+    "verified_answer": null,
+    "issue": "Source conditions do not permit a unique verified answer.",
+    "reasoning": "D lies on AB, but the source gives no condition fixing B along that line. Moving B changes angle DOB, so the target is not unique."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "PlaneGeometry/originals/Plane03.png",
+      "sha256": "396d04bf984eb6ef747db8a954a4f56445ab59b6e08b21b4cbb9057381113562"
+    },
+    "scene": {
+      "path": "PlaneGeometry/dataset_generator/scenes/Plane03.json",
+      "sha256": "c1a0ba0c7b4d27bfe4d4cd42347cca4d624811d4efe3a8d7b85246ac29fb5eef"
+    },
+    "protocol": {
+      "path": "PlaneGeometry/dataset_generator/protocol.json",
+      "sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+    },
+    "renderer": {
+      "path": "PlaneGeometry/dataset_generator/common_renderer.py",
+      "sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b"
+    },
+    "question_script": {
+      "path": "PlaneGeometry/dataset_generator/plane_plot03.py",
+      "sha256": "3c97a8de3bb46a02d005edce34bbea606bb59668fd9e19d2ffa0b523ffe89a8d"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "9dce5802c3be8d96402681d7d875b07bdf9bdacd4f02c1b8334496086e62659d"
+    },
+    "written_protocol": {
+      "path": "PlaneGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "35ffc43f988e98111024e9cbaa5c2be3c60cbfe3a0cfa1124e210628ee125261"
+    },
+    "layout_helper": {
+      "path": "dataset_tools/geometry_layout.py",
+      "sha256": "a35ce82cf4b4f7eef0cae0aa5d49e304f3f1c86bda68e95f5fc649a3ece99f2d"
+    }
+  },
+  "output_png": "PlaneGeometry/image/Plane03.png",
+  "output_png_sha256": "b92a8f5c9e7a8d23a3bfea45ba3d67010d0b3c0bec166d612e2faddce7be5e9b",
+  "output_svg": "PlaneGeometry/image/Plane03.svg",
+  "output_svg_sha256": "adf163e4c8b0abd810f3059351e4a2fe84da9053e9401c2c98c7d73f1f21c310",
+  "rgba_pixel_sha256": "26c5dfc9414a4552802a48bd2e9f9711c6cf38630728d7633398f8392a61a5e4",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "AOD30",
+      "type": "angle",
+      "measured": 29.999999999999993,
+      "passed": true
+    },
+    {
+      "id": "AOC100",
+      "type": "angle",
+      "measured": 100.0,
+      "passed": true
+    },
+    {
+      "id": "A_D_B_collinear",
+      "type": "collinear",
+      "measured": 2.220446049250313e-16,
+      "passed": true
+    },
+    {
+      "id": "D_between_AB",
+      "type": "between",
+      "measured": 2.220446049250313e-16,
+      "passed": true
+    },
+    {
+      "id": "arc_binding_given_AOD",
+      "type": "angle_annotation",
+      "label_id": "given_AOD",
+      "arc_id": "angle_arc_given_AOD",
+      "measured": 1,
+      "passed": true
+    },
+    {
+      "id": "arc_binding_given_AOC",
+      "type": "angle_annotation",
+      "label_id": "given_AOC",
+      "arc_id": "angle_arc_given_AOC",
+      "measured": 1,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.2.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T17:40:51.769746+00:00",
+    "image_sha256": "b92a8f5c9e7a8d23a3bfea45ba3d67010d0b3c0bec166d612e2faddce7be5e9b",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "user_review": {
+    "status": "pending_user_review",
+    "user_pass": false,
+    "reviewer": null,
+    "approved_at_utc": null,
+    "content_sha256": "72c0618ecf39991e3f167db8e11fab06c0e0454e31d20f4a6e3a583c13ee44d4",
+    "approved_content_sha256": null
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  },
+  "layout": {
+    "content_bbox_px": [
+      54,
+      165,
+      714,
+      604
+    ],
+    "long_side_fraction": 0.859375,
+    "center_offset_px": [
+      0.0,
+      0.5
+    ],
+    "minimum_outer_margin_fraction": 0.0703125
+  },
+  "provenance_updates": [
+    {
+      "scope": "written_protocol_only",
+      "before_sha256": "e517e3dfa24fbf50c9b814ece62938b4fd339648606ae9ffec6b226028e4a169",
+      "after_sha256": "35ffc43f988e98111024e9cbaa5c2be3c60cbfe3a0cfa1124e210628ee125261",
+      "reason": "Added explicit-user approval policy; all frozen rendering assets are unchanged.",
+      "updated_at_utc": "2026-10-09T17:45:10.626766+00:00"
+    }
+  ]
+}

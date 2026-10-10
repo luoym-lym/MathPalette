@@ -1,0 +1,142 @@
+{
+  "protocol_version": "1.0.0",
+  "description": "MathPalette 解析几何一次采样后的统一重绘协议。题目程序应通过 common_renderer.py 使用这些设置，而不是各自硬编码另一套风格。",
+  "units": {
+    "length": "Matplotlib 线宽单位为 point (pt)，1 pt = 1/72 inch",
+    "font": "point (pt)",
+    "figure": "inch",
+    "pixels": "保存时 figsize_in * dpi，且不使用 bbox_inches='tight'"
+  },
+  "output": {
+    "format": "png",
+    "color_mode": "RGB 或 RGBA，背景不透明",
+    "width_px": 768,
+    "height_px": 768,
+    "background": "#FFFFFF",
+    "background_alpha": 1.0,
+    "embed_question_or_answer": false
+  },
+  "figure": {
+    "figsize_in": [7.68, 7.68],
+    "dpi": 100,
+    "axes_position": [0.12, 0.12, 0.80, 0.80],
+    "bbox_inches": null,
+    "pad_inches": 0.0,
+    "facecolor": "#FFFFFF"
+  },
+  "font": {
+    "family": "DejaVu Sans",
+    "size_pt": 12,
+    "mathtext_fontset": "dejavusans",
+    "color": "#000000"
+  },
+  "axes": {
+    "xlim": [-8, 8],
+    "ylim": [-8, 8],
+    "aspect": "equal",
+    "adjustable": "box",
+    "xlabel": "x",
+    "ylabel": "y",
+    "major_ticks": {
+      "from": -8,
+      "to": 8,
+      "step": 1,
+      "include_endpoints": true,
+      "origin_label": "刻度位置仍包含 0，但 x、y 轴上不各写一个 0"
+    },
+    "origin_zero": {
+      "text": "0",
+      "count": 1,
+      "placement": "原点右下方",
+      "data_xy": [0.22, -0.28],
+      "ha": "left",
+      "va": "top",
+      "font_size_pt": 12,
+      "color": "#000000"
+    },
+    "minor_ticks": false,
+    "top_spine": "hidden",
+    "right_spine": "hidden",
+    "origin_spines": "left 与 bottom 穿过原点",
+    "spine_color": "#000000",
+    "spine_linewidth_pt": 1.0,
+    "autoscale": false
+  },
+  "grid": {
+    "which": "major",
+    "color": "#E0E0E0",
+    "linestyle": "-",
+    "linewidth_pt": 0.5,
+    "zorder": 0,
+    "applies_black_linewidth_1_rule": false
+  },
+  "curve": {
+    "color": "#000000",
+    "linestyle": "-",
+    "linewidth_pt": 1.0,
+    "marker": null,
+    "zorder": 2,
+    "pole_break": "非有限值处断开；相邻采样若异号且绝对值都大于 12，则断开，避免极点被连成并不存在的竖线"
+  },
+  "auxiliary_line": {
+    "color": "#000000",
+    "linestyle": "-",
+    "linewidth_pt": 1.0,
+    "note": "原虚线辅助线改为实线，并记录 semantic_cue_changed"
+  },
+  "scatter": {
+    "area_pt2": 36,
+    "filled_facecolor": "#000000",
+    "open_facecolor": "#FFFFFF",
+    "edgecolor": "#000000",
+    "edge_linewidth_pt": 1.0,
+    "zorder": 4,
+    "note": "开端点（原白色填充、黑色描边）保留为空心点；其余数学点为实心黑点。半径不大于 0.3 的 Circle 视为点标记，而不是几何圆。"
+  },
+  "outline": {
+    "edgecolor": "#000000",
+    "linestyle": "-",
+    "linewidth_pt": 1.0,
+    "fill": false,
+    "note": "圆、椭圆、矩形等数学轮廓只描边。装饰性填色移除。半径大于 0.3 的圆和椭圆按几何对象描边。"
+  },
+  "region_fill": {
+    "facecolor": "#D0D0D0",
+    "alpha": 0.45,
+    "edgecolor": "none",
+    "zorder": 1,
+    "review_flag": "region_fill_retained",
+    "note": "仅用于原图中表示所求区域的 fill_between / fill。装饰性多边形填色不使用此项。"
+  },
+  "slope_segment": {
+    "color": "#000000",
+    "headwidth": 0,
+    "headlength": 0,
+    "headaxislength": 0,
+    "width_axes_fraction": 0.0022,
+    "scale_policy": "保留原 quiver 的 scale 数值",
+    "zorder": 2,
+    "note": "斜率场线段是数学对象，不是装饰箭头。width 取约 1 pt 的坐标轴比例。"
+  },
+  "domain": {
+    "view": [-8, 8],
+    "rule": "无额外限定的整段函数图，若原采样区间对称、两端绝对值均不小于 6 且长度不小于 12，则画在 [-8, 8]。分段区间、积分区间和较短的局部区间只与 [-8, 8] 求交，不向外扩展。",
+    "do_not_resample_when_clipped": true,
+    "do_not_expand_axes": true
+  },
+  "seed_scheme": {
+    "master_seed": 20261006,
+    "formula": "question_seed = master_seed * 1000 + question_number",
+    "example": "Q05 -> 20261006005",
+    "generators": [
+      "random.seed(question_seed) before the source class is constructed",
+      "numpy.random.seed(question_seed % 2**32)"
+    ],
+    "hash_builtin_used": false,
+    "note": "每个题号在构造前单独设置种子。不使用 Python hash()。交付的 renderers 不再设置种子，也不再调用随机函数。"
+  },
+  "adaptations": {
+    "complex_plane": "原虚数单位刻度改为协议要求的整数刻度，轴名称使用 Re 与 Im。",
+    "polar": "极坐标题改为在同一笛卡尔坐标系中绘制原点到该点的线段和点，不使用极坐标网格。"
+  }
+}

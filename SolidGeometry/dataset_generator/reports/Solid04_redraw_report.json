@@ -1,0 +1,173 @@
+{
+  "id": "Solid04",
+  "status": "formal_candidate",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s3294",
+    "sample_id": 3294,
+    "problem_id": 659,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Solid Geometry",
+    "source_subfield": "Area",
+    "question": "Find the height $h$ mm of this closed cylinder if its surface area (S) is 27288(mm)$^2$.\n\nRound your answer to the nearest whole number.",
+    "source_answer": "$h=58$",
+    "source_image": "sources/s3294.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      525,
+      422
+    ],
+    "source_image_sha256": "119ac5920147848fd87a7cee20344da7860d3b5050b2449c28ca699143c2561f",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "Find the height $h$ mm of this closed cylinder if its surface area (S) is 27288(mm)$^2$.\n\nRound your answer to the nearest whole number.",
+  "answer": "$h=58$",
+  "answer_type": "number",
+  "answer_verification": {
+    "status": "verified",
+    "verified_answer": "58 mm",
+    "issue": null,
+    "reasoning": "For a closed cylinder, S=2*pi*r^2+2*pi*r*h. With S=27288 mm^2 and r=43 mm, h=(27288-2*pi*43^2)/(2*pi*43)=58.01 mm, which rounds to 58 mm."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "SolidGeometry/originals/Solid04.png",
+      "sha256": "119ac5920147848fd87a7cee20344da7860d3b5050b2449c28ca699143c2561f"
+    },
+    "scene": {
+      "path": "SolidGeometry/dataset_generator/scenes/Solid04.json",
+      "sha256": "0d0ef6485c55ee8a9f2a9f8a24d464e3079644738edd00998c21a63bb0117bd6"
+    },
+    "protocol": {
+      "path": "SolidGeometry/dataset_generator/protocol.json",
+      "sha256": "e66f71cd4872a2dd2aeffcc462fa227695dbd3fc5658133e98180348c7643ad9"
+    },
+    "renderer": {
+      "path": "SolidGeometry/dataset_generator/common_renderer.py",
+      "sha256": "e4313d0559ebbd3677218b3301d5ddb4f022213a3a35609fc15007370abe1e16"
+    },
+    "question_script": {
+      "path": "SolidGeometry/dataset_generator/solid_plot04.py",
+      "sha256": "0b522ceb0d5166ab490eae191a5c5c3ab17c3335d167a28b266061aa7de5829e"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "9dce5802c3be8d96402681d7d875b07bdf9bdacd4f02c1b8334496086e62659d"
+    },
+    "written_protocol": {
+      "path": "SolidGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "4099a0ea139bfee536c8e3128d8542e6cd2333b12b04f52c4eb632248c9315b1"
+    },
+    "layout_helper": {
+      "path": "dataset_tools/geometry_layout.py",
+      "sha256": "a35ce82cf4b4f7eef0cae0aa5d49e304f3f1c86bda68e95f5fc649a3ece99f2d"
+    }
+  },
+  "output_png": "SolidGeometry/image/Solid04.png",
+  "output_png_sha256": "e1379ba134b8443bd337881370a40c71b6dfa8e873aeb071c1522d3005d802b0",
+  "output_svg": "SolidGeometry/image/Solid04.svg",
+  "output_svg_sha256": "ca510dbbad3bd3e05556745869cd8b7cf048b7058bffafd8d8b685eb441accf5",
+  "rgba_pixel_sha256": "c1256de293e7fc47aed570ee16d3847f054953d9f52a046d6ef5601f76ad3817",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "projection_and_visibility",
+      "type": "projection",
+      "passed": true,
+      "projection_sha256": "87227792d6486be275d1fba1f0e58d03b30a744166931820d77d2828a2f1bd58",
+      "automatic_occlusion": false
+    },
+    {
+      "id": "top_rim",
+      "type": "arc_sampling",
+      "max_chord_error_px": 0.011189777358223163,
+      "passed": true
+    },
+    {
+      "id": "bottom_front",
+      "type": "arc_sampling",
+      "max_chord_error_px": 0.0027974576544465683,
+      "passed": true
+    },
+    {
+      "id": "bottom_rear",
+      "type": "arc_sampling",
+      "max_chord_error_px": 0.0027974576544465683,
+      "passed": true
+    },
+    {
+      "id": "given_radius",
+      "type": "distance",
+      "basis": "Source label 43 mm is a radius.",
+      "measured": 43.0,
+      "passed": true
+    },
+    {
+      "id": "radius_43",
+      "type": "dimension",
+      "text": "43 mm",
+      "measured_world_length": 43.0,
+      "unit": "mm",
+      "basis": "Dimension read from source diagram.",
+      "passed": true
+    },
+    {
+      "id": "layout",
+      "type": "layout",
+      "outer_margin_fraction": 0.05,
+      "label_line_overlap": false,
+      "label_label_overlap": false,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.1.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T17:40:51.992010+00:00",
+    "image_sha256": "e1379ba134b8443bd337881370a40c71b6dfa8e873aeb071c1522d3005d802b0",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "user_review": {
+    "status": "pending_user_review",
+    "user_pass": false,
+    "reviewer": null,
+    "approved_at_utc": null,
+    "content_sha256": "12b4624f9728f21625b85dc7e5d61dc39bd60939a585e337252a34687785878e",
+    "approved_content_sha256": null
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  },
+  "layout": {
+    "content_bbox_px": [
+      54,
+      134,
+      713,
+      635
+    ],
+    "long_side_fraction": 0.8580729166666666,
+    "center_offset_px": [
+      -0.5,
+      0.5
+    ],
+    "minimum_outer_margin_fraction": 0.0703125
+  },
+  "provenance_updates": [
+    {
+      "scope": "written_protocol_only",
+      "before_sha256": "689c492070f7dc902852ffb13d7a43eda28acd2ec5eed03398ce3db0010c4c5a",
+      "after_sha256": "4099a0ea139bfee536c8e3128d8542e6cd2333b12b04f52c4eb632248c9315b1",
+      "reason": "Added explicit-user approval policy; all frozen rendering assets are unchanged.",
+      "updated_at_utc": "2026-10-09T17:45:11.184251+00:00"
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "id": "Solid21",
+  "status": "formal_candidate",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s3639",
+    "sample_id": 3639,
+    "problem_id": 728,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Solid Geometry",
+    "source_subfield": "Volume",
+    "question": "Each side length of the cube is equal. Find the volume of the cube shown.",
+    "source_answer": "$144cm^3$",
+    "source_image": "sources/s3639.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      354,
+      354
+    ],
+    "source_image_sha256": "d5c40c1b4964b466cfdca1f521bfd514636ae36623c5e24fab066f38870a0afc",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "Each side length of the cube is equal. Find the volume of the cube shown.",
+  "answer": "$144cm^3$",
+  "answer_type": "number",
+  "answer_verification": {
+    "status": "needs_review",
+    "verified_answer": "1728 cm^3",
+    "issue": "Raw GT 144 cm^3 conflicts with a 12 cm cube side; the correct volume is 1728 cm^3.",
+    "reasoning": "All side lengths are 12 cm, so cube volume=12^3=1728 cm^3. Raw GT 144 is inconsistent."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "SolidGeometry/originals/Solid21.png",
+      "sha256": "d5c40c1b4964b466cfdca1f521bfd514636ae36623c5e24fab066f38870a0afc"
+    },
+    "scene": {
+      "path": "SolidGeometry/dataset_generator/scenes/Solid21.json",
+      "sha256": "36159a217ddbdfc352b06ecdb780db3c1e4c4db26454a901af3a2a5570de4486"
+    },
+    "protocol": {
+      "path": "SolidGeometry/dataset_generator/protocol.json",
+      "sha256": "7c63cb30a6a6735b3fd607b68001442220a901824b384c405e00c45f57f30131"
+    },
+    "renderer": {
+      "path": "SolidGeometry/dataset_generator/common_renderer.py",
+      "sha256": "30af6cd2be3757532b3eb4e64fb935617aaec881e25eb721af0c1ddcaa018e5c"
+    },
+    "question_script": {
+      "path": "SolidGeometry/dataset_generator/solid_plot21.py",
+      "sha256": "ec1d257da8a06cbbd0b91fab02d836a7efe6e8fa4ab6e26f3cf2afc6eec84172"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "8860f5bd272fbb14230a10b83860e56a759e7e30a2c2850d74013689d759ec64"
+    },
+    "written_protocol": {
+      "path": "SolidGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "645d867d11f06dc38a4f0240feb7e5f65dd6cc1233b6accbb1dc07cffd43a04d"
+    }
+  },
+  "output_png": "SolidGeometry/image/Solid21.png",
+  "output_png_sha256": "1b7850199bd8fb0cd100aa05fb96593707cd6b717356f7c6f3cb4047a71d6926",
+  "output_svg": "SolidGeometry/image/Solid21.svg",
+  "output_svg_sha256": "fa2b7dc1c4edad95ae7239adc44ceb97a0e0ed2eb6e9aebda026fc134e70f941",
+  "rgba_pixel_sha256": "d55060e031813bbfb7cb5567ef80e33fa527262661261904a3c5fdcb93d326f4",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "projection_and_visibility",
+      "type": "projection",
+      "passed": true,
+      "projection_sha256": "bc33af1a952cac1f7da60aa4446783b22039ad7ee2b20b5c0f3355ede2b16388",
+      "automatic_occlusion": false
+    },
+    {
+      "id": "layout",
+      "type": "layout",
+      "outer_margin_fraction": 0.08,
+      "label_line_overlap": false,
+      "label_label_overlap": false,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.0.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T15:15:30.890508+00:00",
+    "image_sha256": "1b7850199bd8fb0cd100aa05fb96593707cd6b717356f7c6f3cb4047a71d6926",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  }
+}

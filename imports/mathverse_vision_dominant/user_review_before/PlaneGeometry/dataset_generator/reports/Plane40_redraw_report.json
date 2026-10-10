@@ -1,0 +1,151 @@
+{
+  "id": "Plane40",
+  "status": "corrected",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s3884",
+    "sample_id": 3884,
+    "problem_id": 777,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Plane Geometry",
+    "source_subfield": "Angle",
+    "question": "In the figure above. What is the value of z?\nChoices:\nA.80\nB.60\nC.50\nD.40\nE.10",
+    "source_answer": "A",
+    "source_image": "sources/s3884.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      557,
+      521
+    ],
+    "source_image_sha256": "69a3fdad0d06631221ac720a36586421939ab572803a01f72ec8d85a63c613f9",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "In the figure above. What is the value of z?\nChoices:\nA.80\nB.60\nC.50\nD.40\nE.10",
+  "answer": "A",
+  "answer_type": "choice",
+  "answer_verification": {
+    "status": "verified",
+    "verified_answer": "A (80 degrees)",
+    "reasoning": "Given angle x at A is 80 degrees. OA and OB are radii, so OA=OB and triangle OAB is isosceles; its base angles at A and B are equal. Therefore z=80 degrees, choice A."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "PlaneGeometry/originals/Plane40.png",
+      "sha256": "69a3fdad0d06631221ac720a36586421939ab572803a01f72ec8d85a63c613f9"
+    },
+    "scene": {
+      "path": "PlaneGeometry/dataset_generator/scenes/Plane40.json",
+      "sha256": "b30405aac9ae5d6e85630c109f72a5fcfc6784abab5afd8df5b67a32ce151716"
+    },
+    "protocol": {
+      "path": "PlaneGeometry/dataset_generator/protocol.json",
+      "sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+    },
+    "renderer": {
+      "path": "PlaneGeometry/dataset_generator/common_renderer.py",
+      "sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b"
+    },
+    "question_script": {
+      "path": "PlaneGeometry/dataset_generator/plane_plot40.py",
+      "sha256": "c8ef5b78897105c466546d9869bd369a36f02df945f62e855da5618fe1e0710d"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "80b8da25f7befd14f571509b50635949f8733bb605b1d7f32369e72b443942b2"
+    },
+    "written_protocol": {
+      "path": "PlaneGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "e27401b48833214594092de784cdf421bbf987d50529844d9c98545ebc386829"
+    },
+    "layout_helper": {
+      "path": "dataset_tools/geometry_layout.py",
+      "sha256": "a35ce82cf4b4f7eef0cae0aa5d49e304f3f1c86bda68e95f5fc649a3ece99f2d"
+    }
+  },
+  "output_png": "PlaneGeometry/image/Plane40.png",
+  "output_png_sha256": "8535532c0a486662d9086f8aebf50931e30bcaf1d26014b7400b484fdaa79b57",
+  "output_svg": "PlaneGeometry/image/Plane40.svg",
+  "output_svg_sha256": "b2b49b71e43cc78289a800757e80cbd4c541b207411a2246056c4ffaee421450",
+  "rgba_pixel_sha256": "5b8ff32815f63a0ace56882cb6dee001a4da3e7dfa899d1e8c97b7cf74955c10",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "equal_radii",
+      "type": "equal_length",
+      "measured": [
+        4.999999999999999,
+        5.0
+      ],
+      "passed": true
+    },
+    {
+      "id": "x80",
+      "type": "angle",
+      "measured": 80.00000000000004,
+      "passed": true
+    },
+    {
+      "id": "central20",
+      "type": "angle",
+      "measured": 19.999999999999975,
+      "passed": true
+    },
+    {
+      "id": "arc_binding_xmark",
+      "type": "angle_annotation",
+      "label_id": "xmark",
+      "arc_id": "angle_x_arc",
+      "measured": 1,
+      "passed": true
+    },
+    {
+      "id": "arc_binding_zmark",
+      "type": "angle_annotation",
+      "label_id": "zmark",
+      "arc_id": "angle_z_arc",
+      "measured": 1,
+      "passed": true
+    },
+    {
+      "id": "arc_binding_given80",
+      "type": "angle_annotation",
+      "label_id": "given80",
+      "arc_id": "angle_x_arc",
+      "measured": 1,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.2.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T17:25:05.553258+00:00",
+    "image_sha256": "8535532c0a486662d9086f8aebf50931e30bcaf1d26014b7400b484fdaa79b57",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  },
+  "layout": {
+    "content_bbox_px": [
+      97,
+      54,
+      671,
+      714
+    ],
+    "long_side_fraction": 0.859375,
+    "center_offset_px": [
+      0.0,
+      0.0
+    ],
+    "minimum_outer_margin_fraction": 0.0703125
+  }
+}

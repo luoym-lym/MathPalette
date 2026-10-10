@@ -1,0 +1,38 @@
+{
+  "source_key": "s3389",
+  "id": "Solid05",
+  "branch": "SolidGeometry",
+  "source_dataset": "MathVerse",
+  "question": "\\[Now, if the size of \\angle VAW is \\theta °, find \\theta  to two decimal places.\\]",
+  "answer": "68.34",
+  "source_answer": "68.34",
+  "image": "SolidGeometry/image/Solid05.png",
+  "scene": "SolidGeometry/dataset_generator/scenes/Solid05.json",
+  "script": "SolidGeometry/dataset_generator/solid_plot05.py",
+  "report": "SolidGeometry/dataset_generator/reports/Solid05_redraw_report.json",
+  "status": "needs_review",
+  "answer_verification": {
+    "status": "needs_review",
+    "verified_answer": "68.34 degrees (using rounded AW=8.49 cm); exact dimensions give 68.35 degrees",
+    "issue": "The word ?Now? signals dependence on the rounded result from the preceding part. Using AW rounded to 8.49 cm gives 68.34 degrees; using exact AW=12/sqrt(2) gives 68.35 degrees. Preserve raw GT 68.34.",
+    "reasoning": "cos(theta)=AW/VA. With prior-part rounding: arccos(8.49/23)=68.34 degrees. Without intermediate rounding, arccos((12/sqrt(2))/23)=68.35 degrees. This is a rounding-dependence issue."
+  },
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T17:40:52.250444+00:00",
+    "image_sha256": "661bb130bbd81dde35a950e4d253ef94124c78edc389aa77cd6212acce1549ca",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "user_review": {
+    "status": "pending_user_review",
+    "user_pass": false,
+    "reviewer": null,
+    "approved_at_utc": null,
+    "content_sha256": "dfce12f346f35c7199309bb7d827a78dd68ab1460f1623a7f81c160972b9820a",
+    "approved_content_sha256": null
+  },
+  "user_pass": false,
+  "registration_status": "pending_user_review"
+}

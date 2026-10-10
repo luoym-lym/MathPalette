@@ -1,0 +1,57 @@
+{
+  "id": "Ana58",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s2899",
+    "sample_id": 2899,
+    "problem_id": 580,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Functions",
+    "source_subfield": "Applied",
+    "question": "In a memory study, subjects are asked to memorize some content and recall as much as they can remember each day thereafter. Each day, Maximilian finds that he has forgotten $15 \\%$ of what he could recount the day before. Lucy also took part in the study. The given graphs represent the percentage of content that Maximilian (gray) and Lucy (black) could remember after $t$ days.\n\nOn each day, what percentage of the previous day's content did Lucy forget?",
+    "source_answer": "$13 \\%$",
+    "previous_model_response": "A constant daily forgetting rate produces exponential decay. Lucy’s black curve represents retaining \\(80\\%\\) of the previous day’s content each day, so she forgets\n\n\\[\n100\\%-80\\%=20\\%.\n\\]\n\n\\(\\boxed{20\\%}\\)",
+    "source_image": "sources/s2899.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      583,
+      494
+    ],
+    "source_image_sha256": "128faac445143e883f47bf69e26f47c207fe4cd577f630259ea3b003be28bf4f",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "In a memory study, subjects are asked to memorize some content and recall as much as they can remember each day thereafter. Each day, Maximilian finds that he has forgotten $15 \\%$ of what he could recount the day before. Lucy also took part in the study. The given graphs represent the percentage of content that Maximilian (gray) and Lucy (black) could remember after $t$ days.\n\nOn each day, what percentage of the previous day's content did Lucy forget?",
+  "answer": "$13 \\%$",
+  "answer_verification": {
+    "reasoning": "The question has no numerical day ticks. The black Lucy curve retains about 87% over the first daily interval; its relative loss is therefore approximately 13%. The frozen exponential model is GT-supported, but the low-resolution image itself only supports an estimate.",
+    "verified_answer": "approximately 13% forgotten each day",
+    "issue": "Exact 13% cannot be independently read from the unlabeled low-resolution curve; it is an approximate read of relative daily decay.",
+    "status": "needs_review",
+    "issue_zh": "图缺少横轴数值标注，13% 可作曲线估读；重绘冻结的 0.87 衰减率参考了来源答案，不能作为独立精确证明。"
+  },
+  "determinism_and_base_replay_verified": true,
+  "inputs": {
+    "Analytics/fine_grained_dataset/originals/Ana58.png": "128faac445143e883f47bf69e26f47c207fe4cd577f630259ea3b003be28bf4f",
+    "Analytics/fine_grained_dataset/dataset_generator/dataset_generator/function_plot58.py": "3aeb854916740307297593e7f02b1e68d38ec3da9f00557d83862f2f195a54b0",
+    "Analytics/fine_grained_dataset/provenance/MathVerse/Ana58.json": "a217c9fff557294996e62a3e4163773c81ca48d3e45b18c79cb9dc8d758508fc",
+    "Analytics/fine_grained_dataset/dataset_generator/mathverse_renderer.py": "630627b21686e59f5ca376ed8a56b2c25806b38defb672ab4f692ed4c5e7db13"
+  },
+  "output_png": "Analytics/fine_grained_dataset/image/Ana58.png",
+  "output_png_sha256": "e07dcf2104c091d3418ac407b17cf870bffbb33945bfc0489e2fe767e1e966ea",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "GPT-6-Luna and root source/redraw comparison",
+    "user_pass": false
+  },
+  "user_review": {
+    "status": "pending_user_review",
+    "user_pass": false,
+    "reviewer": null,
+    "approved_at_utc": null,
+    "content_sha256": "e03a1691095d2a42c049c556b65ca37db27bd33be11fa01257a5943f63f27ec5",
+    "approved_content_sha256": null
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "id": "Ana38",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s2449",
+    "sample_id": 2449,
+    "problem_id": 490,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Functions",
+    "source_subfield": "Property",
+    "question": "Estimate the point(s) at which the graph of odd function f  has a local maximum or a local minimum.",
+    "source_answer": "\\[\\text { local maximum: }(-3,60) \\text {, local minimum: }(3, -60)\\]",
+    "previous_model_response": "The graph changes from increasing to decreasing near \\(x=-3\\), so it has a local maximum there. By odd symmetry, there is a corresponding local minimum near \\(x=3\\). From the scale, the extrema are approximately \\(y=\\pm 54\\).\n\n\\[\n\\text{Local maximum: }(-3,54), \\qquad \\text{Local minimum: }(3,-54)\n\\]\n\nFinal value: \\(\\boxed{(-3,54)\\text{ and }(3,-54)}\\)",
+    "source_image": "sources/s2449.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      545,
+      412
+    ],
+    "source_image_sha256": "1384c2df76dab61aa3e783baf9f46e7a3b808946a697972d9ec75341df1094f9",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "Estimate the point(s) at which the graph of odd function f  has a local maximum or a local minimum.",
+  "answer": "\\[\\text { local maximum: }(-3,60) \\text {, local minimum: }(3, -60)\\]",
+  "answer_verification": {
+    "reasoning": "The source curve is exactly consistent with y=x^3-27x: derivative 3x^2-27=0 at x=?3, giving y(-3)=54 and y(3)=-54. The graph uses 20-unit vertical ticks, so sourceGT ?60 is a coarse visual estimate; retain it verbatim and flag estimate precision.",
+    "verified_answer": "local maximum approximately (-3,54); local minimum approximately (3,-54)",
+    "issue": "SourceGT reports ?60, while y=x^3-27x gives extrema ?54; coarse 20-unit ticks explain the approximate read.",
+    "status": "needs_review",
+    "issue_zh": "原图极值约在 (-3,54)、(3,-54)，来源答案估计为 ±60；属于粗刻度读图的精度疑点。"
+  },
+  "determinism_and_base_replay_verified": true,
+  "inputs": {
+    "Analytics/fine_grained_dataset/originals/Ana38.png": "1384c2df76dab61aa3e783baf9f46e7a3b808946a697972d9ec75341df1094f9",
+    "Analytics/fine_grained_dataset/dataset_generator/dataset_generator/function_plot38.py": "68555ca605c56bff7d9b5e6a6123039dfb88afa177b749e2a67749b7d1164068",
+    "Analytics/fine_grained_dataset/provenance/MathVerse/Ana38.json": "b2e6b2035c7cbdc7f0a0f2c3e4f090d6dd4deb03012179819a6aa069397d6352",
+    "Analytics/fine_grained_dataset/dataset_generator/mathverse_renderer.py": "630627b21686e59f5ca376ed8a56b2c25806b38defb672ab4f692ed4c5e7db13"
+  },
+  "output_png": "Analytics/fine_grained_dataset/image/Ana38.png",
+  "output_png_sha256": "15eb7d75cd914a0a66771863164de52297aa908cb22c50549362c953635fe886",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "GPT-6-Luna and root source/redraw comparison",
+    "user_pass": false
+  },
+  "user_review": {
+    "status": "pending_user_review",
+    "user_pass": false,
+    "reviewer": null,
+    "approved_at_utc": null,
+    "content_sha256": "051b0fbccfd89ce812e42f66d26d945181a6269f7c1728a28857fd97aef806c2",
+    "approved_content_sha256": null
+  }
+}

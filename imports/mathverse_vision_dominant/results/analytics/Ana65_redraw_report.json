@@ -1,0 +1,57 @@
+{
+  "id": "Ana65",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s3109",
+    "sample_id": 3109,
+    "problem_id": 622,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Functions",
+    "source_subfield": "Applied",
+    "question": "The logarithm function and a line are graphed. A pharmaceutical scientist making a new medication wonders how much of the active ingredient to include in a dose. They are curious how long different amounts of the active ingredient will stay in someone's bloodstream.\n\nThe amount of time (in hours) the active ingredient remains in the bloodstream can be modeled by $f(x)$, where $x$ is the initial amount of the active ingredient (in milligrams). Here is the graph of $f$ and the graph of the line $y=4$.\n\nWhich statements represent the meaning of the intersection point of the graphs?\n\nChoose all answers that apply:\nChoices:\nA:It describes the amount of time the active ingredient stays in the bloodstream if the initial amount of the active ingredient is $4 \\mathrm{mg}$.\nB:\nC:It gives the solution to the equation $-1.25 \\cdot \\ln \\left(\\frac{1}{x}\\right)=4$.\nD:It describes the situation where the initial amount of the active ingredient is equal to how long it stays in the bloodstream.\nE:\nF:It gives the initial amount of the active ingredient such that the last of the active ingredient leaves the bloodstream after 4 hours.",
+    "source_answer": "C",
+    "previous_model_response": "At the intersection, the initial amount \\(x\\) produces a bloodstream duration of \\(4\\) hours. Thus, \\(f(x)=4\\).\n\nUsing the given function:\n\n\\[\n-1.25\\ln\\left(\\frac{1}{x}\\right)=4,\n\\]\n\nwhich is exactly the equation in C. It also means that an initial amount of about \\(24.5\\text{ mg}\\) causes the active ingredient to leave the bloodstream after \\(4\\) hours, as stated in F.\n\nA and D incorrectly swap or equate the meanings of the coordinates.\n\nC, F",
+    "source_image": "sources/s3109.jpg",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      741,
+      742
+    ],
+    "source_image_sha256": "660b15d6336c98e1339c8f75c9501c0dc3319b0af7226c15ddab3cf29cdc3ad9",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "The logarithm function and a line are graphed. A pharmaceutical scientist making a new medication wonders how much of the active ingredient to include in a dose. They are curious how long different amounts of the active ingredient will stay in someone's bloodstream.\n\nThe amount of time (in hours) the active ingredient remains in the bloodstream can be modeled by $f(x)$, where $x$ is the initial amount of the active ingredient (in milligrams). Here is the graph of $f$ and the graph of the line $y=4$.\n\nWhich statements represent the meaning of the intersection point of the graphs?\n\nChoose all answers that apply:\nChoices:\nA:It describes the amount of time the active ingredient stays in the bloodstream if the initial amount of the active ingredient is $4 \\mathrm{mg}$.\nB:\nC:It gives the solution to the equation $-1.25 \\cdot \\ln \\left(\\frac{1}{x}\\right)=4$.\nD:It describes the situation where the initial amount of the active ingredient is equal to how long it stays in the bloodstream.\nE:\nF:It gives the initial amount of the active ingredient such that the last of the active ingredient leaves the bloodstream after 4 hours.",
+  "answer": "C",
+  "answer_verification": {
+    "reasoning": "The displayed function is f(x)=-1.25 ln(1/x)=1.25 ln x. Its intersection with y=4 solves the equation in C and identifies the starting amount that remains for four hours in F (x=e^3.2?24.53 mg).",
+    "verified_answer": "C and F",
+    "issue": "The sourceGT selects C only although F is also true for this choose-all question; options B and E are blank in extracted source text.",
+    "status": "needs_review",
+    "issue_zh": "题目要求多选，可读选项 C 和 F 均正确；来源 GT 仅 C，且选项 B、E 文本缺失。"
+  },
+  "determinism_and_base_replay_verified": true,
+  "inputs": {
+    "Analytics/fine_grained_dataset/originals/Ana65.jpg": "660b15d6336c98e1339c8f75c9501c0dc3319b0af7226c15ddab3cf29cdc3ad9",
+    "Analytics/fine_grained_dataset/dataset_generator/dataset_generator/function_plot65.py": "b89853d4e2820fcce1b0f624fc56c4999f0d3dba5a4b16da4651305ca9666c32",
+    "Analytics/fine_grained_dataset/provenance/MathVerse/Ana65.json": "15e006470a2e316e27646cbd80f7483d75c5a2d6e3df358dc3a3431b62cf2b8a",
+    "Analytics/fine_grained_dataset/dataset_generator/mathverse_renderer.py": "630627b21686e59f5ca376ed8a56b2c25806b38defb672ab4f692ed4c5e7db13"
+  },
+  "output_png": "Analytics/fine_grained_dataset/image/Ana65.png",
+  "output_png_sha256": "96932135a85dddc98b2f5bb86d66b386c697a5fa70d70827bbc849ee21e25616",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "GPT-6-Luna and root source/redraw comparison",
+    "user_pass": false
+  },
+  "user_review": {
+    "status": "pending_user_review",
+    "user_pass": false,
+    "reviewer": null,
+    "approved_at_utc": null,
+    "content_sha256": "5c128d43c7a7bdfaf32b158aa626e63822fa41b7301268da4b5067a0e5515be4",
+    "approved_content_sha256": null
+  }
+}

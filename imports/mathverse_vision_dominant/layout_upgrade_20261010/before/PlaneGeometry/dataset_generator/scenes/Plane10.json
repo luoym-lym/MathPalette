@@ -1,0 +1,198 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.1.0",
+  "id": "Plane10",
+  "status": "verified",
+  "source_dataset": "MathVerse",
+  "source_image": "../../originals/Plane10.png",
+  "view": {
+    "xlim": [
+      -8,
+      8
+    ],
+    "ylim": [
+      -8,
+      8
+    ]
+  },
+  "points": {
+    "O": [
+      0,
+      0
+    ],
+    "A": [
+      -1.7101007166283426,
+      -4.698463103929543
+    ],
+    "B": [
+      1.7101007166283448,
+      -4.698463103929542
+    ],
+    "P": [
+      -3.2139380484326967,
+      3.83022221559489
+    ]
+  },
+  "objects": [
+    {
+      "id": "circle",
+      "type": "circle",
+      "center": "O",
+      "radius": 5
+    },
+    {
+      "id": "OA",
+      "type": "segment",
+      "points": [
+        "O",
+        "A"
+      ]
+    },
+    {
+      "id": "OB",
+      "type": "segment",
+      "points": [
+        "O",
+        "B"
+      ]
+    },
+    {
+      "id": "AB",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "PA",
+      "type": "segment",
+      "points": [
+        "P",
+        "A"
+      ]
+    },
+    {
+      "id": "PB",
+      "type": "segment",
+      "points": [
+        "P",
+        "B"
+      ]
+    },
+    {
+      "id": "angle_arc_given_AOB",
+      "type": "angle_arc",
+      "points": [
+        "A",
+        "O",
+        "B"
+      ],
+      "radius_pt": 16
+    }
+  ],
+  "labels": [
+    {
+      "id": "v_O",
+      "type": "vertex",
+      "point": "O",
+      "offset_pt": [
+        0,
+        9
+      ]
+    },
+    {
+      "id": "v_A",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        -8,
+        -8
+      ]
+    },
+    {
+      "id": "v_B",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        8,
+        -8
+      ]
+    },
+    {
+      "id": "v_P",
+      "type": "vertex",
+      "point": "P",
+      "offset_pt": [
+        -8,
+        8
+      ]
+    },
+    {
+      "id": "given_AOB",
+      "type": "angle",
+      "points": [
+        "A",
+        "O",
+        "B"
+      ],
+      "degrees": 40,
+      "radius_pt": 72.0,
+      "arc_id": "angle_arc_given_AOB",
+      "offset_pt": [
+        -7.526049355271058,
+        0.39442353348431425
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "AOB40",
+      "type": "angle",
+      "points": [
+        "A",
+        "O",
+        "B"
+      ],
+      "degrees": 40
+    },
+    {
+      "id": "on_A",
+      "type": "on_circle",
+      "point": "A",
+      "center": "O",
+      "radius": 5
+    },
+    {
+      "id": "on_B",
+      "type": "on_circle",
+      "point": "B",
+      "center": "O",
+      "radius": 5
+    },
+    {
+      "id": "on_P",
+      "type": "on_circle",
+      "point": "P",
+      "center": "O",
+      "radius": 5
+    }
+  ],
+  "ambiguities": [],
+  "query": "As shown in the figure, then the degree of angle APB is ()\nChoices:\nA:80°\nB:140°\nC:20°\nD:50°",
+  "answer": "C",
+  "answer_type": "choice",
+  "subject": "PlaneGeometry",
+  "level": "middle_school",
+  "provenance": {
+    "source_key": "s479",
+    "source_answer": "C",
+    "previous_model_response": "Since \\(OA=OB\\) are radii, \\(\\triangle AOB\\) is isosceles. Given \\(\\angle OAB=40^\\circ\\), we also have \\(\\angle ABO=40^\\circ\\).\n\nThus,\n\\[\n\\angle AOB=180^\\circ-40^\\circ-40^\\circ=100^\\circ.\n\\]\n\nThe inscribed angle \\(\\angle APB\\) subtending arc \\(AB\\) is half the corresponding central angle:\n\\[\n\\angle APB=\\frac12\\angle AOB=50^\\circ.\n\\]\n\nD"
+  },
+  "answer_verification": {
+    "status": "verified",
+    "verified_answer": "C",
+    "issue": "",
+    "reasoning": "Central angle AOB=40 and inscribed angle APB intercept the same arc. Thus APB=20 degrees, choice C."
+  }
+}

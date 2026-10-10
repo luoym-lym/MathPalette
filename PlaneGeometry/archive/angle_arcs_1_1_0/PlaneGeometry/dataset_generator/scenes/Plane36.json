@@ -1,0 +1,176 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.0.0",
+  "id": "Plane36",
+  "status": "corrected",
+  "source_dataset": "MathVerse",
+  "source_image": "../../originals/Plane36.png",
+  "view": {
+    "xlim": [
+      -6,
+      6
+    ],
+    "ylim": [
+      -6,
+      6
+    ]
+  },
+  "points": {
+    "P": [
+      0,
+      0
+    ],
+    "S": [
+      5,
+      0
+    ],
+    "R": [
+      5,
+      4.666666666666667
+    ],
+    "Q": [
+      0,
+      4.666666666666667
+    ],
+    "T": [
+      2,
+      0
+    ]
+  },
+  "objects": [
+    {
+      "id": "rectangle",
+      "type": "polygon",
+      "points": [
+        "P",
+        "S",
+        "R",
+        "Q"
+      ]
+    },
+    {
+      "id": "RT",
+      "type": "segment",
+      "points": [
+        "R",
+        "T"
+      ]
+    },
+    {
+      "id": "PT",
+      "type": "segment",
+      "points": [
+        "P",
+        "T"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "v_P",
+      "type": "vertex",
+      "point": "P",
+      "offset_pt": [
+        -8,
+        -8
+      ]
+    },
+    {
+      "id": "v_Q",
+      "type": "vertex",
+      "point": "Q",
+      "offset_pt": [
+        -8,
+        8
+      ]
+    },
+    {
+      "id": "v_R",
+      "type": "vertex",
+      "point": "R",
+      "offset_pt": [
+        8,
+        8
+      ]
+    },
+    {
+      "id": "v_S",
+      "type": "vertex",
+      "point": "S",
+      "offset_pt": [
+        8,
+        -8
+      ]
+    },
+    {
+      "id": "v_T",
+      "type": "vertex",
+      "point": "T",
+      "offset_pt": [
+        0,
+        -10
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "PT2",
+      "type": "distance",
+      "points": [
+        "P",
+        "T"
+      ],
+      "value": 2
+    },
+    {
+      "id": "TS3",
+      "type": "distance",
+      "points": [
+        "T",
+        "S"
+      ],
+      "value": 3
+    },
+    {
+      "id": "height",
+      "type": "distance",
+      "points": [
+        "S",
+        "R"
+      ],
+      "value": 4.666666666666667
+    },
+    {
+      "id": "rightS",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "P",
+          "S"
+        ],
+        [
+          "S",
+          "R"
+        ]
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "query": "In the figure above, PQRS is a rectangle. The area of triangle RST is 7 and PT=2/5*PS. What is the area of PQRS?",
+  "answer": "23",
+  "answer_type": "exact",
+  "subject": "PlaneGeometry",
+  "level": "high_school",
+  "provenance": {
+    "source_key": "s3824",
+    "source_answer": "23",
+    "previous_model_response": "Since \\(PT=\\frac25 PS\\), the remaining base is\n\n\\[\nTS=PS-PT=\\frac35 PS.\n\\]\n\nTriangle \\(RST\\) has base \\(TS\\) and height \\(RS\\), so\n\n\\[\n7=\\frac12\\left(\\frac35 PS\\right)(RS)\n=\\frac3{10}(PS\\cdot RS).\n\\]\n\nTherefore, the area of rectangle \\(PQRS\\) is\n\n\\[\n\\frac{7\\cdot10}{3}=\\boxed{\\frac{70}{3}}.\n\\]\n\nFinal value: \\(\\frac{70}{3}\\)",
+    "correction": "Preserve source GT 23; exact area is 70/3 (23.333?)."
+  },
+  "answer_verification": {
+    "status": "corrected",
+    "verified_answer": "70/3",
+    "issue": "Source GT 23 is an integer approximation; the exact area is 70/3.",
+    "reasoning": "Triangle RST has base TS=PS-PT=3/5 PS and height equal to rectangle height h. Its area is (1/2)(3/5 PS)h=3/10 area(PQRS)=7, hence area(PQRS)=70/3. The 7 and PT=2/5 PS are formal question conditions, not labels in the source figure."
+  }
+}

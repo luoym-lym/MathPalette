@@ -1,0 +1,160 @@
+{
+  "id": "Plane34",
+  "status": "needs_review",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s2099",
+    "sample_id": 2099,
+    "problem_id": 420,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Plane Geometry",
+    "source_subfield": "Length",
+    "question": "Find the length of the missing side of the trapezium shown.",
+    "source_answer": "$5=s$",
+    "source_image": "sources/s2099.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      686,
+      412
+    ],
+    "source_image_sha256": "7e717784b30e2bd7185c6eca95758a3711d7a9e870e338140a7fef8edb71d23b",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "Find the length of the missing side of the trapezium shown.",
+  "answer": "$5=s$",
+  "answer_type": "length",
+  "answer_verification": {
+    "status": "needs_review",
+    "verified_answer": null,
+    "issue": "The source GT says s=5, but the image does not mark a side s and the visible 10 cm side plus 6 cm perpendicular offset do not uniquely determine a missing side.",
+    "reasoning": "Recreated the given parallelogram-like outline, side BC=10 cm, extended parallel side through D to E, and perpendicular EC=6 cm. Kept the source GT for review without assigning s to a vertex or asserting a derivation."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "PlaneGeometry/originals/Plane34.png",
+      "sha256": "7e717784b30e2bd7185c6eca95758a3711d7a9e870e338140a7fef8edb71d23b"
+    },
+    "scene": {
+      "path": "PlaneGeometry/dataset_generator/scenes/Plane34.json",
+      "sha256": "c6e4ae96ddc9c3ef9ee5c9a3f201991e80329c9d084ff78b57c86e352b59311a"
+    },
+    "protocol": {
+      "path": "PlaneGeometry/dataset_generator/protocol.json",
+      "sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+    },
+    "renderer": {
+      "path": "PlaneGeometry/dataset_generator/common_renderer.py",
+      "sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b"
+    },
+    "question_script": {
+      "path": "PlaneGeometry/dataset_generator/plane_plot34.py",
+      "sha256": "e40337ba6ee665f99240c1e7ca13147160f76b1c2e3cdd7f93ab582594e0a645"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "9dce5802c3be8d96402681d7d875b07bdf9bdacd4f02c1b8334496086e62659d"
+    },
+    "written_protocol": {
+      "path": "PlaneGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "35ffc43f988e98111024e9cbaa5c2be3c60cbfe3a0cfa1124e210628ee125261"
+    },
+    "layout_helper": {
+      "path": "dataset_tools/geometry_layout.py",
+      "sha256": "a35ce82cf4b4f7eef0cae0aa5d49e304f3f1c86bda68e95f5fc649a3ece99f2d"
+    }
+  },
+  "output_png": "PlaneGeometry/image/Plane34.png",
+  "output_png_sha256": "0599c9465e340e302ee06529a1af1a851cbc97165ee310d7e4bc78dde2e08a80",
+  "output_svg": "PlaneGeometry/image/Plane34.svg",
+  "output_svg_sha256": "16bf2d3deeca30289ee6cb7a550251d7c8708536345351d32c2319ce43911ba8",
+  "rgba_pixel_sha256": "546d50c2f4d97572e1f98e095b6c34c406991b3df327432191916edda4377f3f",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "parallel_AB_CD",
+      "type": "parallel",
+      "measured": 0.0,
+      "passed": true
+    },
+    {
+      "id": "parallel_AD_BC",
+      "type": "parallel",
+      "measured": 0.0,
+      "passed": true
+    },
+    {
+      "id": "side10",
+      "type": "distance",
+      "measured": 10.0,
+      "passed": true
+    },
+    {
+      "id": "height6",
+      "type": "distance",
+      "measured": 6.0,
+      "passed": true
+    },
+    {
+      "id": "perp_E",
+      "type": "perpendicular",
+      "measured": 1.6653345369377348e-16,
+      "passed": true
+    },
+    {
+      "id": "collinear_ADE",
+      "type": "collinear",
+      "measured": 0.0,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.2.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T17:40:58.461986+00:00",
+    "image_sha256": "0599c9465e340e302ee06529a1af1a851cbc97165ee310d7e4bc78dde2e08a80",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "user_review": {
+    "status": "pending_user_review",
+    "user_pass": false,
+    "reviewer": null,
+    "approved_at_utc": null,
+    "content_sha256": "354245684f8d7d0c25fa4c380992edd04bedfaa98bb24558b3c686c8c29d28ec",
+    "approved_content_sha256": null
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  },
+  "layout": {
+    "content_bbox_px": [
+      54,
+      186,
+      714,
+      582
+    ],
+    "long_side_fraction": 0.859375,
+    "center_offset_px": [
+      0.0,
+      0.0
+    ],
+    "minimum_outer_margin_fraction": 0.0703125
+  },
+  "provenance_updates": [
+    {
+      "scope": "written_protocol_only",
+      "before_sha256": "e517e3dfa24fbf50c9b814ece62938b4fd339648606ae9ffec6b226028e4a169",
+      "after_sha256": "35ffc43f988e98111024e9cbaa5c2be3c60cbfe3a0cfa1124e210628ee125261",
+      "reason": "Added explicit-user approval policy; all frozen rendering assets are unchanged.",
+      "updated_at_utc": "2026-10-09T17:45:11.024968+00:00"
+    }
+  ]
+}

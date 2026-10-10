@@ -1,0 +1,104 @@
+{
+  "id": "Solid16",
+  "status": "formal_candidate",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s3559",
+    "sample_id": 3559,
+    "problem_id": 712,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Solid Geometry",
+    "source_subfield": "Area",
+    "question": "Find the surface area of the pyramid.\n\nRound your answer to two decimal places.",
+    "source_answer": "\\[288.6 \\mathrm{m}^2\\]",
+    "source_image": "sources/s3559.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      457,
+      346
+    ],
+    "source_image_sha256": "96b2915de37788d5944c26b678484325e83be5789fd11761f5a17f2c3daa4243",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "Find the surface area of the pyramid.\n\nRound your answer to two decimal places.",
+  "answer": "\\[288.6 \\mathrm{m}^2\\]",
+  "answer_type": "number",
+  "answer_verification": {
+    "status": "needs_review",
+    "verified_answer": "288.68 mm^2",
+    "issue": "Raw GT unit m^2 conflicts with the diagram?s mm labels; unrounded result is 288.68 mm^2.",
+    "reasoning": "For side 10 mm and perpendicular height 8 mm, base area is 100 mm^2 and each triangular face has slant height sqrt(8^2+5^2). Total=100+4*(1/2*10*sqrt(89))=288.679... mm^2, or 288.68 mm^2."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "SolidGeometry/originals/Solid16.png",
+      "sha256": "96b2915de37788d5944c26b678484325e83be5789fd11761f5a17f2c3daa4243"
+    },
+    "scene": {
+      "path": "SolidGeometry/dataset_generator/scenes/Solid16.json",
+      "sha256": "15d3cd7a4a79cbdf5f89addf747a1c826f4aa47784ae1aca6b231b36fdb6ca7d"
+    },
+    "protocol": {
+      "path": "SolidGeometry/dataset_generator/protocol.json",
+      "sha256": "7c63cb30a6a6735b3fd607b68001442220a901824b384c405e00c45f57f30131"
+    },
+    "renderer": {
+      "path": "SolidGeometry/dataset_generator/common_renderer.py",
+      "sha256": "30af6cd2be3757532b3eb4e64fb935617aaec881e25eb721af0c1ddcaa018e5c"
+    },
+    "question_script": {
+      "path": "SolidGeometry/dataset_generator/solid_plot16.py",
+      "sha256": "569fc61e36b612ef0f848974e37465dfd1334673690062c4840b9f702b86a0b9"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "8860f5bd272fbb14230a10b83860e56a759e7e30a2c2850d74013689d759ec64"
+    },
+    "written_protocol": {
+      "path": "SolidGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "645d867d11f06dc38a4f0240feb7e5f65dd6cc1233b6accbb1dc07cffd43a04d"
+    }
+  },
+  "output_png": "SolidGeometry/image/Solid16.png",
+  "output_png_sha256": "6eda39e4af3d84188caff75794125f029dcc423da62466178f9131c1349cfc81",
+  "output_svg": "SolidGeometry/image/Solid16.svg",
+  "output_svg_sha256": "6b38124cbb6613eeab18b58b6f9bca9f835dcf4c7b8f99be6d726651be5d2c25",
+  "rgba_pixel_sha256": "e355f266867f20ab3b02b496e4dc01912bde2023cdfe86fb7135b3713d2205b4",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "projection_and_visibility",
+      "type": "projection",
+      "passed": true,
+      "projection_sha256": "bc33af1a952cac1f7da60aa4446783b22039ad7ee2b20b5c0f3355ede2b16388",
+      "automatic_occlusion": false
+    },
+    {
+      "id": "layout",
+      "type": "layout",
+      "outer_margin_fraction": 0.08,
+      "label_line_overlap": false,
+      "label_label_overlap": false,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.0.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T15:15:30.102695+00:00",
+    "image_sha256": "6eda39e4af3d84188caff75794125f029dcc423da62466178f9131c1349cfc81",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  }
+}

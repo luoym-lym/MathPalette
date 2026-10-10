@@ -1,0 +1,343 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.1.0",
+  "id": "Solid18",
+  "status": "formal_candidate",
+  "subject": "SolidGeometry",
+  "source_dataset": "MathVerse",
+  "source_image": "../../originals/Solid18.png",
+  "source_note": "MathVerse testmini Vision Dominant source s3589.",
+  "query": "Consider the two similar spheres shown.\n\n\nFind the volume of Sphere A, in simplest exact form.",
+  "answer": "\\[36\\pi \\mathrm{cm}^3\\]",
+  "answer_type": "expression",
+  "level": "medium",
+  "world_unit": "cm",
+  "points": {
+    "Oa": [
+      0,
+      0,
+      0
+    ],
+    "Ob": [
+      22,
+      0,
+      0
+    ],
+    "Aa": [
+      0,
+      0,
+      1.5
+    ],
+    "Ab": [
+      22,
+      0,
+      6
+    ],
+    "Aleft": [
+      -1.5,
+      0,
+      0
+    ],
+    "Aright": [
+      1.5,
+      0,
+      0
+    ],
+    "Bleft": [
+      16,
+      0,
+      0
+    ],
+    "Bright": [
+      28,
+      0,
+      0
+    ],
+    "Apole": [
+      0,
+      0,
+      1.5
+    ],
+    "Bpole": [
+      22,
+      0,
+      6
+    ],
+    "M_DA": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "M_DB": [
+      22.0,
+      0.0,
+      0.0
+    ]
+  },
+  "projection": {
+    "kind": "orthographic",
+    "name": "Orthographic sphere projection, camera toward -y",
+    "matrix": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ]
+    ],
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "toward_viewer": [
+      0,
+      -1,
+      0
+    ]
+  },
+  "view": {
+    "xlim": [
+      -2.2289982334513923,
+      28.769698010717757
+    ],
+    "ylim": [
+      -14.865000753504148,
+      16.133695490665
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "visibility": {
+    "mode": "frozen_intervals",
+    "projection_sha256": "e45642f49d02a47eebb33755d4d5c266fe5b62b6e5f43bac835a06b98760cc00",
+    "notes": "Visibility frozen by authored edge intervals; renderer does not infer occlusion."
+  },
+  "objects": [
+    {
+      "id": "sphere_A_outline",
+      "type": "circular_arc",
+      "role": "silhouette",
+      "center": "Oa",
+      "u": [
+        1,
+        0,
+        0
+      ],
+      "v": [
+        0,
+        0,
+        1
+      ],
+      "radius": 1.5,
+      "domain_deg": [
+        0,
+        360
+      ],
+      "intervals": [
+        {
+          "start_deg": 0,
+          "end_deg": 360,
+          "visibility": "visible",
+          "samples": 361
+        }
+      ]
+    },
+    {
+      "id": "sphere_A_meridian",
+      "type": "circular_arc",
+      "role": "silhouette",
+      "center": "Oa",
+      "u": [
+        1,
+        0,
+        0
+      ],
+      "v": [
+        0,
+        0.7071067811865476,
+        0.7071067811865476
+      ],
+      "radius": 1.5,
+      "domain_deg": [
+        0,
+        360
+      ],
+      "intervals": [
+        {
+          "start_deg": 0,
+          "end_deg": 180,
+          "visibility": "hidden",
+          "samples": 361
+        },
+        {
+          "start_deg": 180,
+          "end_deg": 360,
+          "visibility": "visible",
+          "samples": 361
+        }
+      ]
+    },
+    {
+      "id": "sphere_B_outline",
+      "type": "circular_arc",
+      "role": "silhouette",
+      "center": "Ob",
+      "u": [
+        1,
+        0,
+        0
+      ],
+      "v": [
+        0,
+        0,
+        1
+      ],
+      "radius": 6,
+      "domain_deg": [
+        0,
+        360
+      ],
+      "intervals": [
+        {
+          "start_deg": 0,
+          "end_deg": 360,
+          "visibility": "visible",
+          "samples": 361
+        }
+      ]
+    },
+    {
+      "id": "sphere_B_meridian",
+      "type": "circular_arc",
+      "role": "silhouette",
+      "center": "Ob",
+      "u": [
+        1,
+        0,
+        0
+      ],
+      "v": [
+        0,
+        0.7071067811865476,
+        0.7071067811865476
+      ],
+      "radius": 6,
+      "domain_deg": [
+        0,
+        360
+      ],
+      "intervals": [
+        {
+          "start_deg": 0,
+          "end_deg": 180,
+          "visibility": "hidden",
+          "samples": 361
+        },
+        {
+          "start_deg": 180,
+          "end_deg": 360,
+          "visibility": "visible",
+          "samples": 361
+        }
+      ]
+    },
+    {
+      "id": "diameter_A",
+      "type": "segment",
+      "points": [
+        "Aleft",
+        "Aright"
+      ],
+      "visibility": "visible",
+      "role": "auxiliary"
+    },
+    {
+      "id": "diameter_B",
+      "type": "segment",
+      "points": [
+        "Bleft",
+        "Bright"
+      ],
+      "visibility": "visible",
+      "role": "auxiliary"
+    }
+  ],
+  "dimensions": [],
+  "labels": [
+    {
+      "id": "sphere_A",
+      "type": "text",
+      "text": "A",
+      "anchor": "Apole",
+      "offset_pt": [
+        0.0,
+        10.666666666666666
+      ]
+    },
+    {
+      "id": "sphere_B",
+      "type": "text",
+      "text": "B",
+      "anchor": "Bpole",
+      "offset_pt": [
+        0.0,
+        13.333333333333332
+      ]
+    },
+    {
+      "id": "diameter_3",
+      "type": "text",
+      "text": "3",
+      "anchor": "M_DA",
+      "offset_pt": [
+        0.0,
+        -40.0
+      ]
+    },
+    {
+      "id": "diameter_12",
+      "type": "text",
+      "text": "12",
+      "anchor": "M_DB",
+      "offset_pt": [
+        0.0,
+        -40.0
+      ]
+    }
+  ],
+  "constraints": [],
+  "ambiguities": [
+    {
+      "id": "sphere_A_measure",
+      "description": "Source A dimension line appears across a diameter, but raw GT uses it as a radius."
+    }
+  ],
+  "provenance": {
+    "source_key": "s3589"
+  },
+  "answer_verification": {
+    "status": "needs_review",
+    "verified_answer": "4.5*pi cm^3",
+    "issue": "The A dimension line appears to span a 3 cm diameter, yielding 4.5*pi cm^3; raw GT 36*pi assumes 3 cm is a radius. B?s 12 cm mark is a pole-to-pole diameter.",
+    "reasoning": "If A diameter is 3 cm, r=1.5 cm and V=(4/3)*pi*(1.5^3)=4.5*pi cm^3. Raw GT retained in answer."
+  }
+}

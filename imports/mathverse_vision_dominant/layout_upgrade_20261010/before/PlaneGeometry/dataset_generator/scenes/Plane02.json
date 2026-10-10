@@ -1,0 +1,250 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.1.0",
+  "id": "Plane02",
+  "status": "verified",
+  "source_dataset": "MathVerse",
+  "source_image": "../../originals/Plane02.png",
+  "view": {
+    "xlim": [
+      -13.762,
+      14.661999999999999
+    ],
+    "ylim": [
+      -5.292,
+      23.131999999999998
+    ]
+  },
+  "points": {
+    "A": [
+      0,
+      17.3205080757
+    ],
+    "P": [
+      -10,
+      0
+    ],
+    "Q": [
+      10,
+      0
+    ],
+    "B": [
+      -4,
+      10.3923048454
+    ],
+    "C": [
+      4,
+      10.3923048454
+    ],
+    "aqm": [
+      5,
+      8.66025403785
+    ],
+    "aq1": [
+      10.9,
+      0.52
+    ],
+    "aq2": [
+      0.9,
+      17.84
+    ],
+    "aqdim_mid": [
+      5.9,
+      9.18
+    ]
+  },
+  "objects": [
+    {
+      "id": "AP",
+      "type": "segment",
+      "points": [
+        "A",
+        "P"
+      ]
+    },
+    {
+      "id": "AQ",
+      "type": "segment",
+      "points": [
+        "A",
+        "Q"
+      ]
+    },
+    {
+      "id": "BC",
+      "type": "segment",
+      "points": [
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "PQ",
+      "type": "segment",
+      "points": [
+        "P",
+        "Q"
+      ]
+    },
+    {
+      "id": "AQ_dimension",
+      "type": "segment",
+      "points": [
+        "aq1",
+        "aq2"
+      ],
+      "linestyle": "dashed"
+    },
+    {
+      "id": "AQ_tick_top",
+      "type": "segment",
+      "points": [
+        "aq1",
+        "Q"
+      ]
+    },
+    {
+      "id": "AQ_tick_bottom",
+      "type": "segment",
+      "points": [
+        "aq2",
+        "A"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "label_A",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        0,
+        10
+      ]
+    },
+    {
+      "id": "label_B",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        -10,
+        6
+      ]
+    },
+    {
+      "id": "label_C",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        10,
+        6
+      ]
+    },
+    {
+      "id": "label_P",
+      "type": "vertex",
+      "point": "P",
+      "offset_pt": [
+        -8,
+        -10
+      ]
+    },
+    {
+      "id": "label_Q",
+      "type": "vertex",
+      "point": "Q",
+      "offset_pt": [
+        8,
+        -10
+      ]
+    },
+    {
+      "id": "AQval",
+      "type": "text",
+      "anchor": "aqdim_mid",
+      "text": "20",
+      "offset_pt": [
+        10,
+        0
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "parallel_BC_PQ",
+      "type": "parallel",
+      "segments": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "P",
+          "Q"
+        ]
+      ]
+    },
+    {
+      "id": "collinear_ABP",
+      "type": "between",
+      "points": [
+        "A",
+        "B",
+        "P"
+      ]
+    },
+    {
+      "id": "collinear_ACQ",
+      "type": "between",
+      "points": [
+        "A",
+        "C",
+        "Q"
+      ]
+    },
+    {
+      "id": "AQ20",
+      "type": "distance",
+      "points": [
+        "A",
+        "Q"
+      ],
+      "value": 20
+    },
+    {
+      "id": "AB2_AP5",
+      "type": "distance",
+      "points": [
+        "A",
+        "B"
+      ],
+      "value": 8
+    },
+    {
+      "id": "AP20",
+      "type": "distance",
+      "points": [
+        "A",
+        "P"
+      ],
+      "value": 20
+    }
+  ],
+  "ambiguities": [],
+  "query": "It is known that BC parallel PQ, AB:AP = 2.0:5.0, then the length of CQ is ()\nChoices:\nA:8cm\nB:12cm\nC:30cm\nD:50cm",
+  "answer": "B",
+  "answer_type": "choice",
+  "subject": "PlaneGeometry",
+  "level": "middle_school",
+  "provenance": {
+    "source_key": "s209",
+    "source_answer": "B",
+    "previous_model_response": "Since \\(BC \\parallel PQ\\), triangles \\(\\triangle ABC\\) and \\(\\triangle APQ\\) are similar. Thus,\n\n\\[\n\\frac{AC}{AQ}=\\frac{AB}{AP}=\\frac{2}{5}.\n\\]\n\nGiven \\(AC=20\\text{ cm}\\),\n\n\\[\n\\frac{20}{AQ}=\\frac{2}{5}\\quad\\Rightarrow\\quad AQ=50\\text{ cm}.\n\\]\n\nTherefore,\n\n\\[\nCQ=AQ-AC=50-20=30\\text{ cm}.\n\\]\n\nC: 30 cm"
+  },
+  "answer_verification": {
+    "status": "verified",
+    "verified_answer": "B",
+    "issue": "",
+    "reasoning": "AQ=20 and similar triangles give AC/AQ=AB/AP=2/5. Therefore AC=8 and CQ=12 cm, choice B."
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "id": "Plane07",
+  "status": "needs_review",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s429",
+    "sample_id": 429,
+    "problem_id": 86,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Plane Geometry",
+    "source_subfield": "Length",
+    "question": "As shown in the figure, circle O is the circumscribed circle of triangle ABC. then the length of BC is ()\nChoices:\nA:√{3}\nB:2√{3}\nC:4\nD:4√{3}",
+    "source_answer": "B",
+    "source_image": "sources/s429.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      227,
+      206
+    ],
+    "source_image_sha256": "dce1a8e0b8c8d46e7e06a32e8c4703a077ead9736fca635630e6234b4c304499",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "As shown in the figure, circle O is the circumscribed circle of triangle ABC. then the length of BC is ()\nChoices:\nA:√{3}\nB:2√{3}\nC:4\nD:4√{3}",
+  "answer": "B",
+  "answer_type": "choice",
+  "answer_verification": {
+    "status": "verified",
+    "verified_answer": "B",
+    "reasoning": "OB is explicitly labeled 2, so the circumradius is 2. The inscribed angle A is 60 degrees and intercepts BC; therefore BC=2R sin(60 degrees)=2 sqrt(3), choice B."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "PlaneGeometry/originals/Plane07.png",
+      "sha256": "dce1a8e0b8c8d46e7e06a32e8c4703a077ead9736fca635630e6234b4c304499"
+    },
+    "scene": {
+      "path": "PlaneGeometry/dataset_generator/scenes/Plane07.json",
+      "sha256": "3613a9a4e3d7cf7db0041159ddb5b5cca278bbeca5bc626cb7b9461c36ac5448"
+    },
+    "protocol": {
+      "path": "PlaneGeometry/dataset_generator/protocol.json",
+      "sha256": "741e1e99ad4fa85f9d74e9d82408eca16fd1381eba3acf14d8567490dcbde98f"
+    },
+    "renderer": {
+      "path": "PlaneGeometry/dataset_generator/common_renderer.py",
+      "sha256": "a5113ef647f45f4ebfd2c3b30f27cf410735e08d6d1f201b93886b90c7c2f903"
+    },
+    "question_script": {
+      "path": "PlaneGeometry/dataset_generator/plane_plot07.py",
+      "sha256": "c1db29bb3a27a4fc6921bbe33ef63d258fae11c24d4e38abaa47598545f71220"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "8860f5bd272fbb14230a10b83860e56a759e7e30a2c2850d74013689d759ec64"
+    },
+    "written_protocol": {
+      "path": "PlaneGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "771a241bb076304851a5e5eec400ec26092e947f07002bb80acfb9fcef546e7f"
+    }
+  },
+  "output_png": "PlaneGeometry/image/Plane07.png",
+  "output_png_sha256": "1013d0a1536b4caf0fbf22be40acca2a061fe41d772731c8605b6856b1444d17",
+  "output_svg": "PlaneGeometry/image/Plane07.svg",
+  "output_svg_sha256": "cc9f19417e5e4b2158675b06d25c907681a6f9966dd2ce325aae95ca87319cad",
+  "rgba_pixel_sha256": "2c94d31599a868f7db37b6be350061db34bc72efc62099cbd9d4ff9bf92d1ad1",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "A60",
+      "type": "angle",
+      "measured": 60.0000000008916,
+      "passed": true
+    },
+    {
+      "id": "on_A",
+      "type": "on_circle",
+      "measured": 2.0,
+      "passed": true
+    },
+    {
+      "id": "on_B",
+      "type": "on_circle",
+      "measured": 2.000000000026953,
+      "passed": true
+    },
+    {
+      "id": "on_C",
+      "type": "on_circle",
+      "measured": 2.000000000026953,
+      "passed": true
+    },
+    {
+      "id": "OB2",
+      "type": "distance",
+      "measured": 2.000000000026953,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.0.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T15:01:09.203726+00:00",
+    "image_sha256": "1013d0a1536b4caf0fbf22be40acca2a061fe41d772731c8605b6856b1444d17",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  }
+}

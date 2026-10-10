@@ -1,0 +1,158 @@
+{
+  "id": "Solid11",
+  "status": "formal_candidate",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s3484",
+    "sample_id": 3484,
+    "problem_id": 697,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Solid Geometry",
+    "source_subfield": "Volume",
+    "question": "Find the volume of the figure shown.\n\nRound your answer to two decimal places.",
+    "source_answer": "Volume $=874.93 \\mathrm{~cm}^{3}$",
+    "source_image": "sources/s3484.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      639,
+      450
+    ],
+    "source_image_sha256": "4865486ab36a01c0e5cfa62e2b817f763e3e01edf097cb3a9b503cac2474d8f6",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "Find the volume of the figure shown.\n\nRound your answer to two decimal places.",
+  "answer": "Volume $=874.93 \\mathrm{~cm}^{3}$",
+  "answer_type": "number",
+  "answer_verification": {
+    "status": "verified",
+    "verified_answer": "Volume $=874.93 \\mathrm{~cm}^{3}$",
+    "issue": null,
+    "reasoning": "Two solid disks have radius 8 cm and thickness 2 cm; the connecting shaft has radius 1.5 cm and height 10 cm. V=2*pi*8^2*2+pi*1.5^2*10=278.5*pi=874.93 cm^3."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "SolidGeometry/originals/Solid11.png",
+      "sha256": "4865486ab36a01c0e5cfa62e2b817f763e3e01edf097cb3a9b503cac2474d8f6"
+    },
+    "scene": {
+      "path": "SolidGeometry/dataset_generator/scenes/Solid11.json",
+      "sha256": "45f3b6ac9fb3934269111bed579be787a2d671d488cb82bbca9e556ecd5c749a"
+    },
+    "protocol": {
+      "path": "SolidGeometry/dataset_generator/protocol.json",
+      "sha256": "e66f71cd4872a2dd2aeffcc462fa227695dbd3fc5658133e98180348c7643ad9"
+    },
+    "renderer": {
+      "path": "SolidGeometry/dataset_generator/common_renderer.py",
+      "sha256": "e4313d0559ebbd3677218b3301d5ddb4f022213a3a35609fc15007370abe1e16"
+    },
+    "question_script": {
+      "path": "SolidGeometry/dataset_generator/solid_plot11.py",
+      "sha256": "8834b49e6c692f4dab76d5529cef247d34ae6468d32b0b54a14db1a2e06b97bc"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "80b8da25f7befd14f571509b50635949f8733bb605b1d7f32369e72b443942b2"
+    },
+    "written_protocol": {
+      "path": "SolidGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "24d79f3157a969e7564c38f33f8bc9435a608266ae2a69149096217d7d8aa7d8"
+    },
+    "layout_helper": {
+      "path": "dataset_tools/geometry_layout.py",
+      "sha256": "a35ce82cf4b4f7eef0cae0aa5d49e304f3f1c86bda68e95f5fc649a3ece99f2d"
+    }
+  },
+  "output_png": "SolidGeometry/image/Solid11.png",
+  "output_png_sha256": "cc374481717c8005351f3cca3b8d4f8667cf55f3fc42bb6281c7275dbd57e16e",
+  "output_svg": "SolidGeometry/image/Solid11.svg",
+  "output_svg_sha256": "d93d6f131c94de11d17de8a3c7a5478ca70522000a925d6f4a5dcff5b8af2930",
+  "rgba_pixel_sha256": "375ede5bf9f36aeaad745851dffd63b1879c05177d089a479c73dd09fc0fbd5d",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "projection_and_visibility",
+      "type": "projection",
+      "passed": true,
+      "projection_sha256": "bc33af1a952cac1f7da60aa4446783b22039ad7ee2b20b5c0f3355ede2b16388",
+      "automatic_occlusion": false
+    },
+    {
+      "id": "bottom_outer",
+      "type": "arc_sampling",
+      "max_chord_error_px": 0.012801908445039777,
+      "passed": true
+    },
+    {
+      "id": "bottom_top",
+      "type": "arc_sampling",
+      "max_chord_error_px": 0.012801908445039777,
+      "passed": true
+    },
+    {
+      "id": "top_bottom",
+      "type": "arc_sampling",
+      "max_chord_error_px": 0.012801908445039777,
+      "passed": true
+    },
+    {
+      "id": "top_outer",
+      "type": "arc_sampling",
+      "max_chord_error_px": 0.012801908445039777,
+      "passed": true
+    },
+    {
+      "id": "shaft_lower",
+      "type": "arc_sampling",
+      "max_chord_error_px": 0.002400357833444958,
+      "passed": true
+    },
+    {
+      "id": "shaft_upper",
+      "type": "arc_sampling",
+      "max_chord_error_px": 0.002400357833444958,
+      "passed": true
+    },
+    {
+      "id": "layout",
+      "type": "layout",
+      "outer_margin_fraction": 0.05,
+      "label_line_overlap": false,
+      "label_label_overlap": false,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.1.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T17:25:29.370734+00:00",
+    "image_sha256": "cc374481717c8005351f3cca3b8d4f8667cf55f3fc42bb6281c7275dbd57e16e",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  },
+  "layout": {
+    "content_bbox_px": [
+      54,
+      56,
+      714,
+      712
+    ],
+    "long_side_fraction": 0.859375,
+    "center_offset_px": [
+      0.0,
+      0.0
+    ],
+    "minimum_outer_margin_fraction": 0.0703125
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "id": "Solid18",
+  "status": "formal_candidate",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s3589",
+    "sample_id": 3589,
+    "problem_id": 718,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Solid Geometry",
+    "source_subfield": "Volume",
+    "question": "Consider the two similar spheres shown.\n\n\nFind the volume of Sphere A, in simplest exact form.",
+    "source_answer": "\\[36\\pi \\mathrm{cm}^3\\]",
+    "source_image": "sources/s3589.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      374,
+      255
+    ],
+    "source_image_sha256": "63966ee79c8a28418147d4bfe5fa0896f9253c2b8be0befae80b4fecdfe365b4",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "Consider the two similar spheres shown.\n\n\nFind the volume of Sphere A, in simplest exact form.",
+  "answer": "\\[36\\pi \\mathrm{cm}^3\\]",
+  "answer_type": "expression",
+  "answer_verification": {
+    "status": "needs_review",
+    "verified_answer": "4.5*pi cm^3",
+    "issue": "The A dimension line appears to span a 3 cm diameter, yielding 4.5*pi cm^3; raw GT 36*pi assumes 3 cm is a radius. B?s 12 cm mark is a pole-to-pole diameter.",
+    "reasoning": "If A diameter is 3 cm, r=1.5 cm and V=(4/3)*pi*(1.5^3)=4.5*pi cm^3. Raw GT retained in answer."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "SolidGeometry/originals/Solid18.png",
+      "sha256": "63966ee79c8a28418147d4bfe5fa0896f9253c2b8be0befae80b4fecdfe365b4"
+    },
+    "scene": {
+      "path": "SolidGeometry/dataset_generator/scenes/Solid18.json",
+      "sha256": "5091e0b3b02b044fcd6e2e07e41cd205a620607748c35201bb3a38174c613f59"
+    },
+    "protocol": {
+      "path": "SolidGeometry/dataset_generator/protocol.json",
+      "sha256": "7c63cb30a6a6735b3fd607b68001442220a901824b384c405e00c45f57f30131"
+    },
+    "renderer": {
+      "path": "SolidGeometry/dataset_generator/common_renderer.py",
+      "sha256": "30af6cd2be3757532b3eb4e64fb935617aaec881e25eb721af0c1ddcaa018e5c"
+    },
+    "question_script": {
+      "path": "SolidGeometry/dataset_generator/solid_plot18.py",
+      "sha256": "17fdde9485a6bb08c6cd932875aa82f86692af8574412755b26f00f53b49563e"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "8860f5bd272fbb14230a10b83860e56a759e7e30a2c2850d74013689d759ec64"
+    },
+    "written_protocol": {
+      "path": "SolidGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "645d867d11f06dc38a4f0240feb7e5f65dd6cc1233b6accbb1dc07cffd43a04d"
+    }
+  },
+  "output_png": "SolidGeometry/image/Solid18.png",
+  "output_png_sha256": "a23cf6aae9cbad055c99e8e1e74fc25a0015222f1dd9c61eab1b4280724fb9da",
+  "output_svg": "SolidGeometry/image/Solid18.svg",
+  "output_svg_sha256": "bd3880b9ad1986a6332095a24c4019361d0889d0c035f50230dfbe1ec8fe2e92",
+  "rgba_pixel_sha256": "3f06e3757b3c86a4bc3a5ee3819ba7421b6171f27611795ddbdf6f84cc14485b",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "projection_and_visibility",
+      "type": "projection",
+      "passed": true,
+      "projection_sha256": "e45642f49d02a47eebb33755d4d5c266fe5b62b6e5f43bac835a06b98760cc00",
+      "automatic_occlusion": false
+    },
+    {
+      "id": "sphere_A_outline",
+      "type": "arc_sampling",
+      "max_chord_error_px": 0.0009211572315676762,
+      "passed": true
+    },
+    {
+      "id": "sphere_A_meridian",
+      "type": "arc_sampling",
+      "max_chord_error_px": 0.0002302904039912903,
+      "passed": true
+    },
+    {
+      "id": "sphere_B_outline",
+      "type": "arc_sampling",
+      "max_chord_error_px": 0.003684628926270705,
+      "passed": true
+    },
+    {
+      "id": "sphere_B_meridian",
+      "type": "arc_sampling",
+      "max_chord_error_px": 0.0009211616159651612,
+      "passed": true
+    },
+    {
+      "id": "layout",
+      "type": "layout",
+      "outer_margin_fraction": 0.08,
+      "label_line_overlap": false,
+      "label_label_overlap": false,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.0.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T15:15:30.392382+00:00",
+    "image_sha256": "a23cf6aae9cbad055c99e8e1e74fc25a0015222f1dd9c61eab1b4280724fb9da",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  }
+}

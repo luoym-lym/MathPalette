@@ -1,0 +1,265 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.1.0",
+  "id": "Solid21",
+  "status": "formal_candidate",
+  "subject": "SolidGeometry",
+  "source_dataset": "MathVerse",
+  "source_image": "../../originals/Solid21.png",
+  "source_note": "MathVerse testmini Vision Dominant source s3639.",
+  "query": "Each side length of the cube is equal. Find the volume of the cube shown.",
+  "answer": "$144cm^3$",
+  "answer_type": "number",
+  "level": "medium",
+  "world_unit": "cm",
+  "points": {
+    "A": [
+      0,
+      0,
+      0
+    ],
+    "B": [
+      12,
+      0,
+      0
+    ],
+    "C": [
+      12,
+      12,
+      0
+    ],
+    "D": [
+      0,
+      12,
+      0
+    ],
+    "E": [
+      0,
+      0,
+      12
+    ],
+    "F": [
+      12,
+      0,
+      12
+    ],
+    "G": [
+      12,
+      12,
+      12
+    ],
+    "H": [
+      0,
+      12,
+      12
+    ],
+    "M12": [
+      6.0,
+      0.0,
+      0.0
+    ]
+  },
+  "projection": {
+    "kind": "oblique",
+    "name": "Frozen oblique parallel view",
+    "matrix": [
+      [
+        1,
+        0.82,
+        0
+      ],
+      [
+        0,
+        0.41,
+        1
+      ]
+    ],
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "toward_viewer": [
+      0.6044299021853569,
+      -0.7371096368114108,
+      0.30221495109267843
+    ]
+  },
+  "view": {
+    "xlim": [
+      -0.5473002765078547,
+      22.433475860931303
+    ],
+    "ylim": [
+      -3.0361507148254407,
+      19.94462542261372
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "visibility": {
+    "mode": "frozen_intervals",
+    "projection_sha256": "bc33af1a952cac1f7da60aa4446783b22039ad7ee2b20b5c0f3355ede2b16388",
+    "notes": "Visibility frozen by authored edge intervals; renderer does not infer occlusion."
+  },
+  "objects": [
+    {
+      "id": "AB",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "BC",
+      "type": "segment",
+      "points": [
+        "B",
+        "C"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "CD",
+      "type": "segment",
+      "points": [
+        "C",
+        "D"
+      ],
+      "visibility": "hidden",
+      "role": "edge"
+    },
+    {
+      "id": "DA",
+      "type": "segment",
+      "points": [
+        "D",
+        "A"
+      ],
+      "visibility": "hidden",
+      "role": "edge"
+    },
+    {
+      "id": "EF",
+      "type": "segment",
+      "points": [
+        "E",
+        "F"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "FG",
+      "type": "segment",
+      "points": [
+        "F",
+        "G"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "GH",
+      "type": "segment",
+      "points": [
+        "G",
+        "H"
+      ],
+      "visibility": "hidden",
+      "role": "edge"
+    },
+    {
+      "id": "HE",
+      "type": "segment",
+      "points": [
+        "H",
+        "E"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "AE",
+      "type": "segment",
+      "points": [
+        "A",
+        "E"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "BF",
+      "type": "segment",
+      "points": [
+        "B",
+        "F"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "CG",
+      "type": "segment",
+      "points": [
+        "C",
+        "G"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "DH",
+      "type": "segment",
+      "points": [
+        "D",
+        "H"
+      ],
+      "visibility": "hidden",
+      "role": "edge"
+    }
+  ],
+  "dimensions": [],
+  "labels": [
+    {
+      "id": "dimension_12",
+      "type": "text",
+      "text": "12 cm",
+      "anchor": "M12",
+      "offset_pt": [
+        5.333333333333333,
+        9.333333333333332
+      ]
+    }
+  ],
+  "constraints": [],
+  "ambiguities": [],
+  "provenance": {
+    "source_key": "s3639"
+  },
+  "answer_verification": {
+    "status": "needs_review",
+    "verified_answer": "1728 cm^3",
+    "issue": "Raw GT 144 cm^3 conflicts with a 12 cm cube side; the correct volume is 1728 cm^3.",
+    "reasoning": "All side lengths are 12 cm, so cube volume=12^3=1728 cm^3. Raw GT 144 is inconsistent."
+  }
+}

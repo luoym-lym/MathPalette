@@ -1,0 +1,155 @@
+{
+  "id": "Plane01",
+  "status": "verified",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s34",
+    "sample_id": 34,
+    "problem_id": 7,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Plane Geometry",
+    "source_subfield": "Angle",
+    "question": "As shown in the figure, triangle ABC congruent triangle ADE, then the degree of angle EAC is ()\nChoices:\nA:40°\nB:45°\nC:35°\nD:25°",
+    "source_answer": "B",
+    "source_image": "sources/s34.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      389,
+      276
+    ],
+    "source_image_sha256": "75d34bedf00c2c4298a1b9b7525b961abcf2416a719ef3f859360d09231038a0",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "As shown in the figure, triangle ABC congruent triangle ADE, then the degree of angle EAC is ()\nChoices:\nA:40°\nB:45°\nC:35°\nD:25°",
+  "answer": "B",
+  "answer_type": "choice",
+  "answer_verification": {
+    "status": "verified",
+    "verified_answer": "B",
+    "issue": "",
+    "reasoning": "Triangle ABC has angles A=80, B=70, C=30. Congruence ABC=ADE gives angle DAE=80. Ray AC is 35 degrees from AD, so angle EAC=45 degrees, choice B."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "PlaneGeometry/originals/Plane01.png",
+      "sha256": "75d34bedf00c2c4298a1b9b7525b961abcf2416a719ef3f859360d09231038a0"
+    },
+    "scene": {
+      "path": "PlaneGeometry/dataset_generator/scenes/Plane01.json",
+      "sha256": "d48a3af7f165e3f5a649b54b31d8db2a4291350a880a78e9b3b661128213a328"
+    },
+    "protocol": {
+      "path": "PlaneGeometry/dataset_generator/protocol.json",
+      "sha256": "a5cccd93ef351ef88528d51c370c5b86beb709e043bd8ab8895b64cde1e4f900"
+    },
+    "renderer": {
+      "path": "PlaneGeometry/dataset_generator/common_renderer.py",
+      "sha256": "649d82586597eabe78fb4594233049dc734be5bfa58a1a1619b760a83747d2b7"
+    },
+    "question_script": {
+      "path": "PlaneGeometry/dataset_generator/plane_plot01.py",
+      "sha256": "e21fcd2a7eabdd8f535a75f6b04b2c806a8e79c5528b19fc5a7ac23b8a175da3"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "8860f5bd272fbb14230a10b83860e56a759e7e30a2c2850d74013689d759ec64"
+    },
+    "written_protocol": {
+      "path": "PlaneGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "ddf61ea1b6d35179a27c41d3ce270a29fb18a7827d7a2729201645cd61229bf6"
+    }
+  },
+  "output_png": "PlaneGeometry/image/Plane01.png",
+  "output_png_sha256": "37e4e15ed492d140e531c622bf5b4719958ac861b3e69142c7bce727c2068b75",
+  "output_svg": "PlaneGeometry/image/Plane01.svg",
+  "output_svg_sha256": "4362b3759db854c244bc3429c92e67071d0ce0323493e3f1257a34e9685760b7",
+  "rgba_pixel_sha256": "6e39d1b8299337c32282c1d3483be33c525d52573cb3cbb4c199127eba5c50f9",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "B70",
+      "type": "angle",
+      "measured": 70.0,
+      "passed": true
+    },
+    {
+      "id": "C30",
+      "type": "angle",
+      "measured": 29.99999999999998,
+      "passed": true
+    },
+    {
+      "id": "DAC35",
+      "type": "angle",
+      "measured": 34.99999999999998,
+      "passed": true
+    },
+    {
+      "id": "AB_AD",
+      "type": "equal_length",
+      "measured": [
+        4.0,
+        3.9999999999999996
+      ],
+      "passed": true
+    },
+    {
+      "id": "AC_AE",
+      "type": "equal_length",
+      "measured": [
+        7.517540966287267,
+        7.517540966287267
+      ],
+      "passed": true
+    },
+    {
+      "id": "angle_BAC_DAE",
+      "type": "angle",
+      "measured": 80.0,
+      "passed": true
+    },
+    {
+      "id": "arc_binding_given_B",
+      "type": "angle_annotation",
+      "label_id": "given_B",
+      "arc_id": "angle_arc_given_B",
+      "measured": 1,
+      "passed": true
+    },
+    {
+      "id": "arc_binding_given_C",
+      "type": "angle_annotation",
+      "label_id": "given_C",
+      "arc_id": "angle_arc_given_C",
+      "measured": 1,
+      "passed": true
+    },
+    {
+      "id": "arc_binding_given_DAC",
+      "type": "angle_annotation",
+      "label_id": "given_DAC",
+      "arc_id": "angle_arc_given_DAC",
+      "measured": 1,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.1.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T16:59:20.543669+00:00",
+    "image_sha256": "37e4e15ed492d140e531c622bf5b4719958ac861b3e69142c7bce727c2068b75",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  }
+}

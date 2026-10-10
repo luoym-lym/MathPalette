@@ -1,0 +1,227 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.0.0",
+  "id": "Plane09",
+  "status": "corrected",
+  "source_dataset": "MathVerse",
+  "source_image": "../../originals/Plane09.png",
+  "view": {
+    "xlim": [
+      -8,
+      8
+    ],
+    "ylim": [
+      -8,
+      8
+    ]
+  },
+  "points": {
+    "O": [
+      0,
+      0
+    ],
+    "A": [
+      -5,
+      0
+    ],
+    "B": [
+      5,
+      0
+    ],
+    "D": [
+      -2.499999999999999,
+      4.330127018922194
+    ],
+    "C": [
+      2.5000000000000004,
+      4.330127018922193
+    ]
+  },
+  "objects": [
+    {
+      "id": "circle",
+      "type": "circle",
+      "center": "O",
+      "radius": 5
+    },
+    {
+      "id": "AB",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "AD",
+      "type": "segment",
+      "points": [
+        "A",
+        "D"
+      ]
+    },
+    {
+      "id": "DC",
+      "type": "segment",
+      "points": [
+        "D",
+        "C"
+      ]
+    },
+    {
+      "id": "CB",
+      "type": "segment",
+      "points": [
+        "C",
+        "B"
+      ]
+    },
+    {
+      "id": "AC",
+      "type": "segment",
+      "points": [
+        "A",
+        "C"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "v_A",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        -9,
+        -6
+      ]
+    },
+    {
+      "id": "v_B",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        9,
+        -6
+      ]
+    },
+    {
+      "id": "v_C",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        8,
+        8
+      ]
+    },
+    {
+      "id": "v_D",
+      "type": "vertex",
+      "point": "D",
+      "offset_pt": [
+        -7,
+        9
+      ]
+    },
+    {
+      "id": "v_O",
+      "type": "vertex",
+      "point": "O",
+      "offset_pt": [
+        0,
+        -10
+      ]
+    },
+    {
+      "id": "given_BAC",
+      "type": "angle",
+      "points": [
+        "B",
+        "A",
+        "C"
+      ],
+      "degrees": 30,
+      "radius_pt": 28
+    }
+  ],
+  "constraints": [
+    {
+      "id": "BAC30",
+      "type": "angle",
+      "points": [
+        "B",
+        "A",
+        "C"
+      ],
+      "degrees": 30
+    },
+    {
+      "id": "ABdiameter",
+      "type": "collinear",
+      "points": [
+        "A",
+        "O",
+        "B"
+      ]
+    },
+    {
+      "id": "AD_eq_DC",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "D",
+          "C"
+        ]
+      ]
+    },
+    {
+      "id": "on_A",
+      "type": "on_circle",
+      "point": "A",
+      "center": "O",
+      "radius": 5
+    },
+    {
+      "id": "on_B",
+      "type": "on_circle",
+      "point": "B",
+      "center": "O",
+      "radius": 5
+    },
+    {
+      "id": "on_C",
+      "type": "on_circle",
+      "point": "C",
+      "center": "O",
+      "radius": 5
+    },
+    {
+      "id": "on_D",
+      "type": "on_circle",
+      "point": "D",
+      "center": "O",
+      "radius": 5
+    }
+  ],
+  "ambiguities": [],
+  "query": "As shown in the figure, arc AD = arc CD. Then angle DAC is equal to ()\nChoices:\nA:70\u00b0\nB:45\u00b0\nC:30\u00b0\nD:25\u00b0",
+  "answer": "B",
+  "answer_type": "choice",
+  "subject": "PlaneGeometry",
+  "level": "middle_school",
+  "provenance": {
+    "source_key": "s454",
+    "source_answer": "B",
+    "previous_model_response": "The marked angle is \\(\\angle BAC=30^\\circ\\).\n\n1. \\(\\angle BAC\\) is an inscribed angle intercepting arc \\(BC\\), so  \n   \\[\n   m\\widehat{BC}=2(30^\\circ)=60^\\circ.\n   \\]\n\n2. Since \\(AB\\) is a diameter, the upper semicircle measures \\(180^\\circ\\). Thus  \n   \\[\n   m\\widehat{AC}=180^\\circ-60^\\circ=120^\\circ.\n   \\]\n\n3. Given \\(\\widehat{AD}=\\widehat{CD}\\), each is half of \\(\\widehat{AC}\\):  \n   \\[\n   m\\widehat{CD}=60^\\circ.\n   \\]\n\n4. \\(\\angle DAC\\) is an inscribed angle intercepting arc \\(DC\\), so  \n   \\[\n   \\angle DAC=\\frac{1}{2}(60^\\circ)=30^\\circ.\n   \\]\n\nCorrect option: C. 30\u00b0",
+    "correction": "Source GT B/45? corrected to C/30?."
+  },
+  "answer_verification": {
+    "status": "corrected",
+    "verified_answer": "C",
+    "issue": "Independent derivation conflicts with the source GT; retain source and report this candidate.",
+    "reasoning": "The upper semicircle is 180 degrees. Angle BAC=30 gives arc BC=60. Equal arcs AD and DC are each 60, so angle DAC=30 degrees, choice C; this differs from source GT B/45."
+  }
+}

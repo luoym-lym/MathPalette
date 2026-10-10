@@ -1,0 +1,165 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.1.0",
+  "id": "Plane30",
+  "status": "corrected",
+  "source_dataset": "MathVerse",
+  "source_image": "../../originals/Plane30.png",
+  "view": {
+    "xlim": [
+      -8.308146440363998,
+      11.894448328964
+    ],
+    "ylim": [
+      -5.858656697563999,
+      14.343938071763999
+    ]
+  },
+  "points": {
+    "V": [
+      0,
+      0
+    ],
+    "A": [
+      -4.8989794856,
+      4.8989794856
+    ],
+    "C": [
+      8.4852813742,
+      8.4852813742
+    ],
+    "hypmid": [
+      1.7931509442999998,
+      6.6921304299
+    ],
+    "legmid": [
+      4.2426406871,
+      4.2426406871
+    ]
+  },
+  "objects": [
+    {
+      "id": "VA",
+      "type": "segment",
+      "points": [
+        "V",
+        "A"
+      ]
+    },
+    {
+      "id": "VC",
+      "type": "segment",
+      "points": [
+        "V",
+        "C"
+      ]
+    },
+    {
+      "id": "AC",
+      "type": "segment",
+      "points": [
+        "A",
+        "C"
+      ]
+    },
+    {
+      "id": "rightV",
+      "type": "right_angle",
+      "points": [
+        "A",
+        "V",
+        "C"
+      ]
+    },
+    {
+      "id": "angle_arc_theta",
+      "type": "angle_arc",
+      "points": [
+        "V",
+        "A",
+        "C"
+      ],
+      "radius_pt": 16
+    }
+  ],
+  "labels": [
+    {
+      "id": "given_hyp",
+      "type": "text",
+      "anchor": "hypmid",
+      "text": "8√3",
+      "offset_pt": [
+        -4,
+        10
+      ]
+    },
+    {
+      "id": "leg12",
+      "type": "text",
+      "anchor": "legmid",
+      "text": "12",
+      "offset_pt": [
+        12,
+        0
+      ]
+    },
+    {
+      "id": "theta",
+      "type": "angle",
+      "points": [
+        "V",
+        "A",
+        "C"
+      ],
+      "text": "θ",
+      "radius_pt": 30,
+      "arc_id": "angle_arc_theta"
+    }
+  ],
+  "constraints": [
+    {
+      "id": "hypotenuse",
+      "type": "distance",
+      "points": [
+        "A",
+        "C"
+      ],
+      "value": 13.856406460551018
+    },
+    {
+      "id": "leg12",
+      "type": "distance",
+      "points": [
+        "V",
+        "C"
+      ],
+      "value": 12
+    },
+    {
+      "id": "right",
+      "type": "angle",
+      "points": [
+        "A",
+        "V",
+        "C"
+      ],
+      "degrees": 90
+    }
+  ],
+  "ambiguities": [],
+  "query": "\\[Consider the adjacent figure:\n\nSolve for the unknown \\theta . Leave your answer in degrees.\\]",
+  "answer": "\\[60^\\circ \\]",
+  "answer_type": "angle",
+  "subject": "PlaneGeometry",
+  "level": "high_school",
+  "provenance": {
+    "source_key": "s1859",
+    "source_answer": "\\[60^\\circ \\]",
+    "previous_model_response": "The triangle is right-angled, with respect to \\(\\theta\\):\n\n\\[\n\\text{opposite}=12,\\qquad \\text{adjacent}=8\\sqrt3.\n\\]\n\nThus,\n\n\\[\n\\tan\\theta=\\frac{12}{8\\sqrt3}=\\frac{\\sqrt3}{2}.\n\\]\n\nTherefore,\n\n\\[\n\\theta=\\tan^{-1}\\left(\\frac{\\sqrt3}{2}\\right)\\approx 40.9^\\circ.\n\\]\n\n\\[\n\\boxed{40.9^\\circ}\n\\]"
+  },
+  "answer_verification": {
+    "status": "verified",
+    "verified_answer": "60 degrees",
+    "reasoning": "In the right triangle the hypotenuse is 8 sqrt(3) and the leg opposite theta is 12, so sin(theta)=12/(8 sqrt(3))=sqrt(3)/2, hence theta=60 degrees."
+  }
+}

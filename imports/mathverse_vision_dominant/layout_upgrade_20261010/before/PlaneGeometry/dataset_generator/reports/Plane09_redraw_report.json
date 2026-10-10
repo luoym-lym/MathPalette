@@ -1,0 +1,142 @@
+{
+  "id": "Plane09",
+  "status": "corrected",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s454",
+    "sample_id": 454,
+    "problem_id": 91,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Plane Geometry",
+    "source_subfield": "Angle",
+    "question": "As shown in the figure, arc AD = arc CD. Then angle DAC is equal to ()\nChoices:\nA:70°\nB:45°\nC:30°\nD:25°",
+    "source_answer": "B",
+    "source_image": "sources/s454.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      225,
+      177
+    ],
+    "source_image_sha256": "3fa0bf5d380249e65534764e5b499d0d29c194e56f3e7e620e18f928b4d406ba",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "As shown in the figure, arc AD = arc CD. Then angle DAC is equal to ()\nChoices:\nA:70°\nB:45°\nC:30°\nD:25°",
+  "answer": "B",
+  "answer_type": "choice",
+  "answer_verification": {
+    "status": "corrected",
+    "verified_answer": "C",
+    "issue": "Independent derivation conflicts with the source GT; retain source and report this candidate.",
+    "reasoning": "The upper semicircle is 180 degrees. Angle BAC=30 gives arc BC=60. Equal arcs AD and DC are each 60, so angle DAC=30 degrees, choice C; this differs from source GT B/45."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "PlaneGeometry/originals/Plane09.png",
+      "sha256": "3fa0bf5d380249e65534764e5b499d0d29c194e56f3e7e620e18f928b4d406ba"
+    },
+    "scene": {
+      "path": "PlaneGeometry/dataset_generator/scenes/Plane09.json",
+      "sha256": "f4e986a595ca854a857a81879d312b17d47316caf17ddd31181dcce75fdeb964"
+    },
+    "protocol": {
+      "path": "PlaneGeometry/dataset_generator/protocol.json",
+      "sha256": "a5cccd93ef351ef88528d51c370c5b86beb709e043bd8ab8895b64cde1e4f900"
+    },
+    "renderer": {
+      "path": "PlaneGeometry/dataset_generator/common_renderer.py",
+      "sha256": "649d82586597eabe78fb4594233049dc734be5bfa58a1a1619b760a83747d2b7"
+    },
+    "question_script": {
+      "path": "PlaneGeometry/dataset_generator/plane_plot09.py",
+      "sha256": "be1f992591293226de93f2a560e60cd6d35b22c22f7f5137a7b7f5259f4a0e53"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "8860f5bd272fbb14230a10b83860e56a759e7e30a2c2850d74013689d759ec64"
+    },
+    "written_protocol": {
+      "path": "PlaneGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "ddf61ea1b6d35179a27c41d3ce270a29fb18a7827d7a2729201645cd61229bf6"
+    }
+  },
+  "output_png": "PlaneGeometry/image/Plane09.png",
+  "output_png_sha256": "16ea61b745fcd3312f34ea42a442af65ef2173c906af589d4780024fd4173203",
+  "output_svg": "PlaneGeometry/image/Plane09.svg",
+  "output_svg_sha256": "5ef4fe78a434abe891a0917395eaa42a6862b4b69310c888b992082a96280deb",
+  "rgba_pixel_sha256": "aba712ec6d618a6458a5dfbf421dd360d8aeb440d99afd1dfa311e391d954b18",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "BAC30",
+      "type": "angle",
+      "measured": 30.000000000000004,
+      "passed": true
+    },
+    {
+      "id": "ABdiameter",
+      "type": "collinear",
+      "measured": 0.0,
+      "passed": true
+    },
+    {
+      "id": "AD_eq_DC",
+      "type": "equal_length",
+      "measured": [
+        5.000000000000001,
+        5.0
+      ],
+      "passed": true
+    },
+    {
+      "id": "on_A",
+      "type": "on_circle",
+      "measured": 5.0,
+      "passed": true
+    },
+    {
+      "id": "on_B",
+      "type": "on_circle",
+      "measured": 5.0,
+      "passed": true
+    },
+    {
+      "id": "on_C",
+      "type": "on_circle",
+      "measured": 5.0,
+      "passed": true
+    },
+    {
+      "id": "on_D",
+      "type": "on_circle",
+      "measured": 5.0,
+      "passed": true
+    },
+    {
+      "id": "arc_binding_given_BAC",
+      "type": "angle_annotation",
+      "label_id": "given_BAC",
+      "arc_id": "angle_arc_given_BAC",
+      "measured": 1,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.1.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T16:59:21.874871+00:00",
+    "image_sha256": "16ea61b745fcd3312f34ea42a442af65ef2173c906af589d4780024fd4173203",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  }
+}

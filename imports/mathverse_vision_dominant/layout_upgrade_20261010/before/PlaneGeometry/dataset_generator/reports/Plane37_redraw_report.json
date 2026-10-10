@@ -1,0 +1,113 @@
+{
+  "id": "Plane37",
+  "status": "corrected",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s3834",
+    "sample_id": 3834,
+    "problem_id": 767,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Plane Geometry",
+    "source_subfield": "Area",
+    "question": "In rectangle ABDF above, C and E are midpoints of sides BD and DF, respectively. What fraction of the area of the rectangle is shaded?",
+    "source_answer": "0",
+    "source_image": "sources/s3834.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      761,
+      431
+    ],
+    "source_image_sha256": "57c7dad8d0db84e1ebbc8fe540784a8f28c83aca0ea7527cd180ce194f658ef4",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "In rectangle ABDF above, C and E are midpoints of sides BD and DF, respectively. What fraction of the area of the rectangle is shaded?",
+  "answer": "0",
+  "answer_type": "fraction",
+  "answer_verification": {
+    "status": "corrected",
+    "verified_answer": "5/8",
+    "issue": "Independent derivation conflicts with the source GT; retain source and report this candidate.",
+    "reasoning": "The two unshaded triangles occupy 1/4 and 1/8 of the rectangle. The shaded fraction is 5/8, differing from source GT 0."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "PlaneGeometry/originals/Plane37.png",
+      "sha256": "57c7dad8d0db84e1ebbc8fe540784a8f28c83aca0ea7527cd180ce194f658ef4"
+    },
+    "scene": {
+      "path": "PlaneGeometry/dataset_generator/scenes/Plane37.json",
+      "sha256": "eaa86864ed313c31c99b54d3fc5940112259ed3aeb682affa1691c4e26521d26"
+    },
+    "protocol": {
+      "path": "PlaneGeometry/dataset_generator/protocol.json",
+      "sha256": "a5cccd93ef351ef88528d51c370c5b86beb709e043bd8ab8895b64cde1e4f900"
+    },
+    "renderer": {
+      "path": "PlaneGeometry/dataset_generator/common_renderer.py",
+      "sha256": "649d82586597eabe78fb4594233049dc734be5bfa58a1a1619b760a83747d2b7"
+    },
+    "question_script": {
+      "path": "PlaneGeometry/dataset_generator/plane_plot37.py",
+      "sha256": "eb40844827fbada718116d07c5c273c98bc659390dc63c3bf265b59f320be7be"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "8860f5bd272fbb14230a10b83860e56a759e7e30a2c2850d74013689d759ec64"
+    },
+    "written_protocol": {
+      "path": "PlaneGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "ddf61ea1b6d35179a27c41d3ce270a29fb18a7827d7a2729201645cd61229bf6"
+    }
+  },
+  "output_png": "PlaneGeometry/image/Plane37.png",
+  "output_png_sha256": "805f53014d2e46a83f5a30d6ab29a7cfd64e5a7087a10eb5719eefcaeee36924",
+  "output_svg": "PlaneGeometry/image/Plane37.svg",
+  "output_svg_sha256": "475e0d65337c301337fa58629869bacee885eac35e6fcbe59e44ff28d18676a1",
+  "rgba_pixel_sha256": "e1b4bcdedac2e57fe466a4eabd61aa19c1c56f09538e508f8d3df727b8e136e2",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "CmidBD",
+      "type": "equal_length",
+      "measured": [
+        2.0,
+        2.0
+      ],
+      "passed": true
+    },
+    {
+      "id": "EmidDF",
+      "type": "equal_length",
+      "measured": [
+        1.0,
+        1.0
+      ],
+      "passed": true
+    },
+    {
+      "id": "rectanglesides",
+      "type": "perpendicular",
+      "measured": 0.0,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.1.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T16:59:26.540508+00:00",
+    "image_sha256": "805f53014d2e46a83f5a30d6ab29a7cfd64e5a7087a10eb5719eefcaeee36924",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  }
+}

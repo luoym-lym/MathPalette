@@ -1,0 +1,125 @@
+{
+  "id": "Plane34",
+  "status": "needs_review",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s2099",
+    "sample_id": 2099,
+    "problem_id": 420,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Plane Geometry",
+    "source_subfield": "Length",
+    "question": "Find the length of the missing side of the trapezium shown.",
+    "source_answer": "$5=s$",
+    "source_image": "sources/s2099.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      686,
+      412
+    ],
+    "source_image_sha256": "7e717784b30e2bd7185c6eca95758a3711d7a9e870e338140a7fef8edb71d23b",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "Find the length of the missing side of the trapezium shown.",
+  "answer": "$5=s$",
+  "answer_type": "length",
+  "answer_verification": {
+    "status": "needs_review",
+    "verified_answer": null,
+    "issue": "The source GT says s=5, but the image does not mark a side s and the visible 10 cm side plus 6 cm perpendicular offset do not uniquely determine a missing side.",
+    "reasoning": "Recreated the given parallelogram-like outline, side BC=10 cm, extended parallel side through D to E, and perpendicular EC=6 cm. Kept the source GT for review without assigning s to a vertex or asserting a derivation."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "PlaneGeometry/originals/Plane34.png",
+      "sha256": "7e717784b30e2bd7185c6eca95758a3711d7a9e870e338140a7fef8edb71d23b"
+    },
+    "scene": {
+      "path": "PlaneGeometry/dataset_generator/scenes/Plane34.json",
+      "sha256": "e3c6cd0744b6172ad1862fc786b0e9075fec59e902dbb09fc0a6e54d34003280"
+    },
+    "protocol": {
+      "path": "PlaneGeometry/dataset_generator/protocol.json",
+      "sha256": "a5cccd93ef351ef88528d51c370c5b86beb709e043bd8ab8895b64cde1e4f900"
+    },
+    "renderer": {
+      "path": "PlaneGeometry/dataset_generator/common_renderer.py",
+      "sha256": "649d82586597eabe78fb4594233049dc734be5bfa58a1a1619b760a83747d2b7"
+    },
+    "question_script": {
+      "path": "PlaneGeometry/dataset_generator/plane_plot34.py",
+      "sha256": "e40337ba6ee665f99240c1e7ca13147160f76b1c2e3cdd7f93ab582594e0a645"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "8860f5bd272fbb14230a10b83860e56a759e7e30a2c2850d74013689d759ec64"
+    },
+    "written_protocol": {
+      "path": "PlaneGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "ddf61ea1b6d35179a27c41d3ce270a29fb18a7827d7a2729201645cd61229bf6"
+    }
+  },
+  "output_png": "PlaneGeometry/image/Plane34.png",
+  "output_png_sha256": "ab9b41884b1331006da4bcbe62850c71baf1e04329ea8454474623ed416de2c4",
+  "output_svg": "PlaneGeometry/image/Plane34.svg",
+  "output_svg_sha256": "995955e451abdbfa97519ca8ee54cac3787fc186c92fae1f0cdf5abbf93dba6a",
+  "rgba_pixel_sha256": "28761a27bac526f60adf5e619a3b953213759b93ee26acbc50b0ee93c8b24413",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "parallel_AB_CD",
+      "type": "parallel",
+      "measured": 0.0,
+      "passed": true
+    },
+    {
+      "id": "parallel_AD_BC",
+      "type": "parallel",
+      "measured": 0.0,
+      "passed": true
+    },
+    {
+      "id": "side10",
+      "type": "distance",
+      "measured": 10.0,
+      "passed": true
+    },
+    {
+      "id": "height6",
+      "type": "distance",
+      "measured": 6.0,
+      "passed": true
+    },
+    {
+      "id": "perp_E",
+      "type": "perpendicular",
+      "measured": 1.6653345369377348e-16,
+      "passed": true
+    },
+    {
+      "id": "collinear_ADE",
+      "type": "collinear",
+      "measured": 0.0,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.1.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T16:59:26.030469+00:00",
+    "image_sha256": "ab9b41884b1331006da4bcbe62850c71baf1e04329ea8454474623ed416de2c4",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  }
+}

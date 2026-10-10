@@ -1,0 +1,147 @@
+{
+  "id": "Plane04",
+  "status": "corrected",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s244",
+    "sample_id": 244,
+    "problem_id": 49,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Plane Geometry",
+    "source_subfield": "Angle",
+    "question": "As shown in the figure, in the inscribed pentagon ABCDE of circle O, then the degree of angle B is ()\nChoices:\nA:50°\nB:75°\nC:80°\nD:100°",
+    "source_answer": "D",
+    "source_image": "sources/s244.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      896,
+      828
+    ],
+    "source_image_sha256": "ff1448bbd8a1c255c131eb0222b96d679e1b5f4b40629a93c626ab65a1ab91c3",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "As shown in the figure, in the inscribed pentagon ABCDE of circle O, then the degree of angle B is ()\nChoices:\nA:50°\nB:75°\nC:80°\nD:100°",
+  "answer": "D",
+  "answer_type": "numeric",
+  "answer_verification": {
+    "status": "corrected",
+    "verified_answer": "95 degrees",
+    "issue": "Independent derivation conflicts with the source GT; retain source and report this candidate.",
+    "reasoning": "In cyclic order A-E-D-C-B, angle AED=115 gives arc AED=130. Angle CAD=30 gives arc CD=60. Angle ABC intercepts arc AEDC=190, so B=95 degrees. This conflicts with the source GT D/100."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "PlaneGeometry/originals/Plane04.png",
+      "sha256": "ff1448bbd8a1c255c131eb0222b96d679e1b5f4b40629a93c626ab65a1ab91c3"
+    },
+    "scene": {
+      "path": "PlaneGeometry/dataset_generator/scenes/Plane04.json",
+      "sha256": "595c21ebef2f149cadc77dec21182adc16856ed82defc97fd6e778c589cd8ea4"
+    },
+    "protocol": {
+      "path": "PlaneGeometry/dataset_generator/protocol.json",
+      "sha256": "a5cccd93ef351ef88528d51c370c5b86beb709e043bd8ab8895b64cde1e4f900"
+    },
+    "renderer": {
+      "path": "PlaneGeometry/dataset_generator/common_renderer.py",
+      "sha256": "649d82586597eabe78fb4594233049dc734be5bfa58a1a1619b760a83747d2b7"
+    },
+    "question_script": {
+      "path": "PlaneGeometry/dataset_generator/plane_plot04.py",
+      "sha256": "53e557f83c6ce0a0e9537299c1e18ee4b83d45f99b9917444b0eb941259ec70a"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "8860f5bd272fbb14230a10b83860e56a759e7e30a2c2850d74013689d759ec64"
+    },
+    "written_protocol": {
+      "path": "PlaneGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "ddf61ea1b6d35179a27c41d3ce270a29fb18a7827d7a2729201645cd61229bf6"
+    }
+  },
+  "output_png": "PlaneGeometry/image/Plane04.png",
+  "output_png_sha256": "6fdbcd2f7b9cb7e9a15862661f955ed02ecacfc52dbff4ad76f7ddcfc906c392",
+  "output_svg": "PlaneGeometry/image/Plane04.svg",
+  "output_svg_sha256": "7083dca91a43df594cc4fdf480be8ed05e39ee5f1fccb1ab9c62848d7aff8356",
+  "rgba_pixel_sha256": "8bcb4f918b3a7e5c62f62d35e09dd5fd572284c91fa98d942da65431cd79b729",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "CAD30",
+      "type": "angle",
+      "measured": 29.999999999999993,
+      "passed": true
+    },
+    {
+      "id": "AED115",
+      "type": "angle",
+      "measured": 115.0,
+      "passed": true
+    },
+    {
+      "id": "A_circle",
+      "type": "on_circle",
+      "measured": 5.0,
+      "passed": true
+    },
+    {
+      "id": "B_circle",
+      "type": "on_circle",
+      "measured": 5.0,
+      "passed": true
+    },
+    {
+      "id": "C_circle",
+      "type": "on_circle",
+      "measured": 4.999999999999999,
+      "passed": true
+    },
+    {
+      "id": "D_circle",
+      "type": "on_circle",
+      "measured": 5.0,
+      "passed": true
+    },
+    {
+      "id": "E_circle",
+      "type": "on_circle",
+      "measured": 5.0,
+      "passed": true
+    },
+    {
+      "id": "arc_binding_given_CAD",
+      "type": "angle_annotation",
+      "label_id": "given_CAD",
+      "arc_id": "angle_arc_given_CAD",
+      "measured": 1,
+      "passed": true
+    },
+    {
+      "id": "arc_binding_given_AED",
+      "type": "angle_annotation",
+      "label_id": "given_AED",
+      "arc_id": "angle_arc_given_AED",
+      "measured": 1,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.1.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T16:59:21.043298+00:00",
+    "image_sha256": "6fdbcd2f7b9cb7e9a15862661f955ed02ecacfc52dbff4ad76f7ddcfc906c392",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  }
+}

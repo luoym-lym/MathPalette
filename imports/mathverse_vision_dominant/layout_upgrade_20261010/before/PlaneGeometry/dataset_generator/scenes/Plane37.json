@@ -1,0 +1,201 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.1.0",
+  "id": "Plane37",
+  "status": "corrected",
+  "source_dataset": "MathVerse",
+  "source_image": "../../originals/Plane37.png",
+  "view": {
+    "xlim": [
+      -5,
+      5
+    ],
+    "ylim": [
+      -5,
+      5
+    ]
+  },
+  "points": {
+    "A": [
+      0,
+      0
+    ],
+    "B": [
+      0,
+      2
+    ],
+    "C": [
+      2,
+      2
+    ],
+    "D": [
+      4,
+      2
+    ],
+    "E": [
+      4,
+      1
+    ],
+    "F": [
+      4,
+      0
+    ]
+  },
+  "objects": [
+    {
+      "id": "rectangle",
+      "type": "polygon",
+      "points": [
+        "A",
+        "F",
+        "D",
+        "B"
+      ]
+    },
+    {
+      "id": "shade",
+      "type": "polygon",
+      "points": [
+        "A",
+        "C",
+        "E",
+        "F"
+      ],
+      "semantic_fill": true
+    },
+    {
+      "id": "AC",
+      "type": "segment",
+      "points": [
+        "A",
+        "C"
+      ]
+    },
+    {
+      "id": "CE",
+      "type": "segment",
+      "points": [
+        "C",
+        "E"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "v_A",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        -8,
+        -8
+      ]
+    },
+    {
+      "id": "v_B",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        -8,
+        8
+      ]
+    },
+    {
+      "id": "v_C",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        0,
+        9
+      ]
+    },
+    {
+      "id": "v_D",
+      "type": "vertex",
+      "point": "D",
+      "offset_pt": [
+        8,
+        8
+      ]
+    },
+    {
+      "id": "v_E",
+      "type": "vertex",
+      "point": "E",
+      "offset_pt": [
+        8,
+        0
+      ]
+    },
+    {
+      "id": "v_F",
+      "type": "vertex",
+      "point": "F",
+      "offset_pt": [
+        8,
+        -8
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "CmidBD",
+      "type": "equal_length",
+      "segments": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ]
+    },
+    {
+      "id": "EmidDF",
+      "type": "equal_length",
+      "segments": [
+        [
+          "D",
+          "E"
+        ],
+        [
+          "E",
+          "F"
+        ]
+      ]
+    },
+    {
+      "id": "rectanglesides",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "F"
+        ]
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "query": "In rectangle ABDF above, C and E are midpoints of sides BD and DF, respectively. What fraction of the area of the rectangle is shaded?",
+  "answer": "0",
+  "answer_type": "fraction",
+  "subject": "PlaneGeometry",
+  "level": "high_school",
+  "provenance": {
+    "source_key": "s3834",
+    "source_answer": "0",
+    "previous_model_response": "Let the rectangle have width \\(w\\) and height \\(h\\), so its area is \\(wh\\).\n\n- Triangle \\(ABC\\) has base \\(BC=\\frac{w}{2}\\) and height \\(h\\), so its area is \\(\\frac{wh}{4}\\).\n- Triangle \\(CDE\\) has legs \\(CD=\\frac{w}{2}\\) and \\(DE=\\frac{h}{2}\\), so its area is \\(\\frac{wh}{8}\\).\n\nThus, the shaded area is\n\n\\[\nwh-\\frac{wh}{4}-\\frac{wh}{8}\n=wh\\left(1-\\frac18-\\frac18\\right)\n=\\frac58wh.\n\\]\n\nTherefore, the fraction shaded is\n\n\\[\n\\boxed{\\frac{5}{8}}\n\\]",
+    "correction": "Source GT 0 corrected to 5/8."
+  },
+  "answer_verification": {
+    "status": "corrected",
+    "verified_answer": "5/8",
+    "issue": "Independent derivation conflicts with the source GT; retain source and report this candidate.",
+    "reasoning": "The two unshaded triangles occupy 1/4 and 1/8 of the rectangle. The shaded fraction is 5/8, differing from source GT 0."
+  }
+}

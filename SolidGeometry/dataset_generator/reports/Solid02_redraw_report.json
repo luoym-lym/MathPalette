@@ -1,0 +1,183 @@
+{
+  "id": "Solid02",
+  "status": "formal_candidate",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s3209",
+    "sample_id": 3209,
+    "problem_id": 642,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Solid Geometry",
+    "source_subfield": "Volume",
+    "question": "Find the volume of the cylinder shown, correct to two decimal places.",
+    "source_answer": "Volume $=883.57 \\mathrm{~cm}^{3}$",
+    "source_image": "sources/s3209.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      755,
+      416
+    ],
+    "source_image_sha256": "22b9adbc4c99b9f1890d6f50dbd402d414b5a79d0332d9050af7ea913bc3103a",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "Find the volume of the cylinder shown, correct to two decimal places.",
+  "answer": "Volume $=883.57 \\mathrm{~cm}^{3}$",
+  "answer_type": "number",
+  "answer_verification": {
+    "status": "verified",
+    "reasoning": "The cross-section is a 270-degree sector (three quarters of a disk), radius 5 cm, extruded 15 cm. V=(3/4)*pi*5^2*15=281.25*pi=883.57 cm^3.",
+    "verified_answer": "883.57 cm^3",
+    "issue": null
+  },
+  "inputs": {
+    "source_image": {
+      "path": "SolidGeometry/originals/Solid02.png",
+      "sha256": "22b9adbc4c99b9f1890d6f50dbd402d414b5a79d0332d9050af7ea913bc3103a"
+    },
+    "scene": {
+      "path": "SolidGeometry/dataset_generator/scenes/Solid02.json",
+      "sha256": "47a4b745182426b93d2a084b6c3f5f2ef6f56f7a5fc0728e0f431b83e3a2e489"
+    },
+    "protocol": {
+      "path": "SolidGeometry/dataset_generator/protocol.json",
+      "sha256": "e66f71cd4872a2dd2aeffcc462fa227695dbd3fc5658133e98180348c7643ad9"
+    },
+    "renderer": {
+      "path": "SolidGeometry/dataset_generator/common_renderer.py",
+      "sha256": "e4313d0559ebbd3677218b3301d5ddb4f022213a3a35609fc15007370abe1e16"
+    },
+    "question_script": {
+      "path": "SolidGeometry/dataset_generator/solid_plot02.py",
+      "sha256": "b43565476fb1bb7560e724bdebcee31fbbe1d2f6a1162761eca2b36a85ea8d85"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "9dce5802c3be8d96402681d7d875b07bdf9bdacd4f02c1b8334496086e62659d"
+    },
+    "written_protocol": {
+      "path": "SolidGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "4099a0ea139bfee536c8e3128d8542e6cd2333b12b04f52c4eb632248c9315b1"
+    },
+    "layout_helper": {
+      "path": "dataset_tools/geometry_layout.py",
+      "sha256": "a35ce82cf4b4f7eef0cae0aa5d49e304f3f1c86bda68e95f5fc649a3ece99f2d"
+    }
+  },
+  "output_png": "SolidGeometry/image/Solid02.png",
+  "output_png_sha256": "573684c5dc67544be1554752859f8809a37e41c45f5505272516470c2aba998f",
+  "output_svg": "SolidGeometry/image/Solid02.svg",
+  "output_svg_sha256": "f039f39d1ada15de3144b627ad00980e17fe544783d5cf2b1e97565727ce81e7",
+  "rgba_pixel_sha256": "1b2c186a56340061bb133b0f46d70b679c1a0bf1c9031638e7a6b3fc73c79ce2",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "projection_and_visibility",
+      "type": "projection",
+      "passed": true,
+      "projection_sha256": "259e06bb5025dfa8943be11ccd2b71ac1c2e085915c0120b9354286389c8fe0d",
+      "automatic_occlusion": false
+    },
+    {
+      "id": "front_sector_outline",
+      "type": "arc_sampling",
+      "max_chord_error_px": 0.0031553705170469432,
+      "passed": true
+    },
+    {
+      "id": "back_sector_outline",
+      "type": "arc_sampling",
+      "max_chord_error_px": 0.0031553705170469432,
+      "passed": true
+    },
+    {
+      "id": "sector_radius",
+      "type": "distance",
+      "basis": "Source radius label.",
+      "measured": 5.0,
+      "passed": true
+    },
+    {
+      "id": "extrusion_length",
+      "type": "distance",
+      "basis": "Source axial length label.",
+      "measured": 15.0,
+      "passed": true
+    },
+    {
+      "id": "radius_5",
+      "type": "dimension",
+      "text": "5 cm",
+      "measured_world_length": 5.0,
+      "unit": "cm",
+      "basis": "The 5 cm source label is the radius from the cross-section center to the rim.",
+      "passed": true
+    },
+    {
+      "id": "length_15",
+      "type": "dimension",
+      "text": "15 cm",
+      "measured_world_length": 15.0,
+      "unit": "cm",
+      "basis": "Dimension read from source diagram.",
+      "passed": true
+    },
+    {
+      "id": "layout",
+      "type": "layout",
+      "outer_margin_fraction": 0.05,
+      "label_line_overlap": false,
+      "label_label_overlap": false,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.1.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T17:40:51.626683+00:00",
+    "image_sha256": "573684c5dc67544be1554752859f8809a37e41c45f5505272516470c2aba998f",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "user_review": {
+    "status": "pending_user_review",
+    "user_pass": false,
+    "reviewer": null,
+    "approved_at_utc": null,
+    "content_sha256": "e2dc679ed0fd00d3e06c9f27d2520c2ca6e363211a6a833c88c621bdfe367771",
+    "approved_content_sha256": null
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  },
+  "layout": {
+    "content_bbox_px": [
+      54,
+      145,
+      714,
+      623
+    ],
+    "long_side_fraction": 0.859375,
+    "center_offset_px": [
+      0.0,
+      0.0
+    ],
+    "minimum_outer_margin_fraction": 0.0703125
+  },
+  "provenance_updates": [
+    {
+      "scope": "written_protocol_only",
+      "before_sha256": "689c492070f7dc902852ffb13d7a43eda28acd2ec5eed03398ce3db0010c4c5a",
+      "after_sha256": "4099a0ea139bfee536c8e3128d8542e6cd2333b12b04f52c4eb632248c9315b1",
+      "reason": "Added explicit-user approval policy; all frozen rendering assets are unchanged.",
+      "updated_at_utc": "2026-10-09T17:45:11.150357+00:00"
+    }
+  ]
+}

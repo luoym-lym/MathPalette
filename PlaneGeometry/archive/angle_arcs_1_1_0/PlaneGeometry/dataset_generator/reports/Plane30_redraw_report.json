@@ -1,0 +1,106 @@
+{
+  "id": "Plane30",
+  "status": "corrected",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s1859",
+    "sample_id": 1859,
+    "problem_id": 372,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Plane Geometry",
+    "source_subfield": "Angle",
+    "question": "\\[Consider the adjacent figure:\n\nSolve for the unknown \\theta . Leave your answer in degrees.\\]",
+    "source_answer": "\\[60^\\circ \\]",
+    "source_image": "sources/s1859.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      297,
+      181
+    ],
+    "source_image_sha256": "6bf583f188c0ae7356cb9e591a00e69cbb68bc5718e6c83e69eb9658253d33ed",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "\\[Consider the adjacent figure:\n\nSolve for the unknown \\theta . Leave your answer in degrees.\\]",
+  "answer": "\\[60^\\circ \\]",
+  "answer_type": "angle",
+  "answer_verification": {
+    "status": "verified",
+    "verified_answer": "60 degrees",
+    "reasoning": "In the right triangle the hypotenuse is 8 sqrt(3) and the leg opposite theta is 12, so sin(theta)=12/(8 sqrt(3))=sqrt(3)/2, hence theta=60 degrees."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "PlaneGeometry/originals/Plane30.png",
+      "sha256": "6bf583f188c0ae7356cb9e591a00e69cbb68bc5718e6c83e69eb9658253d33ed"
+    },
+    "scene": {
+      "path": "PlaneGeometry/dataset_generator/scenes/Plane30.json",
+      "sha256": "a4270e20d04c028a862431fa7d12251bae085120b9dc36bbae6e74d526d94ee4"
+    },
+    "protocol": {
+      "path": "PlaneGeometry/dataset_generator/protocol.json",
+      "sha256": "741e1e99ad4fa85f9d74e9d82408eca16fd1381eba3acf14d8567490dcbde98f"
+    },
+    "renderer": {
+      "path": "PlaneGeometry/dataset_generator/common_renderer.py",
+      "sha256": "a5113ef647f45f4ebfd2c3b30f27cf410735e08d6d1f201b93886b90c7c2f903"
+    },
+    "question_script": {
+      "path": "PlaneGeometry/dataset_generator/plane_plot30.py",
+      "sha256": "ea21483f01199a95c3220497531f70a9752981f0b4b8952d4482d15e81a5fad2"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "8860f5bd272fbb14230a10b83860e56a759e7e30a2c2850d74013689d759ec64"
+    },
+    "written_protocol": {
+      "path": "PlaneGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "771a241bb076304851a5e5eec400ec26092e947f07002bb80acfb9fcef546e7f"
+    }
+  },
+  "output_png": "PlaneGeometry/image/Plane30.png",
+  "output_png_sha256": "6a8643cb48cb9cfc46f0defb5653132f340fddebd656fd580d4abeaf565f43da",
+  "output_svg": "PlaneGeometry/image/Plane30.svg",
+  "output_svg_sha256": "46c2c66a67b8c150f73e99c5bc099c4b9f947217f8c16036a8de35df935f8c72",
+  "rgba_pixel_sha256": "f160e566057d1a622685a14bb14c4abbeb5693e3105d7ec0454c1b258fa96945",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "hypotenuse",
+      "type": "distance",
+      "measured": 13.856406460527568,
+      "passed": true
+    },
+    {
+      "id": "leg12",
+      "type": "distance",
+      "measured": 11.999999999945453,
+      "passed": true
+    },
+    {
+      "id": "right",
+      "type": "angle",
+      "measured": 90.0,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.0.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T15:01:13.147430+00:00",
+    "image_sha256": "6a8643cb48cb9cfc46f0defb5653132f340fddebd656fd580d4abeaf565f43da",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  }
+}

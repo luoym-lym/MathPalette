@@ -1,0 +1,139 @@
+{
+  "id": "Solid16",
+  "status": "formal_candidate",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s3559",
+    "sample_id": 3559,
+    "problem_id": 712,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Solid Geometry",
+    "source_subfield": "Area",
+    "question": "Find the surface area of the pyramid.\n\nRound your answer to two decimal places.",
+    "source_answer": "\\[288.6 \\mathrm{m}^2\\]",
+    "source_image": "sources/s3559.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      457,
+      346
+    ],
+    "source_image_sha256": "96b2915de37788d5944c26b678484325e83be5789fd11761f5a17f2c3daa4243",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "Find the surface area of the pyramid.\n\nRound your answer to two decimal places.",
+  "answer": "\\[288.6 \\mathrm{m}^2\\]",
+  "answer_type": "number",
+  "answer_verification": {
+    "status": "needs_review",
+    "verified_answer": "288.68 mm^2",
+    "issue": "Raw GT unit m^2 conflicts with the diagram?s mm labels; unrounded result is 288.68 mm^2.",
+    "reasoning": "For side 10 mm and perpendicular height 8 mm, base area is 100 mm^2 and each triangular face has slant height sqrt(8^2+5^2). Total=100+4*(1/2*10*sqrt(89))=288.679... mm^2, or 288.68 mm^2."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "SolidGeometry/originals/Solid16.png",
+      "sha256": "96b2915de37788d5944c26b678484325e83be5789fd11761f5a17f2c3daa4243"
+    },
+    "scene": {
+      "path": "SolidGeometry/dataset_generator/scenes/Solid16.json",
+      "sha256": "571f4fb4512ea2b43ee940032d8c8ab5bf1d6acea88f0195573ae8b7554f570e"
+    },
+    "protocol": {
+      "path": "SolidGeometry/dataset_generator/protocol.json",
+      "sha256": "e66f71cd4872a2dd2aeffcc462fa227695dbd3fc5658133e98180348c7643ad9"
+    },
+    "renderer": {
+      "path": "SolidGeometry/dataset_generator/common_renderer.py",
+      "sha256": "e4313d0559ebbd3677218b3301d5ddb4f022213a3a35609fc15007370abe1e16"
+    },
+    "question_script": {
+      "path": "SolidGeometry/dataset_generator/solid_plot16.py",
+      "sha256": "569fc61e36b612ef0f848974e37465dfd1334673690062c4840b9f702b86a0b9"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "9dce5802c3be8d96402681d7d875b07bdf9bdacd4f02c1b8334496086e62659d"
+    },
+    "written_protocol": {
+      "path": "SolidGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "4099a0ea139bfee536c8e3128d8542e6cd2333b12b04f52c4eb632248c9315b1"
+    },
+    "layout_helper": {
+      "path": "dataset_tools/geometry_layout.py",
+      "sha256": "a35ce82cf4b4f7eef0cae0aa5d49e304f3f1c86bda68e95f5fc649a3ece99f2d"
+    }
+  },
+  "output_png": "SolidGeometry/image/Solid16.png",
+  "output_png_sha256": "dd1b42d573a7a3010a342b9dc461024a0da48d0e5bc70404d99cf124ec830d22",
+  "output_svg": "SolidGeometry/image/Solid16.svg",
+  "output_svg_sha256": "7d0c5f158bcd5eaefa8c61cb9407ac54bddd351a509706dcada249b485593bbb",
+  "rgba_pixel_sha256": "8954aa2cb813e69f6d867d58a311ed6ed064a022dcd12beaa0dde1bd804bfd11",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "projection_and_visibility",
+      "type": "projection",
+      "passed": true,
+      "projection_sha256": "bc33af1a952cac1f7da60aa4446783b22039ad7ee2b20b5c0f3355ede2b16388",
+      "automatic_occlusion": false
+    },
+    {
+      "id": "layout",
+      "type": "layout",
+      "outer_margin_fraction": 0.05,
+      "label_line_overlap": false,
+      "label_label_overlap": false,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.1.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T17:40:54.556356+00:00",
+    "image_sha256": "dd1b42d573a7a3010a342b9dc461024a0da48d0e5bc70404d99cf124ec830d22",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "user_review": {
+    "status": "pending_user_review",
+    "user_pass": false,
+    "reviewer": null,
+    "approved_at_utc": null,
+    "content_sha256": "f745b865661b8cdda9c331da9cf0c83ea825a6a06919cd1367f5f963c85cfe64",
+    "approved_content_sha256": null
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  },
+  "layout": {
+    "content_bbox_px": [
+      54,
+      200,
+      714,
+      567
+    ],
+    "long_side_fraction": 0.859375,
+    "center_offset_px": [
+      0.0,
+      -0.5
+    ],
+    "minimum_outer_margin_fraction": 0.0703125
+  },
+  "provenance_updates": [
+    {
+      "scope": "written_protocol_only",
+      "before_sha256": "689c492070f7dc902852ffb13d7a43eda28acd2ec5eed03398ce3db0010c4c5a",
+      "after_sha256": "4099a0ea139bfee536c8e3128d8542e6cd2333b12b04f52c4eb632248c9315b1",
+      "reason": "Added explicit-user approval policy; all frozen rendering assets are unchanged.",
+      "updated_at_utc": "2026-10-09T17:45:11.362164+00:00"
+    }
+  ]
+}

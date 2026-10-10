@@ -1,0 +1,155 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.0.0",
+  "id": "Plane31",
+  "status": "corrected",
+  "source_dataset": "MathVerse",
+  "source_image": "../../originals/Plane31.png",
+  "view": {
+    "xlim": [
+      -1.2000000000000002,
+      3.938612787525831
+    ],
+    "ylim": [
+      -1.778736978720821,
+      3.3598758088050102
+    ]
+  },
+  "points": {
+    "A": [
+      0,
+      0
+    ],
+    "B": [
+      0,
+      1.5811388300841895
+    ],
+    "C": [
+      2.738612787525831,
+      0
+    ],
+    "hypmid": [
+      1.3693063937629155,
+      0.7905694150420948
+    ],
+    "ACmid": [
+      1.3693063937629155,
+      0
+    ]
+  },
+  "objects": [
+    {
+      "id": "AB",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "BC",
+      "type": "segment",
+      "points": [
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "AC",
+      "type": "segment",
+      "points": [
+        "A",
+        "C"
+      ]
+    },
+    {
+      "id": "rightA",
+      "type": "right_angle",
+      "points": [
+        "B",
+        "A",
+        "C"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "C30",
+      "type": "angle",
+      "points": [
+        "A",
+        "C",
+        "B"
+      ],
+      "degrees": 30,
+      "radius_pt": 25
+    },
+    {
+      "id": "hyp",
+      "type": "text",
+      "anchor": "hypmid",
+      "text": "\u221a10",
+      "offset_pt": [
+        0,
+        10
+      ]
+    },
+    {
+      "id": "x",
+      "type": "text",
+      "anchor": "ACmid",
+      "text": "x",
+      "offset_pt": [
+        0,
+        -12
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "hypotenuse",
+      "type": "distance",
+      "points": [
+        "B",
+        "C"
+      ],
+      "value": 3.1622776601683795
+    },
+    {
+      "id": "C30",
+      "type": "angle",
+      "points": [
+        "A",
+        "C",
+        "B"
+      ],
+      "degrees": 30
+    },
+    {
+      "id": "right",
+      "type": "angle",
+      "points": [
+        "B",
+        "A",
+        "C"
+      ],
+      "degrees": 90
+    }
+  ],
+  "ambiguities": [],
+  "query": "Consider the adjacent figure:\n\nSolve for the exact value of x.",
+  "answer": "\\[\\frac{\\sqrt{30}}{2}\\]",
+  "answer_type": "exact",
+  "subject": "PlaneGeometry",
+  "level": "high_school",
+  "provenance": {
+    "source_key": "s1924",
+    "source_answer": "\\[\\frac{\\sqrt{30}}{2}\\]",
+    "previous_model_response": "The side \\(x\\) is adjacent to the \\(30^\\circ\\) angle, and the hypotenuse is \\(10\\). Thus,\n\n\\[\n\\cos 30^\\circ=\\frac{x}{10}\n\\]\n\n\\[\nx=10\\cos 30^\\circ=10\\left(\\frac{\\sqrt{3}}{2}\\right)\n\\]\n\n\\[\n\\boxed{5\\sqrt{3}}\n\\]"
+  },
+  "answer_verification": {
+    "status": "verified",
+    "verified_answer": "sqrt(30)/2",
+    "reasoning": "The right triangle has hypotenuse sqrt(10) and angle C=30 degrees. The adjacent leg x=sqrt(10) cos(30 degrees)=sqrt(30)/2."
+  }
+}

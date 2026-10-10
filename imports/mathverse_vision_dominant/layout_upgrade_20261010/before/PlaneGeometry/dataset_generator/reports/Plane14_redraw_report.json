@@ -1,0 +1,135 @@
+{
+  "id": "Plane14",
+  "status": "corrected",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s724",
+    "sample_id": 724,
+    "problem_id": 145,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Plane Geometry",
+    "source_subfield": "Angle",
+    "question": "As shown in the figure, then the degree of angle BOC is ()\nChoices:\nA:60°\nB:70°\nC:120°\nD:140°",
+    "source_answer": "B",
+    "source_image": "sources/s724.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      196,
+      188
+    ],
+    "source_image_sha256": "62a9d634cf8d668879be6ad7a6a3fd7086836b94cbc4bd95f27e3aa9cadce7e9",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "As shown in the figure, then the degree of angle BOC is ()\nChoices:\nA:60°\nB:70°\nC:120°\nD:140°",
+  "answer": "B",
+  "answer_type": "choice",
+  "answer_verification": {
+    "status": "corrected",
+    "verified_answer": "D",
+    "issue": "Independent derivation conflicts with the source GT; retain source and report this candidate.",
+    "reasoning": "Radii OA=OB make angle AOB=120 from base angles 30. Radii OA=OC make angle AOC=100 from base angles 40. Therefore BOC=140 degrees, choice D, differing from source GT B/70."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "PlaneGeometry/originals/Plane14.png",
+      "sha256": "62a9d634cf8d668879be6ad7a6a3fd7086836b94cbc4bd95f27e3aa9cadce7e9"
+    },
+    "scene": {
+      "path": "PlaneGeometry/dataset_generator/scenes/Plane14.json",
+      "sha256": "2727159dcbe7c338d4deac7af3f8381a7c77087f955b1fac097f5d59548d10d0"
+    },
+    "protocol": {
+      "path": "PlaneGeometry/dataset_generator/protocol.json",
+      "sha256": "a5cccd93ef351ef88528d51c370c5b86beb709e043bd8ab8895b64cde1e4f900"
+    },
+    "renderer": {
+      "path": "PlaneGeometry/dataset_generator/common_renderer.py",
+      "sha256": "649d82586597eabe78fb4594233049dc734be5bfa58a1a1619b760a83747d2b7"
+    },
+    "question_script": {
+      "path": "PlaneGeometry/dataset_generator/plane_plot14.py",
+      "sha256": "a49d0a87184310db15e277bf92c962e5af39b055aad1d58be1238f77acc38991"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "8860f5bd272fbb14230a10b83860e56a759e7e30a2c2850d74013689d759ec64"
+    },
+    "written_protocol": {
+      "path": "PlaneGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "ddf61ea1b6d35179a27c41d3ce270a29fb18a7827d7a2729201645cd61229bf6"
+    }
+  },
+  "output_png": "PlaneGeometry/image/Plane14.png",
+  "output_png_sha256": "8748cb5f6f15b8cfda2438616ed2f867aa84d74cefaf90176559137233c71779",
+  "output_svg": "PlaneGeometry/image/Plane14.svg",
+  "output_svg_sha256": "14b031f767c477747f5474e2381f855d110e6a50c2f20ac49355e44e651bd2d9",
+  "rgba_pixel_sha256": "4a84075ca640ac7aa01aa5428c990713dffb794039eab01a489c72cca543410c",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "ABO30",
+      "type": "angle",
+      "measured": 30.000000000000004,
+      "passed": true
+    },
+    {
+      "id": "ACO40",
+      "type": "angle",
+      "measured": 40.00000000000001,
+      "passed": true
+    },
+    {
+      "id": "on_A",
+      "type": "on_circle",
+      "measured": 5.0,
+      "passed": true
+    },
+    {
+      "id": "on_B",
+      "type": "on_circle",
+      "measured": 5.0,
+      "passed": true
+    },
+    {
+      "id": "on_C",
+      "type": "on_circle",
+      "measured": 4.999999999999999,
+      "passed": true
+    },
+    {
+      "id": "arc_binding_given_ABO",
+      "type": "angle_annotation",
+      "label_id": "given_ABO",
+      "arc_id": "angle_arc_given_ABO",
+      "measured": 1,
+      "passed": true
+    },
+    {
+      "id": "arc_binding_given_ACO",
+      "type": "angle_annotation",
+      "label_id": "given_ACO",
+      "arc_id": "angle_arc_given_ACO",
+      "measured": 1,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.1.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T16:59:22.737373+00:00",
+    "image_sha256": "8748cb5f6f15b8cfda2438616ed2f867aa84d74cefaf90176559137233c71779",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  }
+}

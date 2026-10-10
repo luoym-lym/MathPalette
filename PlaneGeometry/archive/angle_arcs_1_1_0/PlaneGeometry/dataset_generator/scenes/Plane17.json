@@ -1,0 +1,227 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.0.0",
+  "id": "Plane17",
+  "status": "verified",
+  "source_dataset": "MathVerse",
+  "source_image": "../../originals/Plane17.png",
+  "view": {
+    "xlim": [
+      -32,
+      32
+    ],
+    "ylim": [
+      -32,
+      32
+    ]
+  },
+  "points": {
+    "L": [
+      -18.80912807335914,
+      0.0
+    ],
+    "R": [
+      18.80912807335914,
+      0.0
+    ],
+    "T": [
+      0.0,
+      25.88854381999832
+    ],
+    "F": [
+      0.0,
+      0.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "LT",
+      "type": "segment",
+      "points": [
+        "L",
+        "T"
+      ]
+    },
+    {
+      "id": "TR",
+      "type": "segment",
+      "points": [
+        "T",
+        "R"
+      ]
+    },
+    {
+      "id": "LR",
+      "type": "segment",
+      "points": [
+        "L",
+        "R"
+      ]
+    },
+    {
+      "id": "TF",
+      "type": "segment",
+      "points": [
+        "T",
+        "F"
+      ]
+    },
+    {
+      "id": "right_F",
+      "type": "right_angle",
+      "points": [
+        "T",
+        "F",
+        "R"
+      ]
+    },
+    {
+      "id": "tick_L",
+      "type": "equal_tick",
+      "points": [
+        "L",
+        "T"
+      ]
+    },
+    {
+      "id": "tick_R",
+      "type": "equal_tick",
+      "points": [
+        "T",
+        "R"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "v_L",
+      "type": "vertex",
+      "point": "L",
+      "offset_pt": [
+        -8,
+        -8
+      ]
+    },
+    {
+      "id": "v_R",
+      "type": "vertex",
+      "point": "R",
+      "offset_pt": [
+        8,
+        -8
+      ]
+    },
+    {
+      "id": "v_T",
+      "type": "vertex",
+      "point": "T",
+      "offset_pt": [
+        0,
+        9
+      ]
+    },
+    {
+      "id": "32",
+      "type": "text",
+      "anchor": "L",
+      "text": "32",
+      "offset_pt": [
+        -15,
+        20
+      ]
+    },
+    {
+      "id": "angle_R",
+      "type": "angle",
+      "points": [
+        "T",
+        "R",
+        "F"
+      ],
+      "degrees": 54,
+      "radius_pt": 24
+    },
+    {
+      "id": "label_x",
+      "type": "text",
+      "anchor": "F",
+      "text": "x",
+      "offset_pt": [
+        -18,
+        -12
+      ]
+    },
+    {
+      "id": "label_y",
+      "type": "text",
+      "anchor": "F",
+      "text": "y",
+      "offset_pt": [
+        15,
+        12
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "LT32",
+      "type": "distance",
+      "points": [
+        "L",
+        "T"
+      ],
+      "value": 32
+    },
+    {
+      "id": "equalSides",
+      "type": "equal_length",
+      "segments": [
+        [
+          "L",
+          "T"
+        ],
+        [
+          "T",
+          "R"
+        ]
+      ]
+    },
+    {
+      "id": "R54",
+      "type": "angle",
+      "points": [
+        "T",
+        "R",
+        "F"
+      ],
+      "degrees": 54
+    },
+    {
+      "id": "rightF",
+      "type": "angle",
+      "points": [
+        "T",
+        "F",
+        "R"
+      ],
+      "degrees": 90
+    }
+  ],
+  "ambiguities": [],
+  "query": "There is an isosceles triangle. Find x. Round to the nearest tenth.\nChoices:\nA:18.8\nB:23.2\nC:25.9\nD:44.0",
+  "answer": "A",
+  "answer_type": "choice",
+  "subject": "PlaneGeometry",
+  "level": "high_school",
+  "provenance": {
+    "source_key": "s999",
+    "source_answer": "A",
+    "previous_model_response": "Because the triangle is isosceles, the altitude from the vertex also bisects the base, creating a right triangle with hypotenuse \\(32\\) and angle \\(54^\\circ\\).\n\n\\[\n\\sin(54^\\circ)=\\frac{x}{32}\n\\]\n\n\\[\nx=32\\sin(54^\\circ)\\approx 25.9\n\\]\n\nTherefore, the answer is C: 25.9."
+  },
+  "answer_verification": {
+    "status": "verified",
+    "verified_answer": "A",
+    "issue": "",
+    "reasoning": "The altitude bisects the base. In the right triangle, x=32*cos(54 degrees), approximately 18.8, choice A."
+  }
+}

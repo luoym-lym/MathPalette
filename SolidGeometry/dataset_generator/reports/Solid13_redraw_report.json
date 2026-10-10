@@ -1,0 +1,139 @@
+{
+  "id": "Solid13",
+  "status": "formal_candidate",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s3524",
+    "sample_id": 3524,
+    "problem_id": 705,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Solid Geometry",
+    "source_subfield": "Area",
+    "question": "Find the surface area of the trapezoidal prism.\n\nGive your answer to the nearest one decimal place.",
+    "source_answer": "\\[577.0 \\mathrm{cm}^2\\]",
+    "source_image": "sources/s3524.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      305,
+      254
+    ],
+    "source_image_sha256": "bf2822f69bdb9c049e850f81194c8fdc8120981eaed244ac976b7457bb46c083",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "Find the surface area of the trapezoidal prism.\n\nGive your answer to the nearest one decimal place.",
+  "answer": "\\[577.0 \\mathrm{cm}^2\\]",
+  "answer_type": "number",
+  "answer_verification": {
+    "status": "needs_review",
+    "verified_answer": "576.6 cm^2",
+    "issue": "Exact surface area is 576.648... cm^2, which rounds to 576.6. Raw GT 577.0 follows if slant sqrt(218) is first rounded to 14.8 and the perimeter is then taken as 40.8; note intermediate rounding.",
+    "reasoning": "Front trapezoid area=(10+3)*13/2=84.5 cm^2; slant side y=sqrt(218). Prism SA=2*84.5+10*(10+3+13+sqrt(218))=576.648... cm^2."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "SolidGeometry/originals/Solid13.png",
+      "sha256": "bf2822f69bdb9c049e850f81194c8fdc8120981eaed244ac976b7457bb46c083"
+    },
+    "scene": {
+      "path": "SolidGeometry/dataset_generator/scenes/Solid13.json",
+      "sha256": "4dd9b45f8dc4b1a64a165f518bd5bde96e99d0fd85363782bf840596a2a008a2"
+    },
+    "protocol": {
+      "path": "SolidGeometry/dataset_generator/protocol.json",
+      "sha256": "e66f71cd4872a2dd2aeffcc462fa227695dbd3fc5658133e98180348c7643ad9"
+    },
+    "renderer": {
+      "path": "SolidGeometry/dataset_generator/common_renderer.py",
+      "sha256": "e4313d0559ebbd3677218b3301d5ddb4f022213a3a35609fc15007370abe1e16"
+    },
+    "question_script": {
+      "path": "SolidGeometry/dataset_generator/solid_plot13.py",
+      "sha256": "1d6678fd85d5062d8a2bfaf248607e75951912e6becd1f1a891741d85921faa3"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "9dce5802c3be8d96402681d7d875b07bdf9bdacd4f02c1b8334496086e62659d"
+    },
+    "written_protocol": {
+      "path": "SolidGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "4099a0ea139bfee536c8e3128d8542e6cd2333b12b04f52c4eb632248c9315b1"
+    },
+    "layout_helper": {
+      "path": "dataset_tools/geometry_layout.py",
+      "sha256": "a35ce82cf4b4f7eef0cae0aa5d49e304f3f1c86bda68e95f5fc649a3ece99f2d"
+    }
+  },
+  "output_png": "SolidGeometry/image/Solid13.png",
+  "output_png_sha256": "81c589eae7de473bfd0affd22b045d69a4a2e8c3af164bb3583992871b349215",
+  "output_svg": "SolidGeometry/image/Solid13.svg",
+  "output_svg_sha256": "1f51c7fd51b83aa8df62a3f1435700ad9f845d40478b01cdcda4065c4a2686aa",
+  "rgba_pixel_sha256": "cc2801c021d2f7e1cca4155b945170caf3b34461942f079b5d0ea7e48083c099",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "projection_and_visibility",
+      "type": "projection",
+      "passed": true,
+      "projection_sha256": "bc33af1a952cac1f7da60aa4446783b22039ad7ee2b20b5c0f3355ede2b16388",
+      "automatic_occlusion": false
+    },
+    {
+      "id": "layout",
+      "type": "layout",
+      "outer_margin_fraction": 0.05,
+      "label_line_overlap": false,
+      "label_label_overlap": false,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.1.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T17:40:54.003706+00:00",
+    "image_sha256": "81c589eae7de473bfd0affd22b045d69a4a2e8c3af164bb3583992871b349215",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "user_review": {
+    "status": "pending_user_review",
+    "user_pass": false,
+    "reviewer": null,
+    "approved_at_utc": null,
+    "content_sha256": "5cfe38458240e6ff6dc2f9ce249bff5ca00bab9c6ccc2e9ae0c6a480b882317a",
+    "approved_content_sha256": null
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  },
+  "layout": {
+    "content_bbox_px": [
+      54,
+      152,
+      714,
+      616
+    ],
+    "long_side_fraction": 0.859375,
+    "center_offset_px": [
+      0.0,
+      0.0
+    ],
+    "minimum_outer_margin_fraction": 0.0703125
+  },
+  "provenance_updates": [
+    {
+      "scope": "written_protocol_only",
+      "before_sha256": "689c492070f7dc902852ffb13d7a43eda28acd2ec5eed03398ce3db0010c4c5a",
+      "after_sha256": "4099a0ea139bfee536c8e3128d8542e6cd2333b12b04f52c4eb632248c9315b1",
+      "reason": "Added explicit-user approval policy; all frozen rendering assets are unchanged.",
+      "updated_at_utc": "2026-10-09T17:45:11.318679+00:00"
+    }
+  ]
+}

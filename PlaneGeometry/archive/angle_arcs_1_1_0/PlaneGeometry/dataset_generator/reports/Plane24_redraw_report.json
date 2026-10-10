@@ -1,0 +1,113 @@
+{
+  "id": "Plane24",
+  "status": "needs_review",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s1754",
+    "sample_id": 1754,
+    "problem_id": 351,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Plane Geometry",
+    "source_subfield": "Applied",
+    "question": "A man stands at point A looking at the top of two poles. The man wishes to find the distance between the two poles.\nHence find BC, the distance between the two poles in metres.\n\nRound your answer to one decimal place.",
+    "source_answer": "4.4 m",
+    "source_image": "sources/s1754.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      1280,
+      1150
+    ],
+    "source_image_sha256": "0b6f2a232a028f97d95fd6ba8ed3925f3a64a5adc4dfcb4eac656fcba9f3f55c",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "A man stands at point A looking at the top of two poles. The man wishes to find the distance between the two poles.\nHence find BC, the distance between the two poles in metres.\n\nRound your answer to one decimal place.",
+  "answer": "4.4 m",
+  "answer_type": "length",
+  "answer_verification": {
+    "status": "needs_review",
+    "verified_answer": null,
+    "issue": "The position of the 57 degree angle does not determine both pole distances.",
+    "reasoning": "The source has heights 8 m and 25 m, with 57 degrees marked from the ground baseline to the upper sightline to Pole 2. No angle or distance is given for the sightline to Pole 1, so AB and BC cannot be determined uniquely. Retain GT 4.4 m for review; no GT conflict is asserted."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "PlaneGeometry/originals/Plane24.png",
+      "sha256": "0b6f2a232a028f97d95fd6ba8ed3925f3a64a5adc4dfcb4eac656fcba9f3f55c"
+    },
+    "scene": {
+      "path": "PlaneGeometry/dataset_generator/scenes/Plane24.json",
+      "sha256": "4d18642a55cdda0485c0a1f8fe2e8a523deb9cec985e626b10c09d76f6018fde"
+    },
+    "protocol": {
+      "path": "PlaneGeometry/dataset_generator/protocol.json",
+      "sha256": "741e1e99ad4fa85f9d74e9d82408eca16fd1381eba3acf14d8567490dcbde98f"
+    },
+    "renderer": {
+      "path": "PlaneGeometry/dataset_generator/common_renderer.py",
+      "sha256": "a5113ef647f45f4ebfd2c3b30f27cf410735e08d6d1f201b93886b90c7c2f903"
+    },
+    "question_script": {
+      "path": "PlaneGeometry/dataset_generator/plane_plot24.py",
+      "sha256": "72c0fe47a86f4c582158fbc1800a6b3e22057fd5ec751b19e7e91ed1223edae1"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "8860f5bd272fbb14230a10b83860e56a759e7e30a2c2850d74013689d759ec64"
+    },
+    "written_protocol": {
+      "path": "PlaneGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "771a241bb076304851a5e5eec400ec26092e947f07002bb80acfb9fcef546e7f"
+    }
+  },
+  "output_png": "PlaneGeometry/image/Plane24.png",
+  "output_png_sha256": "02870005951dacd831875d5e1bdf8a63828bc5b34984db42d07577cfc2be0b27",
+  "output_svg": "PlaneGeometry/image/Plane24.svg",
+  "output_svg_sha256": "460200b1bde5153ec981190621dfd82b9688fbb5d77886098e849386751d55e8",
+  "rgba_pixel_sha256": "b4b309b13da9a37237e7f39b7df32cf42cb1b6275a00475e34ac242ac2997a50",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "height1",
+      "type": "distance",
+      "measured": 8.0,
+      "passed": true
+    },
+    {
+      "id": "height2",
+      "type": "distance",
+      "measured": 25.0,
+      "passed": true
+    },
+    {
+      "id": "base_order",
+      "type": "between",
+      "measured": 0.0,
+      "passed": true
+    },
+    {
+      "id": "given57",
+      "type": "angle",
+      "measured": 57.00000000000001,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.0.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T15:01:12.053389+00:00",
+    "image_sha256": "02870005951dacd831875d5e1bdf8a63828bc5b34984db42d07577cfc2be0b27",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  }
+}

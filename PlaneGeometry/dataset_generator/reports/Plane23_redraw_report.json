@@ -1,0 +1,143 @@
+{
+  "id": "Plane23",
+  "status": "needs_review",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s1724",
+    "sample_id": 1724,
+    "problem_id": 345,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Plane Geometry",
+    "source_subfield": "Applied",
+    "question": "Find $w$ to one decimal place.",
+    "source_answer": "90.1",
+    "source_image": "sources/s1724.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      290,
+      316
+    ],
+    "source_image_sha256": "586b4a377a1b5eb7eb394367ee1aa42f4f556f88707c0afbbe16233c3b10c5c3",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "Find $w$ to one decimal place.",
+  "answer": "90.1",
+  "answer_type": "angle",
+  "answer_verification": {
+    "status": "verified",
+    "verified_answer": "90.1",
+    "reasoning": "The 231 degree bearing is 51 degrees west of south. The horizontal component is 116 sin(51 degrees) = 90.1 km to one decimal place."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "PlaneGeometry/originals/Plane23.png",
+      "sha256": "586b4a377a1b5eb7eb394367ee1aa42f4f556f88707c0afbbe16233c3b10c5c3"
+    },
+    "scene": {
+      "path": "PlaneGeometry/dataset_generator/scenes/Plane23.json",
+      "sha256": "5962306f0bf9d7ca405607e0a7c4afaa8381132f0407464656005be9f9675903"
+    },
+    "protocol": {
+      "path": "PlaneGeometry/dataset_generator/protocol.json",
+      "sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+    },
+    "renderer": {
+      "path": "PlaneGeometry/dataset_generator/common_renderer.py",
+      "sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b"
+    },
+    "question_script": {
+      "path": "PlaneGeometry/dataset_generator/plane_plot23.py",
+      "sha256": "29097ae15d033744ec441096bb56e0cbc9aa9ca85b04b82c6eb45303c2bd58d3"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "9dce5802c3be8d96402681d7d875b07bdf9bdacd4f02c1b8334496086e62659d"
+    },
+    "written_protocol": {
+      "path": "PlaneGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "35ffc43f988e98111024e9cbaa5c2be3c60cbfe3a0cfa1124e210628ee125261"
+    },
+    "layout_helper": {
+      "path": "dataset_tools/geometry_layout.py",
+      "sha256": "a35ce82cf4b4f7eef0cae0aa5d49e304f3f1c86bda68e95f5fc649a3ece99f2d"
+    }
+  },
+  "output_png": "PlaneGeometry/image/Plane23.png",
+  "output_png_sha256": "22a8d6a958e8fc16872cf5ca76b8e9e5904f34565afd016ae84b9d9a20076c51",
+  "output_svg": "PlaneGeometry/image/Plane23.svg",
+  "output_svg_sha256": "d845ce47c670a6c4ac0a2a527cea672bbd2d521f533da677e439ca54d0f77688",
+  "rgba_pixel_sha256": "e66fba4eac49a71408c1816dbc1b60a4dbd288500db9109d73cba60d1018c5eb",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "bearing231",
+      "type": "angle",
+      "measured": 231.0,
+      "passed": true
+    },
+    {
+      "id": "distance116",
+      "type": "distance",
+      "measured": 115.99999999999999,
+      "passed": true
+    },
+    {
+      "id": "arc_binding_bearing231",
+      "type": "angle_annotation",
+      "label_id": "bearing231",
+      "arc_id": "angle_arc_bearing231",
+      "measured": 1,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.2.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T17:40:55.999333+00:00",
+    "image_sha256": "22a8d6a958e8fc16872cf5ca76b8e9e5904f34565afd016ae84b9d9a20076c51",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "user_review": {
+    "status": "pending_user_review",
+    "user_pass": false,
+    "reviewer": null,
+    "approved_at_utc": null,
+    "content_sha256": "91e76acbf0061141f22855ae219b60a5d2942b868293fea1cf1d02aeeb41b649",
+    "approved_content_sha256": null
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  },
+  "layout": {
+    "content_bbox_px": [
+      53,
+      92,
+      714,
+      677
+    ],
+    "long_side_fraction": 0.8606770833333334,
+    "center_offset_px": [
+      -0.5,
+      0.5
+    ],
+    "minimum_outer_margin_fraction": 0.06901041666666667
+  },
+  "provenance_updates": [
+    {
+      "scope": "written_protocol_only",
+      "before_sha256": "e517e3dfa24fbf50c9b814ece62938b4fd339648606ae9ffec6b226028e4a169",
+      "after_sha256": "35ffc43f988e98111024e9cbaa5c2be3c60cbfe3a0cfa1124e210628ee125261",
+      "reason": "Added explicit-user approval policy; all frozen rendering assets are unchanged.",
+      "updated_at_utc": "2026-10-09T17:45:10.879247+00:00"
+    }
+  ]
+}

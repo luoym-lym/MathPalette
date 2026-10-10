@@ -1,0 +1,277 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.1.0",
+  "id": "Plane20",
+  "status": "needs_review",
+  "source_dataset": "MathVerse",
+  "source_image": "../../originals/Plane20.png",
+  "view": {
+    "xlim": [
+      -17.68,
+      17.68
+    ],
+    "ylim": [
+      -17.68,
+      17.68
+    ]
+  },
+  "points": {
+    "O": [
+      0,
+      0
+    ],
+    "X": [
+      3.5355339059327378,
+      3.5355339059327378
+    ],
+    "B": [
+      9.19238815542512,
+      9.19238815542512
+    ],
+    "C": [
+      -4.949747468305834,
+      12.020815280171309
+    ],
+    "D": [
+      12.020815280171309,
+      -4.949747468305834
+    ],
+    "cm": [
+      0,
+      0
+    ],
+    "OCmid": [
+      -2.474873734152917,
+      6.0104076400856545
+    ],
+    "CDmid": [
+      3.5355339059327378,
+      3.5355339059327378
+    ]
+  },
+  "objects": [
+    {
+      "id": "circle",
+      "type": "circle",
+      "center": "O",
+      "radius": 13
+    },
+    {
+      "id": "OC",
+      "type": "segment",
+      "points": [
+        "O",
+        "C"
+      ]
+    },
+    {
+      "id": "OB",
+      "type": "segment",
+      "points": [
+        "O",
+        "B"
+      ]
+    },
+    {
+      "id": "CD",
+      "type": "segment",
+      "points": [
+        "C",
+        "D"
+      ]
+    },
+    {
+      "id": "OB_to_X",
+      "type": "segment",
+      "points": [
+        "O",
+        "X"
+      ]
+    },
+    {
+      "id": "rightX",
+      "type": "right_angle",
+      "points": [
+        "O",
+        "X",
+        "C"
+      ]
+    },
+    {
+      "id": "angle_arc_given134",
+      "type": "angle_arc",
+      "points": [
+        "C",
+        "O",
+        "D"
+      ],
+      "radius_pt": 16
+    }
+  ],
+  "labels": [
+    {
+      "id": "v_O",
+      "type": "vertex",
+      "point": "O",
+      "offset_pt": [
+        -10,
+        -10
+      ]
+    },
+    {
+      "id": "v_B",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        10,
+        8
+      ]
+    },
+    {
+      "id": "v_C",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        -10,
+        8
+      ]
+    },
+    {
+      "id": "v_D",
+      "type": "vertex",
+      "point": "D",
+      "offset_pt": [
+        10,
+        -8
+      ]
+    },
+    {
+      "id": "v_X",
+      "type": "vertex",
+      "point": "X",
+      "offset_pt": [
+        0,
+        -10
+      ]
+    },
+    {
+      "id": "r13",
+      "type": "text",
+      "anchor": "OCmid",
+      "text": "13 inches",
+      "offset_pt": [
+        -5,
+        12
+      ]
+    },
+    {
+      "id": "chord24",
+      "type": "text",
+      "anchor": "CDmid",
+      "text": "24 inches",
+      "offset_pt": [
+        32,
+        8
+      ]
+    },
+    {
+      "id": "given134",
+      "type": "text",
+      "anchor": "O",
+      "text": "134°",
+      "offset_pt": [
+        24,
+        -18
+      ],
+      "angle_points": [
+        "C",
+        "O",
+        "D"
+      ],
+      "arc_id": "angle_arc_given134"
+    }
+  ],
+  "constraints": [
+    {
+      "id": "OC13",
+      "type": "distance",
+      "points": [
+        "O",
+        "C"
+      ],
+      "value": 13
+    },
+    {
+      "id": "CD24",
+      "type": "distance",
+      "points": [
+        "C",
+        "D"
+      ],
+      "value": 24
+    },
+    {
+      "id": "OXperpCD",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "O",
+          "X"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ]
+    },
+    {
+      "id": "XmidCD",
+      "type": "equal_length",
+      "segments": [
+        [
+          "C",
+          "X"
+        ],
+        [
+          "X",
+          "D"
+        ]
+      ]
+    },
+    {
+      "id": "OXBcollinear",
+      "type": "collinear",
+      "points": [
+        "O",
+        "X",
+        "B"
+      ]
+    },
+    {
+      "id": "Bcircle",
+      "type": "on_circle",
+      "point": "B",
+      "center": "O",
+      "radius": 13
+    }
+  ],
+  "ambiguities": [
+    "Length label anchors and measured chord/radius cannot be identified unambiguously."
+  ],
+  "query": "\\[Find m \\widehat C B.\nChoices:\nA:24\nB:33\nC:67\nD:134\\]",
+  "answer": "C",
+  "answer_type": "choice",
+  "subject": "PlaneGeometry",
+  "level": "high_school",
+  "provenance": {
+    "source_key": "s1379",
+    "source_answer": "C",
+    "previous_model_response": "Since radius \\(OB\\) is perpendicular to chord \\(CD\\), it bisects the minor arc \\(CD\\). Thus,\n\n\\[\nm\\widehat{CB}=m\\widehat{BD}.\n\\]\n\nThe central angle \\(\\angle BOD=134^\\circ\\), so \\(m\\widehat{BD}=134^\\circ\\). Therefore,\n\n\\[\n\\boxed{m\\widehat{CB}=134^\\circ}\n\\]\n\nD"
+  },
+  "answer_verification": {
+    "status": "needs_review",
+    "verified_answer": "C (67 degrees)",
+    "issue": "Radius 13 and chord 24 imply central angle COD about 134.8 degrees, while the source labels it 134 degrees; record as rounded source data.",
+    "reasoning": "OB is perpendicular to chord CD at X, so CX=12. In right triangle OCX, OC=13 and CX=12, so angle COX=arcsin(12/13), about 67 degrees. Since OX lies on OB, arc CB is about 67 degrees (choice C)."
+  }
+}

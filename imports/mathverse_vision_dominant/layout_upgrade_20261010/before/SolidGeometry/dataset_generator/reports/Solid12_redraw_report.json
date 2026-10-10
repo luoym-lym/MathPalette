@@ -1,0 +1,104 @@
+{
+  "id": "Solid12",
+  "status": "formal_candidate",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s3514",
+    "sample_id": 3514,
+    "problem_id": 703,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Solid Geometry",
+    "source_subfield": "Area",
+    "question": "Find the surface area of the trapezoidal prism.",
+    "source_answer": "\\[338 \\mathrm{cm}^2\\]",
+    "source_image": "sources/s3514.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      311,
+      147
+    ],
+    "source_image_sha256": "3bb2804281b7eaa2d4bb798aec7c25b45b3acc2f96a32f64fc08b6783e4726d9",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "Find the surface area of the trapezoidal prism.",
+  "answer": "\\[338 \\mathrm{cm}^2\\]",
+  "answer_type": "number",
+  "answer_verification": {
+    "status": "needs_review",
+    "verified_answer": "388 cm^2",
+    "issue": "Raw GT 338 cm^2 conflicts with the supplied dimensions; the computed surface area is 388 cm^2.",
+    "reasoning": "Trapezoid area=(18+10)*3/2=42 cm^2 and perimeter=18+10+5+5=38 cm. Prism SA=2*42+38*8=388 cm^2. Raw GT 338 is an arithmetic error."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "SolidGeometry/originals/Solid12.png",
+      "sha256": "3bb2804281b7eaa2d4bb798aec7c25b45b3acc2f96a32f64fc08b6783e4726d9"
+    },
+    "scene": {
+      "path": "SolidGeometry/dataset_generator/scenes/Solid12.json",
+      "sha256": "e3eb5c72d4198a85b17bf88d6f1fa9788bbfa0f6f65c1643c982c1c0f0f00edb"
+    },
+    "protocol": {
+      "path": "SolidGeometry/dataset_generator/protocol.json",
+      "sha256": "7c63cb30a6a6735b3fd607b68001442220a901824b384c405e00c45f57f30131"
+    },
+    "renderer": {
+      "path": "SolidGeometry/dataset_generator/common_renderer.py",
+      "sha256": "30af6cd2be3757532b3eb4e64fb935617aaec881e25eb721af0c1ddcaa018e5c"
+    },
+    "question_script": {
+      "path": "SolidGeometry/dataset_generator/solid_plot12.py",
+      "sha256": "9f1118db6c621a5b472b8037db00666b35c2c21bab6895ff954c8f151b3ce73d"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "8860f5bd272fbb14230a10b83860e56a759e7e30a2c2850d74013689d759ec64"
+    },
+    "written_protocol": {
+      "path": "SolidGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "645d867d11f06dc38a4f0240feb7e5f65dd6cc1233b6accbb1dc07cffd43a04d"
+    }
+  },
+  "output_png": "SolidGeometry/image/Solid12.png",
+  "output_png_sha256": "87b256e7fab01450e12d7cd9d43a273dcc20aeec718499a71f92dd48dffe9249",
+  "output_svg": "SolidGeometry/image/Solid12.svg",
+  "output_svg_sha256": "644c6541d3c2a1ca727d0612d3a61db8c5cce18dbba356f6e60329bf6a9ae954",
+  "rgba_pixel_sha256": "c26c27265c890ce75ec16f5ff74f09d32a74c0706a7d01ff0168b6c93cf45fc3",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "projection_and_visibility",
+      "type": "projection",
+      "passed": true,
+      "projection_sha256": "bc33af1a952cac1f7da60aa4446783b22039ad7ee2b20b5c0f3355ede2b16388",
+      "automatic_occlusion": false
+    },
+    {
+      "id": "layout",
+      "type": "layout",
+      "outer_margin_fraction": 0.08,
+      "label_line_overlap": false,
+      "label_label_overlap": false,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.0.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T15:15:29.438210+00:00",
+    "image_sha256": "87b256e7fab01450e12d7cd9d43a273dcc20aeec718499a71f92dd48dffe9249",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  }
+}

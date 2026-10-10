@@ -1,0 +1,281 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.1.0",
+  "id": "Plane13",
+  "status": "corrected",
+  "source_dataset": "MathVerse",
+  "source_image": "../../originals/Plane13.png",
+  "view": {
+    "xlim": [
+      -10,
+      10
+    ],
+    "ylim": [
+      -10,
+      10
+    ]
+  },
+  "points": {
+    "L": [
+      0,
+      0
+    ],
+    "M": [
+      6,
+      0
+    ],
+    "P": [
+      10,
+      0
+    ],
+    "U": [
+      6,
+      0.8
+    ],
+    "V": [
+      10,
+      1.3333333333333333
+    ]
+  },
+  "objects": [
+    {
+      "id": "baseline_LM",
+      "type": "segment",
+      "points": [
+        "L",
+        "M"
+      ]
+    },
+    {
+      "id": "baseline_MP",
+      "type": "segment",
+      "points": [
+        "M",
+        "P"
+      ]
+    },
+    {
+      "id": "marker",
+      "type": "segment",
+      "points": [
+        "M",
+        "U"
+      ]
+    },
+    {
+      "id": "height_h",
+      "type": "segment",
+      "points": [
+        "P",
+        "V"
+      ]
+    },
+    {
+      "id": "sightline",
+      "type": "segment",
+      "points": [
+        "L",
+        "V"
+      ],
+      "linestyle": "dashed"
+    },
+    {
+      "id": "sightline_MU",
+      "type": "segment",
+      "points": [
+        "U",
+        "V"
+      ],
+      "linestyle": "dashed"
+    },
+    {
+      "id": "right_M",
+      "type": "right_angle",
+      "points": [
+        "L",
+        "M",
+        "U"
+      ]
+    },
+    {
+      "id": "right_P",
+      "type": "right_angle",
+      "points": [
+        "M",
+        "P",
+        "V"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "v_L",
+      "type": "vertex",
+      "point": "L",
+      "offset_pt": [
+        0,
+        -10
+      ]
+    },
+    {
+      "id": "v_M",
+      "type": "vertex",
+      "point": "M",
+      "offset_pt": [
+        0,
+        -10
+      ]
+    },
+    {
+      "id": "v_P",
+      "type": "vertex",
+      "point": "P",
+      "offset_pt": [
+        5,
+        -10
+      ]
+    },
+    {
+      "id": "v_U",
+      "type": "vertex",
+      "point": "U",
+      "offset_pt": [
+        8,
+        7
+      ]
+    },
+    {
+      "id": "v_V",
+      "type": "vertex",
+      "point": "V",
+      "offset_pt": [
+        8,
+        8
+      ]
+    },
+    {
+      "id": "LM6",
+      "type": "text",
+      "anchor": "M",
+      "text": "6 m",
+      "offset_pt": [
+        -24,
+        -16
+      ]
+    },
+    {
+      "id": "MP4",
+      "type": "text",
+      "anchor": "M",
+      "text": "4 m",
+      "offset_pt": [
+        25,
+        -16
+      ]
+    },
+    {
+      "id": "U08",
+      "type": "text",
+      "anchor": "U",
+      "text": "0.8 m",
+      "offset_pt": [
+        20,
+        0
+      ]
+    },
+    {
+      "id": "heightH",
+      "type": "text",
+      "anchor": "V",
+      "text": "h",
+      "offset_pt": [
+        15,
+        0
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "LM6",
+      "type": "distance",
+      "points": [
+        "L",
+        "M"
+      ],
+      "value": 6
+    },
+    {
+      "id": "MP4",
+      "type": "distance",
+      "points": [
+        "M",
+        "P"
+      ],
+      "value": 4
+    },
+    {
+      "id": "MU08",
+      "type": "distance",
+      "points": [
+        "M",
+        "U"
+      ],
+      "value": 0.8
+    },
+    {
+      "id": "collinear_LUV",
+      "type": "collinear",
+      "points": [
+        "L",
+        "U",
+        "V"
+      ]
+    },
+    {
+      "id": "rightMarker",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "L",
+          "M"
+        ],
+        [
+          "M",
+          "U"
+        ]
+      ]
+    },
+    {
+      "id": "rightHeight",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "M",
+          "P"
+        ],
+        [
+          "P",
+          "V"
+        ]
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "query": "\\[The height h of the racket hit is ()\nChoices:\nA:\\frac{8}{5}m\nB:\\frac{4}{3}m\nC:1m\nD:\\frac{8}{15}m\\]",
+  "answer": "D",
+  "answer_type": "choice",
+  "subject": "PlaneGeometry",
+  "level": "high_school",
+  "provenance": {
+    "source_key": "s719",
+    "source_answer": "D",
+    "previous_model_response": "The dashed sight line forms similar right triangles.\n\n\\[\n\\frac{0.8}{6}=\\frac{h}{6+4}\n\\]\n\nThus,\n\n\\[\nh=10\\times \\frac{0.8}{6}=\\frac{4}{3}\\text{ m}\n\\]\n\nTherefore, the correct choice is B.",
+    "correction": "Source 8/15m corrected to 4/3m."
+  },
+  "answer_verification": {
+    "status": "corrected",
+    "verified_answer": "4/3 m",
+    "issue": "Independent derivation conflicts with the source GT; retain source and report this candidate.",
+    "reasoning": "The 0.8 m reference is 6 m from the start and h is 4 m farther along the same line. Similar triangles give h=0.8*(10/6)=4/3 m, choice B, differing from source GT 8/15."
+  }
+}

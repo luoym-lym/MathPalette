@@ -1,0 +1,281 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.0.0",
+  "id": "Plane06",
+  "status": "verified",
+  "source_dataset": "MathVerse",
+  "source_image": "../../originals/Plane06.png",
+  "view": {
+    "xlim": [
+      -14,
+      14
+    ],
+    "ylim": [
+      -14,
+      14
+    ]
+  },
+  "points": {
+    "A": [
+      0,
+      0
+    ],
+    "B": [
+      3,
+      0
+    ],
+    "C": [
+      9,
+      0
+    ],
+    "E": [
+      3,
+      2
+    ],
+    "D": [
+      9,
+      6
+    ],
+    "ACmid": [
+      4.5,
+      -0.45
+    ]
+  },
+  "objects": [
+    {
+      "id": "AB",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "BC",
+      "type": "segment",
+      "points": [
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "AC",
+      "type": "segment",
+      "points": [
+        "A",
+        "C"
+      ]
+    },
+    {
+      "id": "BE",
+      "type": "segment",
+      "points": [
+        "B",
+        "E"
+      ]
+    },
+    {
+      "id": "CD",
+      "type": "segment",
+      "points": [
+        "C",
+        "D"
+      ]
+    },
+    {
+      "id": "AE",
+      "type": "segment",
+      "points": [
+        "A",
+        "E"
+      ]
+    },
+    {
+      "id": "ED",
+      "type": "segment",
+      "points": [
+        "E",
+        "D"
+      ]
+    },
+    {
+      "id": "right_B",
+      "type": "right_angle",
+      "points": [
+        "A",
+        "B",
+        "E"
+      ]
+    },
+    {
+      "id": "right_C",
+      "type": "right_angle",
+      "points": [
+        "B",
+        "C",
+        "D"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "v_A",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        -8,
+        -9
+      ]
+    },
+    {
+      "id": "v_B",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        0,
+        -12
+      ]
+    },
+    {
+      "id": "v_C",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        8,
+        -10
+      ]
+    },
+    {
+      "id": "v_D",
+      "type": "vertex",
+      "point": "D",
+      "offset_pt": [
+        8,
+        8
+      ]
+    },
+    {
+      "id": "v_E",
+      "type": "vertex",
+      "point": "E",
+      "offset_pt": [
+        8,
+        7
+      ]
+    },
+    {
+      "id": "AB3",
+      "type": "text",
+      "anchor": "B",
+      "text": "3",
+      "offset_pt": [
+        -12,
+        -18
+      ]
+    },
+    {
+      "id": "AC9",
+      "type": "text",
+      "anchor": "ACmid",
+      "text": "9",
+      "offset_pt": [
+        0,
+        -14
+      ]
+    },
+    {
+      "id": "BE2",
+      "type": "text",
+      "anchor": "E",
+      "text": "2",
+      "offset_pt": [
+        16,
+        0
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "AB3",
+      "type": "distance",
+      "points": [
+        "A",
+        "B"
+      ],
+      "value": 3
+    },
+    {
+      "id": "AC9",
+      "type": "distance",
+      "points": [
+        "A",
+        "C"
+      ],
+      "value": 9
+    },
+    {
+      "id": "BE2",
+      "type": "distance",
+      "points": [
+        "B",
+        "E"
+      ],
+      "value": 2
+    },
+    {
+      "id": "ABperpBE",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "E"
+        ]
+      ]
+    },
+    {
+      "id": "BCperpCD",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ]
+    },
+    {
+      "id": "A_E_D",
+      "type": "collinear",
+      "points": [
+        "A",
+        "E",
+        "D"
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "query": "As shown in the figure, the tree CD is ()\nChoices:\nA:6\u7c73\nB:7.5\u7c73\nC:8\u7c73\nD:8.5\u7c73",
+  "answer": "A",
+  "answer_type": "numeric",
+  "subject": "PlaneGeometry",
+  "level": "middle_school",
+  "provenance": {
+    "source_key": "s314",
+    "source_answer": "A",
+    "previous_model_response": "Since \\(AB=3\\text{ m}\\) and \\(BC=9\\text{ m}\\),\n\n\\[\nAC=AB+BC=3+9=12\\text{ m}.\n\\]\n\nTriangles \\(\\triangle ABE\\) and \\(\\triangle ACD\\) are similar (right triangles sharing angle \\(A\\)). Thus,\n\n\\[\n\\frac{AB}{AC}=\\frac{BE}{CD}\n\\]\n\n\\[\n\\frac{3}{12}=\\frac{2}{CD}\n\\quad\\Rightarrow\\quad CD=8\\text{ m}.\n\\]\n\nTherefore, the tree is 8 meters tall \u2014 C.",
+    "correction": "Source GT A/6 m corrected to 8 m from similar triangles."
+  },
+  "answer_verification": {
+    "status": "verified",
+    "verified_answer": "A",
+    "issue": "",
+    "reasoning": "AC=9 and AB=3. Similar right triangles ABE and ACD have scale factor AC/AB=3, so CD=3*BE=6 m, matching source GT A."
+  }
+}

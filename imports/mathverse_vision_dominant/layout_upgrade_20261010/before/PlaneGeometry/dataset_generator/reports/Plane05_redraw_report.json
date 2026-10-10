@@ -1,0 +1,132 @@
+{
+  "id": "Plane05",
+  "status": "needs_review",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s274",
+    "sample_id": 274,
+    "problem_id": 55,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Plane Geometry",
+    "source_subfield": "Angle",
+    "question": "As shown in the figure, and the radial OM bisects angle AOC, then the degree of angle CON is ()\nChoices:\nA:65°\nB:55°\nC:45°\nD:35°",
+    "source_answer": "B",
+    "source_image": "sources/s274.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      231,
+      167
+    ],
+    "source_image_sha256": "1016a12b8f522afdea8add895010b23cfafec6c184a8f822deee5dae8c4f0e16",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "As shown in the figure, and the radial OM bisects angle AOC, then the degree of angle CON is ()\nChoices:\nA:65°\nB:55°\nC:45°\nD:35°",
+  "answer": "B",
+  "answer_type": "numeric",
+  "answer_verification": {
+    "status": "verified",
+    "verified_answer": "B (55 degrees)",
+    "reasoning": "The 70 degree angle AOC is bisected by OM, so angle MOC=35 degrees. The source marks angle MON as a right angle (90 degrees). Since C lies between M and N in that right angle, angle CON=90-35=55 degrees, choice B, matching the source GT."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "PlaneGeometry/originals/Plane05.png",
+      "sha256": "1016a12b8f522afdea8add895010b23cfafec6c184a8f822deee5dae8c4f0e16"
+    },
+    "scene": {
+      "path": "PlaneGeometry/dataset_generator/scenes/Plane05.json",
+      "sha256": "6724f2923af0b2fd5bd910d3bfcfa8869bb67d69ba4fbe8ef3b2fdf95d1c955e"
+    },
+    "protocol": {
+      "path": "PlaneGeometry/dataset_generator/protocol.json",
+      "sha256": "a5cccd93ef351ef88528d51c370c5b86beb709e043bd8ab8895b64cde1e4f900"
+    },
+    "renderer": {
+      "path": "PlaneGeometry/dataset_generator/common_renderer.py",
+      "sha256": "649d82586597eabe78fb4594233049dc734be5bfa58a1a1619b760a83747d2b7"
+    },
+    "question_script": {
+      "path": "PlaneGeometry/dataset_generator/plane_plot05.py",
+      "sha256": "8d9ca18ed76a1a726eb4409846bd32d7cdd20188fabc0e0f10ced1b9182b4ce3"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "8860f5bd272fbb14230a10b83860e56a759e7e30a2c2850d74013689d759ec64"
+    },
+    "written_protocol": {
+      "path": "PlaneGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "ddf61ea1b6d35179a27c41d3ce270a29fb18a7827d7a2729201645cd61229bf6"
+    }
+  },
+  "output_png": "PlaneGeometry/image/Plane05.png",
+  "output_png_sha256": "976a74ee3e38516c883b26b18c95c8c63fd1752152d1a9ce64ba51b36628fa86",
+  "output_svg": "PlaneGeometry/image/Plane05.svg",
+  "output_svg_sha256": "a87d1c615f40af4a0632a3a620ebc52558e3b91c122f752f4d875253cf7fdb1d",
+  "rgba_pixel_sha256": "5a74b48e7dbf8a435064c59fd26e601f6bc653280aa53d0d69ee886435f1a94b",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "ABstraight",
+      "type": "collinear",
+      "measured": 0.0,
+      "passed": true
+    },
+    {
+      "id": "CDstraight",
+      "type": "collinear",
+      "measured": 6.661338147750939e-16,
+      "passed": true
+    },
+    {
+      "id": "AOC70",
+      "type": "angle",
+      "measured": 70.00000000000001,
+      "passed": true
+    },
+    {
+      "id": "AOM35",
+      "type": "angle",
+      "measured": 34.99999999999999,
+      "passed": true
+    },
+    {
+      "id": "MOC35",
+      "type": "angle",
+      "measured": 35.00000000000002,
+      "passed": true
+    },
+    {
+      "id": "MON90",
+      "type": "angle",
+      "measured": 90.00000000000001,
+      "passed": true
+    },
+    {
+      "id": "arc_binding_given_AOC",
+      "type": "angle_annotation",
+      "label_id": "given_AOC",
+      "arc_id": "arc_AOC70",
+      "measured": 1,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.1.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T16:59:21.220819+00:00",
+    "image_sha256": "976a74ee3e38516c883b26b18c95c8c63fd1752152d1a9ce64ba51b36628fa86",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "id": "Plane06",
+  "status": "verified",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s314",
+    "sample_id": 314,
+    "problem_id": 63,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Plane Geometry",
+    "source_subfield": "Applied",
+    "question": "As shown in the figure, the tree CD is ()\nChoices:\nA:6米\nB:7.5米\nC:8米\nD:8.5米",
+    "source_answer": "A",
+    "source_image": "sources/s314.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      319,
+      292
+    ],
+    "source_image_sha256": "c5cfe2024680955be7ccc8775b434e79caed1391b9895d51c91ad6d2138fe6ae",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "As shown in the figure, the tree CD is ()\nChoices:\nA:6米\nB:7.5米\nC:8米\nD:8.5米",
+  "answer": "A",
+  "answer_type": "numeric",
+  "answer_verification": {
+    "status": "verified",
+    "verified_answer": "A",
+    "issue": "",
+    "reasoning": "AC=9 and AB=3. Similar right triangles ABE and ACD have scale factor AC/AB=3, so CD=3*BE=6 m, matching source GT A."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "PlaneGeometry/originals/Plane06.png",
+      "sha256": "c5cfe2024680955be7ccc8775b434e79caed1391b9895d51c91ad6d2138fe6ae"
+    },
+    "scene": {
+      "path": "PlaneGeometry/dataset_generator/scenes/Plane06.json",
+      "sha256": "84e3ab4c21b6a855def39147514c1986198af7ad1ed2bbdbf3cfbe954092023e"
+    },
+    "protocol": {
+      "path": "PlaneGeometry/dataset_generator/protocol.json",
+      "sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+    },
+    "renderer": {
+      "path": "PlaneGeometry/dataset_generator/common_renderer.py",
+      "sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b"
+    },
+    "question_script": {
+      "path": "PlaneGeometry/dataset_generator/plane_plot06.py",
+      "sha256": "91c403a7e45c46a132b476a658f7eedb1d5684d9f34970f882bf61946e0831c7"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "80b8da25f7befd14f571509b50635949f8733bb605b1d7f32369e72b443942b2"
+    },
+    "written_protocol": {
+      "path": "PlaneGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "e27401b48833214594092de784cdf421bbf987d50529844d9c98545ebc386829"
+    },
+    "layout_helper": {
+      "path": "dataset_tools/geometry_layout.py",
+      "sha256": "a35ce82cf4b4f7eef0cae0aa5d49e304f3f1c86bda68e95f5fc649a3ece99f2d"
+    }
+  },
+  "output_png": "PlaneGeometry/image/Plane06.png",
+  "output_png_sha256": "e4b1330688849b6441cbd19344a44063ac86261ad3a84900e07536e19c1cc317",
+  "output_svg": "PlaneGeometry/image/Plane06.svg",
+  "output_svg_sha256": "6d1b87c9a5ab14dd5fddd2d9876051c339faec8ac54a3dcdf363b82cb95016b2",
+  "rgba_pixel_sha256": "a0d5e6553039f4a1c77e92e90a53005f5218d8b698a0a5a8618c6d309f07d5e8",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "AB3",
+      "type": "distance",
+      "measured": 3.0,
+      "passed": true
+    },
+    {
+      "id": "AC9",
+      "type": "distance",
+      "measured": 9.0,
+      "passed": true
+    },
+    {
+      "id": "BE2",
+      "type": "distance",
+      "measured": 2.0,
+      "passed": true
+    },
+    {
+      "id": "ABperpBE",
+      "type": "perpendicular",
+      "measured": 0.0,
+      "passed": true
+    },
+    {
+      "id": "BCperpCD",
+      "type": "perpendicular",
+      "measured": 0.0,
+      "passed": true
+    },
+    {
+      "id": "A_E_D",
+      "type": "collinear",
+      "measured": 0.0,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.2.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T17:26:33.015596+00:00",
+    "image_sha256": "e4b1330688849b6441cbd19344a44063ac86261ad3a84900e07536e19c1cc317",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  },
+  "layout": {
+    "content_bbox_px": [
+      54,
+      136,
+      714,
+      632
+    ],
+    "long_side_fraction": 0.859375,
+    "center_offset_px": [
+      0.0,
+      0.0
+    ],
+    "minimum_outer_margin_fraction": 0.0703125
+  }
+}

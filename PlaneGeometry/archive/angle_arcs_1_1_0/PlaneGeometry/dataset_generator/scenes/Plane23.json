@@ -1,0 +1,191 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.0.0",
+  "id": "Plane23",
+  "status": "needs_review",
+  "source_dataset": "MathVerse",
+  "source_image": "../../originals/Plane23.png",
+  "view": {
+    "xlim": [
+      -109.97573920423017,
+      39.826807675221545
+    ],
+    "ylim": [
+      -101.40185612061643,
+      48.40069075883529
+    ]
+  },
+  "points": {
+    "O": [
+      0,
+      0
+    ],
+    "N": [
+      0,
+      20
+    ],
+    "S": [
+      0,
+      -20
+    ],
+    "E": [
+      20,
+      0
+    ],
+    "W": [
+      -20,
+      0
+    ],
+    "X": [
+      -90.14893152900862,
+      -73.00116536178113
+    ],
+    "F": [
+      -90.14893152900862,
+      0
+    ],
+    "w_mid": [
+      -45.07446576450431,
+      0
+    ],
+    "mid116": [
+      -45.07446576450431,
+      -36.50058268089057
+    ]
+  },
+  "objects": [
+    {
+      "id": "NS",
+      "type": "segment",
+      "points": [
+        "N",
+        "S"
+      ]
+    },
+    {
+      "id": "EW",
+      "type": "segment",
+      "points": [
+        "E",
+        "W"
+      ]
+    },
+    {
+      "id": "OX",
+      "type": "segment",
+      "points": [
+        "O",
+        "X"
+      ]
+    },
+    {
+      "id": "projection",
+      "type": "segment",
+      "points": [
+        "F",
+        "X"
+      ],
+      "linestyle": "dashed"
+    },
+    {
+      "id": "w_horizontal",
+      "type": "segment",
+      "points": [
+        "O",
+        "F"
+      ]
+    },
+    {
+      "id": "right_F",
+      "type": "right_angle",
+      "points": [
+        "W",
+        "F",
+        "X"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "v_N",
+      "type": "vertex",
+      "point": "N",
+      "offset_pt": [
+        0,
+        8
+      ]
+    },
+    {
+      "id": "bearing231",
+      "type": "angle",
+      "points": [
+        "N",
+        "O",
+        "X"
+      ],
+      "degrees": 231,
+      "radius_pt": 34,
+      "reflex": true
+    },
+    {
+      "id": "w",
+      "type": "text",
+      "anchor": "w_mid",
+      "text": "w",
+      "offset_pt": [
+        0,
+        10
+      ]
+    },
+    {
+      "id": "len116",
+      "type": "text",
+      "anchor": "mid116",
+      "text": "116 km",
+      "offset_pt": [
+        -5,
+        10
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "bearing231",
+      "type": "angle",
+      "points": [
+        "N",
+        "O",
+        "X"
+      ],
+      "degrees": 231,
+      "reflex": true
+    },
+    {
+      "id": "distance116",
+      "type": "distance",
+      "points": [
+        "O",
+        "X"
+      ],
+      "value": 116
+    }
+  ],
+  "ambiguities": [
+    "The w label is detached from a clear angle arc and no additional line/angle condition is given."
+  ],
+  "query": "Find $w$ to one decimal place.",
+  "answer": "90.1",
+  "answer_type": "angle",
+  "subject": "PlaneGeometry",
+  "level": "high_school",
+  "provenance": {
+    "source_key": "s1724",
+    "source_answer": "90.1",
+    "previous_model_response": "Bearings are measured clockwise from north. Due west has bearing \\(270^\\circ\\), while the southwest line has bearing \\(231^\\circ\\).\n\n\\[\nw=270^\\circ-231^\\circ=39.0^\\circ\n\\]\n\n\\[\n\\boxed{39.0^\\circ}\n\\]"
+  },
+  "answer_verification": {
+    "status": "verified",
+    "verified_answer": "90.1",
+    "reasoning": "The 231 degree bearing is 51 degrees west of south. The horizontal component is 116 sin(51 degrees) = 90.1 km to one decimal place."
+  }
+}

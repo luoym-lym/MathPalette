@@ -1,0 +1,139 @@
+{
+  "id": "Plane08",
+  "status": "corrected",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s449",
+    "sample_id": 449,
+    "problem_id": 90,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Plane Geometry",
+    "source_subfield": "Angle",
+    "question": "As shown in the figure, then the degree of the angle of circumference angle ACB is ()\nChoices:\nA:50°\nB:25°\nC:100°\nD:30°",
+    "source_answer": "C",
+    "source_image": "sources/s449.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      256,
+      204
+    ],
+    "source_image_sha256": "663ab2d8234dfbc23393ceb6da0e70e7272cf5400240ba4fffcf6e4adaa5d72b",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "As shown in the figure, then the degree of the angle of circumference angle ACB is ()\nChoices:\nA:50°\nB:25°\nC:100°\nD:30°",
+  "answer": "C",
+  "answer_type": "choice",
+  "answer_verification": {
+    "status": "corrected",
+    "verified_answer": "B",
+    "issue": "Independent derivation conflicts with the source GT; retain source and report this candidate.",
+    "reasoning": "The source marks central angle AOB=50 degrees. Independently, the requested inscribed angle is half the intercepted arc, 25 degrees (choice B). Source GT C/100 conflicts."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "PlaneGeometry/originals/Plane08.png",
+      "sha256": "663ab2d8234dfbc23393ceb6da0e70e7272cf5400240ba4fffcf6e4adaa5d72b"
+    },
+    "scene": {
+      "path": "PlaneGeometry/dataset_generator/scenes/Plane08.json",
+      "sha256": "90c988063fe0394b41dc3cde933d998ca01928fe975eb58133ac7b113f465cfb"
+    },
+    "protocol": {
+      "path": "PlaneGeometry/dataset_generator/protocol.json",
+      "sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+    },
+    "renderer": {
+      "path": "PlaneGeometry/dataset_generator/common_renderer.py",
+      "sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b"
+    },
+    "question_script": {
+      "path": "PlaneGeometry/dataset_generator/plane_plot08.py",
+      "sha256": "98fe42d6ddbe34cf82b7c7b695a5503ac8289b28242dbe608c48d4078d3e35eb"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "80b8da25f7befd14f571509b50635949f8733bb605b1d7f32369e72b443942b2"
+    },
+    "written_protocol": {
+      "path": "PlaneGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "e27401b48833214594092de784cdf421bbf987d50529844d9c98545ebc386829"
+    },
+    "layout_helper": {
+      "path": "dataset_tools/geometry_layout.py",
+      "sha256": "a35ce82cf4b4f7eef0cae0aa5d49e304f3f1c86bda68e95f5fc649a3ece99f2d"
+    }
+  },
+  "output_png": "PlaneGeometry/image/Plane08.png",
+  "output_png_sha256": "da524a16688b101b88db1d18f8a1d1c1e4f8f319572154cce9f204f4ec3292e1",
+  "output_svg": "PlaneGeometry/image/Plane08.svg",
+  "output_svg_sha256": "c6c0cc7d473df41d39acc8bbbdda6ca744a5dd84f95e208c6fc6e409f48e24ca",
+  "rgba_pixel_sha256": "dc15a4bfd427dd274f9d73cb34701327a7391f52bfea81aaa46abc8c2b9ebca3",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "AOB50",
+      "type": "angle",
+      "measured": 50.0,
+      "passed": true
+    },
+    {
+      "id": "on_A",
+      "type": "on_circle",
+      "measured": 5.0,
+      "passed": true
+    },
+    {
+      "id": "on_B",
+      "type": "on_circle",
+      "measured": 5.0,
+      "passed": true
+    },
+    {
+      "id": "on_C",
+      "type": "on_circle",
+      "measured": 5.0,
+      "passed": true
+    },
+    {
+      "id": "arc_binding_given_AOB",
+      "type": "angle_annotation",
+      "label_id": "given_AOB",
+      "arc_id": "angle_arc_given_AOB",
+      "measured": 1,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.2.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T17:26:33.385266+00:00",
+    "image_sha256": "da524a16688b101b88db1d18f8a1d1c1e4f8f319572154cce9f204f4ec3292e1",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  },
+  "layout": {
+    "content_bbox_px": [
+      54,
+      67,
+      713,
+      701
+    ],
+    "long_side_fraction": 0.8580729166666666,
+    "center_offset_px": [
+      -0.5,
+      0.0
+    ],
+    "minimum_outer_margin_fraction": 0.0703125
+  }
+}

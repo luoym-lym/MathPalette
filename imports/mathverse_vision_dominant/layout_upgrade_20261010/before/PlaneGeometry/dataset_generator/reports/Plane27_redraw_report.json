@@ -1,0 +1,129 @@
+{
+  "id": "Plane27",
+  "status": "verified",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s1789",
+    "sample_id": 1789,
+    "problem_id": 358,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Plane Geometry",
+    "source_subfield": "Length",
+    "question": "Consider the following diagram. Hence, use the rounded values of y and w to find x, correct to 1 decimal place.",
+    "source_answer": "24.6",
+    "source_image": "sources/s1789.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      324,
+      310
+    ],
+    "source_image_sha256": "d1f3f04ff55352a0669c69d313ea380616babd052f8b5c9fe0ccd4870741b4d7",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "Consider the following diagram. Hence, use the rounded values of y and w to find x, correct to 1 decimal place.",
+  "answer": "24.6",
+  "answer_type": "numeric",
+  "answer_verification": {
+    "status": "verified",
+    "verified_answer": "24.6",
+    "issue": "",
+    "reasoning": "The two horizontal intercepts are 68/tan46 and 68/tan37. Their difference is about 24.6, matching the source answer."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "PlaneGeometry/originals/Plane27.png",
+      "sha256": "d1f3f04ff55352a0669c69d313ea380616babd052f8b5c9fe0ccd4870741b4d7"
+    },
+    "scene": {
+      "path": "PlaneGeometry/dataset_generator/scenes/Plane27.json",
+      "sha256": "f814830bf646f39c8aaafc8b2e0fc747671978737a39543bfd4fc0bab584b7f5"
+    },
+    "protocol": {
+      "path": "PlaneGeometry/dataset_generator/protocol.json",
+      "sha256": "a5cccd93ef351ef88528d51c370c5b86beb709e043bd8ab8895b64cde1e4f900"
+    },
+    "renderer": {
+      "path": "PlaneGeometry/dataset_generator/common_renderer.py",
+      "sha256": "649d82586597eabe78fb4594233049dc734be5bfa58a1a1619b760a83747d2b7"
+    },
+    "question_script": {
+      "path": "PlaneGeometry/dataset_generator/plane_plot27.py",
+      "sha256": "453d702f50b308d5476ff84c693298c920bdc8072f471b41be987714360854a9"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "8860f5bd272fbb14230a10b83860e56a759e7e30a2c2850d74013689d759ec64"
+    },
+    "written_protocol": {
+      "path": "PlaneGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "ddf61ea1b6d35179a27c41d3ce270a29fb18a7827d7a2729201645cd61229bf6"
+    }
+  },
+  "output_png": "PlaneGeometry/image/Plane27.png",
+  "output_png_sha256": "383d7a630e59cd29dc007862bb0d3b6c317fe8cd26fec1370f2f31c13a7adb85",
+  "output_svg": "PlaneGeometry/image/Plane27.svg",
+  "output_svg_sha256": "4f34ed5fa223d985af3978cab1ca8faf54f794ed78c85f0b53086ea9bdf6cab7",
+  "rgba_pixel_sha256": "a776eaf88b56720df3eee7ac6a75ee9230b032e9617f8706b1b33a829970499a",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "height68",
+      "type": "distance",
+      "measured": 68.0,
+      "passed": true
+    },
+    {
+      "id": "angle37",
+      "type": "angle",
+      "measured": 37.0,
+      "passed": true
+    },
+    {
+      "id": "angle46",
+      "type": "angle",
+      "measured": 46.000000000000014,
+      "passed": true
+    },
+    {
+      "id": "right",
+      "type": "perpendicular",
+      "measured": 0.0,
+      "passed": true
+    },
+    {
+      "id": "arc_binding_angle37",
+      "type": "angle_annotation",
+      "label_id": "angle37",
+      "arc_id": "angle_arc_angle37",
+      "measured": 1,
+      "passed": true
+    },
+    {
+      "id": "arc_binding_angle46",
+      "type": "angle_annotation",
+      "label_id": "angle46",
+      "arc_id": "angle_arc_angle46",
+      "measured": 1,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.1.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T16:59:24.968148+00:00",
+    "image_sha256": "383d7a630e59cd29dc007862bb0d3b6c317fe8cd26fec1370f2f31c13a7adb85",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  }
+}

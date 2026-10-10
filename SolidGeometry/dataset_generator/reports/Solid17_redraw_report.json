@@ -1,0 +1,160 @@
+{
+  "id": "Solid17",
+  "status": "formal_candidate",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s3574",
+    "sample_id": 3574,
+    "problem_id": 715,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Solid Geometry",
+    "source_subfield": "Area",
+    "question": "Find the surface area of the figure shown, rounded to two decimal places.",
+    "source_answer": "\\[520.55 \\mathrm{cm}^2\\]",
+    "source_image": "sources/s3574.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      426,
+      299
+    ],
+    "source_image_sha256": "7c207ef51cfa08cc9aded08df812b481026948594192b4e1e78911f6be7a99b3",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "Find the surface area of the figure shown, rounded to two decimal places.",
+  "answer": "\\[520.55 \\mathrm{cm}^2\\]",
+  "answer_type": "number",
+  "answer_verification": {
+    "status": "verified",
+    "verified_answer": "520.55 cm^2",
+    "issue": null,
+    "reasoning": "This is a three-quarter (270-degree) cylinder with r=5 cm and L=12 cm. Surface area includes two 3/4-disk ends, the 270-degree curved surface, and two radial rectangular cut faces: SA=(3/2*pi*r^2)+(3/2*pi*r*L)+2*r*L=37.5*pi+90*pi+120=520.553... cm^2, rounding to 520.55 cm^2."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "SolidGeometry/originals/Solid17.png",
+      "sha256": "7c207ef51cfa08cc9aded08df812b481026948594192b4e1e78911f6be7a99b3"
+    },
+    "scene": {
+      "path": "SolidGeometry/dataset_generator/scenes/Solid17.json",
+      "sha256": "16765e158768287a956a9fa4629b7268bd042f3419b37d04396d875ded7fad0f"
+    },
+    "protocol": {
+      "path": "SolidGeometry/dataset_generator/protocol.json",
+      "sha256": "e66f71cd4872a2dd2aeffcc462fa227695dbd3fc5658133e98180348c7643ad9"
+    },
+    "renderer": {
+      "path": "SolidGeometry/dataset_generator/common_renderer.py",
+      "sha256": "e4313d0559ebbd3677218b3301d5ddb4f022213a3a35609fc15007370abe1e16"
+    },
+    "question_script": {
+      "path": "SolidGeometry/dataset_generator/solid_plot17.py",
+      "sha256": "99c2ca8a73c2592ef1799ddf0ecdc197b50d5c6ffb8ac5f4e98023705b3ebc74"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "9dce5802c3be8d96402681d7d875b07bdf9bdacd4f02c1b8334496086e62659d"
+    },
+    "written_protocol": {
+      "path": "SolidGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "4099a0ea139bfee536c8e3128d8542e6cd2333b12b04f52c4eb632248c9315b1"
+    },
+    "layout_helper": {
+      "path": "dataset_tools/geometry_layout.py",
+      "sha256": "a35ce82cf4b4f7eef0cae0aa5d49e304f3f1c86bda68e95f5fc649a3ece99f2d"
+    }
+  },
+  "output_png": "SolidGeometry/image/Solid17.png",
+  "output_png_sha256": "a6651ed778d480355a6cb0265c7f69f85a1fb4a5a1b3a79d29af98484d07c62b",
+  "output_svg": "SolidGeometry/image/Solid17.svg",
+  "output_svg_sha256": "47bc9dfecab1876b7da98dfff62d4818131b2944c7c3a21b1724561375455062",
+  "rgba_pixel_sha256": "cdfa50c89822cf2fd941a26acefb39bebdd443bc57aeb8d8e885491907ba5f2e",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "projection_and_visibility",
+      "type": "projection",
+      "passed": true,
+      "projection_sha256": "259e06bb5025dfa8943be11ccd2b71ac1c2e085915c0120b9354286389c8fe0d",
+      "automatic_occlusion": false
+    },
+    {
+      "id": "front_sector_outline",
+      "type": "arc_sampling",
+      "max_chord_error_px": 0.002834027829064837,
+      "passed": true
+    },
+    {
+      "id": "back_sector_outline",
+      "type": "arc_sampling",
+      "max_chord_error_px": 0.002834027829064837,
+      "passed": true
+    },
+    {
+      "id": "radius_5",
+      "type": "dimension",
+      "text": "5 cm",
+      "measured_world_length": 5.0,
+      "unit": "cm",
+      "basis": "Source radius dimension.",
+      "passed": true
+    },
+    {
+      "id": "layout",
+      "type": "layout",
+      "outer_margin_fraction": 0.05,
+      "label_line_overlap": false,
+      "label_label_overlap": false,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.1.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T17:40:54.742048+00:00",
+    "image_sha256": "a6651ed778d480355a6cb0265c7f69f85a1fb4a5a1b3a79d29af98484d07c62b",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "user_review": {
+    "status": "pending_user_review",
+    "user_pass": false,
+    "reviewer": null,
+    "approved_at_utc": null,
+    "content_sha256": "023560ffa51334ea8dd93a072a109a56de976e340e888e24cbe1b5bc2ccdb70b",
+    "approved_content_sha256": null
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  },
+  "layout": {
+    "content_bbox_px": [
+      54,
+      185,
+      714,
+      583
+    ],
+    "long_side_fraction": 0.859375,
+    "center_offset_px": [
+      0.0,
+      0.0
+    ],
+    "minimum_outer_margin_fraction": 0.0703125
+  },
+  "provenance_updates": [
+    {
+      "scope": "written_protocol_only",
+      "before_sha256": "689c492070f7dc902852ffb13d7a43eda28acd2ec5eed03398ce3db0010c4c5a",
+      "after_sha256": "4099a0ea139bfee536c8e3128d8542e6cd2333b12b04f52c4eb632248c9315b1",
+      "reason": "Added explicit-user approval policy; all frozen rendering assets are unchanged.",
+      "updated_at_utc": "2026-10-09T17:45:11.376324+00:00"
+    }
+  ]
+}

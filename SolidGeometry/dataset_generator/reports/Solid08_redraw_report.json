@@ -1,0 +1,139 @@
+{
+  "id": "Solid08",
+  "status": "formal_candidate",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s3419",
+    "sample_id": 3419,
+    "problem_id": 684,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Solid Geometry",
+    "source_subfield": "Area",
+    "question": "Calculate the area of the divider correct to two decimal places, using your rounded answer from the previous part.",
+    "source_answer": "\\[94.59 \\mathrm{m}^2\\]",
+    "source_image": "sources/s3419.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      376,
+      210
+    ],
+    "source_image_sha256": "95be3e708789e9b0d45c91f02a3494f4569bc425444dfc4962734c394ce6a0c5",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "Calculate the area of the divider correct to two decimal places, using your rounded answer from the previous part.",
+  "answer": "\\[94.59 \\mathrm{m}^2\\]",
+  "answer_type": "number",
+  "answer_verification": {
+    "status": "needs_review",
+    "verified_answer": "94.59 cm^2",
+    "issue": "Raw GT uses m^2 although every supplied length is labeled cm; the numeric value matches area in cm^2, not m^2.",
+    "reasoning": "Divider triangle ACD has CD=9 cm and AC=sqrt(19^2+9^2)=sqrt(442); area=(1/2)*9*sqrt(442)=94.59 cm^2."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "SolidGeometry/originals/Solid08.png",
+      "sha256": "95be3e708789e9b0d45c91f02a3494f4569bc425444dfc4962734c394ce6a0c5"
+    },
+    "scene": {
+      "path": "SolidGeometry/dataset_generator/scenes/Solid08.json",
+      "sha256": "7c0d18ddb453c61c128170a7b34eb2d582c368bd6dcbde82bacebdfa776daceb"
+    },
+    "protocol": {
+      "path": "SolidGeometry/dataset_generator/protocol.json",
+      "sha256": "e66f71cd4872a2dd2aeffcc462fa227695dbd3fc5658133e98180348c7643ad9"
+    },
+    "renderer": {
+      "path": "SolidGeometry/dataset_generator/common_renderer.py",
+      "sha256": "e4313d0559ebbd3677218b3301d5ddb4f022213a3a35609fc15007370abe1e16"
+    },
+    "question_script": {
+      "path": "SolidGeometry/dataset_generator/solid_plot08.py",
+      "sha256": "0eb242550884300358de297831508e3d24272f62c7dab0d71d27f5474060ee9f"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "9dce5802c3be8d96402681d7d875b07bdf9bdacd4f02c1b8334496086e62659d"
+    },
+    "written_protocol": {
+      "path": "SolidGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "4099a0ea139bfee536c8e3128d8542e6cd2333b12b04f52c4eb632248c9315b1"
+    },
+    "layout_helper": {
+      "path": "dataset_tools/geometry_layout.py",
+      "sha256": "a35ce82cf4b4f7eef0cae0aa5d49e304f3f1c86bda68e95f5fc649a3ece99f2d"
+    }
+  },
+  "output_png": "SolidGeometry/image/Solid08.png",
+  "output_png_sha256": "c79fdcfb631ca46616c3cc2e3bba38cfd7bd72dc495b155471ab7f99f63f0e1b",
+  "output_svg": "SolidGeometry/image/Solid08.svg",
+  "output_svg_sha256": "7441449ce92123c230df3d88c941a54a306dd2acb5efc5462861729508f87357",
+  "rgba_pixel_sha256": "3c97c780b9f86400c4a6b7e0f9be8bd528117760e9b750bdbd9123e1377a7b70",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "projection_and_visibility",
+      "type": "projection",
+      "passed": true,
+      "projection_sha256": "bc33af1a952cac1f7da60aa4446783b22039ad7ee2b20b5c0f3355ede2b16388",
+      "automatic_occlusion": false
+    },
+    {
+      "id": "layout",
+      "type": "layout",
+      "outer_margin_fraction": 0.05,
+      "label_line_overlap": false,
+      "label_label_overlap": false,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.1.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T17:40:52.953056+00:00",
+    "image_sha256": "c79fdcfb631ca46616c3cc2e3bba38cfd7bd72dc495b155471ab7f99f63f0e1b",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "user_review": {
+    "status": "pending_user_review",
+    "user_pass": false,
+    "reviewer": null,
+    "approved_at_utc": null,
+    "content_sha256": "469d9e707acd9abfeb3fdd34ae253890f257f0a62de66e08506caee5b99f051a",
+    "approved_content_sha256": null
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  },
+  "layout": {
+    "content_bbox_px": [
+      54,
+      226,
+      714,
+      541
+    ],
+    "long_side_fraction": 0.859375,
+    "center_offset_px": [
+      0.0,
+      -0.5
+    ],
+    "minimum_outer_margin_fraction": 0.0703125
+  },
+  "provenance_updates": [
+    {
+      "scope": "written_protocol_only",
+      "before_sha256": "689c492070f7dc902852ffb13d7a43eda28acd2ec5eed03398ce3db0010c4c5a",
+      "after_sha256": "4099a0ea139bfee536c8e3128d8542e6cd2333b12b04f52c4eb632248c9315b1",
+      "reason": "Added explicit-user approval policy; all frozen rendering assets are unchanged.",
+      "updated_at_utc": "2026-10-09T17:45:11.243970+00:00"
+    }
+  ]
+}

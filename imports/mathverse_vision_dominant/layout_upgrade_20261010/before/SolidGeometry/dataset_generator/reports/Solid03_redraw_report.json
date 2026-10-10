@@ -1,0 +1,140 @@
+{
+  "id": "Solid03",
+  "status": "formal_candidate",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s3289",
+    "sample_id": 3289,
+    "problem_id": 658,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Solid Geometry",
+    "source_subfield": "Area",
+    "question": "Find the surface area of the outside of this water trough in the shape of a half cylinder.\n\nRound your answer to two decimal places.",
+    "source_answer": "Surface Area $=9.86 \\mathrm{~m}^{2}$",
+    "source_image": "sources/s3289.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      823,
+      332
+    ],
+    "source_image_sha256": "1fd6f71d9cfd76f346ed48efb1a7afe8eee84112f85a908129df7cca9ac30768",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "Find the surface area of the outside of this water trough in the shape of a half cylinder.\n\nRound your answer to two decimal places.",
+  "answer": "Surface Area $=9.86 \\mathrm{~m}^{2}$",
+  "answer_type": "number",
+  "answer_verification": {
+    "status": "verified",
+    "reasoning": "For a half-cylinder trough with r=0.92 m and L=2.49 m, outside curved area is (pi*r)*L; two semicircular ends total pi*r^2. Exclude the open rectangular top. SA=pi*0.92*2.49+pi*0.92^2=9.86 m^2.",
+    "verified_answer": "9.86 m^2",
+    "issue": null
+  },
+  "inputs": {
+    "source_image": {
+      "path": "SolidGeometry/originals/Solid03.png",
+      "sha256": "1fd6f71d9cfd76f346ed48efb1a7afe8eee84112f85a908129df7cca9ac30768"
+    },
+    "scene": {
+      "path": "SolidGeometry/dataset_generator/scenes/Solid03.json",
+      "sha256": "43427809775574ce633d7609890c9f390084993d83ddde75e9d52c2d61b4b597"
+    },
+    "protocol": {
+      "path": "SolidGeometry/dataset_generator/protocol.json",
+      "sha256": "7c63cb30a6a6735b3fd607b68001442220a901824b384c405e00c45f57f30131"
+    },
+    "renderer": {
+      "path": "SolidGeometry/dataset_generator/common_renderer.py",
+      "sha256": "30af6cd2be3757532b3eb4e64fb935617aaec881e25eb721af0c1ddcaa018e5c"
+    },
+    "question_script": {
+      "path": "SolidGeometry/dataset_generator/solid_plot03.py",
+      "sha256": "f512347e10b2b93818a1874c0171215c777389cd9bda8de242ce3932d8bc6c48"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "8860f5bd272fbb14230a10b83860e56a759e7e30a2c2850d74013689d759ec64"
+    },
+    "written_protocol": {
+      "path": "SolidGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "645d867d11f06dc38a4f0240feb7e5f65dd6cc1233b6accbb1dc07cffd43a04d"
+    }
+  },
+  "output_png": "SolidGeometry/image/Solid03.png",
+  "output_png_sha256": "864908584810dc894d493abcd273d62957d03bbc8482db231ecaee252f0115af",
+  "output_svg": "SolidGeometry/image/Solid03.svg",
+  "output_svg_sha256": "9fb81f0417c2791279c20f16566b22aa245c5f29f7f33438844991e70a29d5ee",
+  "rgba_pixel_sha256": "2021b6a4a3ab1328240148cd1523a709e606d36659ca272e9999bfe9bc64322f",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "projection_and_visibility",
+      "type": "projection",
+      "passed": true,
+      "projection_sha256": "259e06bb5025dfa8943be11ccd2b71ac1c2e085915c0120b9354286389c8fe0d",
+      "automatic_occlusion": false
+    },
+    {
+      "id": "front_semicircle",
+      "type": "arc_sampling",
+      "max_chord_error_px": 0.0010169617141067306,
+      "passed": true
+    },
+    {
+      "id": "back_hidden_interval",
+      "type": "arc_sampling",
+      "max_chord_error_px": 0.0009595749111675616,
+      "passed": true
+    },
+    {
+      "id": "back_visible_interval",
+      "type": "arc_sampling",
+      "max_chord_error_px": 0.0002841842557688949,
+      "passed": true
+    },
+    {
+      "id": "radius",
+      "type": "dimension",
+      "text": "0.92 m",
+      "measured_world_length": 0.92,
+      "unit": "m",
+      "basis": "Height .92 m is the semicircle radius per frozen source interpretation.",
+      "passed": true
+    },
+    {
+      "id": "length",
+      "type": "dimension",
+      "text": "2.49 m",
+      "measured_world_length": 2.49,
+      "unit": "m",
+      "basis": "Dimension read from source diagram.",
+      "passed": true
+    },
+    {
+      "id": "layout",
+      "type": "layout",
+      "outer_margin_fraction": 0.08,
+      "label_line_overlap": false,
+      "label_label_overlap": false,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.0.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T15:15:27.852519+00:00",
+    "image_sha256": "864908584810dc894d493abcd273d62957d03bbc8482db231ecaee252f0115af",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  }
+}

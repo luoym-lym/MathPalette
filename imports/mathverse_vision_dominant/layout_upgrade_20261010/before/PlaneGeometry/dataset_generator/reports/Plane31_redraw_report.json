@@ -1,0 +1,114 @@
+{
+  "id": "Plane31",
+  "status": "corrected",
+  "source_dataset": "MathVerse",
+  "source_provenance": {
+    "source_key": "s1924",
+    "sample_id": 1924,
+    "problem_id": 385,
+    "source_dataset": "MathVerse",
+    "source_split": "testmini",
+    "source_version": "Vision Dominant",
+    "source_subject": "Plane Geometry",
+    "source_subfield": "Length",
+    "question": "Consider the adjacent figure:\n\nSolve for the exact value of x.",
+    "source_answer": "\\[\\frac{\\sqrt{30}}{2}\\]",
+    "source_image": "sources/s1924.png",
+    "source_image_mime": "image/png",
+    "source_image_size": [
+      261,
+      180
+    ],
+    "source_image_sha256": "4032438662feccfa5c6511c709d0522a6a669b80d9312c9118d53405609930ca",
+    "source_html": "../../wrong_review_vision_dominant.html",
+    "source_html_sha256": "4079f4de73d50cb4d7fb340ff240530bcc49a2b29309ee82a409aef16f1b3fd2"
+  },
+  "question": "Consider the adjacent figure:\n\nSolve for the exact value of x.",
+  "answer": "\\[\\frac{\\sqrt{30}}{2}\\]",
+  "answer_type": "exact",
+  "answer_verification": {
+    "status": "verified",
+    "verified_answer": "sqrt(30)/2",
+    "reasoning": "The right triangle has hypotenuse sqrt(10) and angle C=30 degrees. The adjacent leg x=sqrt(10) cos(30 degrees)=sqrt(30)/2."
+  },
+  "inputs": {
+    "source_image": {
+      "path": "PlaneGeometry/originals/Plane31.png",
+      "sha256": "4032438662feccfa5c6511c709d0522a6a669b80d9312c9118d53405609930ca"
+    },
+    "scene": {
+      "path": "PlaneGeometry/dataset_generator/scenes/Plane31.json",
+      "sha256": "e2c9f2a4e929ba5cdd2f7d2259af8d20c7abf89c6b6577ba03730956314cc252"
+    },
+    "protocol": {
+      "path": "PlaneGeometry/dataset_generator/protocol.json",
+      "sha256": "a5cccd93ef351ef88528d51c370c5b86beb709e043bd8ab8895b64cde1e4f900"
+    },
+    "renderer": {
+      "path": "PlaneGeometry/dataset_generator/common_renderer.py",
+      "sha256": "649d82586597eabe78fb4594233049dc734be5bfa58a1a1619b760a83747d2b7"
+    },
+    "question_script": {
+      "path": "PlaneGeometry/dataset_generator/plane_plot31.py",
+      "sha256": "af849a1361853b0d77f9c88eee843fe80a28ee2db86c95421098daf2ec18926b"
+    },
+    "preparation_entrypoint": {
+      "path": "dataset_tools/geometry_dataset.py",
+      "sha256": "8860f5bd272fbb14230a10b83860e56a759e7e30a2c2850d74013689d759ec64"
+    },
+    "written_protocol": {
+      "path": "PlaneGeometry/REDRAW_PROTOCOL.md",
+      "sha256": "ddf61ea1b6d35179a27c41d3ce270a29fb18a7827d7a2729201645cd61229bf6"
+    }
+  },
+  "output_png": "PlaneGeometry/image/Plane31.png",
+  "output_png_sha256": "5dd3d6bbcf5aec07895652cf2b9d54cfe9d31c65326a992cc026bf1bcf968b62",
+  "output_svg": "PlaneGeometry/image/Plane31.svg",
+  "output_svg_sha256": "259464296c25ab45ac2c2807cc55acdfea73174ce051fae25565fe415cb6b863",
+  "rgba_pixel_sha256": "475c8dc22668c57edadc09059eecb72687170b44d1af3da733103309b03ab4d2",
+  "determinism_verified": true,
+  "all_constraints_passed": true,
+  "checks": [
+    {
+      "id": "hypotenuse",
+      "type": "distance",
+      "measured": 3.1622776601683795,
+      "passed": true
+    },
+    {
+      "id": "C30",
+      "type": "angle",
+      "measured": 29.999999999999993,
+      "passed": true
+    },
+    {
+      "id": "right",
+      "type": "angle",
+      "measured": 90.0,
+      "passed": true
+    },
+    {
+      "id": "arc_binding_C30",
+      "type": "angle_annotation",
+      "label_id": "C30",
+      "arc_id": "angle_arc_C30",
+      "measured": 1,
+      "passed": true
+    }
+  ],
+  "protocol_version": "1.1.0",
+  "visual_review": {
+    "status": "inspected",
+    "reviewer": "agent",
+    "user_pass": false,
+    "reviewed_at_utc": "2026-10-09T16:59:25.603249+00:00",
+    "image_sha256": "5dd3d6bbcf5aec07895652cf2b9d54cfe9d31c65326a992cc026bf1bcf968b62",
+    "scope": "Source/redraw labels, connectivity, dimensions, visibility and overall layout."
+  },
+  "dependencies": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "Pillow": "12.3.0"
+  }
+}
