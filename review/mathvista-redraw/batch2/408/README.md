@@ -1,6 +1,6 @@
 # MathVista 408 · 平面几何
 
-[返回总目录](../../README.md) · [上一题 407](../407/README.md) · [下一题 409](../../special/409/README.md)
+[返回总目录](../../README.md) · [上一题 403](../403/README.md) · [下一题 409](../../special/409/README.md)
 
 状态：**待用户审核**。尚未收入正式题库。
 

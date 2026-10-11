@@ -1,6 +1,6 @@
 # MathVista 926 · 解析几何
 
-[返回总目录](../../README.md) · [上一题 921](../../batch4/921/README.md) · [下一题 927](../../batch4/927/README.md)
+[返回总目录](../../README.md) · [上一题 921](../../batch4/921/README.md) · [下一题 931](../../batch4/931/README.md)
 
 状态：**待用户审核**。尚未收入正式题库。
 

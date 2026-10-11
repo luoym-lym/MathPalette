@@ -1,6 +1,6 @@
 # MathVista 33 · 立体几何
 
-[返回总目录](../../README.md) · [上一题 32](../../batch1/32/README.md) · [下一题 35](../../batch1/35/README.md)
+[返回总目录](../../README.md) · [上一题 30](../../batch1/30/README.md) · [下一题 48](../../batch1/48/README.md)
 
 状态：**待用户审核**。尚未收入正式题库。
 

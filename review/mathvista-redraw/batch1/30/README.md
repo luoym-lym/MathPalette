@@ -1,6 +1,6 @@
 # MathVista 30 · 平面几何
 
-[返回总目录](../../README.md) · [上一题 28](../28/README.md) · [下一题 32](../32/README.md)
+[返回总目录](../../README.md) · [上一题 28](../28/README.md) · [下一题 33](../../special/33/README.md)
 
 状态：**待用户审核**。尚未收入正式题库。
 

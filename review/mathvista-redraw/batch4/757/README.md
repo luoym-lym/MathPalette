@@ -1,6 +1,6 @@
 # MathVista 757 · 平面几何
 
-[返回总目录](../../README.md) · [上一题 752](../752/README.md) · [下一题 767](../../special/767/README.md)
+[返回总目录](../../README.md) · [上一题 749](../749/README.md) · [下一题 767](../../special/767/README.md)
 
 状态：**待用户审核**。尚未收入正式题库。
 

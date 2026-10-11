@@ -1,6 +1,6 @@
 # MathVista 706 · 解析几何
 
-[返回总目录](../../README.md) · [上一题 700](../../batch3/700/README.md) · [下一题 707](../../batch3/707/README.md)
+[返回总目录](../../README.md) · [上一题 698](../../batch3/698/README.md) · [下一题 708](../../batch3/708/README.md)
 
 状态：**待用户审核**。尚未收入正式题库。
 
