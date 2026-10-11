@@ -1,6 +1,6 @@
 # 平面几何 Special 标注工作台
 
-读取正式 `PlaneGeometry/dataset.jsonl` 的 Plane01～Plane16。工作台复制自 Analytics，使用独立端口、状态、浏览器草稿和 Agent 插件。只在用户点击 Pass 后写入 `PlaneGeometry/special_variant/`；不修改原题、原图、冻结场景或审核凭据。
+读取正式 `PlaneGeometry/dataset.jsonl` 的 Plane01～Plane71。工作台复制自 Analytics，使用独立端口、状态、浏览器草稿和 Agent 插件。只在用户点击 Pass 后写入 `PlaneGeometry/special_variant/`；不修改原题、原图、冻结场景或审核凭据。
 
 从项目根目录运行：
 

@@ -82,4 +82,4 @@ python -B MathPalette/Analytics/special_variant/Ana01/draw_variants.py C01
 重绘默认保存到工作台 `reproduced/`，不覆盖正式图片。函数提供 `draw_C01(output_path=None)`。文本使用 DejaVu Sans，部分中文字形不受支持，优先使用数学标签。
 
 
-运行状态位于项目 `.runtime/analytics_special/`。正式数据与代码独立；已 Pass 的 recipes 和 Collect 记录可恢复收集状态。题目仅来自 45 道正式 Analytics 题。草稿路径和删除备份均相对于该运行目录。
+运行状态位于项目 `.runtime/analytics_special/`。正式数据与代码独立；已 Pass 的 recipes 和 Collect 记录可恢复收集状态。题目仅来自 46 道正式 Analytics 题。草稿路径和删除备份均相对于该运行目录。
