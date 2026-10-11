@@ -14,3 +14,9 @@ python -X utf8 -B SolidGeometry/dataset_generator/test_renderer.py
 ```
 
 具体几何规则见 [REDRAW_PROTOCOL.md](REDRAW_PROTOCOL.md)。统一收集规则见 [项目协议](../MATHPALETTE_PROTOCOL.md)。
+
+## SOLIDGEO 原题审核
+
+双击 `start_original_review.cmd` 启动本地原题工作台。168 道候选与正式题库分开，逐题并排查看来源图和当前重绘，核对完整题干、来源答案与独立核验答案。原题 Pass 完成校验后才分配正式 Solid 题号；无法安全满足协议的题会说明阻碍。删除实际移除候选专属数据，已提交文件可通过 Git 历史恢复。
+
+详细启动、数据保护与测试范围见 [原题工作台说明](original_review/README.md)。这与 Special 变体的 Pass / Collect 是两个独立流程。

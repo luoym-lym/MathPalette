@@ -1,0 +1,201 @@
+{
+  "source_dataset": "SOLIDGEO",
+  "source_key": "1927",
+  "source_qa_id": 2357,
+  "geometry_notes": {
+    "models": [
+      {
+        "type": "cylinder",
+        "radius": 4.7746482927568605,
+        "height": 120,
+        "axis": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            120
+          ]
+        ],
+        "offset": [
+          0,
+          0,
+          0
+        ],
+        "silhouette_parameters_rad": [
+          0,
+          3.141592653589793
+        ],
+        "rim_visibility_rule": "top rim visible; lower rim rear sin(theta)>0 hidden unless original transparent-rim convention explicitly preserved",
+        "rear_bottom_style": "hidden"
+      }
+    ],
+    "analytic_curves": [
+      {
+        "id": "winding_path",
+        "type": "helix",
+        "radius": 4.7746482927568605,
+        "theta_domain_rad": [
+          3.141592653589793,
+          21.991148575128552
+        ],
+        "z_domain": [
+          0,
+          120
+        ],
+        "split_parameters_rad": [
+          3.141592653589793,
+          6.283185307179586,
+          9.42477796076938,
+          12.566370614359172,
+          15.707963267948966,
+          18.84955592153876,
+          21.991148575128552
+        ],
+        "samples_per_interval": 801,
+        "visibility_override": null,
+        "analytic_visibility": "sin(theta)<=0 is exterior-visible, opposite interval hidden",
+        "chord_error_bound_world": 9.203884727313849e-06
+      }
+    ]
+  },
+  "historical_scene_sha256": "2f8ad4387b0b49a26a3794623c3c88d71f1488c5fa98267a026c1633a9e20260",
+  "historical_source_record_sha256": "5ff91c9e1818d72b9b5d69d207d1b5c3268722297cba964edad31ccc4737d544",
+  "source_image_sha256": "1b596fe84a6b87b6c0e4f53fdb363d38b643813db5e51ab5faa85ff1cb7f6fb8",
+  "historical_redraw_sha256": "a1f3603aa4e79a4609c7b204ce74251f5870929cc73b6fb8658fb96fed5e6afc",
+  "current_scene_sha256": "b45d0eb212b261499efceb48cb967251854a7c4b6b458fb08173e43358c4205c",
+  "current_redraw_sha256": "e9e48d7d329be1eb4ae64708a40a36961a837c2fea8f235fad3e57259fa95876",
+  "representation_migration": {
+    "removed_scene_qa_fields": [
+      "answer",
+      "query"
+    ],
+    "source_dataset_normalized_from": "SolidGeo sampled_category_bank",
+    "mathematical_geometry_and_visibility_semantics_changed": false,
+    "coordinate_representation_changed": false,
+    "legacy_contract_reconstructed": false,
+    "scene_representation_changes": [],
+    "canonical_question_transformations": []
+  },
+  "renderer": {
+    "current": {
+      "renderer": "SolidGeometry/dataset_generator/common_renderer.py",
+      "renderer_sha256": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+      "protocol_sha256": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f"
+    },
+    "legacy_preview": null
+  },
+  "target_render": {
+    "status": "passed",
+    "current_renderer_valid": true,
+    "validator_error": null,
+    "environment": {
+      "python": "3.13.9",
+      "matplotlib": "3.11.2",
+      "numpy": "2.5.3",
+      "pillow": "12.3.0"
+    },
+    "historical_environment": {
+      "python": "3.12.14",
+      "numpy": "2.3.5",
+      "matplotlib": "3.10.8"
+    },
+    "historical_png_sha256": "a1f3603aa4e79a4609c7b204ce74251f5870929cc73b6fb8658fb96fed5e6afc",
+    "checks": [
+      {
+        "id": "projection_and_visibility",
+        "type": "projection",
+        "passed": true,
+        "projection_sha256": "0420744500e18c3c4bd9b9968fb380484eb5959c6c6082c483500cdb1cb8335d",
+        "automatic_occlusion": false
+      },
+      {
+        "id": "bottom",
+        "type": "arc_sampling",
+        "max_chord_error_px": 6.265421801317037e-05,
+        "passed": true
+      },
+      {
+        "id": "top",
+        "type": "arc_sampling",
+        "max_chord_error_px": 0.0002506165738395174,
+        "passed": true
+      },
+      {
+        "id": "L_tangent",
+        "type": "projected_tangent",
+        "basis": "Analytic cylinder silhouette: radial normal dot horizontal viewing direction = 0.",
+        "measured": 0.0,
+        "passed": true
+      },
+      {
+        "id": "R_tangent",
+        "type": "projected_tangent",
+        "basis": "Analytic cylinder silhouette: radial normal dot horizontal viewing direction = 0.",
+        "measured": 0.0,
+        "passed": true
+      },
+      {
+        "id": "height_check",
+        "type": "distance",
+        "basis": "Given height, or declared representative value for a variable-dimensional model.",
+        "measured": 120.0,
+        "passed": true
+      },
+      {
+        "id": "radius_check",
+        "type": "distance",
+        "basis": "Given radius or radius computed exactly as circumference/(2*pi).",
+        "measured": 4.7746482927568605,
+        "passed": true
+      },
+      {
+        "id": "layout",
+        "type": "layout",
+        "outer_margin_fraction": 0.05,
+        "label_line_overlap": false,
+        "label_label_overlap": false,
+        "passed": true
+      }
+    ],
+    "png_bytes_repeat_equal": true,
+    "svg_bytes_repeat_equal": true,
+    "metrics": {
+      "size": [
+        768,
+        768
+      ],
+      "opaque": true,
+      "historical_pixels_equal": false,
+      "changed_pixels": 301,
+      "changed_pixel_fraction": 0.0005103217230902778,
+      "maximum_channel_delta": 157,
+      "content_bbox_px": [
+        342,
+        52,
+        426,
+        714
+      ],
+      "long_side_fraction": 0.8619791666666666,
+      "center_error_px": [
+        0.0,
+        1.0
+      ],
+      "minimum_margin_px": 52
+    },
+    "mathematical_geometry_and_visibility_semantics_unchanged": true,
+    "coordinate_representation_changed": false,
+    "change_reason": "Repository-pinned target environment preview; any representation mapping is documented separately and preserves mathematical geometry and frozen visibility semantics. Historical pixel equality is not assumed.",
+    "visual_inspection": {
+      "status": "passed",
+      "scope": "Mathematical objects, visible/hidden lines, fills, label text and placement retained; no new clipping/collision. Target-vs-historical rendering/layout comparison reuses the separate historical source/mathematics audit and is not a new solution review.",
+      "png_sha256": "e9e48d7d329be1eb4ae64708a40a36961a837c2fea8f235fad3e57259fa95876",
+      "method": "Actual paired view_image inspection of all61 historical/target previews; exact staged PNG byte hashes verified against inspected images.",
+      "reviewed_at": "2026-10-11T11:03:53Z"
+    },
+    "current_png_sha256": "e9e48d7d329be1eb4ae64708a40a36961a837c2fea8f235fad3e57259fa95876"
+  }
+}

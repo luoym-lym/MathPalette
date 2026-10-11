@@ -39,7 +39,12 @@ class GeometryTests(unittest.TestCase):
         cls.renderer = PluginRenderer(cls.config, cls.adapter, cls.metadata)
 
     def test_every_baseline_path_and_projection(self):
-        self.assertEqual(len(self.metadata), 16)
+        # The approved catalog grows; every canonical formal row must be checked.
+        expected_ids = {json.loads(line)["id"] for line in
+                        Path(self.config["dataset_file"]).read_text(encoding="utf-8-sig").splitlines()
+                        if line.strip()}
+        self.assertEqual(set(self.metadata), expected_ids)
+        self.assertTrue(expected_ids)
         before = self.adapter.make_manifest()
         for qid, meta in self.metadata.items():
             with self.subTest(qid=qid):

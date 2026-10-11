@@ -1,0 +1,98 @@
+{
+  "source_dataset": "SOLIDGEO",
+  "source_key": "2416",
+  "source_qa_id": 3267,
+  "geometry_notes": {
+    "solids": [],
+    "projection_semantics": {
+      "method": "Planar orthographic views are constructed from exact unit-square projection cells or analytic primitive silhouettes; object-level anchors and constraints are frozen.",
+      "solid_model_separate": false
+    },
+    "adaptations": [],
+    "source_image_sha256": "80328be59d38c1c1e991d6af14d46e5d0967c715e543e8c5d63667d93f6b2e52",
+    "renderer_schema_extension": "Frozen planar polylines plus explicit per-solid world model, projection, visibility, and mixed-view layout. No tracing or pixel-derived paths.",
+    "style": {
+      "canvas": [
+        768,
+        768
+      ],
+      "background": "#FFFFFF opaque",
+      "axes_position": [
+        0.05,
+        0.05,
+        0.9,
+        0.9
+      ],
+      "stroke_pt": 1,
+      "font": "DejaVu Sans",
+      "text_pt": 16,
+      "vertex_pt": 18,
+      "vertex_style": "italic",
+      "dash_pt": [
+        4,
+        3
+      ],
+      "semantic_fills_only": true,
+      "unmarked_vertices": "no point markers",
+      "curve_sampling": "frozen"
+    },
+    "protocol_hashes": {
+      "PlaneGeometry": "990e67c9803d4bdedb2ede5f5dcdc8b822a4329e1f3078cc958a963c3afbe1cc",
+      "SolidGeometry": "60201a6cdf59d7c573615337cba21280ec42a10b7880bfe3c93d47f5288ffc33"
+    },
+    "migration_blockers": [
+      {
+        "code": "missing_world_model",
+        "message": "Only frozen 2D projection panels are available; no underlying 3D model, camera or bound visibility exists. Lifting screen XY to z=0 would invent solid semantics."
+      }
+    ]
+  },
+  "historical_scene_sha256": "7e36fe65d023cbf3d5c8d22ed86cb6b2520c6309dd67a1da2e9c622212df5c68",
+  "historical_source_record_sha256": "03302254105b1db820368b00386f666b5d5c7ffb612c3a115d90e460cf53d532",
+  "source_image_sha256": "80328be59d38c1c1e991d6af14d46e5d0967c715e543e8c5d63667d93f6b2e52",
+  "historical_redraw_sha256": "a6a7b6a5b3ec0b0e130c0b6ea3acf3d5d6be78facae8ccbb0d546feec2165f25",
+  "current_scene_sha256": "742dd01386c231c97cd71e411703f5a2741519ad2e3d8ace868c0bec7de0f4e1",
+  "current_redraw_sha256": "a6a7b6a5b3ec0b0e130c0b6ea3acf3d5d6be78facae8ccbb0d546feec2165f25",
+  "representation_migration": {
+    "removed_scene_qa_fields": [
+      "answer_verification",
+      "current",
+      "user_approved"
+    ],
+    "source_dataset_normalized_from": "SolidGeo",
+    "mathematical_geometry_and_visibility_semantics_changed": false,
+    "coordinate_representation_changed": false,
+    "legacy_contract_reconstructed": false,
+    "scene_representation_changes": [],
+    "canonical_question_transformations": []
+  },
+  "renderer": {
+    "current": null,
+    "legacy_preview": {
+      "upstream_renderer": "views/renderer.py",
+      "upstream_sha256": "a6b343f020c5af37b81b407ef3f5851a9232a2675ab34fdd4bca309dd481958b",
+      "extraction": "Imports and original pure rendering function only; construction and source-bank dependency removed.",
+      "preview_renderer_sha256": "c36183ca81f1a6bd55a32ce2343599585c5180d29fcb288f645d5638d1ce1714"
+    }
+  },
+  "target_render": {
+    "status": "blocked",
+    "current_renderer_valid": false,
+    "validator_error": "ValueError: Missing scene metadata: world_unit",
+    "environment": {
+      "python": "3.13.9",
+      "matplotlib": "3.11.2",
+      "numpy": "2.5.3",
+      "pillow": "12.3.0"
+    },
+    "historical_environment": {
+      "python": "3.12.14",
+      "numpy": "2.3.5",
+      "matplotlib": "3.10.8",
+      "pillow": "12.3.0"
+    },
+    "historical_png_sha256": "a6a7b6a5b3ec0b0e130c0b6ea3acf3d5d6be78facae8ccbb0d546feec2165f25",
+    "checks": [],
+    "current_png_sha256": "a6a7b6a5b3ec0b0e130c0b6ea3acf3d5d6be78facae8ccbb0d546feec2165f25"
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "source_dataset": "SOLIDGEO",
+  "source_key": "1954",
+  "source_qa_id": 2382,
+  "geometry_notes": {
+    "models": [
+      {
+        "type": "cylinder",
+        "radius": 4,
+        "height": 7,
+        "axis": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            7
+          ]
+        ],
+        "offset": [
+          0,
+          0,
+          0
+        ],
+        "silhouette_parameters_rad": [
+          0,
+          3.141592653589793
+        ],
+        "rim_visibility_rule": "top rim visible; lower rim rear sin(theta)>0 hidden unless original transparent-rim convention explicitly preserved",
+        "rear_bottom_style": "hidden"
+      }
+    ],
+    "analytic_curves": [
+      {
+        "id": "route",
+        "type": "helix",
+        "radius": 4,
+        "theta_domain_rad": [
+          3.141592653589793,
+          6.283185307179586
+        ],
+        "z_domain": [
+          0,
+          7
+        ],
+        "split_parameters_rad": [
+          3.141592653589793,
+          6.283185307179586
+        ],
+        "samples_per_interval": 801,
+        "visibility_override": null,
+        "analytic_visibility": "sin(theta)<=0 is exterior-visible, opposite interval hidden",
+        "chord_error_bound_world": 7.710628438351062e-06
+      }
+    ]
+  },
+  "historical_scene_sha256": "1c89777885a371ef0839cae701ea08126b23069cb2dbf4a6d7f96b211f12e447",
+  "historical_source_record_sha256": "f9b5bf1d4ff0e2bb11822cc63ebd5f409601e1d152062a8ce3450b04009be8ee",
+  "source_image_sha256": "769c0038dbffb291960c44a36fd3bff72be54cef493760e9ce4a6774725d332f",
+  "historical_redraw_sha256": "4c311830c256c01d8d9924d698e14a3a3fe54d9ea823c116fb6a0ff64b85d0e2",
+  "current_scene_sha256": "7924f6977f6761cf568339112c58cc25bbf1b1297f89419969e76108d04daceb",
+  "current_redraw_sha256": "33aad46f0192b97934a91dae9c642d19a0a53fa59766687463b30719dd292534",
+  "representation_migration": {
+    "removed_scene_qa_fields": [
+      "answer",
+      "query"
+    ],
+    "source_dataset_normalized_from": "SolidGeo sampled_category_bank",
+    "mathematical_geometry_and_visibility_semantics_changed": false,
+    "coordinate_representation_changed": false,
+    "legacy_contract_reconstructed": false,
+    "scene_representation_changes": [],
+    "canonical_question_transformations": []
+  },
+  "renderer": {
+    "current": {
+      "renderer": "SolidGeometry/dataset_generator/common_renderer.py",
+      "renderer_sha256": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+      "protocol_sha256": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f"
+    },
+    "legacy_preview": null
+  },
+  "target_render": {
+    "status": "passed",
+    "current_renderer_valid": true,
+    "validator_error": null,
+    "environment": {
+      "python": "3.13.9",
+      "matplotlib": "3.11.2",
+      "numpy": "2.5.3",
+      "pillow": "12.3.0"
+    },
+    "historical_environment": {
+      "python": "3.12.14",
+      "numpy": "2.3.5",
+      "matplotlib": "3.10.8"
+    },
+    "historical_png_sha256": "4c311830c256c01d8d9924d698e14a3a3fe54d9ea823c116fb6a0ff64b85d0e2",
+    "checks": [
+      {
+        "id": "projection_and_visibility",
+        "type": "projection",
+        "passed": true,
+        "projection_sha256": "0420744500e18c3c4bd9b9968fb380484eb5959c6c6082c483500cdb1cb8335d",
+        "automatic_occlusion": false
+      },
+      {
+        "id": "bottom",
+        "type": "arc_sampling",
+        "max_chord_error_px": 0.0007165616724633083,
+        "passed": true
+      },
+      {
+        "id": "top",
+        "type": "arc_sampling",
+        "max_chord_error_px": 0.0028662432792588574,
+        "passed": true
+      },
+      {
+        "id": "L_tangent",
+        "type": "projected_tangent",
+        "basis": "Analytic cylinder silhouette: radial normal dot horizontal viewing direction = 0.",
+        "measured": 0.0,
+        "passed": true
+      },
+      {
+        "id": "R_tangent",
+        "type": "projected_tangent",
+        "basis": "Analytic cylinder silhouette: radial normal dot horizontal viewing direction = 0.",
+        "measured": 0.0,
+        "passed": true
+      },
+      {
+        "id": "height_check",
+        "type": "distance",
+        "basis": "Given height, or declared representative value for a variable-dimensional model.",
+        "measured": 7.0,
+        "passed": true
+      },
+      {
+        "id": "radius_check",
+        "type": "distance",
+        "basis": "Given radius or radius computed exactly as circumference/(2*pi).",
+        "measured": 4.0,
+        "passed": true
+      },
+      {
+        "id": "layout",
+        "type": "layout",
+        "outer_margin_fraction": 0.05,
+        "label_line_overlap": false,
+        "label_label_overlap": false,
+        "passed": true
+      }
+    ],
+    "png_bytes_repeat_equal": true,
+    "svg_bytes_repeat_equal": true,
+    "metrics": {
+      "size": [
+        768,
+        768
+      ],
+      "opaque": true,
+      "historical_pixels_equal": false,
+      "changed_pixels": 286,
+      "changed_pixel_fraction": 0.0004848904079861111,
+      "maximum_channel_delta": 177,
+      "content_bbox_px": [
+        54,
+        54,
+        713,
+        714
+      ],
+      "long_side_fraction": 0.859375,
+      "center_error_px": [
+        0.5,
+        0.0
+      ],
+      "minimum_margin_px": 54
+    },
+    "mathematical_geometry_and_visibility_semantics_unchanged": true,
+    "coordinate_representation_changed": false,
+    "change_reason": "Repository-pinned target environment preview; any representation mapping is documented separately and preserves mathematical geometry and frozen visibility semantics. Historical pixel equality is not assumed.",
+    "visual_inspection": {
+      "status": "passed",
+      "scope": "Mathematical objects, visible/hidden lines, fills, label text and placement retained; no new clipping/collision. Target-vs-historical rendering/layout comparison reuses the separate historical source/mathematics audit and is not a new solution review.",
+      "png_sha256": "33aad46f0192b97934a91dae9c642d19a0a53fa59766687463b30719dd292534",
+      "method": "Actual paired view_image inspection of all61 historical/target previews; exact staged PNG byte hashes verified against inspected images.",
+      "reviewed_at": "2026-10-11T11:03:53Z"
+    },
+    "current_png_sha256": "33aad46f0192b97934a91dae9c642d19a0a53fa59766687463b30719dd292534"
+  }
+}

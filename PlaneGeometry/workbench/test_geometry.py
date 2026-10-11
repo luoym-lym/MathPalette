@@ -43,8 +43,13 @@ class GeometryTests(unittest.TestCase):
         cls.metadata = {qid: cls.adapter.inspect_question(qid) for qid in cls.adapter.records}
         cls.renderer = PluginRenderer(cls.config, cls.adapter, cls.metadata)
 
-    def test_all_16_baselines_and_real_paths(self):
-        self.assertEqual(len(self.metadata), 16)
+    def test_all_formal_baselines_and_real_paths(self):
+        # The approved catalog grows; every canonical formal row must be checked.
+        expected_ids = {json.loads(line)["id"] for line in
+                        Path(self.config["dataset_file"]).read_text(encoding="utf-8-sig").splitlines()
+                        if line.strip()}
+        self.assertEqual(set(self.metadata), expected_ids)
+        self.assertTrue(expected_ids)
         for qid, meta in self.metadata.items():
             self.assertEqual(meta["original_pixel_sha256"], pixel_hash(self.adapter.original_paths[qid]))
             canvas = meta["canvas"]

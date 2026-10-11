@@ -1,0 +1,184 @@
+{
+  "source_dataset": "SOLIDGEO",
+  "source_key": "2029",
+  "source_qa_id": 2564,
+  "geometry_notes": {
+    "solids": [
+      {
+        "type": "cylinder",
+        "center": [
+          1.5,
+          0.0,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "radius": 1.5,
+        "height": 4,
+        "projection": {
+          "kind": "oblique",
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.25,
+              1.0
+            ]
+          ],
+          "origin": [
+            0,
+            0,
+            0
+          ],
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "toward_viewer": [
+            0.0,
+            -1.0,
+            0.25
+          ]
+        },
+        "visibility": {
+          "mode": "frozen_intervals",
+          "arcs": [
+            {
+              "axial_position": 4,
+              "interval": [
+                0,
+                6.283185307179586
+              ],
+              "samples": 721,
+              "visibility": "visible"
+            },
+            {
+              "axial_position": 0,
+              "interval": [
+                -3.141592653589793,
+                0.0
+              ],
+              "samples": 721,
+              "visibility": "visible"
+            },
+            {
+              "axial_position": 0,
+              "interval": [
+                0.0,
+                3.141592653589793
+              ],
+              "samples": 721,
+              "visibility": "hidden"
+            }
+          ],
+          "projection_sha256": "0595b202d7434eb44ce762b44e92cd9001068e2c2703317b1a16470fe671f0c0"
+        },
+        "constraints": {
+          "true_radius": 1.5,
+          "true_height": 4,
+          "tangent_angles": [
+            -3.141592653589793,
+            0.0
+          ]
+        }
+      }
+    ],
+    "projection_semantics": {
+      "method": "Planar orthographic views are constructed from exact unit-square projection cells or analytic primitive silhouettes; object-level anchors and constraints are frozen.",
+      "solid_model_separate": true
+    },
+    "adaptations": [],
+    "source_image_sha256": "fb2cbdda84cdf25b7472e97bbc288d9a4b89857b699bb4706589cfe590fe490a",
+    "renderer_schema_extension": "Frozen planar polylines plus explicit per-solid world model, projection, visibility, and mixed-view layout. No tracing or pixel-derived paths.",
+    "style": {
+      "canvas": [
+        768,
+        768
+      ],
+      "background": "#FFFFFF opaque",
+      "axes_position": [
+        0.05,
+        0.05,
+        0.9,
+        0.9
+      ],
+      "stroke_pt": 1,
+      "font": "DejaVu Sans",
+      "text_pt": 16,
+      "vertex_pt": 18,
+      "vertex_style": "italic",
+      "dash_pt": [
+        4,
+        3
+      ],
+      "semantic_fills_only": true,
+      "unmarked_vertices": "no point markers",
+      "curve_sampling": "frozen"
+    },
+    "protocol_hashes": {
+      "PlaneGeometry": "990e67c9803d4bdedb2ede5f5dcdc8b822a4329e1f3078cc958a963c3afbe1cc",
+      "SolidGeometry": "60201a6cdf59d7c573615337cba21280ec42a10b7880bfe3c93d47f5288ffc33"
+    },
+    "migration_blockers": [
+      {
+        "code": "unbound_physical_projection",
+        "message": "Physical projection objects lack world/visibility bindings: o5:geometry, o6:geometry, o7:diameter, o8:diameter, o9:point_light_ray, o10:point_light_ray, o11:point_light_ray"
+      }
+    ]
+  },
+  "historical_scene_sha256": "e0bf45441823b4b2ff9062f264485e03fac6a4126b7ea9db4ef898da53785d21",
+  "historical_source_record_sha256": "681c368f82330bce99f5c70f41837937dd3513e17ba37e5393bf1aace9eaf98f",
+  "source_image_sha256": "fb2cbdda84cdf25b7472e97bbc288d9a4b89857b699bb4706589cfe590fe490a",
+  "historical_redraw_sha256": "aea474b056aaaee478cf866086e63e61ceed533e9be29e2061b8a636665e29ff",
+  "current_scene_sha256": "c953f92ac458731f2d3c9d417b6b66028258d3e8fa408972d6e920d02e77723e",
+  "current_redraw_sha256": "aea474b056aaaee478cf866086e63e61ceed533e9be29e2061b8a636665e29ff",
+  "representation_migration": {
+    "removed_scene_qa_fields": [
+      "answer_verification",
+      "current",
+      "user_approved"
+    ],
+    "source_dataset_normalized_from": "SolidGeo",
+    "mathematical_geometry_and_visibility_semantics_changed": false,
+    "coordinate_representation_changed": false,
+    "legacy_contract_reconstructed": false,
+    "scene_representation_changes": [],
+    "canonical_question_transformations": []
+  },
+  "renderer": {
+    "current": null,
+    "legacy_preview": {
+      "upstream_renderer": "views/renderer.py",
+      "upstream_sha256": "a6b343f020c5af37b81b407ef3f5851a9232a2675ab34fdd4bca309dd481958b",
+      "extraction": "Imports and original pure rendering function only; construction and source-bank dependency removed.",
+      "preview_renderer_sha256": "c36183ca81f1a6bd55a32ce2343599585c5180d29fcb288f645d5638d1ce1714"
+    }
+  },
+  "target_render": {
+    "status": "blocked",
+    "current_renderer_valid": false,
+    "validator_error": "ValueError: Missing scene metadata: world_unit",
+    "environment": {
+      "python": "3.13.9",
+      "matplotlib": "3.11.2",
+      "numpy": "2.5.3",
+      "pillow": "12.3.0"
+    },
+    "historical_environment": {
+      "python": "3.12.14",
+      "numpy": "2.3.5",
+      "matplotlib": "3.10.8",
+      "pillow": "12.3.0"
+    },
+    "historical_png_sha256": "aea474b056aaaee478cf866086e63e61ceed533e9be29e2061b8a636665e29ff",
+    "checks": [],
+    "current_png_sha256": "aea474b056aaaee478cf866086e63e61ceed533e9be29e2061b8a636665e29ff"
+  }
+}

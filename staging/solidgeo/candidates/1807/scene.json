@@ -1,0 +1,326 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "SolidGeo_1807",
+  "status": "review_candidate",
+  "subject": "SolidGeometry",
+  "source_dataset": "SOLIDGEO",
+  "source_image": "original.jpg",
+  "source_note": "Immutable original retained. Decorative creatures/gradients removed; named mathematical points retained. No inferred numerical labels added.",
+  "world_unit": "unit",
+  "points": {
+    "L0": [
+      -6.0,
+      0.0,
+      0.0
+    ],
+    "R0": [
+      6.0,
+      0.0,
+      0.0
+    ],
+    "L1": [
+      -6.0,
+      0.0,
+      8.0
+    ],
+    "R1": [
+      6.0,
+      0.0,
+      8.0
+    ],
+    "O0": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "O1": [
+      0.0,
+      0.0,
+      8.0
+    ],
+    "netTL": [
+      6.0,
+      0.0,
+      8.0
+    ],
+    "netTR": [
+      43.69911184307752,
+      0.0,
+      8.0
+    ],
+    "netBR": [
+      43.69911184307752,
+      0.0,
+      0.0
+    ],
+    "netBL": [
+      6.0,
+      0.0,
+      0.0
+    ],
+    "label_length": [
+      24.84955592153876,
+      0.0,
+      8.0
+    ],
+    "label_width": [
+      43.69911184307752,
+      0.0,
+      4.0
+    ]
+  },
+  "projection": {
+    "kind": "orthographic",
+    "matrix": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0.24192189559966773,
+        0.9702957262759965
+      ]
+    ],
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "toward_viewer": [
+      0,
+      -0.9702957262759965,
+      0.24192189559966773
+    ]
+  },
+  "visibility": {
+    "mode": "frozen_intervals",
+    "projection_sha256": "0420744500e18c3c4bd9b9968fb380484eb5959c6c6082c483500cdb1cb8335d",
+    "note": "Analytic cylinder normal test and tangent generators. Original auxiliary dash meaning recorded separately. Curved intervals frozen."
+  },
+  "view": {
+    "xlim": [
+      -7.296061635582195,
+      47.029217239563664
+    ],
+    "ylim": [
+      -22.771428460257603,
+      31.55385041488826
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "bbox_px": [
+        54,
+        309,
+        714,
+        459
+      ],
+      "occupancy": 0.8606770833333334,
+      "center_error_px": [
+        0.5,
+        -0.5
+      ],
+      "iterations": 3
+    }
+  },
+  "objects": [
+    {
+      "id": "bottom",
+      "type": "circular_arc",
+      "center": "O0",
+      "radius": 6,
+      "u": [
+        1,
+        0,
+        0
+      ],
+      "v": [
+        0,
+        1,
+        0
+      ],
+      "domain_deg": [
+        0,
+        360
+      ],
+      "role": "edge",
+      "intervals": [
+        {
+          "start_deg": 0,
+          "end_deg": 180,
+          "visibility": "hidden",
+          "samples": 721
+        },
+        {
+          "start_deg": 180,
+          "end_deg": 360,
+          "visibility": "visible",
+          "samples": 721
+        }
+      ]
+    },
+    {
+      "id": "top",
+      "type": "circular_arc",
+      "center": "O1",
+      "radius": 6,
+      "u": [
+        1,
+        0,
+        0
+      ],
+      "v": [
+        0,
+        1,
+        0
+      ],
+      "domain_deg": [
+        0,
+        360
+      ],
+      "role": "edge",
+      "intervals": [
+        {
+          "start_deg": 0,
+          "end_deg": 360,
+          "visibility": "visible",
+          "samples": 721
+        }
+      ]
+    },
+    {
+      "id": "L_silhouette",
+      "type": "segment",
+      "points": [
+        "L0",
+        "L1"
+      ],
+      "visibility": "visible",
+      "role": "silhouette"
+    },
+    {
+      "id": "R_silhouette",
+      "type": "segment",
+      "points": [
+        "R0",
+        "R1"
+      ],
+      "visibility": "visible",
+      "role": "silhouette"
+    },
+    {
+      "id": "net_top",
+      "type": "segment",
+      "points": [
+        "netTL",
+        "netTR"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "net_right",
+      "type": "segment",
+      "points": [
+        "netTR",
+        "netBR"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "net_bottom",
+      "type": "segment",
+      "points": [
+        "netBL",
+        "netBR"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    }
+  ],
+  "dimensions": [],
+  "labels": [
+    {
+      "id": "label_label_length",
+      "type": "text",
+      "text": "12π",
+      "anchor": "label_length",
+      "offset_pt": [
+        0,
+        16
+      ]
+    },
+    {
+      "id": "label_label_width",
+      "type": "text",
+      "text": "8",
+      "anchor": "label_width",
+      "offset_pt": [
+        15,
+        0
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "L_tangent",
+      "type": "projected_tangent",
+      "circle": "bottom",
+      "point": "L0",
+      "segment": [
+        "L0",
+        "L1"
+      ],
+      "basis": "Analytic cylinder silhouette: radial normal dot horizontal viewing direction = 0."
+    },
+    {
+      "id": "R_tangent",
+      "type": "projected_tangent",
+      "circle": "bottom",
+      "point": "R0",
+      "segment": [
+        "R0",
+        "R1"
+      ],
+      "basis": "Analytic cylinder silhouette: radial normal dot horizontal viewing direction = 0."
+    },
+    {
+      "id": "height_check",
+      "type": "distance",
+      "points": [
+        "O0",
+        "O1"
+      ],
+      "value": 8,
+      "basis": "Given height, or declared representative value for a variable-dimensional model."
+    },
+    {
+      "id": "radius_check",
+      "type": "distance",
+      "points": [
+        "O0",
+        "R0"
+      ],
+      "value": 6,
+      "basis": "Given radius or radius computed exactly as circumference/(2*pi)."
+    },
+    {
+      "id": "net_length",
+      "type": "distance",
+      "points": [
+        "netTL",
+        "netTR"
+      ],
+      "value": 37.69911184307752,
+      "basis": "Given unrolled circumference"
+    }
+  ],
+  "ambiguities": []
+}

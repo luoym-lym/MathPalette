@@ -11,6 +11,7 @@
 | 解析几何 Special 工作台 | 双击 [Analytics/start_special_workbench.cmd](Analytics/start_special_workbench.cmd)，端口 8767 |
 | 平面几何 Special 工作台 | 双击 [PlaneGeometry/start_special_workbench.cmd](PlaneGeometry/start_special_workbench.cmd)，端口 8768 |
 | 立体几何 Special 工作台 | 双击 [SolidGeometry/start_special_workbench.cmd](SolidGeometry/start_special_workbench.cmd)，端口 8769 |
+| SOLIDGEO 原题审核工作台 | 双击 [SolidGeometry/start_original_review.cmd](SolidGeometry/start_original_review.cmd)；[启动与安全说明](SolidGeometry/original_review/README.md) |
 | 几何工作台需求 | [GEOMETRY_WORKBENCH_REQUIREMENTS.md](GEOMETRY_WORKBENCH_REQUIREMENTS.md) |
 | 审核凭据 | [provenance/approvals.json](provenance/approvals.json) |
 | MathVista 来源与署名 | [provenance/mathvista/README.md](provenance/mathvista/README.md)，含完整源记录与入库核验 |
@@ -48,7 +49,9 @@ provenance/      用户通过记录、必要来源说明、署名与迁移核验
 .runtime/        启动后生成的工作台状态、预览和临时重绘
 ```
 
-`.runtime` 不属于正式数据。服务停止且没有需要保留的未提交草稿时可以清理；工作台会从正式 recipes 和 collection 记录恢复已收集状态。旧候选、历史工作台、重复备份、旧评测日志及分数已按用户要求清理。
+SOLIDGEO 原题审核的候选数据位于 `staging/solidgeo/`，与正式题库隔离。原题 Pass 按当前展示内容入库，删除直接移除候选记录和专属文件；不会自动提交或推送 Git。
+
+`.runtime/solidgeo-original-review/` 保存原题审核进度与中断恢复记录，服务运行时或事务未恢复时不要删除。其他 `.runtime` 不属于正式数据。服务停止且没有需要保留的未提交草稿时可以清理；工作台会从正式 recipes 和 collection 记录恢复已收集状态。旧候选、历史工作台、重复备份、旧评测日志及分数已按用户要求清理。
 
 ## 使用
 

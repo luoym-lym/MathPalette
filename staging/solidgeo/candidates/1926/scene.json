@@ -1,0 +1,349 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "SolidGeo_1926",
+  "status": "review_candidate",
+  "subject": "SolidGeometry",
+  "source_dataset": "SOLIDGEO",
+  "source_image": "original.jpg",
+  "source_note": "Immutable original retained. Decorative creatures/gradients removed; named mathematical points retained. No inferred numerical labels added.",
+  "world_unit": "m",
+  "points": {
+    "A": [
+      -5.092958178940651,
+      0.0,
+      0.0
+    ],
+    "D": [
+      5.092958178940651,
+      0.0,
+      0.0
+    ],
+    "B": [
+      -5.092958178940651,
+      15.0,
+      0.0
+    ],
+    "C": [
+      5.092958178940651,
+      15.0,
+      0.0
+    ],
+    "frontcenter": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "frontBL": [
+      -5.092958178940651,
+      0.0,
+      -5.092958178940651
+    ],
+    "frontBR": [
+      5.092958178940651,
+      0.0,
+      -5.092958178940651
+    ],
+    "backcenter": [
+      0.0,
+      15.0,
+      0.0
+    ],
+    "backBL": [
+      -5.092958178940651,
+      15.0,
+      -5.092958178940651
+    ],
+    "backBR": [
+      5.092958178940651,
+      15.0,
+      -5.092958178940651
+    ],
+    "E": [
+      5.092958178940651,
+      12.0,
+      0.0
+    ]
+  },
+  "projection": {
+    "kind": "orthographic",
+    "matrix": [
+      [
+        0.848048096156426,
+        0.5299192642332049,
+        0
+      ],
+      [
+        -0.21553758263541173,
+        0.3449322357974881,
+        0.9135454576426009
+      ]
+    ],
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "toward_viewer": [
+      0.4841053367575535,
+      -0.7747304861061586,
+      0.4067366430758002
+    ]
+  },
+  "visibility": {
+    "mode": "frozen_intervals",
+    "projection_sha256": "1b28f494d65d4409b4d5784fb47be47f5719dbb14d84ca0822ed31f63aadad2f",
+    "note": "Analytic cylinder normal test and tangent generators. Original auxiliary dash meaning recorded separately. Curved intervals frozen."
+  },
+  "view": {
+    "xlim": [
+      -5.787285522746538,
+      13.67368149805037
+    ],
+    "ylim": [
+      -9.014704793095,
+      10.446262227701908
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "bbox_px": [
+        54,
+        153,
+        713,
+        615
+      ],
+      "occupancy": 0.859375,
+      "center_error_px": [
+        0.0,
+        -0.5
+      ],
+      "iterations": 3
+    }
+  },
+  "objects": [
+    {
+      "id": "frontsemicircle",
+      "type": "circular_arc",
+      "center": "frontcenter",
+      "radius": 5.092958178940651,
+      "u": [
+        1,
+        0,
+        0
+      ],
+      "v": [
+        0,
+        0,
+        1
+      ],
+      "domain_deg": [
+        180,
+        360
+      ],
+      "intervals": [
+        {
+          "start_deg": 180,
+          "end_deg": 360,
+          "visibility": "visible",
+          "samples": 1001
+        }
+      ],
+      "role": "edge"
+    },
+    {
+      "id": "backsemicircle",
+      "type": "circular_arc",
+      "center": "backcenter",
+      "radius": 5.092958178940651,
+      "u": [
+        1,
+        0,
+        0
+      ],
+      "v": [
+        0,
+        0,
+        1
+      ],
+      "domain_deg": [
+        180,
+        360
+      ],
+      "intervals": [
+        {
+          "start_deg": 180,
+          "end_deg": 260.0727525637059,
+          "visibility": "visible",
+          "samples": 801
+        },
+        {
+          "start_deg": 260.0727525637059,
+          "end_deg": 360,
+          "visibility": "hidden",
+          "samples": 801
+        }
+      ],
+      "role": "edge"
+    },
+    {
+      "id": "rimleft",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "rimright",
+      "type": "segment",
+      "points": [
+        "D",
+        "C"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "frontL",
+      "type": "segment",
+      "points": [
+        "A",
+        "frontBL"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "frontbottom",
+      "type": "segment",
+      "points": [
+        "frontBL",
+        "frontBR"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "frontR",
+      "type": "segment",
+      "points": [
+        "frontBR",
+        "D"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "outerright",
+      "type": "segment",
+      "points": [
+        "frontBR",
+        "backBR"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "backright",
+      "type": "segment",
+      "points": [
+        "backBR",
+        "C"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "dot_E",
+      "type": "point",
+      "point": "E",
+      "role": "given_point",
+      "visibility": "visible"
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "diameter",
+      "type": "distance",
+      "points": [
+        "A",
+        "D"
+      ],
+      "value": 10.185916357881302,
+      "text": "32/π",
+      "unit": "m",
+      "decimals": 0,
+      "offset_pt": [
+        -6.158148186906405,
+        -24.229676244392977
+      ],
+      "label_offset_pt": [
+        0,
+        18
+      ],
+      "basis": "Source displayed measurement, range unchanged; Plane02 style."
+    }
+  ],
+  "labels": [
+    {
+      "id": "label_A",
+      "type": "vertex",
+      "text": "A",
+      "anchor": "A",
+      "offset_pt": [
+        -19,
+        -5
+      ]
+    },
+    {
+      "id": "label_D",
+      "type": "vertex",
+      "text": "D",
+      "anchor": "D",
+      "offset_pt": [
+        18,
+        -6
+      ]
+    },
+    {
+      "id": "label_B",
+      "type": "vertex",
+      "text": "B",
+      "anchor": "B",
+      "offset_pt": [
+        -15,
+        16
+      ]
+    },
+    {
+      "id": "label_C",
+      "type": "vertex",
+      "text": "C",
+      "anchor": "C",
+      "offset_pt": [
+        18,
+        12
+      ]
+    },
+    {
+      "id": "label_E",
+      "type": "vertex",
+      "text": "E",
+      "anchor": "E",
+      "offset_pt": [
+        -12,
+        10
+      ]
+    }
+  ],
+  "constraints": [],
+  "ambiguities": [
+    "Skating inner surface explicitly a semicylinder. Outer front/right boundary is display carrier at depthr, not extra mathematical thickness. Rear inner arc source hidden part will be independently visibility-audited."
+  ]
+}
