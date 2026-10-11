@@ -8,4 +8,4 @@
 
 长期目标是平面、解析、立体几何各 200 题，每题 1 张原图、6 张 Base、约 4 张人工变体，约 6,600 对图文题。当前 Analytics 实施的是六选四 Base；平面与立体已提供独立人工 Special 工作台，Base 尚未启用。
 
-当前正式数据共 77 题、180 张 Base、95 张 Special。使用入口及数据字段见 [README.md](README.md)，几何标注范围见 [工作台需求](GEOMETRY_WORKBENCH_REQUIREMENTS.md)。旧评测日志与分数已按用户要求删除，后续实验应基于当前正式集合重新运行。
+当前正式数据共 142 题、184 张 Base、95 张 Special。使用入口及数据字段见 [README.md](README.md)，几何标注范围见 [工作台需求](GEOMETRY_WORKBENCH_REQUIREMENTS.md)。旧评测日志与分数已按用户要求删除，后续实验应基于当前正式集合重新运行。

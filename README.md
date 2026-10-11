@@ -1,22 +1,22 @@
 # MathPalette
 
-本目录只收集用户确认的正式题目。当前 **133 题**：Analytics 46、PlaneGeometry 71、SolidGeometry 16。来源为 DynaMath 20 题、MathVerse 57 题、MathVista 56 题。
+本目录只收集用户确认的正式题目。当前 **142 题**：Analytics 46、PlaneGeometry 71、SolidGeometry 25。来源为 DynaMath 20 题、MathVerse 57 题、MathVista 56 题、SOLIDGEO 9 题。
 
 | 内容 | 数量 / 入口 |
 | --- | --- |
-| 正式原题 | [question_bank.jsonl](question_bank.jsonl)，133 条 |
+| 正式原题 | [question_bank.jsonl](question_bank.jsonl)，142 条 |
 | 自动 Base | Analytics 每题 4 张，共 184 张及对应插件 |
 | 人工 Special | 当前 Analytics 共 95 张，保留原 Pass / Collect 时间 |
-| 来源截图 | MathVerse 57 张、MathVista 56 张；DynaMath 20 题的来源截图在原库中缺失 |
+| 来源截图 | MathVerse 57 张、MathVista 56 张、SOLIDGEO 9 张；DynaMath 20 题的来源截图在原库中缺失 |
 | 解析几何 Special 工作台 | 双击 [Analytics/start_special_workbench.cmd](Analytics/start_special_workbench.cmd)，端口 8767 |
 | 平面几何 Special 工作台 | 双击 [PlaneGeometry/start_special_workbench.cmd](PlaneGeometry/start_special_workbench.cmd)，端口 8768 |
 | 立体几何 Special 工作台 | 双击 [SolidGeometry/start_special_workbench.cmd](SolidGeometry/start_special_workbench.cmd)，端口 8769 |
-| SOLIDGEO 原题审核工作台 | 双击 [SolidGeometry/start_original_review.cmd](SolidGeometry/start_original_review.cmd)；[启动与安全说明](SolidGeometry/original_review/README.md) |
 | 几何工作台需求 | [GEOMETRY_WORKBENCH_REQUIREMENTS.md](GEOMETRY_WORKBENCH_REQUIREMENTS.md) |
 | 审核凭据 | [provenance/approvals.json](provenance/approvals.json) |
 | MathVista 来源与署名 | [provenance/mathvista/README.md](provenance/mathvista/README.md)，含完整源记录与入库核验 |
+| SOLIDGEO 来源与清理记录 | [来源署名](provenance/SOLIDGEO_ATTRIBUTION.md)、[保留题目与清理核验](provenance/solidgeo_cleanup.json) |
 
-Ana01～Ana20 来自 DynaMath，Ana21～Ana45 来自 MathVerse，Ana46 来自 MathVista。Plane01～Plane16 来自 MathVerse，Plane17～Plane71 来自 MathVista；Solid01～Solid16 来自 MathVerse。图片、绘图类、Base 插件和工作台使用相同题号。清理前编号仅保存在 [迁移记录](provenance/cleanup.json) 中。
+Ana01～Ana20 来自 DynaMath，Ana21～Ana45 来自 MathVerse，Ana46 来自 MathVista。Plane01～Plane16 来自 MathVerse，Plane17～Plane71 来自 MathVista；Solid01～Solid16 来自 MathVerse，Solid17～Solid25 来自 SOLIDGEO。图片、绘图类、Base 插件和工作台使用相同题号。清理前编号仅保存在 [迁移记录](provenance/cleanup.json) 中。
 
 ## 数据内容
 
@@ -25,7 +25,7 @@ Ana01～Ana20 来自 DynaMath，Ana21～Ana45 来自 MathVerse，Ana46 来自 Ma
 | 字段 | 含义 |
 | --- | --- |
 | `id` | 唯一题号 |
-| `source_dataset` / `source_key` | 数据集名称，如 DynaMath、MathVerse、MathVista；已有来源键时保留 |
+| `source_dataset` / `source_key` | 数据集名称，如 DynaMath、MathVerse、MathVista、SOLIDGEO；已有来源键时保留 |
 | `question` / `answer` / `answer_type` | 当前正式题干、答案、答案类型 |
 | `choices` | 仅选择题包含，保存选项字母与内容的对应关系；`answer` 只保存字母 |
 | `image` | 正式统一重绘 PNG |
@@ -49,9 +49,9 @@ provenance/      用户通过记录、必要来源说明、署名与迁移核验
 .runtime/        启动后生成的工作台状态、预览和临时重绘
 ```
 
-SOLIDGEO 原题审核的候选数据位于 `staging/solidgeo/`，与正式题库隔离。原题 Pass 按当前展示内容入库，删除直接移除候选记录和专属文件；不会自动提交或推送 Git。
+SOLIDGEO 本批审核已结束，只保留用户已 Pass 的 9 道正式题。剩余 86 道待审候选、重复暂存资源、本批原题审核工具及其运行缓存已按用户要求删除；当前没有待审候选清单。
 
-`.runtime/solidgeo-original-review/` 保存原题审核进度与中断恢复记录，服务运行时或事务未恢复时不要删除。其他 `.runtime` 不属于正式数据。服务停止且没有需要保留的未提交草稿时可以清理；工作台会从正式 recipes 和 collection 记录恢复已收集状态。旧候选、历史工作台、重复备份、旧评测日志及分数已按用户要求清理。
+`.runtime/` 不属于正式数据，存放 Special 工作台草稿、预览及本地校验输出。服务停止且没有需要保留的未提交草稿时可以清理；工作台会从正式 recipes 和 collection 记录恢复已收集状态。旧候选、历史工作台、重复备份、旧评测日志及分数已按用户要求清理。
 
 ## 使用
 
@@ -85,3 +85,23 @@ python -X utf8 -B Analytics/special_variant/Ana01/draw_variants.py C01
 本轮用户逐题通过的 56 题已正式入库。每题保留来源图片、完整源记录、正式题干与答案、绘图程序；55 道平面题另有冻结场景，Ana46 的冻结输入保存在绘图程序中。原始来源、署名及必要许可通知见 [来源说明](provenance/mathvista/README.md)。
 
 审核网页、候选包、重复核验文件及运行缓存已清理。用户通过原话、时间和内容指纹仍由 `provenance/approvals.json` 保存；已入库题的解题核验及当时候选内容快照保存在 `provenance/source_notes.json`。快照中的旧路径仅供追溯，实际使用正式清单中的路径。通过按钮凭据和像素复现、来源路径迁移核验见 [imports.json](provenance/mathvista/imports.json)。
+
+## SOLIDGEO 入库与清理记录
+
+本批最初有 168 道来源题，最终保留用户逐题 Pass 的 9 道：
+
+| 正式题号 | 来源题号 |
+| --- | --- |
+| Solid17 | 1766 |
+| Solid18 | 1807 |
+| Solid19 | 1878 |
+| Solid20 | 1892 |
+| Solid21 | 1932 |
+| Solid22 | 2024 |
+| Solid23 | 2046 |
+| Solid24 | 2072 |
+| Solid25 | 2135 |
+
+此前已删除 73 道，本次删除剩余 86 道。保留题的正式题干、答案、来源图、重绘图、冻结场景、绘图程序和审核记录均保持不变；清理前后文件指纹及通过凭据见 [清理记录](provenance/solidgeo_cleanup.json)。[来源署名](provenance/SOLIDGEO_ATTRIBUTION.md) 中的 168 题指最初审核批次，当前正式收集数量为 9 题。`source_notes.json` 内的旧候选路径仅作历史追溯，运行依赖全部位于正式目录。
+
+此后，用户确认了 Solid17～Solid25 的题干清理版：删除图片占位符、残留标题和填空占位，统一英文提问，并同步逐题脚本。数学条件、答案、选项和绘图输入保持原样；修改前后题干、原 Pass 凭据、本次确认及像素核验见 [题干修订记录](provenance/solidgeo_wording_cleanup.json)。当前审核指纹对应已确认的新版题干。

@@ -1,6 +1,6 @@
 # SolidGeometry
 
-正式通过题共 16 道：Solid01～Solid16。`dataset.jsonl` 仅含正式题；重绘 PNG 在 `image/`，来源截图在 `originals/`，冻结场景和逐题绘图程序在 `dataset_generator/`。
+正式通过题共 25 道：Solid01～Solid25，其中 MathVerse 16 道、SOLIDGEO 9 道。`dataset.jsonl` 仅含正式题；重绘 PNG 在 `image/`，来源截图在 `originals/`，冻结场景和逐题绘图程序在 `dataset_generator/`。
 
 公共绘图器和机器协议保持原样。场景可重新导出 PNG 或 SVG；不保留重复的 SVG 成品。Base 尚未启用；Special 标注使用独立工作台，由用户逐份 Pass、整题 Collect。
 
@@ -15,8 +15,10 @@ python -X utf8 -B SolidGeometry/dataset_generator/test_renderer.py
 
 具体几何规则见 [REDRAW_PROTOCOL.md](REDRAW_PROTOCOL.md)。统一收集规则见 [项目协议](../MATHPALETTE_PROTOCOL.md)。
 
-## SOLIDGEO 原题审核
+## SOLIDGEO 已收集原题
 
-双击 `start_original_review.cmd` 启动本地原题工作台。168 道候选与正式题库分开，逐题并排查看来源图和当前重绘，核对完整题干、来源答案与独立核验答案。原题 Pass 完成校验后才分配正式 Solid 题号；无法安全满足协议的题会说明阻碍。删除实际移除候选专属数据，已提交文件可通过 Git 历史恢复。
+本批只保留用户已 Pass 的 Solid17～Solid25，来源题号依次为 1766、1807、1878、1892、1932、2024、2046、2072、2135。正式数据、图片、冻结绘图依赖及原审核记录完整保留。
 
-详细启动、数据保护与测试范围见 [原题工作台说明](original_review/README.md)。这与 Special 变体的 Pass / Collect 是两个独立流程。
+剩余 86 道待审候选、重复暂存文件、本批原题审核工具和缓存已删除，当前没有待审队列。保留清单与文件指纹核验见 [清理记录](../provenance/solidgeo_cleanup.json)，来源署名及许可见 [SOLIDGEO_ATTRIBUTION.md](../provenance/SOLIDGEO_ATTRIBUTION.md)。已入库题仍可在 Special 工作台制作变体；变体 Pass / Collect 与原题审核独立。
+
+Solid17～Solid25 的题干已按用户再次确认的版本清理：移除图片占位符、残留标题及填空占位，统一英文表述，正式清单与逐题脚本保持一致。数学条件、答案、选项、图片和冻结场景保持原样；前后文本、原 Pass 和本次确认见 [题干修订记录](../provenance/solidgeo_wording_cleanup.json)。
