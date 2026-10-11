@@ -43,7 +43,7 @@ class Ana16:
         self.source_dataset = 'DynaMath'
         self.query = 'How many intersection points do the two curves y_1 and y_2 have in the interval [0, 2\\pi]?'
         self.answer = 2
-        self.answer_type = 'integer'
+        self.answer_type = 'number'
         self.subject = 'analytic geometry'
         self.level = 'high school'
 

@@ -12,7 +12,7 @@ class Plane05:
         self.source_dataset = 'MathVerse'
         self.query = 'As shown in the figure, then the degree of the angle of circumference angle ACB is ____.'
         self.answer = '25°'
-        self.answer_type = 'numeric'
+        self.answer_type = 'number'
         self.subject = 'PlaneGeometry'
         self.level = 'middle_school'
         self.scene_path = Path(__file__).with_name("scenes") / "Plane05.json"

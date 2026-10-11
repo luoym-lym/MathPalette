@@ -17,7 +17,7 @@ def _dest(qid,output_path):
 class Ana25:
     def __init__(self):
         self.id="Ana25"; self.source_dataset="MathVerse"
-        self.query='Consider the circle on the graph. Find its equation in standard form.'; self.answer='$(x-1)^2+(y-2)^2=16$'; self.answer_type="string"; self.subject="analytic geometry" if 25<32 else "functions"; self.level="high school"
+        self.query='Consider the circle on the graph. Find its equation in standard form.'; self.answer='$(x-1)^2+(y-2)^2=16$'; self.answer_type='expression'; self.subject="analytic geometry" if 25<32 else "functions"; self.level="high school"
     def draw(self,num=0,output_path=None):
         fig,ax=open_canvas()
         ax.add_patch(Circle((1,2),4,fill=False)); scatter_points(ax,1,2)

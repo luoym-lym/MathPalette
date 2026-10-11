@@ -19,7 +19,7 @@ class Ana40:
     def __init__(self):
         self.id='Ana40'; self.source_dataset='MathVerse'
         self.query = 'Is the discriminant of g positive, zero, or negative?\nChoices:\nA:Positivie\nB:Zero\nC:Negative'
-        self.answer = 'C'; self.answer_type='string'; self.subject='functions'; self.level='high school'
+        self.answer = 'C'; self.answer_type='choice'; self.subject='functions'; self.level='high school'
     def draw(self,num=0,output_path=None):
         fig,ax=open_canvas()
         x=np.linspace(2.9,8,500); y=-(x-6)**2-1

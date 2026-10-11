@@ -44,7 +44,7 @@ class Ana05:
         self.shift = 2
         self.query = 'f(x) = x^2, and g(x) is obtained by translating the graph of f(x). Find the expression of g(x).'
         self.answer = '(x - 2)^2'
-        self.answer_type = 'text'
+        self.answer_type = 'expression'
         self.subject = 'analytic geometry'
         self.level = 'high school'
 

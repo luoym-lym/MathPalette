@@ -19,7 +19,7 @@ class Ana45:
     def __init__(self):
         self.id='Ana45'; self.source_dataset='MathVerse'
         self.query = 'Let $f$ be the function given by the following graph. What is the domain of $f$?'
-        self.answer = '$[-5,-3) \\cup(-3,5]$'; self.answer_type='string'; self.subject='functions'; self.level='high school'
+        self.answer = '$[-5,-3) \\cup(-3,5]$'; self.answer_type='expression'; self.subject='functions'; self.level='high school'
     def draw(self,num=0,output_path=None):
         fig,ax=open_canvas()
         parts=[([-5,1],[-3,2]),([-3,2],[-1,4]),([-1,5],[3,3],[5,1])]

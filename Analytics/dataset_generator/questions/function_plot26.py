@@ -17,7 +17,7 @@ def _dest(qid,output_path):
 class Ana26:
     def __init__(self):
         self.id="Ana26"; self.source_dataset="MathVerse"
-        self.query='Write the equation of the figure.'; self.answer='\\[(x+3)^2+(y+3)^2=9\\]'; self.answer_type="string"; self.subject="analytic geometry" if 27<32 else "functions"; self.level="high school"
+        self.query='Write the equation of the figure.'; self.answer='\\[(x+3)^2+(y+3)^2=9\\]'; self.answer_type='expression'; self.subject="analytic geometry" if 27<32 else "functions"; self.level="high school"
     def draw(self,num=0,output_path=None):
         fig,ax=open_canvas()
         ax.add_patch(Circle((-3,-3),3,fill=False)); scatter_points(ax,-3,-3)

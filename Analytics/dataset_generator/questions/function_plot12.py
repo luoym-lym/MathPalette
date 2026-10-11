@@ -43,7 +43,7 @@ class Ana12:
         self.source_dataset = 'DynaMath'
         self.query = 'The quadratic function is given by f(x) = ax^2 + bx + c. What is the value of the constant term c?'
         self.answer = -3
-        self.answer_type = 'integer'
+        self.answer_type = 'number'
         self.subject = 'analytic geometry'
         self.level = 'high school'
 

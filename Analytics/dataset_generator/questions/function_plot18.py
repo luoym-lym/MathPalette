@@ -43,7 +43,7 @@ class Ana18:
         self.source_dataset = 'DynaMath'
         self.query = 'The parabola g(x) is obtained by translating the parent parabola f(x) = x^2. What are the coordinates of the vertex of g(x)? Please answer in the format (x, y).'
         self.answer = '(-3, -2)'
-        self.answer_type = 'text'
+        self.answer_type = 'expression'
         self.subject = 'analytic geometry'
         self.level = 'high school'
 

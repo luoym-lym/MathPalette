@@ -43,7 +43,7 @@ class Ana11:
         self.source_dataset = 'DynaMath'
         self.query = 'How many distinct real zeros does the function f(x) have on the interval [-6, 6]?'
         self.answer = 4
-        self.answer_type = 'integer'
+        self.answer_type = 'number'
         self.subject = 'analytic geometry'
         self.level = 'high school'
 

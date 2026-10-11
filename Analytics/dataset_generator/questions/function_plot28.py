@@ -17,7 +17,7 @@ def _dest(qid,output_path):
 class Ana28:
     def __init__(self):
         self.id="Ana28"; self.source_dataset="MathVerse"
-        self.query='Find the equation of this figure.'; self.answer='\\[y=\\sqrt{49-x^2}\\]'; self.answer_type="string"; self.subject="analytic geometry" if 30<32 else "functions"; self.level="high school"
+        self.query='Find the equation of this figure.'; self.answer='\\[y=\\sqrt{49-x^2}\\]'; self.answer_type='expression'; self.subject="analytic geometry" if 30<32 else "functions"; self.level="high school"
     def draw(self,num=0,output_path=None):
         fig,ax=open_canvas()
         x=np.linspace(-7,7,500); plot_curve(ax,x,np.sqrt(49-x*x))

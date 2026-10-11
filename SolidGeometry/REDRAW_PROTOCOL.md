@@ -114,7 +114,7 @@ screen_xy = matrix @ (world_xyz - origin) + offset
 | --- | --- |
 | `id/status/subject` | 场景 ID、状态和 `SolidGeometry` |
 | `source_dataset/source_image/source_note` | 获取来源、原图相对路径和真实题源是否已知 |
-| `query/answer` | 样例为 `null`；正式题目有独立核对记录 |
+| 题干、答案与答案类型 | 由正式 `dataset.jsonl` 保存，不在冻结场景中重复 |
 | `world_unit/points` | 三维单位与完整坐标；不可见构造点仍可用于校验 |
 | `projection/view` | 冻结投影、观察朝向与二维方形视窗 |
 | `visibility` | 区间冻结模式、所绑定投影的 SHA-256、说明；投影变化时旧区间失效 |
@@ -150,3 +150,5 @@ Special 工作台使用 `images/ + plugins/ + recipes.json + draw_variants.py + 
 ## 正式数据收集（2026-10-10 更新）
 
 本分支 `dataset.jsonl` 只包含正式通过题。用户审核记录统一在项目根目录 `provenance/approvals.json`，清理后的文件与版本指纹由 `dataset_tools/catalog.py check` 校验。未通过新题在独立暂存区制作，不放入正式清单。运行状态和临时重绘写 `.runtime/`。
+
+正式场景仅保留公共身份、版本、来源、状态及冻结绘图字段，另保留 `subject`、`source_note`、`world_unit`、`projection`、`visibility`、`dimensions`。不重复保存 `query/question/answer/answer_type/level/user_approved`；构造、来源尺寸对应及修订说明归入根目录 `provenance/source_notes.json` 的 `geometry_notes`。三维坐标、投影、可见性、尺寸绑定与绘图参数保持冻结。

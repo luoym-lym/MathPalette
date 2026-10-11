@@ -12,7 +12,7 @@ class Plane06:
         self.source_dataset = 'MathVerse'
         self.query = 'As shown in the figure, arcs AD and CD are equal. Find the measure of angle DAC: ____.'
         self.answer = '30°'
-        self.answer_type = 'numeric'
+        self.answer_type = 'number'
         self.subject = 'PlaneGeometry'
         self.level = 'middle_school'
         self.scene_path = Path(__file__).with_name("scenes") / "Plane06.json"

@@ -17,7 +17,7 @@ def _dest(qid,output_path):
 class Ana30:
     def __init__(self):
         self.id="Ana30"; self.source_dataset="MathVerse"
-        self.query='Write the domain and range of the function using interval notation.'; self.answer='domain: (1,7] and range: [5,7)'; self.answer_type="string"; self.subject="analytic geometry" if 34<32 else "functions"; self.level="high school"
+        self.query='Write the domain and range of the function using interval notation.'; self.answer='domain: (1,7] and range: [5,7)'; self.answer_type='expression'; self.subject="analytic geometry" if 34<32 else "functions"; self.level="high school"
     def draw(self,num=0,output_path=None):
         fig,ax=open_canvas()
         x=np.linspace(1,7,200); y=7-(x-1)/3; plot_curve(ax,x,y)

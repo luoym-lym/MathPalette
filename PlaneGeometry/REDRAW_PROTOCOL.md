@@ -132,3 +132,5 @@ python -B PlaneGeometry/dataset_generator/test_renderer.py
 ## 正式数据收集（2026-10-10 更新）
 
 本分支 `dataset.jsonl` 只包含正式通过题。用户审核记录统一在项目根目录 `provenance/approvals.json`，清理后的文件与版本指纹由 `dataset_tools/catalog.py check` 校验。未通过新题在独立暂存区制作，不放入正式清单。运行状态和临时重绘写 `.runtime/`。
+
+正式场景统一只保留 `scene_schema_version`、`protocol_version`、`id`、`status`、`source_dataset`、`source_image`、`view`、`points`、`objects`、`labels`、`constraints`、`ambiguities`、`distance_markers`；无距离范围标识时 `distance_markers` 为 `[]`。题干、答案、答案类型和选项由正式清单保存，不在场景重复；必要构造说明与修订记录归入根目录来源记录。`source_dataset` 使用 MathVerse、MathVista 等数据集名称。

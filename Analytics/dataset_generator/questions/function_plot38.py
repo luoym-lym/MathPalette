@@ -9,7 +9,7 @@ for _p in (_ROOT,_ROOT/"dataset_generator"):
 from common_renderer import open_canvas,plot_curve,scatter_points,label,finalize
 class Ana38:
     def __init__(self):
-        self.id='Ana38'; self.source_dataset='MathVerse'; self.query='The trigonometric function shown has a non-integer angular frequency. What is its period?'; self.answer = r'$4\pi$'; self.answer_type='string'; self.subject='functions'; self.level='high school'
+        self.id='Ana38'; self.source_dataset='MathVerse'; self.query='The trigonometric function shown has a non-integer angular frequency. What is its period?'; self.answer = r'$4\pi$'; self.answer_type='number'; self.subject='functions'; self.level='high school'
     def draw(self,num=0,output_path=None):
         fig,ax=open_canvas()
         x=np.linspace(-8,8,1400); plot_curve(ax,x,3*np.cos((x-3*np.pi/2)/2))

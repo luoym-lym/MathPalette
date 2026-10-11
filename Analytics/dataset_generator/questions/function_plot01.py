@@ -47,7 +47,7 @@ class Ana01:
         self.e = 2
         self.query = 'What is the limit of the function as x approaches 1 from the left side?'
         self.answer = 0
-        self.answer_type = 'float'
+        self.answer_type = 'number'
         self.subject = 'analytic geometry'
         self.level = 'undergraduate'
 

@@ -9,7 +9,7 @@ for _p in (_ROOT,_ROOT/"dataset_generator"):
 from common_renderer import open_canvas,plot_curve,scatter_points,label,finalize
 class Ana35:
     def __init__(self):
-        self.id='Ana35'; self.source_dataset='MathVerse'; self.query='Write an equation for the transformation of f(x)=|x| as shown in the figure.'; self.answer='f(x)=-3|x-3|+3'; self.answer_type='string'; self.subject='functions'; self.level='high school'
+        self.id='Ana35'; self.source_dataset='MathVerse'; self.query='Write an equation for the transformation of f(x)=|x| as shown in the figure.'; self.answer='f(x)=-3|x-3|+3'; self.answer_type='expression'; self.subject='functions'; self.level='high school'
     def draw(self,num=0,output_path=None):
         fig,ax=open_canvas()
         x=np.linspace(-8,8,1000); plot_curve(ax,x,-3*np.abs(x-3)+3)

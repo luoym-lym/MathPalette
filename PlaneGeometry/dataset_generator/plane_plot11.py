@@ -12,7 +12,7 @@ class Plane11:
         self.source_dataset = 'MathVerse'
         self.query = '\\[Consider the adjacent figure:\n\nSolve for the unknown \\theta . Leave your answer in degrees.\\]'
         self.answer = '\\[60^\\circ \\]'
-        self.answer_type = 'angle'
+        self.answer_type = 'number'
         self.subject = 'PlaneGeometry'
         self.level = 'high_school'
         self.scene_path = Path(__file__).with_name("scenes") / "Plane11.json"

@@ -17,7 +17,7 @@ def _dest(qid,output_path):
 class Ana27:
     def __init__(self):
         self.id="Ana27"; self.source_dataset="MathVerse"
-        self.query='State the radius of the figure.\n\nRadius = _ units'; self.answer='7'; self.answer_type="string"; self.subject="analytic geometry" if 29<32 else "functions"; self.level="high school"
+        self.query='State the radius of the figure.\n\nRadius = _ units'; self.answer='7'; self.answer_type='number'; self.subject="analytic geometry" if 29<32 else "functions"; self.level="high school"
     def draw(self,num=0,output_path=None):
         fig,ax=open_canvas()
         x=np.linspace(-7,7,500); plot_curve(ax,x,np.sqrt(49-x*x))

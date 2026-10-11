@@ -43,7 +43,7 @@ class Ana15:
         self.source_dataset = 'DynaMath'
         self.query = 'Two sinusoidal functions y_1 and y_2 are plotted. Find the ratio of their amplitudes, \\frac{A(y_1)}{A(y_2)}.'
         self.answer = 2
-        self.answer_type = 'integer'
+        self.answer_type = 'number'
         self.subject = 'analytic geometry'
         self.level = 'high school'
 

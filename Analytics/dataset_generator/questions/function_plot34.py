@@ -9,7 +9,7 @@ for _p in (_ROOT,_ROOT/"dataset_generator"):
 from common_renderer import open_canvas,plot_curve,scatter_points,label,finalize
 class Ana34:
     def __init__(self):
-        self.id='Ana34'; self.source_dataset='MathVerse'; self.query='Find the absolute maximum of the graphed cubic on its displayed closed domain.'; self.answer='6'; self.answer_type='string'; self.subject='functions'; self.level='high school'
+        self.id='Ana34'; self.source_dataset='MathVerse'; self.query='Find the absolute maximum of the graphed cubic on its displayed closed domain.'; self.answer='6'; self.answer_type='number'; self.subject='functions'; self.level='high school'
     def draw(self,num=0,output_path=None):
         fig,ax=open_canvas()
         x=np.linspace(-3.3,3.3,900); plot_curve(ax,x,(125/243)*(x**3-9.72*x)); scatter_points(ax,-3.3,(125/243)*((-3.3)**3-9.72*(-3.3))); scatter_points(ax,3.3,(125/243)*((3.3)**3-9.72*(3.3)))

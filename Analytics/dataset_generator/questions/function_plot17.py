@@ -43,7 +43,7 @@ class Ana17:
         self.source_dataset = 'DynaMath'
         self.query = 'The graph of g(x) is obtained by translating the graph of f(x) = |x| vertically. What is the expression of g(x)? Choices: (A) g(x) = |x| - 4 (B) g(x) = |x| + 4 (C) g(x) = |x - 4| (D) g(x) = |x + 4|'
         self.answer = 'A'
-        self.answer_type = 'multiple choice'
+        self.answer_type = 'choice'
         self.subject = 'analytic geometry'
         self.level = 'high school'
 

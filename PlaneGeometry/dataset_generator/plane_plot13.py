@@ -12,7 +12,7 @@ class Plane13:
         self.source_dataset = 'MathVerse'
         self.query = 'This is part of a piece of jewellery. It is made out of a metal plate base, and gold plated wire (of negligible thickness) runs around the outside.\n\nWhat is the area covered by the metal plate base?\n\nGive your answer correct to two decimal places.'
         self.answer = 'Area $=70.69 \\mathrm{~mm}^{2}$'
-        self.answer_type = 'area'
+        self.answer_type = 'number'
         self.subject = 'PlaneGeometry'
         self.level = 'high_school'
         self.scene_path = Path(__file__).with_name("scenes") / "Plane13.json"

@@ -17,7 +17,7 @@ def _dest(qid,output_path):
 class Ana22:
     def __init__(self):
         self.id="Ana22"; self.source_dataset="MathVerse"
-        self.query='Find the equation of the figure.\nUse exact numbers.\ny = _ x + _'; self.answer='y=-2 x+5'; self.answer_type="string"; self.subject="analytic geometry" if 22<32 else "functions"; self.level="high school"
+        self.query='Find the equation of the figure.\nUse exact numbers.\ny = _ x + _'; self.answer='y=-2 x+5'; self.answer_type='expression'; self.subject="analytic geometry" if 22<32 else "functions"; self.level="high school"
     def draw(self,num=0,output_path=None):
         fig,ax=open_canvas()
         x=np.linspace(-1.5,5,500); plot_curve(ax,x,-2*x+5)

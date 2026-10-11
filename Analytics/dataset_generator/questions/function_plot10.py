@@ -43,7 +43,7 @@ class Ana10:
         self.source_dataset = 'DynaMath'
         self.query = 'Find the largest interval on which the function f(x) is strictly decreasing. Please answer in the format [a, b].'
         self.answer = '[-2, 2]'
-        self.answer_type = 'text'
+        self.answer_type = 'expression'
         self.subject = 'analytic geometry'
         self.level = 'high school'
 

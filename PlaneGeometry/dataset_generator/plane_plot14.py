@@ -12,7 +12,7 @@ class Plane14:
         self.source_dataset = 'MathVerse'
         self.query = 'In the figure above, PQRS is a rectangle. The area of triangle RST is 7 and PT=2/5*PS. What is the area of PQRS?'
         self.answer = '70/3'
-        self.answer_type = 'exact'
+        self.answer_type = 'number'
         self.subject = 'PlaneGeometry'
         self.level = 'high_school'
         self.scene_path = Path(__file__).with_name("scenes") / "Plane14.json"

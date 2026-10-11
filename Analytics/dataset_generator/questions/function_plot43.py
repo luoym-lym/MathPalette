@@ -19,7 +19,7 @@ class Ana43:
     def __init__(self):
         self.id='Ana43'; self.source_dataset='MathVerse'
         self.query = 'What is the slope of the figure?'
-        self.answer = '\\[=\\frac{7}{4}\\]'; self.answer_type='string'; self.subject='functions'; self.level='high school'
+        self.answer = '\\[=\\frac{7}{4}\\]'; self.answer_type='number'; self.subject='functions'; self.level='high school'
     def draw(self,num=0,output_path=None):
         fig,ax=open_canvas()
         x=np.linspace(-4,5,300); plot_curve(ax,x,7*x/4-1)

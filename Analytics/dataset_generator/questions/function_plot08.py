@@ -43,7 +43,7 @@ class Ana08:
         self.source_dataset = 'DynaMath'
         self.query = 'Based on the graph of the function f(x), compute the arithmetic value of f(0) - \\lim_{x \\to 0^+} f(x).'
         self.answer = 3
-        self.answer_type = 'integer'
+        self.answer_type = 'number'
         self.subject = 'analytic geometry'
         self.level = 'high school'
 

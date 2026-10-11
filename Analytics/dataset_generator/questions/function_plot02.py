@@ -46,7 +46,7 @@ class Ana02:
         self.d = -0.4
         self.query = 'The function value f(1) is ____ f(-1) choice: (A) smaller than (B) larger than (C) equal to'
         self.answer = 'B'
-        self.answer_type = 'multiple choice'
+        self.answer_type = 'choice'
         self.subject = 'analytic geometry'
         self.level = 'high school'
 

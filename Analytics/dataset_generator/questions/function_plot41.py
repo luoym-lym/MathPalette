@@ -19,7 +19,7 @@ class Ana41:
     def __init__(self):
         self.id='Ana41'; self.source_dataset='MathVerse'
         self.query = 'f(x)=x^2+x-6. How many roots do the functions have in common, f(x) and g(x)?\nChoices:\nA:$f$ and $g$ share the same root(s).\nB:$f$ and $g$ share one root in common but each have another root that is not shared.\nC:$f$ and $g$ share no roots in common.'
-        self.answer = 'B'; self.answer_type='string'; self.subject='functions'; self.level='high school'
+        self.answer = 'B'; self.answer_type='choice'; self.subject='functions'; self.level='high school'
     def draw(self,num=0,output_path=None):
         fig,ax=open_canvas()
         x=np.linspace(-4,4,500); y=(x-.5)**2-2.25

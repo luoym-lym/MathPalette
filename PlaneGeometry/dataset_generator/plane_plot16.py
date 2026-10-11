@@ -12,7 +12,7 @@ class Plane16:
         self.source_dataset = 'MathVerse'
         self.query = 'In the figure above, the seven small circles have equal radii. The area of the shaded portion is how many times the area of one of the small circles?'
         self.answer = '1'
-        self.answer_type = 'ratio'
+        self.answer_type = 'number'
         self.subject = 'PlaneGeometry'
         self.level = 'high_school'
         self.scene_path = Path(__file__).with_name("scenes") / "Plane16.json"

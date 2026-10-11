@@ -17,7 +17,7 @@ def _dest(qid,output_path):
 class Ana23:
     def __init__(self):
         self.id="Ana23"; self.source_dataset="MathVerse"
-        self.query='Write an equation that represents the figure.\nUse exact numbers.'; self.answer='$y+3=\\frac{3}{4}(x-2)$'; self.answer_type="string"; self.subject="analytic geometry" if 23<32 else "functions"; self.level="high school"
+        self.query='Write an equation that represents the figure.\nUse exact numbers.'; self.answer='$y+3=\\frac{3}{4}(x-2)$'; self.answer_type='expression'; self.subject="analytic geometry" if 23<32 else "functions"; self.level="high school"
     def draw(self,num=0,output_path=None):
         fig,ax=open_canvas()
         x=np.linspace(-14/3,8,500); plot_curve(ax,x,0.75*(x-2)-3)

@@ -46,7 +46,7 @@ class Ana04:
         self.constant_d = 3
         self.query = 'The period of y1 is ____ that of y2. Choices: (A) larger than (B) equal to (C) smaller than'
         self.answer = 'B'
-        self.answer_type = 'multiple choice'
+        self.answer_type = 'choice'
         self.subject = 'analytic geometry'
         self.level = 'high school'
 

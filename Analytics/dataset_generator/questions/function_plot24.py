@@ -17,7 +17,7 @@ def _dest(qid,output_path):
 class Ana24:
     def __init__(self):
         self.id="Ana24"; self.source_dataset="MathVerse"
-        self.query='Find the equation of the figure in point-slope form .'; self.answer='$y-3=\\frac{2}{3}(x-8)$'; self.answer_type="string"; self.subject="analytic geometry" if 24<32 else "functions"; self.level="high school"
+        self.query='Find the equation of the figure in point-slope form .'; self.answer='$y-3=\\frac{2}{3}(x-8)$'; self.answer_type='expression'; self.subject="analytic geometry" if 24<32 else "functions"; self.level="high school"
     def draw(self,num=0,output_path=None):
         fig,ax=open_canvas()
         x=np.linspace(-8,8,500); plot_curve(ax,x,3+(2/3)*(x-8))

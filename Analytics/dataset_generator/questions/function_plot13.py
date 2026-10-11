@@ -43,7 +43,7 @@ class Ana13:
         self.source_dataset = 'DynaMath'
         self.query = 'The rational function is of the form f(x) = \\frac{k}{x - p} + q. What is the value of the vertical asymptote parameter p?'
         self.answer = 3
-        self.answer_type = 'integer'
+        self.answer_type = 'number'
         self.subject = 'analytic geometry'
         self.level = 'high school'
 

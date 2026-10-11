@@ -43,7 +43,7 @@ class Ana06:
         self.source_dataset = 'DynaMath'
         self.query = 'The graph depicts a piecewise-defined function f(x). Find the value of the right-hand limit \\lim_{x \\to 2^+} f(x).'
         self.answer = 4
-        self.answer_type = 'integer'
+        self.answer_type = 'number'
         self.subject = 'analytic geometry'
         self.level = 'high school'
 

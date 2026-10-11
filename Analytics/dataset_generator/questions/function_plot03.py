@@ -45,7 +45,7 @@ class Ana03:
         self.c = 2
         self.query = 'Part of the graph of f(x) = x^3 + bx^2 + cx + d is shown. What is b?'
         self.answer = -1
-        self.answer_type = 'float'
+        self.answer_type = 'number'
         self.subject = 'analytic geometry'
         self.level = 'high school'
 

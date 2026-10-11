@@ -19,7 +19,7 @@ class Ana42:
     def __init__(self):
         self.id='Ana42'; self.source_dataset='MathVerse'
         self.query = 'The graph of g(x) is a translation of the graph of f(x)=x^2. Find an expression for g(x).'
-        self.answer = '\\[g(x)=(x+2)^2+1\\]'; self.answer_type='string'; self.subject='functions'; self.level='high school'
+        self.answer = '\\[g(x)=(x+2)^2+1\\]'; self.answer_type='expression'; self.subject='functions'; self.level='high school'
     def draw(self,num=0,output_path=None):
         fig,ax=open_canvas()
         x=np.linspace(-2.8,2.8,500); plot_curve(ax,x,x*x); gx=np.linspace(-4.6,.6,500); ax.plot(gx,(gx+2)**2+1,color='#000000',linewidth=1,linestyle='-',zorder=2)

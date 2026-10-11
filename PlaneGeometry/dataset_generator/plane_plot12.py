@@ -12,7 +12,7 @@ class Plane12:
         self.source_dataset = 'MathVerse'
         self.query = 'Consider the adjacent figure:\n\nSolve for the exact value of x.'
         self.answer = '\\[\\frac{\\sqrt{30}}{2}\\]'
-        self.answer_type = 'exact'
+        self.answer_type = 'number'
         self.subject = 'PlaneGeometry'
         self.level = 'high_school'
         self.scene_path = Path(__file__).with_name("scenes") / "Plane12.json"

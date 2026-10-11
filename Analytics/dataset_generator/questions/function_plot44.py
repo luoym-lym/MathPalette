@@ -19,7 +19,7 @@ class Ana44:
     def __init__(self):
         self.id='Ana44'; self.source_dataset='MathVerse'
         self.query = 'Write an equation that represents the figure.\nUse exact numbers.'
-        self.answer = '$y+3=\\frac{3}{4}(x-2)$'; self.answer_type='string'; self.subject='functions'; self.level='high school'
+        self.answer = '$y+3=\\frac{3}{4}(x-2)$'; self.answer_type='expression'; self.subject='functions'; self.level='high school'
     def draw(self,num=0,output_path=None):
         fig,ax=open_canvas()
         x=np.linspace(-4.5,8,400); y=.75*(x-2)-3; plot_curve(ax,x,y)

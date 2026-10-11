@@ -1,6 +1,6 @@
 # Analytics 制作与变体协议
 
-版本：3.0.0。当前仅保留 45 道正式题。DynaMath 使用 Ana01～Ana20，MathVerse 使用 Ana21～Ana45；所有文件与插件使用同一题号。
+版本：3.0.0。当前仅保留 46 道正式题。DynaMath 使用 Ana01～Ana20，MathVerse 使用 Ana21～Ana45，MathVista 使用 Ana46；所有文件与插件使用同一题号。
 
 ## 原题
 

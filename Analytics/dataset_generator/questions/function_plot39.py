@@ -19,7 +19,7 @@ class Ana39:
     def __init__(self):
         self.id='Ana39'; self.source_dataset='MathVerse'
         self.query = '\\[What is the domain of h?\nChoices:\nA:-5 \\leq x \\leq 7\nB:-5 \\leq x \\leq 4\nC:-5 \\leq x \\leq 5\nD:-5 \\leq x \\leq 6\\]'
-        self.answer = 'B'; self.answer_type='string'; self.subject='functions'; self.level='high school'
+        self.answer = 'B'; self.answer_type='choice'; self.subject='functions'; self.level='high school'
     def draw(self,num=0,output_path=None):
         fig,ax=open_canvas()
         p=np.array([[-5,4],[-3,3],[0,7],[3,1],[4,-5]],float)

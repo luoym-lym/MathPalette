@@ -12,7 +12,7 @@ class Plane04:
         self.source_dataset = 'MathVerse'
         self.query = 'As shown in the figure, and the radial OM bisects angle AOC, then the degree of angle CON is ()\nChoices:\nA:65°\nB:55°\nC:45°\nD:35°'
         self.answer = 'B'
-        self.answer_type = 'numeric'
+        self.answer_type = 'choice'
         self.subject = 'PlaneGeometry'
         self.level = 'middle_school'
         self.scene_path = Path(__file__).with_name("scenes") / "Plane04.json"

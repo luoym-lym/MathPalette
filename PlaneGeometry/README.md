@@ -1,6 +1,6 @@
 # PlaneGeometry
 
-正式通过题共 16 道：Plane01～Plane16。`dataset.jsonl` 仅含正式题；重绘 PNG 在 `image/`，来源截图在 `originals/`，冻结场景和逐题绘图程序在 `dataset_generator/`。
+正式通过题共 71 道：Plane01～Plane16 来自 MathVerse，Plane17～Plane71 来自 MathVista。`dataset.jsonl` 仅含正式题；重绘 PNG 在 `image/`，来源截图在 `originals/`，冻结场景和逐题绘图程序在 `dataset_generator/`。
 
 公共绘图器和机器协议保持原样。场景可重新导出 PNG 或 SVG。Base 尚未启用；Special 标注工作台已提供，原题审核与变体 Pass/Collect 分开保存。
 

@@ -11,8 +11,11 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 from dataset_tools import catalog
 
-def approve(branch, question_ids, instruction, root=ROOT):
+def approve(branch, question_ids, instruction, root=ROOT, *, catalog_lock_held=False):
     root=Path(root)
+    if not catalog_lock_held:
+        with catalog.catalog_write_lock(root):
+            return approve(branch, question_ids, instruction, root, catalog_lock_held=True)
     if branch not in catalog.BRANCHES or not instruction.strip():
         raise ValueError('A known branch and verbatim user approval are required')
     records={r['id']:r for r in catalog.rows(root/branch/'dataset.jsonl')}
@@ -35,7 +38,7 @@ def approve(branch, question_ids, instruction, root=ROOT):
     temporary.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     os.replace(temporary,path)
     try:
-        catalog.build(root)
+        catalog.build_locked(root)
     except BaseException:
         path.write_bytes(before)
         raise

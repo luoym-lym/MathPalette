@@ -43,7 +43,7 @@ class Ana07:
         self.source_dataset = 'DynaMath'
         self.query = 'At what value of x in the interval [-6, 6] does the function f(x) fail to be continuous?'
         self.answer = -1
-        self.answer_type = 'integer'
+        self.answer_type = 'number'
         self.subject = 'analytic geometry'
         self.level = 'high school'
 

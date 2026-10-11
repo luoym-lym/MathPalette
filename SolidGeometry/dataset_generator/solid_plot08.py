@@ -12,7 +12,7 @@ class Solid08:
         self.source_dataset = 'MathVerse'
         self.query = 'Find L.'
         self.answer = '14'
-        self.answer_type = 'length'
+        self.answer_type = 'number'
         self.subject = 'SolidGeometry'
         self.level = 'medium'
         self.scene_path = Path(__file__).with_name("scenes") / "Solid08.json"

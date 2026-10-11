@@ -12,7 +12,7 @@ class Solid15:
         self.source_dataset = 'MathVerse'
         self.query = 'Consider the two similar spheres shown.\n\n\nFind the volume of Sphere A, in simplest exact form.'
         self.answer = '\\[36\\pi \\mathrm{cm}^3\\]'
-        self.answer_type = 'expression'
+        self.answer_type = 'number'
         self.subject = 'SolidGeometry'
         self.level = 'medium'
         self.scene_path = Path(__file__).with_name("scenes") / "Solid15.json"

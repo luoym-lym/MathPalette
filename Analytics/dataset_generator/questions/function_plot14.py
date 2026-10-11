@@ -43,7 +43,7 @@ class Ana14:
         self.source_dataset = 'DynaMath'
         self.query = 'The cubic polynomial f(x) has three real roots x_1, x_2, x_3. What is the sum of these roots, x_1 + x_2 + x_3?'
         self.answer = 2
-        self.answer_type = 'integer'
+        self.answer_type = 'number'
         self.subject = 'analytic geometry'
         self.level = 'high school'
 

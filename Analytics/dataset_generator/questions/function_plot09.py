@@ -43,7 +43,7 @@ class Ana09:
         self.source_dataset = 'DynaMath'
         self.query = 'What is the local maximum value of the function f(x) shown in the figure?'
         self.answer = 4
-        self.answer_type = 'integer'
+        self.answer_type = 'number'
         self.subject = 'analytic geometry'
         self.level = 'high school'
 

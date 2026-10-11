@@ -17,7 +17,7 @@ def _dest(qid,output_path):
 class Ana21:
     def __init__(self):
         self.id="Ana21"; self.source_dataset="MathVerse"
-        self.query='Find the coordinates of the midpoint of the rectangle diagonals.'; self.answer='(2,2)'; self.answer_type="string"; self.subject="analytic geometry" if 21<32 else "functions"; self.level="high school"
+        self.query='Find the coordinates of the midpoint of the rectangle diagonals.'; self.answer='(2,2)'; self.answer_type='expression'; self.subject="analytic geometry" if 21<32 else "functions"; self.level="high school"
     def draw(self,num=0,output_path=None):
         fig,ax=open_canvas()
         xs=[-2,6,6,-2]; ys=[6,6,-2,-2]

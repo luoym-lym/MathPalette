@@ -12,7 +12,7 @@ class Plane10:
         self.source_dataset = 'MathVerse'
         self.query = '\\[Consider the following diagram:Find the size of \\angle ACD.\\]'
         self.answer = '35°'
-        self.answer_type = 'angle'
+        self.answer_type = 'number'
         self.subject = 'PlaneGeometry'
         self.level = 'high_school'
         self.scene_path = Path(__file__).with_name("scenes") / "Plane10.json"

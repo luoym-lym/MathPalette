@@ -12,7 +12,7 @@ class Plane15:
         self.source_dataset = 'MathVerse'
         self.query = 'In rectangle ABDF above, C and E are midpoints of sides BD and DF, respectively. What fraction of the area of the rectangle is shaded?'
         self.answer = '5/8'
-        self.answer_type = 'fraction'
+        self.answer_type = 'number'
         self.subject = 'PlaneGeometry'
         self.level = 'high_school'
         self.scene_path = Path(__file__).with_name("scenes") / "Plane15.json"
