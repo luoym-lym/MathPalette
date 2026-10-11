@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MathPalette · 立体几何 Special 工作台</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+  <script src="/quick-test.js" defer></script>
+  <script src="/board-geometry.js" defer></script>
+  <script src="/drawing-board.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">MathPalette <span>C</span></a>
+    <div class="title">立体几何 · Special 标注工作台</div>
+    <div class="top-actions"><span id="total-count">已收集 0 张</span><button id="prompt-button">Agent 提示词 / 使用说明</button></div>
+  </header>
+  <div class="layout">
+    <aside aria-label="题目导航">
+      <div class="sidebar-title">原题 <span id="question-total">正在读取</span></div>
+      <div class="nav-controls"><button id="previous">← 上一题</button><button id="next">下一题 →</button></div>
+      <label class="sr-only" for="search">筛选题号</label><input id="search" type="search" placeholder="筛选题号，如 Solid04">
+      <nav id="question-list" aria-label="题目列表"></nav>
+      <button id="toggle-completed" aria-expanded="false" aria-controls="completed-list">已完成 0 道 · 查看</button>
+      <nav id="completed-list" aria-label="已完成的题目" hidden></nav>
+      <p class="sidebar-note">Pass 保存一张变体。<br>Collect 完成整题并从此列表隐藏。</p>
+    </aside>
+    <main>
+      <div class="heading"><div><div class="eyebrow">C · MANUAL REVIEW</div><h1 id="question-id">正在连接工作台…</h1></div><div class="heading-actions"><button id="open-board" class="board-launch" disabled>✎ 打开画板</button><button id="collect-question" disabled>Collect · 完成收集</button><span id="status" class="status" role="status">连接中</span></div></div>
+      <div id="error" class="error" role="alert" hidden></div>
+      <p id="all-collected" hidden>所有题目都已 Collect。可从侧栏「已完成」列表重新打开。</p>
+      <section class="question-panel" aria-label="题目与答案"><p id="question-text"></p><details><summary>查看标准答案</summary><pre id="answer"></pre></details></section>
+      <div class="comparison">
+        <section class="image-card"><div class="card-heading"><h2>原图</h2><span>768 × 768</span></div>
+          <button id="original-zoom" class="image-button" aria-label="放大原图到 768×768" disabled><img id="original-image" alt="当前题目原图"></button>
+          <div class="image-footer">点击图片放大 · 冻结三维几何与二维投影</div>
+        </section>
+        <section class="image-card"><div class="card-heading"><h2>当前候选</h2><div class="candidate-actions"><span id="candidate-count">等待提交</span><button id="quick-test-button" disabled>Quick Test</button></div></div>
+          <div id="candidate-frame" class="candidate-frame"><button id="candidate-zoom" class="image-button" aria-label="放大候选图到 768×768" hidden disabled><img id="candidate-image" alt="待人工审核的 C 候选图"></button>
+            <div id="waiting" class="waiting"><span class="waiting-symbol">＋</span><strong>等待 agent 提交方案</strong><p>在另一个终端与 agent 讨论标记，<br>提交成功后，候选会自动出现在这里。</p></div>
+          </div>
+          <div class="image-footer" id="candidate-id">没有待审候选</div>
+        </section>
+      </div>
+      <section id="quick-test-panel" class="quick-test-panel" aria-label="候选图 Quick Test" hidden>
+        <div class="quick-test-heading"><h2>Quick Test <span id="quick-test-model">MiniMax-M3</span></h2><span id="quick-test-status" role="status"></span></div>
+        <p id="quick-test-hint" class="muted">发送题干和当前候选图，查看模型回答；已关闭思考，不自动判分。</p>
+        <div id="quick-test-error" class="error" role="alert" hidden></div>
+        <p id="quick-test-warning" class="quick-test-warning" hidden>接口返回了长度截断，以下内容可能不完整。</p>
+        <div id="quick-test-output" hidden><h3>模型回答</h3><pre id="quick-test-answer"></pre><details id="quick-test-thinking-details" open hidden><summary>模型思考</summary><pre id="quick-test-thinking"></pre></details></div>
+      </section>
+      <section id="candidate-info" class="candidate-info" hidden><h2>方案与操作</h2><p id="description"></p><p id="intent" class="muted"></p><ul id="action-summary"></ul><details><summary>查看冻结插件参数</summary><pre id="candidate-params"></pre></details></section>
+      <section class="review-bar" aria-label="人工审核">
+        <div class="review-help"><strong>由你决定是否收集</strong><span id="review-hint">收到候选并完成载入后可审核。</span></div>
+        <label class="sr-only" for="reject-note">拒绝备注（可选）</label><input id="reject-note" maxlength="1000" placeholder="拒绝备注（可选）">
+        <div class="review-actions"><button id="reject" class="reject" disabled>No Pass</button><button id="pass" class="pass" disabled>Pass</button></div>
+      </section>
+      <section class="object-panel"><details><summary>原图对象定位 <span class="muted">· 稳定 ID 与高亮参考</span></summary><p class="muted">先核对对象再修改样式。高亮仅供参考，不进入候选或正式数据。</p><div id="objects"></div></details></section>
+      <section class="collection"><div class="collection-heading"><h2>本题已收集的 C 图 <span id="accepted-count">0</span></h2><span class="muted">按人工通过顺序编号</span></div><div id="accepted-list" class="accepted-list"></div></section>
+      <footer>可以直接打开画板标注，也可以在终端与 agent 协作；两种方式使用相同的 C 插件与保存格式。</footer>
+    </main>
+  </div>
+  <dialog id="zoom-dialog"><div class="dialog-heading"><strong id="zoom-title"></strong><button id="close-zoom" aria-label="关闭放大图">关闭 ✕</button></div><img id="zoom-image" alt="768×768 放大图"></dialog>
+  <dialog id="board-dialog" aria-labelledby="board-title">
+    <div class="dialog-heading"><strong id="board-title">手动画板</strong><button id="close-board">返回工作台 ✕</button></div>
+    <div id="board-conflict" class="error" hidden>工作台的题目或候选已更新。画板草稿仍保留；载入最新候选后可以继续编辑。<button id="board-reload">载入最新候选</button></div>
+    <div class="board-layout">
+      <section class="board-tools" aria-label="画板工具">
+        <details class="board-question"><summary>查看题目与答案</summary><p id="board-question-text"></p><strong>标准答案</strong><pre id="board-answer"></pre></details>
+        <div class="board-tool-group" role="group" aria-label="选择工具">
+          <button data-board-tool="point" aria-pressed="true">● 标记点 <kbd>1</kbd></button>
+          <button data-board-tool="line" aria-pressed="false">┄ 辅助虚线 <kbd>2</kbd></button>
+          <button data-board-tool="curve" aria-pressed="false">⌁ 选择原对象 <kbd>3</kbd></button>
+        </div>
+        <p id="board-tool-help" class="board-help">单击放置实心点；按住 Ctrl 吸附几何点。</p>
+        <label class="board-snap"><input id="board-snap" type="checkbox">始终吸附几何点</label>
+        <div id="board-add-colors" class="board-color-row" role="group" aria-label="新增标记颜色">
+          <button data-board-add-color="#DC2626" class="swatch swatch-red" aria-label="新增标记红色">红</button>
+          <button data-board-add-color="#2563EB" class="swatch swatch-blue" aria-label="新增标记蓝色">蓝</button>
+          <button data-board-add-color="#16A34A" class="swatch swatch-green" aria-label="新增标记绿色">绿</button>
+          <button data-board-add-color="#EA580C" class="swatch swatch-orange" aria-label="新增标记橙色">橙</button>
+        </div>
+        <div id="board-point-connect" hidden>
+          <label for="board-point-start">精确连接 · 起点</label><select id="board-point-start"></select>
+          <label for="board-point-end">终点（保留各空间点身份）</label><select id="board-point-end"></select>
+          <button id="board-connect-points">连接所选两点</button>
+        </div>
+        <div id="board-curve-controls" hidden>
+          <label for="board-target">当前对象（重叠时可在此选择）</label><select id="board-target"><option value="">点击图中的原对象</option></select>
+          <div class="board-color-row" role="group" aria-label="曲线颜色">
+            <button data-board-color="#DC2626" class="swatch swatch-red" aria-label="曲线改为红色">红</button>
+            <button data-board-color="#2563EB" class="swatch swatch-blue" aria-label="曲线改为蓝色">蓝</button>
+            <button data-board-color="#16A34A" class="swatch swatch-green" aria-label="曲线改为绿色">绿</button>
+            <button data-board-color="#EA580C" class="swatch swatch-orange" aria-label="曲线改为橙色">橙</button>
+            <button data-board-color="#000000" class="swatch swatch-black" aria-label="曲线改为黑色">黑</button>
+          </div>
+          <div class="board-button-row"><button id="board-dashed">改为虚线</button><button id="board-solid">改为实线</button></div>
+          <button id="board-restore-curve">恢复原对象样式</button>
+        </div>
+        <div class="board-button-row"><button id="board-undo" disabled>撤销</button><button id="board-redo" disabled>重做</button><button id="board-clear" disabled>清空</button></div>
+        <label for="board-description">标注说明（可选）</label><input id="board-description" maxlength="1000" placeholder="例如：交点右侧添加红点">
+        <details class="board-action-details"><summary>编辑标记 <span id="board-action-count">0</span></summary><ol id="board-actions"></ol></details>
+        <p class="board-help">Ctrl：吸附已有顶点、命名点与新增点<br>Shift：仅约束画面水平 / 竖直，不覆盖吸附端点<br>Esc：取消未完成的线段 / 取消选中<br>Ctrl+Z / Ctrl+Shift+Z：撤销 / 重做</p>
+      </section>
+      <section class="board-stage" aria-label="标注画布">
+        <div class="board-readout"><span id="board-coordinates">移动指针查看坐标</span><span id="board-selected"></span></div>
+        <canvas id="board-canvas" width="768" height="768" tabindex="0" aria-label="手动画布；点工具单击放点，辅助线工具点击起点与终点，曲线工具点击选择原曲线"></canvas>
+        <div id="board-message" role="status">正在载入画板…</div>
+      </section>
+    </div>
+    <div class="board-footer"><span id="board-save-hint">预览与正式图片使用同一个渲染器。</span><div class="board-button-row"><button id="board-submit" disabled>提交到当前候选</button><button id="board-pass" class="pass" disabled>Pass · 收集这张图</button></div></div>
+  </dialog>
+  <dialog id="prompt-dialog"><div class="dialog-heading"><strong>与终端 agent 协作</strong><button id="close-prompt" aria-label="关闭提示词">关闭 ✕</button></div>
+    <ol class="instructions"><li>启动工作台并选择题目。</li><li>在另一个终端让 agent 阅读 <code>MathPalette/SolidGeometry/workbench/agent_prompt.md</code>，用自然语言描述标记。</li><li>agent 读取 context、制作插件并提交；本页自动展示候选。</li><li>需要时点击 Quick Test 查看模型回答，再由你决定 Pass 或 No Pass。</li></ol>
+    <div class="prompt-heading"><strong>标记 agent 提示词</strong><button id="copy-prompt">复制提示词</button></div><label class="sr-only" for="prompt-text">Agent 提示词全文</label><textarea id="prompt-text" readonly></textarea>
+  </dialog>
+</body>
+</html>

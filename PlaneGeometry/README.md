@@ -2,7 +2,9 @@
 
 正式通过题共 16 道：Plane01～Plane16。`dataset.jsonl` 仅含正式题；重绘 PNG 在 `image/`，来源截图在 `originals/`，冻结场景和逐题绘图程序在 `dataset_generator/`。
 
-公共绘图器和机器协议保持原样。场景可重新导出 PNG 或 SVG；本次移除重复的 SVG 成品。Base/Special 尚未启用。
+公共绘图器和机器协议保持原样。场景可重新导出 PNG 或 SVG。Base 尚未启用；Special 标注工作台已提供，原题审核与变体 Pass/Collect 分开保存。
+
+双击 `start_special_workbench.cmd`，在 `http://127.0.0.1:8768` 标注平面题。工作台支持已有对象颜色/实虚线、四色实心点、四色辅助虚线，以及已有几何点与新增点的精确吸附连接。运行状态在项目 `.runtime/plane_special/`，用户 Pass 后才保存到 `special_variant/`。使用、Agent CLI 与测试说明见 [workbench/README.md](workbench/README.md)。
 
 在项目根目录重绘：
 

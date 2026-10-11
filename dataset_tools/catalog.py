@@ -1,9 +1,12 @@
 """Build or verify the formal catalog. Never infer user approval from rendering."""
 from __future__ import annotations
 import argparse
+from contextlib import contextmanager
 import hashlib
 import json
 import os
+import tempfile
+import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -91,14 +94,61 @@ def catalog(root=ROOT):
         raise ValueError('Approval records must match the formal question set exactly')
     return result
 
+@contextmanager
+def catalog_write_lock(root, timeout=30):
+    """Serialize catalog reads and replacement across the independent workbenches."""
+    directory = Path(root) / '.runtime' / 'catalog'
+    directory.mkdir(parents=True, exist_ok=True)
+    with (directory / 'build.lock').open('a+b') as handle:
+        if os.fstat(handle.fileno()).st_size == 0:
+            handle.write(b'0')
+            handle.flush()
+        deadline = time.monotonic() + timeout
+        acquired = False
+        try:
+            while not acquired:
+                handle.seek(0)
+                try:
+                    if os.name == 'nt':
+                        import msvcrt
+                        msvcrt.locking(handle.fileno(), msvcrt.LK_NBLCK, 1)
+                    else:
+                        import fcntl
+                        fcntl.flock(handle.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+                    acquired = True
+                except OSError as error:
+                    if time.monotonic() >= deadline:
+                        raise TimeoutError('Another workbench is updating the formal catalog; try again.') from error
+                    time.sleep(0.05)
+            yield
+        finally:
+            if acquired:
+                handle.seek(0)
+                if os.name == 'nt':
+                    import msvcrt
+                    msvcrt.locking(handle.fileno(), msvcrt.LK_UNLCK, 1)
+                else:
+                    import fcntl
+                    fcntl.flock(handle.fileno(), fcntl.LOCK_UN)
+
+
 def build(root=ROOT):
-    root=Path(root)
-    result=catalog(root)
-    target=root/'question_bank.jsonl'
-    temporary=target.with_suffix('.jsonl.tmp')
-    temporary.write_text(''.join(json.dumps(r,ensure_ascii=False)+'\n' for r in result),encoding='utf-8',newline='\n')
-    os.replace(temporary,target)
-    return result
+    root = Path(root).resolve()
+    with catalog_write_lock(root):
+        # Read after acquiring the lock so a queued writer uses the newest recipes.
+        result = catalog(root)
+        target = root / 'question_bank.jsonl'
+        descriptor, name = tempfile.mkstemp(prefix='.question_bank.', suffix='.tmp', dir=root)
+        temporary = Path(name)
+        try:
+            with os.fdopen(descriptor, 'w', encoding='utf-8', newline='\n') as handle:
+                handle.write(''.join(json.dumps(row, ensure_ascii=False) + '\n' for row in result))
+                handle.flush()
+                os.fsync(handle.fileno())
+            os.replace(temporary, target)
+        finally:
+            temporary.unlink(missing_ok=True)
+        return result
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)

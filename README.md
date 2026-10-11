@@ -6,9 +6,12 @@
 | --- | --- |
 | 正式原题 | [question_bank.jsonl](question_bank.jsonl)，77 条 |
 | 自动 Base | Analytics 每题 4 张，共 180 张及对应插件 |
-| 人工 Special | Ana01～Ana20 共 72 张，保留原 Pass / Collect 时间 |
+| 人工 Special | 当前 Analytics 共 95 张，保留原 Pass / Collect 时间 |
 | 来源截图 | MathVerse 57 张；DynaMath 20 题的来源截图在原库中缺失 |
-| Special 工作台 | 双击 [Analytics/start_special_workbench.cmd](Analytics/start_special_workbench.cmd) |
+| 解析几何 Special 工作台 | 双击 [Analytics/start_special_workbench.cmd](Analytics/start_special_workbench.cmd)，端口 8767 |
+| 平面几何 Special 工作台 | 双击 [PlaneGeometry/start_special_workbench.cmd](PlaneGeometry/start_special_workbench.cmd)，端口 8768 |
+| 立体几何 Special 工作台 | 双击 [SolidGeometry/start_special_workbench.cmd](SolidGeometry/start_special_workbench.cmd)，端口 8769 |
+| 几何工作台需求 | [GEOMETRY_WORKBENCH_REQUIREMENTS.md](GEOMETRY_WORKBENCH_REQUIREMENTS.md) |
 | 审核凭据 | [provenance/approvals.json](provenance/approvals.json) |
 
 Ana01～Ana20 保留 DynaMath 编号，Ana21～Ana45 为 MathVerse；图片、绘图类、Base 插件和工作台使用相同题号。平面、立体分别使用 Plane01～Plane16、Solid01～Solid16。清理前编号仅保存在 [迁移记录](provenance/cleanup.json) 中。
@@ -34,8 +37,8 @@ Ana01～Ana20 保留 DynaMath 编号，Ana21～Ana45 为 MathVerse；图片、�
 
 ```text
 Analytics/       正式清单、图片、绘图器、Base、Special、工作台、评测程序
-PlaneGeometry/   正式清单、图片、冻结二维场景、绘图器
-SolidGeometry/   正式清单、图片、冻结三维场景、绘图器
+PlaneGeometry/   正式清单、图片、冻结二维场景、绘图器、Special 工作台
+SolidGeometry/   正式清单、图片、冻结三维场景、绘图器、Special 工作台
 dataset_tools/   正式索引、内容校验和几何重绘
 provenance/      用户通过记录、必要来源说明、一次清理核验记录
 .runtime/        启动后生成的工作台状态、预览和临时重绘
@@ -53,16 +56,18 @@ python -X utf8 -B dataset_tools/catalog.py check
 python -X utf8 -B dataset_tools/catalog.py build
 python -X utf8 -B Analytics/dataset_generator/generate_base_variants.py check --redraw
 python -X utf8 -B Analytics/workbench/launch_workbench.py --check
+python -X utf8 -B PlaneGeometry/workbench/launch_workbench.py --check
+python -X utf8 -B SolidGeometry/workbench/launch_workbench.py --check
 python -X utf8 -B dataset_tools/geometry_dataset.py PlaneGeometry Plane01
 python -X utf8 -B dataset_tools/geometry_dataset.py SolidGeometry Solid01
 python -X utf8 -B Analytics/special_variant/Ana01/draw_variants.py C01
 ```
 
-工作台仅展示正式 Analytics 题。Ana01～Ana20 的 Collect 状态保留，新 MathVerse 25 题等待人工制作 Special。平面、立体的 Base / Special 尚未启用。
+三套工作台分别展示各分支的正式题，保存独立草稿和收集进度，可以同时运行。平面与立体首版提供原对象改色及实虚线、四色标记点、四色辅助虚线、已有顶点和新增点吸附；画板和 Agent 使用相同插件限制。原题数据和审核记录不由标注工具修改。平面、立体的 Base 尚未启用。
 
 双击 CMD 时，工作台启动器会自动寻找与正式数据冻结版本匹配的 Python，避免系统 Python 与 Conda 环境混用导致像素校验失败。启动窗口会显示实际解释器路径和依赖版本；也可通过 `MATHPALETTE_PYTHON` 指定匹配的解释器。
 
-候选图右上角提供 **Quick Test**：使用 `.env` 中的 `MINIMAX_API_KEY` 调用中国区 MiniMax-M3，关闭思考后直接回答候选图对应的题目，不设置本地输出上限。画板标注后先点击「提交到当前候选」即可测试；不接入 judge，不自动收集，结果只保存在 `.runtime/analytics_special/quick_tests/`。
+候选图右上角提供 **Quick Test**：使用 `.env` 中的 `MINIMAX_API_KEY` 调用中国区 MiniMax-M3，关闭思考后直接回答候选图对应的题目，不设置本地输出上限。画板标注后先点击「提交到当前候选」即可测试；不接入 judge，不自动收集。结果分别保存在 `.runtime/analytics_special/quick_tests/`、`.runtime/plane_special/quick_tests/` 和 `.runtime/solid_special/quick_tests/`。
 
 评测程序在 `Analytics/evaluation/`，默认读取项目根目录 `.env`。评测会调用模型 API；本次清理只检查数据加载与本地重绘，没有运行模型评测。新增结果默认写入 `.runtime/evaluation/`。
 
