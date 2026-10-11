@@ -1,0 +1,240 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_483",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / UniGeo",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -1.0880690953399292,
+      2.630404546451242
+    ],
+    "ylim": [
+      -1.8467540865899796,
+      1.8717195552011916
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "bbox_px": [
+        54,
+        171,
+        713,
+        596
+      ],
+      "occupancy": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "points": {
+    "A": [
+      0.0,
+      -1.0
+    ],
+    "B": [
+      0.0,
+      1.0
+    ],
+    "O": [
+      0.0,
+      0.0
+    ],
+    "C": [
+      0.984807753012208,
+      -0.1736481776669304
+    ],
+    "D": [
+      1.67819926235456,
+      -1.0
+    ],
+    "E": [
+      2.5,
+      -1.0
+    ],
+    "L": [
+      -1.0,
+      -1.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "circle",
+      "center": "O",
+      "radius": 1
+    },
+    {
+      "id": "o2",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "o3",
+      "type": "segment",
+      "points": [
+        "B",
+        "D"
+      ]
+    },
+    {
+      "id": "o4",
+      "type": "segment",
+      "points": [
+        "O",
+        "C"
+      ]
+    },
+    {
+      "id": "o5",
+      "type": "segment",
+      "points": [
+        "L",
+        "E"
+      ]
+    },
+    {
+      "id": "o6",
+      "type": "point",
+      "point": "O"
+    }
+  ],
+  "labels": [
+    {
+      "id": "v7",
+      "type": "vertex",
+      "point": "A",
+      "text": "A",
+      "offset_pt": [
+        -3,
+        -13
+      ]
+    },
+    {
+      "id": "v8",
+      "type": "vertex",
+      "point": "B",
+      "text": "B",
+      "offset_pt": [
+        0,
+        13
+      ]
+    },
+    {
+      "id": "v9",
+      "type": "vertex",
+      "point": "O",
+      "text": "O",
+      "offset_pt": [
+        -12,
+        0
+      ]
+    },
+    {
+      "id": "v10",
+      "type": "vertex",
+      "point": "C",
+      "text": "C",
+      "offset_pt": [
+        11,
+        4
+      ]
+    },
+    {
+      "id": "v11",
+      "type": "vertex",
+      "point": "D",
+      "text": "D",
+      "offset_pt": [
+        0,
+        -13
+      ]
+    },
+    {
+      "id": "v12",
+      "type": "vertex",
+      "point": "E",
+      "text": "E",
+      "offset_pt": [
+        0,
+        -13
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c13",
+      "type": "angle",
+      "points": [
+        "A",
+        "O",
+        "C"
+      ],
+      "degrees": 80
+    },
+    {
+      "id": "c14",
+      "type": "between",
+      "points": [
+        "A",
+        "O",
+        "B"
+      ]
+    },
+    {
+      "id": "c15",
+      "type": "between",
+      "points": [
+        "B",
+        "C",
+        "D"
+      ]
+    },
+    {
+      "id": "c16",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "O"
+        ],
+        [
+          "A",
+          "E"
+        ]
+      ]
+    },
+    {
+      "id": "c17",
+      "type": "on_circle",
+      "point": "A",
+      "center": "O",
+      "radius": 1
+    },
+    {
+      "id": "c18",
+      "type": "on_circle",
+      "point": "B",
+      "center": "O",
+      "radius": 1
+    },
+    {
+      "id": "c19",
+      "type": "on_circle",
+      "point": "C",
+      "center": "O",
+      "radius": 1
+    }
+  ],
+  "ambiguities": [],
+  "construction": "Vertical diameterAB, circle tangentAE atA, BC extended toD, AOC80.",
+  "user_approved": false,
+  "constraint_interpretation": "Numerical constraints validate the frozen realization. Free scale choices and algebraic consequences are construction parameters, not additional givens. Only original diagram marks and source question are asserted; no derived answer labels are added.",
+  "source_metadata": "source_metadata.json"
+}

@@ -1,0 +1,198 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_94",
+  "status": "review_candidate",
+  "user_approved": false,
+  "source_dataset": "MathVista testmini / GeoQA+",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -0.5519864192559587,
+      8.544647463047903
+    ],
+    "ylim": [
+      -2.6924647034641342,
+      6.404169178839728
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "content_bbox_px": [
+        54,
+        229,
+        714,
+        539
+      ],
+      "long_side_fraction": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ],
+      "target_long_side_fraction": 0.86
+    }
+  },
+  "points": {
+    "A": [
+      0.0,
+      0.0
+    ],
+    "B": [
+      6.863683824638351,
+      3.497221585936496
+    ],
+    "C": [
+      8.0,
+      0.0
+    ],
+    "D": [
+      5.5932437186177415,
+      1.748610792968248
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "o2",
+      "type": "segment",
+      "points": [
+        "B",
+        "D"
+      ]
+    },
+    {
+      "id": "o3",
+      "type": "segment",
+      "points": [
+        "C",
+        "D"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "l1",
+      "type": "vertex",
+      "point": "A",
+      "text": "A",
+      "offset_pt": [
+        -12,
+        -5
+      ]
+    },
+    {
+      "id": "l2",
+      "type": "vertex",
+      "point": "B",
+      "text": "B",
+      "offset_pt": [
+        0,
+        14
+      ]
+    },
+    {
+      "id": "l3",
+      "type": "vertex",
+      "point": "C",
+      "text": "C",
+      "offset_pt": [
+        12,
+        -5
+      ]
+    },
+    {
+      "id": "l4",
+      "type": "vertex",
+      "point": "D",
+      "text": "D",
+      "offset_pt": [
+        -11,
+        -5
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c1",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "B",
+          "D"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ]
+    },
+    {
+      "id": "c2",
+      "type": "angle",
+      "points": [
+        "A",
+        "C",
+        "D"
+      ],
+      "degrees": 36
+    },
+    {
+      "id": "c3",
+      "type": "angle",
+      "points": [
+        "D",
+        "C",
+        "B"
+      ],
+      "degrees": 36
+    },
+    {
+      "id": "c4",
+      "type": "angle",
+      "points": [
+        "B",
+        "A",
+        "C"
+      ],
+      "degrees": 27
+    },
+    {
+      "id": "c5",
+      "type": "angle",
+      "points": [
+        "A",
+        "B",
+        "D"
+      ],
+      "degrees": 27
+    },
+    {
+      "id": "c6",
+      "type": "angle",
+      "points": [
+        "D",
+        "B",
+        "C"
+      ],
+      "degrees": 54
+    }
+  ],
+  "ambiguities": [],
+  "construction": "ABC is constructed from angles A=27°, C=72°, B=81°. D is the foot from B onto the internal C-angle-bisector. This satisfies the stated relations and DBC=54°; no solved angle values appear in the image.",
+  "question": "如图，D为△ABC内一点，CD平分∠ACB，BD⊥CD，∠A＝∠ABD，若∠DBC＝54°，则∠A的度数为（）",
+  "display_coordinate_note": "Coordinates are frozen construction coordinates, not additional given data.",
+  "style_normalizations": [
+    "768×768 opaque white; protocol black 1pt primitives; DejaVu Sans point names18pt and values16pt; no question or answer embedded.",
+    "Decorative source colors removed; named objects, continuous topology, semantic dashed lines and any meaningful shaded region retained.",
+    "Original angle callout leaders, when present, are replaced by a direct bound label and exactly one angle arc; no equality or auxiliary geometry is implied.",
+    "Source distance arrows, where present, are normalized to perpendicular solid connectors and a parallel dashed dimension line."
+  ]
+}

@@ -1,0 +1,215 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_927",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / GeoQA+",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -0.4744920894140141,
+      7.59238866883997
+    ],
+    "ylim": [
+      -1.6117261319672056,
+      6.455154626286777
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "pixel_bbox": [
+        54,
+        148,
+        713,
+        618
+      ],
+      "occupancy": 0.859375,
+      "center_error_px": [
+        0.0,
+        -0.5
+      ]
+    }
+  },
+  "points": {
+    "B": [
+      0.0,
+      0.0
+    ],
+    "A": [
+      3.6,
+      4.8
+    ],
+    "C": [
+      7.074468085106383,
+      0.0
+    ],
+    "E": [
+      5.0,
+      0.0
+    ],
+    "D": [
+      1.8,
+      2.4
+    ]
+  },
+  "objects": [
+    {
+      "id": "segment8",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "segment9",
+      "type": "segment",
+      "points": [
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "segment10",
+      "type": "segment",
+      "points": [
+        "C",
+        "A"
+      ]
+    },
+    {
+      "id": "segment11",
+      "type": "segment",
+      "points": [
+        "D",
+        "E"
+      ]
+    },
+    {
+      "id": "segment12",
+      "type": "segment",
+      "points": [
+        "A",
+        "E"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "label1",
+      "type": "vertex",
+      "point": "B",
+      "text": "B",
+      "offset_pt": [
+        -12,
+        -10
+      ]
+    },
+    {
+      "id": "label2",
+      "type": "vertex",
+      "point": "A",
+      "text": "A",
+      "offset_pt": [
+        0,
+        15
+      ]
+    },
+    {
+      "id": "label3",
+      "type": "vertex",
+      "point": "C",
+      "text": "C",
+      "offset_pt": [
+        14,
+        -8
+      ]
+    },
+    {
+      "id": "label4",
+      "type": "vertex",
+      "point": "E",
+      "text": "E",
+      "offset_pt": [
+        0,
+        -15
+      ]
+    },
+    {
+      "id": "label5",
+      "type": "vertex",
+      "point": "D",
+      "text": "D",
+      "offset_pt": [
+        -13,
+        6
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint6",
+      "type": "between",
+      "points": [
+        "A",
+        "D",
+        "B"
+      ]
+    },
+    {
+      "id": "constraint7",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "D",
+          "B"
+        ]
+      ]
+    },
+    {
+      "id": "constraint13",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "D",
+          "E"
+        ]
+      ]
+    },
+    {
+      "id": "constraint14",
+      "type": "distance",
+      "points": [
+        "A",
+        "B"
+      ],
+      "value": 6
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": [
+    "ACE perimeter fixed at 13 by analytic construction; no perimeter value is inserted into the figure."
+  ],
+  "custom_numeric_checks": [
+    {
+      "relation": "AC + CE + EA = 13",
+      "measured": 13.0,
+      "expected": 13
+    }
+  ]
+}

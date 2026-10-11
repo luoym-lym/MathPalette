@@ -1,0 +1,218 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_338",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / GEOS",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -1.6707886873885642,
+      7.442928035560392
+    ],
+    "ylim": [
+      -4.528891537683027,
+      4.584825185265929
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "bbox_px": [
+        139,
+        54,
+        628,
+        714
+      ],
+      "occupancy": 0.8606770833333334,
+      "center_error_px": [
+        0.0,
+        0.5
+      ]
+    }
+  },
+  "points": {
+    "A": [
+      0.0,
+      0.0
+    ],
+    "B": [
+      6.0,
+      4.0
+    ],
+    "C": [
+      6.0,
+      -4.0
+    ],
+    "E": [
+      3.0,
+      2.0
+    ],
+    "D": [
+      3.0,
+      -2.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "o2",
+      "type": "segment",
+      "points": [
+        "E",
+        "D"
+      ]
+    },
+    {
+      "id": "o8",
+      "type": "point",
+      "point": "A"
+    },
+    {
+      "id": "o9",
+      "type": "point",
+      "point": "E"
+    },
+    {
+      "id": "o10",
+      "type": "point",
+      "point": "D"
+    }
+  ],
+  "labels": [
+    {
+      "id": "v3",
+      "type": "vertex",
+      "point": "A",
+      "text": "A",
+      "offset_pt": [
+        -12,
+        0
+      ]
+    },
+    {
+      "id": "v4",
+      "type": "vertex",
+      "point": "B",
+      "text": "B",
+      "offset_pt": [
+        0,
+        13
+      ]
+    },
+    {
+      "id": "v5",
+      "type": "vertex",
+      "point": "C",
+      "text": "C",
+      "offset_pt": [
+        0,
+        -13
+      ]
+    },
+    {
+      "id": "v6",
+      "type": "vertex",
+      "point": "E",
+      "text": "E",
+      "offset_pt": [
+        -9,
+        11
+      ]
+    },
+    {
+      "id": "v7",
+      "type": "vertex",
+      "point": "D",
+      "text": "D",
+      "offset_pt": [
+        -9,
+        -11
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c11",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ]
+    },
+    {
+      "id": "c12",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "E"
+        ],
+        [
+          "E",
+          "B"
+        ]
+      ]
+    },
+    {
+      "id": "c13",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "D",
+          "C"
+        ]
+      ]
+    },
+    {
+      "id": "c14",
+      "type": "distance",
+      "points": [
+        "E",
+        "D"
+      ],
+      "value": 4
+    },
+    {
+      "id": "c15",
+      "type": "between",
+      "points": [
+        "A",
+        "E",
+        "B"
+      ]
+    },
+    {
+      "id": "c16",
+      "type": "between",
+      "points": [
+        "A",
+        "D",
+        "C"
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "construction": "Isosceles ABC, midpointE onAB andD onAC, ED4.",
+  "user_approved": false,
+  "constraint_interpretation": "Numerical constraints validate the frozen realization. Free scale choices and algebraic consequences are construction parameters, not additional givens. Only original diagram marks and source question are asserted; no derived answer labels are added.",
+  "source_metadata": "source_metadata.json"
+}

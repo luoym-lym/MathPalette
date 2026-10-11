@@ -1,0 +1,137 @@
+{
+  "pid": "684",
+  "status": "adapted_review_candidate",
+  "original_question": "$\\overline{CH} \\cong \\overline{KJ}$. Find $x$.",
+  "official_answer": "55",
+  "original_choices": [
+    "27",
+    "54",
+    "55",
+    "83"
+  ],
+  "original_answer_type": "text",
+  "adapted_question": "In circle $L$, $\\overline{GH}\\cong\\overline{KJ}$. Point $J$ lies on the minor arc $GH$, and point $H$ lies on the minor arc $KJ$, as shown. The minor arcs $GJ$ and $KH$ measure $83^\\circ$ and $(2x-27)^\\circ$, respectively. Find $x$.",
+  "adapted_choices": [
+    "27",
+    "54",
+    "55",
+    "83"
+  ],
+  "choices": [
+    "27",
+    "54",
+    "55",
+    "83"
+  ],
+  "adapted_query": "In circle $L$, $\\overline{GH}\\cong\\overline{KJ}$. Point $J$ lies on the minor arc $GH$, and point $H$ lies on the minor arc $KJ$, as shown. The minor arcs $GJ$ and $KH$ measure $83^\\circ$ and $(2x-27)^\\circ$, respectively. Find $x$.\nChoices:\n(A) 27\n(B) 54\n(C) 55\n(D) 83",
+  "rationale": "Correct the nonexistent endpoint C to visible G and make the intended minor-arc placement explicit so the geometry and answer are unambiguous. Preserve the original image, metadata, all numerical labels, all options and all protocol settings.",
+  "adapted_answer": "55",
+  "answer_type": "text",
+  "question_type": "multi_choice",
+  "answer_option": "C",
+  "changes": [
+    {
+      "field": "question",
+      "change": "Replace the nonexistent chord CH with GH.",
+      "rationale": "The source image labels the left chord endpoint G and has no point C; preserve all visible diagram names."
+    },
+    {
+      "field": "question",
+      "change": "Explicitly specify J on minor arc GH and H on minor arc KJ; restate the two existing arc labels in words.",
+      "rationale": "This makes the intended minor-arc placement shown by the diagram explicit, preventing the alternate equal-chord branch. It changes no diagram marks, numerical labels, choices or protocol settings."
+    }
+  ],
+  "unchanged": [
+    "Original source image and complete source metadata",
+    "All diagram points, curves, labels, style settings and frozen coordinates",
+    "All four answer choices; their correctness is independently checked below"
+  ],
+  "authorization_scope": "User-authorized minimal mathematical/source correction; this is still a review candidate, not formal dataset approval.",
+  "full_math_solution": {
+    "steps": [
+      "Congruent chords GH and KJ in one circle subtend equal minor arcs.",
+      "Because J lies on minor arc GH, its measure is arc GJ + arc JH = 83° + t.",
+      "Because H lies on minor arc KJ, its measure is arc JH + arc HK = t + (2x − 27)°.",
+      "Equating these minor-arc measures gives 83 + t = t + 2x − 27. Cancel t to obtain 2x − 27 = 83.",
+      "Therefore 2x=110 and x=55. Only choice C satisfies the equation."
+    ],
+    "equation": "83 + t = t + (2x - 27)",
+    "answer": "55",
+    "answer_option": "C"
+  },
+  "independent_verification": {
+    "exact_algebra": {
+      "method": "Python fractions.Fraction arithmetic, independent of source answer and scene coordinates",
+      "equation": "2*x - 27 = 83",
+      "computed_answer": "55",
+      "substitution_residual": "0",
+      "passed": true
+    },
+    "all_options_checked": [
+      {
+        "option": "A",
+        "value": "27",
+        "implied_arc_KH_degrees": "27",
+        "equal_arc_equation_residual_degrees": "-56",
+        "satisfies_adapted_problem": false
+      },
+      {
+        "option": "B",
+        "value": "54",
+        "implied_arc_KH_degrees": "81",
+        "equal_arc_equation_residual_degrees": "-2",
+        "satisfies_adapted_problem": false
+      },
+      {
+        "option": "C",
+        "value": "55",
+        "implied_arc_KH_degrees": "83",
+        "equal_arc_equation_residual_degrees": "0",
+        "satisfies_adapted_problem": true
+      },
+      {
+        "option": "D",
+        "value": "83",
+        "implied_arc_KH_degrees": "139",
+        "equal_arc_equation_residual_degrees": "56",
+        "satisfies_adapted_problem": false
+      }
+    ],
+    "unique_correct_option": "C",
+    "coordinate_verification": {
+      "chord_GH": 5.752918409209157,
+      "chord_KJ": 5.752918409209158,
+      "equal_chord_residual": -8.881784197001252e-16,
+      "arc_measures_degrees": {
+        "GJ": 83.0,
+        "JH": 64.0,
+        "HK": 83.0,
+        "GH_through_J": 147.0,
+        "JK_through_H": 147.0
+      },
+      "intended_minor_arc_placement": {
+        "J_on_minor_arc_GH": true,
+        "H_on_minor_arc_JK": true
+      },
+      "arc_KH_equation_residual": 0.0,
+      "tolerance": 1e-07
+    },
+    "agrees_with_official_answer": true,
+    "passed": true
+  },
+  "why_minor_arc_clarification_is_necessary": {
+    "counterexample_without_added_placement": "Cyclic gaps G→J=83°, J→H=98°, H→K=81°, K→G=98° yield equal minor arcs GH and KJ of 179°, hence equal chords, yet x=54. In that arrangement J is not on minor arc GH. The explicit adapted placement excludes this unintended branch.",
+    "counterexample_gap_sum_degrees": 360,
+    "counterexample_minor_arcs_degrees": [
+      179,
+      179
+    ],
+    "counterexample_x": 54,
+    "excluded_by_adapted_question": true
+  },
+  "source_preservation_hashes": {
+    "source.jpg": "dab006774e5adf70ae6b9c6c21b2b324c7a0b4ac4522749f6787e3cd84a5ae65",
+    "source_metadata.json": "851b35543c7b2f60ce004a50a3473c3f36c66929028c16de1a63593ddc219ba1"
+  },
+  "protocol_changes": []
+}

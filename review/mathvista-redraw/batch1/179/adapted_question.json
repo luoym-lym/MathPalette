@@ -1,0 +1,76 @@
+{
+  "pid": "179",
+  "source_dataset": "MathVista testmini / GeoQA+",
+  "status": "adapted_review_candidate",
+  "user_approved": false,
+  "original_question": "如图，在ABCD中，已知AC＝4cm，若△ACD的周长为14cm，则ABCD的周长为（）",
+  "official_answer": "20cm",
+  "original_choices": [
+    "14cm",
+    "28cm",
+    "10cm",
+    "20cm"
+  ],
+  "original_answer_type": "text",
+  "choices": [
+    "14cm",
+    "28cm",
+    "10cm",
+    "20cm"
+  ],
+  "answer_type": "text",
+  "geometry_changed": false,
+  "source_image": "source.jpg",
+  "source_metadata": "source_metadata.json",
+  "frozen_scene": "scene.json",
+  "adaptation_kind": "minimal_missing_condition_or_symbol_repair",
+  "adapted_question": "如图，在平行四边形ABCD中，已知AC＝4cm，若△ACD的周长为14cm，则平行四边形ABCD的周长为（）",
+  "adapted_answer": "20cm",
+  "changes": [
+    {
+      "before": "在ABCD中",
+      "after": "在平行四边形ABCD中",
+      "reason": "补明原题缺失的平行四边形条件。"
+    },
+    {
+      "before": "则ABCD的周长",
+      "after": "则平行四边形ABCD的周长",
+      "reason": "在求解目标中保持图形名称完整一致。"
+    }
+  ],
+  "rationale": "若ABCD仅为任意四边形，△ACD周长不能确定整个四边形周长。补明图示平行四边形后，可由对边相等唯一确定周长，不修改长度、选项或冻结图形。",
+  "mathematical_solution": {
+    "steps": [
+      "△ACD周长为AC＋CD＋DA＝14cm。",
+      "AC＝4cm，所以CD＋DA＝10cm。",
+      "平行四边形对边分别相等，其周长为2(CD＋DA)＝20cm。"
+    ],
+    "result": "20cm"
+  },
+  "independent_checks": {
+    "algebraic": {
+      "expression": "2 * (14 - 4)",
+      "computed_value_cm": 20,
+      "uses_official_answer_as_input": false,
+      "passed": true
+    },
+    "frozen_coordinate": {
+      "AC_cm": 4.0,
+      "AD_cm": 6.0,
+      "CD_cm": 4.0,
+      "triangle_ACD_perimeter_cm": 14.0,
+      "ABCD_perimeter_cm": 20.0,
+      "expected_cm": 20,
+      "absolute_error_cm": 0.0,
+      "passed": true
+    }
+  },
+  "option_validation": {
+    "independently_computed_answer": "20cm",
+    "matching_option_index_zero_based": 3,
+    "matching_option_letter": "D",
+    "unique_matching_choice": true,
+    "official_answer_agrees": true,
+    "official_answer_was_not_used_to_derive_result": true
+  }
+}

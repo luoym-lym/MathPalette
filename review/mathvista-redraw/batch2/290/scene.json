@@ -1,0 +1,224 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_290",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / GeoQA+",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -0.8249224231570187,
+      5.1498291747019005
+    ],
+    "ylim": [
+      -3.406802762357327,
+      2.5679488355015923
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "bbox_px": [
+        54,
+        202,
+        713,
+        565
+      ],
+      "occupancy": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "points": {
+    "A": [
+      0.0,
+      0.0
+    ],
+    "B": [
+      -0.5176380902050413,
+      -1.9318516525781366
+    ],
+    "E": [
+      3.0,
+      0.0
+    ],
+    "D": [
+      2.4823619097949585,
+      -1.9318516525781366
+    ],
+    "C": [
+      3.2588190451025207,
+      0.9659258262890683
+    ],
+    "R": [
+      5.0,
+      0.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "o2",
+      "type": "segment",
+      "points": [
+        "C",
+        "D"
+      ]
+    },
+    {
+      "id": "o3",
+      "type": "segment",
+      "points": [
+        "A",
+        "R"
+      ]
+    },
+    {
+      "id": "o9",
+      "type": "angle_arc",
+      "points": [
+        "B",
+        "A",
+        "E"
+      ],
+      "radius_pt": 16,
+      "reflex": false
+    },
+    {
+      "id": "o11",
+      "type": "angle_arc",
+      "points": [
+        "A",
+        "E",
+        "D"
+      ],
+      "radius_pt": 16,
+      "reflex": false
+    }
+  ],
+  "labels": [
+    {
+      "id": "v4",
+      "type": "vertex",
+      "point": "A",
+      "text": "A",
+      "offset_pt": [
+        -9,
+        10
+      ]
+    },
+    {
+      "id": "v5",
+      "type": "vertex",
+      "point": "B",
+      "text": "B",
+      "offset_pt": [
+        -9,
+        0
+      ]
+    },
+    {
+      "id": "v6",
+      "type": "vertex",
+      "point": "E",
+      "text": "E",
+      "offset_pt": [
+        -9,
+        10
+      ]
+    },
+    {
+      "id": "v7",
+      "type": "vertex",
+      "point": "D",
+      "text": "D",
+      "offset_pt": [
+        -9,
+        0
+      ]
+    },
+    {
+      "id": "v8",
+      "type": "vertex",
+      "point": "C",
+      "text": "C",
+      "offset_pt": [
+        8,
+        8
+      ]
+    },
+    {
+      "id": "a10",
+      "type": "angle",
+      "points": [
+        "B",
+        "A",
+        "E"
+      ],
+      "arc_id": "o9",
+      "radius_pt": 27,
+      "offset_pt": [
+        0,
+        0
+      ],
+      "reflex": false,
+      "text": "1",
+      "degrees": 105
+    },
+    {
+      "id": "a12",
+      "type": "angle",
+      "points": [
+        "A",
+        "E",
+        "D"
+      ],
+      "arc_id": "o11",
+      "radius_pt": 29,
+      "offset_pt": [
+        0,
+        0
+      ],
+      "reflex": false,
+      "text": "2"
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c13",
+      "type": "parallel",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ]
+    },
+    {
+      "id": "c14",
+      "type": "between",
+      "points": [
+        "C",
+        "E",
+        "D"
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "construction": "AB parallel CD. Angle1 between AB and AE equals105 degrees.",
+  "user_approved": false,
+  "constraint_interpretation": "Numerical constraints validate the frozen realization. Free scale choices and algebraic consequences are construction parameters, not additional givens. Only original diagram marks and source question are asserted; no derived answer labels are added.",
+  "source_metadata": "source_metadata.json"
+}

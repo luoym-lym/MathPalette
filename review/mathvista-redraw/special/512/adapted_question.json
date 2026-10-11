@@ -1,0 +1,36 @@
+{
+  "pid": "512",
+  "status": "adapted_review_candidate",
+  "original_question": "What is the y coordinate of the center of mass of the isosceles right triangle of uniform areal density shown in Figure 9-C?",
+  "official_answer": "0.24",
+  "original_choices": null,
+  "adapted_question": "The figure shows an isosceles right triangle of uniform areal density. Its equal legs have length a = 6√2 in the coordinate axes' length units. Its hypotenuse lies on the x-axis and its right-angle vertex lies on the positive y-axis. What is the y-coordinate of its center of mass? Give your answer to two decimal places.",
+  "adapted_choices": null,
+  "adapted_answer": "2.00",
+  "answer_type": "float",
+  "precision": 2,
+  "changes": [
+    {
+      "field": "question",
+      "change": "Add explicit a=6√2 and axis incidence conditions already depicted.",
+      "rationale": "Original omitted numerical length a; scale cannot be invented on mandatory numeric [-8,8]² axes. This value yields a legible triangle wholly inside that window."
+    },
+    {
+      "field": "answer",
+      "from": "0.24",
+      "to": "2.00",
+      "rationale": "Recomputed for explicitly supplied length; source answer never reused as a coordinate constraint."
+    }
+  ],
+  "solution": "With the hypotenuse on y=0 and isosceles-right apex on positive y-axis, vertices are(-6,0),(0,6),(6,0). Uniform triangle centroid is their average(0,2), so y=2.00. Each equal leg has length√72=6√2.",
+  "independent_check": {
+    "method": "Area first moment integration, independent of vertex-average centroid formula.",
+    "width_at_height_y": "12-2y for0≤y≤6",
+    "area": "∫0^6(12-2y)dy=36",
+    "first_moment": "∫0^6 y(12-2y)dy=72",
+    "centroid_y": "72/36=2",
+    "passed": true
+  },
+  "source_preserved": true,
+  "user_approved_as_formal": false
+}

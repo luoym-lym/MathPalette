@@ -1,0 +1,241 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_410",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / Geometry3K",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -43.67185561735664,
+      2.416101685171334
+    ],
+    "ylim": [
+      -17.401614731607392,
+      28.686342570920583
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "bbox_px": [
+        54,
+        276,
+        713,
+        491
+      ],
+      "occupancy": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "points": {
+    "A": [
+      -40.66632513517788,
+      5.5
+    ],
+    "B": [
+      0.0,
+      0.0
+    ],
+    "C": [
+      0.0,
+      11.0
+    ],
+    "D": [
+      -10.16658128379447,
+      1.375
+    ],
+    "E": [
+      -10.16658128379447,
+      9.625
+    ],
+    "F": [
+      -5.809475019311125,
+      5.5
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "o2",
+      "type": "segment",
+      "points": [
+        "D",
+        "E"
+      ]
+    },
+    {
+      "id": "o3",
+      "type": "segment",
+      "points": [
+        "E",
+        "B"
+      ]
+    },
+    {
+      "id": "o4",
+      "type": "segment",
+      "points": [
+        "D",
+        "C"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "v5",
+      "type": "vertex",
+      "point": "A",
+      "text": "A",
+      "offset_pt": [
+        -14,
+        0
+      ]
+    },
+    {
+      "id": "v6",
+      "type": "vertex",
+      "point": "B",
+      "text": "B",
+      "offset_pt": [
+        8,
+        -12
+      ]
+    },
+    {
+      "id": "v7",
+      "type": "vertex",
+      "point": "C",
+      "text": "C",
+      "offset_pt": [
+        8,
+        12
+      ]
+    },
+    {
+      "id": "v8",
+      "type": "vertex",
+      "point": "D",
+      "text": "D",
+      "offset_pt": [
+        -9,
+        -12
+      ]
+    },
+    {
+      "id": "v9",
+      "type": "vertex",
+      "point": "E",
+      "text": "E",
+      "offset_pt": [
+        -9,
+        12
+      ]
+    },
+    {
+      "id": "v10",
+      "type": "vertex",
+      "point": "F",
+      "text": "F",
+      "offset_pt": [
+        28,
+        0
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c11",
+      "type": "distance",
+      "points": [
+        "D",
+        "F"
+      ],
+      "value": 6
+    },
+    {
+      "id": "c12",
+      "type": "distance",
+      "points": [
+        "F",
+        "C"
+      ],
+      "value": 8
+    },
+    {
+      "id": "c13",
+      "type": "parallel",
+      "segments": [
+        [
+          "D",
+          "E"
+        ],
+        [
+          "C",
+          "B"
+        ]
+      ]
+    },
+    {
+      "id": "c14",
+      "type": "between",
+      "points": [
+        "A",
+        "D",
+        "B"
+      ]
+    },
+    {
+      "id": "c15",
+      "type": "between",
+      "points": [
+        "A",
+        "E",
+        "C"
+      ]
+    },
+    {
+      "id": "c16",
+      "type": "between",
+      "points": [
+        "D",
+        "F",
+        "C"
+      ]
+    },
+    {
+      "id": "c17",
+      "type": "between",
+      "points": [
+        "E",
+        "F",
+        "B"
+      ]
+    }
+  ],
+  "ambiguities": [
+    "Triangle CBF may be freely shaped under the stated perimeter; an isosceles realization is chosen for readable layout, with no equal-length marker added."
+  ],
+  "construction": "Triangles DEF and CBF are opposite homothetic about F, ratio3/4. CBF has sides8,8,11 and perimeter27; DF6,FC8.",
+  "exact_conditions": [
+    {
+      "relation": "perimeter CBF=27",
+      "actual": 27.0,
+      "expected": 27
+    }
+  ],
+  "user_approved": false,
+  "constraint_interpretation": "Numerical constraints validate the frozen realization. Free scale choices and algebraic consequences are construction parameters, not additional givens. Only original diagram marks and source question are asserted; no derived answer labels are added.",
+  "source_metadata": "source_metadata.json"
+}

@@ -1,0 +1,191 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_315",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / GEOS",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -5.260289855410536,
+      2.074395758188314
+    ],
+    "ylim": [
+      -1.8717685758529081,
+      5.462917037745942
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "bbox_px": [
+        136,
+        54,
+        631,
+        713
+      ],
+      "occupancy": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "points": {
+    "A": [
+      0.0,
+      5.0
+    ],
+    "B": [
+      0.0,
+      0.0
+    ],
+    "C": [
+      -4.0,
+      -1.5
+    ],
+    "E": [
+      0.0,
+      1.0
+    ],
+    "D": [
+      0.8,
+      -0.3
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "o2",
+      "type": "segment",
+      "points": [
+        "E",
+        "D"
+      ]
+    },
+    {
+      "id": "o3",
+      "type": "segment",
+      "points": [
+        "B",
+        "D"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "v4",
+      "type": "vertex",
+      "point": "A",
+      "text": "A",
+      "offset_pt": [
+        0,
+        12
+      ]
+    },
+    {
+      "id": "v5",
+      "type": "vertex",
+      "point": "B",
+      "text": "B",
+      "offset_pt": [
+        -4,
+        -14
+      ]
+    },
+    {
+      "id": "v6",
+      "type": "vertex",
+      "point": "C",
+      "text": "C",
+      "offset_pt": [
+        -10,
+        -9
+      ]
+    },
+    {
+      "id": "v7",
+      "type": "vertex",
+      "point": "D",
+      "text": "D",
+      "offset_pt": [
+        10,
+        -9
+      ]
+    },
+    {
+      "id": "v8",
+      "type": "vertex",
+      "point": "E",
+      "text": "E",
+      "offset_pt": [
+        12,
+        3
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c9",
+      "type": "between",
+      "points": [
+        "A",
+        "E",
+        "B"
+      ]
+    },
+    {
+      "id": "c10",
+      "type": "angle",
+      "points": [
+        "B",
+        "A",
+        "C"
+      ],
+      "degrees": 31.607502246248895
+    },
+    {
+      "id": "c11",
+      "type": "angle",
+      "points": [
+        "A",
+        "C",
+        "B"
+      ],
+      "degrees": 37.836452534167634
+    },
+    {
+      "id": "c12",
+      "type": "distance",
+      "points": [
+        "A",
+        "B"
+      ],
+      "value": 5
+    },
+    {
+      "id": "c13",
+      "type": "distance",
+      "points": [
+        "E",
+        "B"
+      ],
+      "value": 1
+    }
+  ],
+  "ambiguities": [
+    "Source includes printed question and choices beneath the diagram; retained only in metadata. Display coordinates normalize EB to1, preserving the given5:1 ratio without displaying new lengths."
+  ],
+  "construction": "Triangles ABC and EBD are reflected homothetic at B, ratio5:1.",
+  "user_approved": false,
+  "constraint_interpretation": "Numerical constraints validate the frozen realization. Free scale choices and algebraic consequences are construction parameters, not additional givens. Only original diagram marks and source question are asserted; no derived answer labels are added.",
+  "source_metadata": "source_metadata.json"
+}

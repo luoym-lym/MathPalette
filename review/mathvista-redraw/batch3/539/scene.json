@@ -1,0 +1,172 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_539",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / GeoQA+",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -0.3330015630389771,
+      5.474533171982385
+    ],
+    "ylim": [
+      -1.8606101165110855,
+      3.946924618510276
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "points": {
+    "A": [
+      0.0,
+      0.0
+    ],
+    "B": [
+      5.140368200963543,
+      0.0
+    ],
+    "C": [
+      4.026621757421442,
+      2.056147280385417
+    ],
+    "D": [
+      2.5701841004817716,
+      0.0
+    ],
+    "E": [
+      4.583494979192492,
+      1.0280736401927084
+    ]
+  },
+  "objects": [
+    {
+      "id": "polygon_1",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "segment_2",
+      "type": "segment",
+      "points": [
+        "D",
+        "E"
+      ],
+      "linestyle": "solid"
+    }
+  ],
+  "labels": [
+    {
+      "id": "name_A",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        -10,
+        0
+      ]
+    },
+    {
+      "id": "name_B",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        12,
+        -5
+      ]
+    },
+    {
+      "id": "name_C",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        0,
+        14
+      ]
+    },
+    {
+      "id": "name_D",
+      "type": "vertex",
+      "point": "D",
+      "offset_pt": [
+        0,
+        -14
+      ]
+    },
+    {
+      "id": "name_E",
+      "type": "vertex",
+      "point": "E",
+      "offset_pt": [
+        12,
+        5
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint_1",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "D",
+          "B"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_2",
+      "type": "equal_length",
+      "segments": [
+        [
+          "B",
+          "E"
+        ],
+        [
+          "E",
+          "C"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_3",
+      "type": "between",
+      "points": [
+        "A",
+        "D",
+        "B"
+      ]
+    },
+    {
+      "id": "constraint_4",
+      "type": "between",
+      "points": [
+        "B",
+        "E",
+        "C"
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": [
+    "D and E are exact side midpoints; entire triangle uniformly scaled to make perimeter BDE=6, without displaying derived measures."
+  ]
+}

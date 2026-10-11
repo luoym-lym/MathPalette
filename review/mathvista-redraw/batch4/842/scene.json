@@ -1,0 +1,205 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_842",
+  "status": "adapted_review_candidate",
+  "source_dataset": "MathVista testmini / UniGeo",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -40.06638393536202,
+      45.180897243864926
+    ],
+    "ylim": [
+      -18.32791248278208,
+      66.91936869644486
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "pixel_bbox": [
+        54,
+        104,
+        713,
+        663
+      ],
+      "occupancy": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "points": {
+    "P": [
+      0.0,
+      0.0
+    ],
+    "A": [
+      25.000000000000007,
+      43.30127018922193
+    ],
+    "B": [
+      -34.64101615137755,
+      19.999999999999996
+    ],
+    "N": [
+      0.0,
+      55.0
+    ],
+    "S": [
+      0.0,
+      -10.0
+    ],
+    "W": [
+      -38.0,
+      0.0
+    ],
+    "E": [
+      43.0,
+      0.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "segment4",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "segment5",
+      "type": "segment",
+      "points": [
+        "B",
+        "P"
+      ]
+    },
+    {
+      "id": "segment6",
+      "type": "segment",
+      "points": [
+        "P",
+        "A"
+      ]
+    },
+    {
+      "id": "segment7",
+      "type": "segment",
+      "points": [
+        "S",
+        "N"
+      ]
+    },
+    {
+      "id": "segment8",
+      "type": "segment",
+      "points": [
+        "W",
+        "E"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "label1",
+      "type": "vertex",
+      "point": "P",
+      "text": "P",
+      "offset_pt": [
+        -10,
+        -14
+      ]
+    },
+    {
+      "id": "label2",
+      "type": "vertex",
+      "point": "A",
+      "text": "A",
+      "offset_pt": [
+        14,
+        5
+      ]
+    },
+    {
+      "id": "label3",
+      "type": "vertex",
+      "point": "B",
+      "text": "B",
+      "offset_pt": [
+        -14,
+        0
+      ]
+    },
+    {
+      "id": "text9",
+      "type": "text",
+      "text": "N",
+      "anchor": "N",
+      "offset_pt": [
+        0,
+        15
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint10",
+      "type": "distance",
+      "points": [
+        "P",
+        "A"
+      ],
+      "value": 50
+    },
+    {
+      "id": "constraint11",
+      "type": "distance",
+      "points": [
+        "P",
+        "B"
+      ],
+      "value": 40
+    },
+    {
+      "id": "constraint12",
+      "type": "angle",
+      "points": [
+        "N",
+        "P",
+        "A"
+      ],
+      "degrees": 30
+    },
+    {
+      "id": "constraint13",
+      "type": "angle",
+      "points": [
+        "N",
+        "P",
+        "B"
+      ],
+      "degrees": 60
+    }
+  ],
+  "construction_notes": [
+    "Adapted cardinal-direction label N means north; the original 北 is preserved only in the source image."
+  ],
+  "source_caveats": [],
+  "ambiguities": [],
+  "adapted_question": "adapted_question.json",
+  "adaptation_summary": [
+    "The protocol requires DejaVu Sans. Replacing the unsupported glyph with N preserves the direction using only the required font.",
+    "Makes the intended bearing convention explicit without changing the frozen geometry or given magnitudes.",
+    "Equivalent choice values with valid mathematical notation."
+  ]
+}

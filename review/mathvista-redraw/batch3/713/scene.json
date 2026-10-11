@@ -1,0 +1,380 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_713",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / Geometry3K",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -0.6945576176047972,
+      28.747219654641835
+    ],
+    "ylim": [
+      -17.571018971727696,
+      11.870758300518936
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "points": {
+    "A": [
+      0.0,
+      0.0
+    ],
+    "B": [
+      28.0,
+      0.0
+    ],
+    "C": [
+      23.375,
+      -8.866192813152667
+    ],
+    "D": [
+      20.0,
+      0.0
+    ],
+    "dim2a": [
+      0.0,
+      2.0
+    ],
+    "dim2b": [
+      20.0,
+      2.0
+    ],
+    "dim6a": [
+      20.0,
+      2.0
+    ],
+    "dim6b": [
+      28.0,
+      2.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "polygon_1",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "segment_2",
+      "type": "segment",
+      "points": [
+        "D",
+        "C"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_3",
+      "type": "segment",
+      "points": [
+        "dim2a",
+        "dim2b"
+      ],
+      "linestyle": "dashed",
+      "role": "dimension"
+    },
+    {
+      "id": "segment_4",
+      "type": "segment",
+      "points": [
+        "A",
+        "dim2a"
+      ],
+      "linestyle": "solid",
+      "role": "dimension"
+    },
+    {
+      "id": "segment_5",
+      "type": "segment",
+      "points": [
+        "D",
+        "dim2b"
+      ],
+      "linestyle": "solid",
+      "role": "dimension"
+    },
+    {
+      "id": "segment_7",
+      "type": "segment",
+      "points": [
+        "dim6a",
+        "dim6b"
+      ],
+      "linestyle": "dashed",
+      "role": "dimension"
+    },
+    {
+      "id": "segment_8",
+      "type": "segment",
+      "points": [
+        "D",
+        "dim6a"
+      ],
+      "linestyle": "solid",
+      "role": "dimension"
+    },
+    {
+      "id": "segment_9",
+      "type": "segment",
+      "points": [
+        "B",
+        "dim6b"
+      ],
+      "linestyle": "solid",
+      "role": "dimension"
+    },
+    {
+      "id": "angle_arc_13",
+      "type": "angle_arc",
+      "points": [
+        "A",
+        "C",
+        "D"
+      ],
+      "radius_pt": 23,
+      "reflex": false
+    },
+    {
+      "id": "angle_arc_14",
+      "type": "angle_arc",
+      "points": [
+        "D",
+        "C",
+        "B"
+      ],
+      "radius_pt": 23,
+      "reflex": false
+    }
+  ],
+  "labels": [
+    {
+      "id": "label_6",
+      "type": "text",
+      "anchor": [
+        10.0,
+        2.0
+      ],
+      "text": "6x + 2",
+      "offset_pt": [
+        -0.0,
+        13.0
+      ],
+      "segment_points": [
+        "A",
+        "D"
+      ],
+      "dimension_points": [
+        "dim2a",
+        "dim2b"
+      ]
+    },
+    {
+      "id": "label_10",
+      "type": "text",
+      "anchor": [
+        24.0,
+        2.0
+      ],
+      "text": "8",
+      "offset_pt": [
+        -0.0,
+        13.0
+      ],
+      "segment_points": [
+        "D",
+        "B"
+      ],
+      "dimension_points": [
+        "dim6a",
+        "dim6b"
+      ]
+    },
+    {
+      "id": "label_11",
+      "type": "text",
+      "anchor": [
+        11.6875,
+        -4.433096406576333
+      ],
+      "text": "9x − 2",
+      "offset_pt": [
+        -8,
+        -18
+      ],
+      "segment_points": [
+        "A",
+        "C"
+      ]
+    },
+    {
+      "id": "label_12",
+      "type": "text",
+      "anchor": [
+        25.6875,
+        -4.433096406576333
+      ],
+      "text": "10",
+      "offset_pt": [
+        22,
+        0
+      ],
+      "segment_points": [
+        "B",
+        "C"
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint_1",
+      "type": "parallel",
+      "segments": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "dim2a",
+          "dim2b"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_2",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "A",
+          "dim2a"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_3",
+      "type": "parallel",
+      "segments": [
+        [
+          "D",
+          "B"
+        ],
+        [
+          "dim6a",
+          "dim6b"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_4",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "D",
+          "B"
+        ],
+        [
+          "D",
+          "dim6a"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_5",
+      "type": "angle",
+      "points": [
+        "D",
+        "C",
+        "B"
+      ],
+      "degrees": 48.38834545707794
+    },
+    {
+      "id": "constraint_6",
+      "type": "between",
+      "points": [
+        "A",
+        "D",
+        "B"
+      ]
+    },
+    {
+      "id": "constraint_7",
+      "type": "distance",
+      "points": [
+        "D",
+        "B"
+      ],
+      "value": 8
+    },
+    {
+      "id": "constraint_8",
+      "type": "distance",
+      "points": [
+        "B",
+        "C"
+      ],
+      "value": 10
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": [
+    "Coordinates satisfy the angle-bisector proportions and all four source algebraic side labels using a hidden exact compatible parameter. The parameter value is never displayed. Adjacent top subsegments use protocol dashed dimension spans and common endpoint D; the two distinct equal-angle marks remain one arc each."
+  ],
+  "distance_markers": [
+    {
+      "id": "dim2",
+      "segment_points": [
+        "A",
+        "D"
+      ],
+      "dimension_points": [
+        "dim2a",
+        "dim2b"
+      ],
+      "line_id": "segment_3",
+      "connector_ids": [
+        "segment_4",
+        "segment_5"
+      ],
+      "label_id": "label_6"
+    },
+    {
+      "id": "dim6",
+      "segment_points": [
+        "D",
+        "B"
+      ],
+      "dimension_points": [
+        "dim6a",
+        "dim6b"
+      ],
+      "line_id": "segment_7",
+      "connector_ids": [
+        "segment_8",
+        "segment_9"
+      ],
+      "label_id": "label_10"
+    }
+  ]
+}

@@ -1,0 +1,213 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_79",
+  "status": "review_candidate",
+  "user_approved": false,
+  "source_dataset": "MathVista testmini / UniGeo",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -4.2647704477029205,
+      6.601162451979448
+    ],
+    "ylim": [
+      -5.266659371470241,
+      5.5992735282121275
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "content_bbox_px": [
+        54,
+        118,
+        714,
+        650
+      ],
+      "long_side_fraction": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ],
+      "target_long_side_fraction": 0.86
+    }
+  },
+  "points": {
+    "O": [
+      0.0,
+      0.0
+    ],
+    "A": [
+      -1.0352761804100834,
+      3.8637033051562732
+    ],
+    "B": [
+      -2.571150438746158,
+      -3.0641777724759116
+    ],
+    "C": [
+      3.8637033051562732,
+      -1.0352761804100827
+    ],
+    "D": [
+      3.6252311481465997,
+      1.6904730469627978
+    ],
+    "E": [
+      5.955484812424942,
+      0.6038579178660599
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "point",
+      "point": "O"
+    },
+    {
+      "id": "o2",
+      "type": "circle",
+      "center": "O",
+      "radius": 4
+    },
+    {
+      "id": "o3",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "o4",
+      "type": "segment",
+      "points": [
+        "D",
+        "E"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "l1",
+      "type": "vertex",
+      "point": "O",
+      "text": "O",
+      "offset_pt": [
+        4,
+        -12
+      ]
+    },
+    {
+      "id": "l2",
+      "type": "vertex",
+      "point": "A",
+      "text": "A",
+      "offset_pt": [
+        0,
+        14
+      ]
+    },
+    {
+      "id": "l3",
+      "type": "vertex",
+      "point": "B",
+      "text": "B",
+      "offset_pt": [
+        -10,
+        -9
+      ]
+    },
+    {
+      "id": "l4",
+      "type": "vertex",
+      "point": "C",
+      "text": "C",
+      "offset_pt": [
+        12,
+        -3
+      ]
+    },
+    {
+      "id": "l5",
+      "type": "vertex",
+      "point": "D",
+      "text": "D",
+      "offset_pt": [
+        8,
+        13
+      ]
+    },
+    {
+      "id": "l6",
+      "type": "vertex",
+      "point": "E",
+      "text": "E",
+      "offset_pt": [
+        12,
+        0
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c1",
+      "type": "on_circle",
+      "point": "A",
+      "center": "O",
+      "radius": 4
+    },
+    {
+      "id": "c2",
+      "type": "on_circle",
+      "point": "B",
+      "center": "O",
+      "radius": 4
+    },
+    {
+      "id": "c3",
+      "type": "on_circle",
+      "point": "C",
+      "center": "O",
+      "radius": 4
+    },
+    {
+      "id": "c4",
+      "type": "on_circle",
+      "point": "D",
+      "center": "O",
+      "radius": 4
+    },
+    {
+      "id": "c5",
+      "type": "between",
+      "points": [
+        "A",
+        "D",
+        "E"
+      ]
+    },
+    {
+      "id": "c6",
+      "type": "angle",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ],
+      "degrees": 60
+    }
+  ],
+  "ambiguities": [],
+  "construction": "Cyclic quadrilateral with arc ADC=120°, giving ABC=60°. E lies on AD beyond D. No question-only angle values added.",
+  "question": "As shown in the figure, points A, B, C, and D are on circle O, and point E is on the extended line of AD. If ∠ABC = 60.0, then the degree of ∠CDE is ()",
+  "display_coordinate_note": "Coordinates are frozen construction coordinates, not additional given data.",
+  "style_normalizations": [
+    "768×768 opaque white; protocol black 1pt primitives; DejaVu Sans point names18pt and values16pt; no question or answer embedded.",
+    "Decorative source colors removed; named objects, continuous topology, semantic dashed lines and any meaningful shaded region retained.",
+    "Original angle callout leaders, when present, are replaced by a direct bound label and exactly one angle arc; no equality or auxiliary geometry is implied.",
+    "Source distance arrows, where present, are normalized to perpendicular solid connectors and a parallel dashed dimension line."
+  ]
+}

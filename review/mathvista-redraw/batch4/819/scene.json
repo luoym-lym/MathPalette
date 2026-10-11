@@ -1,0 +1,278 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_819",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / Geometry3K",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -7.13879041382056,
+      7.212666421971191
+    ],
+    "ylim": [
+      -7.124697807654956,
+      7.2267590281367955
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "pixel_bbox": [
+        121,
+        54,
+        645,
+        713
+      ],
+      "occupancy": 0.859375,
+      "center_error_px": [
+        -0.5,
+        0.0
+      ]
+    }
+  },
+  "points": {
+    "W": [
+      -4.925291802605266,
+      6.304086028853776
+    ],
+    "X": [
+      4.596266658713868,
+      3.8567256581192355
+    ],
+    "Y": [
+      -4.596266658713868,
+      -3.8567256581192355
+    ],
+    "Z": [
+      4.925291802605266,
+      -6.304086028853776
+    ],
+    "O": [
+      0.0,
+      0.0
+    ],
+    "anchor11": [
+      -2.462645901302633,
+      3.152043014426888
+    ],
+    "anchor13": [
+      -2.298133329356934,
+      -1.9283628290596178
+    ],
+    "anchor15": [
+      2.298133329356934,
+      1.9283628290596178
+    ],
+    "anchor17": [
+      2.462645901302633,
+      -3.152043014426888
+    ]
+  },
+  "objects": [
+    {
+      "id": "segment5",
+      "type": "segment",
+      "points": [
+        "W",
+        "X"
+      ]
+    },
+    {
+      "id": "segment6",
+      "type": "segment",
+      "points": [
+        "X",
+        "Z"
+      ]
+    },
+    {
+      "id": "segment7",
+      "type": "segment",
+      "points": [
+        "Z",
+        "Y"
+      ]
+    },
+    {
+      "id": "segment8",
+      "type": "segment",
+      "points": [
+        "Y",
+        "W"
+      ]
+    },
+    {
+      "id": "segment9",
+      "type": "segment",
+      "points": [
+        "W",
+        "Z"
+      ]
+    },
+    {
+      "id": "segment10",
+      "type": "segment",
+      "points": [
+        "X",
+        "Y"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "label1",
+      "type": "vertex",
+      "point": "W",
+      "text": "W",
+      "offset_pt": [
+        -10,
+        13
+      ]
+    },
+    {
+      "id": "label2",
+      "type": "vertex",
+      "point": "X",
+      "text": "X",
+      "offset_pt": [
+        12,
+        10
+      ]
+    },
+    {
+      "id": "label3",
+      "type": "vertex",
+      "point": "Y",
+      "text": "Y",
+      "offset_pt": [
+        -12,
+        -7
+      ]
+    },
+    {
+      "id": "label4",
+      "type": "vertex",
+      "point": "Z",
+      "text": "Z",
+      "offset_pt": [
+        12,
+        -12
+      ]
+    },
+    {
+      "id": "text12",
+      "type": "text",
+      "text": "8",
+      "anchor": "anchor11",
+      "offset_pt": [
+        14,
+        4
+      ],
+      "segment_points": [
+        "W",
+        "O"
+      ]
+    },
+    {
+      "id": "text14",
+      "type": "text",
+      "text": "6",
+      "anchor": "anchor13",
+      "offset_pt": [
+        -11,
+        10
+      ],
+      "segment_points": [
+        "Y",
+        "O"
+      ]
+    },
+    {
+      "id": "text16",
+      "type": "text",
+      "text": "s − 7",
+      "anchor": "anchor15",
+      "offset_pt": [
+        26,
+        -15
+      ],
+      "segment_points": [
+        "O",
+        "X"
+      ]
+    },
+    {
+      "id": "text18",
+      "type": "text",
+      "text": "2t − 6",
+      "anchor": "anchor17",
+      "offset_pt": [
+        35,
+        -5
+      ],
+      "segment_points": [
+        "O",
+        "Z"
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint19",
+      "type": "distance",
+      "points": [
+        "W",
+        "O"
+      ],
+      "value": 8
+    },
+    {
+      "id": "constraint20",
+      "type": "distance",
+      "points": [
+        "Y",
+        "O"
+      ],
+      "value": 6
+    },
+    {
+      "id": "constraint21",
+      "type": "parallel",
+      "segments": [
+        [
+          "W",
+          "X"
+        ],
+        [
+          "Y",
+          "Z"
+        ]
+      ]
+    },
+    {
+      "id": "constraint22",
+      "type": "parallel",
+      "segments": [
+        [
+          "W",
+          "Y"
+        ],
+        [
+          "X",
+          "Z"
+        ]
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": [
+    "Leader callouts replaced by adjacent labels bound to the original half-diagonals."
+  ]
+}

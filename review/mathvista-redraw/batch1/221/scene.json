@@ -1,0 +1,168 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_221",
+  "status": "review_candidate",
+  "user_approved": false,
+  "source_dataset": "MathVista testmini / UniGeo",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -4.205190134653068,
+      4.205190134653068
+    ],
+    "ylim": [
+      -4.204476322980749,
+      4.205903946325387
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "content_bbox_px": [
+        54,
+        54,
+        714,
+        714
+      ],
+      "long_side_fraction": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ],
+      "target_long_side_fraction": 0.86
+    }
+  },
+  "points": {
+    "O": [
+      0.0,
+      0.0
+    ],
+    "A": [
+      -1.6904730469627967,
+      -3.6252311481466
+    ],
+    "B": [
+      1.6904730469627984,
+      -3.6252311481465997
+    ],
+    "C": [
+      2.8284271247461903,
+      2.82842712474619
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "point",
+      "point": "O"
+    },
+    {
+      "id": "o2",
+      "type": "circle",
+      "center": "O",
+      "radius": 4
+    },
+    {
+      "id": "o3",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "o4",
+      "type": "segment",
+      "points": [
+        "O",
+        "A"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "l1",
+      "type": "vertex",
+      "point": "O",
+      "text": "O",
+      "offset_pt": [
+        -12,
+        5
+      ]
+    },
+    {
+      "id": "l2",
+      "type": "vertex",
+      "point": "A",
+      "text": "A",
+      "offset_pt": [
+        -5,
+        -14
+      ]
+    },
+    {
+      "id": "l3",
+      "type": "vertex",
+      "point": "B",
+      "text": "B",
+      "offset_pt": [
+        8,
+        -13
+      ]
+    },
+    {
+      "id": "l4",
+      "type": "vertex",
+      "point": "C",
+      "text": "C",
+      "offset_pt": [
+        7,
+        12
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c1",
+      "type": "on_circle",
+      "point": "A",
+      "center": "O",
+      "radius": 4
+    },
+    {
+      "id": "c2",
+      "type": "on_circle",
+      "point": "B",
+      "center": "O",
+      "radius": 4
+    },
+    {
+      "id": "c3",
+      "type": "on_circle",
+      "point": "C",
+      "center": "O",
+      "radius": 4
+    },
+    {
+      "id": "c4",
+      "type": "angle",
+      "points": [
+        "A",
+        "C",
+        "B"
+      ],
+      "degrees": 25
+    }
+  ],
+  "ambiguities": [],
+  "construction": "Circle with minor AB arc50° and C on the major arc, enforcing ACB=25°. Only original radius OA is drawn.",
+  "question": "As shown in the figure, A, B, C are three points on ⊙O, ∠ACB = 25.0, then the degree of ∠BAO is ()",
+  "display_coordinate_note": "Coordinates are frozen construction coordinates, not additional given data.",
+  "style_normalizations": [
+    "768×768 opaque white; protocol black 1pt primitives; DejaVu Sans point names18pt and values16pt; no question or answer embedded.",
+    "Decorative source colors removed; named objects, continuous topology, semantic dashed lines and any meaningful shaded region retained.",
+    "Original angle callout leaders, when present, are replaced by a direct bound label and exactly one angle arc; no equality or auxiliary geometry is implied.",
+    "Source distance arrows, where present, are normalized to perpendicular solid connectors and a parallel dashed dimension line."
+  ]
+}

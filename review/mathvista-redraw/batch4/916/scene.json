@@ -1,0 +1,225 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_916",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / UniGeo",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -2.282903658948789,
+      2.623079755103232
+    ],
+    "ylim": [
+      -1.116020457266149,
+      3.789962956785872
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "pixel_bbox": [
+        98,
+        54,
+        668,
+        713
+      ],
+      "occupancy": 0.859375,
+      "center_error_px": [
+        -0.5,
+        0.0
+      ]
+    }
+  },
+  "points": {
+    "C": [
+      0.0,
+      0.0
+    ],
+    "A": [
+      0.0,
+      3.4641016151377544
+    ],
+    "B": [
+      2.0,
+      0.0
+    ],
+    "P": [
+      0.8,
+      2.0784609690826525
+    ],
+    "Q": [
+      -0.6725978035297137,
+      0.740008239607509
+    ],
+    "T": [
+      -1.8506760463534846,
+      -0.3307539439726058
+    ]
+  },
+  "objects": [
+    {
+      "id": "segment6",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "segment7",
+      "type": "segment",
+      "points": [
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "segment8",
+      "type": "segment",
+      "points": [
+        "C",
+        "A"
+      ]
+    },
+    {
+      "id": "circle9",
+      "type": "circle",
+      "center": "C",
+      "radius": 1
+    },
+    {
+      "id": "segment11",
+      "type": "segment",
+      "points": [
+        "P",
+        "T"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "label1",
+      "type": "vertex",
+      "point": "C",
+      "text": "C",
+      "offset_pt": [
+        -12,
+        -12
+      ]
+    },
+    {
+      "id": "label2",
+      "type": "vertex",
+      "point": "A",
+      "text": "A",
+      "offset_pt": [
+        -5,
+        14
+      ]
+    },
+    {
+      "id": "label3",
+      "type": "vertex",
+      "point": "B",
+      "text": "B",
+      "offset_pt": [
+        14,
+        -4
+      ]
+    },
+    {
+      "id": "label4",
+      "type": "vertex",
+      "point": "P",
+      "text": "P",
+      "offset_pt": [
+        12,
+        12
+      ]
+    },
+    {
+      "id": "label5",
+      "type": "vertex",
+      "point": "Q",
+      "text": "Q",
+      "offset_pt": [
+        -12,
+        12
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint10",
+      "type": "on_circle",
+      "point": "Q",
+      "center": "C",
+      "radius": 1
+    },
+    {
+      "id": "constraint12",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "C",
+          "Q"
+        ],
+        [
+          "P",
+          "Q"
+        ]
+      ]
+    },
+    {
+      "id": "constraint13",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ]
+    },
+    {
+      "id": "constraint14",
+      "type": "angle",
+      "points": [
+        "C",
+        "A",
+        "B"
+      ],
+      "degrees": 30
+    },
+    {
+      "id": "constraint15",
+      "type": "distance",
+      "points": [
+        "B",
+        "C"
+      ],
+      "value": 2
+    },
+    {
+      "id": "constraint16",
+      "type": "between",
+      "points": [
+        "A",
+        "P",
+        "B"
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": []
+}

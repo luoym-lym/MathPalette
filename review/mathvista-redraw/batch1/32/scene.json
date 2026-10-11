@@ -1,0 +1,197 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_32",
+  "status": "adapted_review_candidate",
+  "user_approved": false,
+  "source_dataset": "MathVista testmini / GeoQA+",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -1.9146496962576358,
+      6.457528513378518
+    ],
+    "ylim": [
+      -2.231032354961966,
+      6.141145854674187
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "content_bbox_px": [
+        55,
+        197,
+        714,
+        572
+      ],
+      "long_side_fraction": 0.8580729166666666,
+      "center_error_px": [
+        0.5,
+        0.5
+      ],
+      "target_long_side_fraction": 0.86
+    }
+  },
+  "points": {
+    "A": [
+      0.0,
+      0.0
+    ],
+    "B": [
+      6.0,
+      0.0
+    ],
+    "C": [
+      4.596266658713868,
+      3.8567256581192355
+    ],
+    "D": [
+      -1.4037333412861317,
+      3.8567256581192355
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "o2",
+      "type": "segment",
+      "points": [
+        "A",
+        "C"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "l1",
+      "type": "vertex",
+      "point": "A",
+      "text": "A",
+      "offset_pt": [
+        -5,
+        -14
+      ]
+    },
+    {
+      "id": "l2",
+      "type": "vertex",
+      "point": "B",
+      "text": "B",
+      "offset_pt": [
+        10,
+        -12
+      ]
+    },
+    {
+      "id": "l3",
+      "type": "vertex",
+      "point": "C",
+      "text": "C",
+      "offset_pt": [
+        4,
+        14
+      ]
+    },
+    {
+      "id": "l4",
+      "type": "vertex",
+      "point": "D",
+      "text": "D",
+      "offset_pt": [
+        -12,
+        5
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c1",
+      "type": "parallel",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "D",
+          "C"
+        ]
+      ]
+    },
+    {
+      "id": "c2",
+      "type": "parallel",
+      "segments": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ]
+    },
+    {
+      "id": "c3",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ]
+    },
+    {
+      "id": "c4",
+      "type": "angle",
+      "points": [
+        "C",
+        "A",
+        "B"
+      ],
+      "degrees": 40
+    }
+  ],
+  "ambiguities": [],
+  "construction": "Parallelogram ABCD with AB=AC and included BAC=40 degrees; points computed by vector addition. No invisible parallel/equality marks added.",
+  "question": "如图，在平行四边形ABCD中，AB＝AC，∠CAB＝40°，则∠D的度数是（）",
+  "display_coordinate_note": "Coordinates are frozen construction coordinates, not additional given data.",
+  "style_normalizations": [
+    "768×768 opaque white; protocol black 1pt primitives; DejaVu Sans point names18pt and values16pt; no question or answer embedded.",
+    "Decorative source colors removed; named objects, continuous topology, semantic dashed lines and any meaningful shaded region retained.",
+    "Original angle callout leaders, when present, are replaced by a direct bound label and exactly one angle arc; no equality or auxiliary geometry is implied.",
+    "Source distance arrows, where present, are normalized to perpendicular solid connectors and a parallel dashed dimension line."
+  ],
+  "original_question": "如图，在ABCD中，AB＝AC，∠CAB＝40°，则∠D的度数是（）",
+  "adaptation": {
+    "file": "adapted_question.json",
+    "kind": "minimal_missing_condition_or_symbol_repair",
+    "geometry_changed": false,
+    "changes": [
+      {
+        "before": "在ABCD中",
+        "after": "在平行四边形ABCD中",
+        "reason": "补明原题缺失的平行四边形条件；与原图、冻结场景及题目所需关系一致。"
+      }
+    ],
+    "independent_solution_verified": true
+  },
+  "source_ambiguities_resolved": true,
+  "source_ambiguities": [
+    "The source question omits the parallelogram symbol before ABCD; the original layout and MathVista classification indicate a parallelogram. This interpretation is recorded, not silently repaired."
+  ]
+}

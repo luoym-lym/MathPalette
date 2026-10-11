@@ -1,0 +1,205 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_179",
+  "status": "adapted_review_candidate",
+  "user_approved": false,
+  "source_dataset": "MathVista testmini / GeoQA+",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -0.5298458026239299,
+      9.59375418491156
+    ],
+    "ylim": [
+      -3.718761235054598,
+      6.404838752480892
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "content_bbox_px": [
+        54,
+        265,
+        713,
+        504
+      ],
+      "long_side_fraction": 0.8580729166666666,
+      "center_error_px": [
+        -0.5,
+        0.5
+      ],
+      "target_long_side_fraction": 0.86
+    }
+  },
+  "points": {
+    "A": [
+      3.0,
+      2.6457513110645907
+    ],
+    "B": [
+      0.0,
+      0.0
+    ],
+    "C": [
+      6.0,
+      0.0
+    ],
+    "D": [
+      9.0,
+      2.6457513110645907
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "o2",
+      "type": "segment",
+      "points": [
+        "A",
+        "C"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "l1",
+      "type": "vertex",
+      "point": "A",
+      "text": "A",
+      "offset_pt": [
+        -6,
+        14
+      ]
+    },
+    {
+      "id": "l2",
+      "type": "vertex",
+      "point": "B",
+      "text": "B",
+      "offset_pt": [
+        -9,
+        -10
+      ]
+    },
+    {
+      "id": "l3",
+      "type": "vertex",
+      "point": "C",
+      "text": "C",
+      "offset_pt": [
+        0,
+        -15
+      ]
+    },
+    {
+      "id": "l4",
+      "type": "vertex",
+      "point": "D",
+      "text": "D",
+      "offset_pt": [
+        11,
+        6
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c1",
+      "type": "parallel",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "D",
+          "C"
+        ]
+      ]
+    },
+    {
+      "id": "c2",
+      "type": "parallel",
+      "segments": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ]
+    },
+    {
+      "id": "c3",
+      "type": "distance",
+      "points": [
+        "A",
+        "C"
+      ],
+      "value": 4
+    },
+    {
+      "id": "c4",
+      "type": "distance",
+      "points": [
+        "A",
+        "D"
+      ],
+      "value": 6
+    },
+    {
+      "id": "c5",
+      "type": "distance",
+      "points": [
+        "C",
+        "D"
+      ],
+      "value": 4
+    }
+  ],
+  "ambiguities": [],
+  "construction": "Parallelogram has AC=4 and triangle ACD perimeter14. Sides are selected from an ellipse with sum10 and then oriented to preserve horizontal BC/AD; only original labels appear.",
+  "question": "如图，在平行四边形ABCD中，已知AC＝4cm，若△ACD的周长为14cm，则平行四边形ABCD的周长为（）",
+  "display_coordinate_note": "Coordinates are frozen construction coordinates, not additional given data.",
+  "style_normalizations": [
+    "768×768 opaque white; protocol black 1pt primitives; DejaVu Sans point names18pt and values16pt; no question or answer embedded.",
+    "Decorative source colors removed; named objects, continuous topology, semantic dashed lines and any meaningful shaded region retained.",
+    "Original angle callout leaders, when present, are replaced by a direct bound label and exactly one angle arc; no equality or auxiliary geometry is implied.",
+    "Source distance arrows, where present, are normalized to perpendicular solid connectors and a parallel dashed dimension line."
+  ],
+  "original_question": "如图，在ABCD中，已知AC＝4cm，若△ACD的周长为14cm，则ABCD的周长为（）",
+  "adaptation": {
+    "file": "adapted_question.json",
+    "kind": "minimal_missing_condition_or_symbol_repair",
+    "geometry_changed": false,
+    "changes": [
+      {
+        "before": "在ABCD中",
+        "after": "在平行四边形ABCD中",
+        "reason": "补明原题缺失的平行四边形条件。"
+      },
+      {
+        "before": "则ABCD的周长",
+        "after": "则平行四边形ABCD的周长",
+        "reason": "在求解目标中保持图形名称完整一致。"
+      }
+    ],
+    "independent_solution_verified": true
+  },
+  "source_ambiguities_resolved": true,
+  "source_ambiguities": [
+    "The source text drops the parallelogram symbol before ABCD; parallelogram topology follows the original figure and source classification."
+  ]
+}

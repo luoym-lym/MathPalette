@@ -1,0 +1,234 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_642",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / GEOS",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -10.504407030553297,
+      10.53540567167263
+    ],
+    "ylim": [
+      -10.08106213095843,
+      10.958750571267498
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "points": {
+    "O": [
+      0.0,
+      0.0
+    ],
+    "A": [
+      0.0,
+      6.0
+    ],
+    "B": [
+      8.0,
+      6.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "circle_1",
+      "type": "circle",
+      "center": "O",
+      "radius": 6
+    },
+    {
+      "id": "segment_2",
+      "type": "segment",
+      "points": [
+        "O",
+        "A"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_3",
+      "type": "segment",
+      "points": [
+        "O",
+        "B"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_4",
+      "type": "segment",
+      "points": [
+        [
+          -10,
+          6
+        ],
+        [
+          10,
+          6
+        ]
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "point_5",
+      "type": "point",
+      "point": "O"
+    },
+    {
+      "id": "point_6",
+      "type": "point",
+      "point": "A"
+    },
+    {
+      "id": "point_7",
+      "type": "point",
+      "point": "B"
+    },
+    {
+      "id": "segment_8",
+      "type": "segment",
+      "points": [
+        [
+          -10,
+          6
+        ],
+        [
+          -9.6,
+          6.15
+        ]
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_9",
+      "type": "segment",
+      "points": [
+        [
+          -10,
+          6
+        ],
+        [
+          -9.6,
+          5.85
+        ]
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_10",
+      "type": "segment",
+      "points": [
+        [
+          10,
+          6
+        ],
+        [
+          9.6,
+          6.15
+        ]
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_11",
+      "type": "segment",
+      "points": [
+        [
+          10,
+          6
+        ],
+        [
+          9.6,
+          5.85
+        ]
+      ],
+      "linestyle": "solid"
+    }
+  ],
+  "labels": [
+    {
+      "id": "name_O",
+      "type": "vertex",
+      "point": "O",
+      "offset_pt": [
+        0,
+        -16
+      ]
+    },
+    {
+      "id": "name_A",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        0,
+        14
+      ]
+    },
+    {
+      "id": "name_B",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        0,
+        14
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint_1",
+      "type": "distance",
+      "points": [
+        "A",
+        "B"
+      ],
+      "value": 8
+    },
+    {
+      "id": "constraint_2",
+      "type": "distance",
+      "points": [
+        "O",
+        "B"
+      ],
+      "value": 10
+    },
+    {
+      "id": "constraint_3",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "O",
+          "A"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_4",
+      "type": "on_circle",
+      "point": "A",
+      "center": "O",
+      "radius": 6
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": [
+    "Exact tangent construction OA⊥AB with AB=8 and OB=10; only original point labels and line arrows are displayed."
+  ]
+}

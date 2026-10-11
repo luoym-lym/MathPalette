@@ -1,0 +1,238 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_684",
+  "status": "adapted_review_candidate",
+  "source_dataset": "MathVista testmini / Geometry3K",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -3.533995259388135,
+      4.917933709986363
+    ],
+    "ylim": [
+      -4.411982526490662,
+      4.039946442883836
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "points": {
+    "L": [
+      0.0,
+      0.0
+    ],
+    "G": [
+      -3.0,
+      3.6739403974420594e-16
+    ],
+    "J": [
+      -0.3656080302154415,
+      -2.9776384549239663
+    ],
+    "K": [
+      1.9283628290596182,
+      2.298133329356934
+    ],
+    "H": [
+      2.516011703836272,
+      -1.633917105045081
+    ]
+  },
+  "objects": [
+    {
+      "id": "circle_1",
+      "type": "circle",
+      "center": "L",
+      "radius": 3
+    },
+    {
+      "id": "segment_2",
+      "type": "segment",
+      "points": [
+        "G",
+        "H"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_3",
+      "type": "segment",
+      "points": [
+        "K",
+        "J"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "point_4",
+      "type": "point",
+      "point": "L"
+    }
+  ],
+  "labels": [
+    {
+      "id": "name_L",
+      "type": "vertex",
+      "point": "L",
+      "offset_pt": [
+        4,
+        15
+      ]
+    },
+    {
+      "id": "name_G",
+      "type": "vertex",
+      "point": "G",
+      "offset_pt": [
+        -14,
+        0
+      ]
+    },
+    {
+      "id": "name_J",
+      "type": "vertex",
+      "point": "J",
+      "offset_pt": [
+        0,
+        -15
+      ]
+    },
+    {
+      "id": "name_K",
+      "type": "vertex",
+      "point": "K",
+      "offset_pt": [
+        8,
+        14
+      ]
+    },
+    {
+      "id": "name_H",
+      "type": "vertex",
+      "point": "H",
+      "offset_pt": [
+        14,
+        -4
+      ]
+    },
+    {
+      "id": "label_5",
+      "type": "text",
+      "anchor": [
+        -2.7336883808798573,
+        -2.4185631759874417
+      ],
+      "text": "83°",
+      "offset_pt": [
+        0,
+        0
+      ],
+      "role": "arc_measure",
+      "center": "L",
+      "arc_points": [
+        "G",
+        "J"
+      ]
+    },
+    {
+      "id": "label_6",
+      "type": "text",
+      "anchor": [
+        2.769244417413367,
+        0.41386635116290976
+      ],
+      "text": "(2x − 27)°",
+      "offset_pt": [
+        75,
+        0
+      ],
+      "role": "arc_measure",
+      "center": "L",
+      "arc_points": [
+        "K",
+        "H"
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint_1",
+      "type": "on_circle",
+      "point": "G",
+      "center": "L",
+      "radius": 3
+    },
+    {
+      "id": "constraint_2",
+      "type": "on_circle",
+      "point": "J",
+      "center": "L",
+      "radius": 3
+    },
+    {
+      "id": "constraint_3",
+      "type": "on_circle",
+      "point": "K",
+      "center": "L",
+      "radius": 3
+    },
+    {
+      "id": "constraint_4",
+      "type": "on_circle",
+      "point": "H",
+      "center": "L",
+      "radius": 3
+    },
+    {
+      "id": "constraint_5",
+      "type": "angle",
+      "points": [
+        "G",
+        "L",
+        "J"
+      ],
+      "degrees": 83
+    },
+    {
+      "id": "constraint_6",
+      "type": "equal_length",
+      "segments": [
+        [
+          "G",
+          "H"
+        ],
+        [
+          "K",
+          "J"
+        ]
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": [
+    "Chord endpoints constructed on one circle, with arc GJ=83° and equal visible chords GH,KJ; arc-measure labels do not create radius lines or central-angle arcs.",
+    "Adapted question: J lies on minor arc GH and H lies on minor arc KJ; the exact frozen coordinates verify both incidences. Original image and metadata are preserved separately."
+  ],
+  "original_source_issues": [
+    "Original question says CH while the image labels G and contains no C.",
+    "The adapted question explicitly fixes the intended minor-arc placement to rule out the alternate equal-chord branch."
+  ],
+  "adaptation": {
+    "question_file": "adapted_question.json",
+    "summary": "CH corrected to GH; intended minor-arc incidence made explicit.",
+    "protocol_unchanged": true,
+    "geometry_unchanged": true
+  },
+  "question_reference": "adapted_question.json"
+}

@@ -1,0 +1,206 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_586",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / UniGeo",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -1.2242541356799532,
+      4.356341393693786
+    ],
+    "ylim": [
+      -0.7758576098523382,
+      4.804737919521401
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "points": {
+    "A": [
+      0.0,
+      0.0
+    ],
+    "B": [
+      -0.9234727645022525,
+      0.0
+    ],
+    "C": [
+      0.0,
+      4.0
+    ],
+    "Bp": [
+      0.0,
+      0.9234727645022525
+    ],
+    "Cp": [
+      4.0,
+      0.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "segment_1",
+      "type": "segment",
+      "points": [
+        "B",
+        "C"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_2",
+      "type": "segment",
+      "points": [
+        "C",
+        "A"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_3",
+      "type": "segment",
+      "points": [
+        "B",
+        "Cp"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_4",
+      "type": "segment",
+      "points": [
+        "Bp",
+        "Cp"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_5",
+      "type": "segment",
+      "points": [
+        "C",
+        "Cp"
+      ],
+      "linestyle": "solid"
+    }
+  ],
+  "labels": [
+    {
+      "id": "name_A",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        0,
+        -14
+      ]
+    },
+    {
+      "id": "name_B",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        -10,
+        -12
+      ]
+    },
+    {
+      "id": "name_C",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        0,
+        14
+      ]
+    },
+    {
+      "id": "name_Bp",
+      "type": "vertex",
+      "point": "Bp",
+      "text": "B′",
+      "offset_pt": [
+        -15,
+        4
+      ]
+    },
+    {
+      "id": "name_Cp",
+      "type": "vertex",
+      "point": "Cp",
+      "text": "C′",
+      "offset_pt": [
+        13,
+        -6
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint_1",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_2",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "Bp"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_3",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "Cp"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_4",
+      "type": "angle",
+      "points": [
+        "C",
+        "Cp",
+        "Bp"
+      ],
+      "degrees": 32
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": [
+    "A 90° clockwise rotation maps B to B′ and C to C′. The source CC′B′=32° condition determines AB/AC=tan13°; no computed value displayed."
+  ]
+}

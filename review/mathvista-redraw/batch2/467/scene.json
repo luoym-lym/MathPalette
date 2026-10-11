@@ -1,0 +1,236 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_467",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / Geometry3K",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -1.944405757713325,
+      1.256743860729088
+    ],
+    "ylim": [
+      -1.6005748092212064,
+      1.6005748092212064
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "bbox_px": [
+        54,
+        167,
+        713,
+        600
+      ],
+      "occupancy": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "points": {
+    "O": [
+      0.0,
+      0.0
+    ],
+    "A": [
+      -0.5735764363510462,
+      0.8191520442889917
+    ],
+    "C": [
+      -0.5735764363510464,
+      -0.8191520442889916
+    ],
+    "D": [
+      0.5735764363510462,
+      0.8191520442889918
+    ],
+    "B": [
+      -1.7434467956210977,
+      0.0
+    ],
+    "_t9": [
+      -0.86,
+      0.0
+    ],
+    "_t11": [
+      1.15,
+      0.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "circle",
+      "center": "O",
+      "radius": 1
+    },
+    {
+      "id": "o2",
+      "type": "segment",
+      "points": [
+        "B",
+        "A"
+      ]
+    },
+    {
+      "id": "o3",
+      "type": "segment",
+      "points": [
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "o4",
+      "type": "point",
+      "point": "D"
+    }
+  ],
+  "labels": [
+    {
+      "id": "v5",
+      "type": "vertex",
+      "point": "A",
+      "text": "A",
+      "offset_pt": [
+        -8,
+        12
+      ]
+    },
+    {
+      "id": "v6",
+      "type": "vertex",
+      "point": "B",
+      "text": "B",
+      "offset_pt": [
+        -14,
+        0
+      ]
+    },
+    {
+      "id": "v7",
+      "type": "vertex",
+      "point": "C",
+      "text": "C",
+      "offset_pt": [
+        -8,
+        -12
+      ]
+    },
+    {
+      "id": "v8",
+      "type": "vertex",
+      "point": "D",
+      "text": "D",
+      "offset_pt": [
+        7,
+        12
+      ]
+    },
+    {
+      "id": "t10",
+      "type": "text",
+      "text": "x",
+      "anchor": "_t9",
+      "offset_pt": [
+        0,
+        0
+      ],
+      "role": "arc_measure",
+      "center": "O",
+      "arc_points": [
+        "A",
+        "C"
+      ],
+      "arc_direction": "counterclockwise"
+    },
+    {
+      "id": "t12",
+      "type": "text",
+      "text": "y",
+      "anchor": "_t11",
+      "offset_pt": [
+        0,
+        0
+      ],
+      "role": "arc_measure",
+      "center": "O",
+      "arc_points": [
+        "C",
+        "A"
+      ],
+      "arc_direction": "counterclockwise"
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c13",
+      "type": "angle",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ],
+      "degrees": 70
+    },
+    {
+      "id": "c14",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "O",
+          "A"
+        ],
+        [
+          "B",
+          "A"
+        ]
+      ]
+    },
+    {
+      "id": "c15",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "O",
+          "C"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ]
+    },
+    {
+      "id": "c16",
+      "type": "on_circle",
+      "point": "A",
+      "center": "O",
+      "radius": 1
+    },
+    {
+      "id": "c17",
+      "type": "on_circle",
+      "point": "C",
+      "center": "O",
+      "radius": 1
+    },
+    {
+      "id": "c18",
+      "type": "on_circle",
+      "point": "D",
+      "center": "O",
+      "radius": 1
+    }
+  ],
+  "ambiguities": [
+    "Arc labels x andy are circular-arc measures; no center rays or central angle arcs are added."
+  ],
+  "construction": "Two tangents fromB with angleABC70; tangency bearings125 and235. Arc symbols x,y bind to minorAC and majorADC respectively.",
+  "user_approved": false,
+  "constraint_interpretation": "Numerical constraints validate the frozen realization. Free scale choices and algebraic consequences are construction parameters, not additional givens. Only original diagram marks and source question are asserted; no derived answer labels are added.",
+  "source_metadata": "source_metadata.json"
+}

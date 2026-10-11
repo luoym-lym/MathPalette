@@ -1,0 +1,326 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_523",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / UniGeo",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -0.8851539439015959,
+      15.941577555012707
+    ],
+    "ylim": [
+      -4.623724006020828,
+      12.203007492893475
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "points": {
+    "A": [
+      0.0,
+      0.0
+    ],
+    "B": [
+      10.0,
+      0.0
+    ],
+    "D": [
+      15.0,
+      0.0
+    ],
+    "C": [
+      15.0,
+      8.660254037844386
+    ],
+    "dim8a": [
+      0.0,
+      -1.25
+    ],
+    "dim8b": [
+      10.0,
+      -1.25
+    ]
+  },
+  "objects": [
+    {
+      "id": "segment_1",
+      "type": "segment",
+      "points": [
+        "A",
+        "D"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_2",
+      "type": "segment",
+      "points": [
+        "A",
+        "C"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_3",
+      "type": "segment",
+      "points": [
+        "B",
+        "C"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_4",
+      "type": "segment",
+      "points": [
+        "C",
+        "D"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "angle_arc_5",
+      "type": "angle_arc",
+      "points": [
+        "B",
+        "A",
+        "C"
+      ],
+      "radius_pt": 20,
+      "reflex": false
+    },
+    {
+      "id": "angle_arc_7",
+      "type": "angle_arc",
+      "points": [
+        "D",
+        "B",
+        "C"
+      ],
+      "radius_pt": 20,
+      "reflex": false
+    },
+    {
+      "id": "segment_9",
+      "type": "segment",
+      "points": [
+        "dim8a",
+        "dim8b"
+      ],
+      "linestyle": "dashed",
+      "role": "dimension"
+    },
+    {
+      "id": "segment_10",
+      "type": "segment",
+      "points": [
+        "A",
+        "dim8a"
+      ],
+      "linestyle": "solid",
+      "role": "dimension"
+    },
+    {
+      "id": "segment_11",
+      "type": "segment",
+      "points": [
+        "B",
+        "dim8b"
+      ],
+      "linestyle": "solid",
+      "role": "dimension"
+    }
+  ],
+  "labels": [
+    {
+      "id": "name_A",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        -8,
+        -12
+      ]
+    },
+    {
+      "id": "name_B",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        -15,
+        -14
+      ]
+    },
+    {
+      "id": "name_C",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        0,
+        14
+      ]
+    },
+    {
+      "id": "name_D",
+      "type": "vertex",
+      "point": "D",
+      "offset_pt": [
+        10,
+        -12
+      ]
+    },
+    {
+      "id": "angle_label_6",
+      "type": "angle",
+      "points": [
+        "B",
+        "A",
+        "C"
+      ],
+      "arc_id": "angle_arc_5",
+      "radius_pt": 65,
+      "offset_pt": [
+        0,
+        0
+      ],
+      "reflex": false,
+      "degrees": 30
+    },
+    {
+      "id": "angle_label_8",
+      "type": "angle",
+      "points": [
+        "D",
+        "B",
+        "C"
+      ],
+      "arc_id": "angle_arc_7",
+      "radius_pt": 40,
+      "offset_pt": [
+        0,
+        0
+      ],
+      "reflex": false,
+      "degrees": 60
+    },
+    {
+      "id": "label_12",
+      "type": "text",
+      "anchor": [
+        5.0,
+        -1.25
+      ],
+      "text": "10 m",
+      "offset_pt": [
+        0.0,
+        -13.0
+      ],
+      "segment_points": [
+        "A",
+        "B"
+      ],
+      "dimension_points": [
+        "dim8a",
+        "dim8b"
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint_1",
+      "type": "parallel",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "dim8a",
+          "dim8b"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_2",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "dim8a"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_3",
+      "type": "distance",
+      "points": [
+        "A",
+        "B"
+      ],
+      "value": 10
+    },
+    {
+      "id": "constraint_4",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "D"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_5",
+      "type": "between",
+      "points": [
+        "A",
+        "B",
+        "D"
+      ]
+    }
+  ],
+  "ambiguities": [
+    "Photographic tree background omitted as decorative context; segment CD preserves the measured tree height and endpoints."
+  ],
+  "construction_notes": [
+    "Tree height and observation positions constructed from two elevation angles and AB=10; source dimensional arrow replaced by mandated dashed parallel dimension with connectors."
+  ],
+  "distance_markers": [
+    {
+      "id": "dim8",
+      "segment_points": [
+        "A",
+        "B"
+      ],
+      "dimension_points": [
+        "dim8a",
+        "dim8b"
+      ],
+      "line_id": "segment_9",
+      "connector_ids": [
+        "segment_10",
+        "segment_11"
+      ],
+      "label_id": "label_12"
+    }
+  ]
+}

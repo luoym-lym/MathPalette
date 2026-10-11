@@ -1,0 +1,124 @@
+{
+  "pid": "790",
+  "original_question": "如图，△ABC中，N是BC边上的中点，AM平分∠BAC，BM⊥AM于点M，若AB＝8，MN＝2．则AC的长为（）",
+  "original_choices": [
+    "10",
+    "11",
+    "12",
+    "13"
+  ],
+  "official_answer": "12",
+  "original_source_image": "source.jpg",
+  "original_source_metadata": "source_metadata.json",
+  "adapted_question": "如图，在△ABC中，AC＞AB，N是BC边上的中点，AM平分∠BAC，BM⊥AM于点M，连接MN。若AB＝8，MN＝2，则AC的长为（）",
+  "adapted_choices": [
+    "10",
+    "11",
+    "12",
+    "13"
+  ],
+  "adapted_answer": "12",
+  "adapted_answer_exact_value": "12",
+  "adapted_answer_choice": "C",
+  "adapted_answer_index": 2,
+  "answer_type": "text",
+  "question_type": "multi_choice",
+  "changes": [
+    {
+      "field": "branch condition",
+      "original": "No explicit comparison of AC and AB",
+      "replacement": "AC＞AB",
+      "rationale": "The other configuration gives AC=4. This short condition selects the intended configuration and makes the answer unique."
+    },
+    {
+      "field": "connection wording",
+      "original": "MN shown only in the diagram",
+      "replacement": "连接MN",
+      "rationale": "Clarifies that AM and MN are connected segments, without asserting A, M and N are collinear."
+    }
+  ],
+  "full_mathematical_solution": [
+    "将点B关于角平分线AM对称，得到点B′。由角平分线的对称性，B′在射线AC上，且AB′=AB=8。",
+    "因为BM⊥AM，点M是BB′的中点；又N是BC的中点，所以在△BB′C中，MN是中位线，B′C=2MN=4。",
+    "已补充AC>AB，因此B′位于A、C之间。故AC=AB′+B′C=8+4=12，选C。",
+    "若没有AC>AB这一条件，也可能C位于A、B′之间，此时AC=8−4=4；所以补充的分支条件确有必要。"
+  ],
+  "independent_verification": [
+    {
+      "check": "AB",
+      "measured": 7.999999999999999,
+      "expected": 8.0,
+      "absolute_tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "check": "AC independently from frozen coordinates",
+      "measured": 12.0,
+      "expected": 12.0,
+      "absolute_tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "check": "MN",
+      "measured": 2.0000000000000004,
+      "expected": 2.0,
+      "absolute_tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "check": "N midpoint residual",
+      "measured": 0.0,
+      "expected": 0.0,
+      "absolute_tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "check": "BM perpendicular AM dot product",
+      "measured": -3.3047321317800094e-16,
+      "expected": 0.0,
+      "absolute_tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "check": "Equal bisected angles",
+      "measured": 28.955024371859835,
+      "expected": 28.95502437185985,
+      "absolute_tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "check": "Reflected AB′",
+      "measured": 8.0,
+      "expected": 8.0,
+      "absolute_tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "check": "B′C",
+      "measured": 4.000000000000001,
+      "expected": 4.0,
+      "absolute_tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "check": "B′ on AC at parameter 2/3",
+      "measured": 4.440892098500626e-16,
+      "expected": 0.0,
+      "absolute_tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "check": "Required branch AC>AB",
+      "passed": true
+    },
+    {
+      "check": "Unique matching choice at recomputed answer index",
+      "passed": true
+    }
+  ],
+  "verification_code": "../adapt_and_verify.py",
+  "verification_passed": true,
+  "protocol_compliance": "Strict unchanged MathPalette PlaneGeometry protocol; no font or other style exception",
+  "review_status": "pending_user_review",
+  "original_record_unchanged": true
+}

@@ -1,0 +1,203 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_355",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / UniGeo",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -3.4806164090355396,
+      5.218021192088942
+    ],
+    "ylim": [
+      -2.7211991656431906,
+      5.977438435481291
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "bbox_px": [
+        54,
+        132,
+        713,
+        635
+      ],
+      "occupancy": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "points": {
+    "L1": [
+      -3.0,
+      2.0
+    ],
+    "R1": [
+      5.0,
+      2.0
+    ],
+    "L2": [
+      -3.0,
+      0.0
+    ],
+    "R2": [
+      5.0,
+      0.0
+    ],
+    "P": [
+      1.67819926235456,
+      2.0
+    ],
+    "Q": [
+      0.0,
+      0.0
+    ],
+    "C1": [
+      -1.2855752193730787,
+      -1.532088886237956
+    ],
+    "C2": [
+      3.8567256581192364,
+      4.596266658713868
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "segment",
+      "points": [
+        "L1",
+        "R1"
+      ]
+    },
+    {
+      "id": "o2",
+      "type": "segment",
+      "points": [
+        "L2",
+        "R2"
+      ]
+    },
+    {
+      "id": "o3",
+      "type": "segment",
+      "points": [
+        "C1",
+        "C2"
+      ]
+    },
+    {
+      "id": "o7",
+      "type": "angle_arc",
+      "points": [
+        "R1",
+        "P",
+        "C2"
+      ],
+      "radius_pt": 16,
+      "reflex": false
+    },
+    {
+      "id": "o9",
+      "type": "angle_arc",
+      "points": [
+        "L2",
+        "Q",
+        "C2"
+      ],
+      "radius_pt": 16,
+      "reflex": false
+    }
+  ],
+  "labels": [
+    {
+      "id": "t4",
+      "type": "text",
+      "text": "a",
+      "anchor": "L1",
+      "offset_pt": [
+        -12,
+        0
+      ]
+    },
+    {
+      "id": "t5",
+      "type": "text",
+      "text": "b",
+      "anchor": "L2",
+      "offset_pt": [
+        -12,
+        0
+      ]
+    },
+    {
+      "id": "t6",
+      "type": "text",
+      "text": "c",
+      "anchor": "C2",
+      "offset_pt": [
+        10,
+        7
+      ]
+    },
+    {
+      "id": "a8",
+      "type": "angle",
+      "points": [
+        "R1",
+        "P",
+        "C2"
+      ],
+      "arc_id": "o7",
+      "radius_pt": 31,
+      "offset_pt": [
+        0,
+        0
+      ],
+      "reflex": false,
+      "text": "1",
+      "degrees": 50
+    },
+    {
+      "id": "a10",
+      "type": "angle",
+      "points": [
+        "L2",
+        "Q",
+        "C2"
+      ],
+      "arc_id": "o9",
+      "radius_pt": 31,
+      "offset_pt": [
+        0,
+        0
+      ],
+      "reflex": false,
+      "text": "2"
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c11",
+      "type": "parallel",
+      "segments": [
+        [
+          "L1",
+          "R1"
+        ],
+        [
+          "L2",
+          "R2"
+        ]
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "construction": "Two parallel horizontal lines and transversal with acute angle50.",
+  "user_approved": false,
+  "constraint_interpretation": "Numerical constraints validate the frozen realization. Free scale choices and algebraic consequences are construction parameters, not additional givens. Only original diagram marks and source question are asserted; no derived answer labels are added.",
+  "source_metadata": "source_metadata.json"
+}

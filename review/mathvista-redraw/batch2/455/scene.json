@@ -1,0 +1,170 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_455",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / GEOS",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -18.89680126926717,
+      18.89680126926717
+    ],
+    "ylim": [
+      -18.89680126926717,
+      18.89680126926717
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "bbox_px": [
+        54,
+        54,
+        713,
+        713
+      ],
+      "occupancy": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "points": {
+    "O": [
+      0.0,
+      0.0
+    ],
+    "A": [
+      -17.30271052688974,
+      4.961472404705986
+    ],
+    "B": [
+      -17.30271052688974,
+      -4.961472404705982
+    ],
+    "_t8": [
+      -8.65135526344487,
+      -2.480736202352991
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "arc",
+      "center": "O",
+      "radius": 18,
+      "start_deg": 196,
+      "end_deg": 524,
+      "linestyle": "dashed"
+    },
+    {
+      "id": "o2",
+      "type": "arc",
+      "center": "O",
+      "radius": 18,
+      "start_deg": 164,
+      "end_deg": 196
+    },
+    {
+      "id": "o3",
+      "type": "segment",
+      "points": [
+        "O",
+        "A"
+      ],
+      "linestyle": "dashed"
+    },
+    {
+      "id": "o4",
+      "type": "segment",
+      "points": [
+        "O",
+        "B"
+      ],
+      "linestyle": "dashed"
+    },
+    {
+      "id": "o5",
+      "type": "point",
+      "point": "O"
+    },
+    {
+      "id": "o6",
+      "type": "angle_arc",
+      "points": [
+        "A",
+        "O",
+        "B"
+      ],
+      "radius_pt": 25,
+      "reflex": false
+    }
+  ],
+  "labels": [
+    {
+      "id": "a7",
+      "type": "angle",
+      "points": [
+        "A",
+        "O",
+        "B"
+      ],
+      "arc_id": "o6",
+      "radius_pt": 59,
+      "offset_pt": [
+        0,
+        0
+      ],
+      "reflex": false,
+      "text": "x°"
+    },
+    {
+      "id": "t9",
+      "type": "text",
+      "text": "r",
+      "anchor": "_t8",
+      "offset_pt": [
+        0,
+        -14
+      ],
+      "segment_points": [
+        "O",
+        "B"
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c10",
+      "type": "on_circle",
+      "point": "A",
+      "center": "O",
+      "radius": 18
+    },
+    {
+      "id": "c11",
+      "type": "on_circle",
+      "point": "B",
+      "center": "O",
+      "radius": 18
+    },
+    {
+      "id": "c12",
+      "type": "angle",
+      "points": [
+        "A",
+        "O",
+        "B"
+      ],
+      "degrees": 32
+    }
+  ],
+  "ambiguities": [
+    "Source dotted contextual circle is normalized to protocol dashed style. Full printed question and answer options excluded. Highlighted solid arc retained; no arc-length answer added."
+  ],
+  "construction": "Radius18 circle with highlighted minor arc subtended by x32; dashed contextual circumference and radii preserved.",
+  "user_approved": false,
+  "constraint_interpretation": "Numerical constraints validate the frozen realization. Free scale choices and algebraic consequences are construction parameters, not additional givens. Only original diagram marks and source question are asserted; no derived answer labels are added.",
+  "source_metadata": "source_metadata.json"
+}

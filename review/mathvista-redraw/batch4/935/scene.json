@@ -1,0 +1,224 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_935",
+  "status": "adapted_review_candidate",
+  "source_dataset": "MathVista testmini / GeoQA+",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -0.43892036851986393,
+      8.584346800811531
+    ],
+    "ylim": [
+      -2.76395777709682,
+      6.259309392234574
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "pixel_bbox": [
+        54,
+        222,
+        713,
+        545
+      ],
+      "occupancy": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "points": {
+    "A": [
+      0.0,
+      3.4641016151377544
+    ],
+    "B": [
+      2.0,
+      0.0
+    ],
+    "C": [
+      8.0,
+      0.0
+    ],
+    "D": [
+      6.0,
+      3.4641016151377544
+    ],
+    "E": [
+      4.0,
+      0.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "segment6",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "segment7",
+      "type": "segment",
+      "points": [
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "segment8",
+      "type": "segment",
+      "points": [
+        "C",
+        "D"
+      ]
+    },
+    {
+      "id": "segment9",
+      "type": "segment",
+      "points": [
+        "D",
+        "A"
+      ]
+    },
+    {
+      "id": "segment10",
+      "type": "segment",
+      "points": [
+        "D",
+        "E"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "label1",
+      "type": "vertex",
+      "point": "A",
+      "text": "A",
+      "offset_pt": [
+        -6,
+        14
+      ]
+    },
+    {
+      "id": "label2",
+      "type": "vertex",
+      "point": "B",
+      "text": "B",
+      "offset_pt": [
+        -4,
+        -15
+      ]
+    },
+    {
+      "id": "label3",
+      "type": "vertex",
+      "point": "C",
+      "text": "C",
+      "offset_pt": [
+        14,
+        -7
+      ]
+    },
+    {
+      "id": "label4",
+      "type": "vertex",
+      "point": "D",
+      "text": "D",
+      "offset_pt": [
+        6,
+        14
+      ]
+    },
+    {
+      "id": "label5",
+      "type": "vertex",
+      "point": "E",
+      "text": "E",
+      "offset_pt": [
+        0,
+        -15
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint11",
+      "type": "distance",
+      "points": [
+        "A",
+        "D"
+      ],
+      "value": 6
+    },
+    {
+      "id": "constraint12",
+      "type": "distance",
+      "points": [
+        "A",
+        "B"
+      ],
+      "value": 4
+    },
+    {
+      "id": "constraint13",
+      "type": "angle",
+      "points": [
+        "E",
+        "D",
+        "C"
+      ],
+      "degrees": 59.99999999999999
+    },
+    {
+      "id": "constraint14",
+      "type": "parallel",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ]
+    },
+    {
+      "id": "constraint15",
+      "type": "parallel",
+      "segments": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ]
+    }
+  ],
+  "construction_notes": [
+    "Adapted question explicitly specifies a parallelogram; both pairs of opposite sides satisfy the condition without adding relation marks."
+  ],
+  "source_caveats": [],
+  "ambiguities": [],
+  "adapted_question": "adapted_question.json",
+  "adaptation_summary": [
+    "The missing type leaves BE underdetermined. A parallelogram is the minimal condition consistent with the intended source layout; both opposite-side parallel relations are now imposed exactly.",
+    "With A=(0,√12), B=(2,0), D=(6,√12), this makes ABCD an exact parallelogram. E is reconstructed on its angle bisector, becoming E=(4,0)."
+  ]
+}

@@ -1,0 +1,294 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_255",
+  "status": "review_candidate",
+  "user_approved": false,
+  "source_dataset": "MathVista testmini / UniGeo",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -0.6554759439703837,
+      10.68151761063705
+    ],
+    "ylim": [
+      -4.065401529635889,
+      7.271592024971544
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "content_bbox_px": [
+        54,
+        256,
+        714,
+        513
+      ],
+      "long_side_fraction": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.5
+      ],
+      "target_long_side_fraction": 0.86
+    }
+  },
+  "points": {
+    "A": [
+      6.819851171331011,
+      3.1801488286689876
+    ],
+    "B": [
+      0.0,
+      0.0
+    ],
+    "C": [
+      10.0,
+      0.0
+    ],
+    "M": [
+      3.4099255856655053,
+      1.5900744143344938
+    ],
+    "N": [
+      8.409925585665505,
+      1.5900744143344938
+    ],
+    "P": [
+      4.151389462106004,
+      0.0
+    ],
+    "Q": [
+      6.819851171331012,
+      2.220446049250313e-16
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "o2",
+      "type": "segment",
+      "points": [
+        "M",
+        "P"
+      ]
+    },
+    {
+      "id": "o3",
+      "type": "segment",
+      "points": [
+        "N",
+        "Q"
+      ]
+    },
+    {
+      "id": "o4",
+      "type": "segment",
+      "points": [
+        "A",
+        "P"
+      ]
+    },
+    {
+      "id": "o5",
+      "type": "segment",
+      "points": [
+        "A",
+        "Q"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "l1",
+      "type": "vertex",
+      "point": "A",
+      "text": "A",
+      "offset_pt": [
+        0,
+        15
+      ]
+    },
+    {
+      "id": "l2",
+      "type": "vertex",
+      "point": "B",
+      "text": "B",
+      "offset_pt": [
+        -12,
+        -5
+      ]
+    },
+    {
+      "id": "l3",
+      "type": "vertex",
+      "point": "C",
+      "text": "C",
+      "offset_pt": [
+        12,
+        -5
+      ]
+    },
+    {
+      "id": "l4",
+      "type": "vertex",
+      "point": "M",
+      "text": "M",
+      "offset_pt": [
+        -14,
+        16
+      ]
+    },
+    {
+      "id": "l5",
+      "type": "vertex",
+      "point": "N",
+      "text": "N",
+      "offset_pt": [
+        7,
+        12
+      ]
+    },
+    {
+      "id": "l6",
+      "type": "vertex",
+      "point": "P",
+      "text": "P",
+      "offset_pt": [
+        0,
+        -15
+      ]
+    },
+    {
+      "id": "l7",
+      "type": "vertex",
+      "point": "Q",
+      "text": "Q",
+      "offset_pt": [
+        0,
+        -15
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c1",
+      "type": "angle",
+      "points": [
+        "B",
+        "A",
+        "C"
+      ],
+      "degrees": 110
+    },
+    {
+      "id": "c2",
+      "type": "between",
+      "points": [
+        "A",
+        "M",
+        "B"
+      ]
+    },
+    {
+      "id": "c3",
+      "type": "between",
+      "points": [
+        "A",
+        "N",
+        "C"
+      ]
+    },
+    {
+      "id": "c4",
+      "type": "between",
+      "points": [
+        "B",
+        "P",
+        "Q"
+      ]
+    },
+    {
+      "id": "c5",
+      "type": "between",
+      "points": [
+        "P",
+        "Q",
+        "C"
+      ]
+    },
+    {
+      "id": "c6",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "M"
+        ],
+        [
+          "M",
+          "B"
+        ]
+      ]
+    },
+    {
+      "id": "c7",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "N"
+        ],
+        [
+          "N",
+          "C"
+        ]
+      ]
+    },
+    {
+      "id": "c8",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "M",
+          "P"
+        ]
+      ]
+    },
+    {
+      "id": "c9",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "N",
+          "Q"
+        ]
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "construction": "Triangle BAC has A110°, B25°, C45°. MP and NQ are exact perpendicular bisectors of AB and AC respectively; P,Q lie on BC. Thus reflection of A across MP gives B and across NQ gives C without adding reflection marks.",
+  "question": "As shown in the figure, ∠BAC = 110.0, if A and B are symmetrical with respect to the line MP, A and C are symmetrical with respect to the line NQ, then the size of ∠PAQ is ()",
+  "display_coordinate_note": "Coordinates are frozen construction coordinates, not additional given data.",
+  "style_normalizations": [
+    "768×768 opaque white; protocol black 1pt primitives; DejaVu Sans point names18pt and values16pt; no question or answer embedded.",
+    "Decorative source colors removed; named objects, continuous topology, semantic dashed lines and any meaningful shaded region retained.",
+    "Original angle callout leaders, when present, are replaced by a direct bound label and exactly one angle arc; no equality or auxiliary geometry is implied.",
+    "Source distance arrows, where present, are normalized to perpendicular solid connectors and a parallel dashed dimension line."
+  ]
+}

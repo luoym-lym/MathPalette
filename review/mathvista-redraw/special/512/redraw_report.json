@@ -1,0 +1,55 @@
+{
+  "pid": "512",
+  "status": "adapted_review_candidate",
+  "source_sha256": "14689c35a45698f4da96d8e70f9a1ec954afcc320b5938e189aa9205dea4a1f3",
+  "scene_sha256": "84debe65e15884940e02b7927a10d589f8a98054820933d6b122d0aa0c6e65f7",
+  "image_sha256": "8cd661d568c2a12aece293e6746f961b05a959c1c1db8d15bb6c8ff10b47a806",
+  "renderer_sha256": "79d97fe3c2a5b78a18edf84fcc5b2c3f359ece6349d92596522efe9c2c7226bd",
+  "protocol_sha256": "24263d367d553a54f6428cee40d19205938fc91524391301aa9374d96d1181a6",
+  "reproduction_script_sha256": "8a569432e4e1f6350e9066665947762e153fbd51e35c5ad0920b251ea1bd6167",
+  "drawing_helper_sha256": "113bd086afd9c7e6de1ed274dced9341cdacd0745ea8a8f043ec9567be2f30f8",
+  "repeat_render_identical": true,
+  "size": [
+    768,
+    768
+  ],
+  "opaque": true,
+  "visual_qa": {
+    "inspected": true,
+    "source_compared": true,
+    "result": "Source topology and two a labels retained; adapted legs6√2, exact symmetric right triangle and semantic fill shown on mandatory [-8,8]² grid. Labels clear, all corners inside viewport. No centroid or answer plotted.",
+    "user_approved": false
+  },
+  "dependencies": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "matplotlib": "3.10.8"
+  },
+  "numerical_geometry_checks": [
+    {
+      "type": "equal_legs",
+      "squared_lengths": [
+        72,
+        72
+      ],
+      "passed": true
+    },
+    {
+      "type": "right_angle",
+      "dot_product": 0,
+      "passed": true
+    },
+    {
+      "type": "centroid",
+      "vertex_average_y": 2.0,
+      "integration_y": 2,
+      "passed": true
+    }
+  ],
+  "adaptation": "adapted_question.json",
+  "caveats": [
+    "Adapted question explicitly supplies a=6√2 to resolve missing source scale while obeying the mandatory fixed integer axes. Source official answer0.24 remains separately preserved; adapted answer is2.00.",
+    "Triangle size and origin placement are exact consequences of the adapted statement, not unannounced extra givens. Semantic fill denotes the source uniform lamina."
+  ],
+  "user_approved": false
+}

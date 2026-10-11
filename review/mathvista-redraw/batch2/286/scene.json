@@ -1,0 +1,217 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_286",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / GeoQA+",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -4.513552824474691,
+      4.492131114337956
+    ],
+    "ylim": [
+      -2.974770003226844,
+      6.030913935585803
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "bbox_px": [
+        54,
+        243,
+        713,
+        524
+      ],
+      "occupancy": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "points": {
+    "A": [
+      -4.0,
+      0.0
+    ],
+    "B": [
+      4.0,
+      0.0
+    ],
+    "C": [
+      0.0,
+      0.0
+    ],
+    "D": [
+      0.0,
+      3.0
+    ],
+    "U": [
+      0.0,
+      0.45
+    ],
+    "V": [
+      0.0,
+      1.6
+    ],
+    "_arrow5": [
+      0.0576,
+      1.4560000000000002
+    ],
+    "_arrow7": [
+      -0.0576,
+      1.4560000000000002
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "segment",
+      "points": [
+        "A",
+        "D"
+      ]
+    },
+    {
+      "id": "o2",
+      "type": "segment",
+      "points": [
+        "D",
+        "B"
+      ]
+    },
+    {
+      "id": "o3",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ],
+      "linestyle": "dashed"
+    },
+    {
+      "id": "o4",
+      "type": "segment",
+      "points": [
+        "U",
+        "V"
+      ]
+    },
+    {
+      "id": "o6",
+      "type": "segment",
+      "points": [
+        "V",
+        "_arrow5"
+      ],
+      "role": "existing_arrowhead"
+    },
+    {
+      "id": "o8",
+      "type": "segment",
+      "points": [
+        "V",
+        "_arrow7"
+      ],
+      "role": "existing_arrowhead"
+    }
+  ],
+  "labels": [
+    {
+      "id": "v9",
+      "type": "vertex",
+      "point": "A",
+      "text": "A",
+      "offset_pt": [
+        -10,
+        0
+      ]
+    },
+    {
+      "id": "v10",
+      "type": "vertex",
+      "point": "B",
+      "text": "B",
+      "offset_pt": [
+        10,
+        0
+      ]
+    },
+    {
+      "id": "v11",
+      "type": "vertex",
+      "point": "C",
+      "text": "C",
+      "offset_pt": [
+        0,
+        -12
+      ]
+    },
+    {
+      "id": "v12",
+      "type": "vertex",
+      "point": "D",
+      "text": "D",
+      "offset_pt": [
+        6,
+        12
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c13",
+      "type": "distance",
+      "points": [
+        "A",
+        "B"
+      ],
+      "value": 8
+    },
+    {
+      "id": "c14",
+      "type": "distance",
+      "points": [
+        "C",
+        "D"
+      ],
+      "value": 3
+    },
+    {
+      "id": "c15",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "C",
+          "B"
+        ]
+      ]
+    },
+    {
+      "id": "c16",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ]
+    }
+  ],
+  "ambiguities": [
+    "Upward arrow is the source motion indicator, not an extra geometric segment connecting C and D."
+  ],
+  "construction": "Rubber band endpoints eight units apart; midpoint rises vertically three units.",
+  "user_approved": false,
+  "constraint_interpretation": "Numerical constraints validate the frozen realization. Free scale choices and algebraic consequences are construction parameters, not additional givens. Only original diagram marks and source question are asserted; no derived answer labels are added.",
+  "source_metadata": "source_metadata.json"
+}

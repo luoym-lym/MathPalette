@@ -1,0 +1,181 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_270",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / UniGeo",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -1.095230210301285,
+      1.095230210301285
+    ],
+    "ylim": [
+      -1.0532709883848221,
+      1.1371894322177478
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "bbox_px": [
+        67,
+        54,
+        700,
+        713
+      ],
+      "occupancy": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "points": {
+    "O": [
+      0.0,
+      0.0
+    ],
+    "A": [
+      6.123233995736766e-17,
+      1.0
+    ],
+    "B": [
+      -0.766044443118978,
+      -0.6427876096865393
+    ],
+    "C": [
+      0.7660444431189778,
+      -0.6427876096865396
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "circle",
+      "center": "O",
+      "radius": 1
+    },
+    {
+      "id": "o2",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "o3",
+      "type": "segment",
+      "points": [
+        "B",
+        "O"
+      ]
+    },
+    {
+      "id": "o4",
+      "type": "segment",
+      "points": [
+        "C",
+        "O"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "v5",
+      "type": "vertex",
+      "point": "A",
+      "text": "A",
+      "offset_pt": [
+        0,
+        12
+      ]
+    },
+    {
+      "id": "v6",
+      "type": "vertex",
+      "point": "B",
+      "text": "B",
+      "offset_pt": [
+        -10,
+        -8
+      ]
+    },
+    {
+      "id": "v7",
+      "type": "vertex",
+      "point": "C",
+      "text": "C",
+      "offset_pt": [
+        10,
+        -8
+      ]
+    },
+    {
+      "id": "v8",
+      "type": "vertex",
+      "point": "O",
+      "text": "O",
+      "offset_pt": [
+        0,
+        12
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c9",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ]
+    },
+    {
+      "id": "c10",
+      "type": "angle",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ],
+      "degrees": 65
+    },
+    {
+      "id": "c11",
+      "type": "on_circle",
+      "point": "A",
+      "center": "O",
+      "radius": 1
+    },
+    {
+      "id": "c12",
+      "type": "on_circle",
+      "point": "B",
+      "center": "O",
+      "radius": 1
+    },
+    {
+      "id": "c13",
+      "type": "on_circle",
+      "point": "C",
+      "center": "O",
+      "radius": 1
+    }
+  ],
+  "ambiguities": [
+    "Question typo says A and B are three points; original has A, B, C on the circle. Retained that unambiguous topology."
+  ],
+  "construction": "Isosceles inscribed triangle: equal AB and AC, base angle ABC=65 degrees.",
+  "user_approved": false,
+  "constraint_interpretation": "Numerical constraints validate the frozen realization. Free scale choices and algebraic consequences are construction parameters, not additional givens. Only original diagram marks and source question are asserted; no derived answer labels are added.",
+  "source_metadata": "source_metadata.json"
+}

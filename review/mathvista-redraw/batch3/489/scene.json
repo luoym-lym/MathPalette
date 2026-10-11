@@ -1,0 +1,192 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_489",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / GEOS",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -1.9905136216820605,
+      24.984429364051977
+    ],
+    "ylim": [
+      -1.416944712680218,
+      25.55799827305382
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "points": {
+    "A": [
+      0.0,
+      0.0
+    ],
+    "B": [
+      0.0,
+      24.0
+    ],
+    "C": [
+      16.0,
+      24.0
+    ],
+    "D": [
+      23.0,
+      0.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "polygon_1",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "right_angle_2",
+      "type": "right_angle",
+      "points": [
+        "B",
+        "A",
+        "D"
+      ]
+    },
+    {
+      "id": "right_angle_3",
+      "type": "right_angle",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "name_A",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        -12,
+        -10
+      ]
+    },
+    {
+      "id": "name_B",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        -12,
+        10
+      ]
+    },
+    {
+      "id": "name_C",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        8,
+        10
+      ]
+    },
+    {
+      "id": "name_D",
+      "type": "vertex",
+      "point": "D",
+      "offset_pt": [
+        12,
+        -10
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint_1",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "B",
+          "A"
+        ],
+        [
+          "A",
+          "D"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_2",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_3",
+      "type": "distance",
+      "points": [
+        "A",
+        "B"
+      ],
+      "value": 24
+    },
+    {
+      "id": "constraint_4",
+      "type": "distance",
+      "points": [
+        "A",
+        "D"
+      ],
+      "value": 23
+    },
+    {
+      "id": "constraint_5",
+      "type": "distance",
+      "points": [
+        "B",
+        "C"
+      ],
+      "value": 16
+    },
+    {
+      "id": "constraint_6",
+      "type": "parallel",
+      "segments": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": [
+    "Right trapezoid constructed from explicit AB=24, AD=23, BC=16; source only vertex names displayed."
+  ]
+}

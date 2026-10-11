@@ -1,0 +1,138 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_276",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / UniGeo",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -5.249111463685325,
+      5.249111463685325
+    ],
+    "ylim": [
+      -5.249111463685325,
+      5.249111463685325
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "bbox_px": [
+        54,
+        54,
+        713,
+        713
+      ],
+      "occupancy": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "points": {
+    "O": [
+      0.0,
+      0.0
+    ],
+    "A": [
+      -4.0,
+      -3.0
+    ],
+    "B": [
+      4.0,
+      -3.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "circle",
+      "center": "O",
+      "radius": 5
+    },
+    {
+      "id": "o2",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "o3",
+      "type": "segment",
+      "points": [
+        "A",
+        "O"
+      ]
+    },
+    {
+      "id": "o4",
+      "type": "point",
+      "point": "O"
+    }
+  ],
+  "labels": [
+    {
+      "id": "v5",
+      "type": "vertex",
+      "point": "A",
+      "text": "A",
+      "offset_pt": [
+        -10,
+        -8
+      ]
+    },
+    {
+      "id": "v6",
+      "type": "vertex",
+      "point": "B",
+      "text": "B",
+      "offset_pt": [
+        10,
+        -8
+      ]
+    },
+    {
+      "id": "v7",
+      "type": "vertex",
+      "point": "O",
+      "text": "O",
+      "offset_pt": [
+        10,
+        0
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c8",
+      "type": "on_circle",
+      "point": "A",
+      "center": "O",
+      "radius": 5
+    },
+    {
+      "id": "c9",
+      "type": "on_circle",
+      "point": "B",
+      "center": "O",
+      "radius": 5
+    },
+    {
+      "id": "c10",
+      "type": "distance",
+      "points": [
+        "A",
+        "B"
+      ],
+      "value": 8
+    }
+  ],
+  "ambiguities": [],
+  "construction": "Circle radius5 and chord8 with lower chord orientation.",
+  "user_approved": false,
+  "constraint_interpretation": "Numerical constraints validate the frozen realization. Free scale choices and algebraic consequences are construction parameters, not additional givens. Only original diagram marks and source question are asserted; no derived answer labels are added.",
+  "source_metadata": "source_metadata.json"
+}

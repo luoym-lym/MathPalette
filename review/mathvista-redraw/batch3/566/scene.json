@@ -1,0 +1,262 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_566",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / GeoQA+",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -0.07337867696744133,
+      1.0698263450074077
+    ],
+    "ylim": [
+      -0.42587641375111984,
+      0.7173286082237292
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "points": {
+    "A": [
+      0.0,
+      0.0
+    ],
+    "B": [
+      1.0,
+      0.0
+    ],
+    "C": [
+      0.5469332970860113,
+      0.2209753958052397
+    ],
+    "D": [
+      0.5266915889985608,
+      -0.3586712838658358
+    ],
+    "E": [
+      0.5615910857010616,
+      0.64071954315326
+    ],
+    "F": [
+      0.7666200693613726,
+      0.18021690613599495
+    ],
+    "G": [
+      0.7423349524975601,
+      0.12567164060131059
+    ]
+  },
+  "objects": [
+    {
+      "id": "polygon_1",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "polygon_2",
+      "type": "polygon",
+      "points": [
+        "D",
+        "E",
+        "F"
+      ],
+      "semantic_fill": false
+    }
+  ],
+  "labels": [
+    {
+      "id": "name_A",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        -12,
+        -3
+      ]
+    },
+    {
+      "id": "name_B",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        12,
+        -4
+      ]
+    },
+    {
+      "id": "name_C",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        -13,
+        5
+      ]
+    },
+    {
+      "id": "name_D",
+      "type": "vertex",
+      "point": "D",
+      "offset_pt": [
+        -7,
+        -13
+      ]
+    },
+    {
+      "id": "name_E",
+      "type": "vertex",
+      "point": "E",
+      "offset_pt": [
+        0,
+        14
+      ]
+    },
+    {
+      "id": "name_F",
+      "type": "vertex",
+      "point": "F",
+      "offset_pt": [
+        12,
+        4
+      ]
+    },
+    {
+      "id": "name_G",
+      "type": "vertex",
+      "point": "G",
+      "offset_pt": [
+        14,
+        10
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint_1",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "D",
+          "E"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_2",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "D",
+          "F"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_3",
+      "type": "equal_length",
+      "segments": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "E",
+          "F"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_4",
+      "type": "angle",
+      "points": [
+        "C",
+        "A",
+        "B"
+      ],
+      "degrees": 22
+    },
+    {
+      "id": "constraint_5",
+      "type": "angle",
+      "points": [
+        "C",
+        "G",
+        "F"
+      ],
+      "degrees": 88
+    },
+    {
+      "id": "constraint_6",
+      "type": "angle",
+      "points": [
+        "A",
+        "C",
+        "D"
+      ],
+      "degrees": 66
+    },
+    {
+      "id": "constraint_7",
+      "type": "angle",
+      "points": [
+        "D",
+        "C",
+        "B"
+      ],
+      "degrees": 66
+    },
+    {
+      "id": "constraint_8",
+      "type": "between",
+      "points": [
+        "D",
+        "C",
+        "E"
+      ]
+    },
+    {
+      "id": "constraint_9",
+      "type": "between",
+      "points": [
+        "C",
+        "G",
+        "B"
+      ]
+    },
+    {
+      "id": "constraint_10",
+      "type": "between",
+      "points": [
+        "D",
+        "G",
+        "F"
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": [
+    "Congruence ABC≅DEF and the angle-bisector condition construct C with interior angle 132°. D and E placed on its bisector; DF intersects CB at G with ∠CGF=88°. Derived construction angles stay hidden."
+  ]
+}

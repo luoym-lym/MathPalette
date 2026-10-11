@@ -1,0 +1,190 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_583",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / Geometry3K",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -3.916933236070406,
+      13.141676887678216
+    ],
+    "ylim": [
+      -11.626514898162451,
+      5.4320952255861705
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "points": {
+    "A": [
+      0.0,
+      0.0
+    ],
+    "B": [
+      3.8655325071954145,
+      4.293108778970295
+    ],
+    "C": [
+      9.337854800406113,
+      -10.741973153604238
+    ]
+  },
+  "objects": [
+    {
+      "id": "polygon_1",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "angle_arc_2",
+      "type": "angle_arc",
+      "points": [
+        "B",
+        "A",
+        "C"
+      ],
+      "radius_pt": 19,
+      "reflex": false
+    },
+    {
+      "id": "angle_arc_4",
+      "type": "angle_arc",
+      "points": [
+        "A",
+        "C",
+        "B"
+      ],
+      "radius_pt": 25,
+      "reflex": false
+    }
+  ],
+  "labels": [
+    {
+      "id": "name_A",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        -14,
+        0
+      ]
+    },
+    {
+      "id": "name_B",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        0,
+        14
+      ]
+    },
+    {
+      "id": "name_C",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        11,
+        -10
+      ]
+    },
+    {
+      "id": "angle_label_3",
+      "type": "angle",
+      "points": [
+        "B",
+        "A",
+        "C"
+      ],
+      "arc_id": "angle_arc_2",
+      "radius_pt": 35,
+      "offset_pt": [
+        0,
+        0
+      ],
+      "reflex": false,
+      "degrees": 97
+    },
+    {
+      "id": "angle_label_5",
+      "type": "angle",
+      "points": [
+        "A",
+        "C",
+        "B"
+      ],
+      "arc_id": "angle_arc_4",
+      "radius_pt": 90,
+      "offset_pt": [
+        0,
+        0
+      ],
+      "reflex": false,
+      "degrees": 21
+    },
+    {
+      "id": "label_6",
+      "type": "text",
+      "anchor": [
+        1.9327662535977073,
+        2.1465543894851473
+      ],
+      "text": "x",
+      "offset_pt": [
+        -12,
+        7
+      ],
+      "segment_points": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "label_7",
+      "type": "text",
+      "anchor": [
+        6.601693653800764,
+        -3.224432187316972
+      ],
+      "text": "16",
+      "offset_pt": [
+        16,
+        4
+      ],
+      "segment_points": [
+        "B",
+        "C"
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint_1",
+      "type": "distance",
+      "points": [
+        "B",
+        "C"
+      ],
+      "value": 16
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": [
+    "Triangle constructed by the sine law from source angles 97° and 21° and BC=16; unknown side remains x."
+  ]
+}

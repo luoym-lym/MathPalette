@@ -1,0 +1,233 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_951",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / Geometry3K",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -1.0505995639534884,
+      1.0505995639534884
+    ],
+    "ylim": [
+      -1.0505995639534884,
+      1.0505995639534884
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "pixel_bbox": [
+        54,
+        54,
+        713,
+        713
+      ],
+      "occupancy": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "points": {
+    "O": [
+      0.0,
+      0.0
+    ],
+    "C": [
+      -0.785316930880745,
+      -0.619093949309834
+    ],
+    "E": [
+      0.785316930880745,
+      0.619093949309834
+    ],
+    "D": [
+      -0.785316930880745,
+      0.619093949309834
+    ]
+  },
+  "objects": [
+    {
+      "id": "point1",
+      "type": "point",
+      "point": "O"
+    },
+    {
+      "id": "circle5",
+      "type": "circle",
+      "center": "O",
+      "radius": 1
+    },
+    {
+      "id": "segment9",
+      "type": "segment",
+      "points": [
+        "C",
+        "D"
+      ]
+    },
+    {
+      "id": "segment10",
+      "type": "segment",
+      "points": [
+        "D",
+        "E"
+      ]
+    },
+    {
+      "id": "segment11",
+      "type": "segment",
+      "points": [
+        "E",
+        "C"
+      ]
+    },
+    {
+      "id": "angle_arc12",
+      "type": "angle_arc",
+      "points": [
+        "D",
+        "E",
+        "C"
+      ],
+      "radius_pt": 23
+    },
+    {
+      "id": "angle_arc14",
+      "type": "angle_arc",
+      "points": [
+        "D",
+        "C",
+        "E"
+      ],
+      "radius_pt": 30
+    }
+  ],
+  "labels": [
+    {
+      "id": "label2",
+      "type": "vertex",
+      "point": "C",
+      "text": "C",
+      "offset_pt": [
+        -13,
+        -10
+      ]
+    },
+    {
+      "id": "label3",
+      "type": "vertex",
+      "point": "E",
+      "text": "E",
+      "offset_pt": [
+        14,
+        10
+      ]
+    },
+    {
+      "id": "label4",
+      "type": "vertex",
+      "point": "D",
+      "text": "D",
+      "offset_pt": [
+        -13,
+        10
+      ]
+    },
+    {
+      "id": "anglelabel13",
+      "type": "angle",
+      "points": [
+        "D",
+        "E",
+        "C"
+      ],
+      "arc_id": "angle_arc12",
+      "radius_pt": 54,
+      "offset_pt": [
+        0,
+        0
+      ],
+      "text": "3x°"
+    },
+    {
+      "id": "anglelabel15",
+      "type": "angle",
+      "points": [
+        "D",
+        "C",
+        "E"
+      ],
+      "arc_id": "angle_arc14",
+      "radius_pt": 125,
+      "offset_pt": [
+        0,
+        0
+      ],
+      "text": "(5x − 12)°"
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint6",
+      "type": "on_circle",
+      "point": "C",
+      "center": "O",
+      "radius": 1
+    },
+    {
+      "id": "constraint7",
+      "type": "on_circle",
+      "point": "D",
+      "center": "O",
+      "radius": 1
+    },
+    {
+      "id": "constraint8",
+      "type": "on_circle",
+      "point": "E",
+      "center": "O",
+      "radius": 1
+    },
+    {
+      "id": "constraint16",
+      "type": "angle",
+      "points": [
+        "D",
+        "E",
+        "C"
+      ],
+      "degrees": 38.25
+    },
+    {
+      "id": "constraint17",
+      "type": "angle",
+      "points": [
+        "D",
+        "C",
+        "E"
+      ],
+      "degrees": 51.75
+    },
+    {
+      "id": "constraint18",
+      "type": "between",
+      "points": [
+        "C",
+        "O",
+        "E"
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": []
+}

@@ -1,0 +1,167 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_28",
+  "status": "review_candidate",
+  "user_approved": false,
+  "source_dataset": "MathVista testmini / Geometry3K",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -9.79768765406058,
+      9.726989789684728
+    ],
+    "ylim": [
+      -9.762338721872654,
+      9.762338721872654
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "content_bbox_px": [
+        54,
+        82,
+        714,
+        686
+      ],
+      "long_side_fraction": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ],
+      "target_long_side_fraction": 0.86
+    }
+  },
+  "points": {
+    "A": [
+      -8.5,
+      0.0
+    ],
+    "B": [
+      8.5,
+      0.0
+    ],
+    "C": [
+      -4.735294117647059,
+      -7.0588235294117645
+    ],
+    "O": [
+      0.0,
+      0.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "point",
+      "point": "O"
+    },
+    {
+      "id": "o2",
+      "type": "circle",
+      "center": "O",
+      "radius": 8.5
+    },
+    {
+      "id": "o3",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ],
+      "semantic_fill": false
+    }
+  ],
+  "labels": [
+    {
+      "id": "l1",
+      "type": "vertex",
+      "point": "A",
+      "text": "A",
+      "offset_pt": [
+        -15,
+        0
+      ]
+    },
+    {
+      "id": "l2",
+      "type": "vertex",
+      "point": "B",
+      "text": "B",
+      "offset_pt": [
+        14,
+        0
+      ]
+    },
+    {
+      "id": "l3",
+      "type": "vertex",
+      "point": "C",
+      "text": "C",
+      "offset_pt": [
+        -9,
+        -13
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c1",
+      "type": "on_circle",
+      "point": "A",
+      "center": "O",
+      "radius": 8.5
+    },
+    {
+      "id": "c2",
+      "type": "on_circle",
+      "point": "B",
+      "center": "O",
+      "radius": 8.5
+    },
+    {
+      "id": "c3",
+      "type": "on_circle",
+      "point": "C",
+      "center": "O",
+      "radius": 8.5
+    },
+    {
+      "id": "c4",
+      "type": "distance",
+      "points": [
+        "A",
+        "C"
+      ],
+      "value": 8
+    },
+    {
+      "id": "c5",
+      "type": "distance",
+      "points": [
+        "B",
+        "C"
+      ],
+      "value": 15
+    },
+    {
+      "id": "c6",
+      "type": "between",
+      "points": [
+        "A",
+        "O",
+        "B"
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "construction": "Circle with AB as horizontal diameter; triangle legs AC=8 and BC=15 are constructed exactly, with C on the lower-left circle.",
+  "question": "$\\overline{AB}$ is a diameter, $AC=8$ inches, and $BC=15$ inches. Find the radius of the circle.",
+  "display_coordinate_note": "Coordinates are frozen construction coordinates, not additional given data.",
+  "style_normalizations": [
+    "768×768 opaque white; protocol black 1pt primitives; DejaVu Sans point names18pt and values16pt; no question or answer embedded.",
+    "Decorative source colors removed; named objects, continuous topology, semantic dashed lines and any meaningful shaded region retained.",
+    "Original angle callout leaders, when present, are replaced by a direct bound label and exactly one angle arc; no equality or auxiliary geometry is implied.",
+    "Source distance arrows, where present, are normalized to perpendicular solid connectors and a parallel dashed dimension line."
+  ]
+}

@@ -1,0 +1,265 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_637",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / GeoQA+",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -3.178530682963356,
+      4.4123716873946055
+    ],
+    "ylim": [
+      -3.2633231953913535,
+      4.327579174966608
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "points": {
+    "A": [
+      0.0,
+      3.0
+    ],
+    "B": [
+      -2.0000000000000018,
+      -0.4641016151377535
+    ],
+    "C": [
+      0.5980762113533133,
+      -1.9641016151377548
+    ],
+    "D": [
+      2.598076211353315,
+      1.4999999999999987
+    ],
+    "E": [
+      -0.4041451884327386,
+      2.3
+    ],
+    "F": [
+      1.2124355652982133,
+      2.3
+    ],
+    "G": [
+      -1.2450018504813791,
+      -0.9000000000000001
+    ],
+    "H": [
+      1.2124355652982124,
+      -0.8999999999999999
+    ]
+  },
+  "objects": [
+    {
+      "id": "polygon_1",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "segment_2",
+      "type": "segment",
+      "points": [
+        [
+          -3,
+          2.3
+        ],
+        [
+          4,
+          2.3
+        ]
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_3",
+      "type": "segment",
+      "points": [
+        [
+          -3,
+          -0.9
+        ],
+        [
+          4,
+          -0.9
+        ]
+      ],
+      "linestyle": "solid"
+    }
+  ],
+  "labels": [
+    {
+      "id": "label_4",
+      "type": "text",
+      "anchor": [
+        4,
+        2.3
+      ],
+      "text": "a",
+      "offset_pt": [
+        12,
+        0
+      ]
+    },
+    {
+      "id": "label_5",
+      "type": "text",
+      "anchor": [
+        4,
+        -0.9
+      ],
+      "text": "b",
+      "offset_pt": [
+        12,
+        0
+      ]
+    },
+    {
+      "id": "name_A",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        -4,
+        13
+      ]
+    },
+    {
+      "id": "name_B",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        -13,
+        0
+      ]
+    },
+    {
+      "id": "name_C",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        -3,
+        -14
+      ]
+    },
+    {
+      "id": "name_D",
+      "type": "vertex",
+      "point": "D",
+      "offset_pt": [
+        13,
+        0
+      ]
+    },
+    {
+      "id": "name_E",
+      "type": "vertex",
+      "point": "E",
+      "offset_pt": [
+        9,
+        -14
+      ]
+    },
+    {
+      "id": "name_F",
+      "type": "vertex",
+      "point": "F",
+      "offset_pt": [
+        0,
+        13
+      ]
+    },
+    {
+      "id": "name_G",
+      "type": "vertex",
+      "point": "G",
+      "offset_pt": [
+        -6,
+        -14
+      ]
+    },
+    {
+      "id": "name_H",
+      "type": "vertex",
+      "point": "H",
+      "offset_pt": [
+        6,
+        -14
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint_1",
+      "type": "angle",
+      "points": [
+        "A",
+        "F",
+        "E"
+      ],
+      "degrees": 30
+    },
+    {
+      "id": "constraint_2",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "D"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_3",
+      "type": "parallel",
+      "segments": [
+        [
+          "E",
+          "F"
+        ],
+        [
+          "G",
+          "H"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_4",
+      "type": "parallel",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "D",
+          "C"
+        ]
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": [
+    "Rectangle sides at 240° and 330° meet horizontal parallels a,b; the explicit angle AFE is exactly 30° without added source markings."
+  ]
+}

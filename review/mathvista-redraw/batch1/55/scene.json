@@ -1,0 +1,256 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_55",
+  "status": "review_candidate",
+  "user_approved": false,
+  "source_dataset": "MathVista testmini / GeoQA+",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -3.434712458972095,
+      4.434712458972095
+    ],
+    "ylim": [
+      -1.397965938911791,
+      6.471458979032399
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "content_bbox_px": [
+        54,
+        134,
+        714,
+        635
+      ],
+      "long_side_fraction": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.5
+      ],
+      "target_long_side_fraction": 0.86
+    }
+  },
+  "points": {
+    "A": [
+      0.0,
+      0.0
+    ],
+    "C": [
+      -1.4999999999999993,
+      2.598076211353316
+    ],
+    "B": [
+      3.000000000000001,
+      5.196152422706632
+    ],
+    "H": [
+      1.5000000000000004,
+      2.598076211353316
+    ],
+    "D": [
+      -3.0,
+      2.598076211353316
+    ],
+    "E": [
+      4.0,
+      2.598076211353316
+    ],
+    "F": [
+      -3.0,
+      0.0
+    ],
+    "G": [
+      4.0,
+      0.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "o2",
+      "type": "segment",
+      "points": [
+        "D",
+        "E"
+      ]
+    },
+    {
+      "id": "o3",
+      "type": "segment",
+      "points": [
+        "F",
+        "G"
+      ]
+    },
+    {
+      "id": "o4",
+      "type": "right_angle",
+      "points": [
+        "A",
+        "C",
+        "B"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "l1",
+      "type": "vertex",
+      "point": "A",
+      "text": "A",
+      "offset_pt": [
+        0,
+        -15
+      ]
+    },
+    {
+      "id": "l2",
+      "type": "vertex",
+      "point": "C",
+      "text": "C",
+      "offset_pt": [
+        -6,
+        14
+      ]
+    },
+    {
+      "id": "l3",
+      "type": "vertex",
+      "point": "B",
+      "text": "B",
+      "offset_pt": [
+        12,
+        4
+      ]
+    },
+    {
+      "id": "l4",
+      "type": "vertex",
+      "point": "H",
+      "text": "H",
+      "offset_pt": [
+        8,
+        -13
+      ]
+    },
+    {
+      "id": "l5",
+      "type": "vertex",
+      "point": "D",
+      "text": "D",
+      "offset_pt": [
+        -10,
+        0
+      ]
+    },
+    {
+      "id": "l6",
+      "type": "vertex",
+      "point": "E",
+      "text": "E",
+      "offset_pt": [
+        10,
+        0
+      ]
+    },
+    {
+      "id": "l7",
+      "type": "vertex",
+      "point": "F",
+      "text": "F",
+      "offset_pt": [
+        -10,
+        0
+      ]
+    },
+    {
+      "id": "l8",
+      "type": "vertex",
+      "point": "G",
+      "text": "G",
+      "offset_pt": [
+        10,
+        0
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c1",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "C",
+          "B"
+        ]
+      ]
+    },
+    {
+      "id": "c2",
+      "type": "angle",
+      "points": [
+        "C",
+        "A",
+        "B"
+      ],
+      "degrees": 60
+    },
+    {
+      "id": "c3",
+      "type": "angle",
+      "points": [
+        "B",
+        "A",
+        "G"
+      ],
+      "degrees": 60
+    },
+    {
+      "id": "c4",
+      "type": "parallel",
+      "segments": [
+        [
+          "D",
+          "E"
+        ],
+        [
+          "F",
+          "G"
+        ]
+      ]
+    },
+    {
+      "id": "c5",
+      "type": "between",
+      "points": [
+        "A",
+        "H",
+        "B"
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "construction": "30–60–90 set square with A on lower horizontal FG and C on upper DE. AB bisects CAG exactly; H is AB intersect DE. The unlabeled right-angle box at C is retained.",
+  "question": "如图，一块直角三角板60°的角的顶点A与直角顶点C分别在两平行线FG，DE上，斜边AB平分∠CAG，交直线DE于点H，则∠BCH的大小为（）",
+  "display_coordinate_note": "Coordinates are frozen construction coordinates, not additional given data.",
+  "style_normalizations": [
+    "768×768 opaque white; protocol black 1pt primitives; DejaVu Sans point names18pt and values16pt; no question or answer embedded.",
+    "Decorative source colors removed; named objects, continuous topology, semantic dashed lines and any meaningful shaded region retained.",
+    "Original angle callout leaders, when present, are replaced by a direct bound label and exactly one angle arc; no equality or auxiliary geometry is implied.",
+    "Source distance arrows, where present, are normalized to perpendicular solid connectors and a parallel dashed dimension line."
+  ]
+}

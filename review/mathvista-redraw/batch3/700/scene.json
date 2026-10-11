@@ -1,0 +1,224 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_700",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / GeoQA+",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -0.2845936610834401,
+      4.292636244752101
+    ],
+    "ylim": [
+      -1.5326860068993158,
+      3.044543898936225
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "points": {
+    "A": [
+      3.0,
+      2.6457513110645907
+    ],
+    "B": [
+      0.0,
+      0.0
+    ],
+    "C": [
+      4.0,
+      0.0
+    ],
+    "D": [
+      2.0,
+      0.0
+    ],
+    "O": [
+      2.0,
+      0.7559289460184544
+    ],
+    "Ofold": [
+      1.0,
+      1.8898223650461363
+    ]
+  },
+  "objects": [
+    {
+      "id": "circle_1",
+      "type": "circle",
+      "center": "O",
+      "radius": 2.138089935299395
+    },
+    {
+      "id": "polygon_2",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "arc_3",
+      "type": "arc",
+      "center": "Ofold",
+      "radius": 2.138089935299395,
+      "start_deg": 242.1144331639063,
+      "end_deg": 380.70481105463546,
+      "linestyle": "dashed"
+    },
+    {
+      "id": "point_4",
+      "type": "point",
+      "point": "O"
+    }
+  ],
+  "labels": [
+    {
+      "id": "name_A",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        4,
+        14
+      ]
+    },
+    {
+      "id": "name_B",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        -14,
+        -3
+      ]
+    },
+    {
+      "id": "name_C",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        14,
+        -3
+      ]
+    },
+    {
+      "id": "name_D",
+      "type": "vertex",
+      "point": "D",
+      "offset_pt": [
+        0,
+        -15
+      ]
+    },
+    {
+      "id": "name_O",
+      "type": "vertex",
+      "point": "O",
+      "offset_pt": [
+        -14,
+        3
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint_1",
+      "type": "on_circle",
+      "point": "A",
+      "center": "O",
+      "radius": 2.138089935299395
+    },
+    {
+      "id": "constraint_2",
+      "type": "on_circle",
+      "point": "B",
+      "center": "O",
+      "radius": 2.138089935299395
+    },
+    {
+      "id": "constraint_3",
+      "type": "on_circle",
+      "point": "C",
+      "center": "O",
+      "radius": 2.138089935299395
+    },
+    {
+      "id": "constraint_4",
+      "type": "on_circle",
+      "point": "A",
+      "center": "Ofold",
+      "radius": 2.138089935299395
+    },
+    {
+      "id": "constraint_5",
+      "type": "on_circle",
+      "point": "B",
+      "center": "Ofold",
+      "radius": 2.138089935299395
+    },
+    {
+      "id": "constraint_6",
+      "type": "on_circle",
+      "point": "D",
+      "center": "Ofold",
+      "radius": 2.138089935299395
+    },
+    {
+      "id": "constraint_7",
+      "type": "distance",
+      "points": [
+        "A",
+        "B"
+      ],
+      "value": 4
+    },
+    {
+      "id": "constraint_8",
+      "type": "distance",
+      "points": [
+        "B",
+        "C"
+      ],
+      "value": 4
+    },
+    {
+      "id": "constraint_9",
+      "type": "equal_length",
+      "segments": [
+        [
+          "B",
+          "D"
+        ],
+        [
+          "D",
+          "C"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_10",
+      "type": "between",
+      "points": [
+        "B",
+        "D",
+        "C"
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": [
+    "A=(3,√7), B=(0,0), C=(4,0) solve the exact fold geometry. Reflecting circumcenter O across chord AB gives the frozen dashed arc center; that reflected arc passes through midpoint D. No reflected center or auxiliary lines are displayed."
+  ]
+}

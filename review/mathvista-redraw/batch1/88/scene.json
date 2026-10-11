@@ -1,0 +1,247 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_88",
+  "status": "review_candidate",
+  "user_approved": false,
+  "source_dataset": "MathVista testmini / GEOS",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -6.289678863017406,
+      5.620445565516598
+    ],
+    "ylim": [
+      -3.458492035860362,
+      8.451632392673643
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "content_bbox_px": [
+        54,
+        211,
+        714,
+        557
+      ],
+      "long_side_fraction": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ],
+      "target_long_side_fraction": 0.86
+    }
+  },
+  "points": {
+    "P": [
+      0.0,
+      0.0
+    ],
+    "U": [
+      -3.464101615137755,
+      1.9999999999999998
+    ],
+    "V": [
+      2.0000000000000004,
+      3.4641016151377544
+    ],
+    "W": [
+      -1.4641016151377544,
+      5.464101615137754
+    ],
+    "L": [
+      -6.0,
+      0.0
+    ],
+    "R": [
+      5.0,
+      0.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "polygon",
+      "points": [
+        "P",
+        "U",
+        "W",
+        "V"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "o2",
+      "type": "segment",
+      "points": [
+        "L",
+        "R"
+      ]
+    },
+    {
+      "id": "o3",
+      "type": "angle_arc",
+      "points": [
+        "L",
+        "P",
+        "U"
+      ],
+      "radius_pt": 16,
+      "reflex": false
+    },
+    {
+      "id": "o4",
+      "type": "angle_arc",
+      "points": [
+        "V",
+        "P",
+        "R"
+      ],
+      "radius_pt": 16,
+      "reflex": false
+    }
+  ],
+  "labels": [
+    {
+      "id": "l1",
+      "type": "vertex",
+      "point": "P",
+      "text": "P",
+      "offset_pt": [
+        0,
+        -15
+      ]
+    },
+    {
+      "id": "l2",
+      "type": "text",
+      "anchor": "R",
+      "text": "l",
+      "offset_pt": [
+        13,
+        0
+      ]
+    },
+    {
+      "id": "l3",
+      "type": "angle",
+      "points": [
+        "L",
+        "P",
+        "U"
+      ],
+      "arc_id": "o3",
+      "radius_pt": 46,
+      "offset_pt": [
+        0,
+        0
+      ],
+      "reflex": false,
+      "text": "x°"
+    },
+    {
+      "id": "l4",
+      "type": "angle",
+      "points": [
+        "V",
+        "P",
+        "R"
+      ],
+      "arc_id": "o4",
+      "radius_pt": 42,
+      "offset_pt": [
+        0,
+        0
+      ],
+      "reflex": false,
+      "text": "2x°"
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c1",
+      "type": "equal_length",
+      "segments": [
+        [
+          "P",
+          "U"
+        ],
+        [
+          "U",
+          "W"
+        ]
+      ]
+    },
+    {
+      "id": "c2",
+      "type": "equal_length",
+      "segments": [
+        [
+          "P",
+          "U"
+        ],
+        [
+          "W",
+          "V"
+        ]
+      ]
+    },
+    {
+      "id": "c3",
+      "type": "equal_length",
+      "segments": [
+        [
+          "P",
+          "U"
+        ],
+        [
+          "V",
+          "P"
+        ]
+      ]
+    },
+    {
+      "id": "c4",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "P",
+          "U"
+        ],
+        [
+          "P",
+          "V"
+        ]
+      ]
+    },
+    {
+      "id": "c5",
+      "type": "angle",
+      "points": [
+        "L",
+        "P",
+        "U"
+      ],
+      "degrees": 30
+    },
+    {
+      "id": "c6",
+      "type": "angle",
+      "points": [
+        "V",
+        "P",
+        "R"
+      ],
+      "degrees": 60
+    }
+  ],
+  "ambiguities": [],
+  "construction": "Square touches the horizontal line only at P. Adjacent sides leave P at 150° and 60°, giving displayed supplementary wedges x° and 2x°; all four square sides are exact.",
+  "question": "A square is tangent to a line at point P in the figure above. What is the value of x?",
+  "display_coordinate_note": "Coordinates are frozen construction coordinates, not additional given data.",
+  "style_normalizations": [
+    "768×768 opaque white; protocol black 1pt primitives; DejaVu Sans point names18pt and values16pt; no question or answer embedded.",
+    "Decorative source colors removed; named objects, continuous topology, semantic dashed lines and any meaningful shaded region retained.",
+    "Original angle callout leaders, when present, are replaced by a direct bound label and exactly one angle arc; no equality or auxiliary geometry is implied.",
+    "Source distance arrows, where present, are normalized to perpendicular solid connectors and a parallel dashed dimension line."
+  ]
+}

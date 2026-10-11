@@ -1,0 +1,161 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_697",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / UniGeo",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -0.9201231400028282,
+      15.14614806037444
+    ],
+    "ylim": [
+      -6.479735721283777,
+      9.586535479093492
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "points": {
+    "A": [
+      5.196152422706632,
+      2.9999999999999996
+    ],
+    "B": [
+      0.0,
+      0.0
+    ],
+    "C": [
+      9.0,
+      0.0
+    ],
+    "D": [
+      14.196152422706632,
+      2.9999999999999996
+    ]
+  },
+  "objects": [
+    {
+      "id": "polygon_1",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "semantic_fill": false
+    }
+  ],
+  "labels": [
+    {
+      "id": "name_A",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        0,
+        14
+      ]
+    },
+    {
+      "id": "name_B",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        -12,
+        -8
+      ]
+    },
+    {
+      "id": "name_C",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        0,
+        -14
+      ]
+    },
+    {
+      "id": "name_D",
+      "type": "vertex",
+      "point": "D",
+      "offset_pt": [
+        12,
+        4
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint_1",
+      "type": "distance",
+      "points": [
+        "A",
+        "B"
+      ],
+      "value": 6
+    },
+    {
+      "id": "constraint_2",
+      "type": "distance",
+      "points": [
+        "B",
+        "C"
+      ],
+      "value": 9
+    },
+    {
+      "id": "constraint_3",
+      "type": "angle",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ],
+      "degrees": 30
+    },
+    {
+      "id": "constraint_4",
+      "type": "parallel",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "D",
+          "C"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_5",
+      "type": "parallel",
+      "segments": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": [
+    "Parallelogram is constructed from AB=6, BC=9 and angle B=30°. The source only displays point names."
+  ]
+}

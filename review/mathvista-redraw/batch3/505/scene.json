@@ -1,0 +1,151 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_505",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / UniGeo",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -5.251449659233032,
+      5.251449659233032
+    ],
+    "ylim": [
+      -5.251449659233032,
+      5.251449659233032
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "points": {
+    "O": [
+      0.0,
+      0.0
+    ],
+    "A": [
+      -4.0,
+      -3.0
+    ],
+    "B": [
+      4.0,
+      -3.0
+    ],
+    "H": [
+      0.0,
+      -3.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "circle_1",
+      "type": "circle",
+      "center": "O",
+      "radius": 5
+    },
+    {
+      "id": "segment_2",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_3",
+      "type": "segment",
+      "points": [
+        "O",
+        "H"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "point_4",
+      "type": "point",
+      "point": "O"
+    }
+  ],
+  "labels": [
+    {
+      "id": "name_O",
+      "type": "vertex",
+      "point": "O",
+      "offset_pt": [
+        0,
+        14
+      ]
+    },
+    {
+      "id": "name_A",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        -12,
+        -6
+      ]
+    },
+    {
+      "id": "name_B",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        12,
+        -6
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint_1",
+      "type": "on_circle",
+      "point": "A",
+      "center": "O",
+      "radius": 5
+    },
+    {
+      "id": "constraint_2",
+      "type": "on_circle",
+      "point": "B",
+      "center": "O",
+      "radius": 5
+    },
+    {
+      "id": "constraint_3",
+      "type": "distance",
+      "points": [
+        "A",
+        "B"
+      ],
+      "value": 8
+    },
+    {
+      "id": "constraint_4",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "O",
+          "H"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": [
+    "Chord half-length 4 and radius 5 place chord at y=-3; unnamed perpendicular foot remains unnamed and unmarked."
+  ]
+}

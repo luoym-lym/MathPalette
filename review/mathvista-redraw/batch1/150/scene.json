@@ -1,0 +1,211 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_150",
+  "status": "review_candidate",
+  "user_approved": false,
+  "source_dataset": "MathVista testmini / UniGeo",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -5.180531427185113,
+      5.300389904447896
+    ],
+    "ylim": [
+      -6.232536280102755,
+      4.248385051530255
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "content_bbox_px": [
+        115,
+        54,
+        653,
+        714
+      ],
+      "long_side_fraction": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ],
+      "target_long_side_fraction": 0.86
+    }
+  },
+  "points": {
+    "O": [
+      0.0,
+      0.0
+    ],
+    "A": [
+      3.7587704831436337,
+      1.3680805733026749
+    ],
+    "B": [
+      2.294305745404184,
+      -3.276608177155967
+    ],
+    "C": [
+      -2.8284271247461907,
+      -2.82842712474619
+    ],
+    "D": [
+      -1.3322676295501878e-15,
+      -5.656854249492381
+    ],
+    "T": [
+      -3.2880465325174466,
+      -2.368807716974934
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "circle",
+      "center": "O",
+      "radius": 4
+    },
+    {
+      "id": "o2",
+      "type": "segment",
+      "points": [
+        "T",
+        "D"
+      ]
+    },
+    {
+      "id": "o3",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "o4",
+      "type": "segment",
+      "points": [
+        "O",
+        "C"
+      ]
+    },
+    {
+      "id": "o5",
+      "type": "segment",
+      "points": [
+        "O",
+        "B"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "l1",
+      "type": "vertex",
+      "point": "O",
+      "text": "O",
+      "offset_pt": [
+        0,
+        14
+      ]
+    },
+    {
+      "id": "l2",
+      "type": "vertex",
+      "point": "A",
+      "text": "A",
+      "offset_pt": [
+        12,
+        3
+      ]
+    },
+    {
+      "id": "l3",
+      "type": "vertex",
+      "point": "B",
+      "text": "B",
+      "offset_pt": [
+        8,
+        -13
+      ]
+    },
+    {
+      "id": "l4",
+      "type": "vertex",
+      "point": "C",
+      "text": "C",
+      "offset_pt": [
+        -10,
+        -10
+      ]
+    },
+    {
+      "id": "l5",
+      "type": "vertex",
+      "point": "D",
+      "text": "D",
+      "offset_pt": [
+        9,
+        -11
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c1",
+      "type": "on_circle",
+      "point": "A",
+      "center": "O",
+      "radius": 4
+    },
+    {
+      "id": "c2",
+      "type": "on_circle",
+      "point": "B",
+      "center": "O",
+      "radius": 4
+    },
+    {
+      "id": "c3",
+      "type": "on_circle",
+      "point": "C",
+      "center": "O",
+      "radius": 4
+    },
+    {
+      "id": "c4",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "O",
+          "C"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ]
+    },
+    {
+      "id": "c5",
+      "type": "angle",
+      "points": [
+        "D",
+        "C",
+        "B"
+      ],
+      "degrees": 40
+    }
+  ],
+  "ambiguities": [],
+  "construction": "A,B,C lie on a circle. CD is the tangent at C and DCB=40°, enforced by an 80° minor CB arc. Both source radii OC,OB and all triangle chords retained.",
+  "question": "As shown in the figure, points A, B, and C are three points on ⊙O, and the straight line CD and ⊙O are tangent to point C. If ∠DCB = 40.0, then the degree of ∠CAB is ()",
+  "display_coordinate_note": "Coordinates are frozen construction coordinates, not additional given data.",
+  "style_normalizations": [
+    "768×768 opaque white; protocol black 1pt primitives; DejaVu Sans point names18pt and values16pt; no question or answer embedded.",
+    "Decorative source colors removed; named objects, continuous topology, semantic dashed lines and any meaningful shaded region retained.",
+    "Original angle callout leaders, when present, are replaced by a direct bound label and exactly one angle arc; no equality or auxiliary geometry is implied.",
+    "Source distance arrows, where present, are normalized to perpendicular solid connectors and a parallel dashed dimension line."
+  ]
+}

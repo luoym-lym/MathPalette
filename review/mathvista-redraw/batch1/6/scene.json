@@ -1,0 +1,186 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_6",
+  "status": "review_candidate",
+  "user_approved": false,
+  "source_dataset": "MathVista testmini / UniGeo",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -0.40073898862842494,
+      10.364505870290245
+    ],
+    "ylim": [
+      -5.5530335319908275,
+      5.212211326927843
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "content_bbox_px": [
+        54,
+        368,
+        714,
+        400
+      ],
+      "long_side_fraction": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ],
+      "target_long_side_fraction": 0.86
+    }
+  },
+  "points": {
+    "A": [
+      0.0,
+      0.0
+    ],
+    "D": [
+      3.0,
+      0.0
+    ],
+    "C": [
+      6.0,
+      0.0
+    ],
+    "B": [
+      10.0,
+      0.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "point",
+      "point": "A"
+    },
+    {
+      "id": "o2",
+      "type": "point",
+      "point": "D"
+    },
+    {
+      "id": "o3",
+      "type": "point",
+      "point": "C"
+    },
+    {
+      "id": "o4",
+      "type": "point",
+      "point": "B"
+    },
+    {
+      "id": "o5",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "l1",
+      "type": "vertex",
+      "point": "A",
+      "text": "A",
+      "offset_pt": [
+        0,
+        -14
+      ]
+    },
+    {
+      "id": "l2",
+      "type": "vertex",
+      "point": "D",
+      "text": "D",
+      "offset_pt": [
+        0,
+        -14
+      ]
+    },
+    {
+      "id": "l3",
+      "type": "vertex",
+      "point": "C",
+      "text": "C",
+      "offset_pt": [
+        0,
+        -14
+      ]
+    },
+    {
+      "id": "l4",
+      "type": "vertex",
+      "point": "B",
+      "text": "B",
+      "offset_pt": [
+        0,
+        -14
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c1",
+      "type": "between",
+      "points": [
+        "A",
+        "D",
+        "C"
+      ]
+    },
+    {
+      "id": "c2",
+      "type": "between",
+      "points": [
+        "D",
+        "C",
+        "B"
+      ]
+    },
+    {
+      "id": "c3",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "D",
+          "C"
+        ]
+      ]
+    },
+    {
+      "id": "c4",
+      "type": "distance",
+      "points": [
+        "C",
+        "B"
+      ],
+      "value": 4
+    },
+    {
+      "id": "c5",
+      "type": "distance",
+      "points": [
+        "D",
+        "B"
+      ],
+      "value": 7
+    }
+  ],
+  "ambiguities": [],
+  "construction": "Exact collinear order A-D-C-B. D is the midpoint of AC; CB=4 and DB=7 are enforced without placing question-only values into the diagram.",
+  "question": "As shown in the figure, if CB = 4.0, DB = 7.0, and D is the midpoint of AC, then the length of AC is ()",
+  "display_coordinate_note": "Coordinates are frozen construction coordinates, not additional given data.",
+  "style_normalizations": [
+    "768×768 opaque white; protocol black 1pt primitives; DejaVu Sans point names18pt and values16pt; no question or answer embedded.",
+    "Decorative source colors removed; named objects, continuous topology, semantic dashed lines and any meaningful shaded region retained.",
+    "Original angle callout leaders, when present, are replaced by a direct bound label and exactly one angle arc; no equality or auxiliary geometry is implied.",
+    "Source distance arrows, where present, are normalized to perpendicular solid connectors and a parallel dashed dimension line."
+  ]
+}

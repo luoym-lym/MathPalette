@@ -1,0 +1,275 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_736",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / GeoQA+",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -1.1535018830121442,
+      5.328873629696373
+    ],
+    "ylim": [
+      -0.7529065063542588,
+      5.729469006354259
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "pixel_bbox": [
+        54,
+        91,
+        713,
+        675
+      ],
+      "occupancy": 0.859375,
+      "center_error_px": [
+        0.0,
+        -0.5
+      ]
+    }
+  },
+  "points": {
+    "A": [
+      0.0,
+      5.0
+    ],
+    "B": [
+      2.0,
+      0.0
+    ],
+    "C": [
+      3.6853562625369944,
+      2.302866179326473
+    ],
+    "aL": [
+      -1.0,
+      3.8
+    ],
+    "aR": [
+      5.0,
+      3.8
+    ],
+    "bL": [
+      -1.0,
+      1.2
+    ],
+    "bR": [
+      5.0,
+      1.2
+    ],
+    "I": [
+      1.5199999999999998,
+      1.2000000000000006
+    ],
+    "J": [
+      1.6396767120513238,
+      3.8
+    ]
+  },
+  "objects": [
+    {
+      "id": "segment4",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "segment5",
+      "type": "segment",
+      "points": [
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "segment6",
+      "type": "segment",
+      "points": [
+        "C",
+        "A"
+      ]
+    },
+    {
+      "id": "right_angle7",
+      "type": "right_angle",
+      "points": [
+        "A",
+        "C",
+        "B"
+      ]
+    },
+    {
+      "id": "segment10",
+      "type": "segment",
+      "points": [
+        "aL",
+        "aR"
+      ]
+    },
+    {
+      "id": "segment12",
+      "type": "segment",
+      "points": [
+        "bL",
+        "bR"
+      ]
+    },
+    {
+      "id": "angle_arc14",
+      "type": "angle_arc",
+      "points": [
+        "bL",
+        "I",
+        "A"
+      ],
+      "radius_pt": 13
+    },
+    {
+      "id": "angle_arc16",
+      "type": "angle_arc",
+      "points": [
+        "aR",
+        "J",
+        "C"
+      ],
+      "radius_pt": 13
+    }
+  ],
+  "labels": [
+    {
+      "id": "label1",
+      "type": "vertex",
+      "point": "A",
+      "text": "A",
+      "offset_pt": [
+        -12,
+        10
+      ]
+    },
+    {
+      "id": "label2",
+      "type": "vertex",
+      "point": "B",
+      "text": "B",
+      "offset_pt": [
+        0,
+        -14
+      ]
+    },
+    {
+      "id": "label3",
+      "type": "vertex",
+      "point": "C",
+      "text": "C",
+      "offset_pt": [
+        14,
+        5
+      ]
+    },
+    {
+      "id": "text11",
+      "type": "text",
+      "text": "a",
+      "anchor": "aR",
+      "offset_pt": [
+        10,
+        0
+      ]
+    },
+    {
+      "id": "text13",
+      "type": "text",
+      "text": "b",
+      "anchor": "bR",
+      "offset_pt": [
+        10,
+        0
+      ]
+    },
+    {
+      "id": "anglelabel15",
+      "type": "angle",
+      "points": [
+        "bL",
+        "I",
+        "A"
+      ],
+      "arc_id": "angle_arc14",
+      "radius_pt": 25,
+      "offset_pt": [
+        0,
+        0
+      ],
+      "text": "1"
+    },
+    {
+      "id": "anglelabel17",
+      "type": "angle",
+      "points": [
+        "aR",
+        "J",
+        "C"
+      ],
+      "arc_id": "angle_arc16",
+      "radius_pt": 27,
+      "offset_pt": [
+        0,
+        0
+      ],
+      "text": "2"
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint8",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "C",
+          "B"
+        ]
+      ]
+    },
+    {
+      "id": "constraint9",
+      "type": "angle",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ],
+      "degrees": 58
+    },
+    {
+      "id": "constraint18",
+      "type": "parallel",
+      "segments": [
+        [
+          "aL",
+          "aR"
+        ],
+        [
+          "bL",
+          "bR"
+        ]
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": []
+}

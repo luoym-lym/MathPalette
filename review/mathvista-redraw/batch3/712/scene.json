@@ -1,0 +1,142 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_712",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / IconQA",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -0.07428995961746043,
+      3.0742899596174604
+    ],
+    "ylim": [
+      -0.3501033508319522,
+      2.7984765684029687
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "points": {
+    "A": [
+      0.0,
+      0.0
+    ],
+    "B": [
+      3.0,
+      0.0
+    ],
+    "C": [
+      1.5,
+      2.598076211353316
+    ]
+  },
+  "objects": [
+    {
+      "id": "polygon_1",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ],
+      "semantic_fill": false
+    }
+  ],
+  "labels": [
+    {
+      "id": "label_2",
+      "type": "text",
+      "anchor": [
+        1.5,
+        0.0
+      ],
+      "text": "3 yd",
+      "offset_pt": [
+        0,
+        -17
+      ],
+      "segment_points": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "label_3",
+      "type": "text",
+      "anchor": [
+        0.75,
+        1.299038105676658
+      ],
+      "text": "3 yd",
+      "offset_pt": [
+        -30,
+        4
+      ],
+      "segment_points": [
+        "A",
+        "C"
+      ]
+    },
+    {
+      "id": "label_4",
+      "type": "text",
+      "anchor": [
+        2.25,
+        1.299038105676658
+      ],
+      "text": "3 yd",
+      "offset_pt": [
+        30,
+        4
+      ],
+      "segment_points": [
+        "B",
+        "C"
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint_1",
+      "type": "distance",
+      "points": [
+        "A",
+        "B"
+      ],
+      "value": 3
+    },
+    {
+      "id": "constraint_2",
+      "type": "distance",
+      "points": [
+        "B",
+        "C"
+      ],
+      "value": 3
+    },
+    {
+      "id": "constraint_3",
+      "type": "distance",
+      "points": [
+        "C",
+        "A"
+      ],
+      "value": 3
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": [
+    "Exact equilateral triangle of side 3 yd; all three edge labels retained. Decorative cyan area fill omitted."
+  ]
+}

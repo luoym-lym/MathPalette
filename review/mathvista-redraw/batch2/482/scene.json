@@ -1,0 +1,172 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_482",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / GEOS",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -1.141884530237479,
+      1.1418050573777783
+    ],
+    "ylim": [
+      -1.1418447938076286,
+      1.1418447938076286
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "bbox_px": [
+        53,
+        80,
+        713,
+        687
+      ],
+      "occupancy": 0.8606770833333334,
+      "center_error_px": [
+        -0.5,
+        0.0
+      ]
+    }
+  },
+  "points": {
+    "O": [
+      0.0,
+      0.0
+    ],
+    "A": [
+      -1.0,
+      0.0
+    ],
+    "C": [
+      1.0,
+      0.0
+    ],
+    "B": [
+      -0.4999999999999998,
+      0.8660254037844387
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "circle",
+      "center": "O",
+      "radius": 1
+    },
+    {
+      "id": "o2",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "o3",
+      "type": "segment",
+      "points": [
+        "B",
+        "O"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "v4",
+      "type": "vertex",
+      "point": "A",
+      "text": "A",
+      "offset_pt": [
+        -13,
+        0
+      ]
+    },
+    {
+      "id": "v5",
+      "type": "vertex",
+      "point": "B",
+      "text": "B",
+      "offset_pt": [
+        -2,
+        13
+      ]
+    },
+    {
+      "id": "v6",
+      "type": "vertex",
+      "point": "C",
+      "text": "C",
+      "offset_pt": [
+        13,
+        0
+      ]
+    },
+    {
+      "id": "v7",
+      "type": "vertex",
+      "point": "O",
+      "text": "O",
+      "offset_pt": [
+        0,
+        -13
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c8",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "O"
+        ]
+      ]
+    },
+    {
+      "id": "c9",
+      "type": "between",
+      "points": [
+        "A",
+        "O",
+        "C"
+      ]
+    },
+    {
+      "id": "c10",
+      "type": "on_circle",
+      "point": "A",
+      "center": "O",
+      "radius": 1
+    },
+    {
+      "id": "c11",
+      "type": "on_circle",
+      "point": "B",
+      "center": "O",
+      "radius": 1
+    },
+    {
+      "id": "c12",
+      "type": "on_circle",
+      "point": "C",
+      "center": "O",
+      "radius": 1
+    }
+  ],
+  "ambiguities": [
+    "Tiny missing pixels on lower source circumference are treated as scanning artifacts; continuous geometric circle rendered."
+  ],
+  "construction": "Circle diameterAC and chordAB equal to radiusAO.",
+  "user_approved": false,
+  "constraint_interpretation": "Numerical constraints validate the frozen realization. Free scale choices and algebraic consequences are construction parameters, not additional givens. Only original diagram marks and source question are asserted; no derived answer labels are added.",
+  "source_metadata": "source_metadata.json"
+}

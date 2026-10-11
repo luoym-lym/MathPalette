@@ -1,0 +1,177 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_285",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / UniGeo",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -1.0817592931004372,
+      1.0817592931004372
+    ],
+    "ylim": [
+      -1.11243984192688,
+      1.0510787442739944
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "bbox_px": [
+        63,
+        54,
+        704,
+        713
+      ],
+      "occupancy": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "points": {
+    "A": [
+      -0.6427876096865394,
+      0.766044443118978
+    ],
+    "B": [
+      0.6427876096865393,
+      -0.7660444431189781
+    ],
+    "C": [
+      -0.17364817766693033,
+      -0.984807753012208
+    ],
+    "O": [
+      0.0,
+      0.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "circle",
+      "center": "O",
+      "radius": 1
+    },
+    {
+      "id": "o2",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "o3",
+      "type": "segment",
+      "points": [
+        "A",
+        "C"
+      ]
+    },
+    {
+      "id": "o4",
+      "type": "segment",
+      "points": [
+        "O",
+        "C"
+      ]
+    },
+    {
+      "id": "o5",
+      "type": "point",
+      "point": "O"
+    }
+  ],
+  "labels": [
+    {
+      "id": "v6",
+      "type": "vertex",
+      "point": "A",
+      "text": "A",
+      "offset_pt": [
+        -9,
+        10
+      ]
+    },
+    {
+      "id": "v7",
+      "type": "vertex",
+      "point": "B",
+      "text": "B",
+      "offset_pt": [
+        9,
+        -9
+      ]
+    },
+    {
+      "id": "v8",
+      "type": "vertex",
+      "point": "C",
+      "text": "C",
+      "offset_pt": [
+        -4,
+        -13
+      ]
+    },
+    {
+      "id": "v9",
+      "type": "vertex",
+      "point": "O",
+      "text": "O",
+      "offset_pt": [
+        7,
+        12
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c10",
+      "type": "between",
+      "points": [
+        "A",
+        "O",
+        "B"
+      ]
+    },
+    {
+      "id": "c11",
+      "type": "angle",
+      "points": [
+        "B",
+        "O",
+        "C"
+      ],
+      "degrees": 50
+    },
+    {
+      "id": "c12",
+      "type": "on_circle",
+      "point": "A",
+      "center": "O",
+      "radius": 1
+    },
+    {
+      "id": "c13",
+      "type": "on_circle",
+      "point": "B",
+      "center": "O",
+      "radius": 1
+    },
+    {
+      "id": "c14",
+      "type": "on_circle",
+      "point": "C",
+      "center": "O",
+      "radius": 1
+    }
+  ],
+  "ambiguities": [],
+  "construction": "AB diameter and central angle BOC=50 degrees.",
+  "user_approved": false,
+  "constraint_interpretation": "Numerical constraints validate the frozen realization. Free scale choices and algebraic consequences are construction parameters, not additional givens. Only original diagram marks and source question are asserted; no derived answer labels are added.",
+  "source_metadata": "source_metadata.json"
+}

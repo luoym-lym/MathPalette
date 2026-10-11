@@ -1,0 +1,233 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_373",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / UniGeo",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -1.1014836329769286,
+      1.858282693886394
+    ],
+    "ylim": [
+      -1.0377879690894822,
+      1.9219783577738405
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "bbox_px": [
+        95,
+        54,
+        672,
+        714
+      ],
+      "occupancy": 0.8606770833333334,
+      "center_error_px": [
+        0.0,
+        0.5
+      ]
+    }
+  },
+  "points": {
+    "A": [
+      0.0,
+      1.7320508075688772
+    ],
+    "B": [
+      -0.75,
+      0.4330127018922193
+    ],
+    "C": [
+      1.5,
+      -0.8660254037844386
+    ],
+    "D": [
+      1.5,
+      1.7320508075688772
+    ],
+    "M": [
+      0.0,
+      0.0
+    ],
+    "N": [
+      1.5,
+      0.8660254037844386
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "o2",
+      "type": "segment",
+      "points": [
+        "A",
+        "M"
+      ]
+    },
+    {
+      "id": "o3",
+      "type": "segment",
+      "points": [
+        "A",
+        "N"
+      ]
+    },
+    {
+      "id": "o4",
+      "type": "segment",
+      "points": [
+        "M",
+        "N"
+      ]
+    },
+    {
+      "id": "o5",
+      "type": "right_angle",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "o7",
+      "type": "right_angle",
+      "points": [
+        "A",
+        "D",
+        "C"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "v9",
+      "type": "vertex",
+      "point": "A",
+      "text": "A",
+      "offset_pt": [
+        0,
+        13
+      ]
+    },
+    {
+      "id": "v10",
+      "type": "vertex",
+      "point": "B",
+      "text": "B",
+      "offset_pt": [
+        -13,
+        0
+      ]
+    },
+    {
+      "id": "v11",
+      "type": "vertex",
+      "point": "C",
+      "text": "C",
+      "offset_pt": [
+        0,
+        -13
+      ]
+    },
+    {
+      "id": "v12",
+      "type": "vertex",
+      "point": "D",
+      "text": "D",
+      "offset_pt": [
+        9,
+        10
+      ]
+    },
+    {
+      "id": "v13",
+      "type": "vertex",
+      "point": "M",
+      "text": "M",
+      "offset_pt": [
+        -5,
+        -13
+      ]
+    },
+    {
+      "id": "v14",
+      "type": "vertex",
+      "point": "N",
+      "text": "N",
+      "offset_pt": [
+        13,
+        0
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c6",
+      "type": "angle",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ],
+      "degrees": 90
+    },
+    {
+      "id": "c8",
+      "type": "angle",
+      "points": [
+        "A",
+        "D",
+        "C"
+      ],
+      "degrees": 90
+    },
+    {
+      "id": "c15",
+      "type": "angle",
+      "points": [
+        "B",
+        "A",
+        "D"
+      ],
+      "degrees": 120
+    },
+    {
+      "id": "c16",
+      "type": "between",
+      "points": [
+        "B",
+        "M",
+        "C"
+      ]
+    },
+    {
+      "id": "c17",
+      "type": "between",
+      "points": [
+        "C",
+        "N",
+        "D"
+      ]
+    }
+  ],
+  "ambiguities": [
+    "Source question mistakenly names M twice; original labels locate M onBC andN onCD. These names and source topology are preserved. No optimality angle result is printed."
+  ],
+  "construction": "Quadrilateral has BAD120,B=D90. M,N use the unfolded minimum-perimeter path of reflected A across BC and CD.",
+  "user_approved": false,
+  "constraint_interpretation": "Numerical constraints validate the frozen realization. Free scale choices and algebraic consequences are construction parameters, not additional givens. Only original diagram marks and source question are asserted; no derived answer labels are added.",
+  "source_metadata": "source_metadata.json"
+}

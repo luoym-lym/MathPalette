@@ -1,0 +1,333 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_273",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / Geometry3K",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -13.757238162150571,
+      19.0812397405481
+    ],
+    "ylim": [
+      -18.7335834905481,
+      14.104894412150571
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "bbox_px": [
+        53,
+        197,
+        713,
+        570
+      ],
+      "occupancy": 0.8606770833333334,
+      "center_error_px": [
+        -0.5,
+        0.0
+      ]
+    }
+  },
+  "points": {
+    "L": [
+      -13.0,
+      0.0
+    ],
+    "R": [
+      13.0,
+      0.0
+    ],
+    "T": [
+      0.0,
+      6.5
+    ],
+    "B": [
+      0.0,
+      -6.5
+    ],
+    "_d4": [
+      -13.0,
+      -10.0
+    ],
+    "_d5": [
+      13.0,
+      -10.0
+    ],
+    "_t9": [
+      0.0,
+      -10.0
+    ],
+    "_d13": [
+      17.0,
+      -6.5
+    ],
+    "_d14": [
+      17.0,
+      6.5
+    ],
+    "_t18": [
+      17.0,
+      0.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "polygon",
+      "points": [
+        "L",
+        "T",
+        "R",
+        "B"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "o2",
+      "type": "segment",
+      "points": [
+        "L",
+        "R"
+      ],
+      "linestyle": "dashed"
+    },
+    {
+      "id": "o3",
+      "type": "segment",
+      "points": [
+        "T",
+        "B"
+      ],
+      "linestyle": "dashed"
+    },
+    {
+      "id": "o6",
+      "type": "segment",
+      "points": [
+        "_d4",
+        "_d5"
+      ],
+      "linestyle": "dashed",
+      "role": "dimension"
+    },
+    {
+      "id": "o7",
+      "type": "segment",
+      "points": [
+        "L",
+        "_d4"
+      ],
+      "role": "dimension"
+    },
+    {
+      "id": "o8",
+      "type": "segment",
+      "points": [
+        "R",
+        "_d5"
+      ],
+      "role": "dimension"
+    },
+    {
+      "id": "o15",
+      "type": "segment",
+      "points": [
+        "_d13",
+        "_d14"
+      ],
+      "linestyle": "dashed",
+      "role": "dimension"
+    },
+    {
+      "id": "o16",
+      "type": "segment",
+      "points": [
+        "B",
+        "_d13"
+      ],
+      "role": "dimension"
+    },
+    {
+      "id": "o17",
+      "type": "segment",
+      "points": [
+        "T",
+        "_d14"
+      ],
+      "role": "dimension"
+    }
+  ],
+  "labels": [
+    {
+      "id": "t10",
+      "type": "text",
+      "text": "2x",
+      "anchor": "_t9",
+      "offset_pt": [
+        0,
+        -14
+      ],
+      "segment_points": [
+        "L",
+        "R"
+      ]
+    },
+    {
+      "id": "t19",
+      "type": "text",
+      "text": "x",
+      "anchor": "_t18",
+      "offset_pt": [
+        15,
+        0
+      ],
+      "segment_points": [
+        "B",
+        "T"
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c11",
+      "type": "parallel",
+      "segments": [
+        [
+          "L",
+          "R"
+        ],
+        [
+          "_d4",
+          "_d5"
+        ]
+      ]
+    },
+    {
+      "id": "c12",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "L",
+          "R"
+        ],
+        [
+          "L",
+          "_d4"
+        ]
+      ]
+    },
+    {
+      "id": "c20",
+      "type": "parallel",
+      "segments": [
+        [
+          "B",
+          "T"
+        ],
+        [
+          "_d13",
+          "_d14"
+        ]
+      ]
+    },
+    {
+      "id": "c21",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "B",
+          "T"
+        ],
+        [
+          "B",
+          "_d13"
+        ]
+      ]
+    },
+    {
+      "id": "c22",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "L",
+          "R"
+        ],
+        [
+          "B",
+          "T"
+        ]
+      ]
+    },
+    {
+      "id": "c23",
+      "type": "equal_length",
+      "segments": [
+        [
+          "L",
+          "T"
+        ],
+        [
+          "T",
+          "R"
+        ]
+      ]
+    },
+    {
+      "id": "c24",
+      "type": "equal_length",
+      "segments": [
+        [
+          "T",
+          "R"
+        ],
+        [
+          "R",
+          "B"
+        ]
+      ]
+    }
+  ],
+  "ambiguities": [
+    "Original colored fill removed as decorative; diagonal dimension arrows replaced with required parallel dashed dimension lines and perpendicular endpoint connectors."
+  ],
+  "construction": "Rhombus perpendicular diagonals in 2:1 ratio and area 169; coordinates are construction-only.",
+  "distance_markers": [
+    {
+      "segment_points": [
+        "L",
+        "R"
+      ],
+      "dimension_points": [
+        "_d4",
+        "_d5"
+      ],
+      "line_id": "o6",
+      "connector_ids": [
+        "o7",
+        "o8"
+      ],
+      "label_id": "t10"
+    },
+    {
+      "segment_points": [
+        "B",
+        "T"
+      ],
+      "dimension_points": [
+        "_d13",
+        "_d14"
+      ],
+      "line_id": "o15",
+      "connector_ids": [
+        "o16",
+        "o17"
+      ],
+      "label_id": "t19"
+    }
+  ],
+  "user_approved": false,
+  "constraint_interpretation": "Numerical constraints validate the frozen realization. Free scale choices and algebraic consequences are construction parameters, not additional givens. Only original diagram marks and source question are asserted; no derived answer labels are added.",
+  "source_metadata": "source_metadata.json"
+}

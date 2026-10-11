@@ -1,0 +1,78 @@
+{
+  "id": "MathVista_767",
+  "status": "review_candidate",
+  "subject": "Analytics",
+  "source_dataset": "MathVista testmini / FunctionQA",
+  "source_image": "original.jpg",
+  "view": {
+    "xlim": [
+      -8,
+      8
+    ],
+    "ylim": [
+      -8,
+      8
+    ],
+    "aspect": "equal"
+  },
+  "protocol_version": "1.0.0",
+  "sampling": "frozen deterministic linspace; no random sampling",
+  "objects": [
+    {
+      "type": "circle",
+      "center": [
+        0,
+        0
+      ],
+      "radius": 5,
+      "samples": 1441
+    },
+    {
+      "type": "line",
+      "equation": "3*x-4*y=25",
+      "points": [
+        [
+          -2.3333333333333335,
+          -8
+        ],
+        [
+          8,
+          -0.25
+        ]
+      ]
+    },
+    {
+      "type": "points",
+      "points": {
+        "P": [
+          3,
+          -4
+        ]
+      },
+      "filled": true
+    }
+  ],
+  "labels": [
+    {
+      "xy": [
+        3.4,
+        6.25
+      ],
+      "text": "$x^2+y^2=25$"
+    },
+    {
+      "xy": [
+        4.4,
+        -4.8
+      ],
+      "text": "$(3,-4)$"
+    }
+  ],
+  "constraints": [
+    "3²+(-4)²=25; tangent 3x-4y=25 passes through (3,-4); radius (3,-4) orthogonal to tangent direction (4,3)."
+  ],
+  "caveats": [
+    "Source blue point/tangent normalized black. Tangent clipped to fixed protocol viewport, rather than source image edges.",
+    "The source line visually touches the circle at the marked (3,-4); exact tangency is a reconstruction interpretation, not a newly displayed given. No tangency symbol or equation is added."
+  ]
+}

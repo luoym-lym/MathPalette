@@ -1,0 +1,261 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_196",
+  "status": "review_candidate",
+  "user_approved": false,
+  "source_dataset": "MathVista testmini / GeoQA+",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -0.2399821008103853,
+      4.271384136703474
+    ],
+    "ylim": [
+      -1.240140583761918,
+      3.271225653751941
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "content_bbox_px": [
+        53,
+        201,
+        714,
+        567
+      ],
+      "long_side_fraction": 0.8606770833333334,
+      "center_error_px": [
+        -0.5,
+        0.0
+      ],
+      "target_long_side_fraction": 0.86
+    }
+  },
+  "points": {
+    "B": [
+      0.0,
+      0.0
+    ],
+    "C": [
+      4.0,
+      0.0
+    ],
+    "A": [
+      3.0,
+      2.0
+    ],
+    "D": [
+      2.0,
+      0.0
+    ],
+    "E": [
+      2.5,
+      1.0
+    ],
+    "F": [
+      3.25,
+      0.5
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "o2",
+      "type": "segment",
+      "points": [
+        "A",
+        "D"
+      ]
+    },
+    {
+      "id": "o3",
+      "type": "segment",
+      "points": [
+        "C",
+        "E"
+      ]
+    },
+    {
+      "id": "o4",
+      "type": "segment",
+      "points": [
+        "D",
+        "F"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "l1",
+      "type": "vertex",
+      "point": "B",
+      "text": "B",
+      "offset_pt": [
+        -10,
+        -10
+      ]
+    },
+    {
+      "id": "l2",
+      "type": "vertex",
+      "point": "C",
+      "text": "C",
+      "offset_pt": [
+        12,
+        -6
+      ]
+    },
+    {
+      "id": "l3",
+      "type": "vertex",
+      "point": "A",
+      "text": "A",
+      "offset_pt": [
+        0,
+        15
+      ]
+    },
+    {
+      "id": "l4",
+      "type": "vertex",
+      "point": "D",
+      "text": "D",
+      "offset_pt": [
+        0,
+        -15
+      ]
+    },
+    {
+      "id": "l5",
+      "type": "vertex",
+      "point": "E",
+      "text": "E",
+      "offset_pt": [
+        -13,
+        3
+      ]
+    },
+    {
+      "id": "l6",
+      "type": "vertex",
+      "point": "F",
+      "text": "F",
+      "offset_pt": [
+        8,
+        12
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c1",
+      "type": "between",
+      "points": [
+        "B",
+        "D",
+        "C"
+      ]
+    },
+    {
+      "id": "c2",
+      "type": "equal_length",
+      "segments": [
+        [
+          "B",
+          "D"
+        ],
+        [
+          "D",
+          "C"
+        ]
+      ]
+    },
+    {
+      "id": "c3",
+      "type": "between",
+      "points": [
+        "A",
+        "E",
+        "D"
+      ]
+    },
+    {
+      "id": "c4",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "E"
+        ],
+        [
+          "E",
+          "D"
+        ]
+      ]
+    },
+    {
+      "id": "c5",
+      "type": "between",
+      "points": [
+        "C",
+        "F",
+        "E"
+      ]
+    },
+    {
+      "id": "c6",
+      "type": "equal_length",
+      "segments": [
+        [
+          "C",
+          "F"
+        ],
+        [
+          "F",
+          "E"
+        ]
+      ]
+    },
+    {
+      "id": "c7",
+      "type": "distance",
+      "points": [
+        "B",
+        "C"
+      ],
+      "value": 4
+    }
+  ],
+  "ambiguities": [],
+  "construction": "Triangle area is4 from base4 and height2. D,E,F are recursively exact midpoints of BC,AD,CE. Original segment DF is retained; no area result is displayed.",
+  "question": "如图所示，在△ABC中，已知点D，E，F分别为边BC，AD，CE的中点，且S△ABC＝4cm2，则S△DEF等于（）",
+  "display_coordinate_note": "Coordinates are frozen construction coordinates, not additional given data.",
+  "construction_checks": [
+    {
+      "type": "triangle_area",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ],
+      "expected": 4,
+      "measured": 4.0,
+      "passed": true
+    }
+  ],
+  "style_normalizations": [
+    "768×768 opaque white; protocol black 1pt primitives; DejaVu Sans point names18pt and values16pt; no question or answer embedded.",
+    "Decorative source colors removed; named objects, continuous topology, semantic dashed lines and any meaningful shaded region retained.",
+    "Original angle callout leaders, when present, are replaced by a direct bound label and exactly one angle arc; no equality or auxiliary geometry is implied.",
+    "Source distance arrows, where present, are normalized to perpendicular solid connectors and a parallel dashed dimension line."
+  ]
+}

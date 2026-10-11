@@ -1,0 +1,177 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_82",
+  "status": "review_candidate",
+  "user_approved": false,
+  "source_dataset": "MathVista testmini / Geometry3K",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -4.46065113586371,
+      4.46065113586371
+    ],
+    "ylim": [
+      -4.46065113586371,
+      4.46065113586371
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "content_bbox_px": [
+        54,
+        54,
+        714,
+        714
+      ],
+      "long_side_fraction": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ],
+      "target_long_side_fraction": 0.86
+    }
+  },
+  "points": {
+    "O": [
+      0.0,
+      0.0
+    ],
+    "A": [
+      2.5978681687064796e-16,
+      4.242640687119285
+    ],
+    "B": [
+      4.242640687119285,
+      0.0
+    ],
+    "C": [
+      -7.793604506119439e-16,
+      -4.242640687119285
+    ],
+    "D": [
+      -4.242640687119285,
+      5.195736337412959e-16
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "point",
+      "point": "O"
+    },
+    {
+      "id": "o2",
+      "type": "circle",
+      "center": "O",
+      "radius": 4.242640687119285
+    },
+    {
+      "id": "o3",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "semantic_fill": false
+    }
+  ],
+  "labels": [],
+  "constraints": [
+    {
+      "id": "c1",
+      "type": "on_circle",
+      "point": "A",
+      "center": "O",
+      "radius": 4.242640687119285
+    },
+    {
+      "id": "c2",
+      "type": "on_circle",
+      "point": "B",
+      "center": "O",
+      "radius": 4.242640687119285
+    },
+    {
+      "id": "c3",
+      "type": "on_circle",
+      "point": "C",
+      "center": "O",
+      "radius": 4.242640687119285
+    },
+    {
+      "id": "c4",
+      "type": "on_circle",
+      "point": "D",
+      "center": "O",
+      "radius": 4.242640687119285
+    },
+    {
+      "id": "c5",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ]
+    },
+    {
+      "id": "c6",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ]
+    },
+    {
+      "id": "c7",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "D",
+          "A"
+        ]
+      ]
+    },
+    {
+      "id": "c8",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "construction": "A true square is inscribed in a true circle of area 18π. Its diagonally oriented vertices and the originally marked center are retained without labels.",
+  "question": "A square is inscribed in a circle of area 18$\\pi$ square units. Find the length of a side of the square.",
+  "display_coordinate_note": "Coordinates are frozen construction coordinates, not additional given data.",
+  "style_normalizations": [
+    "768×768 opaque white; protocol black 1pt primitives; DejaVu Sans point names18pt and values16pt; no question or answer embedded.",
+    "Decorative source colors removed; named objects, continuous topology, semantic dashed lines and any meaningful shaded region retained.",
+    "Original angle callout leaders, when present, are replaced by a direct bound label and exactly one angle arc; no equality or auxiliary geometry is implied.",
+    "Source distance arrows, where present, are normalized to perpendicular solid connectors and a parallel dashed dimension line."
+  ]
+}

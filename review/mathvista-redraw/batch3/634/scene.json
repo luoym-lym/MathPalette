@@ -1,0 +1,195 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_634",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / GeoQA+",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -4.486893514400802,
+      4.469877130132571
+    ],
+    "ylim": [
+      -4.1739623382113615,
+      4.7828083063220115
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "points": {
+    "A": [
+      -4.0,
+      0.0
+    ],
+    "B": [
+      4.0,
+      0.0
+    ],
+    "C": [
+      1.3680805733026753,
+      3.7587704831436333
+    ],
+    "D": [
+      -1.162868487307273,
+      -3.1949549106720885
+    ],
+    "O": [
+      0.0,
+      0.0
+    ],
+    "E": [
+      3.276608177155967,
+      2.294305745404184
+    ]
+  },
+  "objects": [
+    {
+      "id": "segment_1",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_2",
+      "type": "segment",
+      "points": [
+        "C",
+        "D"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_3",
+      "type": "segment",
+      "points": [
+        "O",
+        "E"
+      ],
+      "linestyle": "solid"
+    }
+  ],
+  "labels": [
+    {
+      "id": "name_A",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        -9,
+        10
+      ]
+    },
+    {
+      "id": "name_B",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        9,
+        -2
+      ]
+    },
+    {
+      "id": "name_C",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        5,
+        12
+      ]
+    },
+    {
+      "id": "name_D",
+      "type": "vertex",
+      "point": "D",
+      "offset_pt": [
+        -4,
+        -13
+      ]
+    },
+    {
+      "id": "name_E",
+      "type": "vertex",
+      "point": "E",
+      "offset_pt": [
+        10,
+        8
+      ]
+    },
+    {
+      "id": "name_O",
+      "type": "vertex",
+      "point": "O",
+      "offset_pt": [
+        14,
+        -15
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint_1",
+      "type": "between",
+      "points": [
+        "A",
+        "O",
+        "B"
+      ]
+    },
+    {
+      "id": "constraint_2",
+      "type": "between",
+      "points": [
+        "C",
+        "O",
+        "D"
+      ]
+    },
+    {
+      "id": "constraint_3",
+      "type": "angle",
+      "points": [
+        "A",
+        "O",
+        "D"
+      ],
+      "degrees": 70
+    },
+    {
+      "id": "constraint_4",
+      "type": "angle",
+      "points": [
+        "B",
+        "O",
+        "E"
+      ],
+      "degrees": 35
+    },
+    {
+      "id": "constraint_5",
+      "type": "angle",
+      "points": [
+        "E",
+        "O",
+        "C"
+      ],
+      "degrees": 35
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": [
+    "CD is a straight line at 70°, and OE exactly bisects BOC. The original has only point names, so hidden construction angles are not drawn."
+  ]
+}

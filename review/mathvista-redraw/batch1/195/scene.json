@@ -1,0 +1,207 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_195",
+  "status": "review_candidate",
+  "user_approved": false,
+  "source_dataset": "MathVista testmini / GeoQA+",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -4.2129302343382244,
+      4.545754520799922
+    ],
+    "ylim": [
+      -4.379342377569073,
+      4.379342377569073
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "content_bbox_px": [
+        54,
+        67,
+        714,
+        701
+      ],
+      "long_side_fraction": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ],
+      "target_long_side_fraction": 0.86
+    }
+  },
+  "points": {
+    "O": [
+      0.0,
+      0.0
+    ],
+    "A": [
+      -2.571150438746158,
+      -3.0641777724759116
+    ],
+    "B": [
+      2.5711504387461575,
+      3.064177772475912
+    ],
+    "C": [
+      -3.2766081771559676,
+      2.2943057454041837
+    ],
+    "D": [
+      4.0,
+      0.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "circle",
+      "center": "O",
+      "radius": 4
+    },
+    {
+      "id": "o2",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "o3",
+      "type": "segment",
+      "points": [
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "o4",
+      "type": "segment",
+      "points": [
+        "C",
+        "D"
+      ]
+    },
+    {
+      "id": "o5",
+      "type": "segment",
+      "points": [
+        "O",
+        "D"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "l1",
+      "type": "vertex",
+      "point": "O",
+      "text": "O",
+      "offset_pt": [
+        -18,
+        16
+      ]
+    },
+    {
+      "id": "l2",
+      "type": "vertex",
+      "point": "A",
+      "text": "A",
+      "offset_pt": [
+        -8,
+        -11
+      ]
+    },
+    {
+      "id": "l3",
+      "type": "vertex",
+      "point": "B",
+      "text": "B",
+      "offset_pt": [
+        6,
+        13
+      ]
+    },
+    {
+      "id": "l4",
+      "type": "vertex",
+      "point": "C",
+      "text": "C",
+      "offset_pt": [
+        -10,
+        8
+      ]
+    },
+    {
+      "id": "l5",
+      "type": "vertex",
+      "point": "D",
+      "text": "D",
+      "offset_pt": [
+        13,
+        0
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c1",
+      "type": "on_circle",
+      "point": "A",
+      "center": "O",
+      "radius": 4
+    },
+    {
+      "id": "c2",
+      "type": "on_circle",
+      "point": "B",
+      "center": "O",
+      "radius": 4
+    },
+    {
+      "id": "c3",
+      "type": "on_circle",
+      "point": "C",
+      "center": "O",
+      "radius": 4
+    },
+    {
+      "id": "c4",
+      "type": "on_circle",
+      "point": "D",
+      "center": "O",
+      "radius": 4
+    },
+    {
+      "id": "c5",
+      "type": "between",
+      "points": [
+        "A",
+        "O",
+        "B"
+      ]
+    },
+    {
+      "id": "c6",
+      "type": "angle",
+      "points": [
+        "B",
+        "C",
+        "D"
+      ],
+      "degrees": 25
+    }
+  ],
+  "ambiguities": [],
+  "construction": "AB is a diameter tilted50°; D at0°, B50° give the marked question angle BCD=25°. C is another point on the major arc BD. No numeric question angles added.",
+  "question": "如图，AB是⊙O的直径，C，D两点在⊙O上，∠BCD＝25°，则∠AOD的度数为（）",
+  "display_coordinate_note": "Coordinates are frozen construction coordinates, not additional given data.",
+  "style_normalizations": [
+    "768×768 opaque white; protocol black 1pt primitives; DejaVu Sans point names18pt and values16pt; no question or answer embedded.",
+    "Decorative source colors removed; named objects, continuous topology, semantic dashed lines and any meaningful shaded region retained.",
+    "Original angle callout leaders, when present, are replaced by a direct bound label and exactly one angle arc; no equality or auxiliary geometry is implied.",
+    "Source distance arrows, where present, are normalized to perpendicular solid connectors and a parallel dashed dimension line."
+  ]
+}

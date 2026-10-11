@@ -1,0 +1,177 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_602",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / GEOS",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -0.37839762355264606,
+      6.377005485763966
+    ],
+    "ylim": [
+      -1.8600784024306336,
+      4.8953247068859795
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "points": {
+    "A": [
+      0.0,
+      0.0
+    ],
+    "B": [
+      0.0,
+      3.0
+    ],
+    "C": [
+      6.0,
+      3.0
+    ],
+    "D": [
+      6.0,
+      0.0
+    ],
+    "E": [
+      3.0,
+      0.0
+    ],
+    "F": [
+      3.0,
+      3.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "polygon_1",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "segment_2",
+      "type": "segment",
+      "points": [
+        "E",
+        "F"
+      ],
+      "linestyle": "solid"
+    }
+  ],
+  "labels": [
+    {
+      "id": "name_A",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        -10,
+        -10
+      ]
+    },
+    {
+      "id": "name_B",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        -10,
+        10
+      ]
+    },
+    {
+      "id": "name_C",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        10,
+        10
+      ]
+    },
+    {
+      "id": "name_D",
+      "type": "vertex",
+      "point": "D",
+      "offset_pt": [
+        10,
+        -10
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint_1",
+      "type": "distance",
+      "points": [
+        "A",
+        "B"
+      ],
+      "value": 3
+    },
+    {
+      "id": "constraint_2",
+      "type": "distance",
+      "points": [
+        "A",
+        "E"
+      ],
+      "value": 3
+    },
+    {
+      "id": "constraint_3",
+      "type": "distance",
+      "points": [
+        "E",
+        "D"
+      ],
+      "value": 3
+    },
+    {
+      "id": "constraint_4",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "D"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_5",
+      "type": "parallel",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "E",
+          "F"
+        ]
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": [
+    "Two exact 3×3 squares; unnamed divider endpoints stay unlabeled and unmarked."
+  ]
+}

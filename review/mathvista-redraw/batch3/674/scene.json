@@ -1,0 +1,188 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_674",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / GEOS",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -0.12114167759274652,
+      2.0012054669380634
+    ],
+    "ylim": [
+      -0.5557059815712426,
+      1.5666411629595673
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "points": {
+    "A": [
+      0.0,
+      0.0
+    ],
+    "B": [
+      0.0,
+      1.0
+    ],
+    "C": [
+      1.0,
+      1.0
+    ],
+    "E": [
+      1.0,
+      0.0
+    ],
+    "D": [
+      1.8660254037844386,
+      0.5
+    ]
+  },
+  "objects": [
+    {
+      "id": "polygon_1",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "segment_2",
+      "type": "segment",
+      "points": [
+        "C",
+        "E"
+      ],
+      "linestyle": "solid"
+    }
+  ],
+  "labels": [
+    {
+      "id": "name_A",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        -10,
+        -10
+      ]
+    },
+    {
+      "id": "name_B",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        -10,
+        10
+      ]
+    },
+    {
+      "id": "name_C",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        0,
+        14
+      ]
+    },
+    {
+      "id": "name_D",
+      "type": "vertex",
+      "point": "D",
+      "offset_pt": [
+        14,
+        0
+      ]
+    },
+    {
+      "id": "name_E",
+      "type": "vertex",
+      "point": "E",
+      "offset_pt": [
+        0,
+        -14
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint_1",
+      "type": "distance",
+      "points": [
+        "A",
+        "B"
+      ],
+      "value": 1
+    },
+    {
+      "id": "constraint_2",
+      "type": "distance",
+      "points": [
+        "B",
+        "C"
+      ],
+      "value": 1
+    },
+    {
+      "id": "constraint_3",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_4",
+      "type": "equal_length",
+      "segments": [
+        [
+          "C",
+          "E"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_5",
+      "type": "equal_length",
+      "segments": [
+        [
+          "C",
+          "E"
+        ],
+        [
+          "D",
+          "E"
+        ]
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": [
+    "Area-1 square ABCE and outward exact equilateral triangle CDE."
+  ]
+}

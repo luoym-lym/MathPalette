@@ -1,0 +1,158 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_665",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / Geometry3K",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -0.1787583482784414,
+      7.4274645414726255
+    ],
+    "ylim": [
+      -1.8096266822882634,
+      5.7965962074628035
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "points": {
+    "A": [
+      0.0,
+      0.0
+    ],
+    "B": [
+      6.928203230275509,
+      0.0
+    ],
+    "C": [
+      6.928203230275509,
+      4.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "polygon_1",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "right_angle_2",
+      "type": "right_angle",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "angle_arc_3",
+      "type": "angle_arc",
+      "points": [
+        "A",
+        "C",
+        "B"
+      ],
+      "radius_pt": 19,
+      "reflex": false
+    }
+  ],
+  "labels": [
+    {
+      "id": "angle_label_4",
+      "type": "angle",
+      "points": [
+        "A",
+        "C",
+        "B"
+      ],
+      "arc_id": "angle_arc_3",
+      "radius_pt": 40,
+      "offset_pt": [
+        0,
+        0
+      ],
+      "reflex": false,
+      "degrees": 60
+    },
+    {
+      "id": "label_5",
+      "type": "text",
+      "anchor": [
+        6.928203230275509,
+        2.0
+      ],
+      "text": "4",
+      "offset_pt": [
+        17,
+        0
+      ],
+      "segment_points": [
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "label_6",
+      "type": "text",
+      "anchor": [
+        3.4641016151377544,
+        2.0
+      ],
+      "text": "h",
+      "offset_pt": [
+        -10,
+        15
+      ],
+      "segment_points": [
+        "A",
+        "C"
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint_1",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_2",
+      "type": "distance",
+      "points": [
+        "B",
+        "C"
+      ],
+      "value": 4
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": [
+    "Exact 30–60–90 triangle; source unknown hypotenuse h remains unchanged."
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_640",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / Geometry3K",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -5.25722952518843,
+      5.685166667283742
+    ],
+    "ylim": [
+      -5.474936433842406,
+      5.467459758629766
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "points": {
+    "I": [
+      0.0,
+      0.0
+    ],
+    "W": [
+      2.1130913087034973,
+      4.531538935183249
+    ],
+    "N": [
+      4.9809734904587275,
+      0.4357787137382908
+    ]
+  },
+  "objects": [
+    {
+      "id": "circle_1",
+      "type": "circle",
+      "center": "I",
+      "radius": 5
+    },
+    {
+      "id": "polygon_2",
+      "type": "polygon",
+      "points": [
+        "I",
+        "W",
+        "N"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "point_3",
+      "type": "point",
+      "point": "I"
+    }
+  ],
+  "labels": [
+    {
+      "id": "name_I",
+      "type": "vertex",
+      "point": "I",
+      "offset_pt": [
+        -14,
+        3
+      ]
+    },
+    {
+      "id": "name_W",
+      "type": "vertex",
+      "point": "W",
+      "offset_pt": [
+        9,
+        13
+      ]
+    },
+    {
+      "id": "name_N",
+      "type": "vertex",
+      "point": "N",
+      "offset_pt": [
+        14,
+        0
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint_1",
+      "type": "on_circle",
+      "point": "W",
+      "center": "I",
+      "radius": 5
+    },
+    {
+      "id": "constraint_2",
+      "type": "on_circle",
+      "point": "N",
+      "center": "I",
+      "radius": 5
+    },
+    {
+      "id": "constraint_3",
+      "type": "distance",
+      "points": [
+        "W",
+        "N"
+      ],
+      "value": 5
+    },
+    {
+      "id": "constraint_4",
+      "type": "equal_length",
+      "segments": [
+        [
+          "I",
+          "W"
+        ],
+        [
+          "W",
+          "N"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_5",
+      "type": "equal_length",
+      "segments": [
+        [
+          "I",
+          "N"
+        ],
+        [
+          "W",
+          "N"
+        ]
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": [
+    "Exact equilateral triangle with side 5 and center I; decorative color and background removed."
+  ]
+}

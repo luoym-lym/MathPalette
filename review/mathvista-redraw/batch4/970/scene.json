@@ -1,0 +1,212 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_970",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / GeoQA+",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -2.327233224293163,
+      3.158975608985594
+    ],
+    "ylim": [
+      -1.703293058395676,
+      3.7829157748830804
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "pixel_bbox": [
+        119,
+        54,
+        648,
+        713
+      ],
+      "occupancy": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "points": {
+    "aL": [
+      -1.5,
+      2.0
+    ],
+    "aR": [
+      2.5,
+      2.0
+    ],
+    "bL": [
+      -1.5,
+      0.0
+    ],
+    "bR": [
+      2.5,
+      0.0
+    ],
+    "I": [
+      0.0,
+      2.0
+    ],
+    "J": [
+      1.0634188633229575,
+      0.0
+    ],
+    "U": [
+      -0.8,
+      3.5045811722770654
+    ],
+    "V": [
+      1.9,
+      -1.5733802841580302
+    ]
+  },
+  "objects": [
+    {
+      "id": "segment1",
+      "type": "segment",
+      "points": [
+        "aL",
+        "aR"
+      ]
+    },
+    {
+      "id": "segment3",
+      "type": "segment",
+      "points": [
+        "bL",
+        "bR"
+      ]
+    },
+    {
+      "id": "segment5",
+      "type": "segment",
+      "points": [
+        "U",
+        "V"
+      ]
+    },
+    {
+      "id": "angle_arc7",
+      "type": "angle_arc",
+      "points": [
+        "aL",
+        "I",
+        "U"
+      ],
+      "radius_pt": 14
+    },
+    {
+      "id": "angle_arc9",
+      "type": "angle_arc",
+      "points": [
+        "bR",
+        "J",
+        "U"
+      ],
+      "radius_pt": 15
+    }
+  ],
+  "labels": [
+    {
+      "id": "text2",
+      "type": "text",
+      "text": "a",
+      "anchor": "aL",
+      "offset_pt": [
+        -13,
+        0
+      ]
+    },
+    {
+      "id": "text4",
+      "type": "text",
+      "text": "b",
+      "anchor": "bL",
+      "offset_pt": [
+        -13,
+        0
+      ]
+    },
+    {
+      "id": "text6",
+      "type": "text",
+      "text": "c",
+      "anchor": "U",
+      "offset_pt": [
+        -10,
+        10
+      ]
+    },
+    {
+      "id": "anglelabel8",
+      "type": "angle",
+      "points": [
+        "aL",
+        "I",
+        "U"
+      ],
+      "arc_id": "angle_arc7",
+      "radius_pt": 29,
+      "offset_pt": [
+        0,
+        0
+      ],
+      "text": "1"
+    },
+    {
+      "id": "anglelabel10",
+      "type": "angle",
+      "points": [
+        "bR",
+        "J",
+        "U"
+      ],
+      "arc_id": "angle_arc9",
+      "radius_pt": 30,
+      "offset_pt": [
+        0,
+        0
+      ],
+      "text": "2"
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint11",
+      "type": "parallel",
+      "segments": [
+        [
+          "aL",
+          "aR"
+        ],
+        [
+          "bL",
+          "bR"
+        ]
+      ]
+    },
+    {
+      "id": "constraint12",
+      "type": "angle",
+      "points": [
+        "aL",
+        "I",
+        "U"
+      ],
+      "degrees": 62
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": []
+}

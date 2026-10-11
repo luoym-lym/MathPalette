@@ -1,0 +1,260 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_669",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / UniGeo",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -0.3912750358910282,
+      10.369321130033558
+    ],
+    "ylim": [
+      -5.540240412671036,
+      5.220355753253552
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "points": {
+    "A": [
+      0.0,
+      0.0
+    ],
+    "N": [
+      4.0,
+      0.0
+    ],
+    "M": [
+      5.0,
+      0.0
+    ],
+    "C": [
+      7.5,
+      0.0
+    ],
+    "B": [
+      10.0,
+      0.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "segment_1",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_2",
+      "type": "segment",
+      "points": [
+        [
+          0.0,
+          -0.09
+        ],
+        [
+          0.0,
+          0.09
+        ]
+      ],
+      "linestyle": "solid",
+      "role": "point_locator"
+    },
+    {
+      "id": "segment_3",
+      "type": "segment",
+      "points": [
+        [
+          4.0,
+          -0.09
+        ],
+        [
+          4.0,
+          0.09
+        ]
+      ],
+      "linestyle": "solid",
+      "role": "point_locator"
+    },
+    {
+      "id": "segment_4",
+      "type": "segment",
+      "points": [
+        [
+          5.0,
+          -0.09
+        ],
+        [
+          5.0,
+          0.09
+        ]
+      ],
+      "linestyle": "solid",
+      "role": "point_locator"
+    },
+    {
+      "id": "segment_5",
+      "type": "segment",
+      "points": [
+        [
+          7.5,
+          -0.09
+        ],
+        [
+          7.5,
+          0.09
+        ]
+      ],
+      "linestyle": "solid",
+      "role": "point_locator"
+    },
+    {
+      "id": "segment_6",
+      "type": "segment",
+      "points": [
+        [
+          10.0,
+          -0.09
+        ],
+        [
+          10.0,
+          0.09
+        ]
+      ],
+      "linestyle": "solid",
+      "role": "point_locator"
+    }
+  ],
+  "labels": [
+    {
+      "id": "name_A",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        0,
+        -15
+      ]
+    },
+    {
+      "id": "name_N",
+      "type": "vertex",
+      "point": "N",
+      "offset_pt": [
+        0,
+        -15
+      ]
+    },
+    {
+      "id": "name_M",
+      "type": "vertex",
+      "point": "M",
+      "offset_pt": [
+        0,
+        -15
+      ]
+    },
+    {
+      "id": "name_C",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        0,
+        -15
+      ]
+    },
+    {
+      "id": "name_B",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        0,
+        -15
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint_1",
+      "type": "distance",
+      "points": [
+        "A",
+        "B"
+      ],
+      "value": 10
+    },
+    {
+      "id": "constraint_2",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "M"
+        ],
+        [
+          "M",
+          "B"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_3",
+      "type": "equal_length",
+      "segments": [
+        [
+          "M",
+          "C"
+        ],
+        [
+          "C",
+          "B"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_4",
+      "type": "distance",
+      "points": [
+        "M",
+        "N"
+      ],
+      "value": 1
+    },
+    {
+      "id": "constraint_5",
+      "type": "between",
+      "points": [
+        "A",
+        "N",
+        "M"
+      ]
+    },
+    {
+      "id": "constraint_6",
+      "type": "between",
+      "points": [
+        "M",
+        "C",
+        "B"
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": [
+    "Exact line-segment order A,N,M,C,B; short perpendicular source locator strokes are not equality marks."
+  ]
+}

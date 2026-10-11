@@ -1,0 +1,172 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_536",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / UniGeo",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -3.1518186976125286,
+      3.296588042550217
+    ],
+    "ylim": [
+      -3.224203370081373,
+      3.224203370081373
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "points": {
+    "O": [
+      0.0,
+      0.0
+    ],
+    "A": [
+      -1.720729309053139,
+      -2.457456132866975
+    ],
+    "B": [
+      1.7207293090531381,
+      -2.4574561328669753
+    ],
+    "C": [
+      2.897777478867205,
+      0.7764571353075622
+    ]
+  },
+  "objects": [
+    {
+      "id": "circle_1",
+      "type": "circle",
+      "center": "O",
+      "radius": 3
+    },
+    {
+      "id": "segment_2",
+      "type": "segment",
+      "points": [
+        "A",
+        "O"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_3",
+      "type": "segment",
+      "points": [
+        "O",
+        "B"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_4",
+      "type": "segment",
+      "points": [
+        "A",
+        "C"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_5",
+      "type": "segment",
+      "points": [
+        "B",
+        "C"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "point_6",
+      "type": "point",
+      "point": "O"
+    }
+  ],
+  "labels": [
+    {
+      "id": "name_O",
+      "type": "vertex",
+      "point": "O",
+      "offset_pt": [
+        -7,
+        14
+      ]
+    },
+    {
+      "id": "name_A",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        -8,
+        -10
+      ]
+    },
+    {
+      "id": "name_B",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        7,
+        -12
+      ]
+    },
+    {
+      "id": "name_C",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        13,
+        2
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint_1",
+      "type": "on_circle",
+      "point": "A",
+      "center": "O",
+      "radius": 3
+    },
+    {
+      "id": "constraint_2",
+      "type": "on_circle",
+      "point": "B",
+      "center": "O",
+      "radius": 3
+    },
+    {
+      "id": "constraint_3",
+      "type": "on_circle",
+      "point": "C",
+      "center": "O",
+      "radius": 3
+    },
+    {
+      "id": "constraint_4",
+      "type": "angle",
+      "points": [
+        "A",
+        "C",
+        "B"
+      ],
+      "degrees": 35
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": [
+    "Circle points A and B subtend a 70° minor arc, realizing the explicitly given inscribed angle at C. No inferred value displayed."
+  ]
+}

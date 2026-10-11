@@ -1,0 +1,194 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_528",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / GeoQA+",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -4.404362997017543,
+      3.273554243166022
+    ],
+    "ylim": [
+      -1.9858760390255934,
+      5.692041201157971
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "points": {
+    "B": [
+      0.0,
+      2.0
+    ],
+    "A": [
+      -4.0,
+      2.0
+    ],
+    "F": [
+      -2.4574561328669757,
+      3.7207293090531377
+    ],
+    "C": [
+      2.8562960134842292,
+      0.0
+    ],
+    "D": [
+      -1.4004150764194196,
+      0.0
+    ],
+    "E": [
+      -4.0,
+      0.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "segment_1",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_2",
+      "type": "segment",
+      "points": [
+        "F",
+        "C"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_3",
+      "type": "segment",
+      "points": [
+        "E",
+        "C"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_4",
+      "type": "segment",
+      "points": [
+        "D",
+        "B"
+      ],
+      "linestyle": "solid"
+    }
+  ],
+  "labels": [
+    {
+      "id": "name_A",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        -8,
+        7
+      ]
+    },
+    {
+      "id": "name_B",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        9,
+        8
+      ]
+    },
+    {
+      "id": "name_C",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        9,
+        -12
+      ]
+    },
+    {
+      "id": "name_D",
+      "type": "vertex",
+      "point": "D",
+      "offset_pt": [
+        0,
+        -12
+      ]
+    },
+    {
+      "id": "name_E",
+      "type": "vertex",
+      "point": "E",
+      "offset_pt": [
+        -8,
+        -12
+      ]
+    },
+    {
+      "id": "name_F",
+      "type": "vertex",
+      "point": "F",
+      "offset_pt": [
+        -8,
+        8
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint_1",
+      "type": "angle",
+      "points": [
+        "A",
+        "B",
+        "F"
+      ],
+      "degrees": 35
+    },
+    {
+      "id": "constraint_2",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "B",
+          "D"
+        ],
+        [
+          "C",
+          "F"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_3",
+      "type": "parallel",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": [
+    "AB and CD horizontal; BF at 145° and BD at 235° give the explicit 35° angle and exact perpendicularity."
+  ]
+}

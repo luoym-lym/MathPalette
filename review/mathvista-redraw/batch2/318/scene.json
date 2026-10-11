@@ -1,0 +1,184 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_318",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / Geometry3K",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -7.795428795376548,
+      54.50213006284331
+    ],
+    "ylim": [
+      -6.965066500213098,
+      55.33249235800675
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "bbox_px": [
+        54,
+        86,
+        713,
+        681
+      ],
+      "occupancy": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "points": {
+    "A": [
+      0.0,
+      48.0
+    ],
+    "B": [
+      41.0,
+      48.0
+    ],
+    "C": [
+      53.0,
+      0.0
+    ],
+    "D": [
+      0.0,
+      0.0
+    ],
+    "_t2": [
+      20.5,
+      48.0
+    ],
+    "_t4": [
+      0.0,
+      24.0
+    ],
+    "_t6": [
+      26.5,
+      0.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "semantic_fill": false
+    }
+  ],
+  "labels": [
+    {
+      "id": "t3",
+      "type": "text",
+      "text": "41 ft",
+      "anchor": "_t2",
+      "offset_pt": [
+        0,
+        17
+      ],
+      "segment_points": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "t5",
+      "type": "text",
+      "text": "48 ft",
+      "anchor": "_t4",
+      "offset_pt": [
+        -33,
+        0
+      ],
+      "segment_points": [
+        "A",
+        "D"
+      ]
+    },
+    {
+      "id": "t7",
+      "type": "text",
+      "text": "53 ft",
+      "anchor": "_t6",
+      "offset_pt": [
+        0,
+        -17
+      ],
+      "segment_points": [
+        "D",
+        "C"
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c8",
+      "type": "distance",
+      "points": [
+        "A",
+        "B"
+      ],
+      "value": 41
+    },
+    {
+      "id": "c9",
+      "type": "distance",
+      "points": [
+        "D",
+        "C"
+      ],
+      "value": 53
+    },
+    {
+      "id": "c10",
+      "type": "distance",
+      "points": [
+        "A",
+        "D"
+      ],
+      "value": 48
+    },
+    {
+      "id": "c11",
+      "type": "parallel",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "D",
+          "C"
+        ]
+      ]
+    },
+    {
+      "id": "c12",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "D",
+          "C"
+        ]
+      ]
+    }
+  ],
+  "ambiguities": [
+    "Decorative green fill removed; source trapezoid not to scale, exact stated lengths preserved."
+  ],
+  "construction": "Right trapezoid with parallel bases41 and53 feet and left height48 feet.",
+  "user_approved": false,
+  "constraint_interpretation": "Numerical constraints validate the frozen realization. Free scale choices and algebraic consequences are construction parameters, not additional givens. Only original diagram marks and source question are asserted; no derived answer labels are added.",
+  "source_metadata": "source_metadata.json"
+}

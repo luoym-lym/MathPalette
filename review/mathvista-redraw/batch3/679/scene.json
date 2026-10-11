@@ -1,0 +1,209 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_679",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / UniGeo",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -5.605571862435936,
+      5.605571862435936
+    ],
+    "ylim": [
+      -5.576609300534027,
+      5.634534424337845
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "points": {
+    "A": [
+      -4.928571428571429,
+      -3.421868447715281
+    ],
+    "B": [
+      2.0714285714285716,
+      -3.421868447715281
+    ],
+    "C": [
+      4.928571428571429,
+      3.421868447715281
+    ],
+    "D": [
+      -2.0714285714285716,
+      3.421868447715281
+    ],
+    "O": [
+      0.0,
+      0.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "polygon_1",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "segment_2",
+      "type": "segment",
+      "points": [
+        "A",
+        "C"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_3",
+      "type": "segment",
+      "points": [
+        "B",
+        "D"
+      ],
+      "linestyle": "solid"
+    }
+  ],
+  "labels": [
+    {
+      "id": "name_A",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        -12,
+        -7
+      ]
+    },
+    {
+      "id": "name_B",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        0,
+        -14
+      ]
+    },
+    {
+      "id": "name_C",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        12,
+        8
+      ]
+    },
+    {
+      "id": "name_D",
+      "type": "vertex",
+      "point": "D",
+      "offset_pt": [
+        -5,
+        14
+      ]
+    },
+    {
+      "id": "name_O",
+      "type": "vertex",
+      "point": "O",
+      "offset_pt": [
+        -24,
+        15
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint_1",
+      "type": "distance",
+      "points": [
+        "A",
+        "C"
+      ],
+      "value": 12
+    },
+    {
+      "id": "constraint_2",
+      "type": "distance",
+      "points": [
+        "B",
+        "D"
+      ],
+      "value": 8
+    },
+    {
+      "id": "constraint_3",
+      "type": "distance",
+      "points": [
+        "A",
+        "B"
+      ],
+      "value": 7
+    },
+    {
+      "id": "constraint_4",
+      "type": "between",
+      "points": [
+        "A",
+        "O",
+        "C"
+      ]
+    },
+    {
+      "id": "constraint_5",
+      "type": "between",
+      "points": [
+        "B",
+        "O",
+        "D"
+      ]
+    },
+    {
+      "id": "constraint_6",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "O"
+        ],
+        [
+          "O",
+          "C"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_7",
+      "type": "equal_length",
+      "segments": [
+        [
+          "B",
+          "O"
+        ],
+        [
+          "O",
+          "D"
+        ]
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": [
+    "Diagonals 12 and 8 bisect each other; their included angle is constructed so AB=7. Uniform rotation aligns AB horizontally, preserving source orientation."
+  ]
+}

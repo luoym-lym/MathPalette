@@ -1,0 +1,164 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_538",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / UniGeo",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -3.786874203376518,
+      3.786874203376518
+    ],
+    "ylim": [
+      -3.786874203376518,
+      3.786874203376518
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "points": {
+    "O": [
+      0.0,
+      0.0
+    ],
+    "A": [
+      -3.0,
+      -2.0
+    ],
+    "B": [
+      3.0,
+      -2.0
+    ],
+    "C": [
+      0.0,
+      -2.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "circle_1",
+      "type": "circle",
+      "center": "O",
+      "radius": 3.605551275463989
+    },
+    {
+      "id": "circle_2",
+      "type": "circle",
+      "center": "O",
+      "radius": 2
+    },
+    {
+      "id": "segment_3",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "point_4",
+      "type": "point",
+      "point": "O"
+    }
+  ],
+  "labels": [
+    {
+      "id": "name_O",
+      "type": "vertex",
+      "point": "O",
+      "offset_pt": [
+        0,
+        14
+      ]
+    },
+    {
+      "id": "name_A",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        -12,
+        -6
+      ]
+    },
+    {
+      "id": "name_B",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        12,
+        -6
+      ]
+    },
+    {
+      "id": "name_C",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        0,
+        -14
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint_1",
+      "type": "on_circle",
+      "point": "A",
+      "center": "O",
+      "radius": 3.605551275463989
+    },
+    {
+      "id": "constraint_2",
+      "type": "on_circle",
+      "point": "B",
+      "center": "O",
+      "radius": 3.605551275463989
+    },
+    {
+      "id": "constraint_3",
+      "type": "on_circle",
+      "point": "C",
+      "center": "O",
+      "radius": 2
+    },
+    {
+      "id": "constraint_4",
+      "type": "distance",
+      "points": [
+        "A",
+        "B"
+      ],
+      "value": 6
+    },
+    {
+      "id": "constraint_5",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "O",
+          "C"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": [
+    "Free inner radius chosen as 2; outer radius sqrt(13) and tangent chord y=-2 satisfy AB=6. No radius line added."
+  ]
+}

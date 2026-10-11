@@ -1,0 +1,227 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_256",
+  "status": "review_candidate",
+  "user_approved": false,
+  "source_dataset": "MathVista testmini / GeoQA+",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -13.32348158574683,
+      0.8637187546703595
+    ],
+    "ylim": [
+      -5.114150131085975,
+      9.073050209331214
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "content_bbox_px": [
+        54,
+        260,
+        713,
+        508
+      ],
+      "long_side_fraction": 0.8580729166666666,
+      "center_error_px": [
+        -0.5,
+        0.0
+      ],
+      "target_long_side_fraction": 0.86
+    }
+  },
+  "points": {
+    "A": [
+      -1.0,
+      3.872983346207417
+    ],
+    "B": [
+      -12.49193338482967,
+      0.0
+    ],
+    "C": [
+      0.0,
+      0.0
+    ],
+    "D": [
+      -3.0983866769659336,
+      0.0
+    ],
+    "E": [
+      -4.05649124384542,
+      2.842892125798071
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "o2",
+      "type": "segment",
+      "points": [
+        "A",
+        "D"
+      ]
+    },
+    {
+      "id": "o3",
+      "type": "segment",
+      "points": [
+        "D",
+        "E"
+      ]
+    },
+    {
+      "id": "o4",
+      "type": "right_angle",
+      "points": [
+        "A",
+        "E",
+        "D"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "l1",
+      "type": "vertex",
+      "point": "A",
+      "text": "A",
+      "offset_pt": [
+        0,
+        15
+      ]
+    },
+    {
+      "id": "l2",
+      "type": "vertex",
+      "point": "B",
+      "text": "B",
+      "offset_pt": [
+        -12,
+        -5
+      ]
+    },
+    {
+      "id": "l3",
+      "type": "vertex",
+      "point": "C",
+      "text": "C",
+      "offset_pt": [
+        12,
+        -5
+      ]
+    },
+    {
+      "id": "l4",
+      "type": "vertex",
+      "point": "D",
+      "text": "D",
+      "offset_pt": [
+        0,
+        -15
+      ]
+    },
+    {
+      "id": "l5",
+      "type": "vertex",
+      "point": "E",
+      "text": "E",
+      "offset_pt": [
+        -7,
+        12
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c1",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "E"
+        ],
+        [
+          "E",
+          "D"
+        ]
+      ]
+    },
+    {
+      "id": "c2",
+      "type": "distance",
+      "points": [
+        "D",
+        "E"
+      ],
+      "value": 3
+    },
+    {
+      "id": "c3",
+      "type": "distance",
+      "points": [
+        "A",
+        "C"
+      ],
+      "value": 4
+    },
+    {
+      "id": "c4",
+      "type": "between",
+      "points": [
+        "B",
+        "D",
+        "C"
+      ]
+    },
+    {
+      "id": "c5",
+      "type": "between",
+      "points": [
+        "A",
+        "E",
+        "B"
+      ]
+    },
+    {
+      "id": "c6",
+      "type": "angle",
+      "points": [
+        "B",
+        "A",
+        "D"
+      ],
+      "degrees": 42.92639612173036
+    },
+    {
+      "id": "c7",
+      "type": "angle",
+      "points": [
+        "D",
+        "A",
+        "C"
+      ],
+      "degrees": 42.92639612173036
+    }
+  ],
+  "ambiguities": [],
+  "construction": "Triangle has AC4. The angle bisector AD is constructed so its perpendicular distance DE to AB is3; E is the exact foot. Only source lines, point names and right-angle box are drawn.",
+  "question": "如图，△ABC中，AD平分∠BAC，AD交BC于点D，DE⊥AB，垂足为E，若DE＝3，AC＝4，则△ADC的面积为（）",
+  "display_coordinate_note": "Coordinates are frozen construction coordinates, not additional given data.",
+  "style_normalizations": [
+    "768×768 opaque white; protocol black 1pt primitives; DejaVu Sans point names18pt and values16pt; no question or answer embedded.",
+    "Decorative source colors removed; named objects, continuous topology, semantic dashed lines and any meaningful shaded region retained.",
+    "Original angle callout leaders, when present, are replaced by a direct bound label and exactly one angle arc; no equality or auxiliary geometry is implied.",
+    "Source distance arrows, where present, are normalized to perpendicular solid connectors and a parallel dashed dimension line."
+  ]
+}

@@ -1,0 +1,250 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_790",
+  "status": "adapted_review_candidate",
+  "source_dataset": "MathVista testmini / GeoQA+",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -4.3147244842770975,
+      7.362960134187142
+    ],
+    "ylim": [
+      -3.1840079637736753,
+      8.493676654690564
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "pixel_bbox": [
+        54,
+        121,
+        713,
+        646
+      ],
+      "occupancy": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "points": {
+    "A": [
+      -2.379650362775297,
+      6.583104446303689
+    ],
+    "B": [
+      -3.6423219838397407,
+      -1.3166208892607378
+    ],
+    "C": [
+      6.6533081571472605,
+      -1.3166208892607376
+    ],
+    "M": [
+      0.0,
+      0.0
+    ],
+    "N": [
+      1.50549308665376,
+      -1.3166208892607378
+    ]
+  },
+  "objects": [
+    {
+      "id": "segment8",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "segment9",
+      "type": "segment",
+      "points": [
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "segment10",
+      "type": "segment",
+      "points": [
+        "C",
+        "A"
+      ]
+    },
+    {
+      "id": "segment11",
+      "type": "segment",
+      "points": [
+        "A",
+        "M"
+      ]
+    },
+    {
+      "id": "segment12",
+      "type": "segment",
+      "points": [
+        "M",
+        "N"
+      ]
+    },
+    {
+      "id": "segment13",
+      "type": "segment",
+      "points": [
+        "B",
+        "M"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "label1",
+      "type": "vertex",
+      "point": "A",
+      "text": "A",
+      "offset_pt": [
+        0,
+        14
+      ]
+    },
+    {
+      "id": "label2",
+      "type": "vertex",
+      "point": "B",
+      "text": "B",
+      "offset_pt": [
+        -12,
+        -8
+      ]
+    },
+    {
+      "id": "label3",
+      "type": "vertex",
+      "point": "C",
+      "text": "C",
+      "offset_pt": [
+        12,
+        -8
+      ]
+    },
+    {
+      "id": "label4",
+      "type": "vertex",
+      "point": "M",
+      "text": "M",
+      "offset_pt": [
+        12,
+        7
+      ]
+    },
+    {
+      "id": "label5",
+      "type": "vertex",
+      "point": "N",
+      "text": "N",
+      "offset_pt": [
+        0,
+        -15
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint6",
+      "type": "between",
+      "points": [
+        "B",
+        "N",
+        "C"
+      ]
+    },
+    {
+      "id": "constraint7",
+      "type": "equal_length",
+      "segments": [
+        [
+          "B",
+          "N"
+        ],
+        [
+          "N",
+          "C"
+        ]
+      ]
+    },
+    {
+      "id": "constraint14",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "B",
+          "M"
+        ],
+        [
+          "A",
+          "M"
+        ]
+      ]
+    },
+    {
+      "id": "constraint15",
+      "type": "distance",
+      "points": [
+        "A",
+        "B"
+      ],
+      "value": 8
+    },
+    {
+      "id": "constraint16",
+      "type": "distance",
+      "points": [
+        "M",
+        "N"
+      ],
+      "value": 2
+    },
+    {
+      "id": "constraint17",
+      "type": "angle",
+      "points": [
+        "M",
+        "A",
+        "C"
+      ],
+      "degrees": 28.955024371859835
+    }
+  ],
+  "construction_notes": [
+    "AM and MN are separate segments. The near-collinearity in the small source image is not imposed: exact collinearity would contradict the stated midpoint, bisector and MN=2 conditions."
+  ],
+  "semantic_conditions": [
+    {
+      "condition": "AC > AB",
+      "source": "adapted_question.json",
+      "verified": true
+    }
+  ],
+  "source_caveats": [
+    "The source draws A–M–N nearly straight. Exact collinearity would contradict the stated midpoint, angle-bisector and MN=2 conditions; the redraw preserves connected segments AM and MN as a slight bend so the explicit givens hold."
+  ],
+  "ambiguities": [],
+  "adapted_question": "adapted_question.json",
+  "adaptation_summary": [
+    "The other configuration gives AC=4. This short condition selects the intended configuration and makes the answer unique.",
+    "Clarifies that AM and MN are connected segments, without asserting A, M and N are collinear."
+  ]
+}

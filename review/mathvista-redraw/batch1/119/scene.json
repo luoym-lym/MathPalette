@@ -1,0 +1,237 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_119",
+  "status": "review_candidate",
+  "user_approved": false,
+  "source_dataset": "MathVista testmini / UniGeo",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -9.418963640629102,
+      9.418963640629102
+    ],
+    "ylim": [
+      -4.447827615407837,
+      14.390099665850366
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "content_bbox_px": [
+        236,
+        54,
+        532,
+        714
+      ],
+      "long_side_fraction": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ],
+      "target_long_side_fraction": 0.86
+    }
+  },
+  "points": {
+    "O": [
+      0.0,
+      0.0
+    ],
+    "A": [
+      -2.8284271247461907,
+      -2.82842712474619
+    ],
+    "B": [
+      2.8284271247461894,
+      -2.8284271247461907
+    ],
+    "C": [
+      -2.2943057454041846,
+      3.2766081771559668
+    ],
+    "D": [
+      1.035276180410083,
+      3.8637033051562732
+    ],
+    "P": [
+      -1.4360300861233808,
+      13.08674385292252
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "point",
+      "point": "O"
+    },
+    {
+      "id": "o2",
+      "type": "circle",
+      "center": "O",
+      "radius": 4
+    },
+    {
+      "id": "o3",
+      "type": "segment",
+      "points": [
+        "P",
+        "A"
+      ]
+    },
+    {
+      "id": "o4",
+      "type": "segment",
+      "points": [
+        "P",
+        "B"
+      ]
+    },
+    {
+      "id": "o5",
+      "type": "segment",
+      "points": [
+        "A",
+        "D"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "l1",
+      "type": "vertex",
+      "point": "O",
+      "text": "O",
+      "offset_pt": [
+        0,
+        -13
+      ]
+    },
+    {
+      "id": "l2",
+      "type": "vertex",
+      "point": "A",
+      "text": "A",
+      "offset_pt": [
+        -10,
+        -10
+      ]
+    },
+    {
+      "id": "l3",
+      "type": "vertex",
+      "point": "B",
+      "text": "B",
+      "offset_pt": [
+        8,
+        -13
+      ]
+    },
+    {
+      "id": "l4",
+      "type": "vertex",
+      "point": "C",
+      "text": "C",
+      "offset_pt": [
+        -10,
+        10
+      ]
+    },
+    {
+      "id": "l5",
+      "type": "vertex",
+      "point": "D",
+      "text": "D",
+      "offset_pt": [
+        11,
+        10
+      ]
+    },
+    {
+      "id": "l6",
+      "type": "vertex",
+      "point": "P",
+      "text": "P",
+      "offset_pt": [
+        0,
+        15
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c1",
+      "type": "on_circle",
+      "point": "A",
+      "center": "O",
+      "radius": 4
+    },
+    {
+      "id": "c2",
+      "type": "on_circle",
+      "point": "B",
+      "center": "O",
+      "radius": 4
+    },
+    {
+      "id": "c3",
+      "type": "on_circle",
+      "point": "C",
+      "center": "O",
+      "radius": 4
+    },
+    {
+      "id": "c4",
+      "type": "on_circle",
+      "point": "D",
+      "center": "O",
+      "radius": 4
+    },
+    {
+      "id": "c5",
+      "type": "angle",
+      "points": [
+        "A",
+        "O",
+        "B"
+      ],
+      "degrees": 90
+    },
+    {
+      "id": "c6",
+      "type": "angle",
+      "points": [
+        "C",
+        "O",
+        "D"
+      ],
+      "degrees": 50
+    },
+    {
+      "id": "c7",
+      "type": "between",
+      "points": [
+        "P",
+        "C",
+        "A"
+      ]
+    },
+    {
+      "id": "c8",
+      "type": "between",
+      "points": [
+        "P",
+        "D",
+        "B"
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "construction": "Circle points A,B bound a 90° lower arc and C,D a 50° upper arc. P is the external intersection of AC and BD. The original additional chord AD is retained.",
+  "question": "As shown in the figure, P is a point outside ⊙O, PA and PB intersect ⊙O at two points C and D respectively. It is known that the central angles of ⁀AB and ⁀CD are 90.0 and 50.0 respectively, then ∠P = ()",
+  "display_coordinate_note": "Coordinates are frozen construction coordinates, not additional given data.",
+  "style_normalizations": [
+    "768×768 opaque white; protocol black 1pt primitives; DejaVu Sans point names18pt and values16pt; no question or answer embedded.",
+    "Decorative source colors removed; named objects, continuous topology, semantic dashed lines and any meaningful shaded region retained.",
+    "Original angle callout leaders, when present, are replaced by a direct bound label and exactly one angle arc; no equality or auxiliary geometry is implied.",
+    "Source distance arrows, where present, are normalized to perpendicular solid connectors and a parallel dashed dimension line."
+  ]
+}

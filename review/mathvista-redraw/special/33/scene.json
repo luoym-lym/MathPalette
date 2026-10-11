@@ -1,0 +1,387 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_33",
+  "status": "review_candidate",
+  "subject": "SolidGeometry",
+  "source_dataset": "MathVista testmini / UniGeo",
+  "source_image": "original.jpg",
+  "source_note": "Sector, roll-direction glyph and bottomless cone retained. No source labels; no derived measurements added.",
+  "query": "Use a sector paper sheet with a central angle of 120.0 and a radius of 6.0 to roll into a conical bottomless paper cap (as shown in the picture), then the bottom perimeter of the paper cap is ()",
+  "answer": "4πcm",
+  "world_unit": "cm",
+  "points": {
+    "sector_vertex": [
+      -8.0,
+      0.0,
+      0.0
+    ],
+    "sector_left": [
+      -13.196152422706632,
+      0.7764571353075622,
+      2.897777478867205
+    ],
+    "sector_right": [
+      -2.803847577293368,
+      0.7764571353075622,
+      2.897777478867205
+    ],
+    "cone_center": [
+      7,
+      0,
+      0.5176380902050415
+    ],
+    "cone_apex": [
+      7,
+      0,
+      6.174492339697422
+    ],
+    "cone_left": [
+      5.008994822925427,
+      0.18946869098150598,
+      0.5176380902050415
+    ],
+    "cone_right": [
+      8.991005177074573,
+      0.18946869098150598,
+      0.5176380902050415
+    ],
+    "radius_endpoint": [
+      9,
+      0,
+      0.5176380902050415
+    ],
+    "arrow_0": [
+      -1.0,
+      0.5694018992255456,
+      2.1250368178359507
+    ],
+    "arrow_1": [
+      1.7,
+      0.5694018992255456,
+      2.1250368178359507
+    ],
+    "arrow_2": [
+      1.7,
+      0.4529333289294113,
+      1.6903701960058695
+    ],
+    "arrow_3": [
+      2.5,
+      0.6599885650114279,
+      2.463110857037124
+    ],
+    "arrow_4": [
+      1.7,
+      0.8670438010934445,
+      3.235851518068379
+    ],
+    "arrow_5": [
+      1.7,
+      0.7505752307973101,
+      2.801184896238298
+    ],
+    "arrow_6": [
+      -1.0,
+      0.7505752307973101,
+      2.801184896238298
+    ],
+    "arrow_7": [
+      -1.0,
+      0.5694018992255456,
+      2.1250368178359507
+    ]
+  },
+  "projection": {
+    "kind": "orthographic",
+    "name": "15-degree elevation, sector and transformation glyph lie in screen plane",
+    "matrix": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0.25881904510252074,
+        0.9659258262890683
+      ]
+    ],
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "toward_viewer": [
+      0,
+      -0.9659258262890683,
+      0.25881904510252074
+    ]
+  },
+  "visibility": {
+    "mode": "frozen_intervals",
+    "projection_sha256": "0ed22158542f8e35025208818f4b2ce56800ce484b215460ebdcec58068fd438",
+    "note": "Cone silhouette contacts solve y=r² tan(elevation)/h; rear rim hidden between contacts. Axis and radius retain source dashed auxiliary style."
+  },
+  "view": {
+    "xlim": [
+      -13.712342013932368,
+      9.516189591225736
+    ],
+    "ylim": [
+      -8.623084847681572,
+      14.605446757476532
+    ],
+    "layout": {
+      "target_occupancy": 0.86,
+      "centered": true
+    }
+  },
+  "objects": [
+    {
+      "id": "sector_edge_left",
+      "type": "segment",
+      "points": [
+        "sector_vertex",
+        "sector_left"
+      ],
+      "role": "edge",
+      "visibility": "visible"
+    },
+    {
+      "id": "sector_edge_right",
+      "type": "segment",
+      "points": [
+        "sector_vertex",
+        "sector_right"
+      ],
+      "role": "edge",
+      "visibility": "visible"
+    },
+    {
+      "id": "sector_arc",
+      "type": "circular_arc",
+      "role": "edge",
+      "center": "sector_vertex",
+      "radius": 6,
+      "u": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "v": [
+        0.0,
+        0.25881904510252074,
+        0.9659258262890683
+      ],
+      "domain_deg": [
+        30,
+        150
+      ],
+      "intervals": [
+        {
+          "start_deg": 30,
+          "end_deg": 150,
+          "visibility": "visible",
+          "samples": 481,
+          "start_point": "sector_right",
+          "end_point": "sector_left"
+        }
+      ]
+    },
+    {
+      "id": "roll_direction_arrow",
+      "type": "polyline",
+      "role": "auxiliary",
+      "visibility": "visible",
+      "points": [
+        "arrow_0",
+        "arrow_1",
+        "arrow_2",
+        "arrow_3",
+        "arrow_4",
+        "arrow_5",
+        "arrow_6",
+        "arrow_7"
+      ],
+      "note": "Source transformation glyph, not a mathematical edge or dimension arrow."
+    },
+    {
+      "id": "cone_silhouette_left",
+      "type": "segment",
+      "points": [
+        "cone_apex",
+        "cone_left"
+      ],
+      "role": "silhouette",
+      "visibility": "visible"
+    },
+    {
+      "id": "cone_silhouette_right",
+      "type": "segment",
+      "points": [
+        "cone_apex",
+        "cone_right"
+      ],
+      "role": "silhouette",
+      "visibility": "visible"
+    },
+    {
+      "id": "cone_base",
+      "type": "circular_arc",
+      "role": "edge",
+      "center": "cone_center",
+      "radius": 2,
+      "u": [
+        1,
+        0,
+        0
+      ],
+      "v": [
+        0,
+        1,
+        0
+      ],
+      "domain_deg": [
+        5.436029972077099,
+        365.4360299720771
+      ],
+      "intervals": [
+        {
+          "start_deg": 5.436029972077099,
+          "end_deg": 174.5639700279229,
+          "visibility": "hidden",
+          "samples": 361,
+          "start_point": "cone_right",
+          "end_point": "cone_left"
+        },
+        {
+          "start_deg": 174.5639700279229,
+          "end_deg": 365.4360299720771,
+          "visibility": "visible",
+          "samples": 481,
+          "start_point": "cone_left",
+          "end_point": "cone_right"
+        }
+      ]
+    },
+    {
+      "id": "cone_axis",
+      "type": "segment",
+      "points": [
+        "cone_apex",
+        "cone_center"
+      ],
+      "role": "auxiliary",
+      "visibility": "visible",
+      "linestyle": "dashed"
+    },
+    {
+      "id": "cone_radius",
+      "type": "segment",
+      "points": [
+        "cone_center",
+        "radius_endpoint"
+      ],
+      "role": "auxiliary",
+      "visibility": "visible",
+      "linestyle": "dashed"
+    }
+  ],
+  "dimensions": [],
+  "labels": [],
+  "constraints": [
+    {
+      "id": "sector_radius_left",
+      "type": "distance",
+      "points": [
+        "sector_vertex",
+        "sector_left"
+      ],
+      "value": 6,
+      "basis": "Explicit radius 6 in source question."
+    },
+    {
+      "id": "sector_radius_right",
+      "type": "distance",
+      "points": [
+        "sector_vertex",
+        "sector_right"
+      ],
+      "value": 6,
+      "basis": "Explicit radius 6 in source question."
+    },
+    {
+      "id": "sector_angle",
+      "type": "angle",
+      "points": [
+        "sector_left",
+        "sector_vertex",
+        "sector_right"
+      ],
+      "degrees": 120,
+      "basis": "Explicit central angle 120 in source question."
+    },
+    {
+      "id": "cone_slant_left",
+      "type": "distance",
+      "points": [
+        "cone_apex",
+        "cone_left"
+      ],
+      "value": 6,
+      "basis": "Sector radius becomes cone slant height; construction only, no derived value shown."
+    },
+    {
+      "id": "cone_slant_right",
+      "type": "distance",
+      "points": [
+        "cone_apex",
+        "cone_right"
+      ],
+      "value": 6,
+      "basis": "Sector radius becomes cone slant height; construction only, no derived value shown."
+    },
+    {
+      "id": "silhouette_tangent_left",
+      "type": "projected_tangent",
+      "circle": "cone_base",
+      "point": "cone_left",
+      "segment": [
+        "cone_apex",
+        "cone_left"
+      ],
+      "basis": "Analytic silhouette tangent to projected base; projection construction."
+    },
+    {
+      "id": "silhouette_tangent_right",
+      "type": "projected_tangent",
+      "circle": "cone_base",
+      "point": "cone_right",
+      "segment": [
+        "cone_apex",
+        "cone_right"
+      ],
+      "basis": "Analytic silhouette tangent to projected base; projection construction."
+    }
+  ],
+  "ambiguities": [
+    "Source thumbnail is schematic. Exact 120-degree sector and rolled cone derived from sector radius6 and no overlap; silhouette/hidden intervals calculated for frozen 15-degree orthographic elevation. Sector oriented in screen plane; cone upright in world. Relative panel placement and arrow shape are display choices.",
+    "No numeric labels exist in original figure; angle120, radius6 and derived base radius2 are model checks only, not added diagram labels."
+  ],
+  "model": {
+    "type": "open_bottom_cone",
+    "sector_radius": 6,
+    "sector_angle_degrees": 120,
+    "cone_radius": 2,
+    "cone_height": 5.656854249492381,
+    "cone_slant_height": 6,
+    "seam_overlap": 0,
+    "surface_only": true,
+    "derivation": "2*pi*r = 6*(120*pi/180); h=sqrt(6²-r²). Derived model dimensions not shown as givens."
+  }
+}

@@ -1,0 +1,203 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_492",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / UniGeo",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -2.140094020817882,
+      3.8176268120162193
+    ],
+    "ylim": [
+      -3.0847865098148923,
+      2.872934323019209
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "points": {
+    "O": [
+      0.0,
+      0.0
+    ],
+    "A": [
+      -1.7320508075688774,
+      0.9999999999999999
+    ],
+    "B": [
+      1.7320508075688767,
+      -1.0000000000000009
+    ],
+    "D": [
+      0.0,
+      -2.0
+    ],
+    "C": [
+      3.4641016151377544,
+      -2.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "circle_1",
+      "type": "circle",
+      "center": "O",
+      "radius": 2
+    },
+    {
+      "id": "segment_2",
+      "type": "segment",
+      "points": [
+        "A",
+        "C"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_3",
+      "type": "segment",
+      "points": [
+        "A",
+        "D"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_4",
+      "type": "segment",
+      "points": [
+        "O",
+        "D"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_5",
+      "type": "segment",
+      "points": [
+        "D",
+        "C"
+      ],
+      "linestyle": "solid"
+    }
+  ],
+  "labels": [
+    {
+      "id": "name_O",
+      "type": "vertex",
+      "point": "O",
+      "offset_pt": [
+        10,
+        10
+      ]
+    },
+    {
+      "id": "name_A",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        -12,
+        4
+      ]
+    },
+    {
+      "id": "name_B",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        18,
+        9
+      ]
+    },
+    {
+      "id": "name_D",
+      "type": "vertex",
+      "point": "D",
+      "offset_pt": [
+        0,
+        -13
+      ]
+    },
+    {
+      "id": "name_C",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        12,
+        -8
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint_1",
+      "type": "on_circle",
+      "point": "A",
+      "center": "O",
+      "radius": 2
+    },
+    {
+      "id": "constraint_2",
+      "type": "on_circle",
+      "point": "B",
+      "center": "O",
+      "radius": 2
+    },
+    {
+      "id": "constraint_3",
+      "type": "on_circle",
+      "point": "D",
+      "center": "O",
+      "radius": 2
+    },
+    {
+      "id": "constraint_4",
+      "type": "between",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "constraint_5",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "O",
+          "D"
+        ],
+        [
+          "D",
+          "C"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_6",
+      "type": "angle",
+      "points": [
+        "D",
+        "A",
+        "C"
+      ],
+      "degrees": 30
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": [
+    "Radius 2 circle, AB diameter, C on its extension and CD tangent at bottom D; A at polar 150° realizes ∠DAC=30°. No given values added to source diagram."
+  ]
+}

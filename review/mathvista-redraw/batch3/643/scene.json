@@ -1,0 +1,215 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_643",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / UniGeo",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -3.250954712256153,
+      3.5161157599435624
+    ],
+    "ylim": [
+      -3.365920626691212,
+      3.4011498455085034
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "points": {
+    "O": [
+      0.0,
+      0.0
+    ],
+    "C": [
+      -0.5209445330007909,
+      2.954423259036624
+    ],
+    "D": [
+      0.5209445330007899,
+      -2.9544232590366244
+    ],
+    "E": [
+      3.0,
+      0.0
+    ],
+    "A": [
+      -1.9283628290596184,
+      -2.2981333293569337
+    ]
+  },
+  "objects": [
+    {
+      "id": "circle_1",
+      "type": "circle",
+      "center": "O",
+      "radius": 3
+    },
+    {
+      "id": "segment_2",
+      "type": "segment",
+      "points": [
+        "C",
+        "A"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_3",
+      "type": "segment",
+      "points": [
+        "C",
+        "D"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_4",
+      "type": "segment",
+      "points": [
+        "D",
+        "E"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_5",
+      "type": "segment",
+      "points": [
+        "O",
+        "A"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "point_6",
+      "type": "point",
+      "point": "O"
+    }
+  ],
+  "labels": [
+    {
+      "id": "name_O",
+      "type": "vertex",
+      "point": "O",
+      "offset_pt": [
+        12,
+        0
+      ]
+    },
+    {
+      "id": "name_A",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        -8,
+        -12
+      ]
+    },
+    {
+      "id": "name_C",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        0,
+        14
+      ]
+    },
+    {
+      "id": "name_D",
+      "type": "vertex",
+      "point": "D",
+      "offset_pt": [
+        0,
+        -14
+      ]
+    },
+    {
+      "id": "name_E",
+      "type": "vertex",
+      "point": "E",
+      "offset_pt": [
+        14,
+        0
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint_1",
+      "type": "on_circle",
+      "point": "A",
+      "center": "O",
+      "radius": 3
+    },
+    {
+      "id": "constraint_2",
+      "type": "on_circle",
+      "point": "C",
+      "center": "O",
+      "radius": 3
+    },
+    {
+      "id": "constraint_3",
+      "type": "on_circle",
+      "point": "D",
+      "center": "O",
+      "radius": 3
+    },
+    {
+      "id": "constraint_4",
+      "type": "on_circle",
+      "point": "E",
+      "center": "O",
+      "radius": 3
+    },
+    {
+      "id": "constraint_5",
+      "type": "between",
+      "points": [
+        "C",
+        "O",
+        "D"
+      ]
+    },
+    {
+      "id": "constraint_6",
+      "type": "parallel",
+      "segments": [
+        [
+          "D",
+          "E"
+        ],
+        [
+          "O",
+          "A"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_7",
+      "type": "angle",
+      "points": [
+        "C",
+        "D",
+        "E"
+      ],
+      "degrees": 50
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": [
+    "Diameter CD is placed at polar 100°/280°. E at 0° makes CDE=50°; OA has direction parallel to DE."
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_635",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / UniGeo",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -0.25325808146837714,
+      4.417998304528959
+    ],
+    "ylim": [
+      -1.4456538465748991,
+      3.225602539422437
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "points": {
+    "A": [
+      0.6928203230275509,
+      1.7320508075688772
+    ],
+    "B": [
+      0.0,
+      0.0
+    ],
+    "C": [
+      3.4641016151377544,
+      0.0
+    ],
+    "D": [
+      4.156921938165305,
+      1.7320508075688772
+    ],
+    "E": [
+      1.9918584287042087,
+      0.7794228634059948
+    ]
+  },
+  "objects": [
+    {
+      "id": "polygon_1",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "E"
+      ],
+      "semantic_fill": true
+    },
+    {
+      "id": "polygon_2",
+      "type": "polygon",
+      "points": [
+        "D",
+        "C",
+        "E"
+      ],
+      "semantic_fill": true
+    },
+    {
+      "id": "polygon_3",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "segment_4",
+      "type": "segment",
+      "points": [
+        "A",
+        "E"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_5",
+      "type": "segment",
+      "points": [
+        "B",
+        "E"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_6",
+      "type": "segment",
+      "points": [
+        "C",
+        "E"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_7",
+      "type": "segment",
+      "points": [
+        "D",
+        "E"
+      ],
+      "linestyle": "solid"
+    }
+  ],
+  "labels": [
+    {
+      "id": "name_A",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        -6,
+        14
+      ]
+    },
+    {
+      "id": "name_B",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        -10,
+        -8
+      ]
+    },
+    {
+      "id": "name_C",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        8,
+        -12
+      ]
+    },
+    {
+      "id": "name_D",
+      "type": "vertex",
+      "point": "D",
+      "offset_pt": [
+        10,
+        12
+      ]
+    },
+    {
+      "id": "name_E",
+      "type": "vertex",
+      "point": "E",
+      "offset_pt": [
+        0,
+        14
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint_1",
+      "type": "parallel",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_2",
+      "type": "parallel",
+      "segments": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ]
+    }
+  ],
+  "ambiguities": [
+    "Source hatch shading is standardized to the protocol semantic gray fill."
+  ],
+  "construction_notes": [
+    "Parallelogram area is exactly 6. E is a freely chosen interior point; the two source shaded regions ABE and CDE remain semantically filled gray."
+  ]
+}

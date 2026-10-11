@@ -1,0 +1,207 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_783",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / UniGeo",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -102.78797238372093,
+      13.002816133720934
+    ],
+    "ylim": [
+      -31.699788395187777,
+      84.09100012225409
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "pixel_bbox": [
+        54,
+        200,
+        713,
+        567
+      ],
+      "occupancy": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "points": {
+    "A": [
+      0.0,
+      51.96152422706631
+    ],
+    "B": [
+      0.0,
+      0.0
+    ],
+    "C": [
+      -90.0,
+      0.0
+    ],
+    "D": [
+      -30.0,
+      0.0
+    ],
+    "lowL": [
+      -100.0,
+      0.0
+    ],
+    "lowR": [
+      10.0,
+      0.0
+    ],
+    "highL": [
+      -100.0,
+      51.96152422706631
+    ],
+    "highR": [
+      10.0,
+      51.96152422706631
+    ]
+  },
+  "objects": [
+    {
+      "id": "segment5",
+      "type": "segment",
+      "points": [
+        "lowL",
+        "lowR"
+      ]
+    },
+    {
+      "id": "segment6",
+      "type": "segment",
+      "points": [
+        "highL",
+        "highR"
+      ]
+    },
+    {
+      "id": "segment7",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "segment8",
+      "type": "segment",
+      "points": [
+        "A",
+        "C"
+      ]
+    },
+    {
+      "id": "segment9",
+      "type": "segment",
+      "points": [
+        "A",
+        "D"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "label1",
+      "type": "vertex",
+      "point": "A",
+      "text": "A",
+      "offset_pt": [
+        0,
+        14
+      ]
+    },
+    {
+      "id": "label2",
+      "type": "vertex",
+      "point": "B",
+      "text": "B",
+      "offset_pt": [
+        0,
+        -15
+      ]
+    },
+    {
+      "id": "label3",
+      "type": "vertex",
+      "point": "C",
+      "text": "C",
+      "offset_pt": [
+        0,
+        -15
+      ]
+    },
+    {
+      "id": "label4",
+      "type": "vertex",
+      "point": "D",
+      "text": "D",
+      "offset_pt": [
+        0,
+        -15
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint10",
+      "type": "angle",
+      "points": [
+        "A",
+        "C",
+        "B"
+      ],
+      "degrees": 30
+    },
+    {
+      "id": "constraint11",
+      "type": "angle",
+      "points": [
+        "A",
+        "D",
+        "B"
+      ],
+      "degrees": 60
+    },
+    {
+      "id": "constraint12",
+      "type": "distance",
+      "points": [
+        "C",
+        "D"
+      ],
+      "value": 60
+    },
+    {
+      "id": "constraint13",
+      "type": "parallel",
+      "segments": [
+        [
+          "lowL",
+          "lowR"
+        ],
+        [
+          "highL",
+          "highR"
+        ]
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": [
+    "River-water hatch texture removed; two parallel bank boundaries retained."
+  ]
+}

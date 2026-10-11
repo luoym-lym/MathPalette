@@ -1,0 +1,202 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_726",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / Geometry3K",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -2.0829613226795765,
+      2.0273073940039765
+    ],
+    "ylim": [
+      -2.0551343583417765,
+      2.0551343583417765
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "pixel_bbox": [
+        54,
+        215,
+        714,
+        552
+      ],
+      "occupancy": 0.8606770833333334,
+      "center_error_px": [
+        0.5,
+        0.0
+      ]
+    }
+  },
+  "points": {
+    "O": [
+      0.0,
+      0.0
+    ],
+    "A": [
+      -0.7071067811865475,
+      0.7071067811865476
+    ],
+    "B": [
+      -0.7071067811865477,
+      -0.7071067811865475
+    ],
+    "C": [
+      0.9659258262890683,
+      0.25881904510252074
+    ],
+    "D": [
+      0.9659258262890683,
+      -0.25881904510252074
+    ],
+    "P": [
+      1.9318516525781368,
+      -1.1102230246251565e-16
+    ],
+    "anchor10": [
+      -1.65,
+      0.4
+    ],
+    "anchor12": [
+      1.05,
+      -0.7
+    ]
+  },
+  "objects": [
+    {
+      "id": "circle1",
+      "type": "circle",
+      "center": "O",
+      "radius": 1
+    },
+    {
+      "id": "segment6",
+      "type": "segment",
+      "points": [
+        "P",
+        "A"
+      ]
+    },
+    {
+      "id": "segment7",
+      "type": "segment",
+      "points": [
+        "P",
+        "B"
+      ]
+    },
+    {
+      "id": "angle_arc8",
+      "type": "angle_arc",
+      "points": [
+        "A",
+        "P",
+        "B"
+      ],
+      "radius_pt": 16
+    }
+  ],
+  "labels": [
+    {
+      "id": "anglelabel9",
+      "type": "angle",
+      "points": [
+        "A",
+        "P",
+        "B"
+      ],
+      "arc_id": "angle_arc8",
+      "radius_pt": 58,
+      "offset_pt": [
+        0,
+        0
+      ],
+      "text": "3x°"
+    },
+    {
+      "id": "text11",
+      "type": "text",
+      "text": "(4x + 50)°",
+      "anchor": "anchor10",
+      "offset_pt": [
+        0,
+        0
+      ],
+      "role": "arc_measure",
+      "center": "O",
+      "arc_points": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "text13",
+      "type": "text",
+      "text": "30°",
+      "anchor": "anchor12",
+      "offset_pt": [
+        0,
+        0
+      ],
+      "role": "arc_measure",
+      "center": "O",
+      "arc_points": [
+        "C",
+        "D"
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint2",
+      "type": "on_circle",
+      "point": "A",
+      "center": "O",
+      "radius": 1
+    },
+    {
+      "id": "constraint3",
+      "type": "on_circle",
+      "point": "B",
+      "center": "O",
+      "radius": 1
+    },
+    {
+      "id": "constraint4",
+      "type": "on_circle",
+      "point": "C",
+      "center": "O",
+      "radius": 1
+    },
+    {
+      "id": "constraint5",
+      "type": "on_circle",
+      "point": "D",
+      "center": "O",
+      "radius": 1
+    },
+    {
+      "id": "constraint14",
+      "type": "angle",
+      "points": [
+        "C",
+        "O",
+        "D"
+      ],
+      "degrees": 30
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": [
+    "Symbolic expressions constrained consistently by circle secants; solved values are not displayed. Far circular arc is the left minor arc; near arc is the right minor arc."
+  ]
+}

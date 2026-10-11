@@ -1,0 +1,120 @@
+{
+  "pid": "935",
+  "original_question": "如图，在ABCD中，AD＝6，AB＝4，DE平分∠ADC交BC于点E，则BE的长是（）",
+  "original_choices": [
+    "2",
+    "3",
+    "4",
+    "5"
+  ],
+  "official_answer": "2",
+  "original_source_image": "source.jpg",
+  "original_source_metadata": "source_metadata.json",
+  "adapted_question": "如图，在平行四边形ABCD中，AD＝6，AB＝4，DE平分∠ADC交BC于点E，则BE的长是（）",
+  "adapted_choices": [
+    "2",
+    "3",
+    "4",
+    "5"
+  ],
+  "adapted_answer": "2",
+  "adapted_answer_exact_value": "2",
+  "adapted_answer_choice": "A",
+  "adapted_answer_index": 0,
+  "answer_type": "text",
+  "question_type": "multi_choice",
+  "changes": [
+    {
+      "field": "quadrilateral type",
+      "original": "在ABCD中",
+      "replacement": "在平行四边形ABCD中",
+      "rationale": "The missing type leaves BE underdetermined. A parallelogram is the minimal condition consistent with the intended source layout; both opposite-side parallel relations are now imposed exactly."
+    },
+    {
+      "field": "frozen display coordinate of C",
+      "original": "C=(8.4,0)",
+      "replacement": "C=(8,0)",
+      "rationale": "With A=(0,√12), B=(2,0), D=(6,√12), this makes ABCD an exact parallelogram. E is reconstructed on its angle bisector, becoming E=(4,0)."
+    }
+  ],
+  "full_mathematical_solution": [
+    "平行四边形ABCD的对边相等，所以BC=AD=6，CD=AB=4。",
+    "DE平分∠ADC，故∠ADE=∠EDC。又AD∥BC且E在BC上，可得∠ADE=∠DEC。",
+    "因此∠EDC=∠DEC，△DCE为等腰三角形，CE=CD=4。",
+    "所以BE=BC−CE=6−4=2，选A。"
+  ],
+  "independent_verification": [
+    {
+      "check": "AD",
+      "measured": 6.0,
+      "expected": 6.0,
+      "absolute_tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "check": "AB",
+      "measured": 3.9999999999999996,
+      "expected": 4.0,
+      "absolute_tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "check": "BC",
+      "measured": 6.0,
+      "expected": 6.0,
+      "absolute_tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "check": "CD",
+      "measured": 3.9999999999999996,
+      "expected": 4.0,
+      "absolute_tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "check": "CE",
+      "measured": 4.0,
+      "expected": 4.0,
+      "absolute_tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "check": "Direct BE",
+      "measured": 2.0,
+      "expected": 2.0,
+      "absolute_tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "check": "Bisector angle halves",
+      "measured": 59.99999999999999,
+      "expected": 60.00000000000001,
+      "absolute_tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "check": "AB parallel CD",
+      "measured": 0.0,
+      "expected": 0.0,
+      "absolute_tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "check": "AD parallel BC",
+      "measured": 0.0,
+      "expected": 0.0,
+      "absolute_tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "check": "Unique matching choice at recomputed answer index",
+      "passed": true
+    }
+  ],
+  "verification_code": "../adapt_and_verify.py",
+  "verification_passed": true,
+  "protocol_compliance": "Strict unchanged MathPalette PlaneGeometry protocol; no font or other style exception",
+  "review_status": "pending_user_review",
+  "original_record_unchanged": true
+}

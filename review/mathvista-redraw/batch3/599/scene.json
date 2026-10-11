@@ -1,0 +1,136 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_599",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / GEOS",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -0.4120872206131785,
+      6.412087220613179
+    ],
+    "ylim": [
+      -1.9288586153083433,
+      4.895315825918013
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "points": {
+    "A": [
+      0.0,
+      0.0
+    ],
+    "B": [
+      5.0,
+      2.8284271247461903
+    ],
+    "C": [
+      6.0,
+      0.0
+    ],
+    "P": [
+      4.545454545454546,
+      2.5712973861329003
+    ]
+  },
+  "objects": [
+    {
+      "id": "polygon_1",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ],
+      "semantic_fill": false
+    }
+  ],
+  "labels": [
+    {
+      "id": "name_A",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        -12,
+        -7
+      ]
+    },
+    {
+      "id": "name_B",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        0,
+        14
+      ]
+    },
+    {
+      "id": "name_C",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        12,
+        -7
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint_1",
+      "type": "distance",
+      "points": [
+        "A",
+        "C"
+      ],
+      "value": 6
+    },
+    {
+      "id": "constraint_2",
+      "type": "distance",
+      "points": [
+        "B",
+        "C"
+      ],
+      "value": 3
+    },
+    {
+      "id": "constraint_3",
+      "type": "between",
+      "points": [
+        "A",
+        "P",
+        "B"
+      ]
+    },
+    {
+      "id": "constraint_4",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "C",
+          "P"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": [
+    "Triangle realizes AC=6, BC=3 and permits interior foot P on AB. P and CP are not drawn because they are absent from the source diagram; the full question is retained separately."
+  ]
+}

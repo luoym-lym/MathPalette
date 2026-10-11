@@ -1,0 +1,185 @@
+{
+  "pid": "684",
+  "status": "adapted_review_candidate",
+  "source": "MathVista testmini",
+  "source_dataset": "Geometry3K",
+  "constraints": [
+    {
+      "id": "constraint_1",
+      "type": "on_circle",
+      "measured": 3.0,
+      "passed": true
+    },
+    {
+      "id": "constraint_2",
+      "type": "on_circle",
+      "measured": 3.0,
+      "passed": true
+    },
+    {
+      "id": "constraint_3",
+      "type": "on_circle",
+      "measured": 3.0000000000000004,
+      "passed": true
+    },
+    {
+      "id": "constraint_4",
+      "type": "on_circle",
+      "measured": 3.0,
+      "passed": true
+    },
+    {
+      "id": "constraint_5",
+      "type": "angle",
+      "measured": 83.00000000000003,
+      "passed": true
+    },
+    {
+      "id": "constraint_6",
+      "type": "equal_length",
+      "measured": [
+        5.752918409209157,
+        5.752918409209158
+      ],
+      "passed": true
+    }
+  ],
+  "construction_notes": [
+    "Chord endpoints constructed on one circle, with arc GJ=83° and equal visible chords GH,KJ; arc-measure labels do not create radius lines or central-angle arcs.",
+    "Adapted question: J lies on minor arc GH and H lies on minor arc KJ; the exact frozen coordinates verify both incidences. Original image and metadata are preserved separately."
+  ],
+  "ambiguities": [],
+  "geometry_validation_passed": true,
+  "deterministic_png_bytes": true,
+  "deterministic_pixels": true,
+  "png_size": [
+    768,
+    768
+  ],
+  "opaque_white_background": true,
+  "layout": {
+    "content_bbox_px": [
+      54,
+      122,
+      715,
+      645
+    ],
+    "long_side_fraction": 0.8606770833333334,
+    "center_error_px": [
+      0.5,
+      0.5
+    ],
+    "minimum_margin_px": 53
+  },
+  "visual_qa": {
+    "inspected": true,
+    "status": "passed",
+    "method": "Source contact sheets plus generated contact sheets; full-resolution zooms for dense/ambiguous diagrams.",
+    "notes": [
+      "Source and redraw visually compared: labels, connectivity, circle/line incidences, marks, source angle-label assignments and fill semantics checked.",
+      "Every output inspected on contact sheets. Crowded cases separately inspected at full 768×768 resolution. No clipping, missing labels or unresolved label/edge overlap in final image.",
+      "Automated QA is not user approval; this is isolated review material.",
+      "Full-size inspection performed after label-placement correction or source-shape review.",
+      "Wording-only adaptation: PNG pixels, geometric coordinates, source image and original metadata are unchanged. Corrected question is consistent with all visible endpoint names and both arc labels."
+    ]
+  },
+  "hashes": {
+    "source_sha256": "dab006774e5adf70ae6b9c6c21b2b324c7a0b4ac4522749f6787e3cd84a5ae65",
+    "scene_sha256": "ac42b37a8644c5a874b843efd8ce0277058442d41b4fb23266c63b76b49c8a31",
+    "png_sha256": "8dc744e5694275a138662dcf8ca298bb00f8326c625b7491ec264c770561775c",
+    "svg_sha256": "5683fcd44ed8a069633f222feba0060bece82576a0538fb35e2ff7f1370de093",
+    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+    "protocol_sha256": "990e67c9803d4bdedb2ede5f5dcdc8b822a4329e1f3078cc958a963c3afbe1cc",
+    "reproduction_code_sha256": "ad20fc6e426595ca4d694975a5783ff5cc5e2478f713b8d5b74fce6accea7386",
+    "builder_sha256": "af1e3909b2c74ea5ec99bb439f62b9dd1cffefef5d7d6c730a12ffc804e6cbe2",
+    "adapted_question_sha256": "f71dd39a6cbf43805ee0aefe6e2ff46bfcff7bca70c6727b147132bf53a3a472",
+    "adaptation_code_sha256": "cadb6b9b9ba2d639bd5aa1176a37ba17a602eb50d733232b0294cfb6777460f0"
+  },
+  "dependencies": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "matplotlib": "3.10.8",
+    "pillow": "12.3.0"
+  },
+  "supplemental_construction_checks": [],
+  "all_labels_rendered": true,
+  "original_source_issues": [
+    "Original question says CH while the image labels G and contains no C.",
+    "The adapted question explicitly fixes the intended minor-arc placement to rule out the alternate equal-chord branch."
+  ],
+  "adapted_question": "adapted_question.json",
+  "adapted_math_verified": true,
+  "unique_answer_choice_verified": true,
+  "independent_adaptation_verification": {
+    "exact_algebra": {
+      "method": "Python fractions.Fraction arithmetic, independent of source answer and scene coordinates",
+      "equation": "2*x - 27 = 83",
+      "computed_answer": "55",
+      "substitution_residual": "0",
+      "passed": true
+    },
+    "all_options_checked": [
+      {
+        "option": "A",
+        "value": "27",
+        "implied_arc_KH_degrees": "27",
+        "equal_arc_equation_residual_degrees": "-56",
+        "satisfies_adapted_problem": false
+      },
+      {
+        "option": "B",
+        "value": "54",
+        "implied_arc_KH_degrees": "81",
+        "equal_arc_equation_residual_degrees": "-2",
+        "satisfies_adapted_problem": false
+      },
+      {
+        "option": "C",
+        "value": "55",
+        "implied_arc_KH_degrees": "83",
+        "equal_arc_equation_residual_degrees": "0",
+        "satisfies_adapted_problem": true
+      },
+      {
+        "option": "D",
+        "value": "83",
+        "implied_arc_KH_degrees": "139",
+        "equal_arc_equation_residual_degrees": "56",
+        "satisfies_adapted_problem": false
+      }
+    ],
+    "unique_correct_option": "C",
+    "coordinate_verification": {
+      "chord_GH": 5.752918409209157,
+      "chord_KJ": 5.752918409209158,
+      "equal_chord_residual": -8.881784197001252e-16,
+      "arc_measures_degrees": {
+        "GJ": 83.0,
+        "JH": 64.0,
+        "HK": 83.0,
+        "GH_through_J": 147.0,
+        "JK_through_H": 147.0
+      },
+      "intended_minor_arc_placement": {
+        "J_on_minor_arc_GH": true,
+        "H_on_minor_arc_JK": true
+      },
+      "arc_KH_equation_residual": 0.0,
+      "tolerance": 1e-07
+    },
+    "agrees_with_official_answer": true,
+    "passed": true
+  },
+  "source_preserved": true,
+  "protocol_verification": {
+    "version": "1.2.0",
+    "shared_renderer_unmodified": true,
+    "style_parameters_unchanged": true,
+    "geometry_constraints_passed": true,
+    "arc_measure_semantic_bindings_passed": true,
+    "no_duplicate_or_unbound_angle_arcs": true,
+    "dimension_rules": "No distance markers in this scene.",
+    "all_labels_rendered": true,
+    "deterministic_rerender_passed": true
+  }
+}

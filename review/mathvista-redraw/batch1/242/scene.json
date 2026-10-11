@@ -1,0 +1,241 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_242",
+  "status": "review_candidate",
+  "user_approved": false,
+  "source_dataset": "MathVista testmini / Geometry3K",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -0.5309369144471829,
+      8.502379330624867
+    ],
+    "ylim": [
+      -2.466102100425641,
+      6.56721414464641
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "content_bbox_px": [
+        53,
+        206,
+        714,
+        562
+      ],
+      "long_side_fraction": 0.8606770833333334,
+      "center_error_px": [
+        -0.5,
+        0.0
+      ],
+      "target_long_side_fraction": 0.86
+    }
+  },
+  "points": {
+    "D": [
+      0.0,
+      0.0
+    ],
+    "C": [
+      8.0,
+      0.0
+    ],
+    "B": [
+      8.0,
+      4.0
+    ],
+    "A": [
+      4.0,
+      4.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "o2",
+      "type": "right_angle",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "o3",
+      "type": "right_angle",
+      "points": [
+        "B",
+        "C",
+        "D"
+      ]
+    },
+    {
+      "id": "o4",
+      "type": "angle_arc",
+      "points": [
+        "D",
+        "A",
+        "B"
+      ],
+      "radius_pt": 16,
+      "reflex": false
+    },
+    {
+      "id": "o5",
+      "type": "angle_arc",
+      "points": [
+        "A",
+        "D",
+        "C"
+      ],
+      "radius_pt": 16,
+      "reflex": false
+    }
+  ],
+  "labels": [
+    {
+      "id": "l1",
+      "type": "vertex",
+      "point": "D",
+      "text": "D",
+      "offset_pt": [
+        -12,
+        -7
+      ]
+    },
+    {
+      "id": "l2",
+      "type": "vertex",
+      "point": "C",
+      "text": "C",
+      "offset_pt": [
+        10,
+        -10
+      ]
+    },
+    {
+      "id": "l3",
+      "type": "vertex",
+      "point": "B",
+      "text": "B",
+      "offset_pt": [
+        10,
+        10
+      ]
+    },
+    {
+      "id": "l4",
+      "type": "vertex",
+      "point": "A",
+      "text": "A",
+      "offset_pt": [
+        -8,
+        13
+      ]
+    },
+    {
+      "id": "l5",
+      "type": "angle",
+      "points": [
+        "D",
+        "A",
+        "B"
+      ],
+      "arc_id": "o4",
+      "radius_pt": 39,
+      "offset_pt": [
+        0,
+        0
+      ],
+      "reflex": false,
+      "text": "3x°"
+    },
+    {
+      "id": "l6",
+      "type": "angle",
+      "points": [
+        "A",
+        "D",
+        "C"
+      ],
+      "arc_id": "o5",
+      "radius_pt": 37,
+      "offset_pt": [
+        0,
+        0
+      ],
+      "reflex": false,
+      "text": "x°"
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c1",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ]
+    },
+    {
+      "id": "c2",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ]
+    },
+    {
+      "id": "c3",
+      "type": "angle",
+      "points": [
+        "D",
+        "A",
+        "B"
+      ],
+      "degrees": 135
+    },
+    {
+      "id": "c4",
+      "type": "angle",
+      "points": [
+        "A",
+        "D",
+        "C"
+      ],
+      "degrees": 45
+    }
+  ],
+  "ambiguities": [],
+  "construction": "Right trapezoid constructed with adjacent angles A=135°,D=45°, preserving symbolic 3x° and x°. Right-angle squares at B,C are retained.",
+  "question": "Find $m \\angle A$ of quadrilateral ABCD",
+  "display_coordinate_note": "Coordinates are frozen construction coordinates, not additional given data.",
+  "style_normalizations": [
+    "768×768 opaque white; protocol black 1pt primitives; DejaVu Sans point names18pt and values16pt; no question or answer embedded.",
+    "Decorative source colors removed; named objects, continuous topology, semantic dashed lines and any meaningful shaded region retained.",
+    "Original angle callout leaders, when present, are replaced by a direct bound label and exactly one angle arc; no equality or auxiliary geometry is implied.",
+    "Source distance arrows, where present, are normalized to perpendicular solid connectors and a parallel dashed dimension line."
+  ]
+}

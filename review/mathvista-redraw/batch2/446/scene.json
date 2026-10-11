@@ -1,0 +1,232 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_446",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / GeoQA+",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -7.312710398406348,
+      7.340836404630481
+    ],
+    "ylim": [
+      -3.1403854974407377,
+      11.51316130559609
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "bbox_px": [
+        54,
+        169,
+        713,
+        599
+      ],
+      "occupancy": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.5
+      ]
+    }
+  },
+  "points": {
+    "A": [
+      1.6200579585100872,
+      8.100289792550436
+    ],
+    "B": [
+      -6.480231834040349,
+      0.0
+    ],
+    "C": [
+      6.480231834040349,
+      0.0
+    ],
+    "D": [
+      1.0045298304217845,
+      3.100289792550437
+    ],
+    "E": [
+      -3.3799420414899117,
+      3.100289792550437
+    ],
+    "F": [
+      4.620057958510087,
+      3.100289792550437
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "o2",
+      "type": "segment",
+      "points": [
+        "B",
+        "D"
+      ]
+    },
+    {
+      "id": "o3",
+      "type": "segment",
+      "points": [
+        "C",
+        "D"
+      ]
+    },
+    {
+      "id": "o4",
+      "type": "segment",
+      "points": [
+        "E",
+        "F"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "v5",
+      "type": "vertex",
+      "point": "A",
+      "text": "A",
+      "offset_pt": [
+        0,
+        14
+      ]
+    },
+    {
+      "id": "v6",
+      "type": "vertex",
+      "point": "B",
+      "text": "B",
+      "offset_pt": [
+        -11,
+        -8
+      ]
+    },
+    {
+      "id": "v7",
+      "type": "vertex",
+      "point": "C",
+      "text": "C",
+      "offset_pt": [
+        11,
+        -8
+      ]
+    },
+    {
+      "id": "v8",
+      "type": "vertex",
+      "point": "D",
+      "text": "D",
+      "offset_pt": [
+        0,
+        14
+      ]
+    },
+    {
+      "id": "v9",
+      "type": "vertex",
+      "point": "E",
+      "text": "E",
+      "offset_pt": [
+        -12,
+        6
+      ]
+    },
+    {
+      "id": "v10",
+      "type": "vertex",
+      "point": "F",
+      "text": "F",
+      "offset_pt": [
+        12,
+        6
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c11",
+      "type": "between",
+      "points": [
+        "A",
+        "E",
+        "B"
+      ]
+    },
+    {
+      "id": "c12",
+      "type": "between",
+      "points": [
+        "A",
+        "F",
+        "C"
+      ]
+    },
+    {
+      "id": "c13",
+      "type": "between",
+      "points": [
+        "E",
+        "D",
+        "F"
+      ]
+    },
+    {
+      "id": "c14",
+      "type": "parallel",
+      "segments": [
+        [
+          "E",
+          "F"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ]
+    },
+    {
+      "id": "c15",
+      "type": "angle",
+      "points": [
+        "A",
+        "B",
+        "D"
+      ],
+      "degrees": 22.500000000000004
+    },
+    {
+      "id": "c16",
+      "type": "angle",
+      "points": [
+        "A",
+        "C",
+        "D"
+      ],
+      "degrees": 29.518121733963255
+    }
+  ],
+  "ambiguities": [],
+  "construction": "Incenter from side-length barycentric coordinates, horizontal EF through D; scale makes BE+CF8.",
+  "exact_conditions": [
+    {
+      "relation": "BE+CF=8",
+      "actual": 7.999999999999999,
+      "expected": 8
+    }
+  ],
+  "user_approved": false,
+  "constraint_interpretation": "Numerical constraints validate the frozen realization. Free scale choices and algebraic consequences are construction parameters, not additional givens. Only original diagram marks and source question are asserted; no derived answer labels are added.",
+  "source_metadata": "source_metadata.json"
+}

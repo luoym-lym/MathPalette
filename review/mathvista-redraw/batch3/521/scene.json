@@ -1,0 +1,172 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_521",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / UniGeo",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -3.424815955021426,
+      3.4122586944769067
+    ],
+    "ylim": [
+      -3.4185373247491664,
+      3.4185373247491664
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "points": {
+    "O": [
+      0.0,
+      0.0
+    ],
+    "A": [
+      -3.0,
+      0.0
+    ],
+    "B": [
+      3.0,
+      0.0
+    ],
+    "C": [
+      2.298133329356934,
+      1.9283628290596178
+    ]
+  },
+  "objects": [
+    {
+      "id": "circle_1",
+      "type": "circle",
+      "center": "O",
+      "radius": 3
+    },
+    {
+      "id": "segment_2",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_3",
+      "type": "segment",
+      "points": [
+        "A",
+        "C"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_4",
+      "type": "segment",
+      "points": [
+        "O",
+        "C"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "point_5",
+      "type": "point",
+      "point": "O"
+    }
+  ],
+  "labels": [
+    {
+      "id": "name_O",
+      "type": "vertex",
+      "point": "O",
+      "offset_pt": [
+        0,
+        -14
+      ]
+    },
+    {
+      "id": "name_A",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        -13,
+        0
+      ]
+    },
+    {
+      "id": "name_B",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        13,
+        0
+      ]
+    },
+    {
+      "id": "name_C",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        7,
+        12
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint_1",
+      "type": "on_circle",
+      "point": "A",
+      "center": "O",
+      "radius": 3
+    },
+    {
+      "id": "constraint_2",
+      "type": "on_circle",
+      "point": "B",
+      "center": "O",
+      "radius": 3
+    },
+    {
+      "id": "constraint_3",
+      "type": "on_circle",
+      "point": "C",
+      "center": "O",
+      "radius": 3
+    },
+    {
+      "id": "constraint_4",
+      "type": "angle",
+      "points": [
+        "A",
+        "C",
+        "O"
+      ],
+      "degrees": 20
+    },
+    {
+      "id": "constraint_5",
+      "type": "between",
+      "points": [
+        "A",
+        "O",
+        "B"
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": [
+    "The source angle C is the angle ACO between the two drawn chords/radii; frozen C has polar angle 40°."
+  ]
+}

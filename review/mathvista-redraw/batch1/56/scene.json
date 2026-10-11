@@ -1,0 +1,185 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_56",
+  "status": "review_candidate",
+  "user_approved": false,
+  "source_dataset": "MathVista testmini / IconQA",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -0.6582003429820744,
+      1.6545764353413912
+    ],
+    "ylim": [
+      -0.1563883891617328,
+      2.156388389161733
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "content_bbox_px": [
+        181,
+        54,
+        587,
+        714
+      ],
+      "long_side_fraction": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ],
+      "target_long_side_fraction": 0.86
+    }
+  },
+  "points": {
+    "A": [
+      0.0,
+      0.0
+    ],
+    "B": [
+      1.0,
+      0.0
+    ],
+    "C": [
+      1.0,
+      2.0
+    ],
+    "D": [
+      0.0,
+      2.0
+    ],
+    "textanchor0": [
+      0.5,
+      0.0
+    ],
+    "textanchor1": [
+      0.5,
+      2.0
+    ],
+    "textanchor2": [
+      0.0,
+      1.0
+    ],
+    "textanchor3": [
+      1.0,
+      1.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "semantic_fill": false
+    }
+  ],
+  "labels": [
+    {
+      "id": "l1",
+      "type": "text",
+      "anchor": "textanchor0",
+      "text": "1 yd",
+      "offset_pt": [
+        0,
+        -15
+      ]
+    },
+    {
+      "id": "l2",
+      "type": "text",
+      "anchor": "textanchor1",
+      "text": "1 yd",
+      "offset_pt": [
+        0,
+        15
+      ]
+    },
+    {
+      "id": "l3",
+      "type": "text",
+      "anchor": "textanchor2",
+      "text": "2 yd",
+      "offset_pt": [
+        -22,
+        0
+      ]
+    },
+    {
+      "id": "l4",
+      "type": "text",
+      "anchor": "textanchor3",
+      "text": "2 yd",
+      "offset_pt": [
+        22,
+        0
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c1",
+      "type": "distance",
+      "points": [
+        "A",
+        "B"
+      ],
+      "value": 1
+    },
+    {
+      "id": "c2",
+      "type": "distance",
+      "points": [
+        "B",
+        "C"
+      ],
+      "value": 2
+    },
+    {
+      "id": "c3",
+      "type": "distance",
+      "points": [
+        "C",
+        "D"
+      ],
+      "value": 1
+    },
+    {
+      "id": "c4",
+      "type": "distance",
+      "points": [
+        "D",
+        "A"
+      ],
+      "value": 2
+    },
+    {
+      "id": "c5",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "D"
+        ]
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "construction": "Exact rectangle/square constructed from the four displayed side lengths. Original uniform decorative color removed under protocol; outline and all four labels retained.",
+  "question": "What is the perimeter of the rectangle?",
+  "display_coordinate_note": "Coordinates are frozen construction coordinates, not additional given data.",
+  "style_normalizations": [
+    "768×768 opaque white; protocol black 1pt primitives; DejaVu Sans point names18pt and values16pt; no question or answer embedded.",
+    "Decorative source colors removed; named objects, continuous topology, semantic dashed lines and any meaningful shaded region retained.",
+    "Original angle callout leaders, when present, are replaced by a direct bound label and exactly one angle arc; no equality or auxiliary geometry is implied.",
+    "Source distance arrows, where present, are normalized to perpendicular solid connectors and a parallel dashed dimension line."
+  ]
+}

@@ -1,0 +1,235 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_275",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / UniGeo",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -3.0363388650272554,
+      3.7202612190828552
+    ],
+    "ylim": [
+      -1.8651980812493925,
+      4.891402002860718
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "bbox_px": [
+        54,
+        204,
+        713,
+        563
+      ],
+      "occupancy": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "points": {
+    "A": [
+      0.0,
+      3.0
+    ],
+    "B": [
+      -2.6832815729997477,
+      0.0
+    ],
+    "C": [
+      3.3541019662496847,
+      0.0
+    ],
+    "D": [
+      0.0,
+      0.0
+    ],
+    "E": [
+      -1.4907119849998598,
+      1.3333333333333333
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "o2",
+      "type": "segment",
+      "points": [
+        "A",
+        "D"
+      ]
+    },
+    {
+      "id": "o3",
+      "type": "segment",
+      "points": [
+        "D",
+        "E"
+      ]
+    },
+    {
+      "id": "o4",
+      "type": "right_angle",
+      "points": [
+        "B",
+        "A",
+        "C"
+      ]
+    },
+    {
+      "id": "o6",
+      "type": "right_angle",
+      "points": [
+        "A",
+        "D",
+        "C"
+      ]
+    },
+    {
+      "id": "o8",
+      "type": "right_angle",
+      "points": [
+        "A",
+        "E",
+        "D"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "v10",
+      "type": "vertex",
+      "point": "A",
+      "text": "A",
+      "offset_pt": [
+        0,
+        12
+      ]
+    },
+    {
+      "id": "v11",
+      "type": "vertex",
+      "point": "B",
+      "text": "B",
+      "offset_pt": [
+        -9,
+        -10
+      ]
+    },
+    {
+      "id": "v12",
+      "type": "vertex",
+      "point": "C",
+      "text": "C",
+      "offset_pt": [
+        9,
+        -10
+      ]
+    },
+    {
+      "id": "v13",
+      "type": "vertex",
+      "point": "D",
+      "text": "D",
+      "offset_pt": [
+        0,
+        -13
+      ]
+    },
+    {
+      "id": "v14",
+      "type": "vertex",
+      "point": "E",
+      "text": "E",
+      "offset_pt": [
+        -18,
+        5
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c5",
+      "type": "angle",
+      "points": [
+        "B",
+        "A",
+        "C"
+      ],
+      "degrees": 90
+    },
+    {
+      "id": "c7",
+      "type": "angle",
+      "points": [
+        "A",
+        "D",
+        "C"
+      ],
+      "degrees": 90
+    },
+    {
+      "id": "c9",
+      "type": "angle",
+      "points": [
+        "A",
+        "E",
+        "D"
+      ],
+      "degrees": 90
+    },
+    {
+      "id": "c15",
+      "type": "distance",
+      "points": [
+        "A",
+        "D"
+      ],
+      "value": 3
+    },
+    {
+      "id": "c16",
+      "type": "distance",
+      "points": [
+        "D",
+        "E"
+      ],
+      "value": 2
+    },
+    {
+      "id": "c17",
+      "type": "between",
+      "points": [
+        "A",
+        "E",
+        "B"
+      ]
+    },
+    {
+      "id": "c18",
+      "type": "between",
+      "points": [
+        "B",
+        "D",
+        "C"
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "construction": "Right triangle with altitude AD=3 and perpendicular DE=2. Orthogonal projection E onto AB, product BD·DC=AD².",
+  "user_approved": false,
+  "constraint_interpretation": "Numerical constraints validate the frozen realization. Free scale choices and algebraic consequences are construction parameters, not additional givens. Only original diagram marks and source question are asserted; no derived answer labels are added.",
+  "source_metadata": "source_metadata.json"
+}

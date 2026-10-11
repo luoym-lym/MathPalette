@@ -1,0 +1,160 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_675",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / UniGeo",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -2.203708852129356,
+      36.2752539363442
+    ],
+    "ylim": [
+      -12.008069411873784,
+      26.470893376599776
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "points": {
+    "A": [
+      0.0,
+      0.0
+    ],
+    "B": [
+      0.0,
+      14.0
+    ],
+    "C": [
+      6.0,
+      14.0
+    ],
+    "D": [
+      34.0,
+      0.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "polygon_1",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "right_angle_2",
+      "type": "right_angle",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "name_A",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        -10,
+        -10
+      ]
+    },
+    {
+      "id": "name_B",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        -10,
+        10
+      ]
+    },
+    {
+      "id": "name_C",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        4,
+        13
+      ]
+    },
+    {
+      "id": "name_D",
+      "type": "vertex",
+      "point": "D",
+      "offset_pt": [
+        12,
+        -8
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint_1",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_2",
+      "type": "distance",
+      "points": [
+        "A",
+        "B"
+      ],
+      "value": 14
+    },
+    {
+      "id": "constraint_3",
+      "type": "distance",
+      "points": [
+        "B",
+        "C"
+      ],
+      "value": 6
+    },
+    {
+      "id": "constraint_4",
+      "type": "parallel",
+      "segments": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": [
+    "Dam height is 14, crest width 6, and the slope CD has rise:run=1:2. The exact horizontal run is frozen without being displayed."
+  ]
+}

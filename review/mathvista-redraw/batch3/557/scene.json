@@ -1,0 +1,294 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_557",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / GeoQA+",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -3.8011339004098117,
+      5.275852067498945
+    ],
+    "ylim": [
+      -3.6462053409805906,
+      5.430780626928166
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "points": {
+    "A": [
+      0.0,
+      0.0
+    ],
+    "B": [
+      0.0,
+      3.7224194364083987
+    ],
+    "C": [
+      3.0393427426063706,
+      0.0
+    ],
+    "Ap": [
+      4.743381166773811,
+      4.4933577441091845
+    ],
+    "Bp": [
+      1.5196713713031853,
+      -2.632148025904985
+    ],
+    "Cp": [
+      -3.2237097954706257,
+      1.8612097182041993
+    ]
+  },
+  "objects": [
+    {
+      "id": "polygon_1",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "segment_2",
+      "type": "segment",
+      "points": [
+        "B",
+        "Ap"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_3",
+      "type": "segment",
+      "points": [
+        "Ap",
+        "C"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_4",
+      "type": "segment",
+      "points": [
+        "A",
+        "Bp"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_5",
+      "type": "segment",
+      "points": [
+        "Bp",
+        "C"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_6",
+      "type": "segment",
+      "points": [
+        "A",
+        "Cp"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "segment_7",
+      "type": "segment",
+      "points": [
+        "Cp",
+        "B"
+      ],
+      "linestyle": "solid"
+    },
+    {
+      "id": "right_angle_8",
+      "type": "right_angle",
+      "points": [
+        "B",
+        "A",
+        "C"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "name_A",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        -9,
+        -9
+      ]
+    },
+    {
+      "id": "name_B",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        -4,
+        13
+      ]
+    },
+    {
+      "id": "name_C",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        10,
+        -7
+      ]
+    },
+    {
+      "id": "name_Ap",
+      "type": "vertex",
+      "point": "Ap",
+      "text": "A′",
+      "offset_pt": [
+        10,
+        8
+      ]
+    },
+    {
+      "id": "name_Bp",
+      "type": "vertex",
+      "point": "Bp",
+      "text": "B′",
+      "offset_pt": [
+        0,
+        -15
+      ]
+    },
+    {
+      "id": "name_Cp",
+      "type": "vertex",
+      "point": "Cp",
+      "text": "C′",
+      "offset_pt": [
+        -13,
+        0
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint_1",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "B",
+          "A"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_2",
+      "type": "equal_length",
+      "segments": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "C",
+          "Ap"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_3",
+      "type": "equal_length",
+      "segments": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "Ap",
+          "B"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_4",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "C",
+          "Bp"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_5",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "Bp",
+          "A"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_6",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "Cp"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_7",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "Cp",
+          "A"
+        ]
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": [
+    "Right legs chosen from given equilateral areas: AC²=16/√3 and BC²=40/√3. Three equilateral triangles are constructed outward, with source prime labels and no area values added."
+  ]
+}

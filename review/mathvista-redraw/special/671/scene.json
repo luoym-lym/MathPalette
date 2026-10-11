@@ -1,0 +1,60 @@
+{
+  "id": "MathVista_671",
+  "status": "review_candidate",
+  "subject": "Analytics",
+  "source_dataset": "MathVista testmini / FunctionQA",
+  "source_image": "original.jpg",
+  "view": {
+    "xlim": [
+      -8,
+      8
+    ],
+    "ylim": [
+      -8,
+      8
+    ],
+    "aspect": "equal"
+  },
+  "protocol_version": "1.0.0",
+  "sampling": "frozen deterministic linspace; no random sampling",
+  "objects": [
+    {
+      "type": "semicircle",
+      "center": [
+        3,
+        0
+      ],
+      "radius": 3,
+      "theta_deg": [
+        0,
+        180
+      ],
+      "samples": 721
+    },
+    {
+      "type": "region",
+      "x_interval": [
+        3,
+        6
+      ],
+      "upper": "sqrt(9-(x-3)^2)",
+      "lower": 0,
+      "samples": 721
+    }
+  ],
+  "labels": [
+    {
+      "xy": [
+        3.1,
+        4
+      ],
+      "text": "$f(x)=\\sqrt{9-(x-3)^2}$"
+    }
+  ],
+  "constraints": [
+    "Semicircle center (3,0), radius 3, upper branch; shaded region is x=3 to x=6."
+  ],
+  "caveats": [
+    "Original wording asks size of semicircle, although only right half is shaded; original wording and shading retained without reinterpretation."
+  ]
+}

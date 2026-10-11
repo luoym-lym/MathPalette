@@ -1,0 +1,210 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_236",
+  "status": "review_candidate",
+  "user_approved": false,
+  "source_dataset": "MathVista testmini / Geometry3K",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -1.690127804148271,
+      8.554727724971798
+    ],
+    "ylim": [
+      -4.117685787404151,
+      6.127169741715919
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "content_bbox_px": [
+        125,
+        54,
+        644,
+        714
+      ],
+      "long_side_fraction": 0.859375,
+      "center_error_px": [
+        0.5,
+        0.0
+      ],
+      "target_long_side_fraction": 0.86
+    }
+  },
+  "points": {
+    "S": [
+      0.0,
+      0.0
+    ],
+    "T": [
+      6.062177826491071,
+      -3.4999999999999996
+    ],
+    "R": [
+      7.176869901189787,
+      5.430703308172536
+    ],
+    "textanchor3": [
+      3.5884349505948934,
+      2.715351654086268
+    ],
+    "textanchor4": [
+      3.0310889132455356,
+      -1.7499999999999998
+    ],
+    "textanchor5": [
+      6.6195238638404295,
+      0.9653516540862681
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "polygon",
+      "points": [
+        "S",
+        "R",
+        "T"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "o2",
+      "type": "angle_arc",
+      "points": [
+        "R",
+        "S",
+        "T"
+      ],
+      "radius_pt": 20
+    },
+    {
+      "id": "o3",
+      "type": "angle_arc",
+      "points": [
+        "S",
+        "T",
+        "R"
+      ],
+      "radius_pt": 20
+    }
+  ],
+  "labels": [
+    {
+      "id": "l1",
+      "type": "vertex",
+      "point": "S",
+      "text": "S",
+      "offset_pt": [
+        -14,
+        0
+      ]
+    },
+    {
+      "id": "l2",
+      "type": "vertex",
+      "point": "T",
+      "text": "T",
+      "offset_pt": [
+        8,
+        -14
+      ]
+    },
+    {
+      "id": "l3",
+      "type": "vertex",
+      "point": "R",
+      "text": "R",
+      "offset_pt": [
+        0,
+        15
+      ]
+    },
+    {
+      "id": "l4",
+      "type": "text",
+      "anchor": "textanchor3",
+      "text": "2z − 15",
+      "offset_pt": [
+        -16,
+        20
+      ],
+      "segment_points": [
+        "S",
+        "R"
+      ]
+    },
+    {
+      "id": "l5",
+      "type": "text",
+      "anchor": "textanchor4",
+      "text": "7",
+      "offset_pt": [
+        0,
+        -18
+      ],
+      "segment_points": [
+        "S",
+        "T"
+      ]
+    },
+    {
+      "id": "l6",
+      "type": "text",
+      "anchor": "textanchor5",
+      "text": "9",
+      "offset_pt": [
+        18,
+        0
+      ],
+      "segment_points": [
+        "R",
+        "T"
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c1",
+      "type": "distance",
+      "points": [
+        "S",
+        "T"
+      ],
+      "value": 7
+    },
+    {
+      "id": "c2",
+      "type": "distance",
+      "points": [
+        "R",
+        "T"
+      ],
+      "value": 9
+    },
+    {
+      "id": "c3",
+      "type": "equal_length",
+      "segments": [
+        [
+          "S",
+          "R"
+        ],
+        [
+          "R",
+          "T"
+        ]
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "construction": "Triangle has ST=7, RT=9 and equal source angle arcs at S,T, so RS=RT is enforced. The algebraic label2z−15 remains unchanged and the latent solved value is never displayed.",
+  "question": "Find $z$.",
+  "display_coordinate_note": "Coordinates are frozen construction coordinates, not additional given data.",
+  "style_normalizations": [
+    "768×768 opaque white; protocol black 1pt primitives; DejaVu Sans point names18pt and values16pt; no question or answer embedded.",
+    "Decorative source colors removed; named objects, continuous topology, semantic dashed lines and any meaningful shaded region retained.",
+    "Original angle callout leaders, when present, are replaced by a direct bound label and exactly one angle arc; no equality or auxiliary geometry is implied.",
+    "Source distance arrows, where present, are normalized to perpendicular solid connectors and a parallel dashed dimension line."
+  ]
+}

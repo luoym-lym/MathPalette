@@ -1,0 +1,291 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_62",
+  "status": "review_candidate",
+  "user_approved": false,
+  "source_dataset": "MathVista testmini / GeoQA+",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -3.5142152826485593,
+      3.5683790158426
+    ],
+    "ylim": [
+      -3.526107154847566,
+      3.556487143643593
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "content_bbox_px": [
+        54,
+        122,
+        714,
+        646
+      ],
+      "long_side_fraction": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ],
+      "target_long_side_fraction": 0.86
+    }
+  },
+  "points": {
+    "A": [
+      -1.8000000000000003,
+      2.4
+    ],
+    "B": [
+      -3.1999999999999997,
+      -2.4000000000000004
+    ],
+    "C": [
+      1.8000000000000003,
+      -2.4
+    ],
+    "D": [
+      3.1999999999999997,
+      2.4000000000000004
+    ],
+    "E": [
+      -2.5,
+      -2.220446049250313e-16
+    ],
+    "F": [
+      0.6999999999999997,
+      2.4000000000000004
+    ],
+    "O": [
+      0.0,
+      0.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "o2",
+      "type": "segment",
+      "points": [
+        "A",
+        "C"
+      ]
+    },
+    {
+      "id": "o3",
+      "type": "segment",
+      "points": [
+        "B",
+        "D"
+      ]
+    },
+    {
+      "id": "o4",
+      "type": "segment",
+      "points": [
+        "E",
+        "F"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "l1",
+      "type": "vertex",
+      "point": "A",
+      "text": "A",
+      "offset_pt": [
+        -6,
+        13
+      ]
+    },
+    {
+      "id": "l2",
+      "type": "vertex",
+      "point": "B",
+      "text": "B",
+      "offset_pt": [
+        -5,
+        -14
+      ]
+    },
+    {
+      "id": "l3",
+      "type": "vertex",
+      "point": "C",
+      "text": "C",
+      "offset_pt": [
+        5,
+        -14
+      ]
+    },
+    {
+      "id": "l4",
+      "type": "vertex",
+      "point": "D",
+      "text": "D",
+      "offset_pt": [
+        8,
+        12
+      ]
+    },
+    {
+      "id": "l5",
+      "type": "vertex",
+      "point": "E",
+      "text": "E",
+      "offset_pt": [
+        -12,
+        0
+      ]
+    },
+    {
+      "id": "l6",
+      "type": "vertex",
+      "point": "F",
+      "text": "F",
+      "offset_pt": [
+        0,
+        13
+      ]
+    },
+    {
+      "id": "l7",
+      "type": "vertex",
+      "point": "O",
+      "text": "O",
+      "offset_pt": [
+        18,
+        0
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c1",
+      "type": "between",
+      "points": [
+        "A",
+        "E",
+        "B"
+      ]
+    },
+    {
+      "id": "c2",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "E"
+        ],
+        [
+          "E",
+          "B"
+        ]
+      ]
+    },
+    {
+      "id": "c3",
+      "type": "between",
+      "points": [
+        "A",
+        "F",
+        "D"
+      ]
+    },
+    {
+      "id": "c4",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "F"
+        ],
+        [
+          "F",
+          "D"
+        ]
+      ]
+    },
+    {
+      "id": "c5",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ]
+    },
+    {
+      "id": "c6",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ]
+    },
+    {
+      "id": "c7",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "D",
+          "A"
+        ]
+      ]
+    },
+    {
+      "id": "c8",
+      "type": "distance",
+      "points": [
+        "A",
+        "B"
+      ],
+      "value": 5
+    },
+    {
+      "id": "c9",
+      "type": "distance",
+      "points": [
+        "A",
+        "C"
+      ],
+      "value": 6
+    }
+  ],
+  "ambiguities": [],
+  "construction": "Rhombus constructed with perpendicular half-diagonals of lengths 3 and 4, then uniformly rotated to preserve a horizontal AD. E,F are exact midpoints of AB,AD. Both diagonals and EF retained.",
+  "question": "如图，E，F分别是菱形ABCD的边AB，AD的中点，且AB＝5，AC＝6．则EF的长为（）",
+  "display_coordinate_note": "Coordinates are frozen construction coordinates, not additional given data.",
+  "style_normalizations": [
+    "768×768 opaque white; protocol black 1pt primitives; DejaVu Sans point names18pt and values16pt; no question or answer embedded.",
+    "Decorative source colors removed; named objects, continuous topology, semantic dashed lines and any meaningful shaded region retained.",
+    "Original angle callout leaders, when present, are replaced by a direct bound label and exactly one angle arc; no equality or auxiliary geometry is implied.",
+    "Source distance arrows, where present, are normalized to perpendicular solid connectors and a parallel dashed dimension line."
+  ]
+}

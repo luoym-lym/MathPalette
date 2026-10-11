@@ -1,0 +1,238 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_921",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / Geometry3K",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -9.184251103725654,
+      22.3801460235438
+    ],
+    "ylim": [
+      -13.130745794522628,
+      18.433651332746827
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "pixel_bbox": [
+        54,
+        54,
+        713,
+        713
+      ],
+      "occupancy": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "points": {
+    "A": [
+      -7.890257764125473,
+      6.620712379771357
+    ],
+    "B": [
+      13.022755533022627,
+      -10.927389364671168
+    ],
+    "C": [
+      -6.204959989263721,
+      -5.206579638460967
+    ],
+    "D": [
+      16.559800245695442,
+      13.895322278532475
+    ],
+    "O": [
+      6.597947459909074,
+      2.6514527691121
+    ],
+    "I": [
+      0.0,
+      0.0
+    ],
+    "anchor8": [
+      -3.9451288820627366,
+      3.3103561898856784
+    ],
+    "anchor10": [
+      6.5113777665113135,
+      -5.463694682335584
+    ],
+    "anchor12": [
+      -3.1024799946318606,
+      -2.6032898192304836
+    ],
+    "anchor14": [
+      8.279900122847721,
+      6.947661139266238
+    ]
+  },
+  "objects": [
+    {
+      "id": "circle1",
+      "type": "circle",
+      "center": "O",
+      "radius": 15.022087487115526
+    },
+    {
+      "id": "segment6",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "segment7",
+      "type": "segment",
+      "points": [
+        "C",
+        "D"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "text9",
+      "type": "text",
+      "text": "10.3",
+      "anchor": "anchor8",
+      "offset_pt": [
+        15,
+        22
+      ],
+      "segment_points": [
+        "A",
+        "I"
+      ]
+    },
+    {
+      "id": "text11",
+      "type": "text",
+      "text": "17",
+      "anchor": "anchor10",
+      "offset_pt": [
+        12,
+        9
+      ],
+      "segment_points": [
+        "I",
+        "B"
+      ]
+    },
+    {
+      "id": "text13",
+      "type": "text",
+      "text": "8.1",
+      "anchor": "anchor12",
+      "offset_pt": [
+        -15,
+        17
+      ],
+      "segment_points": [
+        "C",
+        "I"
+      ]
+    },
+    {
+      "id": "text15",
+      "type": "text",
+      "text": "x",
+      "anchor": "anchor14",
+      "offset_pt": [
+        13,
+        -6
+      ],
+      "segment_points": [
+        "I",
+        "D"
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint2",
+      "type": "on_circle",
+      "point": "A",
+      "center": "O",
+      "radius": 15.022087487115526
+    },
+    {
+      "id": "constraint3",
+      "type": "on_circle",
+      "point": "B",
+      "center": "O",
+      "radius": 15.022087487115526
+    },
+    {
+      "id": "constraint4",
+      "type": "on_circle",
+      "point": "C",
+      "center": "O",
+      "radius": 15.022087487115526
+    },
+    {
+      "id": "constraint5",
+      "type": "on_circle",
+      "point": "D",
+      "center": "O",
+      "radius": 15.022087487115526
+    },
+    {
+      "id": "constraint16",
+      "type": "distance",
+      "points": [
+        "A",
+        "I"
+      ],
+      "value": 10.3
+    },
+    {
+      "id": "constraint17",
+      "type": "distance",
+      "points": [
+        "B",
+        "I"
+      ],
+      "value": 17
+    },
+    {
+      "id": "constraint18",
+      "type": "distance",
+      "points": [
+        "C",
+        "I"
+      ],
+      "value": 8.1
+    },
+    {
+      "id": "constraint19",
+      "type": "intersection",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "intersects": true
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": []
+}

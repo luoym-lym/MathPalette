@@ -1,0 +1,81 @@
+{
+  "pid": "876",
+  "original_question": "In the figure, square $ABDC$ is inscribed in $\\odot K$. Find the measure of a central angle.",
+  "original_choices": [
+    "45",
+    "60",
+    "90",
+    "180"
+  ],
+  "official_answer": "90",
+  "original_source_image": "source.jpg",
+  "original_source_metadata": "source_metadata.json",
+  "adapted_question": "In the figure, square ABDC is inscribed in a circle with center F. Find the measure of the central angle ∠CFD, in degrees.",
+  "adapted_choices": [
+    "45",
+    "60",
+    "90",
+    "180"
+  ],
+  "adapted_answer": "90",
+  "adapted_answer_exact_value": "90",
+  "adapted_answer_choice": "C",
+  "adapted_answer_index": 2,
+  "answer_type": "text",
+  "question_type": "multi_choice",
+  "changes": [
+    {
+      "field": "circle center",
+      "original": "K",
+      "replacement": "F",
+      "rationale": "The source image labels the center F. Naming F consistently removes the question/diagram mismatch."
+    },
+    {
+      "field": "target",
+      "original": "a central angle",
+      "replacement": "∠CFD",
+      "rationale": "C and D are adjacent square vertices, making the intended one-side central angle explicit."
+    }
+  ],
+  "full_mathematical_solution": [
+    "A square has four equal sides. Equal chords of a circle subtend equal minor central angles.",
+    "The four consecutive central angles around F sum to 360°, so each is 360°/4 = 90°.",
+    "C and D are adjacent vertices of square ABDC, hence ∠CFD=90° and option C is correct."
+  ],
+  "independent_verification": [
+    {
+      "check": "FC equals FD",
+      "measured": 1.4142135623730951,
+      "expected": 1.4142135623730951,
+      "absolute_tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "check": "FC perpendicular FD dot product",
+      "measured": 0.0,
+      "expected": 0.0,
+      "absolute_tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "check": "Direct vector central angle",
+      "measured": 90.0,
+      "expected": 90.0,
+      "absolute_tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "check": "Exact central-angle partition",
+      "passed": true
+    },
+    {
+      "check": "Unique matching choice at recomputed answer index",
+      "passed": true
+    }
+  ],
+  "verification_code": "../adapt_and_verify.py",
+  "verification_passed": true,
+  "protocol_compliance": "Strict unchanged MathPalette PlaneGeometry protocol; no font or other style exception",
+  "review_status": "pending_user_review",
+  "original_record_unchanged": true
+}

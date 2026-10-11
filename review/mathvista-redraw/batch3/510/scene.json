@@ -1,0 +1,132 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_510",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / UniGeo",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -0.760191323861676,
+      3.7667454747822715
+    ],
+    "ylim": [
+      -0.23669042051195,
+      4.2902463781319975
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "points": {
+    "A": [
+      0.0,
+      4.0
+    ],
+    "B": [
+      3.0,
+      0.0
+    ],
+    "C": [
+      0.0,
+      0.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "polygon_1",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "right_angle_2",
+      "type": "right_angle",
+      "points": [
+        "A",
+        "C",
+        "B"
+      ]
+    }
+  ],
+  "labels": [
+    {
+      "id": "name_A",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        -8,
+        13
+      ]
+    },
+    {
+      "id": "name_B",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        10,
+        -10
+      ]
+    },
+    {
+      "id": "name_C",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        -10,
+        -10
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint_1",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "C",
+          "B"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_2",
+      "type": "distance",
+      "points": [
+        "A",
+        "C"
+      ],
+      "value": 4
+    },
+    {
+      "id": "constraint_3",
+      "type": "distance",
+      "points": [
+        "A",
+        "B"
+      ],
+      "value": 5
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": [
+    "Exact 3–4–5 right triangle, with only original vertex labels and right-angle box rendered."
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "pid": "781",
+  "original_question": "In $\\triangle CDF$, $K$ is the centroid and $DK=16$. Find $CD$.",
+  "original_choices": [
+    "9",
+    "12",
+    "18",
+    "18"
+  ],
+  "official_answer": "18",
+  "original_source_image": "source.jpg",
+  "original_source_metadata": "source_metadata.json",
+  "adapted_question": "In triangle CDF, K is the centroid and G is the midpoint of CD. Given DG = 9, find CD.",
+  "adapted_choices": [
+    "9",
+    "12",
+    "18",
+    "24"
+  ],
+  "adapted_answer": "18",
+  "adapted_answer_exact_value": "18",
+  "adapted_answer_choice": "C",
+  "adapted_answer_index": 2,
+  "answer_type": "text",
+  "question_type": "multi_choice",
+  "changes": [
+    {
+      "field": "given",
+      "original": "DK = 16",
+      "replacement": "DG = 9, with G the midpoint of CD",
+      "rationale": "The original centroid and diagram lengths imply KG=6 and GD=9, making DK=16 impossible. DG=9 is already printed in the diagram and suffices for the requested CD."
+    },
+    {
+      "field": "choice D",
+      "original": "18",
+      "replacement": "24",
+      "rationale": "The original choices contained two identical correct answers; the replacement restores a unique option."
+    }
+  ],
+  "full_mathematical_solution": [
+    "G is the midpoint of CD, so CG = GD.",
+    "The given DG=9 therefore gives CD = CG + GD = 9 + 9 = 18.",
+    "Option C is the unique choice equal to 18.",
+    "The remaining diagram label KF=12 is compatible with the frozen triangle: F=(√320,11), C=(0,18), D=(0,0), G=(0,9), and centroid K=(√320/3,29/3). These give KF=12 and DK=√129, so the contradictory original DK=16 has been removed."
+  ],
+  "independent_verification": [
+    {
+      "check": "DG",
+      "measured": 9.0,
+      "expected": 9.0,
+      "absolute_tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "check": "CG",
+      "measured": 9.0,
+      "expected": 9.0,
+      "absolute_tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "check": "CD",
+      "measured": 18.0,
+      "expected": 18.0,
+      "absolute_tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "check": "KF image label",
+      "measured": 12.000000000000002,
+      "expected": 12.0,
+      "absolute_tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "check": "Centroid coordinate residual",
+      "measured": 0.0,
+      "expected": 0.0,
+      "absolute_tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "check": "Compatible DK",
+      "measured": 11.357816691600547,
+      "expected": 11.357816691600547,
+      "absolute_tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "check": "Unique correct option",
+      "passed": true
+    },
+    {
+      "check": "Unique matching choice at recomputed answer index",
+      "passed": true
+    }
+  ],
+  "verification_code": "../adapt_and_verify.py",
+  "verification_passed": true,
+  "protocol_compliance": "Strict unchanged MathPalette PlaneGeometry protocol; no font or other style exception",
+  "review_status": "pending_user_review",
+  "original_record_unchanged": true
+}

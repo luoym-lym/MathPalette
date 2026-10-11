@@ -1,0 +1,167 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_504",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / UniGeo",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -0.5262074389606974,
+      8.091275862380456
+    ],
+    "ylim": [
+      -0.4907035077316517,
+      8.1267797936095
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "points": {
+    "A": [
+      4.908063453103291,
+      7.55086685092814
+    ],
+    "B": [
+      0.0,
+      0.0
+    ],
+    "C": [
+      7.55086685092814,
+      0.0
+    ],
+    "D": [
+      3.6810475898274686,
+      5.663150138196105
+    ],
+    "E": [
+      5.5687643025595035,
+      5.663150138196105
+    ]
+  },
+  "objects": [
+    {
+      "id": "polygon_1",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "segment_2",
+      "type": "segment",
+      "points": [
+        "D",
+        "E"
+      ],
+      "linestyle": "solid"
+    }
+  ],
+  "labels": [
+    {
+      "id": "name_A",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        0,
+        14
+      ]
+    },
+    {
+      "id": "name_B",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        -10,
+        -12
+      ]
+    },
+    {
+      "id": "name_C",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        10,
+        -12
+      ]
+    },
+    {
+      "id": "name_D",
+      "type": "vertex",
+      "point": "D",
+      "offset_pt": [
+        -13,
+        4
+      ]
+    },
+    {
+      "id": "name_E",
+      "type": "vertex",
+      "point": "E",
+      "offset_pt": [
+        13,
+        4
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint_1",
+      "type": "parallel",
+      "segments": [
+        [
+          "D",
+          "E"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ]
+    },
+    {
+      "id": "constraint_2",
+      "type": "between",
+      "points": [
+        "A",
+        "D",
+        "B"
+      ]
+    },
+    {
+      "id": "constraint_3",
+      "type": "between",
+      "points": [
+        "A",
+        "E",
+        "C"
+      ]
+    },
+    {
+      "id": "constraint_4",
+      "type": "distance",
+      "points": [
+        "A",
+        "E"
+      ],
+      "value": 2
+    }
+  ],
+  "ambiguities": [],
+  "construction_notes": [
+    "D and E fixed at one quarter of AB and AC; display scale chosen so AE=2 and AD:DB=1:3."
+  ]
+}

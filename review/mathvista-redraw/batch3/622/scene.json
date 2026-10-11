@@ -1,0 +1,142 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_622",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / GeoQA+",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -12.286998440650331,
+      15.33688577006732
+    ],
+    "ylim": [
+      -1.7893726609143812,
+      25.83451154980327
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "points": {
+    "A": [
+      2.0,
+      24.0
+    ],
+    "B": [
+      0.0,
+      0.0
+    ],
+    "C": [
+      3.0,
+      0.0
+    ],
+    "D": [
+      2.0,
+      0.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "polygon_1",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ],
+      "semantic_fill": false
+    },
+    {
+      "id": "segment_2",
+      "type": "segment",
+      "points": [
+        "A",
+        "D"
+      ],
+      "linestyle": "solid"
+    }
+  ],
+  "labels": [
+    {
+      "id": "name_A",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        0,
+        14
+      ]
+    },
+    {
+      "id": "name_B",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        -13,
+        -12
+      ]
+    },
+    {
+      "id": "name_C",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        13,
+        -12
+      ]
+    },
+    {
+      "id": "name_D",
+      "type": "vertex",
+      "point": "D",
+      "offset_pt": [
+        0,
+        -16
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint_1",
+      "type": "distance",
+      "points": [
+        "B",
+        "D"
+      ],
+      "value": 2
+    },
+    {
+      "id": "constraint_2",
+      "type": "distance",
+      "points": [
+        "D",
+        "C"
+      ],
+      "value": 1
+    },
+    {
+      "id": "constraint_3",
+      "type": "between",
+      "points": [
+        "B",
+        "D",
+        "C"
+      ]
+    }
+  ],
+  "ambiguities": [
+    "Original visual aspect ratio cannot coexist with the stated lengths and area. The redraw prioritizes exact givens, keeping vertex order and connections."
+  ],
+  "construction_notes": [
+    "BD=2 and DC=1 are exact; the altitude to DC is 24 so area ACD=12. This forces a slender true-scale diagram; source screenshot is schematic."
+  ]
+}

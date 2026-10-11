@@ -1,0 +1,83 @@
+{
+  "pid": "35",
+  "source_dataset": "MathVista testmini / GeoQA+",
+  "status": "adapted_review_candidate",
+  "user_approved": false,
+  "original_question": "如图，AB是⊙O的直径，EF，EB是⊙O的弦，点E是FEB的中点，EF与AB交于点C，连接OF，若∠AOF＝40°，则∠F的度数是（）",
+  "official_answer": "35°",
+  "original_choices": [
+    "20°",
+    "35°",
+    "40°",
+    "55°"
+  ],
+  "original_answer_type": "text",
+  "choices": [
+    "20°",
+    "35°",
+    "40°",
+    "55°"
+  ],
+  "answer_type": "text",
+  "geometry_changed": false,
+  "source_image": "source.jpg",
+  "source_metadata": "source_metadata.json",
+  "frozen_scene": "scene.json",
+  "adaptation_kind": "minimal_missing_condition_or_symbol_repair",
+  "adapted_question": "如图，AB是⊙O的直径，EF，EB是⊙O的弦，点E是优弧FB的中点，EF与AB交于点C，连接OF，若∠AOF＝40°，则∠EFO的度数是（）",
+  "adapted_answer": "35°",
+  "changes": [
+    {
+      "before": "点E是FEB的中点",
+      "after": "点E是优弧FB的中点",
+      "reason": "恢复丢失的圆弧语义，并明确E位于图示优弧FB的中点，排除线段中点和劣弧中点的歧义。"
+    },
+    {
+      "before": "则∠F的度数",
+      "after": "则∠EFO的度数",
+      "reason": "用三点角名明确图中F处由FE、FO两条射线形成的待求角，不增加条件。"
+    }
+  ],
+  "rationale": "原文字FEB没有弧符号，含义不完整。明确图示优弧中点及角的两条射线后，与原圆、直径、弦和半径完全一致；所有数值和选项保留。",
+  "mathematical_solution": {
+    "steps": [
+      "AB为直径，OA与OB反向；∠AOF＝40°，故劣弧FB对应的圆心角∠FOB＝140°。",
+      "优弧FB的度数为360°−140°＝220°。E是其弧中点，故弧FE＝弧EB＝110°，∠FOE＝110°。",
+      "OF＝OE，因此△FOE为等腰三角形，∠EFO＝(180°−110°)/2＝35°。"
+    ],
+    "result": "35°"
+  },
+  "independent_checks": {
+    "algebraic": {
+      "expression": "(180 - (360 - (180 - 40)) / 2) / 2",
+      "minor_arc_FB_degrees": 140,
+      "major_arc_FB_degrees": 220,
+      "half_major_arc_degrees": 110.0,
+      "computed_value_degrees": 35.0,
+      "uses_official_answer_as_input": false,
+      "passed": true
+    },
+    "frozen_coordinate": {
+      "angle_AOF_degrees": 40.00000000000001,
+      "angle_FOB_degrees": 140.00000000000003,
+      "angle_FOE_degrees": 110.0,
+      "angle_EOB_degrees": 109.99999999999999,
+      "EF": 6.553216354311934,
+      "EB": 6.5532163543119335,
+      "OF": 4.0,
+      "OE": 4.0,
+      "angle_EFO_degrees": 35.000000000000014,
+      "expected_degrees": 35.0,
+      "absolute_error_degrees": 1.4210854715202004e-14,
+      "passed": true
+    }
+  },
+  "option_validation": {
+    "independently_computed_answer": "35°",
+    "matching_option_index_zero_based": 1,
+    "matching_option_letter": "B",
+    "unique_matching_choice": true,
+    "official_answer_agrees": true,
+    "official_answer_was_not_used_to_derive_result": true
+  }
+}

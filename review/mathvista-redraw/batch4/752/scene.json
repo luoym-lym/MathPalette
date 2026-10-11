@@ -1,0 +1,191 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVista_752",
+  "status": "review_candidate",
+  "source_dataset": "MathVista testmini / GeoQA+",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -4.459674781976744,
+      2.171979469476745
+    ],
+    "ylim": [
+      -3.171979469476745,
+      3.4596747819767444
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "pixel_bbox": [
+        54,
+        158,
+        713,
+        608
+      ],
+      "occupancy": 0.859375,
+      "center_error_px": [
+        0.0,
+        -0.5
+      ]
+    }
+  },
+  "points": {
+    "O": [
+      0.0,
+      0.0
+    ],
+    "P": [
+      -4.0,
+      0.0
+    ],
+    "A": [
+      -1.0,
+      1.7320508075688772
+    ],
+    "border_left": [
+      -4.3,
+      -2.0
+    ],
+    "border_corner": [
+      2.0,
+      -2.0
+    ],
+    "border_top": [
+      2.0,
+      2.3
+    ]
+  },
+  "objects": [
+    {
+      "id": "point2",
+      "type": "point",
+      "point": "O"
+    },
+    {
+      "id": "circle5",
+      "type": "circle",
+      "center": "O",
+      "radius": 2
+    },
+    {
+      "id": "segment7",
+      "type": "segment",
+      "points": [
+        "P",
+        "O"
+      ]
+    },
+    {
+      "id": "segment8",
+      "type": "segment",
+      "points": [
+        "P",
+        "A"
+      ]
+    },
+    {
+      "id": "segment12",
+      "type": "segment",
+      "points": [
+        "border_left",
+        "border_corner"
+      ],
+      "role": "source_unlabeled_line"
+    },
+    {
+      "id": "segment13",
+      "type": "segment",
+      "points": [
+        "border_corner",
+        "border_top"
+      ],
+      "role": "source_unlabeled_line"
+    }
+  ],
+  "labels": [
+    {
+      "id": "label1",
+      "type": "vertex",
+      "point": "O",
+      "text": "O",
+      "offset_pt": [
+        0,
+        -13
+      ]
+    },
+    {
+      "id": "label3",
+      "type": "vertex",
+      "point": "P",
+      "text": "P",
+      "offset_pt": [
+        -12,
+        -7
+      ]
+    },
+    {
+      "id": "label4",
+      "type": "vertex",
+      "point": "A",
+      "text": "A",
+      "offset_pt": [
+        -2,
+        14
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "constraint6",
+      "type": "on_circle",
+      "point": "A",
+      "center": "O",
+      "radius": 2
+    },
+    {
+      "id": "constraint9",
+      "type": "distance",
+      "points": [
+        "O",
+        "P"
+      ],
+      "value": 4
+    },
+    {
+      "id": "constraint10",
+      "type": "angle",
+      "points": [
+        "A",
+        "P",
+        "O"
+      ],
+      "degrees": 30
+    },
+    {
+      "id": "constraint11",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "O",
+          "A"
+        ],
+        [
+          "A",
+          "P"
+        ]
+      ]
+    }
+  ],
+  "ambiguities": [
+    "Unlabeled L-shaped lines visible at the source bottom/right are preserved as display objects. Whether they are a frame or extra tangents is not specified; no additional given is inferred."
+  ],
+  "construction_notes": []
+}
