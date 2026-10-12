@@ -1,0 +1,394 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "Solid27",
+  "status": "user_approved",
+  "subject": "SolidGeometry",
+  "source_dataset": "MathVerse",
+  "source_image": "../../originals/Solid27.png",
+  "source_note": "Official MathVerse testmini Vision Dominant problem 115, sample 574; source image preserved unmodified.",
+  "world_unit": "cm",
+  "points": {
+    "T": [
+      7.5,
+      0.0,
+      5.656854249492381
+    ],
+    "O": [
+      7.5,
+      0.0,
+      0.0
+    ],
+    "R": [
+      9.5,
+      0.0,
+      0.0
+    ],
+    "L": [
+      5.5,
+      0.0,
+      0.0
+    ],
+    "TR": [
+      9.491833389526738,
+      0.18055400401659594,
+      0.0
+    ],
+    "TL": [
+      5.508166610473262,
+      0.18055400401659627,
+      0.0
+    ],
+    "sector_O": [
+      -7.199999999999999,
+      0.0,
+      0.0
+    ],
+    "sector_A": [
+      -2.0038475772933673,
+      0.7422118777635687,
+      2.906737265131934
+    ],
+    "sector_B": [
+      -12.396152422706631,
+      0.7422118777635687,
+      2.906737265131934
+    ],
+    "sector_radius_label_anchor": [
+      -9.798076211353315,
+      0.37110593888178434,
+      1.453368632565967
+    ],
+    "sector_angle_label_anchor": [
+      -7.199999999999999,
+      0.3711059388817844,
+      1.4533686325659672
+    ]
+  },
+  "projection": {
+    "kind": "orthographic",
+    "name": "Frozen source-oriented orthographic view",
+    "matrix": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0.24740395925452294,
+        0.9689124217106447
+      ]
+    ],
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "toward_viewer": [
+      0,
+      -0.9689124217106447,
+      0.24740395925452294
+    ]
+  },
+  "view": {
+    "xlim": [
+      -12.946987571037448,
+      10.050808978120136
+    ],
+    "ylim": [
+      -8.74632820354417,
+      14.251468345613414
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "visibility": {
+    "mode": "frozen_intervals",
+    "projection_sha256": "433d51f49f1ee5c4f815bffb589e79d9e027dcd8dc6599e2d0ae4c65ed4effdf",
+    "notes": "Analytically frozen for the declared model and view; no generic occlusion assumption."
+  },
+  "objects": [
+    {
+      "id": "silhouette_TR",
+      "type": "segment",
+      "points": [
+        "T",
+        "TR"
+      ],
+      "visibility": "visible",
+      "role": "silhouette"
+    },
+    {
+      "id": "silhouette_TL",
+      "type": "segment",
+      "points": [
+        "T",
+        "TL"
+      ],
+      "visibility": "visible",
+      "role": "silhouette"
+    },
+    {
+      "id": "base_rim",
+      "type": "circular_arc",
+      "center": "O",
+      "radius": 2.0,
+      "u": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "v": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "domain_deg": [
+        5.179543008189399,
+        365.1795430081894
+      ],
+      "role": "edge",
+      "intervals": [
+        {
+          "start_deg": 5.179543008189399,
+          "end_deg": 174.8204569918106,
+          "visibility": "hidden",
+          "samples": 341
+        },
+        {
+          "start_deg": 174.8204569918106,
+          "end_deg": 365.1795430081894,
+          "visibility": "visible",
+          "samples": 382
+        }
+      ]
+    },
+    {
+      "id": "axis",
+      "type": "segment",
+      "points": [
+        "O",
+        "T"
+      ],
+      "visibility": "hidden",
+      "role": "auxiliary"
+    },
+    {
+      "id": "radius",
+      "type": "segment",
+      "points": [
+        "O",
+        "R"
+      ],
+      "visibility": "hidden",
+      "role": "auxiliary"
+    },
+    {
+      "id": "sector_first",
+      "type": "segment",
+      "points": [
+        "sector_O",
+        "sector_A"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "sector_second",
+      "type": "segment",
+      "points": [
+        "sector_O",
+        "sector_B"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "sector_arc",
+      "type": "circular_arc",
+      "center": "sector_O",
+      "radius": 6.0,
+      "u": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "v": [
+        0.0,
+        0.24740395925452294,
+        0.9689124217106447
+      ],
+      "domain_deg": [
+        30.0,
+        150.0
+      ],
+      "role": "edge",
+      "intervals": [
+        {
+          "start_deg": 30.0,
+          "end_deg": 150.0,
+          "visibility": "visible",
+          "samples": 242
+        }
+      ]
+    },
+    {
+      "id": "sector_angle_arc",
+      "type": "circular_arc",
+      "center": "sector_O",
+      "radius": 0.72,
+      "u": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "v": [
+        0.0,
+        0.24740395925452294,
+        0.9689124217106447
+      ],
+      "domain_deg": [
+        30.0,
+        150.0
+      ],
+      "role": "auxiliary",
+      "intervals": [
+        {
+          "start_deg": 30.0,
+          "end_deg": 150.0,
+          "visibility": "visible",
+          "samples": 242
+        }
+      ]
+    }
+  ],
+  "dimensions": [],
+  "labels": [
+    {
+      "id": "sector_radius_label",
+      "type": "text",
+      "text": "6",
+      "anchor": "sector_radius_label_anchor",
+      "offset_pt": [
+        -26.364,
+        30.758000000000003
+      ],
+      "ha": "center",
+      "va": "center"
+    },
+    {
+      "id": "sector_angle_label",
+      "type": "text",
+      "text": "120°",
+      "anchor": "sector_angle_label_anchor",
+      "offset_pt": [
+        0,
+        0
+      ],
+      "ha": "center",
+      "va": "center",
+      "angle_points": [
+        "sector_A",
+        "sector_O",
+        "sector_B"
+      ],
+      "arc_id": "sector_angle_arc"
+    }
+  ],
+  "constraints": [
+    {
+      "id": "tangent_TR",
+      "type": "projected_tangent",
+      "basis": "Analytical cone silhouette: surface normal dot toward_viewer = 0.",
+      "circle": "base_rim",
+      "point": "TR",
+      "segment": [
+        "T",
+        "TR"
+      ]
+    },
+    {
+      "id": "tangent_TL",
+      "type": "projected_tangent",
+      "basis": "Analytical cone silhouette: surface normal dot toward_viewer = 0.",
+      "circle": "base_rim",
+      "point": "TL",
+      "segment": [
+        "T",
+        "TL"
+      ]
+    },
+    {
+      "id": "true_radius",
+      "type": "distance",
+      "basis": "Derived construction radius from source height and slant; not an extra given.",
+      "points": [
+        "O",
+        "R"
+      ],
+      "value": 2.0
+    },
+    {
+      "id": "true_height",
+      "type": "distance",
+      "basis": "Derived construction height from radius and slant; not an extra given.",
+      "points": [
+        "O",
+        "T"
+      ],
+      "value": 5.656854249492381
+    },
+    {
+      "id": "true_slant",
+      "type": "distance",
+      "basis": "Derived construction slant from radius and height; not an extra given.",
+      "points": [
+        "TR",
+        "T"
+      ],
+      "value": 6.0
+    },
+    {
+      "id": "sector_radius",
+      "type": "distance",
+      "basis": "Explicit diagram measurement or solid definition.",
+      "points": [
+        "sector_O",
+        "sector_B"
+      ],
+      "value": 6.0
+    },
+    {
+      "id": "sector_angle",
+      "type": "angle",
+      "basis": "Explicit diagram measurement or solid definition.",
+      "points": [
+        "sector_A",
+        "sector_O",
+        "sector_B"
+      ],
+      "degrees": 120
+    }
+  ],
+  "ambiguities": [
+    {
+      "id": "source_schematic_visibility",
+      "description": "Source may draw the complete base ellipse with a single linestyle. Correct analytical visible and concealed intervals are frozen; no mathematical measurement is changed."
+    }
+  ]
+}
