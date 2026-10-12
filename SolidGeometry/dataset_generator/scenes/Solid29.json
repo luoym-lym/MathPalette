@@ -1,0 +1,340 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "Solid29",
+  "status": "user_approved",
+  "subject": "SolidGeometry",
+  "source_dataset": "MathVerse",
+  "source_image": "../../originals/Solid29.png",
+  "source_note": "MathVerse testmini Vision Dominant source problem 118; official category Plane Geometry/Length, rendered under SolidGeometry protocol because the source includes a three-dimensional cone.",
+  "world_unit": "cm",
+  "points": {
+    "T": [
+      -12.0,
+      0.0,
+      8.660254037844387
+    ],
+    "O": [
+      -12.0,
+      0.0,
+      0.0
+    ],
+    "R": [
+      -7.0,
+      0.0,
+      0.0
+    ],
+    "L": [
+      -17.0,
+      0.0,
+      0.0
+    ],
+    "TR": [
+      -7.054631372631603,
+      0.7371086347618074,
+      0.0
+    ],
+    "TL": [
+      -16.945368627368396,
+      0.7371086347618077,
+      0.0
+    ],
+    "net_O": [
+      8.0,
+      0.0,
+      0.0
+    ],
+    "net_A": [
+      18.0,
+      0.0,
+      0.0
+    ],
+    "net_B": [
+      -2.0,
+      3.029824667974337e-16,
+      1.1865754959020517e-15
+    ]
+  },
+  "projection": {
+    "kind": "orthographic",
+    "name": "Frozen source-oriented orthographic view",
+    "matrix": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0.24740395925452294,
+        0.9689124217106447
+      ]
+    ],
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "toward_viewer": [
+      0,
+      -0.9689124217106447,
+      0.24740395925452294
+    ]
+  },
+  "view": {
+    "xlim": [
+      -17.86392647090256,
+      18.94616577739409
+    ],
+    "ylim": [
+      -14.023603355354652,
+      22.786488892941996
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox",
+      "content_bbox_px": [
+        53,
+        277,
+        714,
+        491
+      ],
+      "long_side_fraction": 0.8606770833333334,
+      "center_error_px": [
+        -0.5,
+        0.0
+      ]
+    }
+  },
+  "visibility": {
+    "mode": "frozen_intervals",
+    "projection_sha256": "433d51f49f1ee5c4f815bffb589e79d9e027dcd8dc6599e2d0ae4c65ed4effdf",
+    "notes": "Analytically frozen for the declared model and view; no generic occlusion assumption."
+  },
+  "objects": [
+    {
+      "id": "silhouette_TR",
+      "type": "segment",
+      "points": [
+        "T",
+        "TR"
+      ],
+      "visibility": "visible",
+      "role": "silhouette"
+    },
+    {
+      "id": "silhouette_TL",
+      "type": "segment",
+      "points": [
+        "T",
+        "TL"
+      ],
+      "visibility": "visible",
+      "role": "silhouette"
+    },
+    {
+      "id": "base_rim",
+      "type": "circular_arc",
+      "center": "O",
+      "radius": 5.0,
+      "u": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "v": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "domain_deg": [
+        8.477541293396076,
+        368.4775412933961
+      ],
+      "role": "edge",
+      "intervals": [
+        {
+          "start_deg": 8.477541293396076,
+          "end_deg": 171.5224587066039,
+          "visibility": "hidden",
+          "samples": 328
+        },
+        {
+          "start_deg": 171.5224587066039,
+          "end_deg": 368.4775412933961,
+          "visibility": "visible",
+          "samples": 395
+        }
+      ]
+    },
+    {
+      "id": "origin_marker",
+      "type": "point",
+      "point": "O",
+      "role": "given_point",
+      "visibility": "visible"
+    },
+    {
+      "id": "net_rayA",
+      "type": "segment",
+      "points": [
+        "net_O",
+        "net_A"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "net_rayB",
+      "type": "segment",
+      "points": [
+        "net_O",
+        "net_B"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "net_arc",
+      "type": "circular_arc",
+      "center": "net_O",
+      "radius": 10.0,
+      "u": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "v": [
+        0.0,
+        0.24740395925452294,
+        0.9689124217106447
+      ],
+      "domain_deg": [
+        0,
+        180
+      ],
+      "role": "edge",
+      "intervals": [
+        {
+          "start_deg": 0.0,
+          "end_deg": 180.0,
+          "visibility": "visible",
+          "samples": 362
+        }
+      ]
+    },
+    {
+      "id": "net_center_dot",
+      "type": "point",
+      "point": "net_O",
+      "visibility": "visible",
+      "role": "given_point"
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "net_radius_dimension",
+      "type": "distance",
+      "points": [
+        "net_O",
+        "net_B"
+      ],
+      "value": 10.0,
+      "unit": "cm",
+      "decimals": 0,
+      "text": "10",
+      "offset_pt": [
+        2.9391523179536475e-15,
+        24.0
+      ],
+      "label_offset_pt": [
+        0,
+        -15
+      ],
+      "basis": "Source dimension range; arrow/end-cap styling replaced with required Plane02 parallel dashed dimension."
+    }
+  ],
+  "labels": [],
+  "constraints": [
+    {
+      "id": "tangent_TR",
+      "type": "projected_tangent",
+      "basis": "Analytical cone silhouette: surface normal dot toward_viewer = 0.",
+      "circle": "base_rim",
+      "point": "TR",
+      "segment": [
+        "T",
+        "TR"
+      ]
+    },
+    {
+      "id": "tangent_TL",
+      "type": "projected_tangent",
+      "basis": "Analytical cone silhouette: surface normal dot toward_viewer = 0.",
+      "circle": "base_rim",
+      "point": "TL",
+      "segment": [
+        "T",
+        "TL"
+      ]
+    },
+    {
+      "id": "true_radius",
+      "type": "distance",
+      "basis": "Derived construction radius from source height and slant; not an extra given.",
+      "points": [
+        "O",
+        "R"
+      ],
+      "value": 5.0
+    },
+    {
+      "id": "true_height",
+      "type": "distance",
+      "basis": "Derived construction height from radius and slant; not an extra given.",
+      "points": [
+        "O",
+        "T"
+      ],
+      "value": 8.660254037844387
+    },
+    {
+      "id": "true_slant",
+      "type": "distance",
+      "basis": "Derived construction slant from radius and height; not an extra given.",
+      "points": [
+        "TR",
+        "T"
+      ],
+      "value": 10.0
+    },
+    {
+      "id": "net_true_radius",
+      "type": "distance",
+      "basis": "Explicit diagram measurement or solid definition.",
+      "points": [
+        "net_O",
+        "net_A"
+      ],
+      "value": 10.0
+    }
+  ],
+  "ambiguities": [
+    {
+      "id": "source_schematic_visibility",
+      "description": "Source may draw the complete base ellipse with a single linestyle. Correct analytical visible and concealed intervals are frozen; no mathematical measurement is changed."
+    }
+  ]
+}
