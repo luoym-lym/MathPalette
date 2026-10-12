@@ -1,0 +1,60 @@
+{
+  "source": {
+    "source_problem_index": "3",
+    "source_sample_index": "14",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "GeoQA",
+      "subject": "Plane Geometry",
+      "subfield": "Angle"
+    },
+    "original_question": "As shown in the figure, BD bisects angle ABC, CD parallel AB, then the degree of angle CDB is ()\nChoices:\nA:55°\nB:50°\nC:45°\nD:30°",
+    "original_answer": "A",
+    "user_approved": false
+  },
+  "audit": {
+    "source_question": "As shown in the figure, BD bisects angle ABC, CD parallel AB, then the degree of angle CDB is ()\nChoices:\nA:55°\nB:50°\nC:45°\nD:30°",
+    "source_answer": "A",
+    "source_image_sha256": "44af9fe1594c4afc9fc0507f913a224cadd6acfcef2711c2aee31892525fcd46",
+    "current_question": "As shown in the figure, BD bisects angle ABC, CD parallel AB, then the degree of angle CDB is ()\nChoices:\nA:55°\nB:50°\nC:45°\nD:30°",
+    "current_answer": "A",
+    "adapted": false,
+    "adaptation_reason": null,
+    "source_visual_observations": [
+      "C and B on horizontal baseline with extension left of C; CD and BA slant upward-right and are parallel; DB diagonal; C=70°."
+    ],
+    "independent_solution": "CD is parallel to BA, so angle ABC = 180 - 70 = 110 degrees. BD bisects ABC, giving DBC=55 degrees. In triangle CDB, CDB=180-70-55=55 degrees, choice A.",
+    "independently_computed_result": 55,
+    "answer_verification": "independently_derived",
+    "visual_review": {
+      "source_viewed": true,
+      "redraw_viewed": true,
+      "status": "agent_reviewed_candidate",
+      "review_notes": "Every source and final PNG was actually inspected in labeled contact sheets. Ambiguous or crowded items were enlarged individually; final edited callouts for MV012, MV054, MV070, MV081, MV105, MV111, MV135 and MV174 were checked. No observed clipping or text/line masking. This is not a user Pass."
+    },
+    "geometry_notes": {
+      "construction": "Frozen code-native coordinates; source raster is preserved and is never used as drawing input.",
+      "construction_scripts": [
+        "../../build_batches.py"
+      ],
+      "annotation_layout_script": "../../layout_labels.py",
+      "authoritative_frozen_input": "scene.json"
+    },
+    "secondary_answer_check": {
+      "problem_index": 3,
+      "source_key": "testmini:14",
+      "answer": "A",
+      "selected_choice": "55°",
+      "independent_derivation_value": 55.0,
+      "frozen_geometry_target_value": 55.00000000000001,
+      "absolute_error": 7.105427357601002e-15,
+      "tolerance": 1e-07,
+      "passed": true,
+      "method": "Measure target angle from frozen vectors independently of source answer."
+    },
+    "adaptation_category": null
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MathVerse_3"
+}

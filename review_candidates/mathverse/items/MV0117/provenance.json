@@ -1,0 +1,62 @@
+{
+  "source": {
+    "source_problem_index": "117",
+    "source_sample_index": "584",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "GeoQA",
+      "subject": "Plane Geometry",
+      "subfield": "Applied"
+    },
+    "original_question": "then the height of the paper is ()\nChoices:\nA:3cm\nB:2√{2}cm\nC:3√{2}cm\nD:4√{2}cm",
+    "original_answer": "B",
+    "user_approved": false
+  },
+  "audit": {
+    "source_record": "source_record.json",
+    "source_image_sha256": "1b1be891735518b3aadf8fc5fcaee115ae04f99f573c9a45ae8edd2bc7a79851",
+    "adaptations": [
+      {
+        "type": "source_answer_conflict",
+        "reason": "Source radius3 is explicitly marked on the cone base. With sector120°, slantheight is9 and height6√2, not the source2√2 that would require slantheight3. Preserved the actual base measurement and corrected optionB."
+      }
+    ],
+    "independent_solution": {
+      "method": "Sectorarc120°gives basecircumference=(1/3)2πl=2πr. With markedr3, l9. Height=√(9²-3²)=6√2cm.",
+      "computed_answer": "B",
+      "matches_current_answer": true
+    },
+    "approval_status": "not_requested_or_granted",
+    "geometry_notes": {
+      "kind": "right_circular_cone",
+      "base_center": "O",
+      "axis_end": "T",
+      "radius": 3,
+      "height": 8.48528137423857,
+      "silhouette_tangent_angles_deg": [
+        5.1795430081894,
+        174.8204569918106
+      ],
+      "visibility_derivation": "Lateral normal (cos(t),sin(t),r/h). Dot toward_viewer vanishes at two frozen tangent angles. Facing lateral surface exposes base arc; back rim is hidden.",
+      "flat_net": {
+        "center": "sector_O",
+        "radius": 9,
+        "sweep_degrees": 120,
+        "basis_u": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "basis_v": [
+          0.0,
+          0.24740395925452294,
+          0.9689124217106447
+        ],
+        "meaning": "Flat sector net before folding, displayed in a plane parallel to the page under the same frozen orthographic camera."
+      }
+    }
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MV117"
+}

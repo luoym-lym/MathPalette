@@ -1,0 +1,155 @@
+{
+  "source_record.json": {
+    "sample_index": "594",
+    "problem_index": "119",
+    "problem_version": "Vision Dominant",
+    "question": "As shown in the figure, then the area of ​​this sector cardboard is ()\nChoices:\nA:240πcm^{2}\nB:480πcm^{2}\nC:1200πcm^{2}\nD:2400πcm^{2}",
+    "image": "images_version_5/image_119.png",
+    "answer": "A",
+    "question_type": "multi-choice",
+    "metadata": {
+      "split": "testmini",
+      "source": "GeoQA",
+      "subject": "Plane Geometry",
+      "subfield": "Applied"
+    },
+    "query_wo": "Please directly answer the question and provide the correct option letter, e.g., A, B, C, D.\nQuestion: As shown in the figure, then the area of ​​this sector cardboard is ()\nChoices:\nA:240πcm^{2}\nB:480πcm^{2}\nC:1200πcm^{2}\nD:2400πcm^{2}",
+    "query_cot": "Please first conduct reasoning, and then answer the question and provide the correct option letter, e.g., A, B, C, D, at the end.\nQuestion: As shown in the figure, then the area of ​​this sector cardboard is ()\nChoices:\nA:240πcm^{2}\nB:480πcm^{2}\nC:1200πcm^{2}\nD:2400πcm^{2}"
+  },
+  "redraw_report.json": {
+    "status": "generated_unapproved",
+    "source_sha256": "1c3f18b7d00e94c91844ae73213f7cd36bb56f643ce91c0a97579f62be191895",
+    "scene_sha256": "b00d19cc36a2e6158e3185690ab3f5d0f498cd09a8b60154703d285d5a8c2669",
+    "renderer_sha256": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+    "protocol_sha256": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+    "output_sha256": "fe99ca1ca1865bb1552109d1e16d8b6d76f9136100aacb7c357bff840ca9e8f3",
+    "svg_sha256": "345cb3bfd4eda2b776a92a2835d4b1cd45e46be86746dfbcf6ebf7204da74412",
+    "pixel_identical_rerender": true,
+    "dimensions": [
+      768,
+      768
+    ],
+    "background_opaque": true,
+    "constraint_checks": [
+      {
+        "id": "projection_and_visibility",
+        "type": "projection",
+        "passed": true,
+        "projection_sha256": "433d51f49f1ee5c4f815bffb589e79d9e027dcd8dc6599e2d0ae4c65ed4effdf",
+        "automatic_occlusion": false
+      },
+      {
+        "id": "base_rim",
+        "type": "arc_sampling",
+        "max_chord_error_px": 0.0006797529262083282,
+        "passed": true
+      },
+      {
+        "id": "sector_arc",
+        "type": "arc_sampling",
+        "max_chord_error_px": 0.0016215550845803254,
+        "passed": true
+      },
+      {
+        "id": "tangent_TR",
+        "type": "projected_tangent",
+        "basis": "Analytical cone silhouette: surface normal dot toward_viewer = 0.",
+        "measured": 1.6653345369377348e-16,
+        "passed": true
+      },
+      {
+        "id": "tangent_TL",
+        "type": "projected_tangent",
+        "basis": "Analytical cone silhouette: surface normal dot toward_viewer = 0.",
+        "measured": 4.996003610813204e-16,
+        "passed": true
+      },
+      {
+        "id": "true_radius",
+        "type": "distance",
+        "basis": "Derived construction radius from source height and slant; not an extra given.",
+        "measured": 10.0,
+        "passed": true
+      },
+      {
+        "id": "true_height",
+        "type": "distance",
+        "basis": "Derived construction height from radius and slant; not an extra given.",
+        "measured": 21.817424229271428,
+        "passed": true
+      },
+      {
+        "id": "true_slant",
+        "type": "distance",
+        "basis": "Derived construction slant from radius and height; not an extra given.",
+        "measured": 23.999999999999996,
+        "passed": true
+      },
+      {
+        "id": "sector_radius",
+        "type": "distance",
+        "basis": "Explicit diagram measurement or solid definition.",
+        "measured": 24.000000000000004,
+        "passed": true
+      },
+      {
+        "id": "sector_angle",
+        "type": "angle",
+        "basis": "Explicit diagram measurement or solid definition.",
+        "measured": 149.99999999999997,
+        "passed": true
+      },
+      {
+        "id": "cone_radius_dimension",
+        "type": "dimension",
+        "text": "10",
+        "measured_world_length": 10.0,
+        "unit": "cm",
+        "basis": "Source dimension range; arrow/end-cap styling replaced with required Plane02 parallel dashed dimension.",
+        "style": "Plane02_parallel_dashed",
+        "points": [
+          "O",
+          "R"
+        ],
+        "projected_perpendicular_connections": true,
+        "passed": true
+      },
+      {
+        "id": "layout",
+        "type": "layout",
+        "outer_margin_fraction": 0.05,
+        "label_line_overlap": false,
+        "label_label_overlap": false,
+        "passed": true
+      }
+    ],
+    "independent_answer_check": {
+      "method": "The sectorarc equals basecircumference20π. Sectorarea=(1/2)*24*(20π)=240πcm².",
+      "computed_answer": "A",
+      "matches_current_answer": true
+    },
+    "visual_review": {
+      "status": "agent_inspected",
+      "source_image_inspected": true,
+      "redrawn_image_inspected": true,
+      "coverage": "all_145_not_sampled",
+      "full_resolution_panel_directory": "../../audit/final_reviews",
+      "review_result": "No unresolved issue identified by the drawing agent; pending independent parent/user review.",
+      "user_approval": false
+    },
+    "dependencies": {
+      "python": "3.13.9",
+      "numpy": "2.5.3",
+      "matplotlib": "3.11.2",
+      "pillow": "12.3.0"
+    },
+    "drawing_entrypoint_verified": true
+  },
+  "packaging": {
+    "source_sha256": "1c3f18b7d00e94c91844ae73213f7cd36bb56f643ce91c0a97579f62be191895",
+    "image_sha256": "fe99ca1ca1865bb1552109d1e16d8b6d76f9136100aacb7c357bff840ca9e8f3",
+    "scene_source_sha256": "b00d19cc36a2e6158e3185690ab3f5d0f498cd09a8b60154703d285d5a8c2669",
+    "script_source_sha256": "3f5b43ae9ba59b1c604644649015b4be9602a1ecea11b52e68507d0fc0d96084",
+    "user_approved": false
+  }
+}

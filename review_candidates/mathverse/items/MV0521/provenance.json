@@ -1,0 +1,72 @@
+{
+  "source": {
+    "source_problem_index": "521",
+    "source_sample_index": "2604",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "Functions_collected",
+      "subject": "Functions",
+      "subfield": "Property"
+    },
+    "original_question": "Use the graph to determine how many solutions the equation $x^3-x^2-x=-2$ has.\nChoices:\nA.No solutions\nB.One solution\nC.Two solutions\nD.Three solutions",
+    "original_answer": "(B)",
+    "user_approved": false
+  },
+  "audit": {
+    "id": "MV_F0521",
+    "source_visual_inspection": "Inspected original source image before choosing the frozen mathematical model.",
+    "source_observations": "Cubic x³-x²-x with max near(-1/3,.185), min(1,-1).",
+    "adaptation": "Added the reference line y=-2, as a black solid mathematical object, to make the intersection-count task explicit.",
+    "original_question": "Use the graph to determine how many solutions the equation $x^3-x^2-x=-2$ has.\nChoices:\nA.No solutions\nB.One solution\nC.Two solutions\nD.Three solutions",
+    "original_answer": "(B)",
+    "answer_verification": {
+      "method": "Independent analytic derivation; separate executable arithmetic sanity check (not a full answer verifier)",
+      "derivation": "Turning points at-1/3 and 1 have values 5/27 and-1, both above-2. Only left branch meets y=-2.",
+      "check_python": "(-1/3)**3-(-1/3)**2-(-1/3)>-2 and 1-1-1>-2",
+      "arithmetic_sanity_check_passed": true,
+      "answer": "B"
+    },
+    "source_sha256": "e8c9dc0fa535cd66aff2ebb5d8adc4cbfad187603881f024736bf1df1bae6393",
+    "review_status": "pending_user_review",
+    "approval_record": null,
+    "render_check": {
+      "clipped_content": true,
+      "out_of_view": false,
+      "finite_points": 8002,
+      "width_px": 768,
+      "height_px": 768
+    },
+    "image_sha256": "796f51954b42e015fbfc8c24e62fe735537ab70892b55fbd79498b9b2185a3db",
+    "automated_validation": {
+      "size": true,
+      "opacity": true,
+      "white_background": true,
+      "viewport": [
+        -8,
+        8,
+        -8,
+        8
+      ],
+      "equal_aspect": true,
+      "black_solid_1pt_objects": true,
+      "answer_schema": true,
+      "reproducible_pixel_sha256": true
+    },
+    "scene_math_checks": [
+      {
+        "test": "Analytic proof is primary; no exhaustive automatic answer checker is claimed",
+        "passed": null
+      }
+    ]
+  },
+  "packaging_changes": [
+    {
+      "type": "choice_label_format_normalization",
+      "candidate_question_before": "Use the graph to determine how many solutions the equation $x^3-x^2-x=-2$ has.\nChoices:\nA.No solutions\nB.One solution\nC.Two solutions\nD.Three solutions",
+      "candidate_question_after": "Use the graph to determine how many solutions the equation $x^3-x^2-x=-2$ has.\nChoices:\nA: No solutions\nB: One solution\nC: Two solutions\nD: Three solutions",
+      "reason": "Normalize existing option labels to A: notation for the formal answer schema; no option text, order or answer changes."
+    }
+  ],
+  "legacy_scene_id": "MV_F0521"
+}

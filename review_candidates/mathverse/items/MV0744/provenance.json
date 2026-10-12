@@ -1,0 +1,73 @@
+{
+  "source": {
+    "source_problem_index": "744",
+    "source_sample_index": "3719",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "Geo3D_collected",
+      "subject": "Solid Geometry",
+      "subfield": "Length"
+    },
+    "original_question": "Calculate the radius of the sphere shown in figure with the volume of the cylinder 13.75\\pi cm$^3$.",
+    "original_answer": "3",
+    "user_approved": false
+  },
+  "audit": {
+    "original_record": {
+      "sample_index": "3719",
+      "problem_index": "744",
+      "problem_version": "Vision Dominant",
+      "question": "Calculate the radius of the sphere shown in figure with the volume of the cylinder 13.75\\pi cm$^3$.",
+      "image": "images_version_5/image_744.png",
+      "answer": "3",
+      "question_type": "free-form",
+      "metadata": {
+        "split": "testmini",
+        "source": "Geo3D_collected",
+        "subject": "Solid Geometry",
+        "subfield": "Length"
+      },
+      "query_wo": "Please directly answer the question and provide the final value, e.g., 1, 2.5, 300.\nQuestion: Calculate the radius of the sphere shown in figure with the volume of the cylinder 13.75\\pi cm$^3$.",
+      "query_cot": "Please first conduct reasoning, and then answer the question and provide the final value, e.g., 1, 2.5, 300, at the end.\nQuestion: Calculate the radius of the sphere shown in figure with the volume of the cylinder 13.75\\pi cm$^3$."
+    },
+    "adaptation": {
+      "changed_question": true,
+      "changed_answer": true,
+      "reason": "The enclosing sphere is shown by its true silhouette; internal cylinder rims and reference segments are explicitly hidden. Both full rims are checked on the sphere, not only one endpoint.",
+      "new_question": "A right cylinder of the shown height and volume 13.75π cm³ is inscribed in a sphere, with both circular rims on the sphere. Find the sphere radius.",
+      "new_answer": "3 cm",
+      "mathematical_answer_correction": false,
+      "source_visual_changes": [
+        "Uniform opaque white 768×768 canvas, black 1 pt geometry, prescribed fonts and source-informed labels.",
+        "All solid geometry is constructed in true 3D and projected through one frozen camera. Source sketch distortions, decorative lighting and inconsistent hidden-line styles are normalized without weakening the protocol.",
+        "The enclosing sphere is shown by its true silhouette; internal cylinder rims and reference segments are explicitly hidden. Both full rims are checked on the sphere, not only one endpoint."
+      ]
+    },
+    "answer_verification": {
+      "status": "independently_verified",
+      "source_audit_record": "source_audit.json, problem_index 744",
+      "calculation": {
+        "formula": "sqrt(13.75/5+(5/2)**2)",
+        "unrounded_value": 3.0,
+        "answer": "3 cm",
+        "unit": "cm",
+        "rounding_decimal_places": null
+      },
+      "canonical_answer": "3 cm",
+      "source_answer_conflict": null
+    },
+    "geometry_notes": {
+      "kind": "sphere_inscribed_cylinder",
+      "sphere_center": "O",
+      "sphere_radius": 3,
+      "cylinder_radius": 1.6583123951777,
+      "cylinder_height": 5,
+      "rim_on_sphere_equation": "rho²+(h/2)²=3²",
+      "visibility_derivation": "Sphere silhouette is a true great circle normal to the camera. All enclosed cylinder/reference geometry is explicitly hidden and dashed; source transparent lighting is removed."
+    },
+    "source_label_to_world_anchor": {}
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MathVerse744"
+}

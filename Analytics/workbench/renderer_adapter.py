@@ -19,7 +19,7 @@ import numpy as np
 from matplotlib.collections import PathCollection
 from PIL import Image
 
-from workbench_io import (WorkbenchError, canonical_hash, environment_versions,
+from workbench_io import (WorkbenchError, canonical_hash, contained_path, environment_versions,
                           file_hash, parse_json, pixel_hash, read_json)
 
 RENDER_LOCK = threading.RLock()
@@ -90,6 +90,25 @@ class RendererAdapter:
                             "protocol.json": Path(config["protocol_file"]),
                             **{f"image/{qid}.png": p for qid, p in self.original_paths.items()},
                             **{f"question_classes/{p.name}": p for p in self.source_files}}
+        self.native_families = {qid: r.get("renderer_family") for qid, r in self.records.items()
+                                if r.get("renderer_family")}
+        if any(f not in {"analytics_frozen", "analytics_functions"} for f in self.native_families.values()):
+            raise WorkbenchError("不支持的 Analytics 冻结绘图器家族。")
+        branch = Path(config["dataset_file"]).resolve().parent
+        for qid, row in self.records.items():
+            family = self.native_families.get(qid)
+            if family:
+                required = {"dataset_generator/mathverse_renderers/runtime.py",
+                            f"dataset_generator/mathverse_renderers/{family}/common_renderer.py",
+                            f"dataset_generator/mathverse_renderers/{family}/protocol.json",
+                            f"dataset_generator/mathverse_renderers/{family}/" +
+                            ("frozen_renderer.py" if family == "analytics_frozen" else "render.py")}
+                if not row.get("scene") or not required.issubset(row.get("runtime_dependencies", [])):
+                    raise WorkbenchError("冻结场景、绘图器和协议必须列入审核依赖。")
+            if row.get("scene"):
+                self.input_files[f"scenes/{qid}.json"] = contained_path(branch, row["scene"])
+            for dependency in row.get("runtime_dependencies", []):
+                self.input_files["runtime_dependencies/" + dependency] = contained_path(branch, dependency)
         self.manifest = self.make_manifest()
         if expected_manifest and self.manifest != expected_manifest:
             changes = [name for name in set(expected_manifest["files"]) | set(self.manifest["files"])
@@ -134,7 +153,8 @@ class RendererAdapter:
                             self.questions[qid], self.modules[qid] = cls(), module
                             self.sources[qid] = {"source_file": str(path.resolve()), "source_class": qid,
                                                  "source_dataset": self.questions[qid].source_dataset,
-                                                 "constants": vars(self.questions[qid])}
+                                                 "constants": {k: str(v) if isinstance(v, Path) else v
+                                                               for k, v in vars(self.questions[qid]).items()}}
             finally:
                 sys.path[:] = old_path
                 sys.dont_write_bytecode = old_bytecode
@@ -145,10 +165,55 @@ class RendererAdapter:
         if set(self.questions) != set(self.records):
             raise WorkbenchError("原题类与数据题号不一致，请检查嵌套 question_class_dir。")
 
+    def _native_scene(self, qid):
+        """Capture new frozen families as native editable artists, never a raster."""
+        from matplotlib.patches import Patch
+        fig, ax = self.questions[qid].build_scene()
+        try:
+            if len(fig.axes) != 1 or ax is not fig.axes[0]:
+                raise WorkbenchError("原题必须仅产生一个单坐标轴场景。")
+            objects, artists, counters = [], {}, {}
+            def register(kind, artist, geometry, styleable=False):
+                counters[kind] = counters.get(kind, 0) + 1
+                oid = f"{kind}_{counters[kind]:03d}"
+                objects.append({"id": oid, "type": kind, "kind": "frozen_" + kind,
+                                "styleable": styleable, "geometry": geometry, "source_call": None})
+                artists[oid] = artist
+            for artist in ax.lines:
+                register("curve", artist, geometry_summary(artist.get_xydata()), True)
+            for artist in ax.patches:
+                vertices = artist.get_path().transformed(artist.get_patch_transform()).vertices
+                styleable = artist.get_edgecolor()[3] != 0
+                register("curve" if styleable else "region", artist,
+                         {"shape": type(artist).__name__, **geometry_summary(vertices)}, styleable)
+            for artist in ax.collections:
+                if isinstance(artist, PathCollection):
+                    faces = artist.get_facecolors()
+                    filled = not (len(faces) and np.allclose(faces[0][:3], 1))
+                    for xy in artist.get_offsets():
+                        register("point", artist, {"xy": [float(v) for v in xy], "filled": filled})
+                else:
+                    register("region", artist, {})
+            for artist in ax.texts:
+                if artist is getattr(ax, "_mp_origin_zero", None):
+                    continue
+                register("text", artist, {"xy": [float(v) for v in getattr(artist, "xy", artist.get_position())],
+                                          "text": artist.get_text(), "coordinates": "data"})
+            objects.extend([{"id": "axis_x", "type": "axis", "kind": "coordinate_axis", "styleable": False},
+                            {"id": "axis_y", "type": "axis", "kind": "coordinate_axis", "styleable": False},
+                            {"id": "grid", "type": "grid", "kind": "coordinate_grid", "styleable": False},
+                            {"id": "origin_zero", "type": "text", "kind": "coordinate_label", "styleable": False}])
+            return Scene(fig, ax, objects, artists)
+        except Exception:
+            plt.close(fig)
+            raise
+
     def scene(self, qid):
         if qid not in self.records:
             raise WorkbenchError("不存在此题号。")
         with RENDER_LOCK:
+            if qid in self.native_families:
+                return self._native_scene(qid)
             module = self.modules[qid]
             captured, objects, artists, counters = [], [], {}, {}
             canvas_artists = set()

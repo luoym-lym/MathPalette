@@ -1,0 +1,84 @@
+{
+  "source": {
+    "source_problem_index": "605",
+    "source_sample_index": "3024",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "Functions_collected",
+      "subject": "Functions",
+      "subfield": "Applied"
+    },
+    "original_question": "The side profile of a bridge is overlapped with the coordinate axes such that $(x, y)$ represents a point on the arc that is $x$ meters horizontally from one end of the bridge and $y$ meters vertically above the road.\n\nPedestrians are able to climb the full arch of the bridge. Find the average steepness of the climb over the interval $[0,20]$.",
+    "original_answer": "1.6",
+    "user_approved": false
+  },
+  "audit": {
+    "id": "MV_F0605",
+    "source_visual_inspection": "Inspected original source image before choosing the frozen mathematical model.",
+    "source_observations": "Arch zero at 0 and100, vertex(50,50), marked(20,32).",
+    "adaptation": "Scaled both coordinates by 1/20 so the 100-meter-wide,50-meter-high arch fits the fixed viewport; the marked source(20,32) becomes(1,1.6).",
+    "original_question": "The side profile of a bridge is overlapped with the coordinate axes such that $(x, y)$ represents a point on the arc that is $x$ meters horizontally from one end of the bridge and $y$ meters vertically above the road.\n\nPedestrians are able to climb the full arch of the bridge. Find the average steepness of the climb over the interval $[0,20]$.",
+    "original_answer": "1.6",
+    "answer_verification": {
+      "method": "Independent analytic derivation; separate executable arithmetic sanity check (not a full answer verifier)",
+      "derivation": "In plotted units the endpoints are(0,0),(1,1.6); equal axis scaling cancels, giving slope 1.6.",
+      "check_python": "(1.6-0)/(1-0)==1.6",
+      "arithmetic_sanity_check_passed": true,
+      "answer": "1.6"
+    },
+    "source_sha256": "ce97872bf59099d05c9d738a074dc192bc0143bfb74774e617d960e8f3351b81",
+    "review_status": "pending_user_review",
+    "approval_record": null,
+    "render_check": {
+      "clipped_content": false,
+      "out_of_view": false,
+      "finite_points": 4002,
+      "width_px": 768,
+      "height_px": 768
+    },
+    "image_sha256": "123206f80ed92790b84a9f8138a3e9735f48acde03b780e3af1b82c460a4a847",
+    "automated_validation": {
+      "size": true,
+      "opacity": true,
+      "white_background": true,
+      "viewport": [
+        -8,
+        8,
+        -8,
+        8
+      ],
+      "equal_aspect": true,
+      "black_solid_1pt_objects": true,
+      "answer_schema": true,
+      "reproducible_pixel_sha256": true
+    },
+    "scene_math_checks": [
+      {
+        "test": "Every marked point lies on a frozen curve, line, or outline",
+        "point_count": 1,
+        "passed": true
+      },
+      {
+        "test": "Question-specific values independently evaluated from frozen expression",
+        "expected_values": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1.6
+          ],
+          [
+            5,
+            0
+          ]
+        ],
+        "passed": true
+      }
+    ]
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MV_F0605"
+}

@@ -1,0 +1,79 @@
+{
+  "source": {
+    "source_problem_index": "692",
+    "source_sample_index": "3459",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "Geo3D_collected",
+      "subject": "Solid Geometry",
+      "subfield": "Volume"
+    },
+    "original_question": "Find the volume of concrete required to make the pipe, correct to two decimal places.",
+    "original_answer": "Volume $=816.81 \\mathrm{~cm}^{3}$",
+    "user_approved": false
+  },
+  "audit": {
+    "original_record": {
+      "sample_index": "3459",
+      "problem_index": "692",
+      "problem_version": "Vision Dominant",
+      "question": "Find the volume of concrete required to make the pipe, correct to two decimal places.",
+      "image": "images_version_5/image_692.png",
+      "answer": "Volume $=816.81 \\mathrm{~cm}^{3}$",
+      "question_type": "free-form",
+      "metadata": {
+        "split": "testmini",
+        "source": "Geo3D_collected",
+        "subject": "Solid Geometry",
+        "subfield": "Volume"
+      },
+      "query_wo": "Please directly answer the question and provide the final value, e.g., 1, 2.5, 300.\nQuestion: Find the volume of concrete required to make the pipe, correct to two decimal places.",
+      "query_cot": "Please first conduct reasoning, and then answer the question and provide the final value, e.g., 1, 2.5, 300, at the end.\nQuestion: Find the volume of concrete required to make the pipe, correct to two decimal places."
+    },
+    "adaptation": {
+      "changed_question": false,
+      "changed_answer": true,
+      "reason": "Protocol style normalization and physically correct frozen projection; original mathematical task preserved.",
+      "new_question": "Find the volume of concrete required to make the pipe, correct to two decimal places.",
+      "new_answer": "816.81 cm³",
+      "mathematical_answer_correction": false,
+      "source_visual_changes": [
+        "Uniform opaque white 768×768 canvas, black 1 pt geometry, prescribed fonts and source-informed labels.",
+        "All solid geometry is constructed in true 3D and projected through one frozen camera. Source sketch distortions, decorative lighting and inconsistent hidden-line styles are normalized without weakening the protocol.",
+        "Source mathematical conditions, geometry type and visual reasoning objective are preserved. Display-only labels and measurement ranges are re-laid out to satisfy the protocol."
+      ]
+    },
+    "answer_verification": {
+      "status": "independently_verified",
+      "source_audit_record": "source_audit.json, problem_index 692",
+      "calculation": {
+        "formula": "pi*(6**2-4**2)*13",
+        "unrounded_value": 816.8140899333462,
+        "answer": "816.81 cm³",
+        "unit": "cm³",
+        "rounding_decimal_places": 2
+      },
+      "canonical_answer": "816.81 cm³",
+      "source_answer_conflict": null
+    },
+    "geometry_notes": {
+      "kind": "hollow_cylinder",
+      "front_center": "O",
+      "rear_center": "Q",
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "outer_radius": 6,
+      "inner_radius": 4,
+      "length": 13,
+      "material_domain": "0 <= z <= length and inner_radius <= sqrt(x²+y²) <= outer_radius",
+      "visibility_derivation": "Viewer z component negative: front annulus and its two complete circular boundaries exposed. Only far outer rim y<0 faces viewer on outer cylindrical wall. Far inner rim and far annulus are omitted, as in source. Outer generators satisfy radial normal dot view=0. Inner wall is unshaded, not replaced by solid material."
+    },
+    "source_label_to_world_anchor": {}
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MathVerse692"
+}

@@ -1,0 +1,164 @@
+{
+  "source_record.json": {
+    "sample_index": "3899",
+    "problem_index": "780",
+    "problem_version": "Vision Dominant",
+    "question": "In triangle ABC above, and D is the midpoint of AC. What is the length of BC?\nChoices:\nA.3*\\sqrt{3}\nB.4*\\sqrt{2}\nC.4*\\sqrt{3}\nD.6*\\sqrt{2}\nE.5*\\sqrt{3}\n",
+    "image": "images_version_5/image_780.png",
+    "answer": "A",
+    "question_type": "multi-choice",
+    "metadata": {
+      "split": "testmini",
+      "source": "GEOS",
+      "subject": "Plane Geometry",
+      "subfield": "Length"
+    },
+    "query_wo": "Please directly answer the question and provide the correct option letter, e.g., A, B, C, D.\nQuestion: In triangle ABC above, and D is the midpoint of AC. What is the length of BC?\nChoices:\nA.3*\\sqrt{3}\nB.4*\\sqrt{2}\nC.4*\\sqrt{3}\nD.6*\\sqrt{2}\nE.5*\\sqrt{3}\n",
+    "query_cot": "Please first conduct reasoning, and then answer the question and provide the correct option letter, e.g., A, B, C, D, at the end.\nQuestion: In triangle ABC above, and D is the midpoint of AC. What is the length of BC?\nChoices:\nA.3*\\sqrt{3}\nB.4*\\sqrt{2}\nC.4*\\sqrt{3}\nD.6*\\sqrt{2}\nE.5*\\sqrt{3}\n"
+  },
+  "redraw_report.json": {
+    "id": "MV780",
+    "status": "automated_and_visual_checks_complete_pending_user_review",
+    "user_approved": false,
+    "source_sha256": "50de20529c09992d0972f04b6827d9deb96568368990b5aa602a6042d6900300",
+    "scene_sha256": "d837238b05d26c08dbbd67983936adaf566cc915dff4ff963c1023e560ba4d0f",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "renderer_sha256": "fb4c2fd27f7e5ba1ceead5b59f983465eb44827b3ddf897613b268ff257f5240",
+    "png_sha256": "e389ff9f6ed7c68ad0dcc0fb94b2676ccef284ba51d49b757129ef867348b6f3",
+    "svg_sha256": "15f7b21a5b1d39bd3a7f05206d2049b57605339648cfda517bf1f1a444f68cd3",
+    "second_render_pixel_identical": true,
+    "geometry_checks": [
+      {
+        "id": "c0",
+        "type": "angle",
+        "measured": 60.00000000000001,
+        "passed": true
+      },
+      {
+        "id": "c1",
+        "type": "angle",
+        "measured": 60.00000000000001,
+        "passed": true
+      },
+      {
+        "id": "c2",
+        "type": "distance",
+        "measured": 3.0,
+        "passed": true
+      },
+      {
+        "id": "c3",
+        "type": "equal_length",
+        "measured": [
+          3.0,
+          3.0
+        ],
+        "passed": true
+      },
+      {
+        "id": "c4",
+        "type": "between",
+        "measured": 0.0,
+        "passed": true
+      },
+      {
+        "id": "arc_binding_l0",
+        "type": "angle_annotation",
+        "label_id": "l0",
+        "arc_id": "o4",
+        "measured": 1,
+        "passed": true
+      },
+      {
+        "id": "arc_binding_l1",
+        "type": "angle_annotation",
+        "label_id": "l1",
+        "arc_id": "o5",
+        "measured": 1,
+        "passed": true
+      }
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "content_bbox_px": [
+        54,
+        228,
+        714,
+        540
+      ],
+      "long_side_fraction": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ]
+    },
+    "versions": {
+      "python": "3.13.9",
+      "numpy": "2.5.3",
+      "matplotlib": "3.11.2",
+      "Pillow": "12.3.0"
+    },
+    "independent_answer_verification": "answer_verification.json",
+    "source_and_redraw_visually_reviewed": true
+  },
+  "answer_verification.json": {
+    "id": "MV780",
+    "status": "independent_answer_checks_passed",
+    "method": "ABD is equilateral; midpoint D gives DC=3, and the 120-degree cosine rule gives BC=3 sqrt(3).",
+    "theorem_result": 5.196152422706632,
+    "scene_measurement": 5.196152422706632,
+    "variables": {},
+    "checks": [
+      {
+        "check": "midpoint D",
+        "observed": 3.0,
+        "expected": 3.0,
+        "absolute_error": 0.0
+      },
+      {
+        "check": "equilateral AB/BD",
+        "observed": 3.0,
+        "expected": 3.0,
+        "absolute_error": 0.0
+      },
+      {
+        "check": "independent theorem result versus frozen geometry",
+        "observed": 5.196152422706632,
+        "expected": 5.196152422706632,
+        "absolute_error": 0.0
+      },
+      {
+        "check": "displayed length 3",
+        "observed": 3.0,
+        "expected": 3.0,
+        "absolute_error": 0.0
+      }
+    ],
+    "metrics": {
+      "evaluated_choices": {
+        "A": 5.196152422706632,
+        "B": 5.656854249492381,
+        "C": 6.928203230275509,
+        "D": 8.485281374238571,
+        "E": 8.660254037844386
+      }
+    },
+    "answer_check": {
+      "matching_options": [
+        "A"
+      ],
+      "unique": true
+    },
+    "source_gold_used_in_derivation": false,
+    "script": "../../verify_answers.py",
+    "scene_sha256": "d837238b05d26c08dbbd67983936adaf566cc915dff4ff963c1023e560ba4d0f",
+    "user_approved": false
+  },
+  "packaging": {
+    "source_sha256": "50de20529c09992d0972f04b6827d9deb96568368990b5aa602a6042d6900300",
+    "image_sha256": "e389ff9f6ed7c68ad0dcc0fb94b2676ccef284ba51d49b757129ef867348b6f3",
+    "scene_source_sha256": "d837238b05d26c08dbbd67983936adaf566cc915dff4ff963c1023e560ba4d0f",
+    "script_source_sha256": "4910f586e3ee5066153e65c7b4b316e846f74775ef09f018afc43dce41ec8251",
+    "user_approved": false
+  }
+}

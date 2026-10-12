@@ -1,0 +1,56 @@
+{
+  "checks": {
+    "id": "MV_F0490",
+    "source_visual_inspection": "Inspected original source image before choosing the frozen mathematical model.",
+    "source_observations": "Odd cubic with turning points near x=-3 and 3; original vertical magnitudes near 54.",
+    "adaptation": "The large vertical scale is divided by 10; the visible odd cubic is frozen as (x^3-27x)/10. Corrected inconsistent source extrema (490 rounded 60 despite curve near 54; 491 gold describes an unrelated minimum). The same extrema-reading task remains.",
+    "original_question": "Estimate the point(s) at which the graph of odd function f  has a local maximum or a local minimum.",
+    "original_answer": "\\text { local maximum: }(-3,60) \\text {, local minimum: }(3, -60)",
+    "answer_verification": {
+      "method": "Independent analytic derivation; separate executable arithmetic sanity check (not a full answer verifier)",
+      "derivation": "For f=(x^3-27x)/10, f'=3(x^2-9)/10 changes + to - at-3 and - to + at 3; f(-3)=27/5, f(3)=-27/5.",
+      "check_python": "((-3)**3-27*(-3))/10==5.4 and (3**3-27*3)/10==-5.4",
+      "arithmetic_sanity_check_passed": true,
+      "answer": "Local maximum: approximately (-3,5.4); local minimum: approximately (3,-5.4)."
+    },
+    "source_sha256": "1384c2df76dab61aa3e783baf9f46e7a3b808946a697972d9ec75341df1094f9",
+    "review_status": "pending_user_review",
+    "approval_record": null,
+    "render_check": {
+      "clipped_content": true,
+      "out_of_view": false,
+      "finite_points": 4001,
+      "width_px": 768,
+      "height_px": 768
+    },
+    "image_sha256": "2761da443b0c82cf07abb94d87840efd66143c5294609d5bb3ba760f162efc28",
+    "automated_validation": {
+      "size": true,
+      "opacity": true,
+      "white_background": true,
+      "viewport": [
+        -8,
+        8,
+        -8,
+        8
+      ],
+      "equal_aspect": true,
+      "black_solid_1pt_objects": true,
+      "answer_schema": true,
+      "reproducible_pixel_sha256": true
+    },
+    "scene_math_checks": [
+      {
+        "test": "Analytic proof is primary; no exhaustive automatic answer checker is claimed",
+        "passed": null
+      }
+    ]
+  },
+  "packaging": {
+    "source_sha256": "1384c2df76dab61aa3e783baf9f46e7a3b808946a697972d9ec75341df1094f9",
+    "image_sha256": "2761da443b0c82cf07abb94d87840efd66143c5294609d5bb3ba760f162efc28",
+    "scene_source_sha256": "faa91f2a2404aae3e203fcaf278e057752c3f582cb232be90682b5bd51ee345f",
+    "script_source_sha256": "f3eb6be68ade115435047137a7e08ee63bcd610534b777ccee34483c633ee57e",
+    "user_approved": false
+  }
+}

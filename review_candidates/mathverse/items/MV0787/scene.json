@@ -1,0 +1,261 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MV0787",
+  "status": "candidate_pending_user_review",
+  "source_dataset": "MathVerse",
+  "source_image": "source.png",
+  "view": {
+    "xlim": [
+      -6.90848281353284,
+      6.888169304165915
+    ],
+    "ylim": [
+      -6.898326058849378,
+      6.898326058849378
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "content_bbox_px": [
+        54,
+        82,
+        714,
+        686
+      ],
+      "long_side_fraction": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "points": {
+    "O": [
+      0,
+      0
+    ],
+    "L": [
+      -3,
+      0
+    ],
+    "R": [
+      3,
+      0
+    ],
+    "A": [
+      -6,
+      0
+    ],
+    "B": [
+      0,
+      0
+    ],
+    "C": [
+      6,
+      0
+    ],
+    "H": [
+      -3,
+      -3
+    ],
+    "d0a": [
+      -2.6,
+      0.0
+    ],
+    "d0b": [
+      -2.6,
+      -3.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "o0",
+      "type": "curved_region",
+      "boundary_arcs": [
+        {
+          "center": "O",
+          "radius": 6,
+          "start_deg": 0,
+          "end_deg": 180
+        },
+        {
+          "center": "L",
+          "radius": 3,
+          "start_deg": 0,
+          "end_deg": 180,
+          "reverse": true
+        },
+        {
+          "center": "R",
+          "radius": 3,
+          "start_deg": 180,
+          "end_deg": 360
+        }
+      ]
+    },
+    {
+      "id": "o1",
+      "type": "circle",
+      "center": "O",
+      "radius": 6
+    },
+    {
+      "id": "o2",
+      "type": "arc",
+      "center": "L",
+      "radius": 3,
+      "start_deg": 0,
+      "end_deg": 180,
+      "linestyle": "solid"
+    },
+    {
+      "id": "o3",
+      "type": "arc",
+      "center": "L",
+      "radius": 3,
+      "start_deg": 180,
+      "end_deg": 360,
+      "linestyle": "dashed"
+    },
+    {
+      "id": "o4",
+      "type": "arc",
+      "center": "R",
+      "radius": 3,
+      "start_deg": 0,
+      "end_deg": 180,
+      "linestyle": "dashed"
+    },
+    {
+      "id": "o5",
+      "type": "arc",
+      "center": "R",
+      "radius": 3,
+      "start_deg": 180,
+      "end_deg": 360,
+      "linestyle": "solid"
+    },
+    {
+      "id": "o6",
+      "type": "point",
+      "point": "A"
+    },
+    {
+      "id": "o7",
+      "type": "point",
+      "point": "B"
+    },
+    {
+      "id": "o8",
+      "type": "point",
+      "point": "C"
+    },
+    {
+      "id": "o9",
+      "type": "segment",
+      "points": [
+        "d0a",
+        "d0b"
+      ],
+      "linestyle": "dashed",
+      "role": "dimension"
+    },
+    {
+      "id": "o10",
+      "type": "segment",
+      "points": [
+        "L",
+        "d0a"
+      ],
+      "role": "dimension"
+    },
+    {
+      "id": "o11",
+      "type": "segment",
+      "points": [
+        "H",
+        "d0b"
+      ],
+      "role": "dimension"
+    }
+  ],
+  "labels": [
+    {
+      "id": "l0",
+      "type": "text",
+      "anchor": [
+        -2.6,
+        -1.5
+      ],
+      "text": "3",
+      "offset_pt": [
+        12.0,
+        0.0
+      ],
+      "segment_points": [
+        "L",
+        "H"
+      ]
+    },
+    {
+      "id": "l1",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        -14,
+        0
+      ]
+    },
+    {
+      "id": "l2",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        -13,
+        3
+      ]
+    },
+    {
+      "id": "l3",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        14,
+        0
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c0",
+      "type": "distance",
+      "points": [
+        "L",
+        "H"
+      ],
+      "value": 3
+    }
+  ],
+  "ambiguities": [
+    "The source does not explicitly state the small circles are congruent; added that condition to make the given radius 3 determine both circles. Preserved all original tangencies, shaded boundary, and dashed/nonboundary arcs. The copied renderer has a narrowly scoped native circular-arc fill extension that obeys the same protocol style; no source raster is read."
+  ],
+  "distance_markers": [
+    {
+      "id": "dimension0",
+      "segment_points": [
+        "L",
+        "H"
+      ],
+      "dimension_points": [
+        "d0a",
+        "d0b"
+      ],
+      "dashed_line_id": "o9",
+      "connector_line_ids": [
+        "o10",
+        "o11"
+      ],
+      "label_id": "l0"
+    }
+  ]
+}

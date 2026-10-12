@@ -1,0 +1,276 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MV0782",
+  "status": "candidate_pending_user_review",
+  "source_dataset": "MathVerse",
+  "source_image": "source.png",
+  "view": {
+    "xlim": [
+      -1.6739186085847764,
+      7.539113450046878
+    ],
+    "ylim": [
+      -4.572814739681353,
+      4.6402173189503015
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "content_bbox_px": [
+        133,
+        54,
+        634,
+        714
+      ],
+      "long_side_fraction": 0.859375,
+      "center_error_px": [
+        -0.5,
+        0.0
+      ]
+    }
+  },
+  "points": {
+    "A": [
+      0,
+      0
+    ],
+    "B": [
+      6,
+      4
+    ],
+    "C": [
+      6,
+      -4
+    ],
+    "E": [
+      3,
+      2
+    ],
+    "D": [
+      3,
+      -2
+    ],
+    "d0a": [
+      3.6,
+      -2.0
+    ],
+    "d0b": [
+      3.6,
+      2.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "o0",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "o1",
+      "type": "segment",
+      "points": [
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "o2",
+      "type": "segment",
+      "points": [
+        "C",
+        "A"
+      ]
+    },
+    {
+      "id": "o3",
+      "type": "segment",
+      "points": [
+        "E",
+        "D"
+      ]
+    },
+    {
+      "id": "o4",
+      "type": "segment",
+      "points": [
+        "d0a",
+        "d0b"
+      ],
+      "linestyle": "dashed",
+      "role": "dimension"
+    },
+    {
+      "id": "o5",
+      "type": "segment",
+      "points": [
+        "D",
+        "d0a"
+      ],
+      "role": "dimension"
+    },
+    {
+      "id": "o6",
+      "type": "segment",
+      "points": [
+        "E",
+        "d0b"
+      ],
+      "role": "dimension"
+    },
+    {
+      "id": "o7",
+      "type": "point",
+      "point": "A"
+    },
+    {
+      "id": "o8",
+      "type": "point",
+      "point": "E"
+    },
+    {
+      "id": "o9",
+      "type": "point",
+      "point": "D"
+    }
+  ],
+  "labels": [
+    {
+      "id": "l0",
+      "type": "text",
+      "anchor": [
+        3.6,
+        0.0
+      ],
+      "text": "4",
+      "offset_pt": [
+        12.0,
+        0.0
+      ],
+      "segment_points": [
+        "D",
+        "E"
+      ]
+    },
+    {
+      "id": "l1",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        -15,
+        0
+      ]
+    },
+    {
+      "id": "l2",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        8,
+        15
+      ]
+    },
+    {
+      "id": "l3",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        8,
+        -15
+      ]
+    },
+    {
+      "id": "l4",
+      "type": "vertex",
+      "point": "E",
+      "offset_pt": [
+        -6,
+        14
+      ]
+    },
+    {
+      "id": "l5",
+      "type": "vertex",
+      "point": "D",
+      "offset_pt": [
+        -6,
+        -14
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c0",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ]
+    },
+    {
+      "id": "c1",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "E"
+        ],
+        [
+          "E",
+          "B"
+        ]
+      ]
+    },
+    {
+      "id": "c2",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "D",
+          "C"
+        ]
+      ]
+    },
+    {
+      "id": "c3",
+      "type": "distance",
+      "points": [
+        "E",
+        "D"
+      ],
+      "value": 4
+    }
+  ],
+  "ambiguities": [],
+  "distance_markers": [
+    {
+      "id": "dimension0",
+      "segment_points": [
+        "D",
+        "E"
+      ],
+      "dimension_points": [
+        "d0a",
+        "d0b"
+      ],
+      "dashed_line_id": "o4",
+      "connector_line_ids": [
+        "o5",
+        "o6"
+      ],
+      "label_id": "l0"
+    }
+  ]
+}

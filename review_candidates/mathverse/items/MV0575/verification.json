@@ -1,0 +1,66 @@
+{
+  "checks": {
+    "id": "MV_F0575",
+    "source_visual_inspection": "Inspected original source image before choosing the frozen mathematical model.",
+    "source_observations": "g roots-3 and4, vertex(.5,-6.125).",
+    "adaptation": "Restyled the source mathematical objects using the strict Analytics renderer; no question or answer semantic change intended.",
+    "original_question": "g(x) is shown in the figure, f(x)=x^2+4x. How many roots do the functions have in common?\nChoices:\nA:$f$ and $g$ share the same root(s).\nB:$f$ and $g$ share one root in common but each have another root that is not shared.\nC:$f$ and $g$ share no roots in common.",
+    "original_answer": "C",
+    "answer_verification": {
+      "method": "Independent analytic derivation; separate executable arithmetic sanity check (not a full answer verifier)",
+      "derivation": "f=x(x+4) has roots 0,-4; g has roots-3,4. Their root sets are disjoint.",
+      "check_python": "set([0,-4]).isdisjoint(set([-3,4]))",
+      "arithmetic_sanity_check_passed": true,
+      "answer": "C"
+    },
+    "source_sha256": "c52a5718ed396260c7444683784c74a806811ec7c0789925b33670d6d39412c4",
+    "review_status": "pending_user_review",
+    "approval_record": null,
+    "render_check": {
+      "clipped_content": true,
+      "out_of_view": false,
+      "finite_points": 4001,
+      "width_px": 768,
+      "height_px": 768
+    },
+    "image_sha256": "b6d9215afe2aab71e891723cee6b3b37a84b29116764d59f4d361e23a421eae2",
+    "automated_validation": {
+      "size": true,
+      "opacity": true,
+      "white_background": true,
+      "viewport": [
+        -8,
+        8,
+        -8,
+        8
+      ],
+      "equal_aspect": true,
+      "black_solid_1pt_objects": true,
+      "answer_schema": true,
+      "reproducible_pixel_sha256": true
+    },
+    "scene_math_checks": [
+      {
+        "test": "Question-specific values independently evaluated from frozen expression",
+        "expected_values": [
+          [
+            -3,
+            0
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        "passed": true
+      }
+    ]
+  },
+  "packaging": {
+    "source_sha256": "c52a5718ed396260c7444683784c74a806811ec7c0789925b33670d6d39412c4",
+    "image_sha256": "b6d9215afe2aab71e891723cee6b3b37a84b29116764d59f4d361e23a421eae2",
+    "scene_source_sha256": "c7d7787d6309a43d81bb7bfde87bd9d8c17c2fa873296fc2f8b3ea1fa72918c5",
+    "script_source_sha256": "23bf5028b67be78683a8b34dd70b65c989d7141a103bee8aaaaca51ce51aa245",
+    "user_approved": false
+  }
+}

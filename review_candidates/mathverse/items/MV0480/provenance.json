@@ -1,0 +1,65 @@
+{
+  "source": {
+    "source_problem_index": "480",
+    "source_sample_index": "2399",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "Functions_collected",
+      "subject": "Functions",
+      "subfield": "Property"
+    },
+    "original_question": "Determine if this relation is a one-to-one function.\nChoices:\nA:This is a one-to-one function\nB:This is not a one-to-one function",
+    "original_answer": "B",
+    "user_approved": false
+  },
+  "audit": {
+    "id": "MV_F0480",
+    "source_visual_inspection": "Inspected original source image before choosing the frozen mathematical model.",
+    "source_observations": "Nearly horizontal positive left tail; local maximum; crosses near pi/2 then declines.",
+    "adaptation": "Frozen the visually unlabeled exponential-trigonometric curve as 0.5*exp(x)*cos(x), x<=3; preserved the rise-and-fall shape and non-injectivity.",
+    "original_question": "Determine if this relation is a one-to-one function.\nChoices:\nA:This is a one-to-one function\nB:This is not a one-to-one function",
+    "original_answer": "B",
+    "answer_verification": {
+      "method": "Independent analytic derivation; separate executable arithmetic sanity check (not a full answer verifier)",
+      "derivation": "f(0)=0.5; the positive maximum near pi/4 exceeds 0.5 and f(pi/2)=0, so y=0.5 is attained at least twice.",
+      "check_python": "0.5*np.exp(np.pi/4)*np.cos(np.pi/4)>0.5 and abs(np.cos(np.pi/2))<1e-12",
+      "arithmetic_sanity_check_passed": true,
+      "answer": "B"
+    },
+    "source_sha256": "6efe7b5486371757de1225d61d68ffe751cc4571d616bf2091745ddc5c0d29f7",
+    "review_status": "pending_user_review",
+    "approval_record": null,
+    "render_check": {
+      "clipped_content": true,
+      "out_of_view": false,
+      "finite_points": 4001,
+      "width_px": 768,
+      "height_px": 768
+    },
+    "image_sha256": "fcda5e087a37531596009f0fafbdce6a7d2279e3004f6d071ec80bec464be15a",
+    "automated_validation": {
+      "size": true,
+      "opacity": true,
+      "white_background": true,
+      "viewport": [
+        -8,
+        8,
+        -8,
+        8
+      ],
+      "equal_aspect": true,
+      "black_solid_1pt_objects": true,
+      "answer_schema": true,
+      "reproducible_pixel_sha256": true
+    },
+    "scene_math_checks": [
+      {
+        "test": "Analytic proof is primary; no exhaustive automatic answer checker is claimed",
+        "passed": null
+      }
+    ]
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MV_F0480"
+}

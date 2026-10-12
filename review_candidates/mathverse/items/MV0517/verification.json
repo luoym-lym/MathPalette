@@ -1,0 +1,56 @@
+{
+  "checks": {
+    "id": "MV_F0517",
+    "source_visual_inspection": "Inspected original source image before choosing the frozen mathematical model.",
+    "source_observations": "Two panels for exponential 4^x and (1/4)^x.",
+    "adaptation": "Combined two source panels on the required single protocol canvas and explicitly labeled both curves; target remains 4^x.",
+    "original_question": "How would you describe the rate of increase of $y=4^{x}$ ?\nChoices:\nA.$y$ is increasing at a constant rate\nB.$y$ is increasing at a decreasing rate\nC.$y$ is increasing at an increasing rate",
+    "original_answer": "(C)",
+    "answer_verification": {
+      "method": "Independent analytic derivation; separate executable arithmetic sanity check (not a full answer verifier)",
+      "derivation": "d(4^x)/dx=ln 4*4^x>0 and second derivative=(ln 4)^2*4^x>0, so increase accelerates.",
+      "check_python": "np.log(4)>0 and np.log(4)**2>0",
+      "arithmetic_sanity_check_passed": true,
+      "answer": "C"
+    },
+    "source_sha256": "3a2c782101876488e987c5729ee3db98ebd0de619ae4abd58d8500a7787b82c1",
+    "review_status": "pending_user_review",
+    "approval_record": null,
+    "render_check": {
+      "clipped_content": true,
+      "out_of_view": false,
+      "finite_points": 8002,
+      "width_px": 768,
+      "height_px": 768
+    },
+    "image_sha256": "d2ce01ae75ab0876e5f73251587f2ec54a45516e6b96eb07475406b8060a4bd0",
+    "automated_validation": {
+      "size": true,
+      "opacity": true,
+      "white_background": true,
+      "viewport": [
+        -8,
+        8,
+        -8,
+        8
+      ],
+      "equal_aspect": true,
+      "black_solid_1pt_objects": true,
+      "answer_schema": true,
+      "reproducible_pixel_sha256": true
+    },
+    "scene_math_checks": [
+      {
+        "test": "Requested monotonicity/symmetry/function landmarks evaluated from actual frozen formula",
+        "passed": true
+      }
+    ]
+  },
+  "packaging": {
+    "source_sha256": "3a2c782101876488e987c5729ee3db98ebd0de619ae4abd58d8500a7787b82c1",
+    "image_sha256": "d2ce01ae75ab0876e5f73251587f2ec54a45516e6b96eb07475406b8060a4bd0",
+    "scene_source_sha256": "c4fa3e0dc1d13aa7dffde973e52c1ff72158a2ed98c7af0828049c75f2fcacd8",
+    "script_source_sha256": "257b4977c15e981160e628b4e9caad309d7f73e3ef53aec55d0426d75ec9d90c",
+    "user_approved": false
+  }
+}

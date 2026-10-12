@@ -1,0 +1,70 @@
+{
+  "source": {
+    "source_problem_index": "528",
+    "source_sample_index": "2639",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "Functions_collected",
+      "subject": "Functions",
+      "subfield": "Coordinate"
+    },
+    "original_question": "Which of the coordinates is equal to $\\cos (\\pi)$ ?\nChoices:\nA:$x$-coordinate of point $A$\nB:$y$-coordinate of point $A$\nC:$x$-coordinate of point $B$\nD:$y$-coordinate of point $B$\nE:$x$-coordinate of point $C$\nF:$y$-coordinate of point $C$",
+    "original_answer": "E",
+    "user_approved": false
+  },
+  "audit": {
+    "id": "MV_F0528",
+    "source_visual_inspection": "Inspected original source image before choosing the frozen mathematical model.",
+    "source_observations": "A(1,0), B(0,1), C(-1,0).",
+    "adaptation": "Restyled the source mathematical objects using the strict Analytics renderer; no question or answer semantic change intended.",
+    "original_question": "Which of the coordinates is equal to $\\cos (\\pi)$ ?\nChoices:\nA:$x$-coordinate of point $A$\nB:$y$-coordinate of point $A$\nC:$x$-coordinate of point $B$\nD:$y$-coordinate of point $B$\nE:$x$-coordinate of point $C$\nF:$y$-coordinate of point $C$",
+    "original_answer": "E",
+    "answer_verification": {
+      "method": "Independent analytic derivation; separate executable arithmetic sanity check (not a full answer verifier)",
+      "derivation": "cos(pi)=-1, the x-coordinate of C=(-1,0).",
+      "check_python": "abs(np.cos(np.pi)+1)<1e-12",
+      "arithmetic_sanity_check_passed": true,
+      "answer": "E"
+    },
+    "source_sha256": "e6b197b10a3a48f311e1feb1a6b1e1c4ad12247d438de1859a4ecc70702b29a7",
+    "review_status": "pending_user_review",
+    "approval_record": null,
+    "render_check": {
+      "clipped_content": false,
+      "out_of_view": false,
+      "finite_points": 29,
+      "width_px": 768,
+      "height_px": 768
+    },
+    "image_sha256": "d365c3a984a6b6a6cae1763db1ccc88f57d64fb3388766c378d1e0daaa6c3fda",
+    "automated_validation": {
+      "size": true,
+      "opacity": true,
+      "white_background": true,
+      "viewport": [
+        -8,
+        8,
+        -8,
+        8
+      ],
+      "equal_aspect": true,
+      "black_solid_1pt_objects": true,
+      "answer_schema": true,
+      "reproducible_pixel_sha256": true
+    },
+    "scene_math_checks": [
+      {
+        "test": "Every marked point lies on a frozen curve, line, or outline",
+        "point_count": 3,
+        "passed": true
+      },
+      {
+        "test": "All marked trigonometric points lie exactly on unit circle",
+        "passed": true
+      }
+    ]
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MV_F0528"
+}

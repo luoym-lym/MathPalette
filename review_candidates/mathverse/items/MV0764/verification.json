@@ -1,0 +1,135 @@
+{
+  "source_record.json": {
+    "sample_index": "3819",
+    "problem_index": "764",
+    "problem_version": "Vision Dominant",
+    "question": "If the perimeter of the rectangle above is 72, what is the value of x?\nChoices:\nA.9\nB.15\nC.18\nD.21\nE.36\n",
+    "image": "images_version_5/image_764.png",
+    "answer": "C",
+    "question_type": "multi-choice",
+    "metadata": {
+      "split": "testmini",
+      "source": "GEOS",
+      "subject": "Plane Geometry",
+      "subfield": "Length"
+    },
+    "query_wo": "Please directly answer the question and provide the correct option letter, e.g., A, B, C, D.\nQuestion: If the perimeter of the rectangle above is 72, what is the value of x?\nChoices:\nA.9\nB.15\nC.18\nD.21\nE.36\n",
+    "query_cot": "Please first conduct reasoning, and then answer the question and provide the correct option letter, e.g., A, B, C, D, at the end.\nQuestion: If the perimeter of the rectangle above is 72, what is the value of x?\nChoices:\nA.9\nB.15\nC.18\nD.21\nE.36\n"
+  },
+  "redraw_report.json": {
+    "id": "MV764",
+    "status": "automated_and_visual_checks_complete_pending_user_review",
+    "user_approved": false,
+    "source_sha256": "421d0702ea756dc6ee74cad94a95804be593e6980942e323b274f11bfd83b25e",
+    "scene_sha256": "1f4f2e1595b0f581e7e9b622ca97d0302c2d9366840a506ed353557c5fefce21",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "renderer_sha256": "fb4c2fd27f7e5ba1ceead5b59f983465eb44827b3ddf897613b268ff257f5240",
+    "png_sha256": "92142be62797e8a29c27276fb98cd71484102972da7efcd6dbd7680a058fdef2",
+    "svg_sha256": "64254c7d44a9bbb3607286748b06d37f9c653ae3fea038dc70df9cfcc0e8e8c2",
+    "second_render_pixel_identical": true,
+    "geometry_checks": [
+      {
+        "id": "c0",
+        "type": "parallel",
+        "measured": 0.0,
+        "passed": true
+      },
+      {
+        "id": "c1",
+        "type": "parallel",
+        "measured": 0.0,
+        "passed": true
+      },
+      {
+        "id": "c2",
+        "type": "perpendicular",
+        "measured": 0.0,
+        "passed": true
+      }
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "content_bbox_px": [
+        55,
+        156,
+        714,
+        613
+      ],
+      "long_side_fraction": 0.8580729166666666,
+      "center_error_px": [
+        0.5,
+        0.5
+      ]
+    },
+    "versions": {
+      "python": "3.13.9",
+      "numpy": "2.5.3",
+      "matplotlib": "3.11.2",
+      "Pillow": "12.3.0"
+    },
+    "independent_answer_verification": "answer_verification.json",
+    "source_and_redraw_visually_reviewed": true
+  },
+  "answer_verification.json": {
+    "id": "MV764",
+    "status": "independent_answer_checks_passed",
+    "method": "2[(x+3)+(x-3)]=72; verify both dimensions and perimeter.",
+    "theorem_result": 18.0,
+    "scene_measurement": 18.0,
+    "variables": {
+      "x": 18.0
+    },
+    "checks": [
+      {
+        "check": "perimeter",
+        "observed": 72.0,
+        "expected": 72.0,
+        "absolute_error": 0.0
+      },
+      {
+        "check": "independent theorem result versus frozen geometry",
+        "observed": 18.0,
+        "expected": 18.0,
+        "absolute_error": 0.0
+      },
+      {
+        "check": "displayed length x + 3",
+        "observed": 21.0,
+        "expected": 21.0,
+        "absolute_error": 0.0
+      },
+      {
+        "check": "displayed length x - 3",
+        "observed": 15.0,
+        "expected": 15.0,
+        "absolute_error": 0.0
+      }
+    ],
+    "metrics": {
+      "evaluated_choices": {
+        "A": 9.0,
+        "B": 15.0,
+        "C": 18.0,
+        "D": 21.0,
+        "E": 36.0
+      }
+    },
+    "answer_check": {
+      "matching_options": [
+        "C"
+      ],
+      "unique": true
+    },
+    "source_gold_used_in_derivation": false,
+    "script": "../../verify_answers.py",
+    "scene_sha256": "1f4f2e1595b0f581e7e9b622ca97d0302c2d9366840a506ed353557c5fefce21",
+    "user_approved": false
+  },
+  "packaging": {
+    "source_sha256": "421d0702ea756dc6ee74cad94a95804be593e6980942e323b274f11bfd83b25e",
+    "image_sha256": "92142be62797e8a29c27276fb98cd71484102972da7efcd6dbd7680a058fdef2",
+    "scene_source_sha256": "1f4f2e1595b0f581e7e9b622ca97d0302c2d9366840a506ed353557c5fefce21",
+    "script_source_sha256": "4910f586e3ee5066153e65c7b4b316e846f74775ef09f018afc43dce41ec8251",
+    "user_approved": false
+  }
+}

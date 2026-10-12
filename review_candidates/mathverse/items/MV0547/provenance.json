@@ -1,0 +1,75 @@
+{
+  "source": {
+    "source_problem_index": "547",
+    "source_sample_index": "2734",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "Functions_collected",
+      "subject": "Functions",
+      "subfield": "Expression"
+    },
+    "original_question": "The shown $h$ is a trigonometric function. Find a formula for $h(x)$. Give an exact expression.",
+    "original_answer": "3.5 \\cos \\left(\\frac{2}{3} x+\\frac{4 \\pi}{3}\\right)-0.5",
+    "user_approved": false
+  },
+  "audit": {
+    "id": "MV_F0547",
+    "source_visual_inspection": "Inspected original source image before choosing the frozen mathematical model.",
+    "source_observations": "Max(-2 pi,3), min(-pi/2,-4).",
+    "adaptation": "Restyled the source mathematical objects using the strict Analytics renderer; no question or answer semantic change intended.",
+    "original_question": "The shown $h$ is a trigonometric function. Find a formula for $h(x)$. Give an exact expression.",
+    "original_answer": "3.5 \\cos \\left(\\frac{2}{3} x+\\frac{4 \\pi}{3}\\right)-0.5",
+    "answer_verification": {
+      "method": "Independent analytic derivation; separate executable arithmetic sanity check (not a full answer verifier)",
+      "derivation": "Extrema 3,-4 give amplitude 7/2 and midline-1/2. Peak-to-trough gap 3 pi/2 gives period 3 pi, angular frequency 2/3, and max at-2 pi fixes phase 4 pi/3.",
+      "check_python": "(3-(-4))/2==3.5 and abs(2*((-np.pi/2)-(-2*np.pi))-3*np.pi)<1e-12",
+      "arithmetic_sanity_check_passed": true,
+      "answer": "h(x)=7/2*cos(2*x/3+4*pi/3)-1/2"
+    },
+    "source_sha256": "aef27387b5d669e19945ace043d63dba4cdff1dff13411cb98b5f1fb9572d4e9",
+    "review_status": "pending_user_review",
+    "approval_record": null,
+    "render_check": {
+      "clipped_content": false,
+      "out_of_view": false,
+      "finite_points": 4003,
+      "width_px": 768,
+      "height_px": 768
+    },
+    "image_sha256": "636c869ed3bf35061f138cee5511c8c7bdfdb9e48cd3dfb66383fcd50883baeb",
+    "automated_validation": {
+      "size": true,
+      "opacity": true,
+      "white_background": true,
+      "viewport": [
+        -8,
+        8,
+        -8,
+        8
+      ],
+      "equal_aspect": true,
+      "black_solid_1pt_objects": true,
+      "answer_schema": true,
+      "reproducible_pixel_sha256": true
+    },
+    "scene_math_checks": [
+      {
+        "test": "Every marked point lies on a frozen curve, line, or outline",
+        "point_count": 2,
+        "passed": true
+      },
+      {
+        "test": "Numerical extrema read from frozen sinusoid agree with independently derived range",
+        "computed_range": [
+          -3.999999999989506,
+          2.9999999999580234
+        ],
+        "passed": true,
+        "tolerance": 0.001
+      }
+    ]
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MV_F0547"
+}

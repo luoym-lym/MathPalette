@@ -1,0 +1,68 @@
+{
+  "source": {
+    "source_problem_index": "613",
+    "source_sample_index": "3064",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "Functions_collected",
+      "subject": "Functions",
+      "subfield": "Applied"
+    },
+    "original_question": "The graph shows Charlie's speed while he is competing in a bike race. Which situation corresponds to the graph?\nChoices:\nA:Charlie starts off by increasing his pace gradually and then stops as he trips over a stick,but then recovers and is able to increase his speed steadily until the end of the race\nB:Charlie starts off at a constant speed and then increases his speed at a steady rate\nC:Charlie hits his maximum speed about halfway through the race\nD:Charlie increases his speed at a constant rate throughout",
+    "original_answer": "D",
+    "user_approved": false
+  },
+  "audit": {
+    "id": "MV_F0613",
+    "source_visual_inspection": "Inspected original source image before choosing the frozen mathematical model.",
+    "source_observations": "Source qualitative speed-time pattern preserved using its observed sequence of slopes.",
+    "adaptation": "The original qualitative chart has no numeric scale. Froze representative piecewise-linear vertices within the mandatory axes, preserving every increase, decrease, stop and plateau; declared x/y meanings.",
+    "original_question": "The graph shows Charlie's speed while he is competing in a bike race. Which situation corresponds to the graph?\nChoices:\nA:Charlie starts off by increasing his pace gradually and then stops as he trips over a stick,but then recovers and is able to increase his speed steadily until the end of the race\nB:Charlie starts off at a constant speed and then increases his speed at a steady rate\nC:Charlie hits his maximum speed about halfway through the race\nD:Charlie increases his speed at a constant rate throughout",
+    "original_answer": "D",
+    "answer_verification": {
+      "method": "Independent analytic derivation; separate executable arithmetic sanity check (not a full answer verifier)",
+      "derivation": "Every segment has the same positive slope, representing a constant rate of speed increase.",
+      "check_python": "(7-0)/(7-0)>0",
+      "arithmetic_sanity_check_passed": true,
+      "answer": "D"
+    },
+    "source_sha256": "9758c1080ff0cb8907cf261634ea64e2abcfc6b604c9b5eab62693e995ea6f10",
+    "review_status": "pending_user_review",
+    "approval_record": null,
+    "render_check": {
+      "clipped_content": false,
+      "out_of_view": false,
+      "finite_points": 2,
+      "width_px": 768,
+      "height_px": 768
+    },
+    "image_sha256": "79a1c38ebbd5508a07e47a4cedfd6a79e3ea43fe33b0b240af9f3f9aec2f9276",
+    "automated_validation": {
+      "size": true,
+      "opacity": true,
+      "white_background": true,
+      "viewport": [
+        -8,
+        8,
+        -8,
+        8
+      ],
+      "equal_aspect": true,
+      "black_solid_1pt_objects": true,
+      "answer_schema": true,
+      "reproducible_pixel_sha256": true
+    },
+    "scene_math_checks": [
+      {
+        "test": "Compute actual piecewise speed slopes",
+        "slopes": [
+          1.0
+        ],
+        "passed": true
+      }
+    ]
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MV_F0613"
+}

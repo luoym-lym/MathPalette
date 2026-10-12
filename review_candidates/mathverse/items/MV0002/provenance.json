@@ -1,0 +1,60 @@
+{
+  "source": {
+    "source_problem_index": "2",
+    "source_sample_index": "9",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "GeoQA",
+      "subject": "Plane Geometry",
+      "subfield": "Angle"
+    },
+    "original_question": "As shown in the figure, AB parallel CD, EG bisects angle BEF, then angle 2 is equal to ()\nChoices:\nA:50°\nB:60°\nC:65°\nD:90°",
+    "original_answer": "C",
+    "user_approved": false
+  },
+  "audit": {
+    "source_question": "As shown in the figure, AB parallel CD, EG bisects angle BEF, then angle 2 is equal to ()\nChoices:\nA:50°\nB:60°\nC:65°\nD:90°",
+    "source_answer": "C",
+    "source_image_sha256": "28140e7d7da40bb61b380d9bd8765c1f80b59723c02da8746b8ab4be69932fed",
+    "current_question": "As shown in the figure, AB parallel CD, EG bisects angle BEF, then angle 2 is equal to ()\nChoices:\nA:50°\nB:60°\nC:65°\nD:90°",
+    "current_answer": "C",
+    "adapted": false,
+    "adaptation_reason": null,
+    "source_visual_observations": [
+      "Two horizontal parallel lines; oblique transversal through F and E; EG is bisector. Source angle 1=50° and unknown angle 2."
+    ],
+    "independent_solution": "By parallel lines, angle BEF = 180 - 50 = 130 degrees. EG bisects it, so angle BEG = GEF = 65 degrees. The alternate interior angle EGF (angle 2) is 65 degrees, choice C.",
+    "independently_computed_result": 65,
+    "answer_verification": "independently_derived",
+    "visual_review": {
+      "source_viewed": true,
+      "redraw_viewed": true,
+      "status": "agent_reviewed_candidate",
+      "review_notes": "Every source and final PNG was actually inspected in labeled contact sheets. Ambiguous or crowded items were enlarged individually; final edited callouts for MV012, MV054, MV070, MV081, MV105, MV111, MV135 and MV174 were checked. No observed clipping or text/line masking. This is not a user Pass."
+    },
+    "geometry_notes": {
+      "construction": "Frozen code-native coordinates; source raster is preserved and is never used as drawing input.",
+      "construction_scripts": [
+        "../../build_batches.py"
+      ],
+      "annotation_layout_script": "../../layout_labels.py",
+      "authoritative_frozen_input": "scene.json"
+    },
+    "secondary_answer_check": {
+      "problem_index": 2,
+      "source_key": "testmini:9",
+      "answer": "C",
+      "selected_choice": "65°",
+      "independent_derivation_value": 65.0,
+      "frozen_geometry_target_value": 65.0,
+      "absolute_error": 0.0,
+      "tolerance": 1e-07,
+      "passed": true,
+      "method": "Measure target angle from frozen vectors independently of source answer."
+    },
+    "adaptation_category": null
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MathVerse_2"
+}

@@ -1,0 +1,274 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MV0116",
+  "status": "candidate_unapproved",
+  "subject": "SolidGeometry",
+  "source_dataset": "MathVerse",
+  "source_image": "source.png",
+  "source_note": "Official MathVerse testmini Vision Dominant problem 116, sample 579; source image preserved unmodified.",
+  "world_unit": "cm",
+  "points": {
+    "T": [
+      0.0,
+      0.0,
+      12.0
+    ],
+    "O": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "R": [
+      5.0,
+      0.0,
+      0.0
+    ],
+    "L": [
+      -5.0,
+      0.0,
+      0.0
+    ],
+    "TR": [
+      4.971621070959463,
+      0.5319623358771589,
+      0.0
+    ],
+    "TL": [
+      -4.971621070959463,
+      0.5319623358771597,
+      0.0
+    ],
+    "height_value_anchor": [
+      0.0,
+      0.0,
+      6.0
+    ],
+    "slant_value_anchor": [
+      2.4858105354797315,
+      0.26598116793857945,
+      6.0
+    ]
+  },
+  "projection": {
+    "kind": "orthographic",
+    "name": "Frozen source-oriented orthographic view",
+    "matrix": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0.24740395925452294,
+        0.9689124217106447
+      ]
+    ],
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "toward_viewer": [
+      0,
+      -0.9689124217106447,
+      0.24740395925452294
+    ]
+  },
+  "view": {
+    "xlim": [
+      -6.75665721146275,
+      6.75665721146275
+    ],
+    "ylim": [
+      -1.5616790212056086,
+      11.95163540171989
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "visibility": {
+    "mode": "frozen_intervals",
+    "projection_sha256": "433d51f49f1ee5c4f815bffb589e79d9e027dcd8dc6599e2d0ae4c65ed4effdf",
+    "notes": "Analytically frozen for the declared model and view; no generic occlusion assumption."
+  },
+  "objects": [
+    {
+      "id": "silhouette_TR",
+      "type": "segment",
+      "points": [
+        "T",
+        "TR"
+      ],
+      "visibility": "visible",
+      "role": "silhouette"
+    },
+    {
+      "id": "silhouette_TL",
+      "type": "segment",
+      "points": [
+        "T",
+        "TL"
+      ],
+      "visibility": "visible",
+      "role": "silhouette"
+    },
+    {
+      "id": "base_rim",
+      "type": "circular_arc",
+      "center": "O",
+      "radius": 5.0,
+      "u": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "v": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "domain_deg": [
+        6.107398481086494,
+        366.1073984810865
+      ],
+      "role": "edge",
+      "intervals": [
+        {
+          "start_deg": 6.107398481086494,
+          "end_deg": 173.8926015189135,
+          "visibility": "hidden",
+          "samples": 337
+        },
+        {
+          "start_deg": 173.8926015189135,
+          "end_deg": 366.1073984810865,
+          "visibility": "visible",
+          "samples": 386
+        }
+      ]
+    },
+    {
+      "id": "axis",
+      "type": "segment",
+      "points": [
+        "O",
+        "T"
+      ],
+      "visibility": "hidden",
+      "role": "auxiliary"
+    },
+    {
+      "id": "base_diameter",
+      "type": "segment",
+      "points": [
+        "L",
+        "R"
+      ],
+      "visibility": "hidden",
+      "role": "auxiliary"
+    }
+  ],
+  "dimensions": [],
+  "labels": [
+    {
+      "id": "height_value",
+      "type": "text",
+      "text": "12",
+      "anchor": "height_value_anchor",
+      "offset_pt": [
+        -12,
+        0
+      ],
+      "ha": "right",
+      "va": "center"
+    },
+    {
+      "id": "slant_value",
+      "type": "text",
+      "text": "13",
+      "anchor": "slant_value_anchor",
+      "offset_pt": [
+        18,
+        0
+      ],
+      "ha": "left",
+      "va": "center"
+    }
+  ],
+  "constraints": [
+    {
+      "id": "tangent_TR",
+      "type": "projected_tangent",
+      "basis": "Analytical cone silhouette: surface normal dot toward_viewer = 0.",
+      "circle": "base_rim",
+      "point": "TR",
+      "segment": [
+        "T",
+        "TR"
+      ]
+    },
+    {
+      "id": "tangent_TL",
+      "type": "projected_tangent",
+      "basis": "Analytical cone silhouette: surface normal dot toward_viewer = 0.",
+      "circle": "base_rim",
+      "point": "TL",
+      "segment": [
+        "T",
+        "TL"
+      ]
+    },
+    {
+      "id": "true_radius",
+      "type": "distance",
+      "basis": "Derived construction radius from source height and slant; not an extra given.",
+      "points": [
+        "O",
+        "R"
+      ],
+      "value": 5.0
+    },
+    {
+      "id": "true_height",
+      "type": "distance",
+      "basis": "Explicit source perpendicular height.",
+      "points": [
+        "O",
+        "T"
+      ],
+      "value": 12.0
+    },
+    {
+      "id": "true_slant",
+      "type": "distance",
+      "basis": "Explicit source slant length.",
+      "points": [
+        "TR",
+        "T"
+      ],
+      "value": 13.0
+    }
+  ],
+  "ambiguities": [
+    {
+      "id": "source_schematic_visibility",
+      "description": "Source may draw the complete base ellipse with a single linestyle. Correct analytical visible and concealed intervals are frozen; no mathematical measurement is changed."
+    }
+  ]
+}

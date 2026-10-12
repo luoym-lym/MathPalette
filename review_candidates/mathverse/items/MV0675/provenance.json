@@ -1,0 +1,93 @@
+{
+  "source": {
+    "source_problem_index": "675",
+    "source_sample_index": "3374",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "Geo3D_collected",
+      "subject": "Solid Geometry",
+      "subfield": "Area"
+    },
+    "original_question": "The solid is constructed by removing a hemisphere from a cylinder. Find the total surface area of the shape.\n\nGive our answer to two decimal places.",
+    "original_answer": "Total surface area $=4194.03 \\mathrm{~cm}^{2}$",
+    "user_approved": false
+  },
+  "audit": {
+    "original_record": {
+      "sample_index": "3374",
+      "problem_index": "675",
+      "problem_version": "Vision Dominant",
+      "question": "The solid is constructed by removing a hemisphere from a cylinder. Find the total surface area of the shape.\n\nGive our answer to two decimal places.",
+      "image": "images_version_5/image_675.png",
+      "answer": "Total surface area $=4194.03 \\mathrm{~cm}^{2}$",
+      "question_type": "free-form",
+      "metadata": {
+        "split": "testmini",
+        "source": "Geo3D_collected",
+        "subject": "Solid Geometry",
+        "subfield": "Area"
+      },
+      "query_wo": "Please directly answer the question and provide the final value, e.g., 1, 2.5, 300.\nQuestion: The solid is constructed by removing a hemisphere from a cylinder. Find the total surface area of the shape.\n\nGive our answer to two decimal places.",
+      "query_cot": "Please first conduct reasoning, and then answer the question and provide the final value, e.g., 1, 2.5, 300, at the end.\nQuestion: The solid is constructed by removing a hemisphere from a cylinder. Find the total surface area of the shape.\n\nGive our answer to two decimal places."
+    },
+    "adaptation": {
+      "changed_question": false,
+      "changed_answer": true,
+      "reason": "The inward hemispherical cavity is a subtraction from the cylinder. Its concealed contour is dashed; the source decorative shaded bowl is not treated as a visible physical edge.",
+      "new_question": "The solid is constructed by removing a hemisphere from a cylinder. Find the total surface area of the shape.\n\nGive our answer to two decimal places.",
+      "new_answer": "4194.03 cm²",
+      "mathematical_answer_correction": false,
+      "source_visual_changes": [
+        "Uniform opaque white 768×768 canvas, black 1 pt geometry, prescribed fonts and source-informed labels.",
+        "All solid geometry is constructed in true 3D and projected through one frozen camera. Source sketch distortions, decorative lighting and inconsistent hidden-line styles are normalized without weakening the protocol.",
+        "The inward hemispherical cavity is a subtraction from the cylinder. Its concealed contour is dashed; the source decorative shaded bowl is not treated as a visible physical edge."
+      ]
+    },
+    "answer_verification": {
+      "status": "independently_verified",
+      "source_audit_record": "source_audit.json, problem_index 675",
+      "calculation": {
+        "formula": "2*pi*15*22+pi*15**2+2*pi*15**2",
+        "unrounded_value": 4194.026192542373,
+        "answer": "4194.03 cm²",
+        "unit": "cm²",
+        "rounding_decimal_places": 2
+      },
+      "canonical_answer": "4194.03 cm²",
+      "source_answer_conflict": null
+    },
+    "geometry_notes": {
+      "kind": "analytic_CSG",
+      "components": [
+        {
+          "kind": "cylinder",
+          "radius": 15,
+          "zrange": [
+            0,
+            22
+          ]
+        },
+        {
+          "kind": "sphere",
+          "center": [
+            0,
+            0,
+            22
+          ],
+          "radius": 15,
+          "zrange": [
+            -15,
+            0
+          ],
+          "operation": "subtract"
+        }
+      ],
+      "description": "Cylinder minus an inward-facing hemispherical cavity whose mouth is the full upper disk. Concealed cavity contour is explicitly dashed.",
+      "visibility_derivation": "Ray intersections with every finite analytic surface and clipping plane are sorted. Positive open ray intervals are tested against the union-minus-subtraction material domain. Boundary curves are partitioned at isolated visibility transitions refined by 40 bisections; all frozen intervals are explicitly stored and sampled separately. No raster hand tracing or draw-order occlusion is used."
+    },
+    "source_label_to_world_anchor": {}
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MathVerse675"
+}

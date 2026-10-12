@@ -1,0 +1,138 @@
+{
+  "source_record.json": {
+    "sample_index": "3909",
+    "problem_index": "782",
+    "problem_version": "Vision Dominant",
+    "question": "In triangle ABC above, AB = AC, E is the midpoint of line AB, and D is the midpoint of line AC. If AE = x, what is length BC?\nChoices:\nA.6\nB.8\nC.2*x\nD.4*x\nE.4*x^2\n",
+    "image": "images_version_5/image_782.png",
+    "answer": "B",
+    "question_type": "multi-choice",
+    "metadata": {
+      "split": "testmini",
+      "source": "GEOS",
+      "subject": "Plane Geometry",
+      "subfield": "Length"
+    },
+    "query_wo": "Please directly answer the question and provide the correct option letter, e.g., A, B, C, D.\nQuestion: In triangle ABC above, AB = AC, E is the midpoint of line AB, and D is the midpoint of line AC. If AE = x, what is length BC?\nChoices:\nA.6\nB.8\nC.2*x\nD.4*x\nE.4*x^2\n",
+    "query_cot": "Please first conduct reasoning, and then answer the question and provide the correct option letter, e.g., A, B, C, D, at the end.\nQuestion: In triangle ABC above, AB = AC, E is the midpoint of line AB, and D is the midpoint of line AC. If AE = x, what is length BC?\nChoices:\nA.6\nB.8\nC.2*x\nD.4*x\nE.4*x^2\n"
+  },
+  "redraw_report.json": {
+    "id": "MV782",
+    "status": "automated_and_visual_checks_complete_pending_user_review",
+    "user_approved": false,
+    "source_sha256": "400fb1986939923530394b89ec8c6cfd6693ffa2fa7bb1b977ee23c9f408f4d6",
+    "scene_sha256": "48e94e028d57d4c0e60951bf6cd20287383dfb4d2a77467ea50acc4437305561",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "renderer_sha256": "fb4c2fd27f7e5ba1ceead5b59f983465eb44827b3ddf897613b268ff257f5240",
+    "png_sha256": "b89a5a1f67130ea78bf1ada9d992bc5a3851d206bb21f3a81264799f4fabea64",
+    "svg_sha256": "ef0fe8682e214e76c8d735eee0c04f4e8342c2869a52f439025bf08619bdadbb",
+    "second_render_pixel_identical": true,
+    "geometry_checks": [
+      {
+        "id": "c0",
+        "type": "equal_length",
+        "measured": [
+          7.211102550927978,
+          7.211102550927978
+        ],
+        "passed": true
+      },
+      {
+        "id": "c1",
+        "type": "equal_length",
+        "measured": [
+          3.605551275463989,
+          3.605551275463989
+        ],
+        "passed": true
+      },
+      {
+        "id": "c2",
+        "type": "equal_length",
+        "measured": [
+          3.605551275463989,
+          3.605551275463989
+        ],
+        "passed": true
+      },
+      {
+        "id": "c3",
+        "type": "distance",
+        "measured": 4.0,
+        "passed": true
+      }
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "content_bbox_px": [
+        133,
+        54,
+        634,
+        714
+      ],
+      "long_side_fraction": 0.859375,
+      "center_error_px": [
+        -0.5,
+        0.0
+      ]
+    },
+    "versions": {
+      "python": "3.13.9",
+      "numpy": "2.5.3",
+      "matplotlib": "3.11.2",
+      "Pillow": "12.3.0"
+    },
+    "independent_answer_verification": "answer_verification.json",
+    "source_and_redraw_visually_reviewed": true
+  },
+  "answer_verification.json": {
+    "id": "MV782",
+    "status": "independent_answer_checks_passed",
+    "method": "Triangle midpoint theorem gives BC=2 ED independently of the unused AE=x.",
+    "theorem_result": 8.0,
+    "scene_measurement": 8.0,
+    "variables": {
+      "x": 3.605551275463989
+    },
+    "checks": [
+      {
+        "check": "independent theorem result versus frozen geometry",
+        "observed": 8.0,
+        "expected": 8.0,
+        "absolute_error": 0.0
+      },
+      {
+        "check": "displayed length 4",
+        "observed": 4.0,
+        "expected": 4.0,
+        "absolute_error": 0.0
+      }
+    ],
+    "metrics": {
+      "evaluated_choices": {
+        "A": 6.0,
+        "B": 8.0,
+        "C": 7.211102550927978,
+        "D": 14.422205101855956,
+        "E": 51.99999999999999
+      }
+    },
+    "answer_check": {
+      "matching_options": [
+        "B"
+      ],
+      "unique": true
+    },
+    "source_gold_used_in_derivation": false,
+    "script": "../../verify_answers.py",
+    "scene_sha256": "48e94e028d57d4c0e60951bf6cd20287383dfb4d2a77467ea50acc4437305561",
+    "user_approved": false
+  },
+  "packaging": {
+    "source_sha256": "400fb1986939923530394b89ec8c6cfd6693ffa2fa7bb1b977ee23c9f408f4d6",
+    "image_sha256": "b89a5a1f67130ea78bf1ada9d992bc5a3851d206bb21f3a81264799f4fabea64",
+    "scene_source_sha256": "48e94e028d57d4c0e60951bf6cd20287383dfb4d2a77467ea50acc4437305561",
+    "script_source_sha256": "4910f586e3ee5066153e65c7b4b316e846f74775ef09f018afc43dce41ec8251",
+    "user_approved": false
+  }
+}

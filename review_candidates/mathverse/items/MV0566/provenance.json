@@ -1,0 +1,75 @@
+{
+  "source": {
+    "source_problem_index": "566",
+    "source_sample_index": "2829",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "Functions_collected",
+      "subject": "Functions",
+      "subfield": "Property"
+    },
+    "original_question": "f(x)=x^2-2x+1. Which function has a greater y-intercept, f(x) or g(x)?\nChoices:\nA:$f$ has a greater $y$-intercept than $g$.\nB:$g$ has a greater $y$-intercept than $f$.\nC:$f$ and $g$ share the same $y$-intercept.",
+    "original_answer": "A",
+    "user_approved": false
+  },
+  "audit": {
+    "id": "MV_F0566",
+    "source_visual_inspection": "Inspected original source image before choosing the frozen mathematical model.",
+    "source_observations": "Deep upward parabola with vertex about(3,-8), y-intercept near 0 and right intercept near 6.",
+    "adaptation": "The source quadratic has no formula and its small intercept is visually ambiguous. Explicitly froze the compatible parabola with vertex(3,-8) and zeros 0,6; kept the y-intercept comparison task and source choice A.",
+    "original_question": "f(x)=x^2-2x+1. Which function has a greater y-intercept, f(x) or g(x)?\nChoices:\nA:$f$ has a greater $y$-intercept than $g$.\nB:$g$ has a greater $y$-intercept than $f$.\nC:$f$ and $g$ share the same $y$-intercept.",
+    "original_answer": "A",
+    "answer_verification": {
+      "method": "Independent analytic derivation; separate executable arithmetic sanity check (not a full answer verifier)",
+      "derivation": "f(0)=1. Frozen graphedg hasg(0)=0. Thusf has larger y-intercept.",
+      "check_python": "0**2-2*0+1 > 8*(0-3)**2/9-8",
+      "arithmetic_sanity_check_passed": true,
+      "answer": "A"
+    },
+    "source_sha256": "70ce583a2e9197539a1a02a5fb6488581a1db9cad4b51f97e5663d7da8852c91",
+    "review_status": "pending_user_review",
+    "approval_record": null,
+    "render_check": {
+      "clipped_content": true,
+      "out_of_view": false,
+      "finite_points": 4001,
+      "width_px": 768,
+      "height_px": 768
+    },
+    "image_sha256": "6d03090869984b253c5d1b641d18dafb899dd54ac2515f4eaefbca0aca2f520d",
+    "automated_validation": {
+      "size": true,
+      "opacity": true,
+      "white_background": true,
+      "viewport": [
+        -8,
+        8,
+        -8,
+        8
+      ],
+      "equal_aspect": true,
+      "black_solid_1pt_objects": true,
+      "answer_schema": true,
+      "reproducible_pixel_sha256": true
+    },
+    "scene_math_checks": [
+      {
+        "test": "Question-specific values independently evaluated from frozen expression",
+        "expected_values": [
+          [
+            0,
+            0
+          ],
+          [
+            3,
+            -8
+          ]
+        ],
+        "passed": true
+      }
+    ]
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MV_F0566"
+}

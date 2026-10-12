@@ -11,11 +11,12 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 from dataset_tools import catalog
 
-def approve(branch, question_ids, instruction, root=ROOT, *, catalog_lock_held=False):
+def approve(branch, question_ids, instruction, root=ROOT, *, catalog_lock_held=False, publish=None):
+    """Record explicit approval; a supplied durable publisher owns rollback."""
     root=Path(root)
     if not catalog_lock_held:
         with catalog.catalog_write_lock(root):
-            return approve(branch, question_ids, instruction, root, catalog_lock_held=True)
+            return approve(branch, question_ids, instruction, root, catalog_lock_held=True, publish=publish)
     if branch not in catalog.BRANCHES or not instruction.strip():
         raise ValueError('A known branch and verbatim user approval are required')
     records={r['id']:r for r in catalog.rows(root/branch/'dataset.jsonl')}
@@ -34,8 +35,14 @@ def approve(branch, question_ids, instruction, root=ROOT, *, catalog_lock_held=F
         if previous:
             entry['previous_content_sha256']=previous['content_sha256']
         data['approvals'][qid]=entry
+    payload=(json.dumps(data,ensure_ascii=False,indent=2)+'\n').encode('utf-8')
+    if publish is not None:
+        # The enclosing durable transaction owns rollback when it supplies a publisher.
+        publish(path, payload)
+        catalog.build_locked(root, publish=publish)
+        return question_ids
     temporary=path.with_suffix('.json.tmp')
-    temporary.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    temporary.write_bytes(payload)
     os.replace(temporary,path)
     try:
         catalog.build_locked(root)

@@ -1,0 +1,42 @@
+{
+  "source": {
+    "source_problem_index": "787",
+    "source_sample_index": "3934",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "GEOS",
+      "subject": "Plane Geometry",
+      "subfield": "Length"
+    },
+    "original_question": "In the figure above, the smaller circles are tangent to the larger circle at points A and C, and are tangent to each other at point B. What is the perimeter of the shaded region?\nChoices:\nA.6*\\pi\nB.8*\\pi\nC.9*\\pi\nD.12*\\pi\nE.15*\\pi\n",
+    "original_answer": "D",
+    "user_approved": false
+  },
+  "audit": {
+    "source_question": "In the figure above, the smaller circles are tangent to the larger circle at points A and C, and are tangent to each other at point B. What is the perimeter of the shaded region?\nChoices:\nA.6*\\pi\nB.8*\\pi\nC.9*\\pi\nD.12*\\pi\nE.15*\\pi\n",
+    "source_answer": "D",
+    "source_image": "source.png",
+    "adaptation": {
+      "changed": true,
+      "reason": "The source does not explicitly state the small circles are congruent; added that condition to make the given radius 3 determine both circles. Preserved all original tangencies, shaded boundary, and dashed/nonboundary arcs. The copied renderer has a narrowly scoped native circular-arc fill extension that obeys the same protocol style; no source raster is read.",
+      "question_changed": true,
+      "answer_changed": false
+    },
+    "independent_solution": "Both small radii are 3, so each diameter is 6 and the large diameter is 12, giving large radius 6. The shaded boundary consists of one large semicircle and one semicircle from each small circle. Its length is 6π+3π+3π=12π, option D. Dashed small-circle halves are not part of the shaded boundary.",
+    "geometry_notes": "Coordinates were analytically constructed from the stated conditions. Computed lengths freeze a faithful shape without exposing the answer as a label. Source connections, point order, mathematical labels and relation groups were compared visually; any necessary condition or representation changes are described in adaptation.reason. Display-only coordinates do not add question conditions.",
+    "source_visual_review": {
+      "reviewed": true,
+      "method": "Viewed original image at readable scale before native geometric construction"
+    },
+    "redraw_visual_review": {
+      "reviewed": true,
+      "status": "visually_checked_pending_user_review",
+      "note": "Compared all three tangency dots/names, solid versus dashed circle halves, and the shaded boundary. Native circular-arc fill matches the intended region. Congruence condition and radius-marker conversion documented.",
+      "png_sha256": "01799cd5ad010d6ea86f70903f3eba875a7a16e92032fd2caecfbccd2fc382b0"
+    },
+    "independent_answer_verification": "answer_verification.json"
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MV787"
+}

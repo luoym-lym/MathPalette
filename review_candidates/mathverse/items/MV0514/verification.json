@@ -1,0 +1,66 @@
+{
+  "checks": {
+    "id": "MV_F0514",
+    "source_visual_inspection": "Inspected original source image before choosing the frozen mathematical model.",
+    "source_observations": "Temperature line starts 1 and reaches 5 after 20 min.",
+    "adaptation": "Kept the original temperature function; clipped its time interval to required viewport and moved axis-unit descriptions into the English stem.",
+    "original_question": "The graph shows the temperature of a room after the heater has been turned on. What is the slope of the function?",
+    "original_answer": "Slope $=\\frac{1}{5}$",
+    "answer_verification": {
+      "method": "Independent analytic derivation; separate executable arithmetic sanity check (not a full answer verifier)",
+      "derivation": "From(0,1) to(5,2), slope=(2-1)/(5-0)=1/5.",
+      "check_python": "(2-1)/(5-0)==1/5",
+      "arithmetic_sanity_check_passed": true,
+      "answer": "1/5 degree Celsius per minute"
+    },
+    "source_sha256": "d964c188c85ed6d65a027fa2fa03077b0fa7e6ef0632a2a22ebac1346d59363e",
+    "review_status": "pending_user_review",
+    "approval_record": null,
+    "render_check": {
+      "clipped_content": false,
+      "out_of_view": false,
+      "finite_points": 4001,
+      "width_px": 768,
+      "height_px": 768
+    },
+    "image_sha256": "dd029ecbf489921024774581f01f333aad21e1e5766d6b04239a88444b6425c2",
+    "automated_validation": {
+      "size": true,
+      "opacity": true,
+      "white_background": true,
+      "viewport": [
+        -8,
+        8,
+        -8,
+        8
+      ],
+      "equal_aspect": true,
+      "black_solid_1pt_objects": true,
+      "answer_schema": true,
+      "reproducible_pixel_sha256": true
+    },
+    "scene_math_checks": [
+      {
+        "test": "Question-specific values independently evaluated from frozen expression",
+        "expected_values": [
+          [
+            0,
+            1
+          ],
+          [
+            5,
+            2
+          ]
+        ],
+        "passed": true
+      }
+    ]
+  },
+  "packaging": {
+    "source_sha256": "d964c188c85ed6d65a027fa2fa03077b0fa7e6ef0632a2a22ebac1346d59363e",
+    "image_sha256": "dd029ecbf489921024774581f01f333aad21e1e5766d6b04239a88444b6425c2",
+    "scene_source_sha256": "d11adb6d8b21e208ce8861935e67cab345864f7a4baa016d74c553bf2aaaa014",
+    "script_source_sha256": "125353cda44d6f15d40ecaec2db8ae7f121de07a5bf14415bb6f2ec6b8833ec4",
+    "user_approved": false
+  }
+}

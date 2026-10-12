@@ -1,0 +1,80 @@
+{
+  "source": {
+    "source_problem_index": "753",
+    "source_sample_index": "3764",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "Geo3D_collected",
+      "subject": "Solid Geometry",
+      "subfield": "Length"
+    },
+    "original_question": "In the figure shown above, if all the water in the rectangular container is poured into the cylinder, the water level rises from $h$ inches to $(h+x)$ inches. Which of the following is the best approximation of the value of $x$ ?\nChoices:\nA:3\nB:3.4\nC:3.8\nD:4.2",
+    "original_answer": "D",
+    "user_approved": false
+  },
+  "audit": {
+    "original_record": {
+      "sample_index": "3764",
+      "problem_index": "753",
+      "problem_version": "Vision Dominant",
+      "question": "In the figure shown above, if all the water in the rectangular container is poured into the cylinder, the water level rises from $h$ inches to $(h+x)$ inches. Which of the following is the best approximation of the value of $x$ ?\nChoices:\nA:3\nB:3.4\nC:3.8\nD:4.2",
+      "image": "images_version_5/image_753.png",
+      "answer": "D",
+      "question_type": "multi-choice",
+      "metadata": {
+        "split": "testmini",
+        "source": "Geo3D_collected",
+        "subject": "Solid Geometry",
+        "subfield": "Length"
+      },
+      "query_wo": "Please directly answer the question and provide the correct option letter, e.g., A, B, C, D.\nQuestion: In the figure shown above, if all the water in the rectangular container is poured into the cylinder, the water level rises from $h$ inches to $(h+x)$ inches. Which of the following is the best approximation of the value of $x$ ?\nChoices:\nA:3\nB:3.4\nC:3.8\nD:4.2",
+      "query_cot": "Please first conduct reasoning, and then answer the question and provide the correct option letter, e.g., A, B, C, D, at the end.\nQuestion: In the figure shown above, if all the water in the rectangular container is poured into the cylinder, the water level rises from $h$ inches to $(h+x)$ inches. Which of the following is the best approximation of the value of $x$ ?\nChoices:\nA:3\nB:3.4\nC:3.8\nD:4.2"
+    },
+    "adaptation": {
+      "changed_question": true,
+      "changed_answer": false,
+      "reason": "The 4-inch mark is explicitly bound to water depth. The diagram retains 3, 6 and 5 as visual conditions; these are not copied into the revised question.",
+      "new_question": "All marked lengths are in inches. The marked depth of the rectangular container is its water depth. Pouring all this water into the cylinder raises the water level from h to h+x. Which choice best approximates x?\nChoices:\nA:3\nB:3.4\nC:3.8\nD:4.2",
+      "new_answer": "D",
+      "mathematical_answer_correction": false,
+      "source_visual_changes": [
+        "Uniform opaque white 768×768 canvas, black 1 pt geometry, prescribed fonts and source-informed labels.",
+        "All solid geometry is constructed in true 3D and projected through one frozen camera. Source sketch distortions, decorative lighting and inconsistent hidden-line styles are normalized without weakening the protocol.",
+        "The 4-inch mark is explicitly bound to water depth. The diagram retains 3, 6 and 5 as visual conditions; these are not copied into the revised question."
+      ]
+    },
+    "answer_verification": {
+      "status": "independently_verified",
+      "source_audit_record": "source_audit.json, problem_index 753",
+      "calculation": {
+        "formula": "6*5*4/(pi*3**2)",
+        "unrounded_value": 4.244131815783875,
+        "answer": "D (4.2 inches)",
+        "unit": "inches",
+        "rounding_decimal_places": 1
+      },
+      "canonical_answer": "D",
+      "source_answer_conflict": "Source drawing leaves a gap above water yet puts 4 beside the container side without dimension endpoints; intended water depth is4. If4 is full containerheight, exact water volume is undetermined."
+    },
+    "geometry_notes": {
+      "kind": "water_transfer",
+      "cylinder_radius": 3,
+      "cylinder_height_construction": 10,
+      "initial_water_height_construction": 2,
+      "rise_derived_not_displayed": 4.244131815783875,
+      "final_water_height": 6.244131815783875,
+      "rectangular_water_dimensions": [
+        6,
+        5,
+        4
+      ],
+      "rectangular_container_height_construction": 6,
+      "material_visibility": "Both containers are transparent, as in source. Water-level surfaces are semantic fills; circular boundaries have separately frozen front/back intervals.",
+      "volume_conservation": "6*5*4=pi*3**2*x"
+    },
+    "source_label_to_world_anchor": {}
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MathVerse753"
+}

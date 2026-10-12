@@ -1,0 +1,163 @@
+{
+  "source_record.json": {
+    "sample_index": "2099",
+    "problem_index": "420",
+    "problem_version": "Vision Dominant",
+    "question": "Find the length of the missing side of the trapezium shown.",
+    "image": "images_version_5/image_420.png",
+    "answer": "$5=s$",
+    "question_type": "free-form",
+    "metadata": {
+      "split": "testmini",
+      "source": "Geo2D_collected",
+      "subject": "Plane Geometry",
+      "subfield": "Length"
+    },
+    "query_wo": "Please directly answer the question and provide the final value, e.g., 1, 2.5, 300.\nQuestion: Find the length of the missing side of the trapezium shown.",
+    "query_cot": "Please first conduct reasoning, and then answer the question and provide the final value, e.g., 1, 2.5, 300, at the end.\nQuestion: Find the length of the missing side of the trapezium shown."
+  },
+  "redraw_report.json": {
+    "id": "MV420",
+    "status": "automated_and_visual_checks_complete_pending_user_review",
+    "user_approved": false,
+    "source_sha256": "7e717784b30e2bd7185c6eca95758a3711d7a9e870e338140a7fef8edb71d23b",
+    "scene_sha256": "a4803f5f0471f06f8ada588e0f2950a98360f6608d74c8793348e3c837bd10e8",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "renderer_sha256": "fb4c2fd27f7e5ba1ceead5b59f983465eb44827b3ddf897613b268ff257f5240",
+    "png_sha256": "bfa5ad9fd2251abe137802bec1879af06845289cd7eec708aa92c0f69660a0e4",
+    "svg_sha256": "1749e2a2be093c46909c0f1a1b6911b303b357f10a6f5c2ca643d0b3d12132ea",
+    "second_render_pixel_identical": true,
+    "geometry_checks": [
+      {
+        "id": "c0",
+        "type": "perpendicular",
+        "measured": 1.6653345369377348e-16,
+        "passed": true
+      },
+      {
+        "id": "c1",
+        "type": "angle",
+        "measured": 59.99999999999999,
+        "passed": true
+      },
+      {
+        "id": "c2",
+        "type": "distance",
+        "measured": 10.0,
+        "passed": true
+      },
+      {
+        "id": "c3",
+        "type": "distance",
+        "measured": 6.0,
+        "passed": true
+      },
+      {
+        "id": "c4",
+        "type": "parallel",
+        "measured": 0.0,
+        "passed": true
+      },
+      {
+        "id": "c5",
+        "type": "parallel",
+        "measured": 5.551115123125783e-17,
+        "passed": true
+      },
+      {
+        "id": "arc_binding_l0",
+        "type": "angle_annotation",
+        "label_id": "l0",
+        "arc_id": "o7",
+        "measured": 1,
+        "passed": true
+      }
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "content_bbox_px": [
+        60,
+        53,
+        707,
+        714
+      ],
+      "long_side_fraction": 0.8606770833333334,
+      "center_error_px": [
+        -0.5,
+        -0.5
+      ]
+    },
+    "versions": {
+      "python": "3.13.9",
+      "numpy": "2.5.3",
+      "matplotlib": "3.11.2",
+      "Pillow": "12.3.0"
+    },
+    "independent_answer_verification": "answer_verification.json",
+    "source_and_redraw_visually_reviewed": true
+  },
+  "answer_verification.json": {
+    "id": "MV420",
+    "status": "independent_answer_checks_passed",
+    "method": "External right triangle: the parallelogram base has perpendicular component 6 at 60 degrees.",
+    "theorem_result": 6.92820323027551,
+    "scene_measurement": 6.928203230275509,
+    "variables": {
+      "s": 6.92820323027551
+    },
+    "checks": [
+      {
+        "check": "preserved sloping side",
+        "observed": 10.0,
+        "expected": 10.0,
+        "absolute_error": 0.0
+      },
+      {
+        "check": "independent theorem result versus frozen geometry",
+        "observed": 6.928203230275509,
+        "expected": 6.92820323027551,
+        "absolute_error": 8.881784197001252e-16
+      },
+      {
+        "check": "displayed length 10 cm",
+        "observed": 10.0,
+        "expected": 10.0,
+        "absolute_error": 0.0
+      },
+      {
+        "check": "displayed length 6 cm",
+        "observed": 6.0,
+        "expected": 6.0,
+        "absolute_error": 0.0
+      },
+      {
+        "check": "displayed length s",
+        "observed": 6.928203230275509,
+        "expected": 6.92820323027551,
+        "absolute_error": 8.881784197001252e-16
+      },
+      {
+        "check": "candidate numeric answer",
+        "observed": 6.928203230275509,
+        "expected": 6.92820323027551,
+        "absolute_error": 8.881784197001252e-16
+      }
+    ],
+    "metrics": {},
+    "answer_check": {
+      "expected_value": 6.928203230275509,
+      "rounding_decimal_places": null
+    },
+    "source_gold_used_in_derivation": false,
+    "script": "../../verify_answers.py",
+    "scene_sha256": "a4803f5f0471f06f8ada588e0f2950a98360f6608d74c8793348e3c837bd10e8",
+    "user_approved": false
+  },
+  "packaging": {
+    "source_sha256": "7e717784b30e2bd7185c6eca95758a3711d7a9e870e338140a7fef8edb71d23b",
+    "image_sha256": "bfa5ad9fd2251abe137802bec1879af06845289cd7eec708aa92c0f69660a0e4",
+    "scene_source_sha256": "a4803f5f0471f06f8ada588e0f2950a98360f6608d74c8793348e3c837bd10e8",
+    "script_source_sha256": "4910f586e3ee5066153e65c7b4b316e846f74775ef09f018afc43dce41ec8251",
+    "user_approved": false
+  }
+}

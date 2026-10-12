@@ -1,0 +1,146 @@
+{
+  "source_record.json": {
+    "sample_index": "1579",
+    "problem_index": "316",
+    "problem_version": "Vision Dominant",
+    "question": "E B \\parallel D C. Find x.\nChoices:\nA:5\nB:7.5\nC:9.5\nD:10",
+    "image": "images_version_5/image_316.png",
+    "answer": "C",
+    "question_type": "multi-choice",
+    "metadata": {
+      "split": "testmini",
+      "source": "Geometry3K",
+      "subject": "Plane Geometry",
+      "subfield": "Length"
+    },
+    "query_wo": "Please directly answer the question and provide the correct option letter, e.g., A, B, C, D.\nQuestion: E B \\parallel D C. Find x.\nChoices:\nA:5\nB:7.5\nC:9.5\nD:10",
+    "query_cot": "Please first conduct reasoning, and then answer the question and provide the correct option letter, e.g., A, B, C, D, at the end.\nQuestion: E B \\parallel D C. Find x.\nChoices:\nA:5\nB:7.5\nC:9.5\nD:10"
+  },
+  "redraw_report.json": {
+    "id": "MV316",
+    "status": "automated_and_visual_checks_complete_pending_user_review",
+    "user_approved": false,
+    "source_sha256": "c1ea6e754a1fe8de3766de19bb1e45ac05dc921433bebd1dd1ab6d7a085e2914",
+    "scene_sha256": "779da5581c9e0815653905be45656d10d1d4f294b4a18225e2b4ade8dd1d556c",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "renderer_sha256": "fb4c2fd27f7e5ba1ceead5b59f983465eb44827b3ddf897613b268ff257f5240",
+    "png_sha256": "057d78a9af254067a2be5b499166910baf22d11af85999ce5b06bff6be3f7708",
+    "svg_sha256": "659056f50a79abaf22b2b2e6f26102455eaee7a48a3381ff1cfd2999b2334f14",
+    "second_render_pixel_identical": true,
+    "geometry_checks": [
+      {
+        "id": "c0",
+        "type": "parallel",
+        "measured": 7.401486830834377e-17,
+        "passed": true
+      },
+      {
+        "id": "c1",
+        "type": "distance",
+        "measured": 10.0,
+        "passed": true
+      },
+      {
+        "id": "c2",
+        "type": "distance",
+        "measured": 4.0,
+        "passed": true
+      },
+      {
+        "id": "c3",
+        "type": "distance",
+        "measured": 5.000000000000001,
+        "passed": true
+      }
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "content_bbox_px": [
+        54,
+        95,
+        714,
+        673
+      ],
+      "long_side_fraction": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ]
+    },
+    "versions": {
+      "python": "3.13.9",
+      "numpy": "2.5.3",
+      "matplotlib": "3.11.2",
+      "Pillow": "12.3.0"
+    },
+    "independent_answer_verification": "answer_verification.json",
+    "source_and_redraw_visually_reviewed": true
+  },
+  "answer_verification.json": {
+    "id": "MV316",
+    "status": "independent_answer_checks_passed",
+    "method": "Parallel cut gives AB/BC=AE/ED=(10-4)/4.",
+    "theorem_result": 9.5,
+    "scene_measurement": 9.5,
+    "variables": {
+      "x": 9.5
+    },
+    "checks": [
+      {
+        "check": "independent theorem result versus frozen geometry",
+        "observed": 9.5,
+        "expected": 9.5,
+        "absolute_error": 0.0
+      },
+      {
+        "check": "displayed length 10",
+        "observed": 10.0,
+        "expected": 10.0,
+        "absolute_error": 0.0
+      },
+      {
+        "check": "displayed length 4",
+        "observed": 4.0,
+        "expected": 4.0,
+        "absolute_error": 0.0
+      },
+      {
+        "check": "displayed length x - 2",
+        "observed": 7.5,
+        "expected": 7.5,
+        "absolute_error": 0.0
+      },
+      {
+        "check": "displayed length 5",
+        "observed": 5.000000000000001,
+        "expected": 5.0,
+        "absolute_error": 8.881784197001252e-16
+      }
+    ],
+    "metrics": {
+      "evaluated_choices": {
+        "A": 5.0,
+        "B": 7.5,
+        "C": 9.5,
+        "D": 10.0
+      }
+    },
+    "answer_check": {
+      "matching_options": [
+        "C"
+      ],
+      "unique": true
+    },
+    "source_gold_used_in_derivation": false,
+    "script": "../../verify_answers.py",
+    "scene_sha256": "779da5581c9e0815653905be45656d10d1d4f294b4a18225e2b4ade8dd1d556c",
+    "user_approved": false
+  },
+  "packaging": {
+    "source_sha256": "c1ea6e754a1fe8de3766de19bb1e45ac05dc921433bebd1dd1ab6d7a085e2914",
+    "image_sha256": "057d78a9af254067a2be5b499166910baf22d11af85999ce5b06bff6be3f7708",
+    "scene_source_sha256": "779da5581c9e0815653905be45656d10d1d4f294b4a18225e2b4ade8dd1d556c",
+    "script_source_sha256": "4910f586e3ee5066153e65c7b4b316e846f74775ef09f018afc43dce41ec8251",
+    "user_approved": false
+  }
+}

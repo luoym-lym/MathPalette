@@ -1,0 +1,45 @@
+{
+  "source": {
+    "source_problem_index": "80",
+    "source_sample_index": "399",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "GeoQA",
+      "subject": "Plane Geometry",
+      "subfield": "Applied"
+    },
+    "original_question": "As shown in the figure, a cylinder with a bottom circumference of 24.0, the shortest route that an ant passes along the surface from point A to point B is ()\nChoices:\nA:12m\nB:15m\nC:13m\nD:14m",
+    "original_answer": "C",
+    "user_approved": false
+  },
+  "audit": {
+    "source_record": "source_record.json",
+    "source_image_sha256": "558f22a257d49a44131bc53b042a0ad35d901e99dc2fddf67296b9a424df45c4",
+    "adaptations": [
+      {
+        "type": "surface_scope_clarification",
+        "reason": "Specified curved lateral surface and opposite generators, the standard intended interpretation of the source ant-path problem."
+      }
+    ],
+    "independent_solution": {
+      "method": "On the unrolled lateral surface, opposite generators are separated by half the circumference=12m. With vertical difference5m the shortest lateral path is√(12²+5²)=13m.",
+      "computed_answer": "C",
+      "matches_current_answer": true
+    },
+    "approval_status": "not_requested_or_granted",
+    "geometry_notes": {
+      "kind": "right_circular_cylinder",
+      "base_centers": [
+        "O",
+        "Q"
+      ],
+      "radius": 3.819718634205488,
+      "height": 5,
+      "visibility_derivation": "Viewer has negative y and positive z. Entire top boundary visible; front lower semicircle y<0 visible; rear lower semicircle hidden or source-omitted. Side contours x=+-r,y=0 are analytical tangent generators.",
+      "source_hidden_bottom_shown": false
+    }
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MV80"
+}

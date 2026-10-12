@@ -1,0 +1,59 @@
+{
+  "checks": {
+    "id": "MV_F0589",
+    "source_visual_inspection": "Inspected original source image before choosing the frozen mathematical model.",
+    "source_observations": "f=ln(x); steeper g shares root 1 and appears to be 3 ln(x).",
+    "adaptation": "The source gray/black curves are both black and directly labeled f and g.",
+    "original_question": "$g(x)$ is a transformation of $f(x)$.\n\nWhat sort of transformation is $g(x)$ of $f(x)$ ?\nChoices:\nA:Vertical dilation\nB:Vertical translation\nC:Reflection\nD:Horizontal translation",
+    "original_answer": "A",
+    "answer_verification": {
+      "method": "Independent analytic derivation; separate executable arithmetic sanity check (not a full answer verifier)",
+      "derivation": "Both curves pass through (1,0); the ordinate of g is three times that of f, a vertical dilation.",
+      "check_python": "abs((3*np.log(2))/np.log(2)-3)<1e-12",
+      "arithmetic_sanity_check_passed": true,
+      "answer": "A"
+    },
+    "source_sha256": "9dc2223e4bd5e790ee71661a54ef58c5775220aff863ffe49aaf97aafaf14950",
+    "review_status": "pending_user_review",
+    "approval_record": null,
+    "render_check": {
+      "clipped_content": true,
+      "out_of_view": false,
+      "finite_points": 8002,
+      "width_px": 768,
+      "height_px": 768
+    },
+    "image_sha256": "ee3213df00c7507caff57078a5f5cb4df2cab4745a7dcbd0fc903aa694c656a2",
+    "automated_validation": {
+      "size": true,
+      "opacity": true,
+      "white_background": true,
+      "viewport": [
+        -8,
+        8,
+        -8,
+        8
+      ],
+      "equal_aspect": true,
+      "black_solid_1pt_objects": true,
+      "answer_schema": true,
+      "reproducible_pixel_sha256": true
+    },
+    "scene_math_checks": [
+      {
+        "test": "Evaluate transformed curve at defining landmark",
+        "curve_index": 1,
+        "x": 2.718281828459045,
+        "expected_y": 3,
+        "passed": true
+      }
+    ]
+  },
+  "packaging": {
+    "source_sha256": "9dc2223e4bd5e790ee71661a54ef58c5775220aff863ffe49aaf97aafaf14950",
+    "image_sha256": "ee3213df00c7507caff57078a5f5cb4df2cab4745a7dcbd0fc903aa694c656a2",
+    "scene_source_sha256": "54b322e87e02eda2f83b0c699c08e2273cc9789bfe629fcf1bcd433744c8853b",
+    "script_source_sha256": "ca19b923cc70082c71a7831f65b54b926eca880a65b377766f4bddc95dc5d202",
+    "user_approved": false
+  }
+}

@@ -1,0 +1,495 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MV0674",
+  "status": "unapproved_candidate",
+  "subject": "SolidGeometry",
+  "source_dataset": "MathVerse",
+  "source_image": "source.png",
+  "source_note": "Official MathVerse testmini Vision Dominant problem 674, sample 3369; source image preserved unmodified.",
+  "world_unit": "cm",
+  "points": {
+    "O": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "Q": [
+      0.0,
+      0.0,
+      10.0
+    ],
+    "L": [
+      -2.5,
+      0.0,
+      0.0
+    ],
+    "Ltop": [
+      -2.5,
+      0.0,
+      10.0
+    ],
+    "R": [
+      2.5,
+      0.0,
+      0.0
+    ],
+    "Rtop": [
+      2.5,
+      0.0,
+      10.0
+    ],
+    "lower_ball_O": [
+      0.0,
+      0.0,
+      2.5
+    ],
+    "upper_ball_O": [
+      0.0,
+      0.0,
+      7.5
+    ]
+  },
+  "projection": {
+    "kind": "orthographic",
+    "name": "Frozen source-oriented orthographic view",
+    "matrix": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0.23770262642713458,
+        0.9713379748520297
+      ]
+    ],
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "toward_viewer": [
+      0,
+      -0.9713379748520297,
+      0.23770262642713458
+    ]
+  },
+  "view": {
+    "xlim": [
+      -5.2037849858489444,
+      7.222769897088533
+    ],
+    "ylim": [
+      -1.8304612925518216,
+      10.596093590385657
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "visibility": {
+    "mode": "frozen_intervals",
+    "projection_sha256": "36c56051f886ddf764f3a82638b937e2fce4e657beb950ac0121dbd783e4ed8a",
+    "notes": "Analytically frozen for the declared model and view; no generic occlusion assumption."
+  },
+  "objects": [
+    {
+      "id": "silhouette_L",
+      "type": "segment",
+      "points": [
+        "L",
+        "Ltop"
+      ],
+      "visibility": "visible",
+      "role": "silhouette"
+    },
+    {
+      "id": "silhouette_R",
+      "type": "segment",
+      "points": [
+        "R",
+        "Rtop"
+      ],
+      "visibility": "visible",
+      "role": "silhouette"
+    },
+    {
+      "id": "upper_rim",
+      "type": "circular_arc",
+      "center": "Q",
+      "radius": 2.5,
+      "u": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "v": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "domain_deg": [
+        0,
+        360
+      ],
+      "role": "edge",
+      "intervals": [
+        {
+          "start_deg": 0.0,
+          "end_deg": 360.0,
+          "visibility": "visible",
+          "samples": 722
+        }
+      ]
+    },
+    {
+      "id": "lower_rim",
+      "type": "circular_arc",
+      "center": "O",
+      "radius": 2.5,
+      "u": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "v": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "domain_deg": [
+        0,
+        360
+      ],
+      "role": "edge",
+      "intervals": [
+        {
+          "start_deg": 0.0,
+          "end_deg": 180.0,
+          "visibility": "hidden",
+          "samples": 362
+        },
+        {
+          "start_deg": 180.0,
+          "end_deg": 360.0,
+          "visibility": "visible",
+          "samples": 362
+        }
+      ]
+    },
+    {
+      "id": "lower_ball_contour_part0",
+      "type": "circular_arc",
+      "center": "lower_ball_O",
+      "radius": 2.5,
+      "u": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "v": [
+        -0.0,
+        0.23770262642713458,
+        0.9713379748520297
+      ],
+      "domain_deg": [
+        0,
+        76.24901341316479
+      ],
+      "role": "silhouette",
+      "intervals": [
+        {
+          "start_deg": 0.0,
+          "end_deg": 76.24901341316479,
+          "visibility": "visible",
+          "samples": 154
+        }
+      ]
+    },
+    {
+      "id": "lower_ball_contour_part2",
+      "type": "circular_arc",
+      "center": "lower_ball_O",
+      "radius": 2.5,
+      "u": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "v": [
+        -0.0,
+        0.23770262642713458,
+        0.9713379748520297
+      ],
+      "domain_deg": [
+        103.75098658683521,
+        360
+      ],
+      "role": "silhouette",
+      "intervals": [
+        {
+          "start_deg": 103.75098658683521,
+          "end_deg": 360.0,
+          "visibility": "visible",
+          "samples": 514
+        }
+      ]
+    },
+    {
+      "id": "upper_ball_contour_part0",
+      "type": "circular_arc",
+      "center": "upper_ball_O",
+      "radius": 2.5,
+      "u": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "v": [
+        -0.0,
+        0.23770262642713458,
+        0.9713379748520297
+      ],
+      "domain_deg": [
+        0,
+        360
+      ],
+      "role": "silhouette",
+      "intervals": [
+        {
+          "start_deg": 0.0,
+          "end_deg": 360.0,
+          "visibility": "visible",
+          "samples": 722
+        }
+      ]
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "height_dimension",
+      "type": "distance",
+      "points": [
+        "R",
+        "Rtop"
+      ],
+      "value": 10.0,
+      "unit": "cm",
+      "decimals": 0,
+      "text": "10 cm",
+      "offset_pt": [
+        24.0,
+        -0.0
+      ],
+      "label_offset_pt": [
+        34,
+        0
+      ],
+      "basis": "Source dimension range; arrow/end-cap styling replaced with required Plane02 parallel dashed dimension."
+    },
+    {
+      "id": "radius_dimension",
+      "type": "distance",
+      "points": [
+        "O",
+        "R"
+      ],
+      "value": 2.5,
+      "unit": "cm",
+      "decimals": 1,
+      "text": "2.5 cm",
+      "offset_pt": [
+        0.0,
+        -42.0
+      ],
+      "label_offset_pt": [
+        0,
+        -16
+      ],
+      "basis": "Source dimension range; arrow/end-cap styling replaced with required Plane02 parallel dashed dimension."
+    }
+  ],
+  "labels": [],
+  "constraints": [
+    {
+      "id": "tangent_L",
+      "type": "projected_tangent",
+      "basis": "Cylinder contour: radial normal perpendicular to viewing direction.",
+      "circle": "upper_rim",
+      "point": "Ltop",
+      "segment": [
+        "L",
+        "Ltop"
+      ]
+    },
+    {
+      "id": "tangent_R",
+      "type": "projected_tangent",
+      "basis": "Cylinder contour: radial normal perpendicular to viewing direction.",
+      "circle": "upper_rim",
+      "point": "Rtop",
+      "segment": [
+        "R",
+        "Rtop"
+      ]
+    },
+    {
+      "id": "true_radius",
+      "type": "distance",
+      "basis": "Construction check of frozen world-space geometry. Actual source givens and any derived values are distinguished in the source-image audit and geometry notes; no unlabelled construction value is an added given.",
+      "points": [
+        "Q",
+        "Rtop"
+      ],
+      "value": 2.5
+    },
+    {
+      "id": "true_height",
+      "type": "distance",
+      "basis": "Construction check of frozen world-space geometry. Actual source givens and any derived values are distinguished in the source-image audit and geometry notes; no unlabelled construction value is an added given.",
+      "points": [
+        "O",
+        "Q"
+      ],
+      "value": 10.0
+    },
+    {
+      "id": "radius_perpendicular_axis",
+      "type": "perpendicular",
+      "basis": "Construction check of frozen world-space geometry. Actual source givens and any derived values are distinguished in the source-image audit and geometry notes; no unlabelled construction value is an added given.",
+      "segments": [
+        [
+          "Q",
+          "Rtop"
+        ],
+        [
+          "O",
+          "Q"
+        ]
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "solid_model": {
+    "kind": "analytic_CSG",
+    "components": [
+      {
+        "kind": "sphere",
+        "center": [
+          0,
+          0,
+          2.5
+        ],
+        "radius": 2.5
+      },
+      {
+        "kind": "sphere",
+        "center": [
+          0,
+          0,
+          7.5
+        ],
+        "radius": 2.5
+      }
+    ],
+    "description": "Two equal opaque tangent spheres inside an explicitly transparent cylindrical container. Container edge visibility is frozen separately; spheres occlude one another.",
+    "visibility_derivation": "Ray intersections with every finite analytic surface and clipping plane are sorted. Positive open ray intervals are tested against the union-minus-subtraction material domain. Boundary curves are partitioned at isolated visibility transitions refined by 40 bisections; all frozen intervals are explicitly stored and sampled separately. No raster hand tracing or draw-order occlusion is used.",
+    "transparent_container": {
+      "radius": 2.5,
+      "height": 10,
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "not_in_opaque_occluders": true
+    }
+  },
+  "csg_visibility": [
+    {
+      "id": "lower_ball_contour",
+      "type": "circle",
+      "center": "lower_ball_O",
+      "radius": 2.5,
+      "u": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "v": [
+        -0.0,
+        0.23770262642713458,
+        0.9713379748520297
+      ],
+      "domain": [
+        0,
+        360
+      ],
+      "intervals": [
+        [
+          0,
+          76.24901341316479,
+          "visible"
+        ],
+        [
+          76.24901341316479,
+          103.75098658683521,
+          "hidden"
+        ],
+        [
+          103.75098658683521,
+          360,
+          "visible"
+        ]
+      ],
+      "hidden_drawn": false,
+      "root_isolation_step_deg": 0.25,
+      "boundary_refinement_iterations": 40
+    },
+    {
+      "id": "upper_ball_contour",
+      "type": "circle",
+      "center": "upper_ball_O",
+      "radius": 2.5,
+      "u": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "v": [
+        -0.0,
+        0.23770262642713458,
+        0.9713379748520297
+      ],
+      "domain": [
+        0,
+        360
+      ],
+      "intervals": [
+        [
+          0,
+          360,
+          "visible"
+        ]
+      ],
+      "hidden_drawn": false,
+      "root_isolation_step_deg": 0.25,
+      "boundary_refinement_iterations": 40
+    }
+  ]
+}

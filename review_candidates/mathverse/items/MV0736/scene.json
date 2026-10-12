@@ -1,0 +1,478 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MV0736",
+  "status": "unapproved_candidate",
+  "subject": "SolidGeometry",
+  "source_dataset": "MathVerse",
+  "source_image": "source.png",
+  "source_note": "Official MathVerse testmini Vision Dominant problem 736, sample 3679; source image preserved unmodified.",
+  "world_unit": "cm",
+  "points": {
+    "A": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "B": [
+      3.0,
+      0.0,
+      0.0
+    ],
+    "C": [
+      3.0,
+      9.0,
+      0.0
+    ],
+    "D": [
+      0.0,
+      9.0,
+      0.0
+    ],
+    "W": [
+      1.5,
+      4.5,
+      0.0
+    ],
+    "V": [
+      1.5,
+      4.5,
+      13.919410907075054
+    ],
+    "M": [
+      3.0,
+      4.5,
+      0.0
+    ],
+    "base_width_anchor": [
+      1.5,
+      0.0,
+      0.0
+    ],
+    "base_depth_anchor": [
+      3.0,
+      4.5,
+      0.0
+    ]
+  },
+  "projection": {
+    "kind": "oblique",
+    "name": "Source-oriented oblique projection of true right pyramid",
+    "matrix": [
+      [
+        1,
+        0.55,
+        0
+      ],
+      [
+        0,
+        0.35,
+        1
+      ]
+    ],
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "toward_viewer": [
+      0.55,
+      -1,
+      0.35
+    ]
+  },
+  "view": {
+    "xlim": [
+      -4.490325834588851,
+      12.587324381031117
+    ],
+    "ylim": [
+      -1.1127826403148662,
+      15.964867575305103
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "visibility": {
+    "mode": "frozen_intervals",
+    "projection_sha256": "9d86f637ff8d7049da03c54f1251628c4afd20e9c1456a881aa887bc37cc8b97",
+    "notes": "Analytically frozen for the declared model and view; no generic occlusion assumption."
+  },
+  "objects": [
+    {
+      "id": "edge_0_0",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "edge_1_0",
+      "type": "segment",
+      "points": [
+        "B",
+        "C"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "edge_2_0",
+      "type": "segment",
+      "points": [
+        "C",
+        "D"
+      ],
+      "visibility": "hidden",
+      "role": "edge"
+    },
+    {
+      "id": "edge_3_0",
+      "type": "segment",
+      "points": [
+        "D",
+        "A"
+      ],
+      "visibility": "hidden",
+      "role": "edge"
+    },
+    {
+      "id": "edge_4_0",
+      "type": "segment",
+      "points": [
+        "A",
+        "V"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "edge_5_0",
+      "type": "segment",
+      "points": [
+        "B",
+        "V"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "edge_6_0",
+      "type": "segment",
+      "points": [
+        "C",
+        "V"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "edge_7_0",
+      "type": "segment",
+      "points": [
+        "D",
+        "V"
+      ],
+      "visibility": "hidden",
+      "role": "edge"
+    },
+    {
+      "id": "source_slant",
+      "type": "segment",
+      "points": [
+        "V",
+        "M"
+      ],
+      "visibility": "hidden",
+      "role": "auxiliary"
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "slant_length",
+      "type": "distance",
+      "points": [
+        "M",
+        "V"
+      ],
+      "value": 14.0,
+      "unit": "cm",
+      "decimals": 0,
+      "text": "14 cm",
+      "offset_pt": [
+        13.919410907075056,
+        1.5000000000000007
+      ],
+      "label_offset_pt": [
+        61.516000000000005,
+        0.0
+      ],
+      "basis": "Source dimension range; arrow/end-cap styling replaced with required Plane02 parallel dashed dimension."
+    }
+  ],
+  "labels": [
+    {
+      "id": "base_width",
+      "type": "text",
+      "text": "3 cm",
+      "anchor": "base_width_anchor",
+      "offset_pt": [
+        0,
+        -17
+      ],
+      "ha": "center",
+      "va": "center"
+    },
+    {
+      "id": "base_depth",
+      "type": "text",
+      "text": "9 cm",
+      "anchor": "base_depth_anchor",
+      "offset_pt": [
+        28,
+        -12
+      ],
+      "ha": "center",
+      "va": "center"
+    }
+  ],
+  "constraints": [
+    {
+      "id": "height_true",
+      "type": "distance",
+      "basis": "Construction check of frozen world-space geometry. Actual source givens and any derived values are distinguished in the source-image audit and geometry notes; no unlabelled construction value is an added given.",
+      "points": [
+        "W",
+        "V"
+      ],
+      "value": 13.919410907075054
+    },
+    {
+      "id": "base_width_true",
+      "type": "distance",
+      "basis": "Construction check of frozen world-space geometry. Actual source givens and any derived values are distinguished in the source-image audit and geometry notes; no unlabelled construction value is an added given.",
+      "points": [
+        "A",
+        "B"
+      ],
+      "value": 3.0
+    },
+    {
+      "id": "base_depth_true",
+      "type": "distance",
+      "basis": "Construction check of frozen world-space geometry. Actual source givens and any derived values are distinguished in the source-image audit and geometry notes; no unlabelled construction value is an added given.",
+      "points": [
+        "B",
+        "C"
+      ],
+      "value": 9.0
+    }
+  ],
+  "ambiguities": [],
+  "solid_model": {
+    "kind": "polyhedron",
+    "faces": [
+      [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      [
+        "A",
+        "B",
+        "V"
+      ],
+      [
+        "B",
+        "C",
+        "V"
+      ],
+      [
+        "C",
+        "D",
+        "V"
+      ],
+      [
+        "D",
+        "A",
+        "V"
+      ]
+    ],
+    "edges": [
+      [
+        "A",
+        "B"
+      ],
+      [
+        "B",
+        "C"
+      ],
+      [
+        "C",
+        "D"
+      ],
+      [
+        "D",
+        "A"
+      ],
+      [
+        "A",
+        "V"
+      ],
+      [
+        "B",
+        "V"
+      ],
+      [
+        "C",
+        "V"
+      ],
+      [
+        "D",
+        "V"
+      ]
+    ],
+    "frozen_edge_visibility": [
+      {
+        "endpoints": [
+          "A",
+          "B"
+        ],
+        "parameter_intervals": [
+          [
+            0.0,
+            1.0,
+            "visible"
+          ]
+        ],
+        "hidden_drawn": true
+      },
+      {
+        "endpoints": [
+          "B",
+          "C"
+        ],
+        "parameter_intervals": [
+          [
+            0.0,
+            1.0,
+            "visible"
+          ]
+        ],
+        "hidden_drawn": true
+      },
+      {
+        "endpoints": [
+          "C",
+          "D"
+        ],
+        "parameter_intervals": [
+          [
+            0.0,
+            1.0,
+            "hidden"
+          ]
+        ],
+        "hidden_drawn": true
+      },
+      {
+        "endpoints": [
+          "D",
+          "A"
+        ],
+        "parameter_intervals": [
+          [
+            0.0,
+            1.0,
+            "hidden"
+          ]
+        ],
+        "hidden_drawn": true
+      },
+      {
+        "endpoints": [
+          "A",
+          "V"
+        ],
+        "parameter_intervals": [
+          [
+            0.0,
+            1.0,
+            "visible"
+          ]
+        ],
+        "hidden_drawn": true
+      },
+      {
+        "endpoints": [
+          "B",
+          "V"
+        ],
+        "parameter_intervals": [
+          [
+            0.0,
+            1.0,
+            "visible"
+          ]
+        ],
+        "hidden_drawn": true
+      },
+      {
+        "endpoints": [
+          "C",
+          "V"
+        ],
+        "parameter_intervals": [
+          [
+            0.0,
+            1.0,
+            "visible"
+          ]
+        ],
+        "hidden_drawn": true
+      },
+      {
+        "endpoints": [
+          "D",
+          "V"
+        ],
+        "parameter_intervals": [
+          [
+            0.0,
+            1.0,
+            "hidden"
+          ]
+        ],
+        "hidden_drawn": true
+      }
+    ],
+    "visibility_derivation": "Each edge is split at all projected face-boundary intersections. For each open interval a 3D ray toward_viewer is tested against every face plane and its true polygon. Adjacent equal states merged. Source-omitted hidden edges are retained in model but not drawn.",
+    "right_pyramid": {
+      "base_dimensions": [
+        3,
+        9
+      ],
+      "base_center": "W",
+      "apex": "V",
+      "perpendicular_height": 13.919410907075054
+    }
+  }
+}

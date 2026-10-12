@@ -1,0 +1,75 @@
+{
+  "source": {
+    "source_problem_index": "515",
+    "source_sample_index": "2574",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "Functions_collected",
+      "subject": "Functions",
+      "subfield": "Applied"
+    },
+    "original_question": "The graph shows the amount of water remaining in a bucket that was initially full before a hole was made in its side. What is the slope of the function?",
+    "original_answer": "Slope $=-\\frac{1}{2}$",
+    "user_approved": false
+  },
+  "audit": {
+    "id": "MV_F0515",
+    "source_visual_inspection": "Inspected original source image before choosing the frozen mathematical model.",
+    "source_observations": "Bucket line from (0,30) through(40,10).",
+    "adaptation": "Original time and liters both divided by 10 to display intercept 30 liters as y=3 in the fixed square; physical slope unchanged.",
+    "original_question": "The graph shows the amount of water remaining in a bucket that was initially full before a hole was made in its side. What is the slope of the function?",
+    "original_answer": "Slope $=-\\frac{1}{2}$",
+    "answer_verification": {
+      "method": "Independent analytic derivation; separate executable arithmetic sanity check (not a full answer verifier)",
+      "derivation": "Graph slope=-1/2 scaled y-unit/x-unit. Equal 10-unit axis factors cancel, giving-1/2 liter/minute.",
+      "check_python": "(1-3)/(4-0)*10/10==-.5",
+      "arithmetic_sanity_check_passed": true,
+      "answer": "-1/2 liter per minute"
+    },
+    "source_sha256": "ffed4526e5e11d3aeaa418d154b35cac628fe7b44d7fb6c33d19534f5ddafb9c",
+    "review_status": "pending_user_review",
+    "approval_record": null,
+    "render_check": {
+      "clipped_content": false,
+      "out_of_view": false,
+      "finite_points": 4001,
+      "width_px": 768,
+      "height_px": 768
+    },
+    "image_sha256": "fba5d78a8d41dedb211d954f9a17afa0c6a449207f3478a4b0f7671b80c659f1",
+    "automated_validation": {
+      "size": true,
+      "opacity": true,
+      "white_background": true,
+      "viewport": [
+        -8,
+        8,
+        -8,
+        8
+      ],
+      "equal_aspect": true,
+      "black_solid_1pt_objects": true,
+      "answer_schema": true,
+      "reproducible_pixel_sha256": true
+    },
+    "scene_math_checks": [
+      {
+        "test": "Question-specific values independently evaluated from frozen expression",
+        "expected_values": [
+          [
+            0,
+            3
+          ],
+          [
+            4,
+            1
+          ]
+        ],
+        "passed": true
+      }
+    ]
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MV_F0515"
+}

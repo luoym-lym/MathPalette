@@ -1,0 +1,242 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MV0364",
+  "status": "candidate_unapproved",
+  "source_dataset": "MathVerse",
+  "source_image": "source.png",
+  "view": {
+    "xlim": [
+      -69.24413220782205,
+      69.34970932107188
+    ],
+    "ylim": [
+      -58.484524576783784,
+      80.10931695211015
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "ink_bbox_px": [
+        54,
+        260,
+        713,
+        507
+      ],
+      "center_error_px": [
+        0.0,
+        0.0
+      ],
+      "long_side_fraction": 0.859375,
+      "minimum_outer_margin_fraction": 0.0703125
+    }
+  },
+  "points": {
+    "A": [
+      -65.9,
+      0
+    ],
+    "B": [
+      65.9,
+      0
+    ],
+    "O": [
+      0,
+      0
+    ],
+    "T": [
+      0,
+      35.5
+    ],
+    "d1a": [
+      0,
+      -8
+    ],
+    "d1b": [
+      65.9,
+      -8.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "o2",
+      "type": "segment",
+      "points": [
+        "O",
+        "T"
+      ]
+    },
+    {
+      "id": "o3",
+      "type": "segment",
+      "points": [
+        "A",
+        "T"
+      ]
+    },
+    {
+      "id": "o4",
+      "type": "segment",
+      "points": [
+        "B",
+        "T"
+      ]
+    },
+    {
+      "id": "o5",
+      "type": "segment",
+      "points": [
+        "d1a",
+        "d1b"
+      ],
+      "linestyle": "dashed",
+      "role": "dimension"
+    },
+    {
+      "id": "o6",
+      "type": "segment",
+      "points": [
+        "O",
+        "d1a"
+      ],
+      "role": "dimension"
+    },
+    {
+      "id": "o7",
+      "type": "segment",
+      "points": [
+        "B",
+        "d1b"
+      ],
+      "role": "dimension"
+    }
+  ],
+  "labels": [
+    {
+      "id": "l1",
+      "type": "text",
+      "text": "65.9 m",
+      "anchor": [
+        32.95,
+        -8.0
+      ],
+      "offset_pt": [
+        0,
+        -17
+      ],
+      "segment_points": [
+        "O",
+        "B"
+      ]
+    },
+    {
+      "id": "l2",
+      "type": "text",
+      "text": "35.5 m",
+      "anchor": [
+        0.0,
+        17.75
+      ],
+      "offset_pt": [
+        -36,
+        0
+      ],
+      "segment_points": [
+        "O",
+        "T"
+      ]
+    },
+    {
+      "id": "l3",
+      "type": "text",
+      "text": "h",
+      "anchor": [
+        32.95,
+        17.75
+      ],
+      "offset_pt": [
+        17,
+        12
+      ],
+      "segment_points": [
+        "T",
+        "B"
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c1",
+      "type": "parallel",
+      "segments": [
+        [
+          "O",
+          "B"
+        ],
+        [
+          "d1a",
+          "d1b"
+        ]
+      ]
+    },
+    {
+      "id": "c2",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "O",
+          "B"
+        ],
+        [
+          "O",
+          "d1a"
+        ]
+      ]
+    },
+    {
+      "id": "c3",
+      "type": "distance",
+      "points": [
+        "O",
+        "B"
+      ],
+      "value": 65.9
+    },
+    {
+      "id": "c4",
+      "type": "distance",
+      "points": [
+        "O",
+        "T"
+      ],
+      "value": 35.5
+    }
+  ],
+  "ambiguities": [],
+  "distance_markers": [
+    {
+      "id": "d1",
+      "segment_points": [
+        "O",
+        "B"
+      ],
+      "dimension_points": [
+        "d1a",
+        "d1b"
+      ],
+      "dashed_line_id": "o5",
+      "connector_line_ids": [
+        "o6",
+        "o7"
+      ],
+      "label_id": "l1"
+    }
+  ]
+}

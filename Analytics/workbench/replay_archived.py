@@ -15,7 +15,6 @@ def render_special_recipe(recipe, output_path=None, config_path=None):
     adapter = RendererAdapter(config)
     current = adapter.manifest
     recipe = copy.deepcopy(recipe)
-    current_renderer = renderer_fingerprint()
     if current["fingerprint"] != recipe["baseline_fingerprint"]:
         archive = contained_path(Path(config["output_dir"]),
                                  f"_baselines/{recipe['baseline_fingerprint']}.json")
@@ -26,9 +25,14 @@ def render_special_recipe(recipe, output_path=None, config_path=None):
         source_name = Path(adapter.sources[qid]["source_file"]).name
         dependencies = ("common_renderer.py", "protocol.json", f"image/{qid}.png",
                         f"question_classes/{source_name}")
+        row = adapter.records[qid]
+        if row.get("scene"):
+            dependencies += (f"scenes/{qid}.json",)
+        dependencies += tuple("runtime_dependencies/" + p for p in row.get("runtime_dependencies", []))
         if (original.get("fingerprint") != recipe["baseline_fingerprint"] or
                 canonical_hash({"files": original["files"], "environment": original["environment"]}) != original["fingerprint"] or any(
-                original["files"].get(name) != current["files"].get(name) for name in dependencies)):
+                name not in original["files"] or name not in current["files"] or
+                original["files"][name] != current["files"][name] for name in dependencies)):
             raise WorkbenchError("这道题本身的绘图输入已改变，不能按旧参数重绘。", 409, "baseline_changed")
         # The original immutable recipe stays intact. The renderer still verifies
         # schema, environment, parameters and exact saved pixels before writing.

@@ -1,0 +1,70 @@
+{
+  "source": {
+    "source_problem_index": "491",
+    "source_sample_index": "2454",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "Functions_collected",
+      "subject": "Functions",
+      "subfield": "Property"
+    },
+    "original_question": "Estimate the point(s) at which the graph of odd function f  has a local maximum or a local minimum.",
+    "original_answer": "\\text { Local minimum at }(-2,-2) \\text {, decreasing on }(-3,-2) \\text {, increasing on }(-2, \\infty)",
+    "user_approved": false
+  },
+  "audit": {
+    "id": "MV_F0491",
+    "source_visual_inspection": "Inspected original source image before choosing the frozen mathematical model.",
+    "source_observations": "Finite cubic; left endpoint approximately(-7.5,-220), right endpoint near(7,150); two interior extrema near±3.",
+    "adaptation": "The finite source curve has filled endpoints at approximately x=-7.5 and 7. Its exact formula is unstated; explicitly froze the compatible cubicx³-27x on[-7.5,7] and divided y by 50 so both endpoints remain visible. Preserved both filled endpoints and corrected unrelated source gold. Asked for interior local extrema, not endpoints.",
+    "original_question": "Estimate the point(s) at which the graph of odd function f  has a local maximum or a local minimum.",
+    "original_answer": "\\text { Local minimum at }(-2,-2) \\text {, decreasing on }(-3,-2) \\text {, increasing on }(-2, \\infty)",
+    "answer_verification": {
+      "method": "Independent analytic derivation; separate executable arithmetic sanity check (not a full answer verifier)",
+      "derivation": "For the adapted cubic (x^3-27x)/50 on[-7.5,7], derivative=3(x²-9)/50 changes+ to- at-3 and- to+ at 3; extrema ordinates are+1.08 and-1.08.",
+      "check_python": "((-3)**3-27*(-3))/50==1.08 and (3**3-27*3)/50==-1.08",
+      "arithmetic_sanity_check_passed": true,
+      "answer": "Local maximum: approximately (-3,1.1); local minimum: approximately (3,-1.1)."
+    },
+    "source_sha256": "8cd44bbbac50a19492b4c3fcc720a7ea770bf0fcfe9f5fa5c8db520da3b6c672",
+    "review_status": "pending_user_review",
+    "approval_record": null,
+    "render_check": {
+      "clipped_content": false,
+      "out_of_view": false,
+      "finite_points": 4003,
+      "width_px": 768,
+      "height_px": 768
+    },
+    "image_sha256": "13541d588a529e6675d14a4e92feabb0aa1fdadeeef997f147919a46a6b318ce",
+    "automated_validation": {
+      "size": true,
+      "opacity": true,
+      "white_background": true,
+      "viewport": [
+        -8,
+        8,
+        -8,
+        8
+      ],
+      "equal_aspect": true,
+      "black_solid_1pt_objects": true,
+      "answer_schema": true,
+      "reproducible_pixel_sha256": true
+    },
+    "scene_math_checks": [
+      {
+        "test": "Every marked point lies on a frozen curve, line, or outline",
+        "point_count": 2,
+        "passed": true
+      },
+      {
+        "test": "Closed/open endpoint and requested range landmarks read from the frozen scene",
+        "passed": true
+      }
+    ]
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MV_F0491"
+}

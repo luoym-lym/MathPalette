@@ -6,6 +6,7 @@ import io
 import json
 import os
 import platform
+import sys
 import tempfile
 from datetime import datetime, timezone
 from importlib.metadata import version
@@ -64,6 +65,29 @@ def environment_versions():
 def renderer_fingerprint():
     return canonical_hash({name: file_hash(ROOT / name) for name in
                            ("renderer_adapter.py", "render_plugins.py", "workbench_io.py")})
+
+
+def renderer_matches(recipe, adapter):
+    current = renderer_fingerprint()
+    if recipe.get("renderer_sha256") == current:
+        return True
+    project = ROOT.parent.parent
+    if str(project) not in sys.path:
+        sys.path.insert(0, str(project))
+    from dataset_tools.legacy_variant_compatibility import legacy_renderer_matches
+    record = adapter.records.get(recipe.get("question_id"), {})
+    return legacy_renderer_matches(ROOT.parent.name + "/Special",
+                                   recipe.get("renderer_sha256"), current,
+                                   record, adapter.manifest["files"])
+
+
+def progress_renderer_matches(previous, current, adapter, old_manifest, old_records):
+    project = ROOT.parent.parent
+    if str(project) not in sys.path:
+        sys.path.insert(0, str(project))
+    from dataset_tools.legacy_variant_compatibility import legacy_progress_matches
+    return legacy_progress_matches(ROOT.parent.name + "/Special", previous, current,
+                                   adapter.records, adapter.manifest, old_manifest, old_records)
 
 
 def _unique_object(pairs):

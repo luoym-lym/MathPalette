@@ -1,0 +1,66 @@
+{
+  "source": {
+    "source_problem_index": "519",
+    "source_sample_index": "2594",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "Functions_collected",
+      "subject": "Functions",
+      "subfield": "Applied"
+    },
+    "original_question": "In both equations $x$ represents rainfall (in centimeters). When there is $0 \\mathrm{~cm}$ of rainfall, the number of mosquitos is the same as the number of bats. What is another rainfall amount where the number of mosquitos is the same as the number of bats?\nRound your answer to the nearest half centimeter.",
+    "original_answer": "4",
+    "user_approved": false
+  },
+  "audit": {
+    "id": "MV_F0519",
+    "source_visual_inspection": "Inspected original source image before choosing the frozen mathematical model.",
+    "source_observations": "Two parabolas labelled y=5x-x² and y=3x-.5x², meet at (0,0),(4,4).",
+    "adaptation": "Restyled the source mathematical objects using the strict Analytics renderer; no question or answer semantic change intended.",
+    "original_question": "In both equations $x$ represents rainfall (in centimeters). When there is $0 \\mathrm{~cm}$ of rainfall, the number of mosquitos is the same as the number of bats. What is another rainfall amount where the number of mosquitos is the same as the number of bats?\nRound your answer to the nearest half centimeter.",
+    "original_answer": "4",
+    "answer_verification": {
+      "method": "Independent analytic derivation; separate executable arithmetic sanity check (not a full answer verifier)",
+      "derivation": "Equating 5x-x² and 3x-x²/2 gives x(2-x/2)=0, so the other intersection is 4.",
+      "check_python": "5*4-4**2==3*4-.5*4**2",
+      "arithmetic_sanity_check_passed": true,
+      "answer": "4 cm"
+    },
+    "source_sha256": "882ab1de0c3a84562e2b473bf15c4f7ff6efdedb31900d75c336c010315428c3",
+    "review_status": "pending_user_review",
+    "approval_record": null,
+    "render_check": {
+      "clipped_content": false,
+      "out_of_view": false,
+      "finite_points": 8002,
+      "width_px": 768,
+      "height_px": 768
+    },
+    "image_sha256": "ed43b283c652f49f53438eae260c99bdf0892bc0ffe57d9dd05393f7e5907a14",
+    "automated_validation": {
+      "size": true,
+      "opacity": true,
+      "white_background": true,
+      "viewport": [
+        -8,
+        8,
+        -8,
+        8
+      ],
+      "equal_aspect": true,
+      "black_solid_1pt_objects": true,
+      "answer_schema": true,
+      "reproducible_pixel_sha256": true
+    },
+    "scene_math_checks": [
+      {
+        "test": "Evaluate both frozen functions at independently solved intersection",
+        "x": 4.0,
+        "passed": true
+      }
+    ]
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MV_F0519"
+}

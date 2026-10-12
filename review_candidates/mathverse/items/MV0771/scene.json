@@ -1,0 +1,246 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MV0771",
+  "status": "candidate_unapproved",
+  "source_dataset": "MathVerse",
+  "source_image": "source.png",
+  "view": {
+    "xlim": [
+      -8.089352893668881,
+      8.012034914068188
+    ],
+    "ylim": [
+      -8.362688976648162,
+      7.738698831088908
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "ink_bbox_px": [
+        54,
+        69,
+        714,
+        698
+      ],
+      "center_error_px": [
+        0.5,
+        0.0
+      ],
+      "long_side_fraction": 0.8606770833333334,
+      "minimum_outer_margin_fraction": 0.06901041666666667
+    }
+  },
+  "points": {
+    "O": [
+      0,
+      0
+    ],
+    "A": [
+      -7,
+      0
+    ],
+    "B": [
+      7,
+      0
+    ],
+    "C": [
+      0,
+      -7
+    ],
+    "d1a": [
+      -7.0,
+      1.1
+    ],
+    "d1b": [
+      0.0,
+      1.1
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "circle",
+      "center": "O",
+      "radius": 7
+    },
+    {
+      "id": "o2",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "o3",
+      "type": "point",
+      "point": "O"
+    },
+    {
+      "id": "o4",
+      "type": "right_angle",
+      "points": [
+        "A",
+        "C",
+        "B"
+      ]
+    },
+    {
+      "id": "o5",
+      "type": "segment",
+      "points": [
+        "d1a",
+        "d1b"
+      ],
+      "linestyle": "dashed",
+      "role": "dimension"
+    },
+    {
+      "id": "o6",
+      "type": "segment",
+      "points": [
+        "A",
+        "d1a"
+      ],
+      "role": "dimension"
+    },
+    {
+      "id": "o7",
+      "type": "segment",
+      "points": [
+        "O",
+        "d1b"
+      ],
+      "role": "dimension"
+    }
+  ],
+  "labels": [
+    {
+      "id": "l1",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        -15,
+        0
+      ]
+    },
+    {
+      "id": "l2",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        15,
+        0
+      ]
+    },
+    {
+      "id": "l3",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        0,
+        -15
+      ]
+    },
+    {
+      "id": "l4",
+      "type": "vertex",
+      "point": "O",
+      "offset_pt": [
+        0,
+        -18
+      ]
+    },
+    {
+      "id": "l5",
+      "type": "text",
+      "text": "7",
+      "anchor": [
+        -3.5,
+        1.1
+      ],
+      "offset_pt": [
+        0,
+        13
+      ],
+      "segment_points": [
+        "A",
+        "O"
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c1",
+      "type": "parallel",
+      "segments": [
+        [
+          "A",
+          "O"
+        ],
+        [
+          "d1a",
+          "d1b"
+        ]
+      ]
+    },
+    {
+      "id": "c2",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "O"
+        ],
+        [
+          "A",
+          "d1a"
+        ]
+      ]
+    },
+    {
+      "id": "c3",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ]
+    },
+    {
+      "id": "c4",
+      "type": "distance",
+      "points": [
+        "A",
+        "O"
+      ],
+      "value": 7
+    }
+  ],
+  "ambiguities": [],
+  "distance_markers": [
+    {
+      "id": "d1",
+      "segment_points": [
+        "A",
+        "O"
+      ],
+      "dimension_points": [
+        "d1a",
+        "d1b"
+      ],
+      "dashed_line_id": "o5",
+      "connector_line_ids": [
+        "o6",
+        "o7"
+      ],
+      "label_id": "l5"
+    }
+  ]
+}

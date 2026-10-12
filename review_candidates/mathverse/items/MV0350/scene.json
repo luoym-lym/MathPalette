@@ -1,0 +1,292 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MV0350",
+  "status": "candidate_unapproved",
+  "source_dataset": "MathVerse",
+  "source_image": "source.png",
+  "view": {
+    "xlim": [
+      -9234.454678195216,
+      2053.974945468295
+    ],
+    "ylim": [
+      -4707.974268498551,
+      6580.45535516496
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "ink_bbox_px": [
+        54,
+        285,
+        713,
+        482
+      ],
+      "center_error_px": [
+        0.0,
+        0.0
+      ],
+      "long_side_fraction": 0.859375,
+      "minimum_outer_margin_fraction": 0.0703125
+    }
+  },
+  "points": {
+    "A": [
+      -8662.951748568312,
+      2000
+    ],
+    "B": [
+      -6974.828887681818,
+      2000
+    ],
+    "C": [
+      0,
+      2000
+    ],
+    "O": [
+      0,
+      0
+    ],
+    "d1a": [
+      260.0,
+      0.0
+    ],
+    "d1b": [
+      260.0,
+      2000.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "segment",
+      "points": [
+        "A",
+        "C"
+      ]
+    },
+    {
+      "id": "o2",
+      "type": "segment",
+      "points": [
+        "A",
+        "O"
+      ]
+    },
+    {
+      "id": "o3",
+      "type": "segment",
+      "points": [
+        "B",
+        "O"
+      ]
+    },
+    {
+      "id": "o4",
+      "type": "segment",
+      "points": [
+        "C",
+        "O"
+      ]
+    },
+    {
+      "id": "o5",
+      "type": "angle_arc",
+      "points": [
+        "C",
+        "A",
+        "O"
+      ],
+      "radius_pt": 24,
+      "reflex": false
+    },
+    {
+      "id": "o6",
+      "type": "angle_arc",
+      "points": [
+        "C",
+        "B",
+        "O"
+      ],
+      "radius_pt": 24,
+      "reflex": false
+    },
+    {
+      "id": "o7",
+      "type": "segment",
+      "points": [
+        "d1a",
+        "d1b"
+      ],
+      "linestyle": "dashed",
+      "role": "dimension"
+    },
+    {
+      "id": "o8",
+      "type": "segment",
+      "points": [
+        "O",
+        "d1a"
+      ],
+      "role": "dimension"
+    },
+    {
+      "id": "o9",
+      "type": "segment",
+      "points": [
+        "C",
+        "d1b"
+      ],
+      "role": "dimension"
+    }
+  ],
+  "labels": [
+    {
+      "id": "l1",
+      "type": "angle",
+      "points": [
+        "C",
+        "A",
+        "O"
+      ],
+      "arc_id": "o5",
+      "radius_pt": 53,
+      "reflex": false,
+      "degrees": 13,
+      "offset_pt": [
+        -3.9999999999999973,
+        22.92820323027551
+      ]
+    },
+    {
+      "id": "l2",
+      "type": "angle",
+      "points": [
+        "C",
+        "B",
+        "O"
+      ],
+      "arc_id": "o6",
+      "radius_pt": 56,
+      "reflex": false,
+      "degrees": 16,
+      "offset_pt": [
+        11.000000000000002,
+        19.05255888325765
+      ]
+    },
+    {
+      "id": "l3",
+      "type": "text",
+      "text": "2000 m",
+      "anchor": [
+        260.0,
+        1000.0
+      ],
+      "offset_pt": [
+        38.0,
+        0.0
+      ],
+      "segment_points": [
+        "O",
+        "C"
+      ]
+    },
+    {
+      "id": "l4",
+      "type": "text",
+      "text": "Airport",
+      "anchor": "O",
+      "offset_pt": [
+        0,
+        -22
+      ]
+    },
+    {
+      "id": "l5",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        -7,
+        -17
+      ]
+    },
+    {
+      "id": "l6",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        -13.000000000000005,
+        -27.39230484541326
+      ]
+    },
+    {
+      "id": "l7",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        22.0,
+        -10.0
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c1",
+      "type": "parallel",
+      "segments": [
+        [
+          "O",
+          "C"
+        ],
+        [
+          "d1a",
+          "d1b"
+        ]
+      ]
+    },
+    {
+      "id": "c2",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "O",
+          "C"
+        ],
+        [
+          "O",
+          "d1a"
+        ]
+      ]
+    },
+    {
+      "id": "c3",
+      "type": "distance",
+      "points": [
+        "O",
+        "C"
+      ],
+      "value": 2000.0
+    }
+  ],
+  "ambiguities": [],
+  "distance_markers": [
+    {
+      "id": "d1",
+      "segment_points": [
+        "O",
+        "C"
+      ],
+      "dimension_points": [
+        "d1a",
+        "d1b"
+      ],
+      "dashed_line_id": "o7",
+      "connector_line_ids": [
+        "o8",
+        "o9"
+      ],
+      "label_id": "l3"
+    }
+  ]
+}

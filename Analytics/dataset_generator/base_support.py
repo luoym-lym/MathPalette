@@ -245,6 +245,10 @@ class Dataset:
         _, _, row = self.load_question(qid)
         paths = [self.sources[qid], self.helpers / "common_renderer.py", self.helpers / "protocol.json",
                  inside(self.root, row["image"])]
+        record = self.records[qid]
+        if record.get("scene"):
+            paths.append(inside(self.root, record["scene"]))
+        paths.extend(inside(self.root, p) for p in record.get("runtime_dependencies", []))
         return {"record": row, "files": {p.relative_to(self.root).as_posix(): digest(p.read_bytes()) for p in paths}}
 
     def verify_original(self, qid):

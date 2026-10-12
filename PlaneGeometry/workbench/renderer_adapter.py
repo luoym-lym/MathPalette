@@ -23,7 +23,7 @@ from workbench_io import (WorkbenchError, canonical_hash, contained_path, enviro
 
 RENDER_LOCK = threading.RLock()
 BRANCH = "PlaneGeometry"
-STYLEABLE = {"segment", "circle", "arc", "polygon", "angle_arc", "right_angle", "equal_tick", "parallel_mark"}
+STYLEABLE = {"segment", "circle", "arc", "polygon", "angle_arc", "right_angle", "equal_tick", "parallel_mark", "ellipse"}
 # Plane02 predates dimension roles. These legacy measurement/extension points
 # are not mathematical vertices. The original frozen scene stays untouched.
 SNAP_EXCLUDED = {"Plane02": {"aq1", "aq2", "P_extension", "Q_extension"},
@@ -117,6 +117,9 @@ class RendererAdapter:
                             **{f"image/{qid}.png": p for qid, p in self.original_paths.items()},
                             **{f"scenes/{qid}.json": p for qid, p in self.scene_paths.items()},
                             **{f"question_classes/{p.name}": p for p in self.source_files}}
+        for row in self.records.values():
+            for dependency in row.get("runtime_dependencies", []):
+                self.input_files["runtime_dependencies/" + dependency] = contained_path(self.branch_root, dependency)
         self.manifest = self.make_manifest()
         if expected_manifest and self.manifest != expected_manifest:
             raise WorkbenchError("输入基线或依赖版本变化；请恢复已审核环境。", 409, "baseline_changed")
@@ -126,6 +129,22 @@ class RendererAdapter:
         spec = importlib.util.spec_from_file_location("_plane_special_original_renderer", renderer_path)
         self.renderer = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(self.renderer)
+        self.family_renderers = {}
+        for row in self.records.values():
+            family = row.get("renderer_family")
+            if not family or family in self.family_renderers:
+                continue
+            if family not in {"plane", "plane_extended", "plane_arrows", "plane_curves"}:
+                raise WorkbenchError("不支持的平面冻结绘图器家族。")
+            relative = f"dataset_generator/mathverse_renderers/{family}/common_renderer.py"
+            protocol = f"dataset_generator/mathverse_renderers/{family}/protocol.json"
+            if not {relative, protocol}.issubset(row.get("runtime_dependencies", [])):
+                raise WorkbenchError("冻结绘图器与协议必须列入审核依赖。")
+            spec = importlib.util.spec_from_file_location("_plane_special_" + family,
+                                                        contained_path(self.branch_root, relative))
+            renderer = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(renderer)
+            self.family_renderers[family] = renderer
         self.frozen_scenes = {qid: read_json(p) for qid, p in self.scene_paths.items()}
         self.sources = {qid: {"source_file": str(self.source_paths[qid]), "source_class": qid,
                               "source_dataset": r["source_dataset"], "scene_path": str(self.scene_paths[qid]),
@@ -133,7 +152,8 @@ class RendererAdapter:
 
     def dependencies(self, qid):
         return ("common_renderer.py", "protocol.json", "geometry_dataset.py", f"image/{qid}.png",
-                f"scenes/{qid}.json", f"question_classes/{self.source_paths[qid].name}")
+                f"scenes/{qid}.json", f"question_classes/{self.source_paths[qid].name}") + tuple(
+                    "runtime_dependencies/" + p for p in self.records[qid].get("runtime_dependencies", []))
 
     def make_manifest(self):
         values = {"files": {name: file_hash(p) for name, p in sorted(self.input_files.items())},
@@ -149,9 +169,10 @@ class RendererAdapter:
             raise WorkbenchError("不存在此平面题号。")
         with RENDER_LOCK:
             frozen = self.frozen_scenes[qid]
+            renderer = self.family_renderers.get(self.records[qid].get("renderer_family"), self.renderer)
             by_id = {item["id"]: item for item in frozen["objects"]}
             captured = {oid: [] for oid in by_id}
-            render_code = self.renderer.render_scene.__code__
+            render_code = renderer.render_scene.__code__
 
             def tracked(method):
                 original = getattr(Axes, method)
@@ -165,7 +186,8 @@ class RendererAdapter:
                         if item and item.get("id") in by_id:
                             # Semantic polygons have separate fill and outline;
                             # never recolor the fill alongside its opaque stroke.
-                            if not (isinstance(artist, Patch) and artist.get_edgecolor()[3] == 0):
+                            if item["type"] in {"region", "curved_region"} or not (
+                                    isinstance(artist, Patch) and artist.get_edgecolor()[3] == 0):
                                 captured[item["id"]].append(artist)
                     finally:
                         del frame
@@ -173,8 +195,8 @@ class RendererAdapter:
                 return add
 
             with bindings(Axes, {method: tracked(method) for method in ("add_line", "add_patch", "add_collection")}):
-                fig, _ = self.renderer.render_scene(frozen)
-            objects = [{"id": item["id"], "type": "curve" if item["type"] in STYLEABLE else "point",
+                fig, _ = renderer.render_scene(frozen)
+            objects = [{"id": item["id"], "type": "curve" if item["type"] in STYLEABLE else item["type"],
                         "kind": item["type"], "styleable": item["type"] in STYLEABLE,
                         "source_call": {"scene_object_id": item["id"]},
                         "geometry": copy.deepcopy(item), "artist_count": len(captured[item["id"]])}

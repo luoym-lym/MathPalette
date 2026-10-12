@@ -1,0 +1,61 @@
+{
+  "checks": {
+    "id": "MV_F0555",
+    "source_visual_inspection": "Inspected original source image before choosing the frozen mathematical model.",
+    "source_observations": "Unit-circle first-quadrant theta ray.",
+    "adaptation": "Converted source choose-two A, C into one answer-letter over pairs, preserving exact trigonometric target and avoiding an invalid multi-letter choice answer.",
+    "original_question": "Which two of the following expressions are OPPOSITE of $\\cos (\\theta)$ ? Choose 2 answers:\nChoices:\nA:$\\cos (\\pi+\\theta)$\nB:$\\cos \\left(\\frac{\\pi}{2}-\\theta\\right)$\nC:$\\cos (\\pi-\\theta)$\nD:$\\cos (2 \\pi-\\theta)$",
+    "original_answer": "A\nC",
+    "answer_verification": {
+      "method": "Independent analytic derivation; separate executable arithmetic sanity check (not a full answer verifier)",
+      "derivation": "Cosine at pi±theta equals-cos(theta); cos(pi/2-theta)=sin(theta), cos(2 pi-theta)=cos(theta).",
+      "check_python": "abs(np.cos(np.pi+.6)+np.cos(.6))<1e-12 and abs(np.cos(np.pi-.6)+np.cos(.6))<1e-12",
+      "arithmetic_sanity_check_passed": true,
+      "answer": "A"
+    },
+    "source_sha256": "56dc575fd767556d81f11419f4f9a27b2a3291b198854bff8669c3399bfd77fa",
+    "review_status": "pending_user_review",
+    "approval_record": null,
+    "render_check": {
+      "clipped_content": false,
+      "out_of_view": false,
+      "finite_points": 2030,
+      "width_px": 768,
+      "height_px": 768
+    },
+    "image_sha256": "6bdf0f784f3e92a28a07aaaf80ba974a808a6d19da71177c8432ef2b16cc9317",
+    "automated_validation": {
+      "size": true,
+      "opacity": true,
+      "white_background": true,
+      "viewport": [
+        -8,
+        8,
+        -8,
+        8
+      ],
+      "equal_aspect": true,
+      "black_solid_1pt_objects": true,
+      "answer_schema": true,
+      "reproducible_pixel_sha256": true
+    },
+    "scene_math_checks": [
+      {
+        "test": "Every marked point lies on a frozen curve, line, or outline",
+        "point_count": 1,
+        "passed": true
+      },
+      {
+        "test": "All marked trigonometric points lie exactly on unit circle",
+        "passed": true
+      }
+    ]
+  },
+  "packaging": {
+    "source_sha256": "56dc575fd767556d81f11419f4f9a27b2a3291b198854bff8669c3399bfd77fa",
+    "image_sha256": "6bdf0f784f3e92a28a07aaaf80ba974a808a6d19da71177c8432ef2b16cc9317",
+    "scene_source_sha256": "3926eeb0d005bc3265ca30aa16b89e8e43e08c080e56f63ffd864ae7bd22c20b",
+    "script_source_sha256": "77d47c2fac292288ffa6a2c35797257adff8d10e815d05dcb74ebd2606e0345b",
+    "user_approved": false
+  }
+}

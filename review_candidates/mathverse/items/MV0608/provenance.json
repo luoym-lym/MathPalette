@@ -1,0 +1,66 @@
+{
+  "source": {
+    "source_problem_index": "608",
+    "source_sample_index": "3039",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "Functions_collected",
+      "subject": "Functions",
+      "subfield": "Applied"
+    },
+    "original_question": "What is the average rate of change in the graph?",
+    "original_answer": "$\\frac{1}{2000}$",
+    "user_approved": false
+  },
+  "audit": {
+    "id": "MV_F0608",
+    "source_visual_inspection": "Inspected original source image before choosing the frozen mathematical model.",
+    "source_observations": "Price line intercept 14, points(6 thousand,17),(16 thousand,22).",
+    "adaptation": "Source x-values in thousands divided by 5; dollars divided by 5. Declared physical units and retained both marked points.",
+    "original_question": "What is the average rate of change in the graph?",
+    "original_answer": "$\\frac{1}{2000}$",
+    "answer_verification": {
+      "method": "Independent analytic derivation; separate executable arithmetic sanity check (not a full answer verifier)",
+      "derivation": "Original marked points(6000,17),(16000,22) give 5 dollars per 10000 toys=1/2000 dollar per toy, or.50 dollar per 1000 toys.",
+      "check_python": "(22-17)/(16000-6000)==1/2000",
+      "arithmetic_sanity_check_passed": true,
+      "answer": "1/2000 dollar per toy"
+    },
+    "source_sha256": "f5f7d73cebf11517a78c8d5dd7ec725d512a91a06e953b5289496671967e902a",
+    "review_status": "pending_user_review",
+    "approval_record": null,
+    "render_check": {
+      "clipped_content": false,
+      "out_of_view": false,
+      "finite_points": 4003,
+      "width_px": 768,
+      "height_px": 768
+    },
+    "image_sha256": "40fd9e7db755e7b8d7aaddab27c80cc34f723ffad801ea078ec82c2c52a70236",
+    "automated_validation": {
+      "size": true,
+      "opacity": true,
+      "white_background": true,
+      "viewport": [
+        -8,
+        8,
+        -8,
+        8
+      ],
+      "equal_aspect": true,
+      "black_solid_1pt_objects": true,
+      "answer_schema": true,
+      "reproducible_pixel_sha256": true
+    },
+    "scene_math_checks": [
+      {
+        "test": "Every marked point lies on a frozen curve, line, or outline",
+        "point_count": 2,
+        "passed": true
+      }
+    ]
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MV_F0608"
+}

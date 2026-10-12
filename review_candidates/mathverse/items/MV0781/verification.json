@@ -1,0 +1,160 @@
+{
+  "source_record.json": {
+    "sample_index": "3904",
+    "problem_index": "781",
+    "problem_version": "Vision Dominant",
+    "question": "In the figure above, CDE is an equilateral triangle and ABCE is a square with an area of 1. What is the perimeter of polygon ABCDE?\nChoices:\nA.4\nB.5\nC.6\nD.7\nE.8\n",
+    "image": "images_version_5/image_781.png",
+    "answer": "B",
+    "question_type": "multi-choice",
+    "metadata": {
+      "split": "testmini",
+      "source": "GEOS",
+      "subject": "Plane Geometry",
+      "subfield": "Length"
+    },
+    "query_wo": "Please directly answer the question and provide the correct option letter, e.g., A, B, C, D.\nQuestion: In the figure above, CDE is an equilateral triangle and ABCE is a square with an area of 1. What is the perimeter of polygon ABCDE?\nChoices:\nA.4\nB.5\nC.6\nD.7\nE.8\n",
+    "query_cot": "Please first conduct reasoning, and then answer the question and provide the correct option letter, e.g., A, B, C, D, at the end.\nQuestion: In the figure above, CDE is an equilateral triangle and ABCE is a square with an area of 1. What is the perimeter of polygon ABCDE?\nChoices:\nA.4\nB.5\nC.6\nD.7\nE.8\n"
+  },
+  "redraw_report.json": {
+    "id": "MV781",
+    "status": "automated_and_visual_checks_complete_pending_user_review",
+    "user_approved": false,
+    "source_sha256": "564bd62450a74505c5aaa758ffff990b3b2bde1be8e3ccf53486fc1e44385183",
+    "scene_sha256": "3e1c61e414aa7c241c83d8f43ae98d72a05a2ff50c7f58718a8db226fdd9b278",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "renderer_sha256": "fb4c2fd27f7e5ba1ceead5b59f983465eb44827b3ddf897613b268ff257f5240",
+    "png_sha256": "fc5478ce96edc33c2749bc20b2ab197a7cdc0599a33dfd596b57bc5b93687175",
+    "svg_sha256": "0c5e038bccf1323cf199d67336807c43be59e1bc9544f2eae6b47b236b1aed99",
+    "second_render_pixel_identical": true,
+    "geometry_checks": [
+      {
+        "id": "c0",
+        "type": "equal_length",
+        "measured": [
+          1.0,
+          1.0
+        ],
+        "passed": true
+      },
+      {
+        "id": "c1",
+        "type": "equal_length",
+        "measured": [
+          1.0,
+          1.0
+        ],
+        "passed": true
+      },
+      {
+        "id": "c2",
+        "type": "equal_length",
+        "measured": [
+          1.0,
+          1.0
+        ],
+        "passed": true
+      },
+      {
+        "id": "c3",
+        "type": "equal_length",
+        "measured": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "passed": true
+      },
+      {
+        "id": "c4",
+        "type": "equal_length",
+        "measured": [
+          0.9999999999999999,
+          1.0
+        ],
+        "passed": true
+      },
+      {
+        "id": "c5",
+        "type": "distance",
+        "measured": 1.0,
+        "passed": true
+      },
+      {
+        "id": "c6",
+        "type": "perpendicular",
+        "measured": 0.0,
+        "passed": true
+      }
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "content_bbox_px": [
+        54,
+        193,
+        713,
+        575
+      ],
+      "long_side_fraction": 0.8580729166666666,
+      "center_error_px": [
+        -0.5,
+        0.0
+      ]
+    },
+    "versions": {
+      "python": "3.13.9",
+      "numpy": "2.5.3",
+      "matplotlib": "3.11.2",
+      "Pillow": "12.3.0"
+    },
+    "independent_answer_verification": "answer_verification.json",
+    "source_and_redraw_visually_reviewed": true
+  },
+  "answer_verification.json": {
+    "id": "MV781",
+    "status": "independent_answer_checks_passed",
+    "method": "Square side sqrt(area)=1 is also the equilateral triangle side; sum the five exterior sides.",
+    "theorem_result": 5.0,
+    "scene_measurement": 5.0,
+    "variables": {},
+    "checks": [
+      {
+        "check": "square area",
+        "observed": 1.0,
+        "expected": 1.0,
+        "absolute_error": 0.0
+      },
+      {
+        "check": "independent theorem result versus frozen geometry",
+        "observed": 5.0,
+        "expected": 5.0,
+        "absolute_error": 0.0
+      }
+    ],
+    "metrics": {
+      "evaluated_choices": {
+        "A": 4.0,
+        "B": 5.0,
+        "C": 6.0,
+        "D": 7.0,
+        "E": 8.0
+      }
+    },
+    "answer_check": {
+      "matching_options": [
+        "B"
+      ],
+      "unique": true
+    },
+    "source_gold_used_in_derivation": false,
+    "script": "../../verify_answers.py",
+    "scene_sha256": "3e1c61e414aa7c241c83d8f43ae98d72a05a2ff50c7f58718a8db226fdd9b278",
+    "user_approved": false
+  },
+  "packaging": {
+    "source_sha256": "564bd62450a74505c5aaa758ffff990b3b2bde1be8e3ccf53486fc1e44385183",
+    "image_sha256": "fc5478ce96edc33c2749bc20b2ab197a7cdc0599a33dfd596b57bc5b93687175",
+    "scene_source_sha256": "3e1c61e414aa7c241c83d8f43ae98d72a05a2ff50c7f58718a8db226fdd9b278",
+    "script_source_sha256": "4910f586e3ee5066153e65c7b4b316e846f74775ef09f018afc43dce41ec8251",
+    "user_approved": false
+  }
+}

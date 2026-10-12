@@ -1,0 +1,50 @@
+{
+  "source": {
+    "source_problem_index": "126",
+    "source_sample_index": "629",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "GeoQA",
+      "subject": "Plane Geometry",
+      "subfield": "Area"
+    },
+    "original_question": "As shown in the figure, then the lateral area of ​​the cone is ()\nChoices:\nA:60π\nB:80π\nC:10π\nD:96π",
+    "original_answer": "A",
+    "user_approved": false
+  },
+  "audit": {
+    "source_record": "source_record.json",
+    "source_image_sha256": "87ef94713d32090e6ab3b0abfee7df8b8281d2bb7f8076a0dfe25024b66c0b64",
+    "adaptations": [
+      {
+        "type": "protocol_projection",
+        "reason": "Reconstructed genuine3D cone/cylinder and froze orthographic projection, tangent silhouettes and source-retained visibility. No distorted ellipse tracing."
+      },
+      {
+        "type": "text_encoding_cleanup",
+        "reason": "Removed source encoding/control-character artifacts without changing any mathematical condition."
+      }
+    ],
+    "independent_solution": {
+      "method": "The marked radius is6 and slantheight is10. Lateralarea=πrl=60π.",
+      "computed_answer": "A",
+      "matches_current_answer": true
+    },
+    "approval_status": "not_requested_or_granted",
+    "geometry_notes": {
+      "kind": "right_circular_cone",
+      "base_center": "O",
+      "axis_end": "T",
+      "radius": 6,
+      "height": 8.0,
+      "silhouette_tangent_angles_deg": [
+        11.040711432694145,
+        168.95928856730586
+      ],
+      "visibility_derivation": "Lateral normal (cos(t),sin(t),r/h). Dot toward_viewer vanishes at two frozen tangent angles. Facing lateral surface exposes base arc; back rim is hidden."
+    }
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MV126"
+}

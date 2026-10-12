@@ -1,0 +1,50 @@
+{
+  "source": {
+    "source_problem_index": "129",
+    "source_sample_index": "644",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "GeoQA",
+      "subject": "Plane Geometry",
+      "subfield": "Applied"
+    },
+    "original_question": "As shown in the picture, and the lateral area of ​​the cone-shaped tent roof (excluding the seams) is ()\nChoices:\nA:15πm^{2}\nB:30πm^{2}\nC:50πm^{2}\nD:75πm^{2}",
+    "original_answer": "C",
+    "user_approved": false
+  },
+  "audit": {
+    "source_record": "source_record.json",
+    "source_image_sha256": "8c00ead4329f16d1df65ec939ad6322ec09e2bd7dad8e4f24913634ae8ca6db5",
+    "adaptations": [
+      {
+        "type": "protocol_projection",
+        "reason": "Reconstructed genuine3D cone/cylinder and froze orthographic projection, tangent silhouettes and source-retained visibility. No distorted ellipse tracing."
+      },
+      {
+        "type": "text_encoding_cleanup",
+        "reason": "Removed source encoding/control-character artifacts without changing any mathematical condition."
+      }
+    ],
+    "independent_solution": {
+      "method": "The marked radius is5 and slantheight is10. Lateralarea=πrl=50π.",
+      "computed_answer": "C",
+      "matches_current_answer": true
+    },
+    "approval_status": "not_requested_or_granted",
+    "geometry_notes": {
+      "kind": "right_circular_cone",
+      "base_center": "O",
+      "axis_end": "T",
+      "radius": 5,
+      "height": 8.660254037844387,
+      "silhouette_tangent_angles_deg": [
+        8.477541293396076,
+        171.5224587066039
+      ],
+      "visibility_derivation": "Lateral normal (cos(t),sin(t),r/h). Dot toward_viewer vanishes at two frozen tangent angles. Facing lateral surface exposes base arc; back rim is hidden."
+    }
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MV129"
+}

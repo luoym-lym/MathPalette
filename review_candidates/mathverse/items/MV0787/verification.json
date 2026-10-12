@@ -1,0 +1,133 @@
+{
+  "source_record.json": {
+    "sample_index": "3934",
+    "problem_index": "787",
+    "problem_version": "Vision Dominant",
+    "question": "In the figure above, the smaller circles are tangent to the larger circle at points A and C, and are tangent to each other at point B. What is the perimeter of the shaded region?\nChoices:\nA.6*\\pi\nB.8*\\pi\nC.9*\\pi\nD.12*\\pi\nE.15*\\pi\n",
+    "image": "images_version_5/image_787.png",
+    "answer": "D",
+    "question_type": "multi-choice",
+    "metadata": {
+      "split": "testmini",
+      "source": "GEOS",
+      "subject": "Plane Geometry",
+      "subfield": "Length"
+    },
+    "query_wo": "Please directly answer the question and provide the correct option letter, e.g., A, B, C, D.\nQuestion: In the figure above, the smaller circles are tangent to the larger circle at points A and C, and are tangent to each other at point B. What is the perimeter of the shaded region?\nChoices:\nA.6*\\pi\nB.8*\\pi\nC.9*\\pi\nD.12*\\pi\nE.15*\\pi\n",
+    "query_cot": "Please first conduct reasoning, and then answer the question and provide the correct option letter, e.g., A, B, C, D, at the end.\nQuestion: In the figure above, the smaller circles are tangent to the larger circle at points A and C, and are tangent to each other at point B. What is the perimeter of the shaded region?\nChoices:\nA.6*\\pi\nB.8*\\pi\nC.9*\\pi\nD.12*\\pi\nE.15*\\pi\n"
+  },
+  "redraw_report.json": {
+    "id": "MV787",
+    "status": "automated_and_visual_checks_complete_pending_user_review",
+    "user_approved": false,
+    "source_sha256": "168a44e7cf5e1a3890975967d770e90c259a63e5b7aeccee04027e740a8be3be",
+    "scene_sha256": "32e9a0528385f4a6364237a31c88679e24d19edb2ea888046e67e3c507840679",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "renderer_sha256": "fb4c2fd27f7e5ba1ceead5b59f983465eb44827b3ddf897613b268ff257f5240",
+    "png_sha256": "01799cd5ad010d6ea86f70903f3eba875a7a16e92032fd2caecfbccd2fc382b0",
+    "svg_sha256": "f658fee2987bd18f642cf6a3a06dbc7bbe70f94a3c5694f00f47246f02bdcd81",
+    "second_render_pixel_identical": true,
+    "geometry_checks": [
+      {
+        "id": "c0",
+        "type": "distance",
+        "measured": 3.0,
+        "passed": true
+      },
+      {
+        "id": "o0_boundary",
+        "type": "curved_region_geometry",
+        "measured": 3,
+        "passed": true
+      }
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "content_bbox_px": [
+        54,
+        82,
+        714,
+        686
+      ],
+      "long_side_fraction": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ]
+    },
+    "versions": {
+      "python": "3.13.9",
+      "numpy": "2.5.3",
+      "matplotlib": "3.11.2",
+      "Pillow": "12.3.0"
+    },
+    "independent_answer_verification": "answer_verification.json",
+    "source_and_redraw_visually_reviewed": true
+  },
+  "answer_verification.json": {
+    "id": "MV787",
+    "status": "independent_answer_checks_passed",
+    "method": "One large semicircle and two small semicircles form the shaded boundary; their radii are 6, 3, 3.",
+    "theorem_result": 37.69911184307752,
+    "scene_measurement": 37.69911184307752,
+    "variables": {},
+    "checks": [
+      {
+        "check": "external small-circle tangency",
+        "observed": 6.0,
+        "expected": 6.0,
+        "absolute_error": 0.0
+      },
+      {
+        "check": "left internal tangency",
+        "observed": 6.0,
+        "expected": 6.0,
+        "absolute_error": 0.0
+      },
+      {
+        "check": "right internal tangency",
+        "observed": 6.0,
+        "expected": 6.0,
+        "absolute_error": 0.0
+      },
+      {
+        "check": "independent theorem result versus frozen geometry",
+        "observed": 37.69911184307752,
+        "expected": 37.69911184307752,
+        "absolute_error": 0.0
+      },
+      {
+        "check": "displayed length 3",
+        "observed": 3.0,
+        "expected": 3.0,
+        "absolute_error": 0.0
+      }
+    ],
+    "metrics": {
+      "evaluated_choices": {
+        "A": 18.84955592153876,
+        "B": 25.132741228718345,
+        "C": 28.274333882308138,
+        "D": 37.69911184307752,
+        "E": 47.12388980384689
+      }
+    },
+    "answer_check": {
+      "matching_options": [
+        "D"
+      ],
+      "unique": true
+    },
+    "source_gold_used_in_derivation": false,
+    "script": "../../verify_answers.py",
+    "scene_sha256": "32e9a0528385f4a6364237a31c88679e24d19edb2ea888046e67e3c507840679",
+    "user_approved": false
+  },
+  "packaging": {
+    "source_sha256": "168a44e7cf5e1a3890975967d770e90c259a63e5b7aeccee04027e740a8be3be",
+    "image_sha256": "01799cd5ad010d6ea86f70903f3eba875a7a16e92032fd2caecfbccd2fc382b0",
+    "scene_source_sha256": "32e9a0528385f4a6364237a31c88679e24d19edb2ea888046e67e3c507840679",
+    "script_source_sha256": "4910f586e3ee5066153e65c7b4b316e846f74775ef09f018afc43dce41ec8251",
+    "user_approved": false
+  }
+}

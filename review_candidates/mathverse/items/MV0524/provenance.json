@@ -1,0 +1,70 @@
+{
+  "source": {
+    "source_problem_index": "524",
+    "source_sample_index": "2619",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "Functions_collected",
+      "subject": "Functions",
+      "subfield": "Coordinate"
+    },
+    "original_question": "What is the value of the y-coordinate of point A?\nChoices:\nA:$\\sin \\left(0^{\\circ}\\right)$\nB:$\\cos \\left(0^{\\circ}\\right)$\nC:$\\sin \\left(90^{\\circ}\\right)$\nD:$\\cos \\left(90^{\\circ}\\right)$\nE:$\\hline \\sin \\left(270^{\\circ}\\right)$\nF:$\\cos \\left(270^{\\circ}\\right)$",
+    "original_answer": "E",
+    "user_approved": false
+  },
+  "audit": {
+    "id": "MV_F0524",
+    "source_visual_inspection": "Inspected original source image before choosing the frozen mathematical model.",
+    "source_observations": "A at bottom of unit circle.",
+    "adaptation": "Removed a stray LaTex hline command from optionE; unit-circle location unchanged.",
+    "original_question": "What is the value of the y-coordinate of point A?\nChoices:\nA:$\\sin \\left(0^{\\circ}\\right)$\nB:$\\cos \\left(0^{\\circ}\\right)$\nC:$\\sin \\left(90^{\\circ}\\right)$\nD:$\\cos \\left(90^{\\circ}\\right)$\nE:$\\hline \\sin \\left(270^{\\circ}\\right)$\nF:$\\cos \\left(270^{\\circ}\\right)$",
+    "original_answer": "E",
+    "answer_verification": {
+      "method": "Independent analytic derivation; separate executable arithmetic sanity check (not a full answer verifier)",
+      "derivation": "A=(0,-1), so its y-coordinate is-1=sin 270°. Other listed expressions equal 0 or 1.",
+      "check_python": "abs(np.sin(np.deg2rad(270))+1)<1e-12",
+      "arithmetic_sanity_check_passed": true,
+      "answer": "E"
+    },
+    "source_sha256": "386c6e2f22cf94163f2cab8e2094b6ebfc4d0380bc6028e895458dd000ffa9ff",
+    "review_status": "pending_user_review",
+    "approval_record": null,
+    "render_check": {
+      "clipped_content": false,
+      "out_of_view": false,
+      "finite_points": 27,
+      "width_px": 768,
+      "height_px": 768
+    },
+    "image_sha256": "b6381336b68da27a15c2305ef033bb3da33fce91636ed83b2972bdefe155cdca",
+    "automated_validation": {
+      "size": true,
+      "opacity": true,
+      "white_background": true,
+      "viewport": [
+        -8,
+        8,
+        -8,
+        8
+      ],
+      "equal_aspect": true,
+      "black_solid_1pt_objects": true,
+      "answer_schema": true,
+      "reproducible_pixel_sha256": true
+    },
+    "scene_math_checks": [
+      {
+        "test": "Every marked point lies on a frozen curve, line, or outline",
+        "point_count": 1,
+        "passed": true
+      },
+      {
+        "test": "All marked trigonometric points lie exactly on unit circle",
+        "passed": true
+      }
+    ]
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MV_F0524"
+}

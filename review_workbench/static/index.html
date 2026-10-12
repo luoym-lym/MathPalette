@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><title>MathPalette · 原题审核</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%231c4439'/%3E%3Ctext x='8' y='29' fill='white' font-size='28'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="/static/style.css">
+<script src="/static/vendor/katex.min.js" defer></script><script src="/static/vendor/auto-render.min.js" defer></script>
+<script src="/static/review-core.js" defer></script><script src="/static/app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#workspace">跳到当前题目</a>
+<header class="masthead">
+  <a class="brand" href="/" aria-label="MathPalette 审核首页"><span class="brand-mark" aria-hidden="true">M<span>•</span></span><span>MathPalette<small>原题审核工作台</small></span></a>
+  <div class="batch-label"><span class="live-dot"></span>MathVerse <span class="muted">/ 本地人工审核</span></div>
+  <button id="refresh" class="text-button" title="重新读取服务器上的审核进度">↻ 刷新进度</button>
+</header>
+<div class="app-layout">
+<aside class="sidebar" aria-label="筛选与题目导航">
+  <div class="sidebar-top"><div class="eyebrow">REVIEW QUEUE</div><h2>待你审核 <span id="pending-count">—</span></h2>
+    <div class="progress-track"><div id="progress-fill"></div></div><div class="progress-caption"><span id="progress-label">正在读取进度</span><span id="progress-percent">0%</span></div>
+    <div class="stats"><div><strong id="passed-count">—</strong><span>已通过</span></div><div><strong id="deleted-count">—</strong><span>已删除</span></div><div><strong id="total-count">—</strong><span>总候选</span></div></div>
+  </div>
+  <div class="filters">
+    <label for="search">搜索题号或题干</label><input id="search" type="search" autocomplete="off" placeholder="如 MV0001、triangle">
+    <div class="filter-row"><div><label for="status-filter">审核状态</label><select id="status-filter"><option value="pending">待审核</option><option value="all">全部</option><option value="passed">已通过</option><option value="deleted">已删除</option></select></div><div><label for="branch-filter">题目分支</label><select id="branch-filter"><option value="all">全部分支</option><option value="PlaneGeometry">平面几何</option><option value="SolidGeometry">立体几何</option><option value="Analytics">函数 / 解析</option></select></div></div>
+    <form id="jump-form" class="jump-form"><label class="sr-only" for="jump-id">直接跳转题号</label><input id="jump-id" placeholder="跳题：输入题号或数字" aria-label="直接跳转题号" autocomplete="off"><button type="submit" title="跳转到题号">↗</button></form>
+  </div>
+  <div class="list-heading"><span id="list-count">正在载入</span><span>题号 · 状态</span></div>
+  <nav id="candidate-list" class="candidate-list" aria-label="候选题目"></nav>
+  <div class="list-pagination"><button id="page-prev" aria-label="上一页题目">←</button><span id="page-label">—</span><button id="page-next" aria-label="下一页题目">→</button></div>
+  <p class="sidebar-footnote">仅在你点击 Pass 后进入正式库。<br>左右方向键切题；不设审核快捷键。</p>
+</aside>
+<main id="workspace" tabindex="-1">
+  <div id="notice" class="notice" role="status" hidden><span id="notice-text"></span><button id="notice-action" hidden></button><button id="notice-dismiss" aria-label="关闭提示">×</button></div>
+  <div id="connection-error" class="error-panel" role="alert" hidden></div>
+  <section id="empty-state" class="empty-state" hidden><div class="empty-icon">✓</div><h1 id="empty-title">当前列表已审核完成</h1><p id="empty-copy">可以切换筛选条件，查看已通过或已删除的记录。</p><button id="clear-filters">查看全部题目</button></section>
+  <section id="candidate-view" aria-busy="true">
+    <div class="candidate-heading"><div><div id="candidate-meta" class="eyebrow">MATHVERSE · ORIGINAL REVIEW</div><div class="title-line"><h1 id="candidate-id" tabindex="-1">正在读取…</h1><span id="candidate-status" class="badge">连接中</span></div></div><div class="item-navigation"><span id="position-label">—</span><button id="previous" aria-label="上一题">← <span>上一题</span></button><button id="next" aria-label="下一题"><span>下一题</span> →</button></div></div>
+    <div id="loading-panel" class="loading-panel" role="status"><span class="spinner"></span>正在载入当前题目…</div>
+    <div id="detail-error" class="error-panel" role="alert" hidden><span id="detail-error-text"></span><button id="retry-detail">重新载入</button></div>
+    <div id="history-panel" class="history-panel" hidden><span class="empty-icon">✓</span><h2 id="history-title"></h2><p id="history-copy"></p><p id="history-time" class="muted"></p></div>
+    <div id="detail-content" hidden>
+      <div class="comparison">
+        <section class="image-card"><div class="card-heading"><h2><span class="card-number">01</span> 原始图片</h2><button id="source-zoom" class="zoom-label" disabled>放大 ↗</button></div><button id="source-image-button" class="image-stage" aria-label="放大查看原始图片" disabled><img id="source-image" alt="当前题目的原始图片" decoding="async"><span id="source-placeholder" class="image-placeholder">正在载入图片…</span></button><div class="image-caption"><span>Source image</span><span id="source-dimensions">原图完整显示</span></div></section>
+        <section class="image-card redraw-card"><div class="card-heading"><h2><span class="card-number">02</span> 重绘图片</h2><button id="redraw-zoom" class="zoom-label" disabled>放大 ↗</button></div><button id="redraw-image-button" class="image-stage" aria-label="放大查看重绘图片" disabled><img id="redraw-image" alt="当前题目的重绘图片" decoding="async"><span id="redraw-placeholder" class="image-placeholder">正在载入图片…</span></button><div class="image-caption"><span>Redrawn candidate</span><span id="redraw-dimensions">点击图片可放大</span></div></section>
+      </div>
+      <div class="reading-grid">
+        <section class="text-card question-card"><div class="card-heading"><h2>候选题目 <span class="english-label">QUESTION</span></h2><span id="answer-type" class="small-badge"></span></div><div id="question-text" class="question-text math-content" lang="en"></div><ol id="choices" class="choices" lang="en"></ol><div class="candidate-answer"><span>候选答案</span><strong id="answer" class="math-content" lang="en"></strong></div><details id="source-question-panel" class="source-question" open><summary>原始题目 <span id="question-change-label"></span></summary><div id="original-question" class="question-text math-content" lang="en"></div></details></section>
+        <section class="text-card verification-card"><div class="card-heading"><h2>答案核验 <span class="english-label">VERIFICATION</span></h2><span id="consistency-badge" class="small-badge"></span></div><dl class="answer-comparison"><div><dt>原始答案</dt><dd id="original-answer" class="math-content" lang="en"></dd></div><div><dt>核验结果</dt><dd id="verified-answer" class="math-content" lang="en"></dd></div></dl><p id="verification-status" class="verification-status"></p><div id="verification-explanation" class="explanation math-content" lang="en"></div><div class="adaptation-section"><h3>改编说明</h3><p id="adaptation-notes" class="math-content"></p></div><details id="evidence-panel"><summary>查看原始核验记录</summary><pre id="evidence-text"></pre></details></section>
+      </div>
+    </div>
+  </section>
+  <footer class="page-footer">MathPalette · 原图保留，重绘可复现，审核记录与当前内容绑定。</footer>
+</main>
+</div>
+<section class="review-bar" aria-label="人工审核操作"><div class="review-instruction"><span id="review-state-dot" class="state-dot"></span><div><strong id="review-title">等待题目载入</strong><span id="review-hint">请对照图片、题目及答案后作出决定。</span></div></div><div class="review-actions"><button id="retry-action" class="secondary" hidden>重试上次操作</button><button id="delete" class="delete-button" disabled>Delete <span>删除</span></button><button id="pass" class="pass-button" disabled>Pass <span>通过并收录</span> <span aria-hidden="true">→</span></button></div></section>
+<dialog id="delete-dialog" aria-labelledby="delete-title"><div class="confirm-content"><span class="dialog-icon">!</span><h2 id="delete-title">删除这道候选题？</h2><p id="delete-copy"></p><p class="muted">会删除这道候选的原图、重绘图及专属材料；不会删除已入库题目和共享文件。此操作无法在工作台撤销。</p><p class="muted">仅保留题号、操作和时间等审核记录，不保留已删除的图片。</p><div class="dialog-actions"><button id="cancel-delete" autofocus>取消，继续审核</button><button id="confirm-delete" class="delete-confirm">确认 Delete</button></div></div></dialog>
+<dialog id="zoom-dialog" class="zoom-dialog" aria-labelledby="zoom-title"><div class="zoom-heading"><div><strong id="zoom-title">图片预览</strong><span id="zoom-size" class="muted"></span></div><div class="zoom-controls"><button id="zoom-out" aria-label="缩小图片">−</button><button id="zoom-fit">适应窗口</button><button id="zoom-in" aria-label="放大图片">＋</button><button id="close-zoom" aria-label="关闭图片预览">关闭 ✕</button></div></div><div id="zoom-viewport" class="zoom-viewport"><img id="zoom-image" alt="放大图片"></div><div class="zoom-help">图片完整显示 · 放大后可滚动查看 · Esc 关闭</div></dialog>
+</body></html>

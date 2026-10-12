@@ -1,0 +1,56 @@
+{
+  "checks": {
+    "id": "MV_F0479",
+    "source_visual_inspection": "Inspected original source image before choosing the frozen mathematical model.",
+    "source_observations": "Increasing cube-root shape with inflection near(-2,1).",
+    "adaptation": "Restyled the source mathematical objects using the strict Analytics renderer; no question or answer semantic change intended.",
+    "original_question": "Determine if this relation is a one-to-one function.\nChoices:\nA:This is a one-to-one function\nB:This is not a one-to-one function",
+    "original_answer": "A",
+    "answer_verification": {
+      "method": "Independent analytic derivation; separate executable arithmetic sanity check (not a full answer verifier)",
+      "derivation": "Cube root is strictly increasing; translation preserves strict increase and injectivity.",
+      "check_python": "all(np.diff(np.cbrt(np.linspace(-8,8,1001)+2)+1)>0)",
+      "arithmetic_sanity_check_passed": true,
+      "answer": "A"
+    },
+    "source_sha256": "44af2f8e86144fb31bba9807b5c7a50e781c3887480bda083eaaf642762afc47",
+    "review_status": "pending_user_review",
+    "approval_record": null,
+    "render_check": {
+      "clipped_content": false,
+      "out_of_view": false,
+      "finite_points": 4001,
+      "width_px": 768,
+      "height_px": 768
+    },
+    "image_sha256": "6dc6fb3f2e20beb7b4502219e6e39ebfce26b28e12145820a6bee262aee53703",
+    "automated_validation": {
+      "size": true,
+      "opacity": true,
+      "white_background": true,
+      "viewport": [
+        -8,
+        8,
+        -8,
+        8
+      ],
+      "equal_aspect": true,
+      "black_solid_1pt_objects": true,
+      "answer_schema": true,
+      "reproducible_pixel_sha256": true
+    },
+    "scene_math_checks": [
+      {
+        "test": "Analytic proof is primary; no exhaustive automatic answer checker is claimed",
+        "passed": null
+      }
+    ]
+  },
+  "packaging": {
+    "source_sha256": "44af2f8e86144fb31bba9807b5c7a50e781c3887480bda083eaaf642762afc47",
+    "image_sha256": "6dc6fb3f2e20beb7b4502219e6e39ebfce26b28e12145820a6bee262aee53703",
+    "scene_source_sha256": "e591a39294b60330ae2094ba3c35e165e552d227b2be3c11ba079e06049b99c1",
+    "script_source_sha256": "aac621f673b177c9b2c27d98630262fc3979fb47f49db54a23fd0c18338a6697",
+    "user_approved": false
+  }
+}

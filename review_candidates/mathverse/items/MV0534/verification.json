@@ -1,0 +1,66 @@
+{
+  "checks": {
+    "id": "MV_F0534",
+    "source_visual_inspection": "Inspected original source image before choosing the frozen mathematical model.",
+    "source_observations": "Original maxima(pi/4,-2.2), minima(3 pi/4,-8.5).",
+    "adaptation": "Translated source graph upward by 1 to preserve both extrema inside the mandatory viewport. Updated coordinate labels; amplitude is invariant, midline answer changes.",
+    "original_question": "Below is the graph of a trigonometric function. What is the amplitude of the function?",
+    "original_answer": "3.15",
+    "answer_verification": {
+      "method": "Independent analytic derivation; separate executable arithmetic sanity check (not a full answer verifier)",
+      "derivation": "Maximum-1.2 and minimum-7.5 give midline(-1.2-7.5)/2=-4.35 and amplitude(-1.2+7.5)/2=3.15.",
+      "check_python": "(-1.2-7.5)/2==-4.35 and (-1.2+7.5)/2==3.15",
+      "arithmetic_sanity_check_passed": true,
+      "answer": "3.15"
+    },
+    "source_sha256": "6b5a635c6ee2e22eef41317ead81ddf0977149ff02161d2294ec46964bb9a6e6",
+    "review_status": "pending_user_review",
+    "approval_record": null,
+    "render_check": {
+      "clipped_content": false,
+      "out_of_view": false,
+      "finite_points": 4003,
+      "width_px": 768,
+      "height_px": 768
+    },
+    "image_sha256": "8fe9260b19c07c4592999e6a3055cd23ec41da0025d5bb4a4fc3eea0b3ae59d1",
+    "automated_validation": {
+      "size": true,
+      "opacity": true,
+      "white_background": true,
+      "viewport": [
+        -8,
+        8,
+        -8,
+        8
+      ],
+      "equal_aspect": true,
+      "black_solid_1pt_objects": true,
+      "answer_schema": true,
+      "reproducible_pixel_sha256": true
+    },
+    "scene_math_checks": [
+      {
+        "test": "Every marked point lies on a frozen curve, line, or outline",
+        "point_count": 2,
+        "passed": true
+      },
+      {
+        "test": "Numerical extrema read from frozen sinusoid agree with independently derived range",
+        "computed_range": [
+          -7.499999996529532,
+          -1.200000003470468
+        ],
+        "passed": true,
+        "tolerance": 0.001
+      }
+    ]
+  },
+  "packaging": {
+    "source_sha256": "6b5a635c6ee2e22eef41317ead81ddf0977149ff02161d2294ec46964bb9a6e6",
+    "image_sha256": "8fe9260b19c07c4592999e6a3055cd23ec41da0025d5bb4a4fc3eea0b3ae59d1",
+    "scene_source_sha256": "3a14e254df77a26ffdaac492dd6f44e90b413daacb48717899bb375c6f546a5d",
+    "script_source_sha256": "d3acbc4c849c0bcbcd9a7f4bddfbd9b037277ca1f9064138bc11a3895c4e6df7",
+    "user_approved": false
+  }
+}

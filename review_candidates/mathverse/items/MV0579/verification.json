@@ -1,0 +1,56 @@
+{
+  "checks": {
+    "id": "MV_F0579",
+    "source_visual_inspection": "Inspected original source image before choosing the frozen mathematical model.",
+    "source_observations": "Two exponential recall curves start 100%; Lucy decays more slowly than Maximilian.",
+    "adaptation": "Replaced gray/black identity with curve labels and scaled axes(time/2, percent/20). For 580 the frozen .87 decay enables numerical readout; source graph lacks numeric time ticks.",
+    "original_question": "In a memory study, subjects are asked to memorize some content and recall as much as they can remember each day thereafter. Each day, Maximilian finds that he has forgotten $15 \\%$ of what he could recount the day before. Lucy also took part in the study. The given graphs represent the percentage of content that Maximilian (gray) and Lucy (black) could remember after $t$ days.\n\nWhich of the following could model the percentage that Lucy can still recall after $t$ days?\nChoices:\nA:$Q=(0.85)^{t}$\nB:$Q=(0.83)^{t}$\nC:$Q=(0.87)^{t}$",
+    "original_answer": "C",
+    "answer_verification": {
+      "method": "Independent analytic derivation; separate executable arithmetic sanity check (not a full answer verifier)",
+      "derivation": "Lucy retains more at every positive t than Maximilian(.85)^t. Of the choices,.87 is the only larger base.",
+      "check_python": "abs((1-.87)*100-13)<1e-12 and .87>.85",
+      "arithmetic_sanity_check_passed": true,
+      "answer": "C"
+    },
+    "source_sha256": "128faac445143e883f47bf69e26f47c207fe4cd577f630259ea3b003be28bf4f",
+    "review_status": "pending_user_review",
+    "approval_record": null,
+    "render_check": {
+      "clipped_content": false,
+      "out_of_view": false,
+      "finite_points": 8002,
+      "width_px": 768,
+      "height_px": 768
+    },
+    "image_sha256": "3071bea8475fa99c70d197e01e5ff07d6c48abb98708576cfea0a0edd4bae00b",
+    "automated_validation": {
+      "size": true,
+      "opacity": true,
+      "white_background": true,
+      "viewport": [
+        -8,
+        8,
+        -8,
+        8
+      ],
+      "equal_aspect": true,
+      "black_solid_1pt_objects": true,
+      "answer_schema": true,
+      "reproducible_pixel_sha256": true
+    },
+    "scene_math_checks": [
+      {
+        "test": "Analytic proof is primary; no exhaustive automatic answer checker is claimed",
+        "passed": null
+      }
+    ]
+  },
+  "packaging": {
+    "source_sha256": "128faac445143e883f47bf69e26f47c207fe4cd577f630259ea3b003be28bf4f",
+    "image_sha256": "3071bea8475fa99c70d197e01e5ff07d6c48abb98708576cfea0a0edd4bae00b",
+    "scene_source_sha256": "41e4f61bdd6f2dd26eb0284fd407c4d63b453d703efb77d6f6f9f586b20f5a2f",
+    "script_source_sha256": "d65f45310b753829de39984c6b9e587c5ced08e7f6caf14fb94a4b8d06905304",
+    "user_approved": false
+  }
+}

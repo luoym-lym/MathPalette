@@ -1,0 +1,57 @@
+{
+  "checks": {
+    "id": "MV_F0633",
+    "source_visual_inspection": "Inspected original source image before choosing the frozen mathematical model.",
+    "source_observations": "Source base sine with point(90 degrees,1), target ±5 sin x.",
+    "adaptation": "Converted degree-based source x-coordinates to radians so the base period is visible in[-8,8]. Kept the marked base maximum and the amplitude/reflection transformation task; converted answer angle accordingly.",
+    "original_question": "The Sine function is graphed. By considering the transformation that has taken place, state the coordinates of the first maximum point of each of the given functions for $x \\geq 0$.\n\n$y=5 \\sin x$",
+    "original_answer": "$(x, y)=\\left(90^{\\circ}, 5\\right)$",
+    "answer_verification": {
+      "method": "Independent analytic derivation; separate executable arithmetic sanity check (not a full answer verifier)",
+      "derivation": "Multiplying sin(x) by 5 changes its maximum ordinate from 1 to5, while its first maximum remains at x=pi/2.",
+      "check_python": "abs(np.sin(np.pi/2)-1)<1e-12",
+      "arithmetic_sanity_check_passed": true,
+      "answer": "(pi/2,5)"
+    },
+    "source_sha256": "8a2861d3ea454abd8140ac6e1a456e57f9c58ea5aaf0a78bf57d7919d9b80f45",
+    "review_status": "pending_user_review",
+    "approval_record": null,
+    "render_check": {
+      "clipped_content": false,
+      "out_of_view": false,
+      "finite_points": 4002,
+      "width_px": 768,
+      "height_px": 768
+    },
+    "image_sha256": "a4f9aef6260eeb8537d14f1afba59dd1307dc898103207fe5862e23b62635c57",
+    "automated_validation": {
+      "size": true,
+      "opacity": true,
+      "white_background": true,
+      "viewport": [
+        -8,
+        8,
+        -8,
+        8
+      ],
+      "equal_aspect": true,
+      "black_solid_1pt_objects": true,
+      "answer_schema": true,
+      "reproducible_pixel_sha256": true
+    },
+    "scene_math_checks": [
+      {
+        "test": "Every marked point lies on a frozen curve, line, or outline",
+        "point_count": 1,
+        "passed": true
+      }
+    ]
+  },
+  "packaging": {
+    "source_sha256": "8a2861d3ea454abd8140ac6e1a456e57f9c58ea5aaf0a78bf57d7919d9b80f45",
+    "image_sha256": "a4f9aef6260eeb8537d14f1afba59dd1307dc898103207fe5862e23b62635c57",
+    "scene_source_sha256": "d769a6ac70d3435d33d747345e220736cf25b42f9194bc9d7408d3c60a7caed0",
+    "script_source_sha256": "f962ee8a58f7d1f0701fefe633dbe4a0c8eed0a5ac23473b7ca5547e07b17ccc",
+    "user_approved": false
+  }
+}

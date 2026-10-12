@@ -1,0 +1,34 @@
+{
+  "source": {
+    "source_problem_index": "769",
+    "source_sample_index": "3844",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "GEOS",
+      "subject": "Plane Geometry",
+      "subfield": "Area"
+    },
+    "original_question": "What fraction of the area of the figure is shaded?\nChoices:\nA.3/8\nB.1/4\nC.1/8\nD.1/10\nE.1/16\n",
+    "original_answer": "B",
+    "user_approved": false
+  },
+  "audit": {
+    "source_record": "source_record.json",
+    "source_image_sha256": "25dae0fe3cb28ffdd2458b4819b865e04748cfbb4bfa9b9bb4b90cf671efa0a4",
+    "adaptations": [
+      {
+        "type": "missing_relation_restored",
+        "reason": "Original answer relies on unmarked trisections; added explicit equal-part marks and wording so the fraction is rigorously determined without guessing from pixel lengths."
+      }
+    ],
+    "independent_solution": {
+      "method": "Each shaded triangle has base one third of the rectangle width and height one half of its height, hence area=(1/2)*(W/3)*(H/2)=WH/12. Three shaded triangles total WH/4, so fraction=1/4.",
+      "computed_answer": "B",
+      "matches_current_answer": true
+    },
+    "approval_status": "not_requested_or_granted"
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MV769"
+}

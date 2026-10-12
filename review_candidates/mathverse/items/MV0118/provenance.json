@@ -1,0 +1,63 @@
+{
+  "source": {
+    "source_problem_index": "118",
+    "source_sample_index": "589",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "GeoQA",
+      "subject": "Plane Geometry",
+      "subfield": "Length"
+    },
+    "original_question": "As shown in the figure, then the radius of its bottom is ()\nChoices:\nA:3\nB:4\nC:5\nD:6",
+    "original_answer": "C",
+    "user_approved": false
+  },
+  "audit": {
+    "source_question": "As shown in the figure, then the radius of its bottom is ()\nChoices:\nA:3\nB:4\nC:5\nD:6",
+    "source_answer": "C",
+    "source_image": "source.png",
+    "adaptation": {
+      "changed": true,
+      "reason": "Restored the omitted cone-development relation while leaving radius 10 as a visual given."
+    },
+    "independent_solution": "The semicircle of radius 10 has arc length 10π. It becomes the base circumference 2πr, so r=5 (C).",
+    "geometry_notes": {
+      "kind": "right_circular_cone",
+      "base_center": "O",
+      "axis_end": "T",
+      "radius": 5,
+      "height": 8.660254037844387,
+      "silhouette_tangent_angles_deg": [
+        8.477541293396076,
+        171.5224587066039
+      ],
+      "visibility_derivation": "Lateral normal (cos(t),sin(t),r/h). Dot toward_viewer vanishes at two frozen tangent angles. Facing lateral surface exposes base arc; back rim is hidden.",
+      "development": {
+        "kind": "semicircle",
+        "radius": 10,
+        "angle_deg": 180,
+        "arc_length": 31.41592653589793,
+        "base_circumference": 31.41592653589793
+      }
+    },
+    "source_visual_review": {
+      "reviewed": true,
+      "method": "Source images inspected at native resolution; cone and planar development semantics separated."
+    },
+    "redraw_visual_review": {
+      "reviewed": true,
+      "reviewer": "agent_visual_review_not_user_approval",
+      "completed_at": "2026-10-11T15:58:00Z",
+      "scope": "All authored candidates individually inspected after final layout; point/length/angle bindings, relation marks, clipping, legibility, and preserved source semantics checked.",
+      "review_sheet": "solid_routed_preview.jpg",
+      "png_sha256": "358459b18f596cd66fcd22d79419915d372505df4ad9a9a260a495ae3d8a7109"
+    },
+    "independent_solution_verification": {
+      "method": "Separate mathematical derivation recorded in independent_solution; native-coordinate constraints additionally validated by the renderer.",
+      "claim_scope": "Agent mathematical check; not user approval."
+    }
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MV118"
+}

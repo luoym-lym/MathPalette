@@ -1,0 +1,135 @@
+{
+  "source": {
+    "source_problem_index": "716",
+    "source_sample_index": "3579",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "Geo3D_collected",
+      "subject": "Solid Geometry",
+      "subfield": "Area"
+    },
+    "original_question": "Find the surface area of the solid.\n\nRound your answer to two decimal places.",
+    "original_answer": "8128.50 \\text { units }^2",
+    "user_approved": false
+  },
+  "audit": {
+    "original_record": {
+      "sample_index": "3579",
+      "problem_index": "716",
+      "problem_version": "Vision Dominant",
+      "question": "Find the surface area of the solid.\n\nRound your answer to two decimal places.",
+      "image": "images_version_5/image_716.png",
+      "answer": "8128.50 \\text { units }^2",
+      "question_type": "free-form",
+      "metadata": {
+        "split": "testmini",
+        "source": "Geo3D_collected",
+        "subject": "Solid Geometry",
+        "subfield": "Area"
+      },
+      "query_wo": "Please directly answer the question and provide the final value, e.g., 1, 2.5, 300.\nQuestion: Find the surface area of the solid.\n\nRound your answer to two decimal places.",
+      "query_cot": "Please first conduct reasoning, and then answer the question and provide the final value, e.g., 1, 2.5, 300, at the end.\nQuestion: Find the surface area of the solid.\n\nRound your answer to two decimal places."
+    },
+    "adaptation": {
+      "changed_question": true,
+      "changed_answer": true,
+      "reason": "The two blocks are explicitly identical; the 6 radius annotation uses a bound range rather than a detached value.",
+      "new_question": "The two rectangular boxes are identical. Find the total exposed surface area of the composite solid, correct to two decimal places.",
+      "new_answer": "8128.50 square units",
+      "mathematical_answer_correction": false,
+      "source_visual_changes": [
+        "Uniform opaque white 768×768 canvas, black 1 pt geometry, prescribed fonts and source-informed labels.",
+        "All solid geometry is constructed in true 3D and projected through one frozen camera. Source sketch distortions, decorative lighting and inconsistent hidden-line styles are normalized without weakening the protocol.",
+        "The two blocks are explicitly identical; the 6 radius annotation uses a bound range rather than a detached value."
+      ]
+    },
+    "answer_verification": {
+      "status": "independently_verified",
+      "source_audit_record": "source_audit.json, problem_index 716",
+      "calculation": {
+        "formula": "4*(25*33+25*20+33*20)-2*pi*6**2+2*pi*6*11",
+        "unrounded_value": 8128.495559215387,
+        "answer": "8128.50 square units",
+        "unit": "square units",
+        "rounding_decimal_places": 2
+      },
+      "canonical_answer": "8128.50 square units",
+      "source_answer_conflict": "Unlike question 671, current question omits that the two boxes are identical; this is needed because only the right box is dimensioned."
+    },
+    "geometry_notes": {
+      "kind": "analytic_CSG",
+      "components": [
+        {
+          "kind": "box",
+          "bounds": [
+            [
+              0,
+              25
+            ],
+            [
+              0,
+              33
+            ],
+            [
+              0,
+              20
+            ]
+          ]
+        },
+        {
+          "kind": "box",
+          "bounds": [
+            [
+              36,
+              61
+            ],
+            [
+              0,
+              33
+            ],
+            [
+              0,
+              20
+            ]
+          ]
+        },
+        {
+          "kind": "cylinder",
+          "center": [
+            25,
+            16.5,
+            10
+          ],
+          "frame": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          "radius": 6,
+          "zrange": [
+            0,
+            11
+          ]
+        }
+      ],
+      "description": "Two congruent 25×33×20 rectangular blocks joined by a radius-6 cylinder of exposed axial length 11. Contact disks are internal.",
+      "visibility_derivation": "Ray intersections with every finite analytic surface and clipping plane are sorted. Positive open ray intervals are tested against the union-minus-subtraction material domain. Boundary curves are partitioned at isolated visibility transitions refined by 40 bisections; all frozen intervals are explicitly stored and sampled separately. No raster hand tracing or draw-order occlusion is used."
+    },
+    "source_label_to_world_anchor": {}
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MathVerse716"
+}

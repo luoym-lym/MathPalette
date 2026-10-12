@@ -1,0 +1,70 @@
+{
+  "checks": {
+    "id": "MV_F0574",
+    "source_visual_inspection": "Inspected original source image before choosing the frozen mathematical model.",
+    "source_observations": "Area arch zeros 0,20, vertex(10,100).",
+    "adaptation": "Scaled width/5 and area/25; original vertex(10,100) becomes(2,4).",
+    "original_question": "The function A models the rectangle's area (in square meters) as a function of its width (in meters). Which of these statements are true?\nChoices:\nA:Greater width always relates to smaller area.\nB:Greater width relates to smaller area as long as the width is less than $10 \\mathrm{~m}$.\nC:When there is no width, the area is $20 \\mathrm{~m}^2$.\nD:When there is no width, the area is $0 \\mathrm{~m}^2$.",
+    "original_answer": "D",
+    "answer_verification": {
+      "method": "Independent analytic derivation; separate executable arithmetic sanity check (not a full answer verifier)",
+      "derivation": "The graph passes(0,0), so area at zero width is 0. Concavity shows area first increases then decreases.",
+      "check_python": "4-(0-2)**2==0",
+      "arithmetic_sanity_check_passed": true,
+      "answer": "D"
+    },
+    "source_sha256": "7b23788d3d9e9586e28536c99bdaa95082405c57a26fa8bf6c34034d55c57dad",
+    "review_status": "pending_user_review",
+    "approval_record": null,
+    "render_check": {
+      "clipped_content": false,
+      "out_of_view": false,
+      "finite_points": 4001,
+      "width_px": 768,
+      "height_px": 768
+    },
+    "image_sha256": "0ed441f1f1326ee64b017eec15fdb1555ff93bbf4c8507b272e8f94031c888b6",
+    "automated_validation": {
+      "size": true,
+      "opacity": true,
+      "white_background": true,
+      "viewport": [
+        -8,
+        8,
+        -8,
+        8
+      ],
+      "equal_aspect": true,
+      "black_solid_1pt_objects": true,
+      "answer_schema": true,
+      "reproducible_pixel_sha256": true
+    },
+    "scene_math_checks": [
+      {
+        "test": "Question-specific values independently evaluated from frozen expression",
+        "expected_values": [
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        "passed": true
+      }
+    ]
+  },
+  "packaging": {
+    "source_sha256": "7b23788d3d9e9586e28536c99bdaa95082405c57a26fa8bf6c34034d55c57dad",
+    "image_sha256": "0ed441f1f1326ee64b017eec15fdb1555ff93bbf4c8507b272e8f94031c888b6",
+    "scene_source_sha256": "421557042ec628321c07d3cef6514837a637dccbde02334e7b6d4a410bb8171f",
+    "script_source_sha256": "bda6949c1e797285bcce00942d560bcbd311d74ca3e1fa86db01a0c374ad0f3a",
+    "user_approved": false
+  }
+}

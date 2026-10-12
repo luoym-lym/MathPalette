@@ -1,0 +1,303 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MV0744",
+  "status": "unapproved_candidate",
+  "subject": "SolidGeometry",
+  "source_dataset": "MathVerse",
+  "source_image": "source.png",
+  "source_note": "Official MathVerse testmini Vision Dominant problem 744, sample 3719; source image preserved unmodified.",
+  "world_unit": "cm",
+  "points": {
+    "O": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "bottom": [
+      0.0,
+      0.0,
+      -2.5
+    ],
+    "bottomL": [
+      -1.6583123951777,
+      0.0,
+      -2.5
+    ],
+    "bottomR": [
+      1.6583123951777,
+      0.0,
+      -2.5
+    ],
+    "top": [
+      0.0,
+      0.0,
+      2.5
+    ],
+    "topL": [
+      -1.6583123951777,
+      0.0,
+      2.5
+    ],
+    "topR": [
+      1.6583123951777,
+      0.0,
+      2.5
+    ],
+    "height_value_anchor": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "radius_unknown_anchor": [
+      0.82915619758885,
+      0.0,
+      1.25
+    ]
+  },
+  "projection": {
+    "kind": "orthographic",
+    "name": "Frozen source-oriented orthographic view",
+    "matrix": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0.24740395925452294,
+        0.9689124217106447
+      ]
+    ],
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "toward_viewer": [
+      0,
+      -0.9689124217106447,
+      0.24740395925452294
+    ]
+  },
+  "view": {
+    "xlim": [
+      -3.1485699202953397,
+      3.1485983989708943
+    ],
+    "ylim": [
+      -3.148584159633117,
+      3.148584159633117
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "visibility": {
+    "mode": "frozen_intervals",
+    "projection_sha256": "433d51f49f1ee5c4f815bffb589e79d9e027dcd8dc6599e2d0ae4c65ed4effdf",
+    "notes": "Analytically frozen for the declared model and view; no generic occlusion assumption."
+  },
+  "objects": [
+    {
+      "id": "sphere_outline",
+      "type": "circular_arc",
+      "center": "O",
+      "radius": 3.0,
+      "u": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "v": [
+        0.0,
+        0.24740395925452294,
+        0.9689124217106447
+      ],
+      "domain_deg": [
+        0,
+        360
+      ],
+      "role": "silhouette",
+      "intervals": [
+        {
+          "start_deg": 0.0,
+          "end_deg": 360.0,
+          "visibility": "visible",
+          "samples": 722
+        }
+      ]
+    },
+    {
+      "id": "bottom_rim",
+      "type": "circular_arc",
+      "center": "bottom",
+      "radius": 1.6583123951777,
+      "u": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "v": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "domain_deg": [
+        0,
+        360
+      ],
+      "role": "edge",
+      "intervals": [
+        {
+          "start_deg": 0.0,
+          "end_deg": 360.0,
+          "visibility": "hidden",
+          "samples": 722
+        }
+      ]
+    },
+    {
+      "id": "top_rim",
+      "type": "circular_arc",
+      "center": "top",
+      "radius": 1.6583123951777,
+      "u": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "v": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "domain_deg": [
+        0,
+        360
+      ],
+      "role": "edge",
+      "intervals": [
+        {
+          "start_deg": 0.0,
+          "end_deg": 360.0,
+          "visibility": "hidden",
+          "samples": 722
+        }
+      ]
+    },
+    {
+      "id": "left_generator",
+      "type": "segment",
+      "points": [
+        "bottomL",
+        "topL"
+      ],
+      "visibility": "hidden",
+      "role": "auxiliary"
+    },
+    {
+      "id": "right_generator",
+      "type": "segment",
+      "points": [
+        "bottomR",
+        "topR"
+      ],
+      "visibility": "hidden",
+      "role": "auxiliary"
+    },
+    {
+      "id": "height_axis",
+      "type": "segment",
+      "points": [
+        "bottom",
+        "top"
+      ],
+      "visibility": "hidden",
+      "role": "auxiliary"
+    },
+    {
+      "id": "sphere_radius",
+      "type": "segment",
+      "points": [
+        "O",
+        "topR"
+      ],
+      "visibility": "hidden",
+      "role": "auxiliary"
+    }
+  ],
+  "dimensions": [],
+  "labels": [
+    {
+      "id": "height_value",
+      "type": "text",
+      "text": "h = 5 cm",
+      "anchor": "height_value_anchor",
+      "offset_pt": [
+        -40,
+        0
+      ],
+      "ha": "center",
+      "va": "center"
+    },
+    {
+      "id": "radius_unknown",
+      "type": "text",
+      "text": "r",
+      "anchor": "radius_unknown_anchor",
+      "offset_pt": [
+        18,
+        0
+      ],
+      "ha": "center",
+      "va": "center"
+    }
+  ],
+  "constraints": [
+    {
+      "id": "sphere_radius_true",
+      "type": "distance",
+      "basis": "Construction check of frozen world-space geometry. Actual source givens and any derived values are distinguished in the source-image audit and geometry notes; no unlabelled construction value is an added given.",
+      "points": [
+        "O",
+        "topR"
+      ],
+      "value": 3.0
+    },
+    {
+      "id": "cylinder_height",
+      "type": "distance",
+      "basis": "Construction check of frozen world-space geometry. Actual source givens and any derived values are distinguished in the source-image audit and geometry notes; no unlabelled construction value is an added given.",
+      "points": [
+        "bottom",
+        "top"
+      ],
+      "value": 5.0
+    }
+  ],
+  "ambiguities": [],
+  "solid_model": {
+    "kind": "sphere_inscribed_cylinder",
+    "sphere_center": "O",
+    "sphere_radius": 3,
+    "cylinder_radius": 1.6583123951777,
+    "cylinder_height": 5,
+    "rim_on_sphere_equation": "rho²+(h/2)²=3²",
+    "visibility_derivation": "Sphere silhouette is a true great circle normal to the camera. All enclosed cylinder/reference geometry is explicitly hidden and dashed; source transparent lighting is removed."
+  }
+}

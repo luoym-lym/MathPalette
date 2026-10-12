@@ -1,0 +1,60 @@
+{
+  "source": {
+    "source_problem_index": "175",
+    "source_sample_index": "874",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "GeoQA",
+      "subject": "Plane Geometry",
+      "subfield": "Angle"
+    },
+    "original_question": "As shown in the figure, then the degree of angle AOB is ()\nChoices:\nA:40°\nB:50°\nC:80°\nD:100°",
+    "original_answer": "C",
+    "user_approved": false
+  },
+  "audit": {
+    "source_question": "As shown in the figure, then the degree of angle AOB is ()\nChoices:\nA:40°\nB:50°\nC:80°\nD:100°",
+    "source_answer": "C",
+    "source_image_sha256": "47afd4c31bfa9a8e0ae60f3a604a9b8bda0860e13dd145ecf72dcf5d1bb38796",
+    "current_question": "AC is a diameter of circle O. Find the measure of angle AOB.\nChoices:\nA:40°\nB:50°\nC:80°\nD:100°",
+    "current_answer": "C",
+    "adapted": true,
+    "adaptation_reason": "The source labels the requested central angle AOB as40°, while its supplied answer is C=80°. These two source statements conflict. To retain a central-angle/inscribed-angle reasoning task, the adapted candidate redefines the40° given at the existing angle ACB. All source lines, the original target AOB, and the80° answer are retained. This does not establish which source statement was originally intended.",
+    "source_visual_observations": [
+      "Source circle has diameterAC, radiusOB, chordCB, center dotO. The source visibly places40° atO although its answer says80°."
+    ],
+    "independent_solution": "The adapted given is inscribed angle ACB=40°. It subtends minor arc AB. The central angle AOB subtending that same arc is80°, choice C.",
+    "independently_computed_result": 80,
+    "answer_verification": "independently_derived",
+    "visual_review": {
+      "source_viewed": true,
+      "redraw_viewed": true,
+      "status": "agent_reviewed_candidate",
+      "review_notes": "Every source and final PNG was actually inspected in labeled contact sheets. Ambiguous or crowded items were enlarged individually; final edited callouts for MV012, MV054, MV070, MV081, MV105, MV111, MV135 and MV174 were checked. No observed clipping or text/line masking. This is not a user Pass."
+    },
+    "geometry_notes": {
+      "construction": "Frozen code-native coordinates; source raster is preserved and is never used as drawing input.",
+      "construction_scripts": [
+        "../../build_batch7.py"
+      ],
+      "annotation_layout_script": "../../layout_labels.py",
+      "authoritative_frozen_input": "scene.json"
+    },
+    "secondary_answer_check": {
+      "problem_index": 175,
+      "source_key": "testmini:874",
+      "answer": "C",
+      "selected_choice": "80°",
+      "independent_derivation_value": 80.0,
+      "frozen_geometry_target_value": 80.00000000000001,
+      "absolute_error": 1.4210854715202004e-14,
+      "tolerance": 1e-07,
+      "passed": true,
+      "method": "Measure target angle from frozen vectors independently of source answer."
+    },
+    "adaptation_category": "mathematical_clarification_or_redefinition"
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MathVerse_175"
+}

@@ -1,0 +1,230 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MV0367",
+  "status": "candidate_unapproved",
+  "source_dataset": "MathVerse",
+  "source_image": "source.png",
+  "view": {
+    "xlim": [
+      -5.570597900698716,
+      5.5804126377081635
+    ],
+    "ylim": [
+      -3.9603281241407107,
+      7.190682414266169
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "ink_bbox_px": [
+        54,
+        207,
+        713,
+        560
+      ],
+      "center_error_px": [
+        0.0,
+        0.0
+      ],
+      "long_side_fraction": 0.859375,
+      "minimum_outer_margin_fraction": 0.0703125
+    }
+  },
+  "points": {
+    "A": [
+      -5.3,
+      0
+    ],
+    "B": [
+      5.3,
+      0
+    ],
+    "C": [
+      0,
+      4.447228045239584
+    ],
+    "H": [
+      0,
+      0
+    ],
+    "d1a": [
+      -5.3,
+      -0.8
+    ],
+    "d1b": [
+      5.3,
+      -0.8
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "polygon",
+      "points": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "o2",
+      "type": "segment",
+      "points": [
+        "C",
+        "H"
+      ],
+      "linestyle": "dashed"
+    },
+    {
+      "id": "o3",
+      "type": "angle_arc",
+      "points": [
+        "B",
+        "A",
+        "C"
+      ],
+      "radius_pt": 23,
+      "reflex": false
+    },
+    {
+      "id": "o4",
+      "type": "segment",
+      "points": [
+        "d1a",
+        "d1b"
+      ],
+      "linestyle": "dashed",
+      "role": "dimension"
+    },
+    {
+      "id": "o5",
+      "type": "segment",
+      "points": [
+        "A",
+        "d1a"
+      ],
+      "role": "dimension"
+    },
+    {
+      "id": "o6",
+      "type": "segment",
+      "points": [
+        "B",
+        "d1b"
+      ],
+      "role": "dimension"
+    }
+  ],
+  "labels": [
+    {
+      "id": "l1",
+      "type": "angle",
+      "points": [
+        "B",
+        "A",
+        "C"
+      ],
+      "arc_id": "o3",
+      "radius_pt": 45,
+      "reflex": false,
+      "degrees": 40,
+      "offset_pt": [
+        8.0,
+        0.0
+      ]
+    },
+    {
+      "id": "l2",
+      "type": "text",
+      "text": "h",
+      "anchor": [
+        0.0,
+        2.223614022619792
+      ],
+      "offset_pt": [
+        18,
+        0
+      ],
+      "segment_points": [
+        "H",
+        "C"
+      ]
+    },
+    {
+      "id": "l3",
+      "type": "text",
+      "text": "10.6 m",
+      "anchor": [
+        0.0,
+        -0.8
+      ],
+      "offset_pt": [
+        0,
+        -15
+      ],
+      "segment_points": [
+        "A",
+        "B"
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c1",
+      "type": "parallel",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "d1a",
+          "d1b"
+        ]
+      ]
+    },
+    {
+      "id": "c2",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "d1a"
+        ]
+      ]
+    },
+    {
+      "id": "c3",
+      "type": "distance",
+      "points": [
+        "A",
+        "B"
+      ],
+      "value": 10.6
+    }
+  ],
+  "ambiguities": [],
+  "distance_markers": [
+    {
+      "id": "d1",
+      "segment_points": [
+        "A",
+        "B"
+      ],
+      "dimension_points": [
+        "d1a",
+        "d1b"
+      ],
+      "dashed_line_id": "o4",
+      "connector_line_ids": [
+        "o5",
+        "o6"
+      ],
+      "label_id": "l3"
+    }
+  ]
+}

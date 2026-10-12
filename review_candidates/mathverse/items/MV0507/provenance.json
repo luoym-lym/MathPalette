@@ -1,0 +1,82 @@
+{
+  "source": {
+    "source_problem_index": "507",
+    "source_sample_index": "2534",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "Functions_collected",
+      "subject": "Functions",
+      "subfield": "Expression"
+    },
+    "original_question": "Which of the following could be the equation of the graphed line?\nChoices:\nA.$3 x-8 y=24$\nB.$3 x-8 y=-24$\nC.$3 x+8 y=24$\nD.$3 x+8 y=-24$",
+    "original_answer": "B",
+    "user_approved": false
+  },
+  "audit": {
+    "id": "MV_F0507",
+    "source_visual_inspection": "Inspected original source image before choosing the frozen mathematical model.",
+    "source_observations": "Positive slope, y-intercept 3, x-intercept-8.",
+    "adaptation": "Restyled the source mathematical objects using the strict Analytics renderer; no question or answer semantic change intended.",
+    "original_question": "Which of the following could be the equation of the graphed line?\nChoices:\nA.$3 x-8 y=24$\nB.$3 x-8 y=-24$\nC.$3 x+8 y=24$\nD.$3 x+8 y=-24$",
+    "original_answer": "B",
+    "answer_verification": {
+      "method": "Independent analytic derivation; separate executable arithmetic sanity check (not a full answer verifier)",
+      "derivation": "Line has slope 3/8 and intercept 3, so 8y=3x+24 or 3x-8y=-24.",
+      "check_python": "3*0-8*3==-24 and 3*(-8)-8*0==-24",
+      "arithmetic_sanity_check_passed": true,
+      "answer": "B"
+    },
+    "source_sha256": "80428d02fc6a5585ce727e1d1717ccd3c4fea159c4f2139cd62a36052437f57e",
+    "review_status": "pending_user_review",
+    "approval_record": null,
+    "render_check": {
+      "clipped_content": false,
+      "out_of_view": false,
+      "finite_points": 4001,
+      "width_px": 768,
+      "height_px": 768
+    },
+    "image_sha256": "de04bc2acb926864a512e3ae7c9c5ca853dbee0e01452faa49f4c1404233de47",
+    "automated_validation": {
+      "size": true,
+      "opacity": true,
+      "white_background": true,
+      "viewport": [
+        -8,
+        8,
+        -8,
+        8
+      ],
+      "equal_aspect": true,
+      "black_solid_1pt_objects": true,
+      "answer_schema": true,
+      "reproducible_pixel_sha256": true
+    },
+    "scene_math_checks": [
+      {
+        "test": "Question-specific values independently evaluated from frozen expression",
+        "expected_values": [
+          [
+            0,
+            3
+          ],
+          [
+            -8,
+            0
+          ]
+        ],
+        "passed": true
+      }
+    ]
+  },
+  "packaging_changes": [
+    {
+      "type": "choice_label_format_normalization",
+      "candidate_question_before": "Which of the following could be the equation of the graphed line?\nChoices:\nA.$3 x-8 y=24$\nB.$3 x-8 y=-24$\nC.$3 x+8 y=24$\nD.$3 x+8 y=-24$",
+      "candidate_question_after": "Which of the following could be the equation of the graphed line?\nChoices:\nA: $3 x-8 y=24$\nB: $3 x-8 y=-24$\nC: $3 x+8 y=24$\nD: $3 x+8 y=-24$",
+      "reason": "Normalize existing option labels to A: notation for the formal answer schema; no option text, order or answer changes."
+    }
+  ],
+  "legacy_scene_id": "MV_F0507"
+}

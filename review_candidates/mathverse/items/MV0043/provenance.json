@@ -1,0 +1,60 @@
+{
+  "source": {
+    "source_problem_index": "43",
+    "source_sample_index": "214",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "GeoQA",
+      "subject": "Plane Geometry",
+      "subfield": "Angle"
+    },
+    "original_question": "As shown in the figure, If point D happens to fall on AB, then the degree of angle DOB is ()\nChoices:\nA:40°\nB:30°\nC:38°\nD:15°",
+    "original_answer": "A",
+    "user_approved": false
+  },
+  "audit": {
+    "source_question": "As shown in the figure, If point D happens to fall on AB, then the degree of angle DOB is ()\nChoices:\nA:40°\nB:30°\nC:38°\nD:15°",
+    "source_answer": "A",
+    "source_image_sha256": "f0b9678673ffa9ec6dbb192626c283d8630404ddb54c0ef6d2d8f8cf8e94bf6f",
+    "current_question": "In the figure, D lies on AB and angle AOB equals angle DOC. Find the measure of angle DOB.\nChoices:\nA:40°\nB:30°\nC:38°\nD:15°",
+    "current_answer": "A",
+    "adapted": true,
+    "adaptation_reason": "With only AOD30° and AOC100°, the source does not determine rayOB, despite D being onAB. Added the single equality AOB=DOC, preserving the original40° answer, target, and visible line graph.",
+    "source_visual_observations": [
+      "RaysOA,OD,OB,OC appear in that order; D lies onAB; DC also drawn; AOD30° and wholeAOC100°."
+    ],
+    "independent_solution": "AOC=100° and AOD=30° give DOC=70°. The added equality AOB=DOC makes AOB=70°. Hence DOB=AOB−AOD=70−30=40°, choice A.",
+    "independently_computed_result": 40,
+    "answer_verification": "independently_derived",
+    "visual_review": {
+      "source_viewed": true,
+      "redraw_viewed": true,
+      "status": "agent_reviewed_candidate",
+      "review_notes": "Every source and final PNG was actually inspected in labeled contact sheets. Ambiguous or crowded items were enlarged individually; final edited callouts for MV012, MV054, MV070, MV081, MV105, MV111, MV135 and MV174 were checked. No observed clipping or text/line masking. This is not a user Pass."
+    },
+    "geometry_notes": {
+      "construction": "Frozen code-native coordinates; source raster is preserved and is never used as drawing input.",
+      "construction_scripts": [
+        "../../build_batch4.py"
+      ],
+      "annotation_layout_script": "../../layout_labels.py",
+      "authoritative_frozen_input": "scene.json"
+    },
+    "secondary_answer_check": {
+      "problem_index": 43,
+      "source_key": "testmini:214",
+      "answer": "A",
+      "selected_choice": "40°",
+      "independent_derivation_value": 40.0,
+      "frozen_geometry_target_value": 39.99999999999999,
+      "absolute_error": 7.105427357601002e-15,
+      "tolerance": 1e-07,
+      "passed": true,
+      "method": "Measure target angle from frozen vectors independently of source answer."
+    },
+    "adaptation_category": "mathematical_clarification_or_redefinition"
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MathVerse_43"
+}

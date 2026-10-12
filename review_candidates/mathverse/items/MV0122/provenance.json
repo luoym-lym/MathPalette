@@ -1,0 +1,77 @@
+{
+  "source": {
+    "source_problem_index": "122",
+    "source_sample_index": "609",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "GeoQA",
+      "subject": "Plane Geometry",
+      "subfield": "Length"
+    },
+    "original_question": "As shown in the figure, then the height of the cone is ()\nChoices:\nA:6\nB:8\nC:3√{3}\nD:4√{2}",
+    "original_answer": "D",
+    "user_approved": false
+  },
+  "audit": {
+    "source_question": "As shown in the figure, then the height of the cone is ()\nChoices:\nA:6\nB:8\nC:3√{3}\nD:4√{2}",
+    "source_answer": "D",
+    "source_image": "source.png",
+    "adaptation": {
+      "changed": true,
+      "reason": "Restored the missing development relation and clarified perpendicular height."
+    },
+    "independent_solution": "The sector arc length is (120/360)·2π·6=4π, so the cone base radius is 2. Height=√(6²−2²)=4√2 (D).",
+    "geometry_notes": {
+      "kind": "right_circular_cone",
+      "base_center": "O",
+      "axis_end": "T",
+      "radius": 2,
+      "height": 5.656854249492381,
+      "silhouette_tangent_angles_deg": [
+        5.179543008189399,
+        174.8204569918106
+      ],
+      "visibility_derivation": "Lateral normal (cos(t),sin(t),r/h). Dot toward_viewer vanishes at two frozen tangent angles. Facing lateral surface exposes base arc; back rim is hidden.",
+      "development": {
+        "kind": "sector",
+        "radius": 6,
+        "angle_deg": 120,
+        "plane_u": [
+          0.3319722315877897,
+          0.03009233400276599,
+          -0.9428090415820635
+        ],
+        "plane_v": [
+          0.9432891589828767,
+          -0.010590410350263224,
+          0.3318032636276957
+        ],
+        "shared_generator": [
+          "T",
+          "TR"
+        ],
+        "arc_length": 12.566370614359172,
+        "base_circumference": 12.566370614359172
+      }
+    },
+    "source_visual_review": {
+      "reviewed": true,
+      "method": "Source images inspected at native resolution; cone and planar development semantics separated."
+    },
+    "redraw_visual_review": {
+      "reviewed": true,
+      "reviewer": "agent_visual_review_not_user_approval",
+      "completed_at": "2026-10-11T15:58:00Z",
+      "scope": "All authored candidates individually inspected after final layout; point/length/angle bindings, relation marks, clipping, legibility, and preserved source semantics checked.",
+      "review_sheet": "solid_routed_preview.jpg",
+      "png_sha256": "961226ed73dad6acc14accab166c6d0ff7b46456bc35521d481fb9987a6438cb"
+    },
+    "independent_solution_verification": {
+      "method": "Separate mathematical derivation recorded in independent_solution; native-coordinate constraints additionally validated by the renderer.",
+      "claim_scope": "Agent mathematical check; not user approval."
+    }
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MV122"
+}

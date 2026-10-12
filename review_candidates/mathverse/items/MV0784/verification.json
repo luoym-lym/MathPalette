@@ -1,0 +1,123 @@
+{
+  "source_record.json": {
+    "sample_index": "3919",
+    "problem_index": "784",
+    "problem_version": "Vision Dominant",
+    "question": "If the circumference of the large circle is 36 and the radius of the small circle is half of the radius of the large circle, what is the length of the darkened arc?\nChoices:\nA.10\nB.8\nC.6\nD.4\nE.2\n",
+    "image": "images_version_5/image_784.png",
+    "answer": "D",
+    "question_type": "multi-choice",
+    "metadata": {
+      "split": "testmini",
+      "source": "GEOS",
+      "subject": "Plane Geometry",
+      "subfield": "Length"
+    },
+    "query_wo": "Please directly answer the question and provide the correct option letter, e.g., A, B, C, D.\nQuestion: If the circumference of the large circle is 36 and the radius of the small circle is half of the radius of the large circle, what is the length of the darkened arc?\nChoices:\nA.10\nB.8\nC.6\nD.4\nE.2\n",
+    "query_cot": "Please first conduct reasoning, and then answer the question and provide the correct option letter, e.g., A, B, C, D, at the end.\nQuestion: If the circumference of the large circle is 36 and the radius of the small circle is half of the radius of the large circle, what is the length of the darkened arc?\nChoices:\nA.10\nB.8\nC.6\nD.4\nE.2\n"
+  },
+  "redraw_report.json": {
+    "id": "MV784",
+    "status": "automated_and_visual_checks_complete_pending_user_review",
+    "user_approved": false,
+    "source_sha256": "69f231bd525b46a7ea0881c48ed3cdd77ee3bf11a1edc79095a508680a0b1b7b",
+    "scene_sha256": "b053b17a737f14c876696b6d11a591a52b3ab66f1432a4b90ac5f318f7e3b803",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "renderer_sha256": "fb4c2fd27f7e5ba1ceead5b59f983465eb44827b3ddf897613b268ff257f5240",
+    "png_sha256": "5534a5994dba822ad3285f714b709b827700c8354d9c87c194890c359affa2e3",
+    "svg_sha256": "c85bccd3c2350bef53888ccc4317dee4f856c2cd1996963788930a91f5794d1b",
+    "second_render_pixel_identical": true,
+    "geometry_checks": [
+      {
+        "id": "c0",
+        "type": "angle",
+        "measured": 80.0,
+        "passed": true
+      },
+      {
+        "id": "arc_binding_l0",
+        "type": "angle_annotation",
+        "label_id": "l0",
+        "arc_id": "o5",
+        "measured": 1,
+        "passed": true
+      }
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "content_bbox_px": [
+        54,
+        55,
+        713,
+        713
+      ],
+      "long_side_fraction": 0.8580729166666666,
+      "center_error_px": [
+        -0.5,
+        0.0
+      ]
+    },
+    "versions": {
+      "python": "3.13.9",
+      "numpy": "2.5.3",
+      "matplotlib": "3.11.2",
+      "Pillow": "12.3.0"
+    },
+    "independent_answer_verification": "answer_verification.json",
+    "source_and_redraw_visually_reviewed": true
+  },
+  "answer_verification.json": {
+    "id": "MV784",
+    "status": "independent_answer_checks_passed",
+    "method": "The small circumference is half 36; the named arc covers 80/360 of that circumference.",
+    "theorem_result": 4.0,
+    "scene_measurement": 4.0,
+    "variables": {},
+    "checks": [
+      {
+        "check": "large circumference",
+        "observed": 36.0,
+        "expected": 36.0,
+        "absolute_error": 0.0
+      },
+      {
+        "check": "radius ratio",
+        "observed": 0.5,
+        "expected": 0.5,
+        "absolute_error": 0.0
+      },
+      {
+        "check": "independent theorem result versus frozen geometry",
+        "observed": 4.0,
+        "expected": 4.0,
+        "absolute_error": 0.0
+      }
+    ],
+    "metrics": {
+      "evaluated_choices": {
+        "A": 10.0,
+        "B": 8.0,
+        "C": 6.0,
+        "D": 4.0,
+        "E": 2.0
+      }
+    },
+    "answer_check": {
+      "matching_options": [
+        "D"
+      ],
+      "unique": true
+    },
+    "source_gold_used_in_derivation": false,
+    "script": "../../verify_answers.py",
+    "scene_sha256": "b053b17a737f14c876696b6d11a591a52b3ab66f1432a4b90ac5f318f7e3b803",
+    "user_approved": false
+  },
+  "packaging": {
+    "source_sha256": "69f231bd525b46a7ea0881c48ed3cdd77ee3bf11a1edc79095a508680a0b1b7b",
+    "image_sha256": "5534a5994dba822ad3285f714b709b827700c8354d9c87c194890c359affa2e3",
+    "scene_source_sha256": "b053b17a737f14c876696b6d11a591a52b3ab66f1432a4b90ac5f318f7e3b803",
+    "script_source_sha256": "4910f586e3ee5066153e65c7b4b316e846f74775ef09f018afc43dce41ec8251",
+    "user_approved": false
+  }
+}

@@ -1,0 +1,263 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MV0196",
+  "status": "candidate_unapproved",
+  "source_dataset": "MathVerse",
+  "source_image": "source.png",
+  "view": {
+    "xlim": [
+      -5.250726744186046,
+      5.250726744186046
+    ],
+    "ylim": [
+      -5.250726744186046,
+      5.250726744186046
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "ink_bbox_px": [
+        54,
+        54,
+        713,
+        713
+      ],
+      "center_error_px": [
+        0.0,
+        0.0
+      ],
+      "long_side_fraction": 0.859375,
+      "minimum_outer_margin_fraction": 0.0703125
+    }
+  },
+  "points": {
+    "O": [
+      0,
+      0
+    ],
+    "A": [
+      -4,
+      -3
+    ],
+    "B": [
+      4,
+      -3
+    ],
+    "T": [
+      0,
+      -3
+    ],
+    "d1a": [
+      -4.0,
+      -3.4
+    ],
+    "d1b": [
+      4.0,
+      -3.4
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "circle",
+      "center": "O",
+      "radius": 5
+    },
+    {
+      "id": "o2",
+      "type": "circle",
+      "center": "O",
+      "radius": 3
+    },
+    {
+      "id": "o3",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "o4",
+      "type": "point",
+      "point": "O"
+    },
+    {
+      "id": "o5",
+      "type": "segment",
+      "points": [
+        "d1a",
+        "d1b"
+      ],
+      "linestyle": "dashed",
+      "role": "dimension"
+    },
+    {
+      "id": "o6",
+      "type": "segment",
+      "points": [
+        "A",
+        "d1a"
+      ],
+      "role": "dimension"
+    },
+    {
+      "id": "o7",
+      "type": "segment",
+      "points": [
+        "B",
+        "d1b"
+      ],
+      "role": "dimension"
+    }
+  ],
+  "labels": [
+    {
+      "id": "l1",
+      "type": "vertex",
+      "point": "O",
+      "offset_pt": [
+        7.000000000000002,
+        19.92820323027551
+      ]
+    },
+    {
+      "id": "l2",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        -22.0,
+        8.000000000000002
+      ]
+    },
+    {
+      "id": "l3",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        22.0,
+        8.0
+      ]
+    },
+    {
+      "id": "l4",
+      "type": "text",
+      "text": "8",
+      "anchor": [
+        0.0,
+        -3.4
+      ],
+      "offset_pt": [
+        0,
+        -15
+      ],
+      "segment_points": [
+        "A",
+        "B"
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c1",
+      "type": "distance",
+      "points": [
+        "A",
+        "B"
+      ],
+      "value": 8
+    },
+    {
+      "id": "c2",
+      "type": "on_circle",
+      "point": "A",
+      "center": "O",
+      "radius": 5
+    },
+    {
+      "id": "c3",
+      "type": "on_circle",
+      "point": "B",
+      "center": "O",
+      "radius": 5
+    },
+    {
+      "id": "c4",
+      "type": "parallel",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "d1a",
+          "d1b"
+        ]
+      ]
+    },
+    {
+      "id": "c5",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "d1a"
+        ]
+      ]
+    },
+    {
+      "id": "c6",
+      "type": "on_circle",
+      "point": "T",
+      "center": "O",
+      "radius": 3
+    },
+    {
+      "id": "c7",
+      "type": "collinear",
+      "points": [
+        "A",
+        "T",
+        "B"
+      ]
+    },
+    {
+      "id": "c8",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "O",
+          "T"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "distance_markers": [
+    {
+      "id": "d1",
+      "segment_points": [
+        "A",
+        "B"
+      ],
+      "dimension_points": [
+        "d1a",
+        "d1b"
+      ],
+      "dashed_line_id": "o5",
+      "connector_line_ids": [
+        "o6",
+        "o7"
+      ],
+      "label_id": "l4"
+    }
+  ]
+}

@@ -217,15 +217,20 @@ class BaseGenerator:
         if len(set(operations)) != 4 or any(op not in OPERATIONS for op in operations):
             raise ValueError(f"Expected four distinct Base operations: {qid}")
         expected_images, expected_plugins, pixels = set(), set(), set()
-        baseline_hash = canonical_hash(self.dataset.baseline(qid))
+        baseline = self.dataset.baseline(qid)
+        baseline_hash = canonical_hash(baseline)
         for index, recipe in enumerate(recipes, 1):
             if recipe["question_id"] != qid or recipe["status"] != "generated" or recipe["category"] != "Base":
                 raise ValueError(f"Invalid generated recipe: {qid}")
             if (recipe["baseline_fingerprint"] != baseline_hash or
                     canonical_hash(recipe["baseline"]) != baseline_hash):
                 raise ValueError(f"Original input changed: {qid}; regenerate explicitly with --replace.")
+            from dataset_tools.legacy_variant_compatibility import legacy_renderer_matches
+            renderer_matches = recipe["renderer_sha256"] == self.execution_hash or legacy_renderer_matches(
+                "Analytics/Base", recipe["renderer_sha256"], self.execution_hash,
+                self.dataset.records[qid], baseline["files"])
             if (recipe["protocol_sha256"] != self.policy_hash or recipe["environment"] != self.env or
-                    recipe["generator_version"] != GENERATOR_VERSION or recipe["renderer_sha256"] != self.execution_hash):
+                    recipe["generator_version"] != GENERATOR_VERSION or not renderer_matches):
                 raise ValueError(f"Base protocol, renderer, or environment changed: {qid}.")
             name = f"{qid}_base_variant_{index}"
             expected_image = f"base_variant/{qid}/images/{name}.png"

@@ -1,0 +1,60 @@
+{
+  "source": {
+    "source_problem_index": "15",
+    "source_sample_index": "74",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "GeoQA",
+      "subject": "Plane Geometry",
+      "subfield": "Angle"
+    },
+    "original_question": "As shown in the figure, If the line b is parallel to the line a, the line b can be rotated () clockwise around the point A \nChoices:\nA:70°\nB:50°\nC:30°\nD:20°",
+    "original_answer": "D",
+    "user_approved": false
+  },
+  "audit": {
+    "source_question": "As shown in the figure, If the line b is parallel to the line a, the line b can be rotated () clockwise around the point A \nChoices:\nA:70°\nB:50°\nC:30°\nD:20°",
+    "source_answer": "D",
+    "source_image_sha256": "e1ed3d9eb89e8640ba6068aad055e8b5b72482c3a1728514a14e831aa9a87ddc",
+    "current_question": "In the figure, line b is perpendicular to line c. What is the smallest clockwise rotation about A that makes line b parallel to line a?\nChoices:\nA:70°\nB:50°\nC:30°\nD:20°",
+    "current_answer": "D",
+    "adapted": true,
+    "adaptation_reason": "Corrected the source English conditional, which incorrectly reads as if b is already parallel to a. The depicted rotation and mathematical target are unchanged. The decorative curved rotation arrow is replaced by the explicit clockwise direction in the question; no geometric condition is changed.",
+    "source_visual_observations": [
+      "Horizontal linea, steep falling linec, oblique lineb perpendicularc atA; source angle1=70° at a/c intersection; curved arrow indicates clockwise rotation."
+    ],
+    "independent_solution": "The acute angle between lines a and c is70 degrees. Since b is perpendicular to c, b makes90-70=20 degrees counterclockwise from a. Rotating b clockwise20 degrees makes it parallel to a, choice D.",
+    "independently_computed_result": 20,
+    "answer_verification": "independently_derived",
+    "visual_review": {
+      "source_viewed": true,
+      "redraw_viewed": true,
+      "status": "agent_reviewed_candidate",
+      "review_notes": "Every source and final PNG was actually inspected in labeled contact sheets. Ambiguous or crowded items were enlarged individually; final edited callouts for MV012, MV054, MV070, MV081, MV105, MV111, MV135 and MV174 were checked. No observed clipping or text/line masking. This is not a user Pass."
+    },
+    "geometry_notes": {
+      "construction": "Frozen code-native coordinates; source raster is preserved and is never used as drawing input.",
+      "construction_scripts": [
+        "../../build_batches.py"
+      ],
+      "annotation_layout_script": "../../layout_labels.py",
+      "authoritative_frozen_input": "scene.json"
+    },
+    "secondary_answer_check": {
+      "problem_index": 15,
+      "source_key": "testmini:74",
+      "answer": "D",
+      "selected_choice": "20°",
+      "independent_derivation_value": 20.0,
+      "frozen_geometry_target_value": 20.000000000000004,
+      "absolute_error": 3.552713678800501e-15,
+      "tolerance": 1e-07,
+      "passed": true,
+      "method": "Minimum clockwise rotation of b to horizontal a."
+    },
+    "adaptation_category": "editorial_or_annotation_cleanup"
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MathVerse_15"
+}

@@ -1,0 +1,101 @@
+{
+  "source": {
+    "source_problem_index": "670",
+    "source_sample_index": "3349",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "Geo3D_collected",
+      "subject": "Solid Geometry",
+      "subfield": "Area"
+    },
+    "original_question": "We wish to find the surface area of the entire solid, containing a cylinder and a rectangular prism.\nNote that an area is called 'exposed' if it is not covered by the other object.\nWhat is the exposed surface area of the bottom solid figure? Give your answer correct to two decimal places.",
+    "original_answer": "S.A. of rectangular prism $=4371.46 \\mathrm{~mm}^{2}$",
+    "user_approved": false
+  },
+  "audit": {
+    "original_record": {
+      "sample_index": "3349",
+      "problem_index": "670",
+      "problem_version": "Vision Dominant",
+      "question": "We wish to find the surface area of the entire solid, containing a cylinder and a rectangular prism.\nNote that an area is called 'exposed' if it is not covered by the other object.\nWhat is the exposed surface area of the bottom solid figure? Give your answer correct to two decimal places.",
+      "image": "images_version_5/image_670.png",
+      "answer": "S.A. of rectangular prism $=4371.46 \\mathrm{~mm}^{2}$",
+      "question_type": "free-form",
+      "metadata": {
+        "split": "testmini",
+        "source": "Geo3D_collected",
+        "subject": "Solid Geometry",
+        "subfield": "Area"
+      },
+      "query_wo": "Please directly answer the question and provide the final value, e.g., 1, 2.5, 300.\nQuestion: We wish to find the surface area of the entire solid, containing a cylinder and a rectangular prism.\nNote that an area is called 'exposed' if it is not covered by the other object.\nWhat is the exposed surface area of the bottom solid figure? Give your answer correct to two decimal places.",
+      "query_cot": "Please first conduct reasoning, and then answer the question and provide the final value, e.g., 1, 2.5, 300, at the end.\nQuestion: We wish to find the surface area of the entire solid, containing a cylinder and a rectangular prism.\nNote that an area is called 'exposed' if it is not covered by the other object.\nWhat is the exposed surface area of the bottom solid figure? Give your answer correct to two decimal places."
+    },
+    "adaptation": {
+      "changed_question": false,
+      "changed_answer": true,
+      "reason": "Protocol style normalization and physically correct frozen projection; original mathematical task preserved.",
+      "new_question": "We wish to find the surface area of the entire solid, containing a cylinder and a rectangular prism.\nNote that an area is called 'exposed' if it is not covered by the other object.\nWhat is the exposed surface area of the bottom solid figure? Give your answer correct to two decimal places.",
+      "new_answer": "4371.46 mm²",
+      "mathematical_answer_correction": false,
+      "source_visual_changes": [
+        "Uniform opaque white 768×768 canvas, black 1 pt geometry, prescribed fonts and source-informed labels.",
+        "All solid geometry is constructed in true 3D and projected through one frozen camera. Source sketch distortions, decorative lighting and inconsistent hidden-line styles are normalized without weakening the protocol.",
+        "Source mathematical conditions, geometry type and visual reasoning objective are preserved. Display-only labels and measurement ranges are re-laid out to satisfy the protocol."
+      ]
+    },
+    "answer_verification": {
+      "status": "independently_verified",
+      "source_audit_record": "source_audit.json, problem_index 670",
+      "calculation": {
+        "formula": "2*(65*21+65*10+21*10)-pi*5**2",
+        "unrounded_value": 4371.460183660255,
+        "answer": "4371.46 mm²",
+        "unit": "mm²",
+        "rounding_decimal_places": 2
+      },
+      "canonical_answer": "4371.46 mm²",
+      "source_answer_conflict": null
+    },
+    "geometry_notes": {
+      "kind": "analytic_CSG",
+      "components": [
+        {
+          "kind": "box",
+          "bounds": [
+            [
+              0,
+              65
+            ],
+            [
+              0,
+              21
+            ],
+            [
+              0,
+              10
+            ]
+          ]
+        },
+        {
+          "kind": "cylinder",
+          "center": [
+            32.5,
+            10.5,
+            10
+          ],
+          "radius": 5,
+          "zrange": [
+            0,
+            11
+          ]
+        }
+      ],
+      "description": "Cylinder joined to top face of a rectangular prism; covered circular contact area not exposed.",
+      "visibility_derivation": "Ray intersections with every finite analytic surface and clipping plane are sorted. Positive open ray intervals are tested against the union-minus-subtraction material domain. Boundary curves are partitioned at isolated visibility transitions refined by 40 bisections; all frozen intervals are explicitly stored and sampled separately. No raster hand tracing or draw-order occlusion is used."
+    },
+    "source_label_to_world_anchor": {}
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MathVerse670"
+}

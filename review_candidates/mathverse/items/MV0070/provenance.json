@@ -1,0 +1,60 @@
+{
+  "source": {
+    "source_problem_index": "70",
+    "source_sample_index": "349",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "GeoQA",
+      "subject": "Plane Geometry",
+      "subfield": "Angle"
+    },
+    "original_question": "As shown in the figure, BD is the angular bisector of triangle ABC, then the degree of angle CDE is ()\nChoices:\nA:35°\nB:40°\nC:45°\nD:50°",
+    "original_answer": "C",
+    "user_approved": false
+  },
+  "audit": {
+    "source_question": "As shown in the figure, BD is the angular bisector of triangle ABC, then the degree of angle CDE is ()\nChoices:\nA:35°\nB:40°\nC:45°\nD:50°",
+    "source_answer": "C",
+    "source_image_sha256": "2eb819246c83bd57c6f23e2b45ac09ae8b72e889642a4c865868c0685c47e9b0",
+    "current_question": "As shown in the figure, BD is the angular bisector of triangle ABC, then the degree of angle CDE is ()\nChoices:\nA:35°\nB:40°\nC:45°\nD:50°",
+    "current_answer": "C",
+    "adapted": false,
+    "adaptation_reason": null,
+    "source_visual_observations": [
+      "Triangle ABC with whole angle B=35° and C=50°; bisector BD; AE perpendicular to BD at F; E on BC; segment DE."
+    ],
+    "independent_solution": "BD bisects B=35°, giving DBE=17.5°. Since AE is perpendicular to BD, AEB=72.5° and AEC=107.5°. With C=50°, EAC=22.5°. Reflection across BD exchanges A and E: B lies on the bisector and AE is perpendicular to it. Thus AD=DE, so ADE=180−2×22.5=135°. Since A,D,C are collinear, CDE=45°, choice C.",
+    "independently_computed_result": 45,
+    "answer_verification": "independently_derived",
+    "visual_review": {
+      "source_viewed": true,
+      "redraw_viewed": true,
+      "status": "agent_reviewed_candidate",
+      "review_notes": "Every source and final PNG was actually inspected in labeled contact sheets. Ambiguous or crowded items were enlarged individually; final edited callouts for MV012, MV054, MV070, MV081, MV105, MV111, MV135 and MV174 were checked. No observed clipping or text/line masking. This is not a user Pass."
+    },
+    "geometry_notes": {
+      "construction": "Frozen code-native coordinates; source raster is preserved and is never used as drawing input.",
+      "construction_scripts": [
+        "../../build_batch5.py"
+      ],
+      "annotation_layout_script": "../../layout_labels.py",
+      "authoritative_frozen_input": "scene.json"
+    },
+    "secondary_answer_check": {
+      "problem_index": 70,
+      "source_key": "testmini:349",
+      "answer": "C",
+      "selected_choice": "45°",
+      "independent_derivation_value": 45.0,
+      "frozen_geometry_target_value": 45.00000000000003,
+      "absolute_error": 2.842170943040401e-14,
+      "tolerance": 1e-07,
+      "passed": true,
+      "method": "Measure target angle from frozen vectors independently of source answer."
+    },
+    "adaptation_category": null
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MathVerse_70"
+}

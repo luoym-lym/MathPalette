@@ -1,0 +1,68 @@
+{
+  "source": {
+    "source_problem_index": "124",
+    "source_sample_index": "619",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "GeoQA",
+      "subject": "Plane Geometry",
+      "subfield": "Length"
+    },
+    "original_question": "As shown in the figure, then the radius of the sector is ()\nChoices:\nA:2\nB:4\nC:6\nD:8",
+    "original_answer": "B",
+    "user_approved": false
+  },
+  "audit": {
+    "source_question": "As shown in the figure, then the radius of the sector is ()\nChoices:\nA:2\nB:4\nC:6\nD:8",
+    "source_answer": "B",
+    "source_image": "source.png",
+    "adaptation": {
+      "changed": true,
+      "reason": "The unit-square label contradicts every supplied option. Retained the unit length, cut-out geometry and cone construction, restored the omitted assembly/tangency relations, and replaced the impossible choice answer with an exact value."
+    },
+    "independent_solution": "Let sector radius be R and base-disk radius r. Equality of circumference and quarter-sector arc gives r=R/4. The disk center is (1−r,1−r), and tangency to the sector gives √2(1−r)=R+r. Thus R=4√2/(5+√2)≈0.88192484. Every original option (2,4,6,8) exceeds the square side 1 and is impossible.",
+    "geometry_notes": {
+      "kind": "right_circular_cone",
+      "base_center": "O",
+      "axis_end": "T",
+      "radius": 0.22048120921154243,
+      "height": 0.8539200514279772,
+      "silhouette_tangent_angles_deg": [
+        3.7801953804741815,
+        176.21980461952583
+      ],
+      "visibility_derivation": "Lateral normal (cos(t),sin(t),r/h). Dot toward_viewer vanishes at two frozen tangent angles. Facing lateral surface exposes base arc; back rim is hidden.",
+      "development": {
+        "kind": "quarter_sector_and_disk_cut_from_square",
+        "square_side": 1,
+        "sector_radius": 0.8819248368461697,
+        "base_disk_radius": 0.22048120921154243,
+        "disk_center_2d": [
+          0.7795187907884575,
+          0.7795187907884575
+        ],
+        "external_tangency_equation": "sqrt(2)*(1-r)=R+r; r=R/4",
+        "gray_regions": "cut-out cone net pieces"
+      }
+    },
+    "source_visual_review": {
+      "reviewed": true,
+      "method": "Source images inspected at native resolution; cone and planar development semantics separated."
+    },
+    "redraw_visual_review": {
+      "reviewed": true,
+      "reviewer": "agent_visual_review_not_user_approval",
+      "completed_at": "2026-10-11T15:58:00Z",
+      "scope": "All authored candidates individually inspected after final layout; point/length/angle bindings, relation marks, clipping, legibility, and preserved source semantics checked.",
+      "review_sheet": "solid_routed_preview.jpg",
+      "png_sha256": "9ec5d237a69f8f0e4de67ba0b9e9d0613acb3fd6636266027dead55590dd3dd6"
+    },
+    "independent_solution_verification": {
+      "method": "Separate mathematical derivation recorded in independent_solution; native-coordinate constraints additionally validated by the renderer.",
+      "claim_scope": "Agent mathematical check; not user approval."
+    }
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MV124"
+}

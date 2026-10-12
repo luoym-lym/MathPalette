@@ -1,0 +1,150 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MV0411",
+  "status": "candidate_pending_user_review",
+  "source_dataset": "MathVerse",
+  "source_image": "source.png",
+  "view": {
+    "xlim": [
+      -33.85368217054263,
+      33.85368217054263
+    ],
+    "ylim": [
+      -33.85368217054263,
+      33.85368217054263
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "content_bbox_px": [
+        54,
+        54,
+        714,
+        714
+      ],
+      "long_side_fraction": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "points": {
+    "O": [
+      0,
+      0
+    ],
+    "A": [
+      -32.2,
+      3.943362693254478e-15
+    ],
+    "B": [
+      -30.952626609213873,
+      -8.875522857307368
+    ]
+  },
+  "objects": [
+    {
+      "id": "o0",
+      "type": "segment",
+      "points": [
+        "O",
+        "A"
+      ]
+    },
+    {
+      "id": "o1",
+      "type": "segment",
+      "points": [
+        "O",
+        "B"
+      ]
+    },
+    {
+      "id": "o2",
+      "type": "arc",
+      "center": "O",
+      "radius": 32.2,
+      "start_deg": 196,
+      "end_deg": 540
+    },
+    {
+      "id": "o3",
+      "type": "angle_arc",
+      "points": [
+        "A",
+        "O",
+        "B"
+      ],
+      "reflex": true,
+      "radius_pt": 18
+    }
+  ],
+  "labels": [
+    {
+      "id": "l0",
+      "type": "angle",
+      "points": [
+        "A",
+        "O",
+        "B"
+      ],
+      "reflex": true,
+      "arc_id": "o3",
+      "degrees": 344,
+      "radius_pt": 46
+    },
+    {
+      "id": "l1",
+      "type": "text",
+      "anchor": [
+        -16.1,
+        1.971681346627239e-15
+      ],
+      "text": "32.2 m",
+      "offset_pt": [
+        0.0,
+        30.4
+      ],
+      "segment_points": [
+        "O",
+        "A"
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c0",
+      "type": "angle",
+      "points": [
+        "A",
+        "O",
+        "B"
+      ],
+      "reflex": true,
+      "degrees": 344
+    },
+    {
+      "id": "c1",
+      "type": "distance",
+      "points": [
+        "O",
+        "A"
+      ],
+      "value": 32.2
+    },
+    {
+      "id": "c2",
+      "type": "distance",
+      "points": [
+        "O",
+        "B"
+      ],
+      "value": 32.2
+    }
+  ],
+  "ambiguities": [
+    "The source image shows a major sector but omits its angle; radius alone cannot determine the perimeter. Explicitly set the missing reflex angle to 344° and independently recomputed the perimeter. Decorative page borders and filled angle shading are removed; one bound reflex angle arc is drawn."
+  ],
+  "distance_markers": []
+}

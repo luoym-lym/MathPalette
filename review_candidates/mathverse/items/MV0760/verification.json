@@ -1,0 +1,159 @@
+{
+  "source_record.json": {
+    "sample_index": "3799",
+    "problem_index": "760",
+    "problem_version": "Vision Dominant",
+    "question": " Lines AB and AC are tangent to the circle. If M is the midpoint of segment AC and the measure of angle PMC equals the measure of angle MPC, what is the length, in terms of r, of segment PA?\nChoices:\nA.r + 1\nB.2*r\nC.r*\\sqrt{2}\nD.r*\\sqrt{3}\nE.r*\\sqrt{5}\n",
+    "image": "images_version_5/image_760.png",
+    "answer": "E",
+    "question_type": "multi-choice",
+    "metadata": {
+      "split": "testmini",
+      "source": "GEOS",
+      "subject": "Plane Geometry",
+      "subfield": "Length"
+    },
+    "query_wo": "Please directly answer the question and provide the correct option letter, e.g., A, B, C, D.\nQuestion:  Lines AB and AC are tangent to the circle. If M is the midpoint of segment AC and the measure of angle PMC equals the measure of angle MPC, what is the length, in terms of r, of segment PA?\nChoices:\nA.r + 1\nB.2*r\nC.r*\\sqrt{2}\nD.r*\\sqrt{3}\nE.r*\\sqrt{5}\n",
+    "query_cot": "Please first conduct reasoning, and then answer the question and provide the correct option letter, e.g., A, B, C, D, at the end.\nQuestion:  Lines AB and AC are tangent to the circle. If M is the midpoint of segment AC and the measure of angle PMC equals the measure of angle MPC, what is the length, in terms of r, of segment PA?\nChoices:\nA.r + 1\nB.2*r\nC.r*\\sqrt{2}\nD.r*\\sqrt{3}\nE.r*\\sqrt{5}\n"
+  },
+  "redraw_report.json": {
+    "id": "MV760",
+    "status": "automated_and_visual_checks_complete_pending_user_review",
+    "user_approved": false,
+    "source_sha256": "b0543d287a93a5d339061cd68cbe337ad6b0f64039162885df2f021d354b035d",
+    "scene_sha256": "0bbed06d81c0d6db2854479a49092dbe6d05df194724d3456d7eb1fbc1346038",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "renderer_sha256": "fb4c2fd27f7e5ba1ceead5b59f983465eb44827b3ddf897613b268ff257f5240",
+    "png_sha256": "bddce588cebac8559ec208f9d096eb5edf0a78176decb0068b270157926ce425",
+    "svg_sha256": "969ce3284fe7d040760315c39d911af8ac93b4f7c1e40c7a5fd365631b87b014",
+    "second_render_pixel_identical": true,
+    "geometry_checks": [
+      {
+        "id": "c0",
+        "type": "perpendicular",
+        "measured": 1.1546319456101628e-16,
+        "passed": true
+      },
+      {
+        "id": "c1",
+        "type": "perpendicular",
+        "measured": 0.0,
+        "passed": true
+      },
+      {
+        "id": "c2",
+        "type": "equal_length",
+        "measured": [
+          1.0,
+          1.0
+        ],
+        "passed": true
+      },
+      {
+        "id": "c3",
+        "type": "equal_length",
+        "measured": [
+          1.0,
+          1.0
+        ],
+        "passed": true
+      },
+      {
+        "id": "c4",
+        "type": "on_circle",
+        "measured": 1.0,
+        "passed": true
+      },
+      {
+        "id": "c5",
+        "type": "on_circle",
+        "measured": 1.0,
+        "passed": true
+      }
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "content_bbox_px": [
+        54,
+        134,
+        714,
+        633
+      ],
+      "long_side_fraction": 0.859375,
+      "center_error_px": [
+        0.0,
+        -0.5
+      ]
+    },
+    "versions": {
+      "python": "3.13.9",
+      "numpy": "2.5.3",
+      "matplotlib": "3.11.2",
+      "Pillow": "12.3.0"
+    },
+    "independent_answer_verification": "answer_verification.json",
+    "source_and_redraw_visually_reviewed": true
+  },
+  "answer_verification.json": {
+    "id": "MV760",
+    "status": "independent_answer_checks_passed",
+    "method": "Equal base angles give MC=PC=r, midpoint M gives AC=2r, and Pythagoras gives PA=r sqrt(5).",
+    "theorem_result": 2.23606797749979,
+    "scene_measurement": 2.23606797749979,
+    "variables": {
+      "r": 1
+    },
+    "checks": [
+      {
+        "check": "radius equals MC",
+        "observed": 1.0,
+        "expected": 1.0,
+        "absolute_error": 0.0
+      },
+      {
+        "check": "midpoint M",
+        "observed": 1.0,
+        "expected": 1.0,
+        "absolute_error": 0.0
+      },
+      {
+        "check": "independent theorem result versus frozen geometry",
+        "observed": 2.23606797749979,
+        "expected": 2.23606797749979,
+        "absolute_error": 0.0
+      },
+      {
+        "check": "displayed length r",
+        "observed": 1.0,
+        "expected": 1.0,
+        "absolute_error": 0.0
+      }
+    ],
+    "metrics": {
+      "evaluated_choices": {
+        "A": 2.0,
+        "B": 2.0,
+        "C": 1.4142135623730951,
+        "D": 1.7320508075688772,
+        "E": 2.23606797749979
+      }
+    },
+    "answer_check": {
+      "matching_options": [
+        "E"
+      ],
+      "unique": true
+    },
+    "source_gold_used_in_derivation": false,
+    "script": "../../verify_answers.py",
+    "scene_sha256": "0bbed06d81c0d6db2854479a49092dbe6d05df194724d3456d7eb1fbc1346038",
+    "user_approved": false
+  },
+  "packaging": {
+    "source_sha256": "b0543d287a93a5d339061cd68cbe337ad6b0f64039162885df2f021d354b035d",
+    "image_sha256": "bddce588cebac8559ec208f9d096eb5edf0a78176decb0068b270157926ce425",
+    "scene_source_sha256": "0bbed06d81c0d6db2854479a49092dbe6d05df194724d3456d7eb1fbc1346038",
+    "script_source_sha256": "4910f586e3ee5066153e65c7b4b316e846f74775ef09f018afc43dce41ec8251",
+    "user_approved": false
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "source_record.json": {
+    "sample_index": "3874",
+    "problem_index": "775",
+    "problem_version": "Vision Dominant",
+    "question": "The perimeter of the rectangle above is p and the area of the rectangle is 36. If l and w are integers, what is one possible value of p?",
+    "image": "images_version_5/image_775.png",
+    "answer": "24",
+    "question_type": "free-form",
+    "metadata": {
+      "split": "testmini",
+      "source": "GEOS",
+      "subject": "Plane Geometry",
+      "subfield": "Length"
+    },
+    "query_wo": "Please directly answer the question and provide the final value, e.g., 1, 2.5, 300.\nQuestion: The perimeter of the rectangle above is p and the area of the rectangle is 36. If l and w are integers, what is one possible value of p?",
+    "query_cot": "Please first conduct reasoning, and then answer the question and provide the final value, e.g., 1, 2.5, 300, at the end.\nQuestion: The perimeter of the rectangle above is p and the area of the rectangle is 36. If l and w are integers, what is one possible value of p?"
+  },
+  "redraw_report.json": {
+    "id": "MV775",
+    "status": "automated_and_visual_checks_complete_pending_user_review",
+    "user_approved": false,
+    "source_sha256": "9ac808b4f7863bdf936f9b2485d59a99017cfc1be6aa7c25d309f944ed0a2e5a",
+    "scene_sha256": "fa9e5fe4596fc4695875d04c382a4daf01e93faf6ac390dd3f020b8760a30076",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "renderer_sha256": "fb4c2fd27f7e5ba1ceead5b59f983465eb44827b3ddf897613b268ff257f5240",
+    "png_sha256": "f47050cb6047f99d90df066a164bd8c0b9aac7af7b37d4c2870c8bc3789d20a6",
+    "svg_sha256": "a19c4fc7d4813467f9a6418c6496cac35ab738051879b4b4ea4a671d84963e71",
+    "second_render_pixel_identical": true,
+    "geometry_checks": [
+      {
+        "id": "c0",
+        "type": "parallel",
+        "measured": 0.0,
+        "passed": true
+      },
+      {
+        "id": "c1",
+        "type": "parallel",
+        "measured": 0.0,
+        "passed": true
+      },
+      {
+        "id": "c2",
+        "type": "perpendicular",
+        "measured": 0.0,
+        "passed": true
+      }
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "content_bbox_px": [
+        54,
+        231,
+        714,
+        538
+      ],
+      "long_side_fraction": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.5
+      ]
+    },
+    "versions": {
+      "python": "3.13.9",
+      "numpy": "2.5.3",
+      "matplotlib": "3.11.2",
+      "Pillow": "12.3.0"
+    },
+    "independent_answer_verification": "answer_verification.json",
+    "source_and_redraw_visually_reviewed": true
+  },
+  "answer_verification.json": {
+    "id": "MV775",
+    "status": "independent_answer_checks_passed",
+    "method": "Enumerate all positive integer factor pairs of the stated area; the question accepts one possible perimeter.",
+    "theorem_result": [
+      24,
+      26,
+      30,
+      40,
+      74
+    ],
+    "scene_measurement": 24.0,
+    "variables": {},
+    "checks": [
+      {
+        "check": "display construction area",
+        "observed": 36.0,
+        "expected": 36.0,
+        "absolute_error": 0.0
+      }
+    ],
+    "metrics": {
+      "factor_pairs": [
+        [
+          1,
+          36
+        ],
+        [
+          2,
+          18
+        ],
+        [
+          3,
+          12
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          6,
+          6
+        ]
+      ],
+      "accepted_perimeters": [
+        24,
+        26,
+        30,
+        40,
+        74
+      ]
+    },
+    "answer_check": {
+      "accepted_one_possible_value": 24.0,
+      "all_valid_values": [
+        24,
+        26,
+        30,
+        40,
+        74
+      ],
+      "unique": false
+    },
+    "source_gold_used_in_derivation": false,
+    "script": "../../verify_answers.py",
+    "scene_sha256": "fa9e5fe4596fc4695875d04c382a4daf01e93faf6ac390dd3f020b8760a30076",
+    "user_approved": false
+  },
+  "packaging": {
+    "source_sha256": "9ac808b4f7863bdf936f9b2485d59a99017cfc1be6aa7c25d309f944ed0a2e5a",
+    "image_sha256": "f47050cb6047f99d90df066a164bd8c0b9aac7af7b37d4c2870c8bc3789d20a6",
+    "scene_source_sha256": "fa9e5fe4596fc4695875d04c382a4daf01e93faf6ac390dd3f020b8760a30076",
+    "script_source_sha256": "4910f586e3ee5066153e65c7b4b316e846f74775ef09f018afc43dce41ec8251",
+    "user_approved": false
+  }
+}

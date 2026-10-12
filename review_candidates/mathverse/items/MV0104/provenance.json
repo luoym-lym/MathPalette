@@ -1,0 +1,45 @@
+{
+  "source": {
+    "source_problem_index": "104",
+    "source_sample_index": "519",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "GeoQA",
+      "subject": "Plane Geometry",
+      "subfield": "Length"
+    },
+    "original_question": "As shown in the figure, the central angles of chords AB and CD are angle AOB, angle COD, and angle AOB is complementary to angle COD, then the length of chord AB is ()\nChoices:\nA:6\nB:8\nC:5√{2}\nD:5√{3}",
+    "original_answer": "A",
+    "user_approved": false
+  },
+  "audit": {
+    "source_question": "As shown in the figure, the central angles of chords AB and CD are angle AOB, angle COD, and angle AOB is complementary to angle COD, then the length of chord AB is ()\nChoices:\nA:6\nB:8\nC:5√{2}\nD:5√{3}",
+    "source_answer": "A",
+    "source_image": "source.png",
+    "adaptation": {
+      "changed": true,
+      "reason": "The source English says complementary (sum 90°), but the geometry and source answer require supplementary (sum 180°). Corrected the mistranslation; no numerical labels changed."
+    },
+    "independent_solution": "Let the supplementary central angles be α and 180°−α. Chords are 2Rsin(α/2) and 2Rcos(α/2), so AB²+CD²=4R²=100. AB=√(100−64)=6 (A).",
+    "geometry_notes": "Coordinates were analytically constructed from explicit given conditions; unknown side values are used only to freeze the diagram and are not exposed as labels. Original vertex order, edge connections, labels and relation marks are retained.",
+    "source_visual_review": {
+      "reviewed": true,
+      "method": "Viewed original image at readable scale before native geometric construction"
+    },
+    "redraw_visual_review": {
+      "reviewed": true,
+      "reviewer": "agent_visual_review_not_user_approval",
+      "completed_at": "2026-10-11T15:58:00Z",
+      "scope": "All authored candidates individually inspected after final layout; point/length/angle bindings, relation marks, clipping, legibility, and preserved source semantics checked.",
+      "review_sheet": "final_visual_review/009.jpg",
+      "png_sha256": "6f7bae6e60872109ef327dcbb71434def0cd2ff666e5adc05c559fa40379525a"
+    },
+    "independent_solution_verification": {
+      "method": "Separate mathematical derivation recorded in independent_solution; native-coordinate constraints additionally validated by the renderer.",
+      "claim_scope": "Agent mathematical check; not user approval."
+    }
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MV104"
+}

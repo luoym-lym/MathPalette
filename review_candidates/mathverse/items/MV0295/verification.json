@@ -1,0 +1,171 @@
+{
+  "source_record.json": {
+    "sample_index": "1474",
+    "problem_index": "295",
+    "problem_version": "Vision Dominant",
+    "question": "Find x if \\triangle J L M \\sim \\triangle Q S T.\nChoices:\nA:1.5\nB:2\nC:3\nD:4",
+    "image": "images_version_5/image_295.png",
+    "answer": "A",
+    "question_type": "multi-choice",
+    "metadata": {
+      "split": "testmini",
+      "source": "Geometry3K",
+      "subject": "Plane Geometry",
+      "subfield": "Length"
+    },
+    "query_wo": "Please directly answer the question and provide the correct option letter, e.g., A, B, C, D.\nQuestion: Find x if \\triangle J L M \\sim \\triangle Q S T.\nChoices:\nA:1.5\nB:2\nC:3\nD:4",
+    "query_cot": "Please first conduct reasoning, and then answer the question and provide the correct option letter, e.g., A, B, C, D, at the end.\nQuestion: Find x if \\triangle J L M \\sim \\triangle Q S T.\nChoices:\nA:1.5\nB:2\nC:3\nD:4"
+  },
+  "redraw_report.json": {
+    "id": "MV295",
+    "status": "automated_and_visual_checks_complete_pending_user_review",
+    "user_approved": false,
+    "source_sha256": "6fe346b9fa957ee8305a7d59ad4c1df6fce9c1ce7246412ab884be1ed3125ab9",
+    "scene_sha256": "1ac93ccc0529acb3e1a4242d3588fb306692616ebcfeaae3c9efa2c215ecca52",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "renderer_sha256": "fb4c2fd27f7e5ba1ceead5b59f983465eb44827b3ddf897613b268ff257f5240",
+    "png_sha256": "071dd8bcffedc96074ebbc285bdba438d9a81dc9c3a3033042d16bed68f0f4db",
+    "svg_sha256": "e73fa75b5fdcd815cfe25380a6562ce50e1c86289d9770935fa045791e07ed25",
+    "second_render_pixel_identical": true,
+    "geometry_checks": [
+      {
+        "id": "c0",
+        "type": "distance",
+        "measured": 3.9999999999999987,
+        "passed": true
+      },
+      {
+        "id": "c1",
+        "type": "distance",
+        "measured": 2.9999999999999996,
+        "passed": true
+      },
+      {
+        "id": "c2",
+        "type": "distance",
+        "measured": 1.9999999999999993,
+        "passed": true
+      },
+      {
+        "id": "c3",
+        "type": "distance",
+        "measured": 4.0,
+        "passed": true
+      }
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "content_bbox_px": [
+        55,
+        175,
+        714,
+        593
+      ],
+      "long_side_fraction": 0.8580729166666666,
+      "center_error_px": [
+        0.5,
+        0.0
+      ]
+    },
+    "versions": {
+      "python": "3.13.9",
+      "numpy": "2.5.3",
+      "matplotlib": "3.11.2",
+      "Pillow": "12.3.0"
+    },
+    "independent_answer_verification": "answer_verification.json",
+    "source_and_redraw_visually_reviewed": true
+  },
+  "answer_verification.json": {
+    "id": "MV295",
+    "status": "independent_answer_checks_passed",
+    "method": "Correspondence JM/QT=2 gives LM=6; solve 6x-3=6 after documented nondegenerate repair.",
+    "theorem_result": 1.5,
+    "scene_measurement": 1.5,
+    "variables": {
+      "x": 1.5,
+      "y": 3.3333333333333335
+    },
+    "checks": [
+      {
+        "check": "similarity JL/QS",
+        "observed": 2.0,
+        "expected": 2.0,
+        "absolute_error": 0.0
+      },
+      {
+        "check": "similarity LM/ST",
+        "observed": 2.0,
+        "expected": 2.0,
+        "absolute_error": 0.0
+      },
+      {
+        "check": "independent theorem result versus frozen geometry",
+        "observed": 1.5,
+        "expected": 1.5,
+        "absolute_error": 0.0
+      },
+      {
+        "check": "displayed length 4",
+        "observed": 3.9999999999999987,
+        "expected": 4.0,
+        "absolute_error": 1.3322676295501878e-15
+      },
+      {
+        "check": "displayed length 3y - 2",
+        "observed": 8.0,
+        "expected": 8.0,
+        "absolute_error": 0.0
+      },
+      {
+        "check": "displayed length 6x - 3",
+        "observed": 5.999999999999999,
+        "expected": 6.0,
+        "absolute_error": 8.881784197001252e-16
+      },
+      {
+        "check": "displayed length 3",
+        "observed": 2.9999999999999996,
+        "expected": 3.0,
+        "absolute_error": 4.440892098500626e-16
+      },
+      {
+        "check": "displayed length 2",
+        "observed": 1.9999999999999993,
+        "expected": 2.0,
+        "absolute_error": 6.661338147750939e-16
+      },
+      {
+        "check": "displayed length 4",
+        "observed": 4.0,
+        "expected": 4.0,
+        "absolute_error": 0.0
+      }
+    ],
+    "metrics": {
+      "evaluated_choices": {
+        "A": 1.5,
+        "B": 2.0,
+        "C": 3.0,
+        "D": 4.0
+      }
+    },
+    "answer_check": {
+      "matching_options": [
+        "A"
+      ],
+      "unique": true
+    },
+    "source_gold_used_in_derivation": false,
+    "script": "../../verify_answers.py",
+    "scene_sha256": "1ac93ccc0529acb3e1a4242d3588fb306692616ebcfeaae3c9efa2c215ecca52",
+    "user_approved": false
+  },
+  "packaging": {
+    "source_sha256": "6fe346b9fa957ee8305a7d59ad4c1df6fce9c1ce7246412ab884be1ed3125ab9",
+    "image_sha256": "071dd8bcffedc96074ebbc285bdba438d9a81dc9c3a3033042d16bed68f0f4db",
+    "scene_source_sha256": "1ac93ccc0529acb3e1a4242d3588fb306692616ebcfeaae3c9efa2c215ecca52",
+    "script_source_sha256": "4910f586e3ee5066153e65c7b4b316e846f74775ef09f018afc43dce41ec8251",
+    "user_approved": false
+  }
+}

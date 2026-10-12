@@ -1,0 +1,75 @@
+{
+  "source": {
+    "source_problem_index": "531",
+    "source_sample_index": "2654",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "Functions_collected",
+      "subject": "Functions",
+      "subfield": "Property"
+    },
+    "original_question": "Below is the graph of a trigonometric function. What is the midline equation of the function?",
+    "original_answer": "2",
+    "user_approved": false
+  },
+  "audit": {
+    "id": "MV_F0531",
+    "source_visual_inspection": "Inspected original source image before choosing the frozen mathematical model.",
+    "source_observations": "Trig maximum(1.2,5.5), minima-1.5, periodapproximately 3.6.",
+    "adaptation": "Restyled the source mathematical objects using the strict Analytics renderer; no question or answer semantic change intended.",
+    "original_question": "Below is the graph of a trigonometric function. What is the midline equation of the function?",
+    "original_answer": "2",
+    "answer_verification": {
+      "method": "Independent analytic derivation; separate executable arithmetic sanity check (not a full answer verifier)",
+      "derivation": "Max 5.5 and min-1.5 give midline(5.5-1.5)/2=2.",
+      "check_python": "(5.5-1.5)/2==2",
+      "arithmetic_sanity_check_passed": true,
+      "answer": "y = 2"
+    },
+    "source_sha256": "0d4da8413824162cfe5cf18f5030b4c24190d64b23918b968231c89126f665c7",
+    "review_status": "pending_user_review",
+    "approval_record": null,
+    "render_check": {
+      "clipped_content": false,
+      "out_of_view": false,
+      "finite_points": 4002,
+      "width_px": 768,
+      "height_px": 768
+    },
+    "image_sha256": "5fd79f12d2b07ee2cf12396a85d2e59a6d8fc7be5293521b0255ebbeafd7fa06",
+    "automated_validation": {
+      "size": true,
+      "opacity": true,
+      "white_background": true,
+      "viewport": [
+        -8,
+        8,
+        -8,
+        8
+      ],
+      "equal_aspect": true,
+      "black_solid_1pt_objects": true,
+      "answer_schema": true,
+      "reproducible_pixel_sha256": true
+    },
+    "scene_math_checks": [
+      {
+        "test": "Every marked point lies on a frozen curve, line, or outline",
+        "point_count": 1,
+        "passed": true
+      },
+      {
+        "test": "Numerical extrema read from frozen sinusoid agree with independently derived range",
+        "computed_range": [
+          -1.5,
+          5.5
+        ],
+        "passed": true,
+        "tolerance": 0.001
+      }
+    ]
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MV_F0531"
+}

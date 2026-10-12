@@ -1,0 +1,60 @@
+{
+  "source": {
+    "source_problem_index": "166",
+    "source_sample_index": "829",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "GeoQA",
+      "subject": "Plane Geometry",
+      "subfield": "Angle"
+    },
+    "original_question": "As shown in the figure, in ABC, then sinB is equal to ()\nChoices:\nA:\\frac{3}{4}\nB:\\frac{3}{5}\nC:\\frac{4}{5}\nD:\\frac{5}{4}",
+    "original_answer": "B",
+    "user_approved": false
+  },
+  "audit": {
+    "source_question": "As shown in the figure, in ABC, then sinB is equal to ()\nChoices:\nA:\\frac{3}{4}\nB:\\frac{3}{5}\nC:\\frac{4}{5}\nD:\\frac{5}{4}",
+    "source_answer": "B",
+    "source_image_sha256": "095c4607a9f13ea38a1489a46e0a104cf60f35ebb89811a6d5b285b7ec008434",
+    "current_question": "As shown in the figure, in ABC, then sinB is equal to ()\nChoices:\nA:\\frac{3}{4}\nB:\\frac{3}{5}\nC:\\frac{4}{5}\nD:\\frac{5}{4}",
+    "current_answer": "B",
+    "adapted": true,
+    "adaptation_reason": "Removed the isolated duplicate B beside the left leg: the source already labels A at the right-angle vertex, B at the right endpoint, and C at the upper endpoint. No geometric condition or answer changed.",
+    "source_visual_observations": [
+      "Right triangleABC with A90°, AC3, AB4. A stray duplicate B printed beside the left leg is unbound to a vertex."
+    ],
+    "independent_solution": "The marked right angle isA. BC=√(3²+4²)=5, and the side opposite angleB isAC=3. Therefore sinB=3/5, choice B.",
+    "independently_computed_result": "3/5",
+    "answer_verification": "independently_derived",
+    "visual_review": {
+      "source_viewed": true,
+      "redraw_viewed": true,
+      "status": "agent_reviewed_candidate",
+      "review_notes": "Every source and final PNG was actually inspected in labeled contact sheets. Ambiguous or crowded items were enlarged individually; final edited callouts for MV012, MV054, MV070, MV081, MV105, MV111, MV135 and MV174 were checked. No observed clipping or text/line masking. This is not a user Pass."
+    },
+    "geometry_notes": {
+      "construction": "Frozen code-native coordinates; source raster is preserved and is never used as drawing input.",
+      "construction_scripts": [
+        "../../build_batch7.py"
+      ],
+      "annotation_layout_script": "../../layout_labels.py",
+      "authoritative_frozen_input": "scene.json"
+    },
+    "secondary_answer_check": {
+      "problem_index": 166,
+      "source_key": "testmini:829",
+      "answer": "B",
+      "selected_choice": "\\frac{3}{5}",
+      "independent_derivation_value": 0.6,
+      "frozen_geometry_target_value": 0.5999999999999999,
+      "absolute_error": 1.1102230246251565e-16,
+      "tolerance": 1e-07,
+      "passed": true,
+      "method": "sin of target angle from frozen vectors."
+    },
+    "adaptation_category": "editorial_or_annotation_cleanup"
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MathVerse_166"
+}

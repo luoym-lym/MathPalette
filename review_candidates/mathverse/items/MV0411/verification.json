@@ -1,0 +1,125 @@
+{
+  "source_record.json": {
+    "sample_index": "2054",
+    "problem_index": "411",
+    "problem_version": "Vision Dominant",
+    "question": "Consider the sector below. \n\nCalculate the perimeter of the sector. Round your answer to two decimal places.",
+    "image": "images_version_5/image_411.png",
+    "answer": "Perimeter $=257.73 \\mathrm{~m}$",
+    "question_type": "free-form",
+    "metadata": {
+      "split": "testmini",
+      "source": "Geo2D_collected",
+      "subject": "Plane Geometry",
+      "subfield": "Length"
+    },
+    "query_wo": "Please directly answer the question and provide the final value, e.g., 1, 2.5, 300.\nQuestion: Consider the sector below. \n\nCalculate the perimeter of the sector. Round your answer to two decimal places.",
+    "query_cot": "Please first conduct reasoning, and then answer the question and provide the final value, e.g., 1, 2.5, 300, at the end.\nQuestion: Consider the sector below. \n\nCalculate the perimeter of the sector. Round your answer to two decimal places."
+  },
+  "redraw_report.json": {
+    "id": "MV411",
+    "status": "automated_and_visual_checks_complete_pending_user_review",
+    "user_approved": false,
+    "source_sha256": "2d768bf8f6719e33bc1fcc673a208ca93f96811ff89ed2a0441ea154bbfbe9b7",
+    "scene_sha256": "d8fbdcb165f3cb56d31214886f6356b5690bde4a9871f3e8ea138460c7462271",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "renderer_sha256": "fb4c2fd27f7e5ba1ceead5b59f983465eb44827b3ddf897613b268ff257f5240",
+    "png_sha256": "f6f95e5e84e306ba5007f7e40299e5da8f16c606ac3f69bb0f933b5539242639",
+    "svg_sha256": "e7763d4fb291a7d737a5dbbcd7742724df20a46db1c533aee3f5cd8c93383e84",
+    "second_render_pixel_identical": true,
+    "geometry_checks": [
+      {
+        "id": "c0",
+        "type": "angle",
+        "measured": 344.0,
+        "passed": true
+      },
+      {
+        "id": "c1",
+        "type": "distance",
+        "measured": 32.2,
+        "passed": true
+      },
+      {
+        "id": "c2",
+        "type": "distance",
+        "measured": 32.2,
+        "passed": true
+      },
+      {
+        "id": "arc_binding_l0",
+        "type": "angle_annotation",
+        "label_id": "l0",
+        "arc_id": "o3",
+        "measured": 1,
+        "passed": true
+      }
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "content_bbox_px": [
+        54,
+        54,
+        714,
+        714
+      ],
+      "long_side_fraction": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ]
+    },
+    "versions": {
+      "python": "3.13.9",
+      "numpy": "2.5.3",
+      "matplotlib": "3.11.2",
+      "Pillow": "12.3.0"
+    },
+    "independent_answer_verification": "answer_verification.json",
+    "source_and_redraw_visually_reviewed": true
+  },
+  "answer_verification.json": {
+    "id": "MV411",
+    "status": "independent_answer_checks_passed",
+    "method": "Sector perimeter is two radii plus the explicitly adapted reflex arc.",
+    "theorem_result": 257.7266305849079,
+    "scene_measurement": 257.7266305849079,
+    "variables": {},
+    "checks": [
+      {
+        "check": "independent theorem result versus frozen geometry",
+        "observed": 257.7266305849079,
+        "expected": 257.7266305849079,
+        "absolute_error": 0.0
+      },
+      {
+        "check": "displayed length 32.2 m",
+        "observed": 32.2,
+        "expected": 32.2,
+        "absolute_error": 0.0
+      },
+      {
+        "check": "candidate numeric answer",
+        "observed": 257.73,
+        "expected": 257.73,
+        "absolute_error": 0.0
+      }
+    ],
+    "metrics": {},
+    "answer_check": {
+      "expected_value": 257.73,
+      "rounding_decimal_places": 2
+    },
+    "source_gold_used_in_derivation": false,
+    "script": "../../verify_answers.py",
+    "scene_sha256": "d8fbdcb165f3cb56d31214886f6356b5690bde4a9871f3e8ea138460c7462271",
+    "user_approved": false
+  },
+  "packaging": {
+    "source_sha256": "2d768bf8f6719e33bc1fcc673a208ca93f96811ff89ed2a0441ea154bbfbe9b7",
+    "image_sha256": "f6f95e5e84e306ba5007f7e40299e5da8f16c606ac3f69bb0f933b5539242639",
+    "scene_source_sha256": "d8fbdcb165f3cb56d31214886f6356b5690bde4a9871f3e8ea138460c7462271",
+    "script_source_sha256": "4910f586e3ee5066153e65c7b4b316e846f74775ef09f018afc43dce41ec8251",
+    "user_approved": false
+  }
+}

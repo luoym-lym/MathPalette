@@ -1,0 +1,294 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MV0645",
+  "status": "unapproved_candidate",
+  "subject": "SolidGeometry",
+  "source_dataset": "MathVerse",
+  "source_image": "source.png",
+  "source_note": "Official MathVerse testmini Vision Dominant problem 645, sample 3224; source image preserved unmodified.",
+  "world_unit": "cm",
+  "points": {
+    "O": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "T": [
+      0.0,
+      0.0,
+      8.874119674649425
+    ],
+    "A": [
+      -1.5,
+      0.0,
+      0.0
+    ],
+    "B": [
+      1.5,
+      0.0,
+      0.0
+    ],
+    "right_angle0": [
+      0.18,
+      0.0,
+      0.0
+    ],
+    "right_angle1": [
+      0.18,
+      0.0,
+      0.18
+    ],
+    "right_angle2": [
+      0.0,
+      0.0,
+      0.18
+    ],
+    "slant_anchor": [
+      -0.75,
+      0.0,
+      4.437059837324712
+    ],
+    "diameter_value_anchor": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "projection": {
+    "kind": "orthographic",
+    "name": "Frozen source-oriented orthographic view; page orientation -35 degrees",
+    "matrix": [
+      [
+        0.8191520442889918,
+        0.14190508128834867,
+        0.5557453339810535
+      ],
+      [
+        -0.573576436351046,
+        0.20266145898853288,
+        0.7936865909812724
+      ]
+    ],
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "toward_viewer": [
+      0,
+      0.9689124217106447,
+      -0.24740395925452294
+    ]
+  },
+  "view": {
+    "xlim": [
+      -2.3360590780080237,
+      6.020311156141352
+    ],
+    "ylim": [
+      -1.1173054801529774,
+      7.239064753996399
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "visibility": {
+    "mode": "frozen_intervals",
+    "projection_sha256": "35cc01609e9844a0e03c26c512b892002e545595939352cbe548e3de3d24e687",
+    "notes": "Analytically frozen for the declared model and view; no generic occlusion assumption."
+  },
+  "objects": [
+    {
+      "id": "base_semicircle_part0",
+      "type": "circular_arc",
+      "center": "O",
+      "radius": 1.5,
+      "u": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "v": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "domain_deg": [
+        180,
+        360
+      ],
+      "role": "edge",
+      "intervals": [
+        {
+          "start_deg": 180.0,
+          "end_deg": 360.0,
+          "visibility": "visible",
+          "samples": 362
+        }
+      ]
+    },
+    {
+      "id": "cut_left",
+      "type": "segment",
+      "points": [
+        "A",
+        "T"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "cut_right",
+      "type": "segment",
+      "points": [
+        "B",
+        "T"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "diameter",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ],
+      "visibility": "visible",
+      "role": "edge"
+    },
+    {
+      "id": "axis",
+      "type": "segment",
+      "points": [
+        "O",
+        "T"
+      ],
+      "visibility": "visible",
+      "role": "auxiliary",
+      "linestyle": "dashed"
+    },
+    {
+      "id": "right_angle",
+      "type": "polyline",
+      "points": [
+        "right_angle0",
+        "right_angle1",
+        "right_angle2"
+      ],
+      "visibility": "visible",
+      "role": "auxiliary"
+    }
+  ],
+  "dimensions": [],
+  "labels": [
+    {
+      "id": "slant",
+      "type": "text",
+      "text": "9 cm",
+      "anchor": "slant_anchor",
+      "offset_pt": [
+        -18.02134497435782,
+        12.618681599723013
+      ]
+    },
+    {
+      "id": "diameter_value",
+      "type": "text",
+      "text": "3 cm",
+      "anchor": "diameter_value_anchor",
+      "offset_pt": [
+        -27.72324347459146,
+        -39.592894908664135
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "right_angle_orthogonal",
+      "type": "perpendicular",
+      "basis": "Construction check of frozen world-space geometry. Actual source givens and any derived values are distinguished in the source-image audit and geometry notes; no unlabelled construction value is an added given.",
+      "segments": [
+        [
+          "O",
+          "B"
+        ],
+        [
+          "O",
+          "T"
+        ]
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "csg_visibility": [
+    {
+      "id": "base_semicircle",
+      "type": "circle",
+      "center": "O",
+      "radius": 1.5,
+      "u": [
+        1,
+        0,
+        0
+      ],
+      "v": [
+        0,
+        1,
+        0
+      ],
+      "domain": [
+        180,
+        360
+      ],
+      "intervals": [
+        [
+          180,
+          360,
+          "visible"
+        ]
+      ],
+      "hidden_drawn": false,
+      "root_isolation_step_deg": 0.25,
+      "boundary_refinement_iterations": 40
+    }
+  ],
+  "solid_model": {
+    "kind": "analytic_CSG",
+    "components": [
+      {
+        "kind": "cone",
+        "radius": 1.5,
+        "height": 8.874119674649425,
+        "zrange": [
+          0,
+          8.874119674649425
+        ],
+        "halfplanes": [
+          [
+            0,
+            -1,
+            0
+          ]
+        ]
+      }
+    ],
+    "description": "Half of a right circular cone after a cut through its axis; the diameter is 3 cm, slant is 9 cm.",
+    "visibility_derivation": "Ray intersections with every finite analytic surface and clipping plane are sorted. Positive open ray intervals are tested against the union-minus-subtraction material domain. Boundary curves are partitioned at isolated visibility transitions refined by 40 bisections; all frozen intervals are explicitly stored and sampled separately. No raster hand tracing or draw-order occlusion is used."
+  }
+}

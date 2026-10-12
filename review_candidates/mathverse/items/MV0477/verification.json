@@ -1,0 +1,56 @@
+{
+  "checks": {
+    "id": "MV_F0477",
+    "source_visual_inspection": "Inspected original source image before choosing the frozen mathematical model.",
+    "source_observations": "Monotone flat-centered odd curve.",
+    "adaptation": "The unlabeled increasing S-curve is frozen as y=x^5/16, preserving the function-test task and its answer.",
+    "original_question": "Determine if this relation is a function.\nChoices:\nA:This is a function\nB:This is not a function",
+    "original_answer": "A",
+    "answer_verification": {
+      "method": "Independent analytic derivation; separate executable arithmetic sanity check (not a full answer verifier)",
+      "derivation": "Every real x is assigned exactly the single real number x^5/16.",
+      "check_python": "all(np.isfinite(np.array([-2,-1,0,1,2])**5/16))",
+      "arithmetic_sanity_check_passed": true,
+      "answer": "A"
+    },
+    "source_sha256": "a92289fc5d67a4fd3c9993b2475d45a7fc10309db37147e08114b5f90a691fb8",
+    "review_status": "pending_user_review",
+    "approval_record": null,
+    "render_check": {
+      "clipped_content": true,
+      "out_of_view": false,
+      "finite_points": 4001,
+      "width_px": 768,
+      "height_px": 768
+    },
+    "image_sha256": "7ce220c835493ff3369b813c9a1cdea081a99f47b45d1784ef956943add7f40b",
+    "automated_validation": {
+      "size": true,
+      "opacity": true,
+      "white_background": true,
+      "viewport": [
+        -8,
+        8,
+        -8,
+        8
+      ],
+      "equal_aspect": true,
+      "black_solid_1pt_objects": true,
+      "answer_schema": true,
+      "reproducible_pixel_sha256": true
+    },
+    "scene_math_checks": [
+      {
+        "test": "Analytic proof is primary; no exhaustive automatic answer checker is claimed",
+        "passed": null
+      }
+    ]
+  },
+  "packaging": {
+    "source_sha256": "a92289fc5d67a4fd3c9993b2475d45a7fc10309db37147e08114b5f90a691fb8",
+    "image_sha256": "7ce220c835493ff3369b813c9a1cdea081a99f47b45d1784ef956943add7f40b",
+    "scene_source_sha256": "7ad62e62c85ca3d9b6333c6d9127fb14ce1ccd7fe2d6a1dfa6f4fe5a9aa833c7",
+    "script_source_sha256": "959f4f57e206cbf974a513b51f04e4f02200c88868e4fd215d7c3e4f6956a641",
+    "user_approved": false
+  }
+}

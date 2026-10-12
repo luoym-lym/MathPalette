@@ -1,0 +1,215 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MV0786",
+  "status": "candidate_pending_user_review",
+  "source_dataset": "MathVerse",
+  "source_image": "source.png",
+  "view": {
+    "xlim": [
+      -4.209556039869106,
+      4.52517596499651
+    ],
+    "ylim": [
+      -4.369076949465718,
+      4.365655055399898
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "content_bbox_px": [
+        54,
+        66,
+        714,
+        702
+      ],
+      "long_side_fraction": 0.859375,
+      "center_error_px": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "points": {
+    "P": [
+      0,
+      0
+    ],
+    "Q": [
+      2,
+      0
+    ],
+    "R": [
+      4,
+      0
+    ],
+    "H": [
+      0,
+      -4
+    ],
+    "d0a": [
+      -0.6,
+      0.0
+    ],
+    "d0b": [
+      -0.6,
+      -4.0
+    ]
+  },
+  "objects": [
+    {
+      "id": "o0",
+      "type": "circle",
+      "center": "P",
+      "radius": 4
+    },
+    {
+      "id": "o1",
+      "type": "circle",
+      "center": "Q",
+      "radius": 2
+    },
+    {
+      "id": "o2",
+      "type": "point",
+      "point": "P"
+    },
+    {
+      "id": "o3",
+      "type": "point",
+      "point": "Q"
+    },
+    {
+      "id": "o4",
+      "type": "point",
+      "point": "R"
+    },
+    {
+      "id": "o5",
+      "type": "segment",
+      "points": [
+        "d0a",
+        "d0b"
+      ],
+      "linestyle": "dashed",
+      "role": "dimension"
+    },
+    {
+      "id": "o6",
+      "type": "segment",
+      "points": [
+        "P",
+        "d0a"
+      ],
+      "role": "dimension"
+    },
+    {
+      "id": "o7",
+      "type": "segment",
+      "points": [
+        "H",
+        "d0b"
+      ],
+      "role": "dimension"
+    }
+  ],
+  "labels": [
+    {
+      "id": "l0",
+      "type": "text",
+      "anchor": [
+        -0.6,
+        -2.0
+      ],
+      "text": "4",
+      "offset_pt": [
+        -12.0,
+        0.0
+      ],
+      "segment_points": [
+        "P",
+        "H"
+      ]
+    },
+    {
+      "id": "l1",
+      "type": "vertex",
+      "point": "P",
+      "offset_pt": [
+        -13,
+        8
+      ]
+    },
+    {
+      "id": "l2",
+      "type": "vertex",
+      "point": "Q",
+      "offset_pt": [
+        0,
+        -16
+      ]
+    },
+    {
+      "id": "l3",
+      "type": "vertex",
+      "point": "R",
+      "offset_pt": [
+        14,
+        0
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c0",
+      "type": "distance",
+      "points": [
+        "P",
+        "H"
+      ],
+      "value": 4
+    },
+    {
+      "id": "c1",
+      "type": "on_circle",
+      "point": "P",
+      "center": "Q",
+      "radius": 2
+    },
+    {
+      "id": "c2",
+      "type": "on_circle",
+      "point": "R",
+      "center": "Q",
+      "radius": 2
+    },
+    {
+      "id": "c3",
+      "type": "on_circle",
+      "point": "R",
+      "center": "P",
+      "radius": 4
+    }
+  ],
+  "ambiguities": [
+    "Made the centers and the visible incidence at P explicit to avoid relying on an unlabeled center convention. Replaced the source radius arrow by the required parallel dashed distance marker."
+  ],
+  "distance_markers": [
+    {
+      "id": "dimension0",
+      "segment_points": [
+        "P",
+        "H"
+      ],
+      "dimension_points": [
+        "d0a",
+        "d0b"
+      ],
+      "dashed_line_id": "o5",
+      "connector_line_ids": [
+        "o6",
+        "o7"
+      ],
+      "label_id": "l0"
+    }
+  ]
+}

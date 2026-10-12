@@ -1,0 +1,124 @@
+{
+  "source": {
+    "source_problem_index": "638",
+    "source_sample_index": "3189",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "Geo3D_collected",
+      "subject": "Solid Geometry",
+      "subfield": "Area"
+    },
+    "original_question": "Calculate the area of the triangular divider correct to two decimal places.",
+    "original_answer": "Area $=124.85 \\mathrm{~cm}^{2}$",
+    "user_approved": false
+  },
+  "audit": {
+    "original_record": {
+      "sample_index": "3189",
+      "problem_index": "638",
+      "problem_version": "Vision Dominant",
+      "question": "Calculate the area of the triangular divider correct to two decimal places.",
+      "image": "images_version_5/image_638.png",
+      "answer": "Area $=124.85 \\mathrm{~cm}^{2}$",
+      "question_type": "free-form",
+      "metadata": {
+        "split": "testmini",
+        "source": "Geo3D_collected",
+        "subject": "Solid Geometry",
+        "subfield": "Area"
+      },
+      "query_wo": "Please directly answer the question and provide the final value, e.g., 1, 2.5, 300.\nQuestion: Calculate the area of the triangular divider correct to two decimal places.",
+      "query_cot": "Please first conduct reasoning, and then answer the question and provide the final value, e.g., 1, 2.5, 300, at the end.\nQuestion: Calculate the area of the triangular divider correct to two decimal places."
+    },
+    "adaptation": {
+      "changed_question": false,
+      "changed_answer": true,
+      "reason": "The triangular divider is preserved as an explicitly identified internal section; source labels A, B, C, D bind to model points A, B, C, G.",
+      "new_question": "Calculate the area of the triangular divider correct to two decimal places.",
+      "new_answer": "124.85 cm²",
+      "mathematical_answer_correction": false,
+      "source_visual_changes": [
+        "Uniform opaque white 768×768 canvas, black 1 pt geometry, prescribed fonts and source-informed labels.",
+        "All solid geometry is constructed in true 3D and projected through one frozen camera. Source sketch distortions, decorative lighting and inconsistent hidden-line styles are normalized without weakening the protocol.",
+        "The triangular divider is preserved as an explicitly identified internal section; source labels A, B, C, D bind to model points A, B, C, G."
+      ]
+    },
+    "answer_verification": {
+      "status": "independently_verified",
+      "source_audit_record": "source_audit.json, problem_index 638",
+      "calculation": {
+        "formula": "0.5*sqrt(17**2+12**2)*12",
+        "unrounded_value": 124.85191228010888,
+        "answer": "124.85 cm²",
+        "unit": "cm²",
+        "rounding_decimal_places": 2
+      },
+      "canonical_answer": "124.85 cm²",
+      "source_answer_conflict": null
+    },
+    "geometry_notes": {
+      "kind": "rectangular_prism",
+      "dimensions": [
+        17,
+        12,
+        12
+      ],
+      "faces": [
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          "E",
+          "F",
+          "G",
+          "H"
+        ],
+        [
+          "A",
+          "B",
+          "F",
+          "E"
+        ],
+        [
+          "B",
+          "C",
+          "G",
+          "F"
+        ],
+        [
+          "C",
+          "D",
+          "H",
+          "G"
+        ],
+        [
+          "D",
+          "A",
+          "E",
+          "H"
+        ]
+      ],
+      "visibility_derivation": "Face normals dotted with toward_viewer: x-positive, y-negative and z-positive faces visible; edges with both adjacent faces back-facing hidden.",
+      "section": {
+        "triangle": [
+          "A",
+          "C",
+          "G"
+        ],
+        "area_formula": "0.5 * sqrt(17^2 + 12^2) * 12"
+      }
+    },
+    "source_label_to_world_anchor": {
+      "A": "A",
+      "B": "B",
+      "C": "C",
+      "D": "G"
+    }
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MathVerse638"
+}

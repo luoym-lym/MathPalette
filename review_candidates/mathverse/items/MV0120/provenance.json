@@ -1,0 +1,50 @@
+{
+  "source": {
+    "source_problem_index": "120",
+    "source_sample_index": "599",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "GeoQA",
+      "subject": "Plane Geometry",
+      "subfield": "Area"
+    },
+    "original_question": "As shown in the figure, then the bottom area of ​​the cone is ()\nChoices:\nA:3πcm^{2}\nB:9πcm^{2}\nC:16πcm^{2}\nD:25πcm^{2}",
+    "original_answer": "B",
+    "user_approved": false
+  },
+  "audit": {
+    "source_record": "source_record.json",
+    "source_image_sha256": "969c0a24d261513d39f505b69e7c1bb5f266b9217af5560b49df74819fe57326",
+    "adaptations": [
+      {
+        "type": "protocol_projection",
+        "reason": "Reconstructed genuine3D cone/cylinder and froze orthographic projection, tangent silhouettes and source-retained visibility. No distorted ellipse tracing."
+      },
+      {
+        "type": "unit_clarification",
+        "reason": "The source choices use square/linear centimetres but diagram labels omit units. The stem now identifies centimetres without copying the diagram measurements."
+      }
+    ],
+    "independent_solution": {
+      "method": "Cone radius=√(5²-4²)=3, hence basearea=πr²=9πcm².",
+      "computed_answer": "B",
+      "matches_current_answer": true
+    },
+    "approval_status": "not_requested_or_granted",
+    "geometry_notes": {
+      "kind": "right_circular_cone",
+      "base_center": "O",
+      "axis_end": "T",
+      "radius": 3,
+      "height": 4,
+      "silhouette_tangent_angles_deg": [
+        11.040711432694145,
+        168.95928856730586
+      ],
+      "visibility_derivation": "Lateral normal (cos(t),sin(t),r/h). Dot toward_viewer vanishes at two frozen tangent angles. Facing lateral surface exposes base arc; back rim is hidden."
+    }
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MV120"
+}

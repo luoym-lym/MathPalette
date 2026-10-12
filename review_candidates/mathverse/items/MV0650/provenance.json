@@ -1,0 +1,87 @@
+{
+  "source": {
+    "source_problem_index": "650",
+    "source_sample_index": "3249",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "Geo3D_collected",
+      "subject": "Solid Geometry",
+      "subfield": "Volume"
+    },
+    "original_question": "Find the volume of the solid.\n\nRound your answer to two decimal places.",
+    "original_answer": "Volume $=508.94 \\mathrm{~cm}^{3}$",
+    "user_approved": false
+  },
+  "audit": {
+    "original_record": {
+      "sample_index": "3249",
+      "problem_index": "650",
+      "problem_version": "Vision Dominant",
+      "question": "Find the volume of the solid.\n\nRound your answer to two decimal places.",
+      "image": "images_version_5/image_650.png",
+      "answer": "Volume $=508.94 \\mathrm{~cm}^{3}$",
+      "question_type": "free-form",
+      "metadata": {
+        "split": "testmini",
+        "source": "Geo3D_collected",
+        "subject": "Solid Geometry",
+        "subfield": "Volume"
+      },
+      "query_wo": "Please directly answer the question and provide the final value, e.g., 1, 2.5, 300.\nQuestion: Find the volume of the solid.\n\nRound your answer to two decimal places.",
+      "query_cot": "Please first conduct reasoning, and then answer the question and provide the final value, e.g., 1, 2.5, 300, at the end.\nQuestion: Find the volume of the solid.\n\nRound your answer to two decimal places."
+    },
+    "adaptation": {
+      "changed_question": true,
+      "changed_answer": true,
+      "reason": "The two hemispheres share a plane and occupy opposite halfspaces. Both whole-diameter ranges are outside the solid and explicitly bound.",
+      "new_question": "Find the combined volume of the two solid hemispheres, correct to two decimal places.",
+      "new_answer": "508.94 cm³",
+      "mathematical_answer_correction": false,
+      "source_visual_changes": [
+        "Uniform opaque white 768×768 canvas, black 1 pt geometry, prescribed fonts and source-informed labels.",
+        "All solid geometry is constructed in true 3D and projected through one frozen camera. Source sketch distortions, decorative lighting and inconsistent hidden-line styles are normalized without weakening the protocol.",
+        "The two hemispheres share a plane and occupy opposite halfspaces. Both whole-diameter ranges are outside the solid and explicitly bound."
+      ]
+    },
+    "answer_verification": {
+      "status": "independently_verified",
+      "source_audit_record": "source_audit.json, problem_index 650",
+      "calculation": {
+        "formula": "2*pi*((12/2)**3+(6/2)**3)/3",
+        "unrounded_value": 508.9380098815465,
+        "answer": "508.94 cm³",
+        "unit": "cm³",
+        "rounding_decimal_places": 2
+      },
+      "canonical_answer": "508.94 cm³",
+      "source_answer_conflict": null
+    },
+    "geometry_notes": {
+      "kind": "analytic_CSG",
+      "components": [
+        {
+          "kind": "sphere",
+          "radius": 6,
+          "zrange": [
+            -6,
+            0
+          ]
+        },
+        {
+          "kind": "sphere",
+          "radius": 3,
+          "zrange": [
+            0,
+            3
+          ]
+        }
+      ],
+      "description": "Two solid hemispheres on opposite sides of their common base plane.",
+      "visibility_derivation": "Ray intersections with every finite analytic surface and clipping plane are sorted. Positive open ray intervals are tested against the union-minus-subtraction material domain. Boundary curves are partitioned at isolated visibility transitions refined by 40 bisections; all frozen intervals are explicitly stored and sampled separately. No raster hand tracing or draw-order occlusion is used."
+    },
+    "source_label_to_world_anchor": {}
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MathVerse650"
+}

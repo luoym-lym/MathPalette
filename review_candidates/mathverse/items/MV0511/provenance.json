@@ -1,0 +1,80 @@
+{
+  "source": {
+    "source_problem_index": "511",
+    "source_sample_index": "2554",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "Functions_collected",
+      "subject": "Functions",
+      "subfield": "Expression"
+    },
+    "original_question": "State the inequality that describes the region drawn in the number plane.",
+    "original_answer": "$y<2 x+6$",
+    "user_approved": false
+  },
+  "audit": {
+    "id": "MV_F0511",
+    "source_visual_inspection": "Inspected original source image before choosing the frozen mathematical model.",
+    "source_observations": "Dashed rising boundary through(-3,0),(0,6); shaded below/right.",
+    "adaptation": "Protocol prohibits dashed original boundary. Changed strict inequality to non-strict to match required solid boundary; retained the half-plane and line-reading goal. semantic_cue_changed.",
+    "original_question": "State the inequality that describes the region drawn in the number plane.",
+    "original_answer": "$y<2 x+6$",
+    "answer_verification": {
+      "method": "Independent analytic derivation; separate executable arithmetic sanity check (not a full answer verifier)",
+      "derivation": "Boundary through(-3,0),(0,6) is y=2x+6. Shading below a solid boundary gives <=.",
+      "check_python": "(6-0)/(0-(-3))==2 and 0<=6",
+      "arithmetic_sanity_check_passed": true,
+      "answer": "y <= 2x+6"
+    },
+    "source_sha256": "109efb1e544885f2857b69fd2bd851fa40e597078fac7d12c41fd0892c1f95ce",
+    "review_status": "pending_user_review",
+    "approval_record": null,
+    "render_check": {
+      "clipped_content": true,
+      "out_of_view": false,
+      "finite_points": 12008,
+      "width_px": 768,
+      "height_px": 768
+    },
+    "image_sha256": "ee8628d0c306c7df436b70a83ea8ab1b03e6df4ee9ca8b7caa45871082e5611b",
+    "automated_validation": {
+      "size": true,
+      "opacity": true,
+      "white_background": true,
+      "viewport": [
+        -8,
+        8,
+        -8,
+        8
+      ],
+      "equal_aspect": true,
+      "black_solid_1pt_objects": true,
+      "answer_schema": true,
+      "reproducible_pixel_sha256": true
+    },
+    "scene_math_checks": [
+      {
+        "test": "Every marked point lies on a frozen curve, line, or outline",
+        "point_count": 2,
+        "passed": true
+      },
+      {
+        "test": "Question-specific values independently evaluated from frozen expression",
+        "expected_values": [
+          [
+            -3,
+            0
+          ],
+          [
+            0,
+            6
+          ]
+        ],
+        "passed": true
+      }
+    ]
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MV_F0511"
+}

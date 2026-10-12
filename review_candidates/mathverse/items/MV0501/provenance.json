@@ -1,0 +1,65 @@
+{
+  "source": {
+    "source_problem_index": "501",
+    "source_sample_index": "2504",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "Functions_collected",
+      "subject": "Functions",
+      "subfield": "Property"
+    },
+    "original_question": "Determine the intervals on which the functions are increasing, decreasing, or constant.",
+    "original_answer": "\\text { increasing } \\quad(-3,1) ; \\quad \\text { constant }(-\\infty,-3) \\cup(1, \\infty)",
+    "user_approved": false
+  },
+  "audit": {
+    "id": "MV_F0501",
+    "source_visual_inspection": "Inspected original source image before choosing the frozen mathematical model.",
+    "source_observations": "Constant-4 until-3, straight rise to(1,4), then constant 4.",
+    "adaptation": "Restyled the source mathematical objects using the strict Analytics renderer; no question or answer semantic change intended.",
+    "original_question": "Determine the intervals on which the functions are increasing, decreasing, or constant.",
+    "original_answer": "\\text { increasing } \\quad(-3,1) ; \\quad \\text { constant }(-\\infty,-3) \\cup(1, \\infty)",
+    "answer_verification": {
+      "method": "Independent analytic derivation; separate executable arithmetic sanity check (not a full answer verifier)",
+      "derivation": "Slopes are 0, (4+4)/(1+3)=2, and 0 across successive intervals.",
+      "check_python": "(4-(-4))/(1-(-3))==2",
+      "arithmetic_sanity_check_passed": true,
+      "answer": "Increasing on (-3,1); constant on (-infinity,-3) and (1,infinity); no decreasing interval."
+    },
+    "source_sha256": "346d47ff93813feda0b29e8ec3d63713618ed4ca8e12d2cb00cc6155e6902e9e",
+    "review_status": "pending_user_review",
+    "approval_record": null,
+    "render_check": {
+      "clipped_content": false,
+      "out_of_view": false,
+      "finite_points": 4,
+      "width_px": 768,
+      "height_px": 768
+    },
+    "image_sha256": "04623e491ab10364a46f9610f265ee3665cca6f43606d303f840d4dcb1277df1",
+    "automated_validation": {
+      "size": true,
+      "opacity": true,
+      "white_background": true,
+      "viewport": [
+        -8,
+        8,
+        -8,
+        8
+      ],
+      "equal_aspect": true,
+      "black_solid_1pt_objects": true,
+      "answer_schema": true,
+      "reproducible_pixel_sha256": true
+    },
+    "scene_math_checks": [
+      {
+        "test": "Analytic proof is primary; no exhaustive automatic answer checker is claimed",
+        "passed": null
+      }
+    ]
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MV_F0501"
+}

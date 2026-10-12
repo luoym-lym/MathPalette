@@ -1,0 +1,56 @@
+{
+  "checks": {
+    "id": "MV_F0586",
+    "source_visual_inspection": "Inspected original source image before choosing the frozen mathematical model.",
+    "source_observations": "Increasing odd cubic with flat tangent at origin.",
+    "adaptation": "Corrected the source grammar. Froze the unlabeled curve as an explicit mathematical function with the same injectivity and visible shape; no image tracing.",
+    "original_question": "Do the following graph have inverse functions?\nChoices:\nA:Yes\nB:No",
+    "original_answer": "A",
+    "answer_verification": {
+      "method": "Independent analytic derivation; separate executable arithmetic sanity check (not a full answer verifier)",
+      "derivation": "The cubic is strictly increasing on the entire real line, hence is one-to-one.",
+      "check_python": "all(np.diff(np.linspace(-8,8,1001)**3/2)>0)",
+      "arithmetic_sanity_check_passed": true,
+      "answer": "A"
+    },
+    "source_sha256": "173a3bbee07bc814add4ec2c7829885fece421c96d6ddaf3899a4ab0b9055bbc",
+    "review_status": "pending_user_review",
+    "approval_record": null,
+    "render_check": {
+      "clipped_content": true,
+      "out_of_view": false,
+      "finite_points": 4001,
+      "width_px": 768,
+      "height_px": 768
+    },
+    "image_sha256": "223803d489f33ce5779fe3e22e0b67541d73af3c2d1dd59b94b2a02acb32e12c",
+    "automated_validation": {
+      "size": true,
+      "opacity": true,
+      "white_background": true,
+      "viewport": [
+        -8,
+        8,
+        -8,
+        8
+      ],
+      "equal_aspect": true,
+      "black_solid_1pt_objects": true,
+      "answer_schema": true,
+      "reproducible_pixel_sha256": true
+    },
+    "scene_math_checks": [
+      {
+        "test": "Requested monotonicity/symmetry/function landmarks evaluated from actual frozen formula",
+        "passed": true
+      }
+    ]
+  },
+  "packaging": {
+    "source_sha256": "173a3bbee07bc814add4ec2c7829885fece421c96d6ddaf3899a4ab0b9055bbc",
+    "image_sha256": "223803d489f33ce5779fe3e22e0b67541d73af3c2d1dd59b94b2a02acb32e12c",
+    "scene_source_sha256": "d4dfdf5213d27ff08fdffd5030fc30e67c15f1f3ab16252e03d6e43b9677f971",
+    "script_source_sha256": "a9421f50bd9b654ceff6166dabdb66eb1121778b39e28197da5b7f8f72c4a286",
+    "user_approved": false
+  }
+}

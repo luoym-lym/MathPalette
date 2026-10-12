@@ -1,0 +1,72 @@
+{
+  "source": {
+    "source_problem_index": "498",
+    "source_sample_index": "2489",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "Functions_collected",
+      "subject": "Functions",
+      "subfield": "Property"
+    },
+    "original_question": "Determine if this relation is a function.\nChoices:\nA.This is a function\nB.This is not a function",
+    "original_answer": "A",
+    "user_approved": false
+  },
+  "audit": {
+    "id": "MV_F0498",
+    "source_visual_inspection": "Inspected original source image before choosing the frozen mathematical model.",
+    "source_observations": "Cubic roots-2,0,2 and local extrema about±3.",
+    "adaptation": "Restyled the source mathematical objects using the strict Analytics renderer; no question or answer semantic change intended.",
+    "original_question": "Determine if this relation is a function.\nChoices:\nA.This is a function\nB.This is not a function",
+    "original_answer": "A",
+    "answer_verification": {
+      "method": "Independent analytic derivation; separate executable arithmetic sanity check (not a full answer verifier)",
+      "derivation": "The cubic assigns exactly one value to each real x and passes the vertical-line test.",
+      "check_python": "all(np.isfinite(np.array([-3,-2,-1,0,1,2,3])**3-4*np.array([-3,-2,-1,0,1,2,3])))",
+      "arithmetic_sanity_check_passed": true,
+      "answer": "A"
+    },
+    "source_sha256": "06e56b4c3f9e7a0bc522e2a7170f5cf4ad9dbb550ca581890f56d2e09b6afc7c",
+    "review_status": "pending_user_review",
+    "approval_record": null,
+    "render_check": {
+      "clipped_content": true,
+      "out_of_view": false,
+      "finite_points": 4001,
+      "width_px": 768,
+      "height_px": 768
+    },
+    "image_sha256": "ba5956681115a6dbeaacc84db6844a0fd654f1b599906ad963890f30a71b6ab2",
+    "automated_validation": {
+      "size": true,
+      "opacity": true,
+      "white_background": true,
+      "viewport": [
+        -8,
+        8,
+        -8,
+        8
+      ],
+      "equal_aspect": true,
+      "black_solid_1pt_objects": true,
+      "answer_schema": true,
+      "reproducible_pixel_sha256": true
+    },
+    "scene_math_checks": [
+      {
+        "test": "Analytic proof is primary; no exhaustive automatic answer checker is claimed",
+        "passed": null
+      }
+    ]
+  },
+  "packaging_changes": [
+    {
+      "type": "choice_label_format_normalization",
+      "candidate_question_before": "Determine if this relation is a function.\nChoices:\nA.This is a function\nB.This is not a function",
+      "candidate_question_after": "Determine if this relation is a function.\nChoices:\nA: This is a function\nB: This is not a function",
+      "reason": "Normalize existing option labels to A: notation for the formal answer schema; no option text, order or answer changes."
+    }
+  ],
+  "legacy_scene_id": "MV_F0498"
+}

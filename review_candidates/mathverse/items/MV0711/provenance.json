@@ -1,0 +1,80 @@
+{
+  "source": {
+    "source_problem_index": "711",
+    "source_sample_index": "3554",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "Geo3D_collected",
+      "subject": "Solid Geometry",
+      "subfield": "Area"
+    },
+    "original_question": "Find the surface area of the solid formed, correct to two decimal places.",
+    "original_answer": "91.11 \\mathrm{cm}^2",
+    "user_approved": false
+  },
+  "audit": {
+    "original_record": {
+      "sample_index": "3554",
+      "problem_index": "711",
+      "problem_version": "Vision Dominant",
+      "question": "Find the surface area of the solid formed, correct to two decimal places.",
+      "image": "images_version_5/image_711.png",
+      "answer": "91.11 \\mathrm{cm}^2",
+      "question_type": "free-form",
+      "metadata": {
+        "split": "testmini",
+        "source": "Geo3D_collected",
+        "subject": "Solid Geometry",
+        "subfield": "Area"
+      },
+      "query_wo": "Please directly answer the question and provide the final value, e.g., 1, 2.5, 300.\nQuestion: Find the surface area of the solid formed, correct to two decimal places.",
+      "query_cot": "Please first conduct reasoning, and then answer the question and provide the final value, e.g., 1, 2.5, 300, at the end.\nQuestion: Find the surface area of the solid formed, correct to two decimal places."
+    },
+    "adaptation": {
+      "changed_question": true,
+      "changed_answer": true,
+      "reason": "The removed apex cone is retained only as a source auxiliary construction. The physical frustum is a clipped right cone with exact base diameters and two 8 cm slant ranges.",
+      "new_question": "Find the total surface area of the conical frustum, including its two circular ends, correct to two decimal places.",
+      "new_answer": "91.11 cm²",
+      "mathematical_answer_correction": false,
+      "source_visual_changes": [
+        "Uniform opaque white 768×768 canvas, black 1 pt geometry, prescribed fonts and source-informed labels.",
+        "All solid geometry is constructed in true 3D and projected through one frozen camera. Source sketch distortions, decorative lighting and inconsistent hidden-line styles are normalized without weakening the protocol.",
+        "The removed apex cone is retained only as a source auxiliary construction. The physical frustum is a clipped right cone with exact base diameters and two 8 cm slant ranges."
+      ]
+    },
+    "answer_verification": {
+      "status": "independently_verified",
+      "source_audit_record": "source_audit.json, problem_index 711",
+      "calculation": {
+        "formula": "pi*((2/2)**2+(4/2)**2+((2/2)+(4/2))*8)",
+        "unrounded_value": 91.106186954104,
+        "answer": "91.11 cm²",
+        "unit": "cm²",
+        "rounding_decimal_places": 2
+      },
+      "canonical_answer": "91.11 cm²",
+      "source_answer_conflict": null
+    },
+    "geometry_notes": {
+      "kind": "analytic_CSG",
+      "components": [
+        {
+          "kind": "cone",
+          "radius": 2,
+          "height": 15.874507866387544,
+          "zrange": [
+            0,
+            7.937253933193772
+          ]
+        }
+      ],
+      "description": "Closed conical frustum, diameters 4 and 2 cm, frustum slant 8 cm; removed similar apex cone also has slant 8 cm, displayed only as explicit auxiliary construction.",
+      "visibility_derivation": "Ray intersections with every finite analytic surface and clipping plane are sorted. Positive open ray intervals are tested against the union-minus-subtraction material domain. Boundary curves are partitioned at isolated visibility transitions refined by 40 bisections; all frozen intervals are explicitly stored and sampled separately. No raster hand tracing or draw-order occlusion is used."
+    },
+    "source_label_to_world_anchor": {}
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MathVerse711"
+}

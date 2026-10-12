@@ -1,0 +1,360 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MV0635",
+  "status": "unapproved_candidate",
+  "subject": "SolidGeometry",
+  "source_dataset": "MathVerse",
+  "source_image": "source.png",
+  "source_note": "Official MathVerse testmini Vision Dominant problem 635, sample 3174; source image preserved unmodified.",
+  "world_unit": "m",
+  "points": {
+    "T": [
+      0.0,
+      0.0,
+      12.0
+    ],
+    "O": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "R": [
+      5.0,
+      0.0,
+      0.0
+    ],
+    "L": [
+      -5.0,
+      0.0,
+      0.0
+    ],
+    "TR": [
+      4.971621070959463,
+      0.5319623358771589,
+      0.0
+    ],
+    "TL": [
+      -4.971621070959463,
+      0.5319623358771597,
+      0.0
+    ],
+    "right_angle0": [
+      0.6,
+      0.0,
+      0.0
+    ],
+    "right_angle1": [
+      0.6,
+      0.0,
+      0.6
+    ],
+    "right_angle2": [
+      0.0,
+      0.0,
+      0.6
+    ],
+    "radius_value_anchor": [
+      2.5,
+      0.0,
+      0.0
+    ]
+  },
+  "projection": {
+    "kind": "orthographic",
+    "name": "Frozen source-oriented orthographic view",
+    "matrix": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0.24740395925452294,
+        0.9689124217106447
+      ]
+    ],
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "toward_viewer": [
+      0,
+      -0.9689124217106447,
+      0.24740395925452294
+    ]
+  },
+  "view": {
+    "xlim": [
+      -7.4538177144321835,
+      6.325159653088955
+    ],
+    "ylim": [
+      -1.5612076090078615,
+      12.217769758513278
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "visibility": {
+    "mode": "frozen_intervals",
+    "projection_sha256": "433d51f49f1ee5c4f815bffb589e79d9e027dcd8dc6599e2d0ae4c65ed4effdf",
+    "notes": "Analytically frozen for the declared model and view; no generic occlusion assumption."
+  },
+  "objects": [
+    {
+      "id": "silhouette_TR",
+      "type": "segment",
+      "points": [
+        "T",
+        "TR"
+      ],
+      "visibility": "visible",
+      "role": "silhouette"
+    },
+    {
+      "id": "silhouette_TL",
+      "type": "segment",
+      "points": [
+        "T",
+        "TL"
+      ],
+      "visibility": "visible",
+      "role": "silhouette"
+    },
+    {
+      "id": "base_rim",
+      "type": "circular_arc",
+      "center": "O",
+      "radius": 5.0,
+      "u": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "v": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "domain_deg": [
+        6.107398481086494,
+        366.1073984810865
+      ],
+      "role": "edge",
+      "intervals": [
+        {
+          "start_deg": 6.107398481086494,
+          "end_deg": 173.8926015189135,
+          "visibility": "hidden",
+          "samples": 337
+        },
+        {
+          "start_deg": 173.8926015189135,
+          "end_deg": 366.1073984810865,
+          "visibility": "visible",
+          "samples": 386
+        }
+      ]
+    },
+    {
+      "id": "axis",
+      "type": "segment",
+      "points": [
+        "O",
+        "T"
+      ],
+      "visibility": "hidden",
+      "role": "auxiliary"
+    },
+    {
+      "id": "radius",
+      "type": "segment",
+      "points": [
+        "O",
+        "R"
+      ],
+      "visibility": "hidden",
+      "role": "auxiliary"
+    },
+    {
+      "id": "right_angle",
+      "type": "polyline",
+      "points": [
+        "right_angle0",
+        "right_angle1",
+        "right_angle2"
+      ],
+      "visibility": "visible",
+      "role": "auxiliary"
+    },
+    {
+      "id": "origin_marker",
+      "type": "point",
+      "point": "O",
+      "role": "given_point",
+      "visibility": "visible"
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "height_dimension",
+      "type": "distance",
+      "points": [
+        "O",
+        "T"
+      ],
+      "value": 12.0,
+      "unit": "m",
+      "decimals": 0,
+      "text": "12 m",
+      "offset_pt": [
+        -190.0,
+        0.0
+      ],
+      "label_offset_pt": [
+        -34,
+        0
+      ],
+      "basis": "Source dimension range; arrow/end-cap styling replaced with required Plane02 parallel dashed dimension."
+    },
+    {
+      "id": "slant_dimension",
+      "type": "distance",
+      "points": [
+        "TR",
+        "T"
+      ],
+      "value": 13.0,
+      "unit": "m",
+      "decimals": 1,
+      "text": "13 m",
+      "offset_pt": [
+        22.028105668251158,
+        9.52693868293279
+      ],
+      "label_offset_pt": [
+        33,
+        0
+      ],
+      "basis": "Source dimension range; arrow/end-cap styling replaced with required Plane02 parallel dashed dimension."
+    }
+  ],
+  "labels": [
+    {
+      "id": "radius_value",
+      "type": "text",
+      "text": "r",
+      "anchor": "radius_value_anchor",
+      "offset_pt": [
+        0,
+        -16
+      ],
+      "ha": "center",
+      "va": "center"
+    }
+  ],
+  "constraints": [
+    {
+      "id": "tangent_TR",
+      "type": "projected_tangent",
+      "basis": "Analytical cone silhouette: surface normal dot toward_viewer = 0.",
+      "circle": "base_rim",
+      "point": "TR",
+      "segment": [
+        "T",
+        "TR"
+      ]
+    },
+    {
+      "id": "tangent_TL",
+      "type": "projected_tangent",
+      "basis": "Analytical cone silhouette: surface normal dot toward_viewer = 0.",
+      "circle": "base_rim",
+      "point": "TL",
+      "segment": [
+        "T",
+        "TL"
+      ]
+    },
+    {
+      "id": "right_angle_orthogonal",
+      "type": "perpendicular",
+      "basis": "Construction check of frozen world-space geometry. Actual source givens and any derived values are distinguished in the source-image audit and geometry notes; no unlabelled construction value is an added given.",
+      "segments": [
+        [
+          "O",
+          "R"
+        ],
+        [
+          "O",
+          "T"
+        ]
+      ]
+    },
+    {
+      "id": "true_radius",
+      "type": "distance",
+      "basis": "Derived construction radius from source height and slant; not an extra given.",
+      "points": [
+        "O",
+        "R"
+      ],
+      "value": 5.0
+    },
+    {
+      "id": "true_height",
+      "type": "distance",
+      "basis": "Explicit source perpendicular height.",
+      "points": [
+        "O",
+        "T"
+      ],
+      "value": 12.0
+    },
+    {
+      "id": "true_slant",
+      "type": "distance",
+      "basis": "Explicit source slant length.",
+      "points": [
+        "TR",
+        "T"
+      ],
+      "value": 13.0
+    }
+  ],
+  "ambiguities": [
+    {
+      "id": "source_schematic_visibility",
+      "description": "Source may draw the complete base ellipse with a single linestyle. Correct analytical visible and concealed intervals are frozen; no mathematical measurement is changed."
+    }
+  ],
+  "solid_model": {
+    "kind": "right_circular_cone",
+    "base_center": "O",
+    "axis_end": "T",
+    "radius": 5,
+    "height": 12,
+    "silhouette_tangent_angles_deg": [
+      6.107398481086494,
+      173.8926015189135
+    ],
+    "visibility_derivation": "Lateral normal (cos(t),sin(t),r/h). Dot toward_viewer vanishes at two frozen tangent angles. Facing lateral surface exposes base arc; back rim is hidden."
+  }
+}

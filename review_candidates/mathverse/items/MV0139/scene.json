@@ -1,0 +1,287 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MV0139",
+  "status": "candidate_unapproved",
+  "source_dataset": "MathVerse",
+  "source_image": "source.png",
+  "view": {
+    "xlim": [
+      -8.550457080996743,
+      97.13439954247252
+    ],
+    "ylim": [
+      -52.47439651121746,
+      53.210460112251795
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "ink_bbox_px": [
+        54,
+        291,
+        713,
+        476
+      ],
+      "center_error_px": [
+        0.0,
+        0.0
+      ],
+      "long_side_fraction": 0.859375,
+      "minimum_outer_margin_fraction": 0.0703125
+    }
+  },
+  "points": {
+    "A": [
+      0,
+      10
+    ],
+    "B": [
+      0,
+      -10
+    ],
+    "P": [
+      75,
+      0
+    ],
+    "C": [
+      90,
+      2
+    ],
+    "D": [
+      90,
+      -2
+    ],
+    "Q": [
+      75,
+      2
+    ],
+    "d1a": [
+      75,
+      4
+    ],
+    "d1b": [
+      90,
+      4
+    ]
+  },
+  "objects": [
+    {
+      "id": "o1",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "o2",
+      "type": "segment",
+      "points": [
+        "C",
+        "D"
+      ]
+    },
+    {
+      "id": "o3",
+      "type": "segment",
+      "points": [
+        "Q",
+        "C"
+      ]
+    },
+    {
+      "id": "o4",
+      "type": "segment",
+      "points": [
+        "A",
+        "D"
+      ],
+      "linestyle": "dashed"
+    },
+    {
+      "id": "o5",
+      "type": "segment",
+      "points": [
+        "B",
+        "C"
+      ],
+      "linestyle": "dashed"
+    },
+    {
+      "id": "o6",
+      "type": "segment",
+      "points": [
+        "d1a",
+        "d1b"
+      ],
+      "linestyle": "dashed",
+      "role": "dimension"
+    },
+    {
+      "id": "o7",
+      "type": "segment",
+      "points": [
+        "Q",
+        "d1a"
+      ],
+      "role": "dimension"
+    },
+    {
+      "id": "o8",
+      "type": "segment",
+      "points": [
+        "C",
+        "d1b"
+      ],
+      "role": "dimension"
+    }
+  ],
+  "labels": [
+    {
+      "id": "l1",
+      "type": "text",
+      "text": "20",
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "offset_pt": [
+        -20,
+        0
+      ],
+      "segment_points": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "l2",
+      "type": "text",
+      "text": "4",
+      "anchor": [
+        90.0,
+        0.0
+      ],
+      "offset_pt": [
+        18,
+        0
+      ],
+      "segment_points": [
+        "C",
+        "D"
+      ]
+    },
+    {
+      "id": "l3",
+      "type": "text",
+      "text": "15",
+      "anchor": [
+        82.5,
+        4.0
+      ],
+      "offset_pt": [
+        0,
+        14
+      ],
+      "segment_points": [
+        "Q",
+        "C"
+      ]
+    },
+    {
+      "id": "l4",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        -10,
+        13
+      ]
+    },
+    {
+      "id": "l5",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        -10,
+        -13
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "c1",
+      "type": "parallel",
+      "segments": [
+        [
+          "Q",
+          "C"
+        ],
+        [
+          "d1a",
+          "d1b"
+        ]
+      ]
+    },
+    {
+      "id": "c2",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "Q",
+          "C"
+        ],
+        [
+          "Q",
+          "d1a"
+        ]
+      ]
+    },
+    {
+      "id": "c3",
+      "type": "distance",
+      "points": [
+        "A",
+        "B"
+      ],
+      "value": 20.0
+    },
+    {
+      "id": "c4",
+      "type": "distance",
+      "points": [
+        "C",
+        "D"
+      ],
+      "value": 4.0
+    },
+    {
+      "id": "c5",
+      "type": "distance",
+      "points": [
+        "Q",
+        "C"
+      ],
+      "value": 15.0
+    }
+  ],
+  "ambiguities": [],
+  "distance_markers": [
+    {
+      "id": "d1",
+      "segment_points": [
+        "Q",
+        "C"
+      ],
+      "dimension_points": [
+        "d1a",
+        "d1b"
+      ],
+      "dashed_line_id": "o6",
+      "connector_line_ids": [
+        "o7",
+        "o8"
+      ],
+      "label_id": "l3"
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "source_record.json": {
+    "sample_index": "3809",
+    "problem_index": "762",
+    "problem_version": "Vision Dominant",
+    "question": "In the figure above if the area of triangle CAF is equal to the area of rectangle CDEF, what is the length of segment AD?\nChoices:\nA.7/2\nB.5\nC.7\nD.15/2\nE.15\n",
+    "image": "images_version_5/image_762.png",
+    "answer": "C",
+    "question_type": "multi-choice",
+    "metadata": {
+      "split": "testmini",
+      "source": "GEOS",
+      "subject": "Plane Geometry",
+      "subfield": "Length"
+    },
+    "query_wo": "Please directly answer the question and provide the correct option letter, e.g., A, B, C, D.\nQuestion: In the figure above if the area of triangle CAF is equal to the area of rectangle CDEF, what is the length of segment AD?\nChoices:\nA.7/2\nB.5\nC.7\nD.15/2\nE.15\n",
+    "query_cot": "Please first conduct reasoning, and then answer the question and provide the correct option letter, e.g., A, B, C, D, at the end.\nQuestion: In the figure above if the area of triangle CAF is equal to the area of rectangle CDEF, what is the length of segment AD?\nChoices:\nA.7/2\nB.5\nC.7\nD.15/2\nE.15\n"
+  },
+  "redraw_report.json": {
+    "id": "MV762",
+    "status": "automated_and_visual_checks_complete_pending_user_review",
+    "user_approved": false,
+    "source_sha256": "b90dbb856abe51d2ddc246b1d3b316474610e0fab8fbcfbec5f677303fc46b33",
+    "scene_sha256": "f90ca7bd19b3d67843806e3e48b56a58537f41950abf3fb44caf40fa90af71bd",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "renderer_sha256": "fb4c2fd27f7e5ba1ceead5b59f983465eb44827b3ddf897613b268ff257f5240",
+    "png_sha256": "2a3630df5330fec6335143cf0e5f9228e3a8c7b5b5d3cb0615b6390e439ccd13",
+    "svg_sha256": "67352a501e8e64033921d63d35d927aabd1f347170473d3fef7a61dbdc2a7a86",
+    "second_render_pixel_identical": true,
+    "geometry_checks": [
+      {
+        "id": "c0",
+        "type": "perpendicular",
+        "measured": 0.0,
+        "passed": true
+      },
+      {
+        "id": "c1",
+        "type": "distance",
+        "measured": 7.0,
+        "passed": true
+      },
+      {
+        "id": "c2",
+        "type": "distance",
+        "measured": 15.0,
+        "passed": true
+      },
+      {
+        "id": "c3",
+        "type": "parallel",
+        "measured": 0.0,
+        "passed": true
+      },
+      {
+        "id": "c4",
+        "type": "parallel",
+        "measured": 0.0,
+        "passed": true
+      }
+    ],
+    "layout": {
+      "fit_method": "frozen_content_fit",
+      "content_bbox_px": [
+        55,
+        94,
+        714,
+        675
+      ],
+      "long_side_fraction": 0.8580729166666666,
+      "center_error_px": [
+        0.5,
+        0.5
+      ]
+    },
+    "versions": {
+      "python": "3.13.9",
+      "numpy": "2.5.3",
+      "matplotlib": "3.11.2",
+      "Pillow": "12.3.0"
+    },
+    "independent_answer_verification": "answer_verification.json",
+    "source_and_redraw_visually_reviewed": true
+  },
+  "answer_verification.json": {
+    "id": "MV762",
+    "status": "independent_answer_checks_passed",
+    "method": "Equal areas on base CF require AC=2 CD, so AD=CD.",
+    "theorem_result": 7.0,
+    "scene_measurement": 7.0,
+    "variables": {},
+    "checks": [
+      {
+        "check": "equal triangle and rectangle areas",
+        "observed": 104.99999999999997,
+        "expected": 105.0,
+        "absolute_error": 2.842170943040401e-14
+      },
+      {
+        "check": "independent theorem result versus frozen geometry",
+        "observed": 7.0,
+        "expected": 7.0,
+        "absolute_error": 0.0
+      },
+      {
+        "check": "displayed length 7",
+        "observed": 7.0,
+        "expected": 7.0,
+        "absolute_error": 0.0
+      },
+      {
+        "check": "displayed length 15",
+        "observed": 15.0,
+        "expected": 15.0,
+        "absolute_error": 0.0
+      }
+    ],
+    "metrics": {
+      "evaluated_choices": {
+        "A": 3.5,
+        "B": 5.0,
+        "C": 7.0,
+        "D": 7.5,
+        "E": 15.0
+      }
+    },
+    "answer_check": {
+      "matching_options": [
+        "C"
+      ],
+      "unique": true
+    },
+    "source_gold_used_in_derivation": false,
+    "script": "../../verify_answers.py",
+    "scene_sha256": "f90ca7bd19b3d67843806e3e48b56a58537f41950abf3fb44caf40fa90af71bd",
+    "user_approved": false
+  },
+  "packaging": {
+    "source_sha256": "b90dbb856abe51d2ddc246b1d3b316474610e0fab8fbcfbec5f677303fc46b33",
+    "image_sha256": "2a3630df5330fec6335143cf0e5f9228e3a8c7b5b5d3cb0615b6390e439ccd13",
+    "scene_source_sha256": "f90ca7bd19b3d67843806e3e48b56a58537f41950abf3fb44caf40fa90af71bd",
+    "script_source_sha256": "4910f586e3ee5066153e65c7b4b316e846f74775ef09f018afc43dce41ec8251",
+    "user_approved": false
+  }
+}

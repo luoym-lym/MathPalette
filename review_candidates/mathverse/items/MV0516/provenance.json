@@ -1,0 +1,72 @@
+{
+  "source": {
+    "source_problem_index": "516",
+    "source_sample_index": "2579",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "Functions_collected",
+      "subject": "Functions",
+      "subfield": "Property"
+    },
+    "original_question": "What can we say about the $y$-value of every point on the graph?\nChoices:\nA.The $y$-value of most points of the graph is greater than 1.\nB.The $y$-value of every point on the graph is positive.\nC.The $y$-value of every point on the graph is an integer.\nD.The $y$-value of most points on the graph is positive, and the $y$-value at one point is 0.",
+    "original_answer": "B",
+    "user_approved": false
+  },
+  "audit": {
+    "id": "MV_F0516",
+    "source_visual_inspection": "Inspected original source image before choosing the frozen mathematical model.",
+    "source_observations": "Positive increasing exponential labelled 4^x.",
+    "adaptation": "Restyled the source mathematical objects using the strict Analytics renderer; no question or answer semantic change intended.",
+    "original_question": "What can we say about the $y$-value of every point on the graph?\nChoices:\nA.The $y$-value of most points of the graph is greater than 1.\nB.The $y$-value of every point on the graph is positive.\nC.The $y$-value of every point on the graph is an integer.\nD.The $y$-value of most points on the graph is positive, and the $y$-value at one point is 0.",
+    "original_answer": "B",
+    "answer_verification": {
+      "method": "Independent analytic derivation; separate executable arithmetic sanity check (not a full answer verifier)",
+      "derivation": "4^x=exp(x ln 4)>0 for every real x, including arbitrarily negative x.",
+      "check_python": "all(4.0**np.arange(-8,9)>0)",
+      "arithmetic_sanity_check_passed": true,
+      "answer": "B"
+    },
+    "source_sha256": "b52f3a7ec85e87b5ed7eb86c9c217fba6634569371806f165e47fc124f59f851",
+    "review_status": "pending_user_review",
+    "approval_record": null,
+    "render_check": {
+      "clipped_content": true,
+      "out_of_view": false,
+      "finite_points": 4001,
+      "width_px": 768,
+      "height_px": 768
+    },
+    "image_sha256": "e93fae11165a458ef40c0cb758ddfd3ae89a9df7977d5b81fb21770ece9b5875",
+    "automated_validation": {
+      "size": true,
+      "opacity": true,
+      "white_background": true,
+      "viewport": [
+        -8,
+        8,
+        -8,
+        8
+      ],
+      "equal_aspect": true,
+      "black_solid_1pt_objects": true,
+      "answer_schema": true,
+      "reproducible_pixel_sha256": true
+    },
+    "scene_math_checks": [
+      {
+        "test": "Requested monotonicity/symmetry/function landmarks evaluated from actual frozen formula",
+        "passed": true
+      }
+    ]
+  },
+  "packaging_changes": [
+    {
+      "type": "choice_label_format_normalization",
+      "candidate_question_before": "What can we say about the $y$-value of every point on the graph?\nChoices:\nA.The $y$-value of most points of the graph is greater than 1.\nB.The $y$-value of every point on the graph is positive.\nC.The $y$-value of every point on the graph is an integer.\nD.The $y$-value of most points on the graph is positive, and the $y$-value at one point is 0.",
+      "candidate_question_after": "What can we say about the $y$-value of every point on the graph?\nChoices:\nA: The $y$-value of most points of the graph is greater than 1.\nB: The $y$-value of every point on the graph is positive.\nC: The $y$-value of every point on the graph is an integer.\nD: The $y$-value of most points on the graph is positive, and the $y$-value at one point is 0.",
+      "reason": "Normalize existing option labels to A: notation for the formal answer schema; no option text, order or answer changes."
+    }
+  ],
+  "legacy_scene_id": "MV_F0516"
+}

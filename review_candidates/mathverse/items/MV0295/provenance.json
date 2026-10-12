@@ -1,0 +1,42 @@
+{
+  "source": {
+    "source_problem_index": "295",
+    "source_sample_index": "1474",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "Geometry3K",
+      "subject": "Plane Geometry",
+      "subfield": "Length"
+    },
+    "original_question": "Find x if \\triangle J L M \\sim \\triangle Q S T.\nChoices:\nA:1.5\nB:2\nC:3\nD:4",
+    "original_answer": "A",
+    "user_approved": false
+  },
+  "audit": {
+    "source_question": "Find x if \\triangle J L M \\sim \\triangle Q S T.\nChoices:\nA:1.5\nB:2\nC:3\nD:4",
+    "source_answer": "A",
+    "source_image": "source.png",
+    "adaptation": {
+      "changed": true,
+      "reason": "The source side QS=5 violates the strict triangle inequality with QT=2 and ST=3. Minimal repair changes QS to 4; the similarity x target and answer remain unchanged. Multiple angle arcs normalized to one.",
+      "question_changed": true,
+      "answer_changed": false
+    },
+    "independent_solution": "The similarity scale is JM/QT=4/2=2. Thus LM=2 ST=6, and 6x-3=6 give s x=1.5, option A. The revised side QS=4 makes both triangles nondegenerate without changing this x calculation.",
+    "geometry_notes": "Coordinates were analytically constructed from the stated conditions. Computed lengths freeze a faithful shape without exposing the answer as a label. Source connections, point order, mathematical labels and relation groups were compared visually; any necessary condition or representation changes are described in adaptation.reason. Display-only coordinates do not add question conditions.",
+    "source_visual_review": {
+      "reviewed": true,
+      "method": "Viewed original image at readable scale before native geometric construction"
+    },
+    "redraw_visual_review": {
+      "reviewed": true,
+      "status": "visually_checked_pending_user_review",
+      "note": "Compared vertex correspondence, edge connections and labels. Documented the necessary 5-to-4 side repair and normalization of double angle arcs to one per angle.",
+      "png_sha256": "071dd8bcffedc96074ebbc285bdba438d9a81dc9c3a3033042d16bed68f0f4db"
+    },
+    "independent_answer_verification": "answer_verification.json"
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MV295"
+}

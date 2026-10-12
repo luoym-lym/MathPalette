@@ -1,0 +1,261 @@
+{
+  "source": {
+    "source_problem_index": "682",
+    "source_sample_index": "3409",
+    "source_version": "Vision Dominant",
+    "source_metadata": {
+      "split": "testmini",
+      "source": "Geo3D_collected",
+      "subject": "Solid Geometry",
+      "subfield": "Length"
+    },
+    "original_question": "Find Y, the size of \\angle PNM, correct to two decimal places.",
+    "original_answer": "69.30",
+    "user_approved": false
+  },
+  "audit": {
+    "original_record": {
+      "sample_index": "3409",
+      "problem_index": "682",
+      "problem_version": "Vision Dominant",
+      "question": "Find Y, the size of \\angle PNM, correct to two decimal places.",
+      "image": "images_version_5/image_682.png",
+      "answer": "69.30",
+      "question_type": "free-form",
+      "metadata": {
+        "split": "testmini",
+        "source": "Geo3D_collected",
+        "subject": "Solid Geometry",
+        "subfield": "Length"
+      },
+      "query_wo": "Please directly answer the question and provide the final value, e.g., 1, 2.5, 300.\nQuestion: Find Y, the size of \\angle PNM, correct to two decimal places.",
+      "query_cot": "Please first conduct reasoning, and then answer the question and provide the final value, e.g., 1, 2.5, 300, at the end.\nQuestion: Find Y, the size of \\angle PNM, correct to two decimal places."
+    },
+    "adaptation": {
+      "changed_question": true,
+      "changed_answer": true,
+      "reason": "The source equal-edge quadrilateral is explicitly a square base, with a right apex over the diagonal intersection and N the midpoint of CD.",
+      "new_question": "PABCD is a right pyramid on square base ABCD. M is the center of the base and N is the midpoint of CD. Find angle PNM to two decimal places.",
+      "new_answer": "69.30°",
+      "mathematical_answer_correction": false,
+      "source_visual_changes": [
+        "Uniform opaque white 768×768 canvas, black 1 pt geometry, prescribed fonts and source-informed labels.",
+        "All solid geometry is constructed in true 3D and projected through one frozen camera. Source sketch distortions, decorative lighting and inconsistent hidden-line styles are normalized without weakening the protocol.",
+        "The source equal-edge quadrilateral is explicitly a square base, with a right apex over the diagonal intersection and N the midpoint of CD."
+      ]
+    },
+    "answer_verification": {
+      "status": "independently_verified",
+      "source_audit_record": "source_audit.json, problem_index 682",
+      "calculation": {
+        "formula": "degrees(atan(sqrt(12**2-(8/sqrt(2))**2)/4))",
+        "unrounded_value": 69.29518894536457,
+        "answer": "69.30°",
+        "unit": "degrees",
+        "rounding_decimal_places": 2
+      },
+      "canonical_answer": "69.30°",
+      "source_answer_conflict": "Equal base sides alone specify a rhombus; square/right-pyramid assumptions are omitted from question, though intended by diagram/answer."
+    },
+    "geometry_notes": {
+      "kind": "polyhedron",
+      "faces": [
+        [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B",
+          "V"
+        ],
+        [
+          "B",
+          "C",
+          "V"
+        ],
+        [
+          "C",
+          "D",
+          "V"
+        ],
+        [
+          "D",
+          "A",
+          "V"
+        ]
+      ],
+      "edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "C",
+          "D"
+        ],
+        [
+          "D",
+          "A"
+        ],
+        [
+          "A",
+          "V"
+        ],
+        [
+          "B",
+          "V"
+        ],
+        [
+          "C",
+          "V"
+        ],
+        [
+          "D",
+          "V"
+        ]
+      ],
+      "frozen_edge_visibility": [
+        {
+          "endpoints": [
+            "A",
+            "B"
+          ],
+          "parameter_intervals": [
+            [
+              0.0,
+              1.0,
+              "visible"
+            ]
+          ],
+          "hidden_drawn": true
+        },
+        {
+          "endpoints": [
+            "B",
+            "C"
+          ],
+          "parameter_intervals": [
+            [
+              0.0,
+              1.0,
+              "visible"
+            ]
+          ],
+          "hidden_drawn": true
+        },
+        {
+          "endpoints": [
+            "C",
+            "D"
+          ],
+          "parameter_intervals": [
+            [
+              0.0,
+              1.0,
+              "hidden"
+            ]
+          ],
+          "hidden_drawn": true
+        },
+        {
+          "endpoints": [
+            "D",
+            "A"
+          ],
+          "parameter_intervals": [
+            [
+              0.0,
+              1.0,
+              "hidden"
+            ]
+          ],
+          "hidden_drawn": true
+        },
+        {
+          "endpoints": [
+            "A",
+            "V"
+          ],
+          "parameter_intervals": [
+            [
+              0.0,
+              1.0,
+              "visible"
+            ]
+          ],
+          "hidden_drawn": true
+        },
+        {
+          "endpoints": [
+            "B",
+            "V"
+          ],
+          "parameter_intervals": [
+            [
+              0.0,
+              1.0,
+              "visible"
+            ]
+          ],
+          "hidden_drawn": true
+        },
+        {
+          "endpoints": [
+            "C",
+            "V"
+          ],
+          "parameter_intervals": [
+            [
+              0.0,
+              1.0,
+              "visible"
+            ]
+          ],
+          "hidden_drawn": true
+        },
+        {
+          "endpoints": [
+            "D",
+            "V"
+          ],
+          "parameter_intervals": [
+            [
+              0.0,
+              1.0,
+              "hidden"
+            ]
+          ],
+          "hidden_drawn": true
+        }
+      ],
+      "visibility_derivation": "Each edge is split at all projected face-boundary intersections. For each open interval a 3D ray toward_viewer is tested against every face plane and its true polygon. Adjacent equal states merged. Source-omitted hidden edges are retained in model but not drawn.",
+      "right_pyramid": {
+        "base_dimensions": [
+          8,
+          8
+        ],
+        "base_center": "W",
+        "apex": "V",
+        "perpendicular_height": 10.583005244258363
+      }
+    },
+    "source_label_to_world_anchor": {
+      "A": "A",
+      "D": "B",
+      "C": "C",
+      "B": "D",
+      "M": "W",
+      "P": "V",
+      "N": "N"
+    }
+  },
+  "packaging_changes": [],
+  "legacy_scene_id": "MathVerse682"
+}

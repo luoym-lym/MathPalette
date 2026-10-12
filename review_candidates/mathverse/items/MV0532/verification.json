@@ -1,0 +1,66 @@
+{
+  "checks": {
+    "id": "MV_F0532",
+    "source_visual_inspection": "Inspected original source image before choosing the frozen mathematical model.",
+    "source_observations": "Original min(-pi/2,2.4), max(3 pi/2,13).",
+    "adaptation": "Translated source curve down 7 units to fit both extrema within[-8,8] without changing x-coordinates or amplitude; updated labels and midline answer.",
+    "original_question": "Below is the graph of a trigonometric function. What is the midline equation of the function? Give an exact expression.",
+    "original_answer": "7.7",
+    "answer_verification": {
+      "method": "Independent analytic derivation; separate executable arithmetic sanity check (not a full answer verifier)",
+      "derivation": "The extrema are 6 and-4.6, giving midline(6-4.6)/2=.7 and amplitude(6+4.6)/2=5.3.",
+      "check_python": "abs((6-4.6)/2-.7)<1e-12 and (6+4.6)/2==5.3",
+      "arithmetic_sanity_check_passed": true,
+      "answer": "y = 7/10"
+    },
+    "source_sha256": "851ec5a1cada2d7b88176a8c971320da0fd5254654370206c9abd00ecb3bf12d",
+    "review_status": "pending_user_review",
+    "approval_record": null,
+    "render_check": {
+      "clipped_content": false,
+      "out_of_view": false,
+      "finite_points": 4003,
+      "width_px": 768,
+      "height_px": 768
+    },
+    "image_sha256": "6ee78f94ab1c54413c2459162f342cda8dfbbaf70fe6213dec2d759e4434f25c",
+    "automated_validation": {
+      "size": true,
+      "opacity": true,
+      "white_background": true,
+      "viewport": [
+        -8,
+        8,
+        -8,
+        8
+      ],
+      "equal_aspect": true,
+      "black_solid_1pt_objects": true,
+      "answer_schema": true,
+      "reproducible_pixel_sha256": true
+    },
+    "scene_math_checks": [
+      {
+        "test": "Every marked point lies on a frozen curve, line, or outline",
+        "point_count": 2,
+        "passed": true
+      },
+      {
+        "test": "Numerical extrema read from frozen sinusoid agree with independently derived range",
+        "computed_range": [
+          -4.599999999991061,
+          5.9999999999195515
+        ],
+        "passed": true,
+        "tolerance": 0.001
+      }
+    ]
+  },
+  "packaging": {
+    "source_sha256": "851ec5a1cada2d7b88176a8c971320da0fd5254654370206c9abd00ecb3bf12d",
+    "image_sha256": "6ee78f94ab1c54413c2459162f342cda8dfbbaf70fe6213dec2d759e4434f25c",
+    "scene_source_sha256": "806b129b3fd7637c1a7c16929937e474c356112891ab117e2e1656841a7fdac6",
+    "script_source_sha256": "52cbc483f2e917f5a76eb2da07b911dbabb5c0ec5f5a95018828a9ed987c9e8b",
+    "user_approved": false
+  }
+}

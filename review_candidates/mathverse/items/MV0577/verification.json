@@ -1,0 +1,56 @@
+{
+  "checks": {
+    "id": "MV_F0577",
+    "source_visual_inspection": "Inspected original source image before choosing the frozen mathematical model.",
+    "source_observations": "Quartic crossings-3.5 and0, touch 3, both ends up.",
+    "adaptation": "Normalized unlabeled vertical scale by 1/30 and made root/multiplicity target explicit.",
+    "original_question": "What could be the equation of the polynomial function p?\nChoices:\nA:p(x)=x(x-3)^2(2 x+7)\nB:p(x)=x^2(x-3)(2 x+7)\nC:p(x)=x(x-3)^2(2 x+7)^2\nD:p(x)=x(x-3)(2 x+7)^2",
+    "original_answer": "A",
+    "answer_verification": {
+      "method": "Independent analytic derivation; separate executable arithmetic sanity check (not a full answer verifier)",
+      "derivation": "Crosses at-7/2 and0, touches at 3, both ends up. Thus factors x,2x+7 are odd and (x-3)even; answer A.",
+      "check_python": "(-3.5)*( -3.5-3)**2*(2*(-3.5)+7)==0 and 3*(3-3)**2*(2*3+7)==0",
+      "arithmetic_sanity_check_passed": true,
+      "answer": "A"
+    },
+    "source_sha256": "0025f3623fbb715fb4ad7adef563ee865181e8ad105dfcf86425b6227a3ef248",
+    "review_status": "pending_user_review",
+    "approval_record": null,
+    "render_check": {
+      "clipped_content": true,
+      "out_of_view": false,
+      "finite_points": 4001,
+      "width_px": 768,
+      "height_px": 768
+    },
+    "image_sha256": "14b443e71ab6f01505d3c96fa8050c17d2a7e406d096f37f4b9fb3a3d54c721d",
+    "automated_validation": {
+      "size": true,
+      "opacity": true,
+      "white_background": true,
+      "viewport": [
+        -8,
+        8,
+        -8,
+        8
+      ],
+      "equal_aspect": true,
+      "black_solid_1pt_objects": true,
+      "answer_schema": true,
+      "reproducible_pixel_sha256": true
+    },
+    "scene_math_checks": [
+      {
+        "test": "Analytic proof is primary; no exhaustive automatic answer checker is claimed",
+        "passed": null
+      }
+    ]
+  },
+  "packaging": {
+    "source_sha256": "0025f3623fbb715fb4ad7adef563ee865181e8ad105dfcf86425b6227a3ef248",
+    "image_sha256": "14b443e71ab6f01505d3c96fa8050c17d2a7e406d096f37f4b9fb3a3d54c721d",
+    "scene_source_sha256": "73b844627dbd5262388d5f16dd8bec7bdf1e487da059b28102691459e170be78",
+    "script_source_sha256": "a6f66ab6da6f1445cb1d23c0b0c2b64809d3ba6f821eef382d6fcee902dfe07d",
+    "user_approved": false
+  }
+}
