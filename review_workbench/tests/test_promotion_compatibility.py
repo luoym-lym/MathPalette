@@ -17,6 +17,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
@@ -57,7 +58,8 @@ def _inspect_fixture(root, branch):
         _, replay, replay_digest = renderer.render(normalized, frozen=True)
         assert data == replay and digest == replay_digest != metadata['original_pixel_sha256']
         # All promoted scenes and dependencies must participate in the manifest.
-        for relative in [record['scene'], *record['runtime_dependencies']]:
+        for relative in [record['scene'], 'dataset_generator/common_renderer.py',
+                         'dataset_generator/protocol.json', *record.get('runtime_dependencies', [])]:
             path = root / branch / relative
             original = path.read_bytes()
             try:
@@ -180,6 +182,11 @@ class PromotionCompatibility(unittest.TestCase):
                     self.assertEqual((self.root / branch / row[field]).read_bytes(), (ROOT / candidate[field]).read_bytes())
                 script = (self.root / branch / row['script']).read_text()
                 self.assertNotIn('review_candidates', script)
+                if branch == 'SolidGeometry':
+                    self.assertNotIn('renderer_family', row)
+                    self.assertNotIn('runtime_dependencies', row)
+                    self.assertNotIn('mathverse_renderers', script)
+                    self.assertFalse((self.root / branch / 'dataset_generator/mathverse_renderers').exists())
                 self.assertTrue(any(isinstance(node, ast.ClassDef) and node.name == row['id']
                                     for node in ast.parse(script).body))
 
@@ -208,6 +215,18 @@ class PromotionCompatibility(unittest.TestCase):
             for identity in (candidate['id'], wrong, '../Plane72', 'Plane0', 'Solid00', 'Ana1'):
                 with self.subTest(branch=branch, identity=identity), self.assertRaises(ValueError):
                     prepare(ROOT, candidate, identity)
+
+    def test_solid_rejects_different_canonical_renderer(self):
+        candidate = next(row for row, branch, _ in self.cases if branch == 'SolidGeometry')
+        original_read = Path.read_bytes
+        for name in ('common_renderer.py', 'protocol.json'):
+            target = ROOT / 'SolidGeometry/dataset_generator' / name
+            def changed_read(path):
+                data = original_read(path)
+                return data + b'\n' if path == target else data
+            with self.subTest(dependency=name), patch.object(Path, 'read_bytes', changed_read):
+                with self.assertRaisesRegex(ValueError, 'differs from the canonical renderer'):
+                    prepare(ROOT, candidate, 'Solid50')
 
     def test_native_workbench_noop_special_base_and_dependency_guards(self):
         for branch in catalog.BRANCHES:

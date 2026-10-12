@@ -158,7 +158,11 @@ class WorkbenchTests(unittest.TestCase):
             qid = result['formal_id']
             formal = next(r for r in catalog.rows(self.root / row['subject'] / 'dataset.jsonl') if r['id'] == qid)
             self.assertEqual(formal['source_key'], row['source_key'])
-            self.assertTrue(formal['runtime_dependencies'])
+            if family == 'solid':
+                self.assertNotIn('runtime_dependencies', formal)
+                self.assertNotIn('renderer_family', formal)
+            else:
+                self.assertTrue(formal['runtime_dependencies'])
             self.assertNotIn('review_candidates', (self.root / row['subject'] / formal['script']).read_text())
             scene = catalog.read(self.root / row['subject'] / formal['scene'])
             self.assertEqual(scene['id'], qid)
@@ -168,6 +172,30 @@ class WorkbenchTests(unittest.TestCase):
         for key, entry in before.items():
             self.assertEqual(approvals[key], entry)
         self.assertEqual(len(catalog.catalog(self.root)), self.original_count + 7)
+
+    def test_solid_uses_canonical_renderer_transactionally(self):
+        row = next(row for row in self.rows if row['renderer_family'] == 'solid')
+        renderer = self.root / 'SolidGeometry/dataset_generator/common_renderer.py'
+        before = renderer.read_bytes()
+        approvals = catalog.read(self.root / 'provenance/approvals.json')['approvals']
+        detail = self.service.detail(row['id'])
+        renderer.write_bytes(before + b'\n')
+        try:
+            with self.assertRaises(ReviewError) as caught:
+                self.service.decide(row['id'], 'pass', detail['fingerprint'], 'native-solid-stale')
+            self.assertEqual(caught.exception.code, 'stale_fingerprint')
+        finally:
+            renderer.write_bytes(before)
+        result = self.service.decide(row['id'], 'pass', detail['fingerprint'], 'native-solid-pass')
+        formal = next(record for record in catalog.rows(self.root / 'SolidGeometry/dataset.jsonl')
+                      if record['id'] == result['formal_id'])
+        self.assertNotIn('runtime_dependencies', formal)
+        self.assertNotIn('renderer_family', formal)
+        self.assertFalse((self.root / 'SolidGeometry/dataset_generator/mathverse_renderers').exists())
+        self.assertEqual(renderer.read_bytes(), before)
+        after = catalog.read(self.root / 'provenance/approvals.json')['approvals']
+        self.assertTrue(all(after[qid] == approval for qid, approval in approvals.items()))
+        self.assertEqual(catalog.catalog(self.root), catalog.rows(self.root / 'question_bank.jsonl'))
 
     def test_existing_formal_damage_cannot_be_laundered_by_pass(self):
         row = self.rows[0]

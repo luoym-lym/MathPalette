@@ -2,6 +2,56 @@
 from pathlib import Path
 import json,os,re
 
+def solid_wrapper(row, qid):
+ """Use the existing solid renderer without a copied runtime or renderer."""
+ fields={k:row[k] for k in ['source_dataset','question','answer','answer_type']}
+ fields.update(subject='SolidGeometry',id=qid)
+ if 'choices' in row:fields['choices']=row['choices']
+ return f'''"""Frozen-scene redraw using the canonical SolidGeometry renderer."""
+from pathlib import Path
+import importlib.util
+import json
+
+ROOT = Path(__file__).resolve().parent
+
+def _renderer():
+    spec = importlib.util.spec_from_file_location("_solid_question_renderer", ROOT / "common_renderer.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+def build_scene():
+    scene = json.loads((ROOT / "scenes" / "{qid}.json").read_text(encoding="utf-8"))
+    fig, _ = _renderer().render_scene(scene)
+    return fig, fig.axes[0]
+
+class {qid}:
+    def __init__(self):
+        self.__dict__.update({fields!r})
+        self.query = self.question
+        self.level = None
+        self.scene_path = ROOT / "scenes" / "{qid}.json"
+
+    def get_scene(self):
+        return json.loads(self.scene_path.read_text(encoding="utf-8"))
+
+    def build_scene(self):
+        return build_scene()
+
+    def draw(self, num=0, output_path=None):
+        if output_path is None and isinstance(num, (str, Path)):
+            output_path = num
+        destination = Path(output_path) if output_path else ROOT.parents[1] / ".runtime" / "mathverse_redraw" / "{qid}.png"
+        return _renderer().draw(self.scene_path, destination)
+
+    def redraw(self, output_path=None):
+        return self.draw(output_path=output_path)
+
+if __name__ == "__main__":
+    import sys
+    print({qid}().draw(output_path=sys.argv[1] if len(sys.argv) > 1 else None))
+'''
+
 def wrapper(row,qid,runtime_relative,scene_relative,root_relative,candidate=False):
  fields={k:row[k] for k in ['source_dataset','question','answer','answer_type','subject']};fields['id']=qid
  if 'choices' in row:fields['choices']=row['choices']
@@ -62,6 +112,18 @@ def prepare(root,row,formal_id):
   assert set(scene)==allowed
  scene['id']=formal_id;scene['status']='user_approved';scene['source_image']=f'../../originals/{formal_id}.png';scene['source_dataset']='MathVerse'
  writes[f'{branch}/{formal["scene"]}']=(json.dumps(scene,ensure_ascii=False,indent=2)+'\n').encode()
+ if branch=='SolidGeometry' and row['renderer_family']=='solid':
+  # These are already pinned by catalog.content for every geometry question.
+  # Package them for the isolated redraw check, but never overwrite them.
+  for name in ('common_renderer.py','protocol.json'):
+   relative=f'{branch}/dataset_generator/{name}'
+   canonical=(root/relative).read_bytes()
+   if canonical!=(package/'shared/solid'/name).read_bytes():
+    raise ValueError('Candidate solid renderer differs from the canonical renderer; explicit migration is required')
+   writes[relative]=canonical
+  formal.pop('renderer_family')
+  writes[f'{branch}/{script}']=solid_wrapper(row,formal_id).encode()
+  return formal,writes,source_notes
  helper=f'{branch}/dataset_generator/mathverse_renderers'
  for file in (package/'shared'/row['renderer_family']).iterdir():
   if file.is_file():writes[f'{helper}/{row["renderer_family"]}/{file.name}']=file.read_bytes()

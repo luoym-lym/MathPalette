@@ -1,0 +1,305 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "Solid49",
+  "status": "user_approved",
+  "subject": "SolidGeometry",
+  "source_dataset": "MathVerse",
+  "source_image": "../../originals/Solid49.png",
+  "source_note": "Official MathVerse testmini Vision Dominant problem 660, sample 3299; source image preserved unmodified.",
+  "world_unit": "mm",
+  "points": {
+    "O": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "Q": [
+      0.0,
+      0.0,
+      30.000989822620216
+    ],
+    "L": [
+      -79.0,
+      0.0,
+      0.0
+    ],
+    "Ltop": [
+      -79.0,
+      0.0,
+      30.000989822620216
+    ],
+    "R": [
+      79.0,
+      0.0,
+      0.0
+    ],
+    "Rtop": [
+      79.0,
+      0.0,
+      30.000989822620216
+    ],
+    "radius_value_anchor": [
+      -39.5,
+      0.0,
+      30.000989822620216
+    ]
+  },
+  "projection": {
+    "kind": "orthographic",
+    "name": "Frozen source-oriented orthographic view",
+    "matrix": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0.23770262642713458,
+        0.9713379748520297
+      ]
+    ],
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "toward_viewer": [
+      0,
+      -0.9713379748520297,
+      0.23770262642713458
+    ]
+  },
+  "view": {
+    "xlim": [
+      -83.627936952693,
+      115.33658494691241
+    ],
+    "ylim": [
+      -84.91164399925063,
+      114.05287790035479
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "visibility": {
+    "mode": "frozen_intervals",
+    "projection_sha256": "36c56051f886ddf764f3a82638b937e2fce4e657beb950ac0121dbd783e4ed8a",
+    "notes": "Analytically frozen for the declared model and view; no generic occlusion assumption."
+  },
+  "objects": [
+    {
+      "id": "silhouette_L",
+      "type": "segment",
+      "points": [
+        "L",
+        "Ltop"
+      ],
+      "visibility": "visible",
+      "role": "silhouette"
+    },
+    {
+      "id": "silhouette_R",
+      "type": "segment",
+      "points": [
+        "R",
+        "Rtop"
+      ],
+      "visibility": "visible",
+      "role": "silhouette"
+    },
+    {
+      "id": "upper_rim",
+      "type": "circular_arc",
+      "center": "Q",
+      "radius": 79.0,
+      "u": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "v": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "domain_deg": [
+        0,
+        360
+      ],
+      "role": "edge",
+      "intervals": [
+        {
+          "start_deg": 0.0,
+          "end_deg": 360.0,
+          "visibility": "visible",
+          "samples": 722
+        }
+      ]
+    },
+    {
+      "id": "lower_rim",
+      "type": "circular_arc",
+      "center": "O",
+      "radius": 79.0,
+      "u": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "v": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "domain_deg": [
+        0,
+        360
+      ],
+      "role": "edge",
+      "intervals": [
+        {
+          "start_deg": 0.0,
+          "end_deg": 180.0,
+          "visibility": "hidden",
+          "samples": 362
+        },
+        {
+          "start_deg": 180.0,
+          "end_deg": 360.0,
+          "visibility": "visible",
+          "samples": 362
+        }
+      ]
+    },
+    {
+      "id": "radius",
+      "type": "segment",
+      "points": [
+        "Q",
+        "Ltop"
+      ],
+      "visibility": "visible",
+      "role": "auxiliary"
+    },
+    {
+      "id": "source_center_marker",
+      "type": "point",
+      "point": "Q",
+      "role": "given_point",
+      "visibility": "visible"
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "height_dimension",
+      "type": "distance",
+      "points": [
+        "R",
+        "Rtop"
+      ],
+      "value": 30.000989822620216,
+      "unit": "mm",
+      "decimals": 8,
+      "text": "h mm",
+      "offset_pt": [
+        24.0,
+        -0.0
+      ],
+      "label_offset_pt": [
+        34,
+        0
+      ],
+      "basis": "Source dimension range; arrow/end-cap styling replaced with required Plane02 parallel dashed dimension."
+    }
+  ],
+  "labels": [
+    {
+      "id": "radius_value",
+      "type": "text",
+      "text": "79 mm",
+      "anchor": "radius_value_anchor",
+      "offset_pt": [
+        0,
+        15
+      ],
+      "ha": "center",
+      "va": "center"
+    }
+  ],
+  "constraints": [
+    {
+      "id": "tangent_L",
+      "type": "projected_tangent",
+      "basis": "Cylinder contour: radial normal perpendicular to viewing direction.",
+      "circle": "upper_rim",
+      "point": "Ltop",
+      "segment": [
+        "L",
+        "Ltop"
+      ]
+    },
+    {
+      "id": "tangent_R",
+      "type": "projected_tangent",
+      "basis": "Cylinder contour: radial normal perpendicular to viewing direction.",
+      "circle": "upper_rim",
+      "point": "Rtop",
+      "segment": [
+        "R",
+        "Rtop"
+      ]
+    },
+    {
+      "id": "true_radius",
+      "type": "distance",
+      "basis": "Construction check of frozen world-space geometry. Actual source givens and any derived values are distinguished in the source-image audit and geometry notes; no unlabelled construction value is an added given.",
+      "points": [
+        "Q",
+        "Rtop"
+      ],
+      "value": 79.0
+    },
+    {
+      "id": "true_height",
+      "type": "distance",
+      "basis": "Construction check of frozen world-space geometry. Actual source givens and any derived values are distinguished in the source-image audit and geometry notes; no unlabelled construction value is an added given.",
+      "points": [
+        "O",
+        "Q"
+      ],
+      "value": 30.000989822620216
+    },
+    {
+      "id": "radius_perpendicular_axis",
+      "type": "perpendicular",
+      "basis": "Construction check of frozen world-space geometry. Actual source givens and any derived values are distinguished in the source-image audit and geometry notes; no unlabelled construction value is an added given.",
+      "segments": [
+        [
+          "Q",
+          "Rtop"
+        ],
+        [
+          "O",
+          "Q"
+        ]
+      ]
+    }
+  ],
+  "ambiguities": []
+}

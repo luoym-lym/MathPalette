@@ -15723,5 +15723,1411 @@
       "scope": "original question",
       "source_key": "testmini:3239"
     }
+  },
+  "Solid45": {
+    "source": {
+      "source_problem_index": "649",
+      "source_sample_index": "3244",
+      "source_version": "Vision Dominant",
+      "source_metadata": {
+        "split": "testmini",
+        "source": "Geo3D_collected",
+        "subject": "Solid Geometry",
+        "subfield": "Volume"
+      },
+      "original_question": "Find the volume of the sphere figure shown.\n\nRound your answer to two decimal places.",
+      "original_answer": "Volume $=33.51 \\mathrm{~cm}^{3}$",
+      "user_approved": false
+    },
+    "audit": {
+      "original_record": {
+        "sample_index": "3244",
+        "problem_index": "649",
+        "problem_version": "Vision Dominant",
+        "question": "Find the volume of the sphere figure shown.\n\nRound your answer to two decimal places.",
+        "image": "images_version_5/image_649.png",
+        "answer": "Volume $=33.51 \\mathrm{~cm}^{3}$",
+        "question_type": "free-form",
+        "metadata": {
+          "split": "testmini",
+          "source": "Geo3D_collected",
+          "subject": "Solid Geometry",
+          "subfield": "Volume"
+        },
+        "query_wo": "Please directly answer the question and provide the final value, e.g., 1, 2.5, 300.\nQuestion: Find the volume of the sphere figure shown.\n\nRound your answer to two decimal places.",
+        "query_cot": "Please first conduct reasoning, and then answer the question and provide the final value, e.g., 1, 2.5, 300, at the end.\nQuestion: Find the volume of the sphere figure shown.\n\nRound your answer to two decimal places."
+      },
+      "adaptation": {
+        "changed_question": false,
+        "changed_answer": true,
+        "reason": "Protocol style normalization and physically correct frozen projection; original mathematical task preserved.",
+        "new_question": "Find the volume of the sphere figure shown.\n\nRound your answer to two decimal places.",
+        "new_answer": "33.51 cm³",
+        "mathematical_answer_correction": false,
+        "source_visual_changes": [
+          "Uniform opaque white 768×768 canvas, black 1 pt geometry, prescribed fonts and source-informed labels.",
+          "All solid geometry is constructed in true 3D and projected through one frozen camera. Source sketch distortions, decorative lighting and inconsistent hidden-line styles are normalized without weakening the protocol.",
+          "Source mathematical conditions, geometry type and visual reasoning objective are preserved. Display-only labels and measurement ranges are re-laid out to satisfy the protocol."
+        ]
+      },
+      "answer_verification": {
+        "status": "independently_verified",
+        "source_audit_record": "source_audit.json, problem_index 649",
+        "calculation": {
+          "formula": "4*pi*(4/2)**3/3",
+          "unrounded_value": 33.510321638291124,
+          "answer": "33.51 cm³",
+          "unit": "cm³",
+          "rounding_decimal_places": 2
+        },
+        "canonical_answer": "33.51 cm³",
+        "source_answer_conflict": null
+      },
+      "geometry_notes": {
+        "kind": "sphere",
+        "center": "O",
+        "radius": 2,
+        "retained_halfspace": null,
+        "silhouette_plane": {
+          "normal": [
+            0.0,
+            -0.9736663950053749,
+            0.2279775235351884
+          ],
+          "center": "O"
+        },
+        "visibility_derivation": "Spherical silhouette is the great circle with outward normal perpendicular to viewer. Hemisphere retains z>=0; base rim is separated by sign of y. Source dashed equator/meridian is explicitly an auxiliary reference curve, not an extra physical edge."
+      },
+      "source_label_to_world_anchor": {}
+    },
+    "packaging_changes": [],
+    "legacy_scene_id": "MathVerse649",
+    "verification": {
+      "checks": {
+        "id": "MathVerse649",
+        "semantic_checks": [
+          {
+            "id": "projection_and_visibility",
+            "type": "projection",
+            "passed": true,
+            "projection_sha256": "7da0d95566fc43441b9cb69cf8ef75b7bcfbc8cd313f6fdf63e91bce81ac8585",
+            "automatic_occlusion": false
+          },
+          {
+            "id": "sphere_contour",
+            "type": "arc_sampling",
+            "max_chord_error_px": 0.0031197302661097,
+            "passed": true
+          },
+          {
+            "id": "meridian",
+            "type": "arc_sampling",
+            "max_chord_error_px": 0.0031197302661097,
+            "passed": true
+          },
+          {
+            "id": "true_radius",
+            "type": "distance",
+            "basis": "Construction check of frozen world-space geometry. Actual source givens and any derived values are distinguished in the source-image audit and geometry notes; no unlabelled construction value is an added given.",
+            "measured": 2.0,
+            "passed": true
+          },
+          {
+            "id": "vertical_radius_length",
+            "type": "distance",
+            "basis": "Construction check of frozen world-space geometry. Actual source givens and any derived values are distinguished in the source-image audit and geometry notes; no unlabelled construction value is an added given.",
+            "measured": 2.0,
+            "passed": true
+          },
+          {
+            "id": "layout",
+            "type": "layout",
+            "outer_margin_fraction": 0.05,
+            "label_line_overlap": false,
+            "label_label_overlap": false,
+            "passed": true
+          }
+        ],
+        "reproducibility": {
+          "png_bytes_equal": true,
+          "svg_bytes_equal": true,
+          "published_png_equal": true,
+          "published_svg_equal": true
+        },
+        "raster_checks": {
+          "size": [
+            768,
+            768
+          ],
+          "opaque": true,
+          "bbox": [
+            54,
+            53,
+            713,
+            713
+          ],
+          "content_center": [
+            383.5,
+            383.0
+          ],
+          "occupancy": 0.8606770833333334,
+          "center_passed": true,
+          "margin_passed": true,
+          "occupancy_passed": true
+        },
+        "visual_review": {
+          "status": "agent_actually_viewed",
+          "scope": "Each source and each final candidate PNG was inspected; complex cases and revised labels were additionally inspected at full resolution. Projection, actual line visibility, original conditions, semantic fills, dimensions and annotation clarity were reviewed.",
+          "source_inspection": "source_audit.json",
+          "user_approval": false
+        },
+        "user_approval": {
+          "status": "pending",
+          "approved": false
+        },
+        "hashes": {
+          "source": "7807a05b24b6ed77135cddd120996cfd098346f035946d5997e6baed3cbc3793",
+          "scene": "2b88f43d687591a262776618ea73f9b33aa95fb8f7fc8b8cf460dbf6d5dbd865",
+          "png": "505dc529963bf0a14d095ce97ffb449a82634771f21a36ae341f20ed62ea2848",
+          "svg": "8b205703746fefe3ca03ce7db6505fb4263d73980f6fbe1e5d74d0bacf709e29",
+          "entry_script": "84aa0ea5b15ddbeaa2410f0534cbfd4189e946c1b849ed187728051d37ff233d",
+          "renderer": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+          "protocol": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+          "authoring_code": "dd9d2d20a37946e0abb99a837b95a7ed9fffbb8327c5a380c00b5403be3d34dc",
+          "polyhedral_authoring": "aa7015c7516ca24cfda044ef14650bf9d555ceec431d387c9d2683338863b460",
+          "analytic_csg_authoring": "f3f348b3e960f7cfe93292b9e3f0dee44eb674ab789084f5fbc3844febcb1367",
+          "specialized_verifier": "8becdbc6bdf88b17f66d5a5d4b83d0c9a7032d3108b28bba7aa0b8c25a38ecc8"
+        },
+        "environment": {
+          "python": "3.13.9",
+          "numpy": "2.5.3",
+          "matplotlib": "3.11.2",
+          "pillow": "12.3.0"
+        },
+        "specialized_geometry_checks": [
+          {
+            "check": "sphere_surface_and_view_dependent_silhouette",
+            "passed": true
+          }
+        ],
+        "final_audit": {
+          "status": "agent_checks_passed_pending_user",
+          "timestamp_utc": "2026-10-11T15:57:15.906679+00:00"
+        }
+      },
+      "packaging": {
+        "source_sha256": "7807a05b24b6ed77135cddd120996cfd098346f035946d5997e6baed3cbc3793",
+        "image_sha256": "505dc529963bf0a14d095ce97ffb449a82634771f21a36ae341f20ed62ea2848",
+        "scene_source_sha256": "2b88f43d687591a262776618ea73f9b33aa95fb8f7fc8b8cf460dbf6d5dbd865",
+        "script_source_sha256": "84aa0ea5b15ddbeaa2410f0534cbfd4189e946c1b849ed187728051d37ff233d",
+        "user_approved": false
+      }
+    },
+    "source_key": "testmini:3244",
+    "candidate_id": "MV0649",
+    "renderer_family": "solid",
+    "geometry_notes": {
+      "additional_model_evidence": {
+        "solid_model": {
+          "kind": "sphere",
+          "center": "O",
+          "radius": 2,
+          "retained_halfspace": null,
+          "silhouette_plane": {
+            "normal": [
+              0.0,
+              -0.9736663950053749,
+              0.2279775235351884
+            ],
+            "center": "O"
+          },
+          "visibility_derivation": "Spherical silhouette is the great circle with outward normal perpendicular to viewer. Hemisphere retains z>=0; base rim is separated by sign of y. Source dashed equator/meridian is explicitly an auxiliary reference curve, not an extra physical edge."
+        }
+      }
+    },
+    "review_action": {
+      "candidate_id": "MV0649",
+      "candidate_fingerprint": "c480f00dce5bc2bad7644e0efe9321b70c969de9c3af340bb89bd34b87a4cb82",
+      "request_id": "98049828-60c9-47dd-bdfa-1de45212b44f",
+      "action": "Pass",
+      "scope": "original question",
+      "source_key": "testmini:3244"
+    }
+  },
+  "Solid46": {
+    "source": {
+      "source_problem_index": "650",
+      "source_sample_index": "3249",
+      "source_version": "Vision Dominant",
+      "source_metadata": {
+        "split": "testmini",
+        "source": "Geo3D_collected",
+        "subject": "Solid Geometry",
+        "subfield": "Volume"
+      },
+      "original_question": "Find the volume of the solid.\n\nRound your answer to two decimal places.",
+      "original_answer": "Volume $=508.94 \\mathrm{~cm}^{3}$",
+      "user_approved": false
+    },
+    "audit": {
+      "original_record": {
+        "sample_index": "3249",
+        "problem_index": "650",
+        "problem_version": "Vision Dominant",
+        "question": "Find the volume of the solid.\n\nRound your answer to two decimal places.",
+        "image": "images_version_5/image_650.png",
+        "answer": "Volume $=508.94 \\mathrm{~cm}^{3}$",
+        "question_type": "free-form",
+        "metadata": {
+          "split": "testmini",
+          "source": "Geo3D_collected",
+          "subject": "Solid Geometry",
+          "subfield": "Volume"
+        },
+        "query_wo": "Please directly answer the question and provide the final value, e.g., 1, 2.5, 300.\nQuestion: Find the volume of the solid.\n\nRound your answer to two decimal places.",
+        "query_cot": "Please first conduct reasoning, and then answer the question and provide the final value, e.g., 1, 2.5, 300, at the end.\nQuestion: Find the volume of the solid.\n\nRound your answer to two decimal places."
+      },
+      "adaptation": {
+        "changed_question": true,
+        "changed_answer": true,
+        "reason": "The two hemispheres share a plane and occupy opposite halfspaces. Both whole-diameter ranges are outside the solid and explicitly bound.",
+        "new_question": "Find the combined volume of the two solid hemispheres, correct to two decimal places.",
+        "new_answer": "508.94 cm³",
+        "mathematical_answer_correction": false,
+        "source_visual_changes": [
+          "Uniform opaque white 768×768 canvas, black 1 pt geometry, prescribed fonts and source-informed labels.",
+          "All solid geometry is constructed in true 3D and projected through one frozen camera. Source sketch distortions, decorative lighting and inconsistent hidden-line styles are normalized without weakening the protocol.",
+          "The two hemispheres share a plane and occupy opposite halfspaces. Both whole-diameter ranges are outside the solid and explicitly bound."
+        ]
+      },
+      "answer_verification": {
+        "status": "independently_verified",
+        "source_audit_record": "source_audit.json, problem_index 650",
+        "calculation": {
+          "formula": "2*pi*((12/2)**3+(6/2)**3)/3",
+          "unrounded_value": 508.9380098815465,
+          "answer": "508.94 cm³",
+          "unit": "cm³",
+          "rounding_decimal_places": 2
+        },
+        "canonical_answer": "508.94 cm³",
+        "source_answer_conflict": null
+      },
+      "geometry_notes": {
+        "kind": "analytic_CSG",
+        "components": [
+          {
+            "kind": "sphere",
+            "radius": 6,
+            "zrange": [
+              -6,
+              0
+            ]
+          },
+          {
+            "kind": "sphere",
+            "radius": 3,
+            "zrange": [
+              0,
+              3
+            ]
+          }
+        ],
+        "description": "Two solid hemispheres on opposite sides of their common base plane.",
+        "visibility_derivation": "Ray intersections with every finite analytic surface and clipping plane are sorted. Positive open ray intervals are tested against the union-minus-subtraction material domain. Boundary curves are partitioned at isolated visibility transitions refined by 40 bisections; all frozen intervals are explicitly stored and sampled separately. No raster hand tracing or draw-order occlusion is used."
+      },
+      "source_label_to_world_anchor": {}
+    },
+    "packaging_changes": [],
+    "legacy_scene_id": "MathVerse650",
+    "verification": {
+      "checks": {
+        "id": "MathVerse650",
+        "semantic_checks": [
+          {
+            "id": "projection_and_visibility",
+            "type": "projection",
+            "passed": true,
+            "projection_sha256": "433d51f49f1ee5c4f815bffb589e79d9e027dcd8dc6599e2d0ae4c65ed4effdf",
+            "automatic_occlusion": false
+          },
+          {
+            "id": "large_contour_part0",
+            "type": "arc_sampling",
+            "max_chord_error_px": 0.003110285702451673,
+            "passed": true
+          },
+          {
+            "id": "large_rim_part0",
+            "type": "arc_sampling",
+            "max_chord_error_px": 0.0031134419200260642,
+            "passed": true
+          },
+          {
+            "id": "large_rim_part2",
+            "type": "arc_sampling",
+            "max_chord_error_px": 0.003123896658391333,
+            "passed": true
+          },
+          {
+            "id": "small_contour_part0",
+            "type": "arc_sampling",
+            "max_chord_error_px": 0.0015551428512258366,
+            "passed": true
+          },
+          {
+            "id": "small_rim_part0",
+            "type": "arc_sampling",
+            "max_chord_error_px": 3.645569662119126e-08,
+            "passed": true
+          },
+          {
+            "id": "small_rim_part2",
+            "type": "arc_sampling",
+            "max_chord_error_px": 0.0015552262818318801,
+            "passed": true
+          },
+          {
+            "id": "large_diameter",
+            "type": "dimension",
+            "text": "12 cm",
+            "measured_world_length": 12.0,
+            "unit": "cm",
+            "basis": "Source dimension range; arrow/end-cap styling replaced with required Plane02 parallel dashed dimension.",
+            "style": "Plane02_parallel_dashed",
+            "points": [
+              "largeL",
+              "largeR"
+            ],
+            "projected_perpendicular_connections": true,
+            "passed": true
+          },
+          {
+            "id": "small_diameter",
+            "type": "dimension",
+            "text": "6 cm",
+            "measured_world_length": 6.0,
+            "unit": "cm",
+            "basis": "Source dimension range; arrow/end-cap styling replaced with required Plane02 parallel dashed dimension.",
+            "style": "Plane02_parallel_dashed",
+            "points": [
+              "smallL",
+              "smallR"
+            ],
+            "projected_perpendicular_connections": true,
+            "passed": true
+          },
+          {
+            "id": "layout",
+            "type": "layout",
+            "outer_margin_fraction": 0.05,
+            "label_line_overlap": false,
+            "label_label_overlap": false,
+            "passed": true
+          }
+        ],
+        "reproducibility": {
+          "png_bytes_equal": true,
+          "svg_bytes_equal": true,
+          "published_png_equal": true,
+          "published_svg_equal": true
+        },
+        "raster_checks": {
+          "size": [
+            768,
+            768
+          ],
+          "opaque": true,
+          "bbox": [
+            54,
+            83,
+            713,
+            685
+          ],
+          "content_center": [
+            383.5,
+            384.0
+          ],
+          "occupancy": 0.859375,
+          "center_passed": true,
+          "margin_passed": true,
+          "occupancy_passed": true
+        },
+        "visual_review": {
+          "status": "agent_actually_viewed",
+          "scope": "Each source and each final candidate PNG was inspected; complex cases and revised labels were additionally inspected at full resolution. Projection, actual line visibility, original conditions, semantic fills, dimensions and annotation clarity were reviewed.",
+          "source_inspection": "source_audit.json",
+          "user_approval": false
+        },
+        "user_approval": {
+          "status": "pending",
+          "approved": false
+        },
+        "hashes": {
+          "source": "aeaa3b1f60f66a98b8aadb51ece93441ca1511758204d5b7e5b257ca1bb2fd0b",
+          "scene": "3b91bc7f3ec54e4d4326218811bb4641598d93b4ad8512ed9ec2364da5865326",
+          "png": "4810134a49dc562124929e33a800d1065e062ed88c475866c1e28de5b83b8552",
+          "svg": "8c3107b22190453c6dcec551c763f577fc950eaa3b98a86efc48c262d40d778c",
+          "entry_script": "98aebeb248a18eb644af11d2309942ac78a3f38938902cfb2707e6101f639c9b",
+          "renderer": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+          "protocol": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+          "authoring_code": "dd9d2d20a37946e0abb99a837b95a7ed9fffbb8327c5a380c00b5403be3d34dc",
+          "polyhedral_authoring": "aa7015c7516ca24cfda044ef14650bf9d555ceec431d387c9d2683338863b460",
+          "analytic_csg_authoring": "f3f348b3e960f7cfe93292b9e3f0dee44eb674ab789084f5fbc3844febcb1367",
+          "specialized_verifier": "8becdbc6bdf88b17f66d5a5d4b83d0c9a7032d3108b28bba7aa0b8c25a38ecc8"
+        },
+        "environment": {
+          "python": "3.13.9",
+          "numpy": "2.5.3",
+          "matplotlib": "3.11.2",
+          "pillow": "12.3.0"
+        },
+        "specialized_geometry_checks": [
+          {
+            "check": "independent_analytic_CSG_ray_visibility",
+            "passed": true,
+            "sample_count": 40,
+            "includes_domain_clipping": true
+          }
+        ],
+        "final_audit": {
+          "status": "agent_checks_passed_pending_user",
+          "timestamp_utc": "2026-10-11T15:57:15.906679+00:00"
+        }
+      },
+      "packaging": {
+        "source_sha256": "aeaa3b1f60f66a98b8aadb51ece93441ca1511758204d5b7e5b257ca1bb2fd0b",
+        "image_sha256": "4810134a49dc562124929e33a800d1065e062ed88c475866c1e28de5b83b8552",
+        "scene_source_sha256": "3b91bc7f3ec54e4d4326218811bb4641598d93b4ad8512ed9ec2364da5865326",
+        "script_source_sha256": "98aebeb248a18eb644af11d2309942ac78a3f38938902cfb2707e6101f639c9b",
+        "user_approved": false
+      }
+    },
+    "source_key": "testmini:3249",
+    "candidate_id": "MV0650",
+    "renderer_family": "solid",
+    "geometry_notes": {
+      "additional_model_evidence": {
+        "csg_visibility": [
+          {
+            "id": "large_contour",
+            "type": "circle",
+            "center": "large_O",
+            "radius": 6,
+            "u": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "v": [
+              -0.0,
+              0.24740395925452296,
+              0.9689124217106448
+            ],
+            "domain": [
+              180,
+              360
+            ],
+            "intervals": [
+              [
+                180,
+                360,
+                "visible"
+              ]
+            ],
+            "hidden_drawn": false,
+            "root_isolation_step_deg": 0.25,
+            "boundary_refinement_iterations": 40
+          },
+          {
+            "id": "large_rim",
+            "type": "circle",
+            "center": "large_O",
+            "radius": 6,
+            "u": [
+              1,
+              0,
+              0
+            ],
+            "v": [
+              0,
+              1,
+              0
+            ],
+            "domain": [
+              0,
+              360
+            ],
+            "intervals": [
+              [
+                0,
+                63.35622125323118,
+                "visible"
+              ],
+              [
+                63.35622125323118,
+                116.64377874676882,
+                "hidden"
+              ],
+              [
+                116.64377874676882,
+                360,
+                "visible"
+              ]
+            ],
+            "hidden_drawn": false,
+            "root_isolation_step_deg": 0.25,
+            "boundary_refinement_iterations": 40
+          },
+          {
+            "id": "small_contour",
+            "type": "circle",
+            "center": "small_O",
+            "radius": 3,
+            "u": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "v": [
+              -0.0,
+              0.24740395925452296,
+              0.9689124217106448
+            ],
+            "domain": [
+              0,
+              180
+            ],
+            "intervals": [
+              [
+                0,
+                180,
+                "visible"
+              ]
+            ],
+            "hidden_drawn": false,
+            "root_isolation_step_deg": 0.25,
+            "boundary_refinement_iterations": 40
+          },
+          {
+            "id": "small_rim",
+            "type": "circle",
+            "center": "small_O",
+            "radius": 3,
+            "u": [
+              1,
+              0,
+              0
+            ],
+            "v": [
+              0,
+              1,
+              0
+            ],
+            "domain": [
+              0,
+              360
+            ],
+            "intervals": [
+              [
+                0,
+                0.004828280386732331,
+                "visible"
+              ],
+              [
+                0.004828280386732331,
+                179.99517171961327,
+                "hidden"
+              ],
+              [
+                179.99517171961327,
+                360,
+                "visible"
+              ]
+            ],
+            "hidden_drawn": false,
+            "root_isolation_step_deg": 0.25,
+            "boundary_refinement_iterations": 40
+          }
+        ],
+        "solid_model": {
+          "kind": "analytic_CSG",
+          "components": [
+            {
+              "kind": "sphere",
+              "radius": 6,
+              "zrange": [
+                -6,
+                0
+              ]
+            },
+            {
+              "kind": "sphere",
+              "radius": 3,
+              "zrange": [
+                0,
+                3
+              ]
+            }
+          ],
+          "description": "Two solid hemispheres on opposite sides of their common base plane.",
+          "visibility_derivation": "Ray intersections with every finite analytic surface and clipping plane are sorted. Positive open ray intervals are tested against the union-minus-subtraction material domain. Boundary curves are partitioned at isolated visibility transitions refined by 40 bisections; all frozen intervals are explicitly stored and sampled separately. No raster hand tracing or draw-order occlusion is used."
+        }
+      }
+    },
+    "review_action": {
+      "candidate_id": "MV0650",
+      "candidate_fingerprint": "53d2fdb6b200b68ae15502f37a67a44c257012907ded21ee0fb1e6a6ddc7bbea",
+      "request_id": "b2edddec-f1e4-40f0-8c51-02346ad835cf",
+      "action": "Pass",
+      "scope": "original question",
+      "source_key": "testmini:3249"
+    }
+  },
+  "Solid47": {
+    "source": {
+      "source_problem_index": "653",
+      "source_sample_index": "3264",
+      "source_version": "Vision Dominant",
+      "source_metadata": {
+        "split": "testmini",
+        "source": "Geo3D_collected",
+        "subject": "Solid Geometry",
+        "subfield": "Volume"
+      },
+      "original_question": "Find the volume of the following hemisphere.\n\nRound your answer to three decimal places.",
+      "original_answer": "Volume $=452.389$ cubic units",
+      "user_approved": false
+    },
+    "audit": {
+      "original_record": {
+        "sample_index": "3264",
+        "problem_index": "653",
+        "problem_version": "Vision Dominant",
+        "question": "Find the volume of the following hemisphere.\n\nRound your answer to three decimal places.",
+        "image": "images_version_5/image_653.png",
+        "answer": "Volume $=452.389$ cubic units",
+        "question_type": "free-form",
+        "metadata": {
+          "split": "testmini",
+          "source": "Geo3D_collected",
+          "subject": "Solid Geometry",
+          "subfield": "Volume"
+        },
+        "query_wo": "Please directly answer the question and provide the final value, e.g., 1, 2.5, 300.\nQuestion: Find the volume of the following hemisphere.\n\nRound your answer to three decimal places.",
+        "query_cot": "Please first conduct reasoning, and then answer the question and provide the final value, e.g., 1, 2.5, 300, at the end.\nQuestion: Find the volume of the following hemisphere.\n\nRound your answer to three decimal places."
+      },
+      "adaptation": {
+        "changed_question": false,
+        "changed_answer": true,
+        "reason": "Protocol style normalization and physically correct frozen projection; original mathematical task preserved.",
+        "new_question": "Find the volume of the following hemisphere.\n\nRound your answer to three decimal places.",
+        "new_answer": "452.389 units³",
+        "mathematical_answer_correction": false,
+        "source_visual_changes": [
+          "Uniform opaque white 768×768 canvas, black 1 pt geometry, prescribed fonts and source-informed labels.",
+          "All solid geometry is constructed in true 3D and projected through one frozen camera. Source sketch distortions, decorative lighting and inconsistent hidden-line styles are normalized without weakening the protocol.",
+          "Source mathematical conditions, geometry type and visual reasoning objective are preserved. Display-only labels and measurement ranges are re-laid out to satisfy the protocol."
+        ]
+      },
+      "answer_verification": {
+        "status": "independently_verified",
+        "source_audit_record": "source_audit.json, problem_index 653",
+        "calculation": {
+          "formula": "2*pi*6**3/3",
+          "unrounded_value": 452.3893421169302,
+          "answer": "452.389 cubic units",
+          "unit": "cubic units",
+          "rounding_decimal_places": 3
+        },
+        "canonical_answer": "452.389 units³",
+        "source_answer_conflict": null
+      },
+      "geometry_notes": {
+        "kind": "hemisphere",
+        "center": "O",
+        "radius": 6,
+        "retained_halfspace": "z >= 0",
+        "silhouette_plane": {
+          "normal": [
+            0.0,
+            -0.9736663950053749,
+            0.2279775235351884
+          ],
+          "center": "O"
+        },
+        "visibility_derivation": "Spherical silhouette is the great circle with outward normal perpendicular to viewer. Hemisphere retains z>=0; base rim is separated by sign of y. Source dashed equator/meridian is explicitly an auxiliary reference curve, not an extra physical edge."
+      },
+      "source_label_to_world_anchor": {}
+    },
+    "packaging_changes": [],
+    "legacy_scene_id": "MathVerse653",
+    "verification": {
+      "checks": {
+        "id": "MathVerse653",
+        "semantic_checks": [
+          {
+            "id": "projection_and_visibility",
+            "type": "projection",
+            "passed": true,
+            "projection_sha256": "7da0d95566fc43441b9cb69cf8ef75b7bcfbc8cd313f6fdf63e91bce81ac8585",
+            "automatic_occlusion": false
+          },
+          {
+            "id": "sphere_contour",
+            "type": "arc_sampling",
+            "max_chord_error_px": 0.003119168767586321,
+            "passed": true
+          },
+          {
+            "id": "base_rim",
+            "type": "arc_sampling",
+            "max_chord_error_px": 0.003119168767586321,
+            "passed": true
+          },
+          {
+            "id": "true_radius",
+            "type": "distance",
+            "basis": "Construction check of frozen world-space geometry. Actual source givens and any derived values are distinguished in the source-image audit and geometry notes; no unlabelled construction value is an added given.",
+            "measured": 6.0,
+            "passed": true
+          },
+          {
+            "id": "vertical_radius_length",
+            "type": "distance",
+            "basis": "Construction check of frozen world-space geometry. Actual source givens and any derived values are distinguished in the source-image audit and geometry notes; no unlabelled construction value is an added given.",
+            "measured": 6.0,
+            "passed": true
+          },
+          {
+            "id": "layout",
+            "type": "layout",
+            "outer_margin_fraction": 0.05,
+            "label_line_overlap": false,
+            "label_label_overlap": false,
+            "passed": true
+          }
+        ],
+        "reproducibility": {
+          "png_bytes_equal": true,
+          "svg_bytes_equal": true,
+          "published_png_equal": true,
+          "published_svg_equal": true
+        },
+        "raster_checks": {
+          "size": [
+            768,
+            768
+          ],
+          "opaque": true,
+          "bbox": [
+            53,
+            180,
+            714,
+            586
+          ],
+          "content_center": [
+            383.5,
+            383.0
+          ],
+          "occupancy": 0.8619791666666666,
+          "center_passed": true,
+          "margin_passed": true,
+          "occupancy_passed": true
+        },
+        "visual_review": {
+          "status": "agent_actually_viewed",
+          "scope": "Each source and each final candidate PNG was inspected; complex cases and revised labels were additionally inspected at full resolution. Projection, actual line visibility, original conditions, semantic fills, dimensions and annotation clarity were reviewed.",
+          "source_inspection": "source_audit.json",
+          "user_approval": false
+        },
+        "user_approval": {
+          "status": "pending",
+          "approved": false
+        },
+        "hashes": {
+          "source": "18f645e19873ae50eea9dfd7de9a7e6df99f7fc849734625653caa1bf013a13d",
+          "scene": "8f9e5cf0ed064c2c5d115b11ed2c8bfde137e9b024916d0812203a2d76fa6e76",
+          "png": "bdb2173b9360afc9f8f70f22abbe910b92dab3a7523201d01d3f3dda8e465630",
+          "svg": "76d7fc466d998d420aa5ee278ca6f56dcf84fe78668d13799debf22fd3428923",
+          "entry_script": "caf201679e14081b8e3e38be6f6cb1d9d54f6cb983e58f30c26740603c33d3f7",
+          "renderer": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+          "protocol": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+          "authoring_code": "dd9d2d20a37946e0abb99a837b95a7ed9fffbb8327c5a380c00b5403be3d34dc",
+          "polyhedral_authoring": "aa7015c7516ca24cfda044ef14650bf9d555ceec431d387c9d2683338863b460",
+          "analytic_csg_authoring": "f3f348b3e960f7cfe93292b9e3f0dee44eb674ab789084f5fbc3844febcb1367",
+          "specialized_verifier": "8becdbc6bdf88b17f66d5a5d4b83d0c9a7032d3108b28bba7aa0b8c25a38ecc8"
+        },
+        "environment": {
+          "python": "3.13.9",
+          "numpy": "2.5.3",
+          "matplotlib": "3.11.2",
+          "pillow": "12.3.0"
+        },
+        "specialized_geometry_checks": [
+          {
+            "check": "sphere_surface_and_view_dependent_silhouette",
+            "passed": true
+          }
+        ],
+        "final_audit": {
+          "status": "agent_checks_passed_pending_user",
+          "timestamp_utc": "2026-10-11T15:57:15.906679+00:00"
+        }
+      },
+      "packaging": {
+        "source_sha256": "18f645e19873ae50eea9dfd7de9a7e6df99f7fc849734625653caa1bf013a13d",
+        "image_sha256": "bdb2173b9360afc9f8f70f22abbe910b92dab3a7523201d01d3f3dda8e465630",
+        "scene_source_sha256": "8f9e5cf0ed064c2c5d115b11ed2c8bfde137e9b024916d0812203a2d76fa6e76",
+        "script_source_sha256": "caf201679e14081b8e3e38be6f6cb1d9d54f6cb983e58f30c26740603c33d3f7",
+        "user_approved": false
+      }
+    },
+    "source_key": "testmini:3264",
+    "candidate_id": "MV0653",
+    "renderer_family": "solid",
+    "geometry_notes": {
+      "additional_model_evidence": {
+        "solid_model": {
+          "kind": "hemisphere",
+          "center": "O",
+          "radius": 6,
+          "retained_halfspace": "z >= 0",
+          "silhouette_plane": {
+            "normal": [
+              0.0,
+              -0.9736663950053749,
+              0.2279775235351884
+            ],
+            "center": "O"
+          },
+          "visibility_derivation": "Spherical silhouette is the great circle with outward normal perpendicular to viewer. Hemisphere retains z>=0; base rim is separated by sign of y. Source dashed equator/meridian is explicitly an auxiliary reference curve, not an extra physical edge."
+        }
+      }
+    },
+    "review_action": {
+      "candidate_id": "MV0653",
+      "candidate_fingerprint": "7d587ebd478feedb5896b193b16772a52906159c8d4f9f1cdb1f02eb38b1b328",
+      "request_id": "edaaf40c-2eb1-4270-b0d3-62d6523ba5de",
+      "action": "Pass",
+      "scope": "original question",
+      "source_key": "testmini:3264"
+    }
+  },
+  "Solid48": {
+    "source": {
+      "source_problem_index": "656",
+      "source_sample_index": "3279",
+      "source_version": "Vision Dominant",
+      "source_metadata": {
+        "split": "testmini",
+        "source": "Geo3D_collected",
+        "subject": "Solid Geometry",
+        "subfield": "Area"
+      },
+      "original_question": "Find the surface area of the cylinder.\n\nGive your answer to the nearest two decimal places.",
+      "original_answer": "Surface Area $=9236.28 \\mathrm{~m}^{2}$",
+      "user_approved": false
+    },
+    "audit": {
+      "original_record": {
+        "sample_index": "3279",
+        "problem_index": "656",
+        "problem_version": "Vision Dominant",
+        "question": "Find the surface area of the cylinder.\n\nGive your answer to the nearest two decimal places.",
+        "image": "images_version_5/image_656.png",
+        "answer": "Surface Area $=9236.28 \\mathrm{~m}^{2}$",
+        "question_type": "free-form",
+        "metadata": {
+          "split": "testmini",
+          "source": "Geo3D_collected",
+          "subject": "Solid Geometry",
+          "subfield": "Area"
+        },
+        "query_wo": "Please directly answer the question and provide the final value, e.g., 1, 2.5, 300.\nQuestion: Find the surface area of the cylinder.\n\nGive your answer to the nearest two decimal places.",
+        "query_cot": "Please first conduct reasoning, and then answer the question and provide the final value, e.g., 1, 2.5, 300, at the end.\nQuestion: Find the surface area of the cylinder.\n\nGive your answer to the nearest two decimal places."
+      },
+      "adaptation": {
+        "changed_question": true,
+        "changed_answer": true,
+        "reason": "Protocol style normalization and physically correct frozen projection; original mathematical task preserved.",
+        "new_question": "Find the surface area of the cylinder.\n\nGive your answer to the nearest two decimal places. All diagram lengths are in metres.",
+        "new_answer": "9236.28 m²",
+        "mathematical_answer_correction": false,
+        "source_visual_changes": [
+          "Uniform opaque white 768×768 canvas, black 1 pt geometry, prescribed fonts and source-informed labels.",
+          "All solid geometry is constructed in true 3D and projected through one frozen camera. Source sketch distortions, decorative lighting and inconsistent hidden-line styles are normalized without weakening the protocol.",
+          "Source mathematical conditions, geometry type and visual reasoning objective are preserved. Display-only labels and measurement ranges are re-laid out to satisfy the protocol."
+        ]
+      },
+      "answer_verification": {
+        "status": "independently_verified",
+        "source_audit_record": "source_audit.json, problem_index 656",
+        "calculation": {
+          "formula": "2*pi*21*(21+49)",
+          "unrounded_value": 9236.282401553992,
+          "answer": "9236.28 square units",
+          "unit": "square units",
+          "rounding_decimal_places": 2
+        },
+        "canonical_answer": "9236.28 m²",
+        "source_answer_conflict": "Source answer uses m² but source question and diagram omit units; numeric value verified."
+      },
+      "geometry_notes": {
+        "kind": "right_circular_cylinder",
+        "base_centers": [
+          "O",
+          "Q"
+        ],
+        "radius": 21,
+        "height": 49,
+        "visibility_derivation": "Viewer has negative y and positive z. Entire top boundary visible; front lower semicircle y<0 visible; rear lower semicircle hidden or source-omitted. Side contours x=+-r,y=0 are analytical tangent generators.",
+        "source_hidden_bottom_shown": true
+      },
+      "source_label_to_world_anchor": {}
+    },
+    "packaging_changes": [],
+    "legacy_scene_id": "MathVerse656",
+    "verification": {
+      "checks": {
+        "id": "MathVerse656",
+        "semantic_checks": [
+          {
+            "id": "projection_and_visibility",
+            "type": "projection",
+            "passed": true,
+            "projection_sha256": "c39a42166a1854d1a77bb124d9fa47870ddc2fd3a7257189759305b5fd1e38b6",
+            "automatic_occlusion": false
+          },
+          {
+            "id": "upper_rim",
+            "type": "arc_sampling",
+            "max_chord_error_px": 0.002275212660013771,
+            "passed": true
+          },
+          {
+            "id": "lower_rim",
+            "type": "arc_sampling",
+            "max_chord_error_px": 0.0022689145064176837,
+            "passed": true
+          },
+          {
+            "id": "tangent_L",
+            "type": "projected_tangent",
+            "basis": "Cylinder contour: radial normal perpendicular to viewing direction.",
+            "measured": 0.0,
+            "passed": true
+          },
+          {
+            "id": "tangent_R",
+            "type": "projected_tangent",
+            "basis": "Cylinder contour: radial normal perpendicular to viewing direction.",
+            "measured": 0.0,
+            "passed": true
+          },
+          {
+            "id": "true_radius",
+            "type": "distance",
+            "basis": "Construction check of frozen world-space geometry. Actual source givens and any derived values are distinguished in the source-image audit and geometry notes; no unlabelled construction value is an added given.",
+            "measured": 21.0,
+            "passed": true
+          },
+          {
+            "id": "true_height",
+            "type": "distance",
+            "basis": "Construction check of frozen world-space geometry. Actual source givens and any derived values are distinguished in the source-image audit and geometry notes; no unlabelled construction value is an added given.",
+            "measured": 49.0,
+            "passed": true
+          },
+          {
+            "id": "radius_perpendicular_axis",
+            "type": "perpendicular",
+            "basis": "Construction check of frozen world-space geometry. Actual source givens and any derived values are distinguished in the source-image audit and geometry notes; no unlabelled construction value is an added given.",
+            "measured": 0.0,
+            "passed": true
+          },
+          {
+            "id": "height_dimension",
+            "type": "dimension",
+            "text": "49",
+            "measured_world_length": 49.0,
+            "unit": "m",
+            "basis": "Source dimension range; arrow/end-cap styling replaced with required Plane02 parallel dashed dimension.",
+            "style": "Plane02_parallel_dashed",
+            "points": [
+              "R",
+              "Rtop"
+            ],
+            "projected_perpendicular_connections": true,
+            "passed": true
+          },
+          {
+            "id": "layout",
+            "type": "layout",
+            "outer_margin_fraction": 0.05,
+            "label_line_overlap": false,
+            "label_label_overlap": false,
+            "passed": true
+          }
+        ],
+        "reproducibility": {
+          "png_bytes_equal": true,
+          "svg_bytes_equal": true,
+          "published_png_equal": true,
+          "published_svg_equal": true
+        },
+        "raster_checks": {
+          "size": [
+            768,
+            768
+          ],
+          "opaque": true,
+          "bbox": [
+            54,
+            101,
+            713,
+            667
+          ],
+          "content_center": [
+            383.5,
+            384.0
+          ],
+          "occupancy": 0.859375,
+          "center_passed": true,
+          "margin_passed": true,
+          "occupancy_passed": true
+        },
+        "visual_review": {
+          "status": "agent_actually_viewed",
+          "scope": "Each source and each final candidate PNG was inspected; complex cases and revised labels were additionally inspected at full resolution. Projection, actual line visibility, original conditions, semantic fills, dimensions and annotation clarity were reviewed.",
+          "source_inspection": "source_audit.json",
+          "user_approval": false
+        },
+        "user_approval": {
+          "status": "pending",
+          "approved": false
+        },
+        "hashes": {
+          "source": "edca93771fbed69e89a9ef3647dd4bdf3215f796a2b90fec8a752ebc6ff0e1fa",
+          "scene": "8b0dcdd978ccb95dc5bb26230be644f927bd96fd221d6f0a36f56c4075153224",
+          "png": "9321d19683e7c8a19919a6714d3c619e47805346ffb635f5c6d29fe685e6f1d3",
+          "svg": "c99b14bb2395c05fb0d3fff30fd6af75000db40f75e7b995b1a649b946376edf",
+          "entry_script": "4bbe768ce3864c62a61bd99615aea23539ba384c39e3e0b904ba2aea847e48c6",
+          "renderer": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+          "protocol": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+          "authoring_code": "dd9d2d20a37946e0abb99a837b95a7ed9fffbb8327c5a380c00b5403be3d34dc",
+          "polyhedral_authoring": "aa7015c7516ca24cfda044ef14650bf9d555ceec431d387c9d2683338863b460",
+          "analytic_csg_authoring": "f3f348b3e960f7cfe93292b9e3f0dee44eb674ab789084f5fbc3844febcb1367",
+          "specialized_verifier": "8becdbc6bdf88b17f66d5a5d4b83d0c9a7032d3108b28bba7aa0b8c25a38ecc8"
+        },
+        "environment": {
+          "python": "3.13.9",
+          "numpy": "2.5.3",
+          "matplotlib": "3.11.2",
+          "pillow": "12.3.0"
+        },
+        "specialized_geometry_checks": [
+          {
+            "check": "cylinder_true_axis_length_and_radius",
+            "passed": true
+          }
+        ],
+        "final_audit": {
+          "status": "agent_checks_passed_pending_user",
+          "timestamp_utc": "2026-10-11T15:57:15.906679+00:00"
+        }
+      },
+      "packaging": {
+        "source_sha256": "edca93771fbed69e89a9ef3647dd4bdf3215f796a2b90fec8a752ebc6ff0e1fa",
+        "image_sha256": "9321d19683e7c8a19919a6714d3c619e47805346ffb635f5c6d29fe685e6f1d3",
+        "scene_source_sha256": "8b0dcdd978ccb95dc5bb26230be644f927bd96fd221d6f0a36f56c4075153224",
+        "script_source_sha256": "4bbe768ce3864c62a61bd99615aea23539ba384c39e3e0b904ba2aea847e48c6",
+        "user_approved": false
+      }
+    },
+    "source_key": "testmini:3279",
+    "candidate_id": "MV0656",
+    "renderer_family": "solid",
+    "geometry_notes": {
+      "additional_model_evidence": {
+        "solid_model": {
+          "kind": "right_circular_cylinder",
+          "base_centers": [
+            "O",
+            "Q"
+          ],
+          "radius": 21,
+          "height": 49,
+          "visibility_derivation": "Viewer has negative y and positive z. Entire top boundary visible; front lower semicircle y<0 visible; rear lower semicircle hidden or source-omitted. Side contours x=+-r,y=0 are analytical tangent generators.",
+          "source_hidden_bottom_shown": true
+        }
+      }
+    },
+    "review_action": {
+      "candidate_id": "MV0656",
+      "candidate_fingerprint": "2deacaa799d72352b0cca49a637828718c3dd49905ddd51d69c65500a46d678a",
+      "request_id": "b4e6f427-4ce7-4d8d-ab0e-ecf9cbcdab34",
+      "action": "Pass",
+      "scope": "original question",
+      "source_key": "testmini:3279"
+    }
+  },
+  "Solid49": {
+    "source": {
+      "source_problem_index": "660",
+      "source_sample_index": "3299",
+      "source_version": "Vision Dominant",
+      "source_metadata": {
+        "split": "testmini",
+        "source": "Geo3D_collected",
+        "subject": "Solid Geometry",
+        "subfield": "Area"
+      },
+      "original_question": "A cylinder has a surface area of 54105(mm)$^2$.\n\nWhat must the height $h$ mm of the solid figure be?\n\nRound your answer to the nearest whole number.",
+      "original_answer": "$h=30$",
+      "user_approved": false
+    },
+    "audit": {
+      "original_record": {
+        "sample_index": "3299",
+        "problem_index": "660",
+        "problem_version": "Vision Dominant",
+        "question": "A cylinder has a surface area of 54105(mm)$^2$.\n\nWhat must the height $h$ mm of the solid figure be?\n\nRound your answer to the nearest whole number.",
+        "image": "images_version_5/image_660.png",
+        "answer": "$h=30$",
+        "question_type": "free-form",
+        "metadata": {
+          "split": "testmini",
+          "source": "Geo3D_collected",
+          "subject": "Solid Geometry",
+          "subfield": "Area"
+        },
+        "query_wo": "Please directly answer the question and provide the final value, e.g., 1, 2.5, 300.\nQuestion: A cylinder has a surface area of 54105(mm)$^2$.\n\nWhat must the height $h$ mm of the solid figure be?\n\nRound your answer to the nearest whole number.",
+        "query_cot": "Please first conduct reasoning, and then answer the question and provide the final value, e.g., 1, 2.5, 300, at the end.\nQuestion: A cylinder has a surface area of 54105(mm)$^2$.\n\nWhat must the height $h$ mm of the solid figure be?\n\nRound your answer to the nearest whole number."
+      },
+      "adaptation": {
+        "changed_question": false,
+        "changed_answer": true,
+        "reason": "The source tall sketch is not dimensionally consistent with its numerical surface area and radius. The frozen height is derived exactly, while only h is shown.",
+        "new_question": "A cylinder has a surface area of 54105(mm)$^2$.\n\nWhat must the height $h$ mm of the solid figure be?\n\nRound your answer to the nearest whole number.",
+        "new_answer": "30 mm",
+        "mathematical_answer_correction": false,
+        "source_visual_changes": [
+          "Uniform opaque white 768×768 canvas, black 1 pt geometry, prescribed fonts and source-informed labels.",
+          "All solid geometry is constructed in true 3D and projected through one frozen camera. Source sketch distortions, decorative lighting and inconsistent hidden-line styles are normalized without weakening the protocol.",
+          "The source tall sketch is not dimensionally consistent with its numerical surface area and radius. The frozen height is derived exactly, while only h is shown."
+        ]
+      },
+      "answer_verification": {
+        "status": "independently_verified",
+        "source_audit_record": "source_audit.json, problem_index 660",
+        "calculation": {
+          "formula": "54105/(2*pi*79)-79",
+          "unrounded_value": 30.000989822620213,
+          "answer": "30 mm",
+          "unit": "mm",
+          "rounding_decimal_places": 0
+        },
+        "canonical_answer": "30 mm",
+        "source_answer_conflict": null
+      },
+      "geometry_notes": {
+        "kind": "right_circular_cylinder",
+        "base_centers": [
+          "O",
+          "Q"
+        ],
+        "radius": 79,
+        "height": 30.000989822620216,
+        "visibility_derivation": "Viewer has negative y and positive z. Entire top boundary visible; front lower semicircle y<0 visible; rear lower semicircle hidden or source-omitted. Side contours x=+-r,y=0 are analytical tangent generators.",
+        "source_hidden_bottom_shown": true
+      },
+      "source_label_to_world_anchor": {}
+    },
+    "packaging_changes": [],
+    "legacy_scene_id": "MathVerse660",
+    "verification": {
+      "checks": {
+        "id": "MathVerse660",
+        "semantic_checks": [
+          {
+            "id": "projection_and_visibility",
+            "type": "projection",
+            "passed": true,
+            "projection_sha256": "36c56051f886ddf764f3a82638b937e2fce4e657beb950ac0121dbd783e4ed8a",
+            "automatic_occlusion": false
+          },
+          {
+            "id": "upper_rim",
+            "type": "arc_sampling",
+            "max_chord_error_px": 0.0026052758352231586,
+            "passed": true
+          },
+          {
+            "id": "lower_rim",
+            "type": "arc_sampling",
+            "max_chord_error_px": 0.0025980640138146445,
+            "passed": true
+          },
+          {
+            "id": "tangent_L",
+            "type": "projected_tangent",
+            "basis": "Cylinder contour: radial normal perpendicular to viewing direction.",
+            "measured": 0.0,
+            "passed": true
+          },
+          {
+            "id": "tangent_R",
+            "type": "projected_tangent",
+            "basis": "Cylinder contour: radial normal perpendicular to viewing direction.",
+            "measured": 0.0,
+            "passed": true
+          },
+          {
+            "id": "true_radius",
+            "type": "distance",
+            "basis": "Construction check of frozen world-space geometry. Actual source givens and any derived values are distinguished in the source-image audit and geometry notes; no unlabelled construction value is an added given.",
+            "measured": 79.0,
+            "passed": true
+          },
+          {
+            "id": "true_height",
+            "type": "distance",
+            "basis": "Construction check of frozen world-space geometry. Actual source givens and any derived values are distinguished in the source-image audit and geometry notes; no unlabelled construction value is an added given.",
+            "measured": 30.000989822620216,
+            "passed": true
+          },
+          {
+            "id": "radius_perpendicular_axis",
+            "type": "perpendicular",
+            "basis": "Construction check of frozen world-space geometry. Actual source givens and any derived values are distinguished in the source-image audit and geometry notes; no unlabelled construction value is an added given.",
+            "measured": 0.0,
+            "passed": true
+          },
+          {
+            "id": "height_dimension",
+            "type": "dimension",
+            "text": "h mm",
+            "measured_world_length": 30.000989822620216,
+            "unit": "mm",
+            "basis": "Source dimension range; arrow/end-cap styling replaced with required Plane02 parallel dashed dimension.",
+            "style": "Plane02_parallel_dashed",
+            "points": [
+              "R",
+              "Rtop"
+            ],
+            "projected_perpendicular_connections": true,
+            "passed": true
+          },
+          {
+            "id": "layout",
+            "type": "layout",
+            "outer_margin_fraction": 0.05,
+            "label_line_overlap": false,
+            "label_label_overlap": false,
+            "passed": true
+          }
+        ],
+        "reproducibility": {
+          "png_bytes_equal": true,
+          "svg_bytes_equal": true,
+          "published_png_equal": true,
+          "published_svg_equal": true
+        },
+        "raster_checks": {
+          "size": [
+            768,
+            768
+          ],
+          "opaque": true,
+          "bbox": [
+            53,
+            267,
+            713,
+            500
+          ],
+          "content_center": [
+            383.0,
+            383.5
+          ],
+          "occupancy": 0.8606770833333334,
+          "center_passed": true,
+          "margin_passed": true,
+          "occupancy_passed": true
+        },
+        "visual_review": {
+          "status": "agent_actually_viewed",
+          "scope": "Each source and each final candidate PNG was inspected; complex cases and revised labels were additionally inspected at full resolution. Projection, actual line visibility, original conditions, semantic fills, dimensions and annotation clarity were reviewed.",
+          "source_inspection": "source_audit.json",
+          "user_approval": false
+        },
+        "user_approval": {
+          "status": "pending",
+          "approved": false
+        },
+        "hashes": {
+          "source": "0f9005f9fc6aad3e3d193c7efc02772aa0d65b6cbfd82ed8747217af979934c9",
+          "scene": "dbeaf709231c91448691d87e434bedef7e2ca06eb895d51bce4cfab28b92b4a7",
+          "png": "5a7bf3d0a5c0409e4368972c17dc97efcb2033296224e0453660482de914e94c",
+          "svg": "6b5325fb752e9faa0d7620d0b4e2c7b14535854965e308ed8e65ac585a440221",
+          "entry_script": "da1d5eadab2d1c86334ebcc7850c61a77ad0b6909769f3e5fbb646e2b600bfda",
+          "renderer": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+          "protocol": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+          "authoring_code": "dd9d2d20a37946e0abb99a837b95a7ed9fffbb8327c5a380c00b5403be3d34dc",
+          "polyhedral_authoring": "aa7015c7516ca24cfda044ef14650bf9d555ceec431d387c9d2683338863b460",
+          "analytic_csg_authoring": "f3f348b3e960f7cfe93292b9e3f0dee44eb674ab789084f5fbc3844febcb1367",
+          "specialized_verifier": "8becdbc6bdf88b17f66d5a5d4b83d0c9a7032d3108b28bba7aa0b8c25a38ecc8"
+        },
+        "environment": {
+          "python": "3.13.9",
+          "numpy": "2.5.3",
+          "matplotlib": "3.11.2",
+          "pillow": "12.3.0"
+        },
+        "specialized_geometry_checks": [
+          {
+            "check": "cylinder_true_axis_length_and_radius",
+            "passed": true
+          }
+        ],
+        "final_audit": {
+          "status": "agent_checks_passed_pending_user",
+          "timestamp_utc": "2026-10-11T15:57:15.906679+00:00"
+        }
+      },
+      "packaging": {
+        "source_sha256": "0f9005f9fc6aad3e3d193c7efc02772aa0d65b6cbfd82ed8747217af979934c9",
+        "image_sha256": "5a7bf3d0a5c0409e4368972c17dc97efcb2033296224e0453660482de914e94c",
+        "scene_source_sha256": "dbeaf709231c91448691d87e434bedef7e2ca06eb895d51bce4cfab28b92b4a7",
+        "script_source_sha256": "da1d5eadab2d1c86334ebcc7850c61a77ad0b6909769f3e5fbb646e2b600bfda",
+        "user_approved": false
+      }
+    },
+    "source_key": "testmini:3299",
+    "candidate_id": "MV0660",
+    "renderer_family": "solid",
+    "geometry_notes": {
+      "additional_model_evidence": {
+        "solid_model": {
+          "kind": "right_circular_cylinder",
+          "base_centers": [
+            "O",
+            "Q"
+          ],
+          "radius": 79,
+          "height": 30.000989822620216,
+          "visibility_derivation": "Viewer has negative y and positive z. Entire top boundary visible; front lower semicircle y<0 visible; rear lower semicircle hidden or source-omitted. Side contours x=+-r,y=0 are analytical tangent generators.",
+          "source_hidden_bottom_shown": true
+        }
+      }
+    },
+    "review_action": {
+      "candidate_id": "MV0660",
+      "candidate_fingerprint": "38c1f73631e9be83269bd1389eb240be98ed69a68a4a7efc54da6e9725759629",
+      "request_id": "d06d09d5-8cfa-444d-bfd9-f571616c5894",
+      "action": "Pass",
+      "scope": "original question",
+      "source_key": "testmini:3299"
+    }
   }
 }

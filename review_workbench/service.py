@@ -123,6 +123,10 @@ class ReviewService:
                     files[relative.as_posix()] = sha(path.read_bytes())
         for relative in (PACKAGE / 'shared/runtime.py', PACKAGE / 'promotion.py'):
             files[relative.as_posix()] = sha(safe_path(self.root, relative).read_bytes())
+        if row['subject'] == 'SolidGeometry' and row['renderer_family'] == 'solid':
+            for name in ('common_renderer.py', 'protocol.json'):
+                relative = Path('SolidGeometry/dataset_generator') / name
+                files[relative.as_posix()] = sha(safe_path(self.root, relative).read_bytes())
         return catalog.digest({'record': row, 'files': files}), files
 
     def detail(self, qid):
@@ -247,7 +251,9 @@ class ReviewService:
                             raise RecoveryRequired(f'File changed outside the workbench during validation: {path.relative_to(self.root)}')
                     for relative, data in writes.items():
                         path = safe_path(self.root, relative)
-                        dependency = relative.startswith(branch + '/dataset_generator/mathverse_renderers/')
+                        dependency = (relative.startswith(branch + '/dataset_generator/mathverse_renderers/') or
+                                      relative in {branch + '/dataset_generator/common_renderer.py',
+                                                   branch + '/dataset_generator/protocol.json'})
                         if path.exists() and dependency:
                             if path.read_bytes() != data:
                                 raise ReviewError('A formal renderer differs from this candidate. Existing approved dependencies will not be overwritten.', status=409, code='dependency_conflict')
