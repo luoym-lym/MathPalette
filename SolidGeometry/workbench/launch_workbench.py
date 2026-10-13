@@ -87,7 +87,8 @@ def python_candidates():
     if override:
         return [Path(override).expanduser()]
     candidates = [Path(sys.executable)]
-    prefixes = [PROJECT / ".venv", PROJECT / "venv"]
+    prefixes = [Path.home() / "Desktop" / "PythonEnvs" / "mathpalette-analytics",
+                PROJECT / ".venv", PROJECT / "venv"]
     if os.environ.get("CONDA_PREFIX"):
         prefixes.append(Path(os.environ["CONDA_PREFIX"]))
     prefixes.extend(Path.home() / name for name in ("miniconda3", "anaconda3"))
