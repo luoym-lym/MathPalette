@@ -30,7 +30,7 @@
 | 操作 | 必填参数 | 限定样式 |
 | --- | --- | --- |
 | `add_point` | `id`、`xy=[x,y]` | 实心 `filled=true`，`size_pt2=50`，`edge_linewidth_pt=1`；默认红色 |
-| `add_line` | `id`、`endpoints=[[x1,y1],[x2,y2]]` | `linestyle="dashed"`、`linewidth_pt=1`、`dash_pattern_pt=[3.7,1.6]`；默认蓝色 |
+| `add_line` | `id`、`endpoints=[[x1,y1],[x2,y2]]` | `linestyle="solid"` 或 `"dashed"`（默认虚线）、`linewidth_pt=1`；仅虚线可带 `dash_pattern_pt=[3.7,1.6]`，实线须省略；默认蓝色 |
 | `set_object_style` | `target`，至少一个 `color` / `linestyle` | 原对象颜色可选四色及黑色；`linestyle` 为 `solid` / `dashed` |
 
 新增点/线只允许红 `#DC2626`、蓝 `#2563EB`、绿 `#16A34A`、橙 `#EA580C`；原对象另允许黑 `#000000`。省略新增样式由配置补齐并冻结，不得改变固定尺寸。原对象省略颜色/线型则保持该项，包括对象中各片段不同的原线型；恢复原样须移除对应 `set_object_style`，不要猜测黑色/实线替代恢复。

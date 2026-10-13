@@ -96,6 +96,8 @@ class PluginRenderer:
         for index, action in enumerate(normalized["params"]["actions"]):
             action_type = action["type"]
             for key, value in self.config["defaults"][action_type].items():
+                if action_type == "add_line" and key == "dash_pattern_pt" and action.get("linestyle") == "solid":
+                    continue
                 action.setdefault(key, copy.deepcopy(value))
             if action_type == "set_object_style":
                 target = objects.get(action["target"])
