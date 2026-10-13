@@ -38,7 +38,7 @@ python -X utf8 -B PlaneGeometry/workbench/agent_cli.py status --candidate ID
 
 ## Quick Test
 
-对已提交候选手动点击 Quick Test，沿用 MiniMax-M3 和现有服务端环境配置，关闭思考。每次手动操作仅一次调用，不自动重试或判分。请求只含正式题干和当前候选 PNG；标准答案、原图、说明、标注意图和绘图参数不发送。Key 只在服务端从项目 `.env` 或环境变量读取。
+对已提交候选手动点击 **Quick Test 1**（MiniMax-M3，nonthinking）或 **Quick Test 2**（MiniMax-M3.1-Flash-Preview，low），沿用现有服务端环境配置。两种模式的回答、思考（如有）、用时和 token 数分别显示并保存，互不覆盖。每次手动操作仅一次调用，不自动重试或判分。请求只含正式题干和当前候选 PNG；标准答案、原图、说明、标注意图和绘图参数不发送。Key 只在服务端从项目 `.env` 或环境变量读取。
 
 结果绑定 PlaneGeometry、题号、候选 ID、参数和实际 PNG 指纹，保存在 `.runtime/plane_special/quick_tests/`；切题、替换或审核后不会显示为另一份候选的结果。软件测试使用 mock API，不发送付费模型请求。
 

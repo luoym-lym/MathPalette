@@ -42,13 +42,13 @@ Analytics/special_variant/
 
 ## Quick Test
 
-在画板完成标注后点击「提交到当前候选」，或由 agent 提交候选，再点击候选图右上角的 **Quick Test**。工作台会用 **MiniMax-M3** 读取题干和这张候选图，以关闭思考的模式直接回答，展示回答、用时和 token 数。以前测试中保存的思考内容仍可查看。标准答案、原图、标注意图及绘图参数不发送给模型；不调用 judge，也不自动 Pass / No Pass。
+在画板完成标注后点击「提交到当前候选」，或由 agent 提交候选，再点击候选图右上角的 **Quick Test 1** 或 **Quick Test 2**。Quick Test 1 使用 **MiniMax-M3 · nonthinking**；Quick Test 2 使用 **MiniMax-M3.1-Flash-Preview · low**。两种模式分别显示并保存回答、思考（如有）、用时和 token 数，互不覆盖。以前测试中保存的思考内容仍可查看。标准答案、原图、标注意图及绘图参数不发送给模型；不调用 judge，也不自动 Pass / No Pass。
 
-使用项目根目录 `.env` 中的 `MINIMAX_API_KEY`，当前已配置为中国区订阅接口 `https://api.minimaxi.com/v1`。Key 只由服务端读取。`config.json` 的 `quick_test` 控制模型和接口；修改配置后重新双击 CMD。请求设置 `thinking: {"type": "disabled"}`，不发送 `max_tokens` 或 `max_completion_tokens`，也不设置本地等待超时。实际输出长度仍由模型服务决定。
+使用项目根目录 `.env` 中的 `MINIMAX_API_KEY`，当前已配置为中国区订阅接口 `https://api.minimaxi.com/v1`。Key 只由服务端读取。`config.json` 的 `quick_test` 保留默认 M3 与接口配置；两个按钮的模型模式在 `quick_test.py` 固定。修改配置后重新双击 CMD。Quick Test 1 设置 `thinking: {"type": "disabled"}`；Quick Test 2 设置 `thinking: {"type": "adaptive"}`、`reasoning_effort: "low"`。两者均不发送 `max_tokens` 或 `max_completion_tokens`，也不设置本地等待超时。实际输出长度仍由模型服务决定。
 
 每次手动点击调用一次模型；运行期间禁用重复调用，不自动重试。切题、替换候选后不会将旧结果显示在新候选上。每个候选只保存最近一次测试到 `.runtime/analytics_special/quick_tests/`，刷新页面可恢复；这些输出属于临时工作记录，不进入正式数据。请求失败后可以手动重试；接口若返回长度截断，页面会显示提示。
 
-官方高速版名称是 `MiniMax-M2.7-highspeed`，M2.7 不接受原生图片输入，因此本功能按用户选择使用 M3。接口说明：[MiniMax 图片输入与思考输出](https://platform.minimax.io/docs/api-reference/text-openai-api)。
+模型参数见 [MiniMax Chat Completions 官方接口](https://platform.minimax.io/docs/api-reference/text-chat-openai)。
 
 ## 更新未完成题目与重启
 

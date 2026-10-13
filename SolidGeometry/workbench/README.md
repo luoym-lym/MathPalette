@@ -20,7 +20,7 @@ Pass 保存一份 C 变体；No Pass 拒绝本候选；Collect 结束整题，�
 
 运行状态、草稿、未通过图、预览、删除备份和 Quick Test 回答只写 `.runtime/solid_special/`。清理运行缓存后，已 Pass 的 recipes 和 Collect 记录可恢复收集状态；未通过草稿仍属于临时数据。修改已审核题目须另行获得用户批准，不能用 Special 审核替代原题批准。
 
-Quick Test 每次手动点击调用一次 MiniMax-M3，关闭思考，仅发送本题正式题干和当前候选 PNG；标准答案、原图、意图与参数不发送。不增加判分器，不自动重试、Pass 或 Collect。服务端读取项目现有环境配置；页面与记录不保存密钥。结果绑定本分支、题号、候选、PNG 与像素指纹，替换候选不会错用旧回答。
+**Quick Test 1** 调用 MiniMax-M3（nonthinking），**Quick Test 2** 调用 MiniMax-M3.1-Flash-Preview（low）。每次点击仅调用所选模型一次；两种模式的回答、思考（如有）、用时和 token 数分别显示并保存，互不覆盖。仅发送本题正式题干和当前候选 PNG；标准答案、原图、意图与参数不发送。不增加判分器，不自动重试、Pass 或 Collect。服务端读取项目现有环境配置；页面与记录不保存密钥。结果绑定本分支、题号、候选、PNG 与像素指纹，替换候选不会错用旧回答。
 
 Agent 使用 [agent_prompt.md](agent_prompt.md)、[plugin.schema.json](plugin.schema.json) 和 `agent_cli.py`；绘图输入与候选冲突保护同画板一致。
 
