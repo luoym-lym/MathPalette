@@ -60,6 +60,10 @@ def validate_formal_row(root, branch, row):
 def content(root, branch, row):
     root = Path(root)
     paths = [row[k] for k in PATH_FIELDS if row.get(k)]
+    dependencies = row.get('runtime_dependencies', [])
+    if not isinstance(dependencies, list) or any(not isinstance(p, str) or Path(p).is_absolute() or '\\' in p for p in dependencies):
+        raise ValueError('runtime_dependencies must be a list of branch-relative paths')
+    paths += dependencies
     paths += ['dataset_generator/common_renderer.py', 'dataset_generator/protocol.json']
     files = {p:file_hash(contained(root/branch,p)) for p in paths}
     if branch != 'Analytics':

@@ -1,6 +1,6 @@
 # 平面几何 Special 标注工作台
 
-读取正式 `PlaneGeometry/dataset.jsonl` 的 Plane01～Plane71。工作台复制自 Analytics，使用独立端口、状态、浏览器草稿和 Agent 插件。只在用户点击 Pass 后写入 `PlaneGeometry/special_variant/`；不修改原题、原图、冻结场景或审核凭据。
+读取正式 `PlaneGeometry/dataset.jsonl` 的 Plane01～Plane71。工作台复制自 Analytics，使用独立端口、状态、浏览器草稿和 Agent 插件。通过图只在用户点击 Pass 后写入 `PlaneGeometry/special_variant/`，Collect 和特殊标记另存整题完成记录；不修改原题、原图、冻结场景或审核凭据。
 
 从项目根目录运行：
 
@@ -79,3 +79,11 @@ python -X utf8 -B PlaneGeometry/workbench/launch_workbench.py --check --data-dir
 测试涵盖 16 题逐像素基线、每个可选对象的全部真实路径/片段、样式与填充/标签隔离、参数拒绝、精确吸附、候选冲突、临时 Pass/Collect 事务、冷启动恢复、离线入口、删除恢复及 Quick Test mock。所有审核夹具明确标记为 `TEMPORARY SOFTWARE TEST FIXTURE`，仅写 `.runtime/plane_workbench_tests/`，不进入真实 Special 或根索引。浏览器联调同样同时指定 `--data-dir` 和 `--output-dir`。
 
 实现依据：[已确认需求](../../GEOMETRY_WORKBENCH_REQUIREMENTS.md)、[平面重绘协议](../REDRAW_PROTOCOL.md)。Base 仍未启用。
+
+## 特殊情况与后期复审
+
+点击题目顶部「特殊标记」，将当前题计入 Collect 完成并切换到下一道未完成题。无需先 Pass 变体；已有通过图保持原样，当前待审候选留在运行状态中，不会自动 Pass 或 No Pass。画板打开或正在生成候选时，先返回工作台并等待生成结束。
+
+侧栏「已完成」显示「特殊情况 · 待复审」，可勾选「只看特殊情况 · 待复审」，点击「复审」重新打开。复审完成后照常 Pass / Collect；再次特殊标记则继续留待后审。重新打开和再次完成会保留历史记录。
+
+标记保存在 `special_variant/<题号>/collection.json` 的 `current.special_case=true`、`current.review_status="pending"`，并同步 `collected_index.jsonl`；完成时间使用 `collected_at`。普通重启及清理运行缓存后仍能恢复特殊完成状态。未通过候选与浏览器草稿仍属于运行数据，清理对应缓存后不保证保留。特殊标记只记录整题的工作进度，不创建变体通过记录，也不改变原题审核。
