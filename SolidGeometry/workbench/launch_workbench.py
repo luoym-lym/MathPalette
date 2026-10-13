@@ -12,7 +12,7 @@ import time
 from pathlib import Path
 from urllib.error import URLError
 from urllib.parse import urlparse
-from urllib.request import Request, urlopen
+from urllib.request import ProxyHandler, Request, build_opener
 
 ROOT = Path(__file__).resolve().parent
 PROJECT = ROOT.parents[1]
@@ -134,18 +134,18 @@ def main():
         if urlparse(url).hostname not in ("localhost", "127.0.0.1"):
             raise SystemExit("Unexpected workbench address.")
         try:
-            with urlopen(url + "/api/health", timeout=2) as response:
+            with build_opener(ProxyHandler({})).open(url + "/api/health", timeout=2) as response:
                 health = json.load(response)
-        except URLError:
+        except (URLError, TimeoutError):
             health = None
         if health:
             if health.get("session_id") != service["session_id"]:
                 raise SystemExit("Another service uses this address; close it before starting.")
-            with urlopen(url + "/api/state", timeout=2) as response:
+            with build_opener(ProxyHandler({})).open(url + "/api/state", timeout=2) as response:
                 state = json.load(response)
             request = Request(url + "/api/shutdown", data=b"{}", method="POST",
                               headers={"Content-Type": "application/json", "X-Review-Token": state["review_token"]})
-            with urlopen(request, timeout=3) as response:
+            with build_opener(ProxyHandler({})).open(request, timeout=3) as response:
                 json.load(response)
             deadline = time.monotonic() + 10
             while service_path.exists() and time.monotonic() < deadline:

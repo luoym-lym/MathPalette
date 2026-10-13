@@ -7,7 +7,7 @@ import sys
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.parse import quote, urlparse
-from urllib.request import Request, urlopen
+from urllib.request import ProxyHandler, Request, build_opener
 
 from workbench_io import ROOT, WorkbenchError, load_config, parse_json, read_json
 
@@ -19,7 +19,7 @@ def call_api(url, path, body=None):
     data = json.dumps(body, ensure_ascii=False, allow_nan=False).encode("utf-8") if body is not None else None
     request = Request(url.rstrip("/") + path, data=data, headers={"Content-Type": "application/json"})
     try:
-        with urlopen(request, timeout=300) as response:
+        with build_opener(ProxyHandler({})).open(request, timeout=300) as response:
             return parse_json(response.read().decode("utf-8"))
     except HTTPError as error:
         try:
