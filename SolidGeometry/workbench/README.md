@@ -16,7 +16,7 @@ python -X utf8 -B SolidGeometry/workbench/launch_workbench.py
 
 画板预览由原冻结公共 renderer 和受限插件渲染器生成。未标注的 16 题须逐题与正式原图像素一致；保持 768×768、不透明白底、原视窗和标签。鼠标高亮、吸附提示和控制点不进入 PNG。撤销/重做、删除标记、取消线段、清空、提交候选和 Pass 均沿用原流程。
 
-Pass 保存一份 C 变体；No Pass 拒绝本候选；Collect 结束整题，已完成列表可重新打开。删除已通过图使用可恢复事务。正式输出仅在用户 Pass 后创建于 `SolidGeometry/special_variant/`，每题包含 `images/`、`plugins/`、`recipes.json`、`draw_variants.py`，完成题另有 `collection.json`。保存原场景、原 PNG、绘图入口、公共 renderer、协议、插件执行器、schema 和依赖的指纹；显式线型覆盖另外记录为 `appearance_changes.rendered_visibility_style_overrides`。原三维几何、投影和冻结可见性区间保持只读。
+Pass 保存一份 C 变体；No Pass 拒绝本候选；Collect 结束整题，已完成列表可重新打开。删除已通过图使用可恢复事务。通过图仅在用户 Pass 后创建于 `SolidGeometry/special_variant/`；Collect 和特殊标记另存整题完成记录，每题包含 `images/`、`plugins/`、`recipes.json`、`draw_variants.py`，完成题另有 `collection.json`。保存原场景、原 PNG、绘图入口、公共 renderer、协议、插件执行器、schema 和依赖的指纹；显式线型覆盖另外记录为 `appearance_changes.rendered_visibility_style_overrides`。原三维几何、投影和冻结可见性区间保持只读。
 
 运行状态、草稿、未通过图、预览、删除备份和 Quick Test 回答只写 `.runtime/solid_special/`。清理运行缓存后，已 Pass 的 recipes 和 Collect 记录可恢复收集状态；未通过草稿仍属于临时数据。修改已审核题目须另行获得用户批准，不能用 Special 审核替代原题批准。
 
@@ -40,3 +40,11 @@ node SolidGeometry/workbench/test_board_geometry.js
 ```
 
 需要隔离启动时，同时指定 `--data-dir` 与 `--output-dir`，例如将两者设在项目 `.runtime/solid_workbench_tests/` 中两个独立子目录。相对路径以调用命令时的目录为准，支持 `--flag value` 和 `--flag=value`。测试程序自动清理自身夹具；浏览器验收后应停止测试服务并删除对应预览、日志、缓存，不删除用户既有状态。需求见 [GEOMETRY_WORKBENCH_REQUIREMENTS.md](../../GEOMETRY_WORKBENCH_REQUIREMENTS.md)。
+
+## 特殊情况与后期复审
+
+点击题目顶部「特殊标记」，将当前题计入 Collect 完成并切换到下一道未完成题。无需先 Pass 变体；已有通过图保持原样，当前待审候选留在运行状态中，不会自动 Pass 或 No Pass。画板打开或正在生成候选时，先返回工作台并等待生成结束。
+
+侧栏「已完成」显示「特殊情况 · 待复审」，可勾选「只看特殊情况 · 待复审」，点击「复审」重新打开。复审完成后照常 Pass / Collect；再次特殊标记则继续留待后审。重新打开和再次完成会保留历史记录。
+
+标记保存在 `special_variant/<题号>/collection.json` 的 `current.special_case=true`、`current.review_status="pending"`，并同步 `collected_index.jsonl`；完成时间使用 `collected_at`。普通重启及清理运行缓存后仍能恢复特殊完成状态。未通过候选与浏览器草稿仍属于运行数据，清理对应缓存后不保证保留。特殊标记只记录整题的工作进度，不创建变体通过记录，也不改变原题审核。

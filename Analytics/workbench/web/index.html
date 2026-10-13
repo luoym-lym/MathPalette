@@ -22,11 +22,12 @@
       <label class="sr-only" for="search">筛选题号</label><input id="search" type="search" placeholder="筛选题号，如 Ana04">
       <nav id="question-list" aria-label="题目列表"></nav>
       <button id="toggle-completed" aria-expanded="false" aria-controls="completed-list">已完成 0 道 · 查看</button>
+      <label id="special-case-filter" class="special-case-filter" hidden><input id="special-only" type="checkbox">只看特殊情况 · 待复审</label>
       <nav id="completed-list" aria-label="已完成的题目" hidden></nav>
-      <p class="sidebar-note">Pass 保存一张变体。<br>Collect 完成整题并从此列表隐藏。</p>
+      <p class="sidebar-note">Pass 保存一张变体。<br>Collect 完成整题并从此列表隐藏。<br>特殊标记计入完成，留待后期复审。</p>
     </aside>
     <main>
-      <div class="heading"><div><div class="eyebrow">C · MANUAL REVIEW</div><h1 id="question-id">正在连接工作台…</h1></div><div class="heading-actions"><button id="open-board" class="board-launch" disabled>✎ 打开画板</button><button id="collect-question" disabled>Collect · 完成收集</button><span id="status" class="status" role="status">连接中</span></div></div>
+      <div class="heading"><div><div class="eyebrow">C · MANUAL REVIEW</div><h1 id="question-id">正在连接工作台…</h1></div><div class="heading-actions"><button id="open-board" class="board-launch" disabled>✎ 打开画板</button><button id="collect-question" disabled>Collect · 完成收集</button><button id="mark-special" class="special-case-button" title="标记为特殊情况并计入完成，之后可在已完成列表复审。" disabled>特殊标记</button><span id="status" class="status" role="status">连接中</span></div></div>
       <div id="error" class="error" role="alert" hidden></div>
       <p id="all-collected" hidden>所有题目都已 Collect。可从侧栏「已完成」列表重新打开。</p>
       <section class="question-panel" aria-label="题目与答案"><p id="question-text"></p><details><summary>查看标准答案</summary><pre id="answer"></pre></details></section>

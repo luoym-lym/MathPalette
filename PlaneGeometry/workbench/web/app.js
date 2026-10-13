@@ -17,6 +17,7 @@ function controls() {
   const hasQuestion = !!state?.question_id;
   $("open-board").disabled = !hasQuestion || !connected || busy || !originalLoaded;
   $("collect-question").disabled = !hasQuestion || !connected || busy || !state.accepted.length || !!state.candidate || state.status === "generating" || $("board-dialog").open;
+  $("mark-special").disabled = !hasQuestion || !connected || busy || state.status === "generating" || $("board-dialog").open;
   const ready = connected && !busy && state?.candidate?.status === "pending" && originalLoaded &&
     loaded?.id === state.candidate.candidate_id && loaded?.pixel === state.candidate.pixel_sha256 && loaded?.parameter === state.candidate.parameter_key;
   $("pass").disabled = $("reject").disabled = !ready;
@@ -29,6 +30,7 @@ function controls() {
   $("next").disabled = busy || !connected || index < 0 || index >= state.questions.length - 1;
   document.querySelectorAll(".question-item").forEach(button => button.disabled = busy || !connected);
   document.querySelectorAll(".reopen-question").forEach(button => button.disabled = busy || !connected);
+  $("toggle-completed").disabled = !connected || busy || !state?.completed_questions?.length;
   document.querySelectorAll(".delete-accepted, .cancel-delete").forEach(button => {
     button.disabled = busy || !connected || state?.status === "generating" || $("board-dialog").open;
   });
@@ -43,7 +45,7 @@ function errors() {
 }
 
 function listQuestions() {
-  const key = JSON.stringify([state.questions, state.completed_questions, state.question_id, busy, connected, $("search").value]);
+  const key = JSON.stringify([state.questions, state.completed_questions, state.question_id, busy, connected, $("search").value, $("special-only").checked]);
   if (key === navKey) return;
   navKey = key;
   $("question-list").replaceChildren();
@@ -60,17 +62,23 @@ function listQuestions() {
     $("question-list").append(button);
   });
   const completed = state.completed_questions || [];
-  $("toggle-completed").textContent = `已完成 ${completed.length} 道 · ${$("completed-list").hidden ? "查看" : "收起"}`;
+  $("toggle-completed").textContent = `已完成 ${completed.length} 道 · 特殊 ${state.special_case_total || 0} 道 · ${$("completed-list").hidden ? "查看" : "收起"}`;
   $("toggle-completed").disabled = !connected || busy || completed.length === 0;
   $("toggle-completed").setAttribute("aria-expanded", String(!$("completed-list").hidden));
+  $("special-case-filter").hidden = $("completed-list").hidden;
   const completedList = $("completed-list");
   completedList.replaceChildren();
-  completed.filter(q => q.id.toLowerCase().includes(filter)).forEach(q => {
+  completed.filter(q => q.id.toLowerCase().includes(filter) && (!$("special-only").checked || q.special_case)).forEach(q => {
     const row = document.createElement("div"); row.className = "question-item completed-item";
     const label = document.createElement("span"); label.textContent = `${q.id} · ${q.accepted_count} 张`;
+    if (q.special_case) {
+      row.classList.add("special-case");
+      const badge = document.createElement("span"); badge.className = "special-case-badge";
+      badge.textContent = "特殊情况 · 待复审"; label.append(badge);
+    }
     const button = document.createElement("button"); button.className = "reopen-question";
-    button.textContent = "重新打开"; button.disabled = busy || !connected;
-    button.setAttribute("aria-label", `重新打开 ${q.id}`);
+    button.textContent = q.special_case ? "复审" : "重新打开"; button.disabled = busy || !connected;
+    button.setAttribute("aria-label", q.special_case ? `重新打开 ${q.id} 复审特殊情况` : `重新打开 ${q.id}`);
     button.addEventListener("click", () => reopenQuestion(q.id));
     row.append(label, button); completedList.append(row);
   });
@@ -100,7 +108,7 @@ function render(next) {
   document.querySelectorAll("main > .question-panel, main > .comparison, main > .review-bar, main > .object-panel, main > .collection").forEach(element => element.hidden = !hasQuestion);
   $("question-text").textContent = state.question;
   $("answer").textContent = typeof state.answer === "string" ? state.answer : JSON.stringify(state.answer, null, 2);
-  $("total-count").textContent = `已完成 ${state.collected_total} 题 · 已保存 ${state.accepted_total} 张`;
+  $("total-count").textContent = `已完成 ${state.collected_total} 题 · 特殊待复审 ${state.special_case_total || 0} 题 · 已保存 ${state.accepted_total} 张`;
   $("status").textContent = statusNames[state.status] || state.status;
   $("status").className = `status status-${state.status}`;
   if (previous?.question_id !== state.question_id || previous?.input_revision !== state.input_revision || previous?.session_id !== state.session_id) {
@@ -247,6 +255,15 @@ async function collectQuestion() {
   finally { busy = false; controls(); }
 }
 
+async function markSpecialQuestion() {
+  if ($("mark-special").disabled) return;
+  const body = {question_id: state.question_id, context_token: state.context_token};
+  busy = true; epoch++; actionError = ""; controls();
+  try { render(await api("/api/mark-special", body)); }
+  catch (error) { actionError = error.message; errors(); }
+  finally { busy = false; controls(); }
+}
+
 async function reopenQuestion(qid) {
   if (busy || !connected) return;
   busy = true; epoch++; actionError = ""; controls(); listQuestions();
@@ -269,6 +286,8 @@ $("search").addEventListener("input", () => { if (state) { listQuestions(); cont
 $("pass").addEventListener("click", () => review("pass"));
 $("reject").addEventListener("click", () => review("reject"));
 $("collect-question").addEventListener("click", collectQuestion);
+$("mark-special").addEventListener("click", markSpecialQuestion);
+$("special-only").addEventListener("change", () => { if (state) { listQuestions(); controls(); } });
 $("toggle-completed").addEventListener("click", () => {
   $("completed-list").hidden = !$("completed-list").hidden;
   navKey = ""; listQuestions();
