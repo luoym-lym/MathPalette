@@ -6,6 +6,7 @@
   const clone = value => JSON.parse(JSON.stringify(value));
   let scene = null, base = null, plugin = null, original = null, picture = null;
   let tool = "point", selected = "", hovered = "", cursor = null, rawCursor = null, start = null;
+  let lineStyle = "dashed";
   let undo = [], redo = [], revision = 0, preview = null, timer = null, rendering = false;
   let saving = false, conflict = false, opening = 0, ctrl = false, shift = false;
   let changed = false, storageWarning = false;
@@ -43,6 +44,7 @@
     $("board-description").disabled = !editable;
     $("board-target").disabled = !editable;
     document.querySelectorAll("[data-board-tool]").forEach(b => { b.disabled = !editable; b.setAttribute("aria-pressed", String(b.dataset.boardTool === tool)); });
+    document.querySelectorAll("[data-line-style]").forEach(b => { b.disabled = !editable || tool !== "line"; b.setAttribute("aria-pressed", String(b.dataset.lineStyle === lineStyle)); });
     const style = currentStyle(selected);
     document.querySelectorAll("[data-board-color]").forEach(b => {
       b.disabled = !editable || !selected;
@@ -173,7 +175,8 @@
       ctx.fillStyle = "#2563EB"; ctx.beginPath(); ctx.arc(...a, 4, 0, Math.PI * 2); ctx.fill();
       if (cursor) {
         ctx.beginPath(); ctx.moveTo(...a); ctx.lineTo(...matrix(scene.data_to_pixel, cursor));
-        ctx.strokeStyle = "#2563EB"; ctx.lineWidth = 100 / 72; ctx.setLineDash([3.7 * 100 / 72, 1.6 * 100 / 72]); ctx.stroke(); ctx.setLineDash([]);
+        ctx.strokeStyle = annotationColor.line; ctx.lineWidth = 100 / 72;
+        ctx.setLineDash(lineStyle === "dashed" ? [3.7 * 100 / 72, 1.6 * 100 / 72] : []); ctx.stroke(); ctx.setLineDash([]);
       }
     }
     if (cursor && tool !== "curve") {
@@ -196,8 +199,9 @@
   function setTool(value) {
     tool = value; start = null; hovered = "";
     $("board-curve-controls").hidden = tool !== "curve";
+    $("board-line-style").hidden = tool !== "line";
     $("board-mark-colors").hidden = tool === "curve";
-    $("board-tool-help").textContent = {point: "选择颜色后单击放点；Ctrl 吸附已有顶点、命名点和新增点。", line: "两次点选或拖动画虚线；靠近已有点或新增点可精确连接。Ctrl 持续吸附，Esc 取消。", curve: "点击原对象或从列表选择，再修改颜色或实虚线。青色高亮只用于定位。"}[tool];
+    $("board-tool-help").textContent = {point: "选择颜色后单击放点；Ctrl 吸附已有顶点、命名点和新增点。", line: "选择实线或虚线，再两次点选或拖动画线；靠近已有点或新增点可精确连接。Ctrl 持续吸附，Esc 取消。", curve: "点击原对象或从列表选择，再修改颜色或实虚线。青色高亮只用于定位。"}[tool];
     controlsBoard(); updateCursor();
   }
   function selectCurve(id) { selected = id; $("board-target").value = id; controlsBoard(); updateCursor(); }
@@ -219,7 +223,9 @@
   function lineTo(end) {
     if (!start || (start[0] === end[0] && start[1] === end[1])) { message("请选择不同的终点。", true); return; }
     const a = start; start = null;
-    edit(() => plugin.params.actions.push({...clone(scene.presets.line), color: annotationColor.line, id: id("board_line"), endpoints: [a, end]}));
+    const action = {...clone(scene.presets.line), color: annotationColor.line, linestyle: lineStyle, id: id("board_line"), endpoints: [a, end]};
+    if (lineStyle === "solid") delete action.dash_pattern_pt;
+    edit(() => plugin.params.actions.push(action));
   }
   let press = null;
   canvas.addEventListener("pointerdown", e => {
@@ -312,6 +318,9 @@
     forget(); loadBoard(false);
   });
   document.querySelectorAll("[data-board-tool]").forEach(b => b.addEventListener("click", () => setTool(b.dataset.boardTool)));
+  document.querySelectorAll("[data-line-style]").forEach(b => b.addEventListener("click", () => {
+    lineStyle = b.dataset.lineStyle; controlsBoard(); draw();
+  }));
   document.querySelectorAll("[data-board-color]").forEach(b => b.addEventListener("click", () => restyle({color: b.dataset.boardColor})));
   document.querySelectorAll("[data-mark-color]").forEach(b => b.addEventListener("click", () => {
     if (tool !== "curve") { annotationColor[tool] = b.dataset.markColor; controlsBoard(); draw(); }

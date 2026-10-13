@@ -37,19 +37,26 @@
           <button id="original-zoom" class="image-button" aria-label="放大原图到 768×768" disabled><img id="original-image" alt="当前题目原图"></button>
           <div class="image-footer">点击图片放大 · 保持原图视窗与比例</div>
         </section>
-        <section class="image-card"><div class="card-heading"><h2>当前候选</h2><div class="candidate-actions"><span id="candidate-count">等待提交</span><button id="quick-test-button" disabled>Quick Test</button></div></div>
+        <section class="image-card"><div class="card-heading"><h2>当前候选</h2><div class="candidate-actions"><span id="candidate-count">等待提交</span><button id="quicktest1-button" disabled>Quick Test 1</button><button id="quicktest2-button" disabled>Quick Test 2</button></div></div>
           <div id="candidate-frame" class="candidate-frame"><button id="candidate-zoom" class="image-button" aria-label="放大候选图到 768×768" hidden disabled><img id="candidate-image" alt="待人工审核的 C 候选图"></button>
             <div id="waiting" class="waiting"><span class="waiting-symbol">＋</span><strong>等待 agent 提交方案</strong><p>在另一个终端与 agent 讨论标记，<br>提交成功后，候选会自动出现在这里。</p></div>
           </div>
           <div class="image-footer" id="candidate-id">没有待审候选</div>
         </section>
       </div>
-      <section id="quick-test-panel" class="quick-test-panel" aria-label="候选图 Quick Test" hidden>
-        <div class="quick-test-heading"><h2>Quick Test <span id="quick-test-model">MiniMax-M3</span></h2><span id="quick-test-status" role="status"></span></div>
-        <p id="quick-test-hint" class="muted">发送题干和当前候选图，查看模型回答；已关闭思考，不自动判分。</p>
-        <div id="quick-test-error" class="error" role="alert" hidden></div>
-        <p id="quick-test-warning" class="quick-test-warning" hidden>接口返回了长度截断，以下内容可能不完整。</p>
-        <div id="quick-test-output" hidden><h3>模型回答</h3><pre id="quick-test-answer"></pre><details id="quick-test-thinking-details" open hidden><summary>模型思考</summary><pre id="quick-test-thinking"></pre></details></div>
+      <section id="quicktest1-panel" class="quick-test-panel" aria-label="候选图 Quick Test 1" hidden>
+        <div class="quick-test-heading"><h2>Quick Test 1 <span id="quicktest1-model">MiniMax-M3 · nonthinking</span></h2><span id="quicktest1-status" role="status"></span></div>
+        <p id="quicktest1-hint" class="muted">发送题干和当前候选图；关闭思考，直接回答，不自动判分。</p>
+        <div id="quicktest1-error" class="error" role="alert" hidden></div>
+        <p id="quicktest1-warning" class="quick-test-warning" hidden>接口返回了长度截断，以下内容可能不完整。</p>
+        <div id="quicktest1-output" hidden><h3>模型回答</h3><pre id="quicktest1-answer"></pre><details id="quicktest1-thinking-details" open hidden><summary>模型思考</summary><pre id="quicktest1-thinking"></pre></details></div>
+      </section>
+      <section id="quicktest2-panel" class="quick-test-panel" aria-label="候选图 Quick Test 2" hidden>
+        <div class="quick-test-heading"><h2>Quick Test 2 <span id="quicktest2-model">MiniMax-M3.1-Flash-Preview · low</span></h2><span id="quicktest2-status" role="status"></span></div>
+        <p id="quicktest2-hint" class="muted">发送题干和当前候选图；思考强度为 low，分别显示回答和思考，不自动判分。</p>
+        <div id="quicktest2-error" class="error" role="alert" hidden></div>
+        <p id="quicktest2-warning" class="quick-test-warning" hidden>接口返回了长度截断，以下内容可能不完整。</p>
+        <div id="quicktest2-output" hidden><h3>模型回答</h3><pre id="quicktest2-answer"></pre><details id="quicktest2-thinking-details" open hidden><summary>模型思考</summary><pre id="quicktest2-thinking"></pre></details></div>
       </section>
       <section id="candidate-info" class="candidate-info" hidden><h2>方案与操作</h2><p id="description"></p><p id="intent" class="muted"></p><ul id="action-summary"></ul><details><summary>查看冻结插件参数</summary><pre id="candidate-params"></pre></details></section>
       <section class="review-bar" aria-label="人工审核">
@@ -71,8 +78,12 @@
         <details class="board-question"><summary>查看题目与答案</summary><p id="board-question-text"></p><strong>标准答案</strong><pre id="board-answer"></pre></details>
         <div class="board-tool-group" role="group" aria-label="选择工具">
           <button data-board-tool="point" aria-pressed="true">● 标记点 <kbd>1</kbd></button>
-          <button data-board-tool="line" aria-pressed="false">┄ 辅助虚线 <kbd>2</kbd></button>
+          <button data-board-tool="line" aria-pressed="false">╱ 辅助线 <kbd>2</kbd></button>
           <button data-board-tool="curve" aria-pressed="false">⌁ 选择原对象 <kbd>3</kbd></button>
+        </div>
+        <div id="board-line-style" class="board-button-row" role="group" aria-label="新增线段线型" hidden>
+          <button data-line-style="dashed" aria-pressed="true">┄ 虚线</button>
+          <button data-line-style="solid" aria-pressed="false">─ 实线</button>
         </div>
         <p id="board-tool-help" class="board-help">单击放点；按住 Ctrl 吸附已有几何点。</p>
         <label class="board-snap"><input id="board-snap" type="checkbox">始终吸附已有几何点</label>

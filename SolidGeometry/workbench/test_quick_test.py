@@ -16,7 +16,7 @@ from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 from http.server import ThreadingHTTPServer
 
-from quick_test import QuickTests, call_minimax, load_api_key, parse_response
+from quick_test import QuickTests, TEST_PROFILES, call_minimax, load_api_key, parse_response
 from review_store import Workbench
 from server import make_handler
 from workbench_io import WorkbenchError, load_config
@@ -40,7 +40,9 @@ class ClientTests(unittest.TestCase):
         payload = json.loads(request.data)
         self.assertEqual(result["answer"], "final")
         self.assertEqual(result["thinking"], "")
+        self.assertEqual(payload["model"], "MiniMax-M3")
         self.assertEqual(payload["thinking"], {"type": "disabled"})
+        self.assertNotIn("reasoning_effort", payload)
         self.assertNotIn("max_tokens", payload)
         self.assertNotIn("max_completion_tokens", payload)
         self.assertEqual(payload["messages"][1]["content"][0]["text"], "QUESTION ONLY")
@@ -48,6 +50,27 @@ class ClientTests(unittest.TestCase):
         self.assertEqual(base64.b64decode(url.split(",", 1)[1]), b"exact candidate PNG")
         self.assertNotIn(KEY, request.data.decode())
         self.assertEqual(request.full_url, "https://api.minimaxi.com/v1/chat/completions")
+
+    def test_flash_preview_uses_adaptive_thinking_and_low_effort(self):
+        response = {"model": "MiniMax-M3.1-Flash-Preview", "choices": [{"message": {
+            "content": "final", "reasoning_content": "brief reasoning"}, "finish_reason": "stop"}]}
+        settings = {**SETTINGS, **TEST_PROFILES["quicktest2"]}
+        with patch("quick_test.build_opener") as opener:
+            opener.return_value.open.return_value = io.BytesIO(json.dumps(response).encode())
+            result = call_minimax(settings, KEY, "QUESTION ONLY", b"exact candidate PNG")
+            request = opener.return_value.open.call_args.args[0]
+            self.assertIsNone(opener.return_value.open.call_args.kwargs["timeout"])
+        payload = json.loads(request.data)
+        self.assertEqual(payload["model"], "MiniMax-M3.1-Flash-Preview")
+        self.assertEqual(payload["thinking"], {"type": "adaptive"})
+        self.assertEqual(payload["reasoning_effort"], "low")
+        self.assertNotIn("max_tokens", payload)
+        self.assertNotIn("max_completion_tokens", payload)
+        self.assertEqual(payload["messages"][1]["content"][0]["text"], "QUESTION ONLY")
+        url = payload["messages"][1]["content"][1]["image_url"]["url"]
+        self.assertEqual(base64.b64decode(url.split(",", 1)[1]), b"exact candidate PNG")
+        self.assertEqual((result["answer"], result["thinking"]), ("final", "brief reasoning"))
+        self.assertNotIn(KEY, request.data.decode())
 
     def test_truncation_and_missing_thinking(self):
         result = parse_response({"choices": [{"message": {"reasoning_content": "partial"}, "finish_reason": "length"}]})
@@ -124,12 +147,79 @@ class WorkflowTests(unittest.TestCase):
     def tearDown(self):
         self.environment.stop()
 
-    def wait_done(self, manager):
+    def wait_done(self, manager, profile="quicktest1"):
         deadline = time.monotonic() + 5
         while manager.active and time.monotonic() < deadline:
             time.sleep(.01)
         self.assertIsNone(manager.active)
-        return manager.snapshot(self.bench.snapshot())["job"]
+        return manager.snapshot(self.bench.snapshot())["jobs"][profile]
+
+    def test_two_modes_keep_independent_results_and_restore_legacy_m3(self):
+        calls = []
+        def provider(settings, key, question, image):
+            calls.append(copy.deepcopy(settings))
+            return {**RESULT, "answer": settings["model"], "response_model": settings["model"]}
+        manager = QuickTests(self.bench, provider)
+        before = copy.deepcopy(self.bench.progress)
+        saved = {}
+        for profile in TEST_PROFILES:
+            manager.start({**self.body, "profile": profile})
+            saved[profile] = self.wait_done(manager, profile)
+            self.assertEqual(saved[profile]["model"], TEST_PROFILES[profile]["model"])
+        first, second = calls
+        self.assertEqual(first["thinking"], {"type": "disabled"})
+        self.assertNotIn("reasoning_effort", first)
+        self.assertEqual(second["thinking"], {"type": "adaptive"})
+        self.assertEqual(second["reasoning_effort"], "low")
+        snapshot = manager.snapshot(self.bench.snapshot())
+        self.assertEqual(snapshot["jobs"], saved)
+        self.assertEqual(snapshot["job"], saved["quicktest1"])
+        self.assertEqual(self.bench.progress, before)
+        self.assertNotIn(KEY, json.dumps(snapshot))
+        # Existing M3 cache filenames and records without a profile remain readable.
+        legacy = dict(saved["quicktest1"])
+        for name in ("profile", "thinking_mode", "reasoning_effort"):
+            legacy.pop(name, None)
+        manager._path(self.candidate["candidate_id"]).write_text(json.dumps(legacy), encoding="utf-8")
+        manager.close()
+        restored = QuickTests(self.bench, lambda *args: self.fail("Restoring must not call the model"))
+        jobs = restored.snapshot(self.bench.snapshot())["jobs"]
+        self.assertEqual(jobs["quicktest1"]["run_id"], saved["quicktest1"]["run_id"])
+        self.assertEqual(jobs["quicktest2"], saved["quicktest2"])
+        stale = self.bench.snapshot()
+        stale["candidate"] = {**stale["candidate"], "pixel_sha256": "changed"}
+        self.assertEqual(restored.snapshot(stale)["jobs"], {"quicktest1": None, "quicktest2": None})
+        restored.close()
+
+    def test_invalid_mode_never_calls_provider(self):
+        manager = QuickTests(self.bench, lambda *args: self.fail("Invalid mode must not call the model"))
+        for profile in ("unknown", "../quicktest2", "", None, [], {}):
+            with self.assertRaises(WorkbenchError) as raised:
+                manager.start({**self.body, "profile": profile})
+            self.assertEqual(raised.exception.code, "invalid_quick_test_profile")
+        manager.close()
+
+    def test_flash_inflight_dedup_conflict_and_restart(self):
+        entered, release, finished = threading.Event(), threading.Event(), threading.Event()
+        def provider(settings, *args):
+            entered.set(); release.wait(5); finished.set()
+            return {**RESULT, "response_model": settings["model"]}
+        manager = QuickTests(self.bench, provider)
+        body = {**self.body, "profile": "quicktest2"}
+        try:
+            job = manager.start(body)
+            self.assertTrue(entered.wait(2))
+            self.assertEqual(manager.start(body)["run_id"], job["run_id"])
+            with self.assertRaises(WorkbenchError) as raised:
+                manager.start({**self.body, "profile": "quicktest1"})
+            self.assertEqual(raised.exception.code, "quick_test_running")
+            self.assertEqual(manager.snapshot(self.bench.snapshot())["running_profile"], "quicktest2")
+        finally:
+            manager.close(); release.set()
+        self.assertTrue(finished.wait(2))
+        restored = QuickTests(self.bench, lambda *args: self.fail("Do not automatically retry"))
+        self.assertEqual(restored.snapshot(self.bench.snapshot())["jobs"]["quicktest2"]["status"], "interrupted")
+        restored.close()
 
     def test_stale_candidate_never_calls_provider(self):
         calls = []
@@ -229,7 +319,7 @@ class WorkflowTests(unittest.TestCase):
         thread = threading.Thread(target=server.serve_forever, daemon=True); thread.start()
         base = f"http://127.0.0.1:{server.server_port}"
         try:
-            request = Request(base + "/api/quick-test", data=json.dumps(self.body).encode(),
+            request = Request(base + "/api/quick-test", data=json.dumps({**self.body, "profile": "quicktest2"}).encode(),
                               headers={"Content-Type": "application/json"})
             with self.assertRaises(HTTPError) as raised:
                 urlopen(request)
@@ -238,10 +328,11 @@ class WorkflowTests(unittest.TestCase):
             request.add_header("X-Review-Token", self.bench.review_token)
             with urlopen(request) as response:
                 self.assertEqual(response.status, 202)
-            self.wait_done(manager)
+            self.wait_done(manager, "quicktest2")
             with urlopen(base + "/api/state") as response:
                 state = json.load(response)
-            self.assertEqual(state["quick_test"]["job"]["status"], "completed")
+            self.assertEqual(state["quick_test"]["jobs"]["quicktest2"]["status"], "completed")
+            self.assertEqual(state["quick_test"]["jobs"]["quicktest2"]["reasoning_effort"], "low")
             self.assertNotIn(KEY, json.dumps(state))
         finally:
             server.shutdown(); server.server_close(); thread.join(); manager.close()

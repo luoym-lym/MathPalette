@@ -43,6 +43,32 @@ class GeometryTests(unittest.TestCase):
         cls.metadata = {qid: cls.adapter.inspect_question(qid) for qid in cls.adapter.records}
         cls.renderer = PluginRenderer(cls.config, cls.adapter, cls.metadata)
 
+    def test_added_solid_and_dashed_lines(self):
+        qid = "Plane01"
+        points = self.metadata[qid]["snap_points"]
+        action = {"type": "add_line", "id": "fixture_line",
+                  "endpoints": [points[0]["xy"], points[1]["xy"]]}
+        implicit, _, default_digest = self.renderer.render(plugin(qid, action))
+        digests = {}
+        for style in ("solid", "dashed"):
+            action["linestyle"] = style
+            scene = self.adapter.scene(qid)
+            with patch.object(self.adapter, "scene", return_value=scene):
+                normalized, _, digests[style] = self.renderer.render(plugin(qid, action))
+            line = scene.ax.lines[-1]
+            self.assertEqual(line.is_dashed(), style == "dashed")
+            self.assertEqual(line.get_linewidth(), 1)
+            self.assertEqual("dash_pattern_pt" in normalized["params"]["actions"][0], style == "dashed")
+            self.assertEqual(self.renderer.render(normalized, frozen=True)[2], digests[style])
+        self.assertEqual(default_digest, digests["dashed"])
+        self.assertEqual(implicit, self.renderer.normalize(plugin(qid, action)))
+        self.assertNotEqual(digests["solid"], digests["dashed"])
+        action.update(linestyle="solid", dash_pattern_pt=[3.7, 1.6])
+        with self.assertRaises(WorkbenchError):
+            self.renderer.normalize(plugin(qid, action))
+        self.assertEqual(self.adapter.inspect_question(qid)["original_pixel_sha256"],
+                         self.metadata[qid]["original_pixel_sha256"])
+
     def test_all_formal_baselines_and_real_paths(self):
         # The approved catalog grows; every canonical formal row must be checked.
         expected_ids = {json.loads(line)["id"] for line in
@@ -120,7 +146,7 @@ class GeometryTests(unittest.TestCase):
                    {"type": "set_object_style", "target": "unknown", "color": COLORS[0]},
                    {"type": "set_object_style", "target": "AB", "linewidth_pt": 2},
                    {"type": "set_object_style", "target": "AB"},
-                   {"type": "add_line", "id": "line", "endpoints": [[0, 0], [1, 1]], "linestyle": "solid"},
+                   {"type": "add_line", "id": "line", "endpoints": [[0, 0], [1, 1]], "linestyle": "dotted"},
                    {"type": "add_line", "id": "line", "endpoints": [[0, 0], [1, 1]], "dash_pattern_pt": [4, 3]},
                    {"type": "add_line", "id": "line", "endpoints": [[0, 0], [0, 0]]}]
         for action in invalid:
@@ -180,7 +206,9 @@ class ReviewTests(unittest.TestCase):
                 self.assertIn("geometry_dataset.py", bench.adapter.dependencies("Plane01"))
                 self.assertEqual(first["branch"], "PlaneGeometry")
                 self.assertTrue(first["snap_points"] and first["canvas"]["targets"])
-                p = plugin("Plane01", {"type": "add_point", "id": "fixture_point", "xy": first["snap_points"][0]["xy"]})
+                p = plugin("Plane01", {"type": "add_point", "id": "fixture_point", "xy": first["snap_points"][0]["xy"]},
+                           {"type": "add_line", "id": "fixture_solid", "linestyle": "solid",
+                            "endpoints": [first["snap_points"][0]["xy"], first["snap_points"][1]["xy"]]})
                 preview = bench.drawing_preview(p, first["context_token"])
                 self.assertFalse(bench.progress["candidates"])
                 with self.assertRaises(WorkbenchError):

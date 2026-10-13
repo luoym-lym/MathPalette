@@ -96,6 +96,8 @@ class PluginRenderer:
         for index, action in enumerate(normalized["params"]["actions"]):
             action_type = action["type"]
             for key, value in self.config["defaults"][action_type].items():
+                if action_type == "add_line" and key == "dash_pattern_pt" and action.get("linestyle") == "solid":
+                    continue
                 action.setdefault(key, copy.deepcopy(value))
             if action_type == "set_object_style":
                 target = objects.get(action["target"])
@@ -156,7 +158,8 @@ class PluginRenderer:
             elif typ == "add_line":
                 a, b = action["endpoints"]
                 scene.ax.plot([a[0], b[0]], [a[1], b[1]], color=action["color"], linewidth=1,
-                              marker=None, linestyle=(0, [3.7, 1.6]), solid_capstyle="butt",
+                              marker=None, linestyle=(0, [3.7, 1.6]) if action["linestyle"] == "dashed" else "solid",
+                              solid_capstyle="butt",
                               dash_capstyle="butt", zorder=9, clip_on=True)
 
     def render(self, plugin, frozen=False):
