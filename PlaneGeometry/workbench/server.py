@@ -100,6 +100,7 @@ def make_handler(workbench, quick_tests=None):
                           "/app.js": ("app.js", "text/javascript; charset=utf-8"),
                           "/quick-test.js": ("quick-test.js", "text/javascript; charset=utf-8"),
                           "/drawing-board.js": ("drawing-board.js", "text/javascript; charset=utf-8"),
+                          "/partial-selection.js": ("partial-selection.js", "text/javascript; charset=utf-8"),
                           "/geometry-input.js": ("geometry-input.js", "text/javascript; charset=utf-8"),
                           "/style.css": ("style.css", "text/css; charset=utf-8")}
                 if path in static:

@@ -9,6 +9,7 @@ from matplotlib.colors import to_hex
 from matplotlib.path import Path
 
 from renderer_adapter import RENDER_LOCK
+from partial_style import describe_paths
 
 
 # Annotation-only additions; the original solid renderer stays frozen.
@@ -66,7 +67,8 @@ def describe_scene(adapter, qid):
                 color = to_hex(owned[0].get_color()).upper()
                 linewidth = float(owned[0].get_linewidth())
                 targets.append({"id": obj["id"], "kind": obj["kind"], "paths": paths,
-                                "source_call": obj["source_call"], "color": color,
+                                "partial_paths": describe_paths(scene, obj["id"]),
+                        "source_call": obj["source_call"], "color": color,
                                 "linewidth_pt": linewidth,
                                 "linestyle": styles[0] if len(set(styles)) == 1 else "mixed",
                                 "fragment_linestyles": styles,

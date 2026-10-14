@@ -144,7 +144,7 @@ class GeometryTests(unittest.TestCase):
                    dict(valid, xy=[float("inf"), 0]), dict(valid, xy=[True, 0]), dict(valid, xy=[1e300, 0]),
                    dict(valid, id="A"), dict(valid, text="no"), dict(valid, type="add_text"),
                    {"type": "set_object_style", "target": "unknown", "color": COLORS[0]},
-                   {"type": "set_object_style", "target": "AB", "linewidth_pt": 2},
+                   {"type": "set_object_style", "target": "AB", "linewidth_pt": 4},
                    {"type": "set_object_style", "target": "AB"},
                    {"type": "add_line", "id": "line", "endpoints": [[0, 0], [1, 1]], "linestyle": "dotted"},
                    {"type": "add_line", "id": "line", "endpoints": [[0, 0], [1, 1]], "dash_pattern_pt": [4, 3]},
@@ -152,7 +152,7 @@ class GeometryTests(unittest.TestCase):
         for action in invalid:
             with self.subTest(action=repr(action)), self.assertRaises(WorkbenchError):
                 self.renderer.normalize(plugin("Plane01", action))
-        for qid in ("Ana01", "Solid01", "Plane00", "Plane99"):
+        for qid in ("Ana01", "Solid01", "Plane00", "Plane999999"):
             with self.subTest(qid=qid), self.assertRaises(WorkbenchError):
                 self.renderer.normalize(plugin(qid, valid))
 

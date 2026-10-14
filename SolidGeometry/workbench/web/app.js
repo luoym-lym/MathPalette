@@ -87,7 +87,7 @@ function listQuestions() {
 function actionSummary(action) {
   if (action.type === "add_point") return `点 ${action.id}：(${action.xy.join(", ")})，${action.filled ? "实心" : "空心"}，${action.color}，${action.size_pt2} pt²`;
   if (action.type === "add_line") return `线段 ${action.id}：(${action.endpoints[0].join(", ")}) → (${action.endpoints[1].join(", ")})，${action.linestyle === "dashed" ? "虚线" : "实线"}，${action.color}，${action.linewidth_pt} pt`;
-  if (action.type === "set_object_style") return `原对象 ${action.target}：${action.color || "保留颜色"}，${action.linestyle ? (action.linestyle === "dashed" ? "虚线" : "实线") : "保留各片段原线型"}`;
+  if (action.type === "set_object_style") return `${action.interval ? "局部区间 " + action.interval.path_id + (action.interval.wrap ? "（另一段）" : "") : "原对象"} ${action.target}：${action.color || "保留颜色"}，${action.linestyle ? (action.linestyle === "dashed" ? "虚线" : "实线") : "保留各片段原线型"}${action.linewidth_pt ? "，" + action.linewidth_pt + " pt" : ""}`;
   return `未知操作：${action.type}`;
 }
 

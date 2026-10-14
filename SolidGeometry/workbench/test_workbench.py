@@ -147,7 +147,7 @@ class GeometryTests(unittest.TestCase):
                    {"type": "add_text", "id": "text", "xy": [0, 0], "text": "no"},
                    {"type": "set_object_style", "target": "unknown", "color": COLORS[0]},
                    {"type": "set_object_style", "target": "AB"},
-                   {"type": "set_object_style", "target": "AB", "linewidth_pt": 1},
+                   {"type": "set_object_style", "target": "AB", "linewidth_pt": 4},
                    {"type": "set_object_style", "target": "AB", "linestyle": "dotted"}]
         line = {"type": "add_line", "id": "test_line", "endpoints": [[0, 0], [1, 1]]}
         invalid += [{**line, "linestyle": "dotted"}, {**line, "linewidth_pt": 2},

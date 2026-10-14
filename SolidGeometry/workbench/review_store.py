@@ -12,6 +12,7 @@ import uuid
 from pathlib import Path
 
 from render_plugins import PluginRenderer
+from workbench_io import compatible_style_renderer
 from renderer_adapter import RENDER_LOCK, RendererAdapter
 from workbench_io import (GENERATOR_VERSION, ROOT, SCHEMA_VERSION, WorkbenchError, atomic_json,
                           atomic_write, canonical_hash, contained_path, environment_versions,
@@ -110,9 +111,9 @@ class Workbench:
         if progress_path.exists():
             self.progress = read_json(progress_path)
             previous_signature = self.progress["signature"]
-            metadata_update = False
+            metadata_update = compatible_style_renderer(previous_signature)
             if any(previous_signature.get(key) != value and
-                   not (key == "renderer_sha256" and metadata_update) for key, value in self.signature.items()
+                   not (key in ("renderer_sha256", "schema_sha256") and metadata_update) for key, value in self.signature.items()
                    if key != "baseline_fingerprint"):
                 raise WorkbenchError("渲染器、schema 或依赖版本不一致；请恢复原版本。", 409, "version_mismatch")
             if self.progress["output_relative"] != self.output_relative.as_posix():

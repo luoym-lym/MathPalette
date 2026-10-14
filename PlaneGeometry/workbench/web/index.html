@@ -8,6 +8,7 @@
   <script src="/app.js" defer></script>
   <script src="/quick-test.js" defer></script>
   <script src="/geometry-input.js" defer></script>
+  <script src="/partial-selection.js" defer></script>
   <script src="/drawing-board.js" defer></script>
 </head>
 <body>
@@ -95,6 +96,12 @@
         </div>
         <div id="board-curve-controls" hidden>
           <label for="board-target">当前对象（重叠时可在此选择）</label><select id="board-target"><option value="">点击图中的原对象</option></select>
+          <label for="board-style-scope">修改范围</label>
+          <select id="board-style-scope"><option value="whole">整个对象</option><option value="partial">局部区间</option></select>
+          <div id="board-partial-controls" hidden>
+            <p id="board-partial-help" class="board-help" role="status">先选择对象，再沿线点选起点和终点。靠近已有点自动吸附。</p>
+            <div class="board-button-row"><button id="board-new-range">重新选区间</button><button id="board-other-range" disabled>选择另一段</button></div>
+          </div>
           <div class="board-color-row" role="group" aria-label="曲线颜色">
             <button data-board-color="#DC2626" class="swatch swatch-red" aria-label="曲线改为红色">红</button>
             <button data-board-color="#2563EB" class="swatch swatch-blue" aria-label="曲线改为蓝色">蓝</button>
@@ -103,6 +110,7 @@
             <button data-board-color="#000000" class="swatch swatch-black" aria-label="曲线改为黑色">黑</button>
           </div>
           <div class="board-button-row"><button id="board-dashed">改为虚线</button><button id="board-solid">改为实线</button></div>
+          <label for="board-width">线宽</label><select id="board-width"><option value="">保留当前线宽</option><option value="0.5">0.5 pt</option><option value="1">1 pt</option><option value="1.5">1.5 pt</option><option value="2">2 pt</option><option value="3">3 pt</option></select>
           <button id="board-restore-curve">恢复原对象样式</button>
         </div>
         <div class="board-button-row"><button id="board-undo" disabled>撤销</button><button id="board-redo" disabled>重做</button><button id="board-clear" disabled>清空</button></div>

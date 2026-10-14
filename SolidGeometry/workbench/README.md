@@ -48,3 +48,20 @@ node SolidGeometry/workbench/test_board_geometry.js
 侧栏「已完成」显示「特殊情况 · 待复审」，可勾选「只看特殊情况 · 待复审」，点击「复审」重新打开。复审完成后照常 Pass / Collect；再次特殊标记则继续留待后审。重新打开和再次完成会保留历史记录。
 
 标记保存在 `special_variant/<题号>/collection.json` 的 `current.special_case=true`、`current.review_status="pending"`，并同步 `collected_index.jsonl`；完成时间使用 `collected_at`。普通重启及清理运行缓存后仍能恢复特殊完成状态。未通过候选与浏览器草稿仍属于运行数据，清理对应缓存后不保证保留。特殊标记只记录整题的工作进度，不创建变体通过记录，也不改变原题审核。
+
+
+## 局部区间样式（2026-10-14）
+
+选择原对象后，将「修改范围」切换到「局部区间」，在线上点选起点、终点；靠近已有几何点、显式交点或路径端点时自动吸附。青色高亮表示将要修改的区间，拖动两端圆点可以调整范围。交叉处锁定原对象，多个不相连的路径不能跨空隙连接。圆或其他闭合路径可用「选择另一段」切换两点之间的另一侧。
+
+颜色、实虚线和线宽仅影响所选区间；线宽允许 0.5、1、1.5、2、3 pt。只改颜色时保留原有实虚线，包括立体图的显隐片段。点击「重新选区间」可继续添加另一处修改；在「编辑标记」列表点击「编辑区间」可重选、拖动或删除已有局部修改。重叠操作按列表顺序逐属性应用，后面的同属性操作优先。删除局部修改会显露下面的样式；「整个对象 → 恢复原对象样式」移除该对象的全部覆盖。支持撤销、重做和浏览器草稿恢复。
+
+插件仍使用 `set_object_style`，新增可选 `linewidth_pt` 和 `interval`。区间字段为 `path_id`、`path_sha256`、`start`、`end`、`wrap`，满足 `0 ≤ start < end ≤ 1`；`wrap=true` 仅用于闭合路径另一侧。路径来自画板 `targets[].partial_paths`，参数按原矢量路径的有序段编号归一化；样本第三列是参数。保存完整参数和路径指纹，不保存鼠标像素位置。后端精确切分贝塞尔/折线路径，保留原填充、投影和可见性输入。预览、提交与离线重绘使用同一实现。
+
+升级只兼容 `style_compatibility.json` 记录的旧整对象执行器与 schema 组合，旧 recipe 不改写；仍核验环境、题目输入、参数及最终像素。未知执行器继续拒绝。测试命令：
+
+```powershell
+python -X utf8 -B SolidGeometry/workbench/test_partial_style.py
+node SolidGeometry/workbench/test_partial_selection.js
+node SolidGeometry/workbench/test_partial_board.js
+```

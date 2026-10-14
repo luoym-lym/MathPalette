@@ -63,7 +63,17 @@ def environment_versions():
 
 def renderer_fingerprint():
     return canonical_hash({name: file_hash(ROOT / name) for name in
-                           ("renderer_adapter.py", "render_plugins.py", "workbench_io.py")})
+                           ("renderer_adapter.py", "render_plugins.py", "workbench_io.py", "partial_style.py", "style_compatibility.json")})
+
+
+def compatible_style_renderer(signature):
+    """Only the explicitly recorded pre-interval renderer/schema pair is compatible.
+
+    Old immutable recipes still pass environment, input, parameter and exact pixel
+    checks. This does not authorize arbitrary historical renderer versions.
+    """
+    old = read_json(ROOT / "style_compatibility.json")["whole_object_v1"]
+    return all(signature.get(key) == value for key, value in old.items())
 
 
 def _unique_object(pairs):
