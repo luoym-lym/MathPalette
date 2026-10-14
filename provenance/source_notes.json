@@ -31825,5 +31825,644 @@
       "scope": "original question",
       "source_key": "testmini:514"
     }
+  },
+  "Ana47": {
+    "source": {
+      "source_problem_index": "434",
+      "source_sample_index": "2169",
+      "source_version": "Vision Dominant",
+      "source_metadata": {
+        "split": "testmini",
+        "source": "Geo2D_collected",
+        "subject": "Plane Geometry",
+        "subfield": "Analytic"
+      },
+      "original_question": "Determine the equation of the graph.",
+      "original_answer": "\\frac{x^2}{81}+\\frac{y^2}{9}=1",
+      "user_approved": false
+    },
+    "audit": {
+      "source_record": "source_record.json",
+      "source_image_sha256": "c6820426ead4c6e430923ae25475c4b9ab65f99a6323ca06adda6db123d6d0b6",
+      "adaptations": [
+        {
+          "type": "protocol_window_adaptation",
+          "reason": "Original ellipse semiaxes 9 and 3 exceed the fixed x range; uniformly scaled by 2/3 to semiaxes 6 and 2, retaining its 3:1 shape and graph-to-equation task."
+        }
+      ],
+      "independent_solution": {
+        "method": "Read centre [0, 0], horizontal semiaxis 6 and vertical semiaxis 2; substitute into (x-h)²/a²+(y-k)²/b²=1.",
+        "computed_answer": "x²/36+y²/4=1",
+        "matches_current_answer": true
+      },
+      "approval_status": "not_requested_or_granted",
+      "routing": "Official Plane Geometry / Analytic source classification retained; coordinate diagram rendered under Analytics fixed-window protocol."
+    },
+    "packaging_changes": [],
+    "legacy_scene_id": "MV434",
+    "verification": {
+      "source_record.json": {
+        "sample_index": "2169",
+        "problem_index": "434",
+        "problem_version": "Vision Dominant",
+        "question": "Determine the equation of the graph.",
+        "image": "images_version_5/image_434.png",
+        "answer": "\\frac{x^2}{81}+\\frac{y^2}{9}=1",
+        "question_type": "free-form",
+        "metadata": {
+          "split": "testmini",
+          "source": "Geo2D_collected",
+          "subject": "Plane Geometry",
+          "subfield": "Analytic"
+        },
+        "query_wo": "Please directly answer the question and provide the final value, e.g., 1, 2.5, 300.\nQuestion: Determine the equation of the graph.",
+        "query_cot": "Please first conduct reasoning, and then answer the question and provide the final value, e.g., 1, 2.5, 300, at the end.\nQuestion: Determine the equation of the graph."
+      },
+      "redraw_report.json": {
+        "status": "generated_unapproved",
+        "source_sha256": "c6820426ead4c6e430923ae25475c4b9ab65f99a6323ca06adda6db123d6d0b6",
+        "scene_sha256": "4b80ff88a4a0a6cf6f5fadbad2019ed8892864435ea0090eb53196d2e23ba054",
+        "renderer_sha256": "c852dd16add1cd54dde45b89b10ab05b6c399012ecf24276d429a419a1f90341",
+        "common_renderer_sha256": "79d97fe3c2a5b78a18edf84fcc5b2c3f359ece6349d92596522efe9c2c7226bd",
+        "protocol_sha256": "24263d367d553a54f6428cee40d19205938fc91524391301aa9374d96d1181a6",
+        "output_sha256": "51687794070dfadb396c9eef0a4e000a50c5ac0c5aa1fe4b6ffced5bee191be6",
+        "pixel_identical_rerender": true,
+        "dimensions": [
+          768,
+          768
+        ],
+        "background_opaque": true,
+        "constraint_checks": [
+          {
+            "id": "frozen_scene",
+            "type": "adapter_validation",
+            "passed": true,
+            "finite_points": 0,
+            "objects": 1,
+            "fixed_window": true,
+            "equal_units": true,
+            "protocol_style_locked": true
+          }
+        ],
+        "independent_answer_check": {
+          "method": "Read centre [0, 0], horizontal semiaxis 6 and vertical semiaxis 2; substitute into (x-h)²/a²+(y-k)²/b²=1.",
+          "computed_answer": "x²/36+y²/4=1",
+          "matches_current_answer": true
+        },
+        "visual_review": {
+          "status": "agent_inspected",
+          "source_image_inspected": true,
+          "redrawn_image_inspected": true,
+          "coverage": "all_145_not_sampled",
+          "full_resolution_panel_directory": "../../audit/final_reviews",
+          "review_result": "No unresolved issue identified by the drawing agent; pending independent parent/user review.",
+          "user_approval": false
+        },
+        "dependencies": {
+          "python": "3.13.9",
+          "numpy": "2.5.3",
+          "matplotlib": "3.11.2",
+          "pillow": "12.3.0"
+        },
+        "drawing_entrypoint_verified": true
+      },
+      "packaging": {
+        "source_sha256": "c6820426ead4c6e430923ae25475c4b9ab65f99a6323ca06adda6db123d6d0b6",
+        "image_sha256": "51687794070dfadb396c9eef0a4e000a50c5ac0c5aa1fe4b6ffced5bee191be6",
+        "scene_source_sha256": "4b80ff88a4a0a6cf6f5fadbad2019ed8892864435ea0090eb53196d2e23ba054",
+        "script_source_sha256": "31e78d0998be470c0b5a74d3e0bee03be716d8d8c92350dc986d70c38446df4f",
+        "user_approved": false
+      }
+    },
+    "source_key": "testmini:2169",
+    "candidate_id": "MV0434",
+    "renderer_family": "analytics_frozen",
+    "review_action": {
+      "candidate_id": "MV0434",
+      "candidate_fingerprint": "7f5a43078679ce463ea35a27ff0b677d9be605e247b3211914c7080802239121",
+      "request_id": "31e9fd71-a8fc-4de9-9c1d-bd222defc1fe",
+      "action": "Pass",
+      "scope": "original question",
+      "source_key": "testmini:2169"
+    }
+  },
+  "Ana48": {
+    "source": {
+      "source_problem_index": "453",
+      "source_sample_index": "2264",
+      "source_version": "Vision Dominant",
+      "source_metadata": {
+        "split": "testmini",
+        "source": "Geo2D_collected",
+        "subject": "Plane Geometry",
+        "subfield": "Analytic"
+      },
+      "original_question": "State the coordinates of the centre of the figure in the form $(a, b)$.",
+      "original_answer": "(0,0)",
+      "user_approved": false
+    },
+    "audit": {
+      "source_record": "source_record.json",
+      "source_image_sha256": "4a609b1455170731ac72c2b141d23ebf2a36c01dc0818ded9b1ef89023faad71",
+      "adaptations": [],
+      "independent_solution": {
+        "method": "Read symmetric boundary extents and centre from the coordinate grid: centre=(0, 0), radius=2. Centre is (0,0).",
+        "computed_answer": "(0,0)",
+        "matches_current_answer": true
+      },
+      "approval_status": "not_requested_or_granted",
+      "routing": "Official Plane Geometry / Analytic source classification retained; coordinate diagram rendered under Analytics fixed-window protocol."
+    },
+    "packaging_changes": [],
+    "legacy_scene_id": "MV453",
+    "verification": {
+      "source_record.json": {
+        "sample_index": "2264",
+        "problem_index": "453",
+        "problem_version": "Vision Dominant",
+        "question": "State the coordinates of the centre of the figure in the form $(a, b)$.",
+        "image": "images_version_5/image_453.png",
+        "answer": "(0,0)",
+        "question_type": "free-form",
+        "metadata": {
+          "split": "testmini",
+          "source": "Geo2D_collected",
+          "subject": "Plane Geometry",
+          "subfield": "Analytic"
+        },
+        "query_wo": "Please directly answer the question and provide the final value, e.g., 1, 2.5, 300.\nQuestion: State the coordinates of the centre of the figure in the form $(a, b)$.",
+        "query_cot": "Please first conduct reasoning, and then answer the question and provide the final value, e.g., 1, 2.5, 300, at the end.\nQuestion: State the coordinates of the centre of the figure in the form $(a, b)$."
+      },
+      "redraw_report.json": {
+        "status": "generated_unapproved",
+        "source_sha256": "4a609b1455170731ac72c2b141d23ebf2a36c01dc0818ded9b1ef89023faad71",
+        "scene_sha256": "f45235c3f751ff65dc8b34c2f3018ee79e8ce7a2c45e4d0d6793572e631b82d3",
+        "renderer_sha256": "c852dd16add1cd54dde45b89b10ab05b6c399012ecf24276d429a419a1f90341",
+        "common_renderer_sha256": "79d97fe3c2a5b78a18edf84fcc5b2c3f359ece6349d92596522efe9c2c7226bd",
+        "protocol_sha256": "24263d367d553a54f6428cee40d19205938fc91524391301aa9374d96d1181a6",
+        "output_sha256": "e45926d6c3824bd4386787ca0d0cda877bce950514a86cfac856e21d06599848",
+        "pixel_identical_rerender": true,
+        "dimensions": [
+          768,
+          768
+        ],
+        "background_opaque": true,
+        "constraint_checks": [
+          {
+            "id": "frozen_scene",
+            "type": "adapter_validation",
+            "passed": true,
+            "finite_points": 0,
+            "objects": 1,
+            "fixed_window": true,
+            "equal_units": true,
+            "protocol_style_locked": true
+          }
+        ],
+        "independent_answer_check": {
+          "method": "Read symmetric boundary extents and centre from the coordinate grid: centre=(0, 0), radius=2. Centre is (0,0).",
+          "computed_answer": "(0,0)",
+          "matches_current_answer": true
+        },
+        "visual_review": {
+          "status": "agent_inspected",
+          "source_image_inspected": true,
+          "redrawn_image_inspected": true,
+          "coverage": "all_145_not_sampled",
+          "full_resolution_panel_directory": "../../audit/final_reviews",
+          "review_result": "No unresolved issue identified by the drawing agent; pending independent parent/user review.",
+          "user_approval": false
+        },
+        "dependencies": {
+          "python": "3.13.9",
+          "numpy": "2.5.3",
+          "matplotlib": "3.11.2",
+          "pillow": "12.3.0"
+        },
+        "drawing_entrypoint_verified": true
+      },
+      "packaging": {
+        "source_sha256": "4a609b1455170731ac72c2b141d23ebf2a36c01dc0818ded9b1ef89023faad71",
+        "image_sha256": "e45926d6c3824bd4386787ca0d0cda877bce950514a86cfac856e21d06599848",
+        "scene_source_sha256": "f45235c3f751ff65dc8b34c2f3018ee79e8ce7a2c45e4d0d6793572e631b82d3",
+        "script_source_sha256": "31e78d0998be470c0b5a74d3e0bee03be716d8d8c92350dc986d70c38446df4f",
+        "user_approved": false
+      }
+    },
+    "source_key": "testmini:2264",
+    "candidate_id": "MV0453",
+    "renderer_family": "analytics_frozen",
+    "review_action": {
+      "candidate_id": "MV0453",
+      "candidate_fingerprint": "f1ee37ae152520f757c0482019e89ed38c0539d6bb074e03a57c167db8ec7e0b",
+      "request_id": "9c95035a-f48b-451c-9e0c-3433e243cdd1",
+      "action": "Pass",
+      "scope": "original question",
+      "source_key": "testmini:2264"
+    }
+  },
+  "Ana49": {
+    "source": {
+      "source_problem_index": "473",
+      "source_sample_index": "2364",
+      "source_version": "Vision Dominant",
+      "source_metadata": {
+        "split": "testmini",
+        "source": "Geo2D_collected",
+        "subject": "Plane Geometry",
+        "subfield": "Applied"
+      },
+      "original_question": "A cake maker has rectangular boxes. She often receives orders for cakes in the shape of an ellipse, and wants to determine the largest possible cake that can be made to fit inside the rectangular box.\n\nState the coordinates of the center of the cake in the form $(a, b)$.",
+      "original_answer": "Center $=(20,10)$",
+      "user_approved": false
+    },
+    "audit": {
+      "source_record": "source_record.json",
+      "source_image_sha256": "ffec436582fb92736f1b00072bd5340250546cf2fff6a9c092c7834c27c4bd75",
+      "adaptations": [
+        {
+          "type": "protocol_window_adaptation",
+          "reason": "Uniformly scaled original box40by20 and ellipse by1/5 to fit the fixed coordinate window, and updated centre from(20,10)to(4,2)."
+        }
+      ],
+      "independent_solution": {
+        "method": "The largest axis-aligned ellipse touches all four sides of the box. Midpoint of xextents0,8 is4 and midpoint of yextents0,4 is2. Centre=(4,2).",
+        "computed_answer": "(4,2)",
+        "matches_current_answer": true
+      },
+      "approval_status": "not_requested_or_granted",
+      "routing": "Official Plane Geometry / Analytic source classification retained; coordinate diagram rendered under Analytics fixed-window protocol."
+    },
+    "packaging_changes": [],
+    "legacy_scene_id": "MV473",
+    "verification": {
+      "source_record.json": {
+        "sample_index": "2364",
+        "problem_index": "473",
+        "problem_version": "Vision Dominant",
+        "question": "A cake maker has rectangular boxes. She often receives orders for cakes in the shape of an ellipse, and wants to determine the largest possible cake that can be made to fit inside the rectangular box.\n\nState the coordinates of the center of the cake in the form $(a, b)$.",
+        "image": "images_version_5/image_473.png",
+        "answer": "Center $=(20,10)$",
+        "question_type": "free-form",
+        "metadata": {
+          "split": "testmini",
+          "source": "Geo2D_collected",
+          "subject": "Plane Geometry",
+          "subfield": "Applied"
+        },
+        "query_wo": "Please directly answer the question and provide the final value, e.g., 1, 2.5, 300.\nQuestion: A cake maker has rectangular boxes. She often receives orders for cakes in the shape of an ellipse, and wants to determine the largest possible cake that can be made to fit inside the rectangular box.\n\nState the coordinates of the center of the cake in the form $(a, b)$.",
+        "query_cot": "Please first conduct reasoning, and then answer the question and provide the final value, e.g., 1, 2.5, 300, at the end.\nQuestion: A cake maker has rectangular boxes. She often receives orders for cakes in the shape of an ellipse, and wants to determine the largest possible cake that can be made to fit inside the rectangular box.\n\nState the coordinates of the center of the cake in the form $(a, b)$."
+      },
+      "redraw_report.json": {
+        "status": "generated_unapproved",
+        "source_sha256": "ffec436582fb92736f1b00072bd5340250546cf2fff6a9c092c7834c27c4bd75",
+        "scene_sha256": "5c705733bae6a9680a73078d30d971be40f129846d7425cdd0874805c7e2beb5",
+        "renderer_sha256": "c852dd16add1cd54dde45b89b10ab05b6c399012ecf24276d429a419a1f90341",
+        "common_renderer_sha256": "79d97fe3c2a5b78a18edf84fcc5b2c3f359ece6349d92596522efe9c2c7226bd",
+        "protocol_sha256": "24263d367d553a54f6428cee40d19205938fc91524391301aa9374d96d1181a6",
+        "output_sha256": "23d4a4035b18c3d6da8272ef7fec0dc2611222f0bc97e5e4e95f9154481fbec2",
+        "pixel_identical_rerender": true,
+        "dimensions": [
+          768,
+          768
+        ],
+        "background_opaque": true,
+        "constraint_checks": [
+          {
+            "id": "frozen_scene",
+            "type": "adapter_validation",
+            "passed": true,
+            "finite_points": 4,
+            "objects": 2,
+            "fixed_window": true,
+            "equal_units": true,
+            "protocol_style_locked": true
+          }
+        ],
+        "independent_answer_check": {
+          "method": "The largest axis-aligned ellipse touches all four sides of the box. Midpoint of xextents0,8 is4 and midpoint of yextents0,4 is2. Centre=(4,2).",
+          "computed_answer": "(4,2)",
+          "matches_current_answer": true
+        },
+        "visual_review": {
+          "status": "agent_inspected",
+          "source_image_inspected": true,
+          "redrawn_image_inspected": true,
+          "coverage": "all_145_not_sampled",
+          "full_resolution_panel_directory": "../../audit/final_reviews",
+          "review_result": "No unresolved issue identified by the drawing agent; pending independent parent/user review.",
+          "user_approval": false
+        },
+        "dependencies": {
+          "python": "3.13.9",
+          "numpy": "2.5.3",
+          "matplotlib": "3.11.2",
+          "pillow": "12.3.0"
+        },
+        "drawing_entrypoint_verified": true
+      },
+      "packaging": {
+        "source_sha256": "ffec436582fb92736f1b00072bd5340250546cf2fff6a9c092c7834c27c4bd75",
+        "image_sha256": "23d4a4035b18c3d6da8272ef7fec0dc2611222f0bc97e5e4e95f9154481fbec2",
+        "scene_source_sha256": "5c705733bae6a9680a73078d30d971be40f129846d7425cdd0874805c7e2beb5",
+        "script_source_sha256": "31e78d0998be470c0b5a74d3e0bee03be716d8d8c92350dc986d70c38446df4f",
+        "user_approved": false
+      }
+    },
+    "source_key": "testmini:2364",
+    "candidate_id": "MV0473",
+    "renderer_family": "analytics_frozen",
+    "review_action": {
+      "candidate_id": "MV0473",
+      "candidate_fingerprint": "feecd6b22d389d2a4c3e48d78c7a1597302cdfc0a8b0dfb7f0d0eb9cd1b4f8b9",
+      "request_id": "a9bc997d-d69d-4d30-b11a-025972d12beb",
+      "action": "Pass",
+      "scope": "original question",
+      "source_key": "testmini:2364"
+    }
+  },
+  "Ana50": {
+    "source": {
+      "source_problem_index": "483",
+      "source_sample_index": "2414",
+      "source_version": "Vision Dominant",
+      "source_metadata": {
+        "split": "testmini",
+        "source": "Functions_collected",
+        "subject": "Functions",
+        "subfield": "Property"
+      },
+      "original_question": "Write the domain and range of the function using interval notation.",
+      "original_answer": "domain: [-4,4] and range: [0,2]",
+      "user_approved": false
+    },
+    "audit": {
+      "id": "MV_F0483",
+      "source_visual_inspection": "Inspected original source image before choosing the frozen mathematical model.",
+      "source_observations": "Arch with closed endpoints(-4,0),(4,0) and top(0,2).",
+      "adaptation": "Restyled the source mathematical objects using the strict Analytics renderer; no question or answer semantic change intended.",
+      "original_question": "Write the domain and range of the function using interval notation.",
+      "original_answer": "domain: [-4,4] and range: [0,2]",
+      "answer_verification": {
+        "method": "Independent analytic derivation; separate executable arithmetic sanity check (not a full answer verifier)",
+        "derivation": "Closed endpoints give [-4,4]. Concave-down parabola has maximum 2 at 0 and minimum 0 at both endpoints.",
+        "check_python": "2-(-4)**2/8==0 and 2-4**2/8==0",
+        "arithmetic_sanity_check_passed": true,
+        "answer": "Domain: [-4,4]; range: [0,2]."
+      },
+      "source_sha256": "4dec5a0bc94723f8b5b08f8a391060539ae4c1a78ea26d2db1bb03419831d42a",
+      "review_status": "pending_user_review",
+      "approval_record": null,
+      "render_check": {
+        "clipped_content": false,
+        "out_of_view": false,
+        "finite_points": 4003,
+        "width_px": 768,
+        "height_px": 768
+      },
+      "image_sha256": "8269c89b71615ddaaa64966cf60253ef9e407cce1578915c907815e9bbd2098c",
+      "automated_validation": {
+        "size": true,
+        "opacity": true,
+        "white_background": true,
+        "viewport": [
+          -8,
+          8,
+          -8,
+          8
+        ],
+        "equal_aspect": true,
+        "black_solid_1pt_objects": true,
+        "answer_schema": true,
+        "reproducible_pixel_sha256": true
+      },
+      "scene_math_checks": [
+        {
+          "test": "Every marked point lies on a frozen curve, line, or outline",
+          "point_count": 2,
+          "passed": true
+        },
+        {
+          "test": "Closed/open endpoint and requested range landmarks read from the frozen scene",
+          "passed": true
+        }
+      ]
+    },
+    "packaging_changes": [],
+    "legacy_scene_id": "MV_F0483",
+    "verification": {
+      "checks": {
+        "id": "MV_F0483",
+        "source_visual_inspection": "Inspected original source image before choosing the frozen mathematical model.",
+        "source_observations": "Arch with closed endpoints(-4,0),(4,0) and top(0,2).",
+        "adaptation": "Restyled the source mathematical objects using the strict Analytics renderer; no question or answer semantic change intended.",
+        "original_question": "Write the domain and range of the function using interval notation.",
+        "original_answer": "domain: [-4,4] and range: [0,2]",
+        "answer_verification": {
+          "method": "Independent analytic derivation; separate executable arithmetic sanity check (not a full answer verifier)",
+          "derivation": "Closed endpoints give [-4,4]. Concave-down parabola has maximum 2 at 0 and minimum 0 at both endpoints.",
+          "check_python": "2-(-4)**2/8==0 and 2-4**2/8==0",
+          "arithmetic_sanity_check_passed": true,
+          "answer": "Domain: [-4,4]; range: [0,2]."
+        },
+        "source_sha256": "4dec5a0bc94723f8b5b08f8a391060539ae4c1a78ea26d2db1bb03419831d42a",
+        "review_status": "pending_user_review",
+        "approval_record": null,
+        "render_check": {
+          "clipped_content": false,
+          "out_of_view": false,
+          "finite_points": 4003,
+          "width_px": 768,
+          "height_px": 768
+        },
+        "image_sha256": "8269c89b71615ddaaa64966cf60253ef9e407cce1578915c907815e9bbd2098c",
+        "automated_validation": {
+          "size": true,
+          "opacity": true,
+          "white_background": true,
+          "viewport": [
+            -8,
+            8,
+            -8,
+            8
+          ],
+          "equal_aspect": true,
+          "black_solid_1pt_objects": true,
+          "answer_schema": true,
+          "reproducible_pixel_sha256": true
+        },
+        "scene_math_checks": [
+          {
+            "test": "Every marked point lies on a frozen curve, line, or outline",
+            "point_count": 2,
+            "passed": true
+          },
+          {
+            "test": "Closed/open endpoint and requested range landmarks read from the frozen scene",
+            "passed": true
+          }
+        ]
+      },
+      "packaging": {
+        "source_sha256": "4dec5a0bc94723f8b5b08f8a391060539ae4c1a78ea26d2db1bb03419831d42a",
+        "image_sha256": "8269c89b71615ddaaa64966cf60253ef9e407cce1578915c907815e9bbd2098c",
+        "scene_source_sha256": "1eddc0c499344b0c44f2a9f181b05a67e069cc42456a4c1a31332c36c6d92cac",
+        "script_source_sha256": "20cca3c0c9e4f70c455cfcbb862fa07a1af334a41c4bc56d32069492e198ccfb",
+        "user_approved": false
+      }
+    },
+    "source_key": "testmini:2414",
+    "candidate_id": "MV0483",
+    "renderer_family": "analytics_functions",
+    "review_action": {
+      "candidate_id": "MV0483",
+      "candidate_fingerprint": "3cb5a484841a2cae3c7fc5ae7b9ae085c33ae1bd42f1cd980b37d209f3b6ef9e",
+      "request_id": "5ef43107-d55a-4551-b9b6-5447eb6665dc",
+      "action": "Pass",
+      "scope": "original question",
+      "source_key": "testmini:2414"
+    }
+  },
+  "Ana51": {
+    "source": {
+      "source_problem_index": "484",
+      "source_sample_index": "2419",
+      "source_version": "Vision Dominant",
+      "source_metadata": {
+        "split": "testmini",
+        "source": "Functions_collected",
+        "subject": "Functions",
+        "subfield": "Property"
+      },
+      "original_question": "Write the domain and range of the function using interval notation.",
+      "original_answer": "domain: [-5,3) and range: [0,2]",
+      "user_approved": false
+    },
+    "audit": {
+      "id": "MV_F0484",
+      "source_visual_inspection": "Inspected original source image before choosing the frozen mathematical model.",
+      "source_observations": "U-shaped arc with closed(-5,2), open(3,2), lowest(-1,0).",
+      "adaptation": "Restyled the source mathematical objects using the strict Analytics renderer; no question or answer semantic change intended.",
+      "original_question": "Write the domain and range of the function using interval notation.",
+      "original_answer": "domain: [-5,3) and range: [0,2]",
+      "answer_verification": {
+        "method": "Independent analytic derivation; separate executable arithmetic sanity check (not a full answer verifier)",
+        "derivation": "Right endpoint is open, left closed. Minimum 0 occurs at x=-1; maximum 2 is included at x=-5.",
+        "check_python": "(-5+1)**2/8==2 and (-1+1)**2/8==0",
+        "arithmetic_sanity_check_passed": true,
+        "answer": "Domain: [-5,3); range: [0,2]."
+      },
+      "source_sha256": "5844c98a000daf3806a1c699045613c63c06ebbe30edba41f4327d3f6d6af7e8",
+      "review_status": "pending_user_review",
+      "approval_record": null,
+      "render_check": {
+        "clipped_content": false,
+        "out_of_view": false,
+        "finite_points": 4003,
+        "width_px": 768,
+        "height_px": 768
+      },
+      "image_sha256": "2fd36bb57b8bced50e49f2b6e28b186151125bcfbf6a921909fa9669364a21b0",
+      "automated_validation": {
+        "size": true,
+        "opacity": true,
+        "white_background": true,
+        "viewport": [
+          -8,
+          8,
+          -8,
+          8
+        ],
+        "equal_aspect": true,
+        "black_solid_1pt_objects": true,
+        "answer_schema": true,
+        "reproducible_pixel_sha256": true
+      },
+      "scene_math_checks": [
+        {
+          "test": "Every marked point lies on a frozen curve, line, or outline",
+          "point_count": 2,
+          "passed": true
+        },
+        {
+          "test": "Closed/open endpoint and requested range landmarks read from the frozen scene",
+          "passed": true
+        }
+      ]
+    },
+    "packaging_changes": [],
+    "legacy_scene_id": "MV_F0484",
+    "verification": {
+      "checks": {
+        "id": "MV_F0484",
+        "source_visual_inspection": "Inspected original source image before choosing the frozen mathematical model.",
+        "source_observations": "U-shaped arc with closed(-5,2), open(3,2), lowest(-1,0).",
+        "adaptation": "Restyled the source mathematical objects using the strict Analytics renderer; no question or answer semantic change intended.",
+        "original_question": "Write the domain and range of the function using interval notation.",
+        "original_answer": "domain: [-5,3) and range: [0,2]",
+        "answer_verification": {
+          "method": "Independent analytic derivation; separate executable arithmetic sanity check (not a full answer verifier)",
+          "derivation": "Right endpoint is open, left closed. Minimum 0 occurs at x=-1; maximum 2 is included at x=-5.",
+          "check_python": "(-5+1)**2/8==2 and (-1+1)**2/8==0",
+          "arithmetic_sanity_check_passed": true,
+          "answer": "Domain: [-5,3); range: [0,2]."
+        },
+        "source_sha256": "5844c98a000daf3806a1c699045613c63c06ebbe30edba41f4327d3f6d6af7e8",
+        "review_status": "pending_user_review",
+        "approval_record": null,
+        "render_check": {
+          "clipped_content": false,
+          "out_of_view": false,
+          "finite_points": 4003,
+          "width_px": 768,
+          "height_px": 768
+        },
+        "image_sha256": "2fd36bb57b8bced50e49f2b6e28b186151125bcfbf6a921909fa9669364a21b0",
+        "automated_validation": {
+          "size": true,
+          "opacity": true,
+          "white_background": true,
+          "viewport": [
+            -8,
+            8,
+            -8,
+            8
+          ],
+          "equal_aspect": true,
+          "black_solid_1pt_objects": true,
+          "answer_schema": true,
+          "reproducible_pixel_sha256": true
+        },
+        "scene_math_checks": [
+          {
+            "test": "Every marked point lies on a frozen curve, line, or outline",
+            "point_count": 2,
+            "passed": true
+          },
+          {
+            "test": "Closed/open endpoint and requested range landmarks read from the frozen scene",
+            "passed": true
+          }
+        ]
+      },
+      "packaging": {
+        "source_sha256": "5844c98a000daf3806a1c699045613c63c06ebbe30edba41f4327d3f6d6af7e8",
+        "image_sha256": "2fd36bb57b8bced50e49f2b6e28b186151125bcfbf6a921909fa9669364a21b0",
+        "scene_source_sha256": "9714ce0699f92a6fcd682c63b907a98e170fc6fcb3fd86479134389e3cf09268",
+        "script_source_sha256": "59ac62980fddfa657b3eef45f2311ec4d0ca26dff0b3e312fab37b16e49dfac9",
+        "user_approved": false
+      }
+    },
+    "source_key": "testmini:2419",
+    "candidate_id": "MV0484",
+    "renderer_family": "analytics_functions",
+    "review_action": {
+      "candidate_id": "MV0484",
+      "candidate_fingerprint": "e27b56d3082038d42a3485bce332eaa9b5fb7ec87accb775be4ee5ecbc27c3c1",
+      "request_id": "1fb37594-bab0-4205-8eb2-a64fee89de50",
+      "action": "Pass",
+      "scope": "original question",
+      "source_key": "testmini:2419"
+    }
   }
 }
