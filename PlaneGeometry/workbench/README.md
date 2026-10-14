@@ -1,6 +1,6 @@
 # 平面几何 Special 标注工作台
 
-读取正式 `PlaneGeometry/dataset.jsonl` 的 Plane01～Plane71。工作台复制自 Analytics，使用独立端口、状态、浏览器草稿和 Agent 插件。通过图只在用户点击 Pass 后写入 `PlaneGeometry/special_variant/`，Collect 和特殊标记另存整题完成记录；不修改原题、原图、冻结场景或审核凭据。
+读取正式 `PlaneGeometry/dataset.jsonl` 中的题目。工作台复制自 Analytics，使用独立端口、状态、浏览器草稿和 Agent 插件。通过图只在用户点击 Pass 后写入 `PlaneGeometry/special_variant/`，Collect 和特殊标记另存整题完成记录；不修改原题、原图、冻结场景或审核凭据。
 
 从项目根目录运行：
 
@@ -23,6 +23,14 @@ python -X utf8 -B PlaneGeometry/workbench/launch_workbench.py
 画板中未提交的草稿按平面题号和本题输入指纹保存在本浏览器。Agent 提交新候选或切题会使旧画板提交失效，须载入最新候选。界面中的构造坐标仅用于绘图，不是题设条件。
 
 ## Agent 与 CLI
+
+### Author designed 曲线题的局部改色
+
+曲线追踪题按所有交点切成独立的 `bezier_curve` 对象，包括自交点和端点到交点的区间。交点在冻结场景中保存为 `J01`、`J02` 等内部点，不画点、不加标签；自交的两次经过共用同一个点号。
+
+选择「原对象」，点击目标曲线段，或从对象列表选择如 `AB_s02_J01_J02` 的对象，再设置红色。名字表示原曲线 AB 的第 2 段，边界为 J01 和 J02；一段可包含多段内部 Bézier 控制曲线，但改色只影响这一整段相邻交点区间。Ctrl 吸附也可使用这些明确冻结的区间边界，控制点不作为吸附点。交点附近难以点选时用对象列表。这里不提供在区间中间任意切割的新工具。
+
+启动器重新启动后加载新增题目和适配器。可运行 `python -X utf8 -B PlaneGeometry/workbench/test_author_curves.py` 验证全部曲线段的独立改色、恢复、隐藏交点及既有题目像素基线；测试不保存 Special。
 
 先阅读 [agent_prompt.md](agent_prompt.md) 与 [plugin.schema.json](plugin.schema.json)。只支持 `add_point`、`add_line`、`set_object_style`。固定颜色、尺寸、虚线间隔、视窗坐标和对象 ID 均由服务端核对；不支持文字、任意代码或改动原几何。
 
