@@ -33209,5 +33209,522 @@
       "visual_inspection": "Checked six staged black diagrams: endpoint labels legible, junctions unmarked, no clipping or unintended markers."
     },
     "user_requested_segmentation": "等一下，我还需要你查看一下special工作台的相关内容。因为我后面自己做诱导变体会涉及到把某一段改成红色（不一定是你刚刚写的代码画图中的一个完整段），你的每个交点都要作为独立（不需要标出）个体，保证我能在修改对象属性的时候选到任何两个交点之间的曲线进行修改。"
+  },
+  "Plane100": {
+    "source_dataset": "Author designed",
+    "source_key": "shortest-path:equal",
+    "original_source_image_available": true,
+    "design_reference": {
+      "path": "temp/two_circles",
+      "scene_sha256": "fb54573f470ba2a1b52f75facfc75772443f14f1afafcde0edb73cbbfc560e01",
+      "image_sha256": "c10be72dbf78b31368374b5ca40246a892a40f0370a489dfde2248a89bfcb626"
+    },
+    "user_source_instruction": "不不不，三道题来源都是Author designed",
+    "geometry_notes": {
+      "construction": "Two externally tangent unit disks with centers L=(-1,0), R=(1,0); A=(-3,0), B=(3,0).",
+      "shortest_route": "One exterior tangent from A, a 30-degree arc, a length-2 common exterior tangent, a 30-degree arc, and the final tangent to B. Upper and lower routes have equal length.",
+      "components": [
+        "sqrt(3)",
+        "pi/6",
+        "2",
+        "pi/6",
+        "sqrt(3)"
+      ],
+      "global_minimality": "The straight bridge between the exterior support points lies outside both disks and is shorter than passing through their common contact. The tangent visibility graph exhausts straight and boundary-arc geodesic candidates, including the contact point."
+    },
+    "redraw_verification": {
+      "size": [
+        768,
+        768
+      ],
+      "opaque": true,
+      "black_only": true,
+      "repeat_pixels_identical": true,
+      "matches_selected_preview_pixels": true,
+      "content_bbox_px": [
+        52,
+        253,
+        713,
+        516
+      ],
+      "center_offset_px": [
+        -1.5,
+        0.5
+      ],
+      "long_side_fraction": 0.8606770833333334,
+      "scene_sha256": "7e377606e803c7227240f56acc17830ee1ba4277bdcfece47801cf9815c1da46",
+      "png_sha256": "2ca0adf71672160146bf2bafe3c4ae9326db2b461bf8c9ac2bc2653a6f1cbc5e",
+      "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+      "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+      "dependencies": {
+        "python": "3.13.9",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.3",
+        "pillow": "12.3.0"
+      },
+      "geometry_checks": [
+        {
+          "id": "AL_2",
+          "type": "distance",
+          "measured": 2.0,
+          "passed": true
+        },
+        {
+          "id": "LR_2",
+          "type": "distance",
+          "measured": 2.0,
+          "passed": true
+        },
+        {
+          "id": "RB_2",
+          "type": "distance",
+          "measured": 2.0,
+          "passed": true
+        },
+        {
+          "id": "A_L_R_collinear",
+          "type": "collinear",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "L_R_B_collinear",
+          "type": "collinear",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "left_contact",
+          "type": "on_circle",
+          "measured": 1.0,
+          "passed": true
+        },
+        {
+          "id": "right_contact",
+          "type": "on_circle",
+          "measured": 1.0,
+          "passed": true
+        },
+        {
+          "id": "L_radius_1",
+          "type": "distance",
+          "measured": 0.9999999999999999,
+          "passed": true
+        },
+        {
+          "id": "R_radius_1",
+          "type": "distance",
+          "measured": 0.9999999999999999,
+          "passed": true
+        },
+        {
+          "id": "AL_dimension_parallel",
+          "type": "parallel",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "AL_dimension_length",
+          "type": "distance",
+          "measured": 2.0,
+          "passed": true
+        },
+        {
+          "id": "AL_connector_perpendicular_0",
+          "type": "perpendicular",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "AL_connector_perpendicular_1",
+          "type": "perpendicular",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "BR_dimension_parallel",
+          "type": "parallel",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "BR_dimension_length",
+          "type": "distance",
+          "measured": 2.0,
+          "passed": true
+        },
+        {
+          "id": "BR_connector_perpendicular_0",
+          "type": "perpendicular",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "BR_connector_perpendicular_1",
+          "type": "perpendicular",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "L_radius_endpoint",
+          "type": "on_circle",
+          "measured": 0.9999999999999999,
+          "passed": true
+        },
+        {
+          "id": "R_radius_endpoint",
+          "type": "on_circle",
+          "measured": 0.9999999999999999,
+          "passed": true
+        }
+      ],
+      "dimension_marker_checks": [
+        {
+          "id": "AL_dimension",
+          "passed": true
+        },
+        {
+          "id": "BR_dimension",
+          "passed": true
+        }
+      ],
+      "visual_inspection": "Inspected all three staged PNGs: labels and radius/dimension markers are legible; no paths, color overlays, clipping, or unintended point marks. Pixels match the user-selected originals.",
+      "answer_check": {
+        "analytic_value": 6.511299166334352,
+        "tangent_graph_value": 6.511299166334352,
+        "difference": 0.0,
+        "nodes": 15,
+        "edges": 22
+      }
+    },
+    "user_provided_design_reference": {
+      "original_image": "originals/Plane100.png",
+      "sha256": "67579d4543a44bc727d753cda1adcf7d6e8033b2bf5c30b482fe3a8a40fc24b7",
+      "note": "The user-provided design reference contains the original black and red paths. The selected formal diagram omits all such paths and retains the revised radius and AL/BR dimension labels. This reference is retained unchanged, not substituted with a redraw."
+    },
+    "original_question": "Each of the two circles shown has radius 1; their centers are L and R. Find the minimum length among all finite-length paths from A to B that stay outside the interiors of both disks. Touching either circle is allowed.",
+    "question_edit": "Use the concise question text previously requested by the user; all numerical conditions are displayed in the approved diagram."
+  },
+  "Plane101": {
+    "source_dataset": "Author designed",
+    "source_key": "shortest-path:offset",
+    "original_source_image_available": false,
+    "design_reference": {
+      "path": "temp/path_examples/offset_single",
+      "scene_sha256": "7d1932d68a164b82d658157a7a83d3f42356d5a68efa3c0442eeb8e853c3d3d7",
+      "image_sha256": "6d69293b0ffb661a4cdd7c0a316089b18218cd6223dcec86d789570816f9b40f"
+    },
+    "user_source_instruction": "不不不，三道题来源都是Author designed",
+    "geometry_notes": {
+      "construction": "Unit disk centered at O=(0,0); A=(-2,0), H=(2,0), B=(2,1), with OH perpendicular to HB.",
+      "shortest_route": "Use the upper tangent from A to the point at polar angle 120 degrees, a 30-degree clockwise arc, and the horizontal tangent to B from the top of the disk.",
+      "components": [
+        "sqrt(3)",
+        "pi/6",
+        "2"
+      ],
+      "alternative_route": "The lower route adds 2*atan(1/2) > 0.",
+      "global_minimality": "For a single convex disk a shortest blocked path consists of two tangents and a boundary arc. Comparing the two orientations yields the upper route."
+    },
+    "redraw_verification": {
+      "size": [
+        768,
+        768
+      ],
+      "opaque": true,
+      "black_only": true,
+      "repeat_pixels_identical": true,
+      "matches_selected_preview_pixels": true,
+      "content_bbox_px": [
+        52,
+        174,
+        714,
+        590
+      ],
+      "center_offset_px": [
+        -1.0,
+        -2.0
+      ],
+      "long_side_fraction": 0.8619791666666666,
+      "scene_sha256": "97e67299e015e23bc3444c861f2644798285cc93ee408923d088cad6a09d99a7",
+      "png_sha256": "8bbb5ef43c301e49c123c99a46b5a55f048164a400b727edd783e58ccef01e57",
+      "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+      "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+      "dependencies": {
+        "python": "3.13.9",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.3",
+        "pillow": "12.3.0"
+      },
+      "geometry_checks": [
+        {
+          "id": "O_radius_check",
+          "type": "distance",
+          "measured": 1.0,
+          "passed": true
+        },
+        {
+          "id": "AO_parallel",
+          "type": "parallel",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "AO_length",
+          "type": "distance",
+          "measured": 2.0,
+          "passed": true
+        },
+        {
+          "id": "AO_perpendicular0",
+          "type": "perpendicular",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "AO_perpendicular1",
+          "type": "perpendicular",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "OH_parallel",
+          "type": "parallel",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "OH_length",
+          "type": "distance",
+          "measured": 2.0,
+          "passed": true
+        },
+        {
+          "id": "OH_perpendicular0",
+          "type": "perpendicular",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "OH_perpendicular1",
+          "type": "perpendicular",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "O_radius_endpoint",
+          "type": "on_circle",
+          "measured": 1.0,
+          "passed": true
+        }
+      ],
+      "dimension_marker_checks": [
+        {
+          "id": "AO",
+          "passed": true
+        },
+        {
+          "id": "OH",
+          "passed": true
+        }
+      ],
+      "visual_inspection": "Inspected all three staged PNGs: labels and radius/dimension markers are legible; no paths, color overlays, clipping, or unintended point marks. Pixels match the user-selected originals.",
+      "answer_check": {
+        "analytic_value": 4.255649583167176,
+        "tangent_graph_value": 4.255649583167177,
+        "difference": 8.881784197001252e-16,
+        "nodes": 6,
+        "edges": 8
+      }
+    },
+    "source_image_note": "Author-created design; no external source image exists. original_image remains null."
+  },
+  "Plane102": {
+    "source_dataset": "Author designed",
+    "source_key": "shortest-path:unequal",
+    "original_source_image_available": false,
+    "design_reference": {
+      "path": "temp/path_examples/unequal_pair",
+      "scene_sha256": "6b86e41c36f0f90556f8c0fe2e4b16c65fb7055de39865c4a204e240175bd0e6",
+      "image_sha256": "f3ea2d0700fdb6a923fead8a509b18bc026b7796e87df370ad24e4fef78e9ee5"
+    },
+    "user_source_instruction": "不不不，三道题来源都是Author designed",
+    "geometry_notes": {
+      "construction": "Externally tangent disks centered at L=(0,0), R=(3,0), with radii 1 and 2. A=(-2,0), B=(7,0).",
+      "shortest_route": "Use an outer support route. Let alpha=acos(-1/3), the polar angle of the radius to the upper exterior common tangent on both circles.",
+      "components": [
+        "sqrt(3)",
+        "2*pi/3 - alpha",
+        "2*sqrt(2)",
+        "2*(alpha - pi/3)",
+        "2*sqrt(3)"
+      ],
+      "simplification": "The arc terms sum to alpha; tangent terms sum to 3*sqrt(3)+2*sqrt(2).",
+      "global_minimality": "The tangent visibility graph compares both exterior support routes with routes through the circles common contact; its exact geometric edge weights agree with the analytic support-route length."
+    },
+    "redraw_verification": {
+      "size": [
+        768,
+        768
+      ],
+      "opaque": true,
+      "black_only": true,
+      "repeat_pixels_identical": true,
+      "matches_selected_preview_pixels": true,
+      "content_bbox_px": [
+        52,
+        218,
+        713,
+        546
+      ],
+      "center_offset_px": [
+        -1.5,
+        -2.0
+      ],
+      "long_side_fraction": 0.8606770833333334,
+      "scene_sha256": "be7ac292937927838f54d5403715d0143cc1185d15d3ab41d480cd482a0eb5a3",
+      "png_sha256": "fea36caf38053c244a997cbf2ee60720310239214cdf580ccf85a6546981068e",
+      "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+      "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+      "dependencies": {
+        "python": "3.13.9",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.3",
+        "pillow": "12.3.0"
+      },
+      "geometry_checks": [
+        {
+          "id": "L_radius_check",
+          "type": "distance",
+          "measured": 1.0,
+          "passed": true
+        },
+        {
+          "id": "R_radius_check",
+          "type": "distance",
+          "measured": 1.9999999999999998,
+          "passed": true
+        },
+        {
+          "id": "AL_parallel",
+          "type": "parallel",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "AL_length",
+          "type": "distance",
+          "measured": 2.0,
+          "passed": true
+        },
+        {
+          "id": "AL_perpendicular0",
+          "type": "perpendicular",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "AL_perpendicular1",
+          "type": "perpendicular",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "LR_parallel",
+          "type": "parallel",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "LR_length",
+          "type": "distance",
+          "measured": 3.0,
+          "passed": true
+        },
+        {
+          "id": "LR_perpendicular0",
+          "type": "perpendicular",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "LR_perpendicular1",
+          "type": "perpendicular",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "RB_parallel",
+          "type": "parallel",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "RB_length",
+          "type": "distance",
+          "measured": 4.0,
+          "passed": true
+        },
+        {
+          "id": "RB_perpendicular0",
+          "type": "perpendicular",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "RB_perpendicular1",
+          "type": "perpendicular",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "L_on_baseline",
+          "type": "collinear",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "R_on_baseline",
+          "type": "collinear",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "L_radius_endpoint",
+          "type": "on_circle",
+          "measured": 1.0,
+          "passed": true
+        },
+        {
+          "id": "R_radius_endpoint",
+          "type": "on_circle",
+          "measured": 1.9999999999999998,
+          "passed": true
+        }
+      ],
+      "dimension_marker_checks": [
+        {
+          "id": "AL",
+          "passed": true
+        },
+        {
+          "id": "LR",
+          "passed": true
+        },
+        {
+          "id": "RB",
+          "passed": true
+        }
+      ],
+      "visual_inspection": "Inspected all three staged PNGs: labels and radius/dimension markers are legible; no paths, color overlays, clipping, or unintended point marks. Pixels match the user-selected originals.",
+      "answer_check": {
+        "analytic_value": 9.935212783701841,
+        "tangent_graph_value": 9.93521278370184,
+        "difference": 1.7763568394002505e-15,
+        "nodes": 15,
+        "edges": 22
+      }
+    },
+    "source_image_note": "Author-created design; no external source image exists. original_image remains null."
   }
 }

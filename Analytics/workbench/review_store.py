@@ -772,10 +772,12 @@ class Workbench:
             return {**context, "original_image_url": f"/api/original-image/{qid}?revision={context['input_revision']}" if qid else None, "status": status,
                     "error": error, "accepted": accepted, "review_token": self.review_token,
                     "poll_interval_ms": self.config["poll_interval_ms"],
-                    "questions": [{"id": key, "accepted_count": len(self.progress["questions"][key]["accepted"]),
+                    "questions": [{"id": key, "source_dataset": self.adapter.records[key]["source_dataset"],
+                                   "accepted_count": len(self.progress["questions"][key]["accepted"]),
                                    "has_pending": bool(self.progress["questions"][key]["candidate_id"])}
                                   for key in self.active_questions()],
                     "completed_questions": [{"id": key,
+                                             "source_dataset": self.adapter.records[key]["source_dataset"],
                                              "accepted_count": len(question["accepted"]),
                                              "collected_at": question["collected_at"],
                                              "special_case": question["collection_record"].get("special_case", False),

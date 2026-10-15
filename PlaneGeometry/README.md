@@ -1,6 +1,8 @@
 # PlaneGeometry
 
-正式通过题共 71 道：Plane01～Plane16 来自 MathVerse，Plane17～Plane71 来自 MathVista。`dataset.jsonl` 仅含正式题；重绘 PNG 在 `image/`，来源截图在 `originals/`，冻结场景和逐题绘图程序在 `dataset_generator/`。
+正式通过题共 102 道：MathVerse 38 道、MathVista 55 道、Author designed 9 道。`dataset.jsonl` 仅含正式题；重绘 PNG 在 `image/`，来源图片在 `originals/`（没有来源图时记录为 `null`），冻结场景和逐题绘图程序在 `dataset_generator/`。
+
+Plane100～Plane102 是 Author designed 最短路径题，依次为等半径双圆、单圆偏置端点、不等半径双圆。正式图保留黑色几何、半径和距离标注；本次仅收录原题。精确答案见 `dataset.jsonl`，构造、推导和重绘核验见根目录 `provenance/source_notes.json`。
 
 公共绘图器和机器协议保持原样。场景可重新导出 PNG 或 SVG。Base 尚未启用；Special 标注工作台已提供，原题审核与变体 Pass/Collect 分开保存。
 

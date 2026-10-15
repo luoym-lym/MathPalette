@@ -1,7 +1,7 @@
 "use strict";
 const $ = id => document.getElementById(id);
 let state = null, connected = false, busy = false, polling = false, epoch = 0;
-let displayKey = "", navKey = "", loaded = null, originalLoaded = false, actionError = "";
+let displayKey = "", navKey = "", sourceKey = "", loaded = null, originalLoaded = false, actionError = "";
 const statusNames = {waiting: "等待提交", generating: "生成中", pending: "待审核", error: "操作失败", completed: "全部完成"};
 
 async function api(path, body) {
@@ -25,9 +25,8 @@ function controls() {
   $("reject-note").disabled = busy || !state?.candidate;
   $("original-zoom").disabled = !originalLoaded;
   $("candidate-zoom").disabled = !loaded;
-  const index = state ? state.questions.findIndex(q => q.id === state.question_id) : -1;
-  $("previous").disabled = busy || !connected || index <= 0;
-  $("next").disabled = busy || !connected || index < 0 || index >= state.questions.length - 1;
+  $("previous").disabled = busy || !connected || !adjacentQuestion(-1);
+  $("next").disabled = busy || !connected || !adjacentQuestion(1);
   document.querySelectorAll(".question-item").forEach(button => button.disabled = busy || !connected);
   document.querySelectorAll(".reopen-question").forEach(button => button.disabled = busy || !connected);
   $("toggle-completed").disabled = !connected || busy || !state?.completed_questions?.length;
@@ -44,13 +43,38 @@ function errors() {
   $("error").textContent = message;
 }
 
+function matchesQuestion(q) {
+  const filter = $("search").value.trim().toLowerCase(), source = $("source-filter").value;
+  return q.id.toLowerCase().includes(filter) && (!source || q.source_dataset === source);
+}
+
+function adjacentQuestion(direction) {
+  const questions = state?.questions || [], index = questions.findIndex(q => q.id === state.question_id);
+  if (index < 0) return null;
+  for (let i = index + direction; i >= 0 && i < questions.length; i += direction) {
+    if (matchesQuestion(questions[i])) return questions[i];
+  }
+  return null;
+}
+
+function updateSourceOptions() {
+  const sources = [...new Set([...state.questions, ...(state.completed_questions || [])]
+    .map(q => q.source_dataset).filter(Boolean))].sort();
+  const key = JSON.stringify(sources);
+  if (key === sourceKey) return;
+  sourceKey = key;
+  const select = $("source-filter"), selected = select.value;
+  select.replaceChildren(new Option("全部来源", ""), ...sources.map(source => new Option(source, source)));
+  select.value = sources.includes(selected) ? selected : "";
+}
+
 function listQuestions() {
-  const key = JSON.stringify([state.questions, state.completed_questions, state.question_id, busy, connected, $("search").value, $("special-only").checked]);
+  updateSourceOptions();
+  const key = JSON.stringify([state.questions, state.completed_questions, state.question_id, busy, connected, $("search").value, $("source-filter").value, $("special-only").checked]);
   if (key === navKey) return;
   navKey = key;
   $("question-list").replaceChildren();
-  const filter = $("search").value.trim().toLowerCase();
-  state.questions.filter(q => q.id.toLowerCase().includes(filter)).forEach(q => {
+  state.questions.filter(matchesQuestion).forEach(q => {
     const button = document.createElement("button");
     button.className = "question-item" + (q.id === state.question_id ? " active" : "");
     button.setAttribute("aria-label", `选择 ${q.id}，已收集 ${q.accepted_count} 张${q.has_pending ? "，有待审候选" : ""}`);
@@ -68,7 +92,7 @@ function listQuestions() {
   $("special-case-filter").hidden = $("completed-list").hidden;
   const completedList = $("completed-list");
   completedList.replaceChildren();
-  completed.filter(q => q.id.toLowerCase().includes(filter) && (!$("special-only").checked || q.special_case)).forEach(q => {
+  completed.filter(q => matchesQuestion(q) && (!$("special-only").checked || q.special_case)).forEach(q => {
     const row = document.createElement("div"); row.className = "question-item completed-item";
     const label = document.createElement("span"); label.textContent = `${q.id} · ${q.accepted_count} 张`;
     if (q.special_case) {
@@ -280,9 +304,10 @@ async function refresh() {
   finally { polling = false; }
 }
 
-$("previous").addEventListener("click", () => navigate(state.questions[state.questions.findIndex(q => q.id === state.question_id) - 1].id));
-$("next").addEventListener("click", () => navigate(state.questions[state.questions.findIndex(q => q.id === state.question_id) + 1].id));
+$("previous").addEventListener("click", () => { const q = adjacentQuestion(-1); if (q) navigate(q.id); });
+$("next").addEventListener("click", () => { const q = adjacentQuestion(1); if (q) navigate(q.id); });
 $("search").addEventListener("input", () => { if (state) { listQuestions(); controls(); } });
+$("source-filter").addEventListener("change", () => { if (state) { listQuestions(); controls(); } });
 $("pass").addEventListener("click", () => review("pass"));
 $("reject").addEventListener("click", () => review("reject"));
 $("collect-question").addEventListener("click", collectQuestion);

@@ -1,12 +1,12 @@
 # MathPalette
 
-本目录只收集用户确认的正式题目。当前 **142 题**：Analytics 46、PlaneGeometry 71、SolidGeometry 25。来源为 DynaMath 20 题、MathVerse 57 题、MathVista 56 题、SOLIDGEO 9 题。
+本目录只收集用户确认的正式题目。当前 **219 题**：Analytics 51、PlaneGeometry 102、SolidGeometry 66。来源为 DynaMath 20 题、MathVerse 125 题、MathVista 56 题、SOLIDGEO 9 题、Author designed 9 题。
 
 | 内容 | 数量 / 入口 |
 | --- | --- |
-| 正式原题 | [question_bank.jsonl](question_bank.jsonl)，142 条 |
+| 正式原题 | [question_bank.jsonl](question_bank.jsonl)，219 条 |
 | 自动 Base | Analytics 每题 4 张，共 184 张及对应插件 |
-| 人工 Special | 当前 Analytics 共 95 张，保留原 Pass / Collect 时间 |
+| 人工 Special | 当前 Analytics 共 113 张，保留原 Pass / Collect 时间 |
 | 来源截图 | MathVerse 57 张、MathVista 56 张、SOLIDGEO 9 张；DynaMath 20 题的来源截图在原库中缺失 |
 | 解析几何 Special 工作台 | 双击 [Analytics/start_special_workbench.cmd](Analytics/start_special_workbench.cmd)，端口 8767 |
 | 平面几何 Special 工作台 | 双击 [PlaneGeometry/start_special_workbench.cmd](PlaneGeometry/start_special_workbench.cmd)，端口 8768 |
