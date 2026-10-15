@@ -33726,5 +33726,1776 @@
       }
     },
     "source_image_note": "Author-created design; no external source image exists. original_image remains null."
+  },
+  "Solid67": {
+    "source_dataset": "Author designed",
+    "source_key": "midpoint-cut:original",
+    "user_source_instruction": "来源都写Author designed，和之前的一样。",
+    "original_source_image_available": true,
+    "source_image_note": "User-provided baseline preserved byte-for-byte.",
+    "design_reference": {
+      "path": "temp/tetrahedron_midpoint_cut",
+      "question_sha256": "b3fcd3b7604e714cbcae7bba0edfb0b52d42721f3542c3a0b2f7b3444cff6178",
+      "scene_sha256": "0294380b7f59cbe01f9cda87c525823dced22a4ce3995570bb40ae0393c05260",
+      "image_sha256": "0c3194a2cc4661aa3a8762045e5bf3f93a9d5c888867a90aa1563a6e77bb1f05"
+    },
+    "answer_verification": {
+      "status": "verified",
+      "verified_answer": 30,
+      "reasoning": "Internally call the top vertex T, the two other base vertices B and C, and the marked midpoints M and N. The piece containing A is tetrahedron TAMN. Triangles AMN and ABC have area ratio (1/2)*(1/2)=1/4, and the two tetrahedra have the same altitude from T to plane ABC. The requested volume is 120/4 = 30.",
+      "geometry": {
+        "passed": true,
+        "total_volume": 120.00000000000001,
+        "volume_containing_A": 30.0,
+        "exact_answer": 30,
+        "exact_volume_ratio": "1/4",
+        "marked_midpoint_count": 2,
+        "cut_plane_side_values": {
+          "A": -180.0,
+          "B": 180.0,
+          "C": 180.0,
+          "T": 0.0,
+          "M": 0.0,
+          "N": 0.0
+        },
+        "front_facing_faces": {
+          "TAB": true,
+          "TAC": true,
+          "ABC": false,
+          "TBC": false
+        },
+        "hidden_segments": [
+          "edge_BC",
+          "section_MN"
+        ]
+      }
+    },
+    "redraw_verification": {
+      "id": "Solid67",
+      "answer": 30,
+      "png_sha256": "0c3194a2cc4661aa3a8762045e5bf3f93a9d5c888867a90aa1563a6e77bb1f05",
+      "scene_sha256": "768d45e393a120f28cbc493ba04da721fdbaff55beed96ccbeebff12a6df12ed",
+      "repeat_png_bytes_identical": true,
+      "repeat_svg_bytes_identical": true,
+      "matches_selected_draft_bytes": true,
+      "size": [
+        768,
+        768
+      ],
+      "fully_opaque": true,
+      "grayscale_only": true,
+      "ink_bbox_px": [
+        67,
+        54,
+        701,
+        714
+      ],
+      "ink_center_px": [
+        384.0,
+        384.0
+      ],
+      "long_side_fraction": 0.859375,
+      "render_checks": [
+        {
+          "id": "projection_and_visibility",
+          "type": "projection",
+          "passed": true,
+          "projection_sha256": "75ff47f3b01216023d20f4529f7cc71ce3b1984080a6d5289e44e51baaf0ab75",
+          "automatic_occlusion": false
+        },
+        {
+          "id": "M_on_AB",
+          "type": "collinear",
+          "basis": "Given: the left black point lies on edge AB.",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "M_midpoint",
+          "type": "equal_length",
+          "basis": "Given: each marked point is the midpoint of its edge.",
+          "measured": [
+            4.0,
+            4.0
+          ],
+          "passed": true
+        },
+        {
+          "id": "N_on_AC",
+          "type": "collinear",
+          "basis": "Given: the right black point lies on edge AC.",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "N_midpoint",
+          "type": "equal_length",
+          "basis": "Given: each marked point is the midpoint of its edge.",
+          "measured": [
+            4.5,
+            4.5
+          ],
+          "passed": true
+        },
+        {
+          "id": "base_coplanarity",
+          "type": "coplanar",
+          "basis": "Construction: both midpoint marks lie in base ABC.",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "midpoint_segment_parallel",
+          "type": "parallel",
+          "basis": "Derived verification of the midpoint theorem; no extra mark is drawn.",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "layout",
+          "type": "layout",
+          "outer_margin_fraction": 0.05,
+          "label_line_overlap": false,
+          "label_label_overlap": false,
+          "passed": true
+        }
+      ],
+      "renderer_sha256": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+      "protocol_sha256": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+      "dependencies": {
+        "python": "3.13.9",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.3",
+        "pillow": "12.3.0"
+      },
+      "visual_inspection": "All six selected baseline PNGs were individually viewed before promotion. Only A and the original black midpoint marks are displayed; labels, shaded cutting planes and hidden lines are clear. No red variant overlays are included."
+    }
+  },
+  "Solid68": {
+    "source_dataset": "Author designed",
+    "source_key": "midpoint-cut:tetrahedron_edge_midpoint",
+    "user_source_instruction": "来源都写Author designed，和之前的一样。",
+    "original_source_image_available": false,
+    "source_image_note": "Author-created question; no external source image exists. original_image is null; NO_EXTERNAL_SOURCE is a renderer-schema sentinel, not a file path.",
+    "design_reference": {
+      "path": "temp/midpoint_induction_five/tetrahedron_edge_midpoint",
+      "question_sha256": "b8b10308fd627d85996abe8750c7336b10da172500605efa1936dea090c18e23",
+      "scene_sha256": "72e8a539a2d0d8a096b7070e24a6420ac5d4cb2516fafac96e5bd5aaac385b68",
+      "image_sha256": "84620303caf34a04b6978266bc7484cecf6a4d3c721db06c013145a6c1318ece"
+    },
+    "answer_verification": {
+      "status": "verified",
+      "verified_answer": 108,
+      "reasoning": "Call the upper vertex D and the black midpoint of AD P. The actual retained tetrahedron is ABCP. Its base ABC equals that of ABCD and P has half the altitude of D above ABC, so its volume is 216/2=108.",
+      "geometry": {
+        "passed": true,
+        "full_plane_solid_intersection_verified": true,
+        "intersection_xyz": [
+          [
+            12.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            9.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            6.0
+          ]
+        ],
+        "side_A": -1.0,
+        "volume_by_face_clipping_and_centroid_tetrahedra": 108.0,
+        "total_volume_by_faces": 215.99999999999991,
+        "independent_exact_volume": "108",
+        "independent_method": "Exact rational determinant of the retained tetrahedron",
+        "exact_fraction": "1/2",
+        "black_midpoints": [
+          {
+            "id": "P",
+            "edge": [
+              "A",
+              "D"
+            ],
+            "residual": 0.0
+          }
+        ],
+        "visibility_by_outward_face_normals": [
+          {
+            "id": "edge_BC",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_CBA",
+              "face_BCD"
+            ]
+          },
+          {
+            "id": "edge_AB",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_CBA",
+              "face_ABD"
+            ]
+          },
+          {
+            "id": "edge_AC",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_CBA",
+              "face_DCA"
+            ]
+          },
+          {
+            "id": "edge_BD",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_ABD",
+              "face_BCD"
+            ]
+          },
+          {
+            "id": "edge_AD",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_ABD",
+              "face_DCA"
+            ]
+          },
+          {
+            "id": "edge_CD",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_DCA",
+              "face_BCD"
+            ]
+          },
+          {
+            "id": "section_CP",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_DCA"
+            ]
+          },
+          {
+            "id": "section_PB",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_ABD"
+            ]
+          }
+        ],
+        "solid_faces": [
+          {
+            "id": "face_CBA",
+            "points": [
+              "C",
+              "B",
+              "A"
+            ],
+            "outward_normal": [
+              -0.0,
+              -0.0,
+              -1.0
+            ],
+            "offset": 0.0,
+            "toward_dot": 0.4705882352941176,
+            "front_facing": true
+          },
+          {
+            "id": "face_ABD",
+            "points": [
+              "A",
+              "B",
+              "D"
+            ],
+            "outward_normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "offset": 0.0,
+            "toward_dot": 0.5294117647058824,
+            "front_facing": true
+          },
+          {
+            "id": "face_DCA",
+            "points": [
+              "D",
+              "C",
+              "A"
+            ],
+            "outward_normal": [
+              -1.0,
+              -0.0,
+              -0.0
+            ],
+            "offset": 0.0,
+            "toward_dot": 0.7058823529411764,
+            "front_facing": true
+          },
+          {
+            "id": "face_BCD",
+            "points": [
+              "B",
+              "C",
+              "D"
+            ],
+            "outward_normal": [
+              0.5144957554275265,
+              0.6859943405700354,
+              0.5144957554275265
+            ],
+            "offset": 6.1739490651303175,
+            "toward_dot": -0.9684625984518146,
+            "front_facing": false
+          }
+        ]
+      },
+      "reasoning_zh": "设顶部顶点为 D，黑点 P 是 AD 的中点。实际截面为 BCP。P-ABC 与 D-ABC 共底 ABC，高度比为 AP/AD=1/2，所以体积为216/2=108。"
+    },
+    "redraw_verification": {
+      "id": "Solid68",
+      "answer": 108,
+      "png_sha256": "84620303caf34a04b6978266bc7484cecf6a4d3c721db06c013145a6c1318ece",
+      "scene_sha256": "2ef10d972d184267d99bf8239a771959544b149e0e1f6201d0250e13026adf8b",
+      "repeat_png_bytes_identical": true,
+      "repeat_svg_bytes_identical": true,
+      "matches_selected_draft_bytes": true,
+      "size": [
+        768,
+        768
+      ],
+      "fully_opaque": true,
+      "grayscale_only": true,
+      "ink_bbox_px": [
+        54,
+        120,
+        714,
+        648
+      ],
+      "ink_center_px": [
+        384.0,
+        384.0
+      ],
+      "long_side_fraction": 0.859375,
+      "render_checks": [
+        {
+          "id": "projection_and_visibility",
+          "type": "projection",
+          "passed": true,
+          "projection_sha256": "6c60b471ac6f5ee7cfa2062ad1d468b88f98edc840349226d535428b67eab190",
+          "automatic_occlusion": false
+        },
+        {
+          "id": "P_on_edge",
+          "type": "collinear",
+          "basis": "Given: marked point lies on this original edge.",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "P_midpoint",
+          "type": "equal_length",
+          "basis": "Given: every marked point is the midpoint of its edge.",
+          "measured": [
+            6.0,
+            6.0
+          ],
+          "passed": true
+        },
+        {
+          "id": "layout",
+          "type": "layout",
+          "outer_margin_fraction": 0.05,
+          "label_line_overlap": false,
+          "label_label_overlap": false,
+          "passed": true
+        }
+      ],
+      "renderer_sha256": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+      "protocol_sha256": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+      "dependencies": {
+        "python": "3.13.9",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.3",
+        "pillow": "12.3.0"
+      },
+      "visual_inspection": "All six selected baseline PNGs were individually viewed before promotion. Only A and the original black midpoint marks are displayed; labels, shaded cutting planes and hidden lines are clear. No red variant overlays are included."
+    }
+  },
+  "Solid69": {
+    "source_dataset": "Author designed",
+    "source_key": "midpoint-cut:tetrahedron_midpoint_quadrilateral",
+    "user_source_instruction": "来源都写Author designed，和之前的一样。",
+    "original_source_image_available": false,
+    "source_image_note": "Author-created question; no external source image exists. original_image is null; NO_EXTERNAL_SOURCE is a renderer-schema sentinel, not a file path.",
+    "design_reference": {
+      "path": "temp/midpoint_induction_five/tetrahedron_midpoint_quadrilateral",
+      "question_sha256": "60f257d562b29df62d1af34a3db0cb56e63e21815cc745bfce28e032071cfa42",
+      "scene_sha256": "59e25e4273c1b0520be526cc4b1cfeef44a225964eecd376ed26eb44c9500c72",
+      "image_sha256": "4efef7f6fa5c524a66fe2ebcd4875ae7c7324ed898f602438c1f2979916c438c"
+    },
+    "answer_verification": {
+      "status": "verified",
+      "verified_answer": 144,
+      "reasoning": "The four midpoints separate opposite edges AB and CD. In barycentric coordinates the plane is lambda_C+lambda_D=1/2. The vertex permutation A<->C and B<->D is volume preserving and exchanges the two sides, so each part has volume 288/2=144.",
+      "geometry": {
+        "passed": true,
+        "full_plane_solid_intersection_verified": true,
+        "intersection_xyz": [
+          [
+            6.0,
+            4.0,
+            0.0
+          ],
+          [
+            0.0,
+            4.0,
+            0.0
+          ],
+          [
+            6.0,
+            0.0,
+            9.0
+          ],
+          [
+            0.0,
+            0.0,
+            9.0
+          ]
+        ],
+        "side_A": -0.5,
+        "volume_by_face_clipping_and_centroid_tetrahedra": 143.99999999999997,
+        "total_volume_by_faces": 288.0,
+        "independent_exact_volume": "144",
+        "independent_method": "Exact integral 6*integral_0^(1/2) s*(1-s) ds = 1/2",
+        "exact_fraction": "1/2",
+        "black_midpoints": [
+          {
+            "id": "M",
+            "edge": [
+              "A",
+              "C"
+            ],
+            "residual": 0.0
+          },
+          {
+            "id": "N",
+            "edge": [
+              "A",
+              "D"
+            ],
+            "residual": 0.0
+          },
+          {
+            "id": "P",
+            "edge": [
+              "B",
+              "D"
+            ],
+            "residual": 0.0
+          },
+          {
+            "id": "Q",
+            "edge": [
+              "B",
+              "C"
+            ],
+            "residual": 0.0
+          }
+        ],
+        "visibility_by_outward_face_normals": [
+          {
+            "id": "edge_BC",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_CBA",
+              "face_BCD"
+            ]
+          },
+          {
+            "id": "edge_AB",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_CBA",
+              "face_ABD"
+            ]
+          },
+          {
+            "id": "edge_AC",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_CBA",
+              "face_DCA"
+            ]
+          },
+          {
+            "id": "edge_BD",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_ABD",
+              "face_BCD"
+            ]
+          },
+          {
+            "id": "edge_AD",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_ABD",
+              "face_DCA"
+            ]
+          },
+          {
+            "id": "edge_CD",
+            "visibility": "hidden",
+            "supporting_faces": [
+              "face_DCA",
+              "face_BCD"
+            ]
+          },
+          {
+            "id": "section_MN",
+            "visibility": "hidden",
+            "supporting_faces": [
+              "face_DCA"
+            ]
+          },
+          {
+            "id": "section_NP",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_ABD"
+            ]
+          },
+          {
+            "id": "section_PQ",
+            "visibility": "hidden",
+            "supporting_faces": [
+              "face_BCD"
+            ]
+          },
+          {
+            "id": "section_QM",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_CBA"
+            ]
+          }
+        ],
+        "solid_faces": [
+          {
+            "id": "face_CBA",
+            "points": [
+              "C",
+              "B",
+              "A"
+            ],
+            "outward_normal": [
+              -0.0,
+              -0.0,
+              -1.0
+            ],
+            "offset": 0.0,
+            "toward_dot": 0.9038488462069785,
+            "front_facing": true
+          },
+          {
+            "id": "face_ABD",
+            "points": [
+              "A",
+              "B",
+              "D"
+            ],
+            "outward_normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "offset": 0.0,
+            "toward_dot": 0.32136847865137014,
+            "front_facing": true
+          },
+          {
+            "id": "face_DCA",
+            "points": [
+              "D",
+              "C",
+              "A"
+            ],
+            "outward_normal": [
+              -1.0,
+              -0.0,
+              -0.0
+            ],
+            "offset": 0.0,
+            "toward_dot": -0.2824527644396808,
+            "front_facing": false
+          },
+          {
+            "id": "face_BCD",
+            "points": [
+              "B",
+              "C",
+              "D"
+            ],
+            "outward_normal": [
+              0.520265981714472,
+              0.780398972571708,
+              0.34684398780964804
+            ],
+            "offset": 6.243191780573664,
+            "toward_dot": -0.4173396039728628,
+            "front_facing": false
+          }
+        ]
+      },
+      "reasoning_zh": "截面通过 AC、AD、BC、BD 的四个中点，将相对的棱 AB 与 CD 分开。交换 A↔C、B↔D 的仿射变换保持体积，并将截面两侧互换，故两侧等体积。含 A 的部分为288/2=144。"
+    },
+    "redraw_verification": {
+      "id": "Solid69",
+      "answer": 144,
+      "png_sha256": "4efef7f6fa5c524a66fe2ebcd4875ae7c7324ed898f602438c1f2979916c438c",
+      "scene_sha256": "2ffeac3767845f0cc0cd4c1646df41d95b465298086e41539656794568a342c4",
+      "repeat_png_bytes_identical": true,
+      "repeat_svg_bytes_identical": true,
+      "matches_selected_draft_bytes": true,
+      "size": [
+        768,
+        768
+      ],
+      "fully_opaque": true,
+      "grayscale_only": true,
+      "ink_bbox_px": [
+        54,
+        76,
+        714,
+        692
+      ],
+      "ink_center_px": [
+        384.0,
+        384.0
+      ],
+      "long_side_fraction": 0.859375,
+      "render_checks": [
+        {
+          "id": "projection_and_visibility",
+          "type": "projection",
+          "passed": true,
+          "projection_sha256": "56faa677fd2653abd870262997977fd334235285ea497b40f9df3014179cf9c2",
+          "automatic_occlusion": false
+        },
+        {
+          "id": "M_on_edge",
+          "type": "collinear",
+          "basis": "Given: marked point lies on this original edge.",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "M_midpoint",
+          "type": "equal_length",
+          "basis": "Given: every marked point is the midpoint of its edge.",
+          "measured": [
+            4.0,
+            4.0
+          ],
+          "passed": true
+        },
+        {
+          "id": "N_on_edge",
+          "type": "collinear",
+          "basis": "Given: marked point lies on this original edge.",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "N_midpoint",
+          "type": "equal_length",
+          "basis": "Given: every marked point is the midpoint of its edge.",
+          "measured": [
+            9.0,
+            9.0
+          ],
+          "passed": true
+        },
+        {
+          "id": "P_on_edge",
+          "type": "collinear",
+          "basis": "Given: marked point lies on this original edge.",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "P_midpoint",
+          "type": "equal_length",
+          "basis": "Given: every marked point is the midpoint of its edge.",
+          "measured": [
+            10.816653826391969,
+            10.816653826391969
+          ],
+          "passed": true
+        },
+        {
+          "id": "Q_on_edge",
+          "type": "collinear",
+          "basis": "Given: marked point lies on this original edge.",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "Q_midpoint",
+          "type": "equal_length",
+          "basis": "Given: every marked point is the midpoint of its edge.",
+          "measured": [
+            7.211102550927978,
+            7.211102550927978
+          ],
+          "passed": true
+        },
+        {
+          "id": "layout",
+          "type": "layout",
+          "outer_margin_fraction": 0.05,
+          "label_line_overlap": false,
+          "label_label_overlap": false,
+          "passed": true
+        }
+      ],
+      "renderer_sha256": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+      "protocol_sha256": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+      "dependencies": {
+        "python": "3.13.9",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.3",
+        "pillow": "12.3.0"
+      },
+      "visual_inspection": "All six selected baseline PNGs were individually viewed before promotion. Only A and the original black midpoint marks are displayed; labels, shaded cutting planes and hidden lines are clear. No red variant overlays are included."
+    }
+  },
+  "Solid70": {
+    "source_dataset": "Author designed",
+    "source_key": "midpoint-cut:square_pyramid_corner",
+    "user_source_instruction": "来源都写Author designed，和之前的一样。",
+    "original_source_image_available": false,
+    "source_image_note": "Author-created question; no external source image exists. original_image is null; NO_EXTERNAL_SOURCE is a renderer-schema sentinel, not a file path.",
+    "design_reference": {
+      "path": "temp/midpoint_induction_five/square_pyramid_corner",
+      "question_sha256": "dd70390f7e91a2539df466b55bb040306f89843997597abefe7271bc30552763",
+      "scene_sha256": "3c96caf2c79f592e13cad0bb05b1a7d60f88fe7b2c65b4d6193ffad75b6d15c6",
+      "image_sha256": "afb4779c81967c2705cfcb03f62304bc196e2a9b9c4e47a4c6fea1f6aa100587"
+    },
+    "answer_verification": {
+      "status": "verified",
+      "verified_answer": 60,
+      "reasoning": "If the square base side is a, triangle AMN has area (1/2)(a/2)(a/2)=a^2/8. Tetrahedron SAMN and the pyramid share the same altitude, so the retained volume is 480/8=60.",
+      "geometry": {
+        "passed": true,
+        "full_plane_solid_intersection_verified": true,
+        "intersection_xyz": [
+          [
+            6.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            6.0,
+            0.0
+          ],
+          [
+            6.0,
+            6.0,
+            10.0
+          ]
+        ],
+        "side_A": -6.0,
+        "volume_by_face_clipping_and_centroid_tetrahedra": 60.0,
+        "total_volume_by_faces": 479.9999999999998,
+        "independent_exact_volume": "60",
+        "independent_method": "Exact rational determinant of the retained tetrahedron",
+        "exact_fraction": "1/8",
+        "black_midpoints": [
+          {
+            "id": "M",
+            "edge": [
+              "A",
+              "B"
+            ],
+            "residual": 0.0
+          },
+          {
+            "id": "N",
+            "edge": [
+              "A",
+              "D"
+            ],
+            "residual": 0.0
+          }
+        ],
+        "visibility_by_outward_face_normals": [
+          {
+            "id": "edge_CD",
+            "visibility": "hidden",
+            "supporting_faces": [
+              "face_DCBA",
+              "face_SCD"
+            ]
+          },
+          {
+            "id": "edge_BC",
+            "visibility": "hidden",
+            "supporting_faces": [
+              "face_DCBA",
+              "face_SBC"
+            ]
+          },
+          {
+            "id": "edge_AB",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_DCBA",
+              "face_SAB"
+            ]
+          },
+          {
+            "id": "edge_AD",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_DCBA",
+              "face_SDA"
+            ]
+          },
+          {
+            "id": "edge_AS",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_SAB",
+              "face_SDA"
+            ]
+          },
+          {
+            "id": "edge_BS",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_SAB",
+              "face_SBC"
+            ]
+          },
+          {
+            "id": "edge_CS",
+            "visibility": "hidden",
+            "supporting_faces": [
+              "face_SBC",
+              "face_SCD"
+            ]
+          },
+          {
+            "id": "edge_DS",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_SCD",
+              "face_SDA"
+            ]
+          },
+          {
+            "id": "section_SM",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_SAB"
+            ]
+          },
+          {
+            "id": "section_MN",
+            "visibility": "hidden",
+            "supporting_faces": [
+              "face_DCBA"
+            ]
+          },
+          {
+            "id": "section_NS",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_SDA"
+            ]
+          }
+        ],
+        "solid_faces": [
+          {
+            "id": "face_DCBA",
+            "points": [
+              "D",
+              "C",
+              "B",
+              "A"
+            ],
+            "outward_normal": [
+              -0.0,
+              -0.0,
+              -1.0
+            ],
+            "offset": 0.0,
+            "toward_dot": -0.3520879845359718,
+            "front_facing": false
+          },
+          {
+            "id": "face_SAB",
+            "points": [
+              "S",
+              "A",
+              "B"
+            ],
+            "outward_normal": [
+              0.0,
+              -0.8574929257125442,
+              0.5144957554275266
+            ],
+            "offset": 0.0,
+            "toward_dot": 0.7134679854190769,
+            "front_facing": true
+          },
+          {
+            "id": "face_SBC",
+            "points": [
+              "S",
+              "B",
+              "C"
+            ],
+            "outward_normal": [
+              0.8574929257125442,
+              0.0,
+              0.5144957554275266
+            ],
+            "offset": 10.289915108550531,
+            "toward_dot": -0.41950010723972436,
+            "front_facing": false
+          },
+          {
+            "id": "face_SCD",
+            "points": [
+              "S",
+              "C",
+              "D"
+            ],
+            "outward_normal": [
+              0.0,
+              0.8574929257125442,
+              0.5144957554275266
+            ],
+            "offset": 10.289915108550531,
+            "toward_dot": -0.3511724382574966,
+            "front_facing": false
+          },
+          {
+            "id": "face_SDA",
+            "points": [
+              "S",
+              "D",
+              "A"
+            ],
+            "outward_normal": [
+              -0.8574929257125442,
+              0.0,
+              0.5144957554275266
+            ],
+            "offset": 0.0,
+            "toward_dot": 0.7817956544013045,
+            "front_facing": true
+          }
+        ]
+      },
+      "reasoning_zh": "设正方形底面边长为a。三角形 AMN 面积为(1/2)(a/2)(a/2)=a²/8。小四面体 S-AMN 与原四棱锥同高，故体积占1/8，为480/8=60。"
+    },
+    "redraw_verification": {
+      "id": "Solid70",
+      "answer": 60,
+      "png_sha256": "afb4779c81967c2705cfcb03f62304bc196e2a9b9c4e47a4c6fea1f6aa100587",
+      "scene_sha256": "7859c19f89620464c87e5774cf10681dc0567452f903b7b5ba7864ceb365d3c7",
+      "repeat_png_bytes_identical": true,
+      "repeat_svg_bytes_identical": true,
+      "matches_selected_draft_bytes": true,
+      "size": [
+        768,
+        768
+      ],
+      "fully_opaque": true,
+      "grayscale_only": true,
+      "ink_bbox_px": [
+        54,
+        122,
+        714,
+        645
+      ],
+      "ink_center_px": [
+        384.0,
+        383.5
+      ],
+      "long_side_fraction": 0.859375,
+      "render_checks": [
+        {
+          "id": "projection_and_visibility",
+          "type": "projection",
+          "passed": true,
+          "projection_sha256": "02cf6fd42f1390882d1a0c3e1428f2817219e98cb17a3e430cf623f874194f9e",
+          "automatic_occlusion": false
+        },
+        {
+          "id": "M_on_edge",
+          "type": "collinear",
+          "basis": "Given: marked point lies on this original edge.",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "M_midpoint",
+          "type": "equal_length",
+          "basis": "Given: every marked point is the midpoint of its edge.",
+          "measured": [
+            6.0,
+            6.0
+          ],
+          "passed": true
+        },
+        {
+          "id": "N_on_edge",
+          "type": "collinear",
+          "basis": "Given: marked point lies on this original edge.",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "N_midpoint",
+          "type": "equal_length",
+          "basis": "Given: every marked point is the midpoint of its edge.",
+          "measured": [
+            6.0,
+            6.0
+          ],
+          "passed": true
+        },
+        {
+          "id": "layout",
+          "type": "layout",
+          "outer_margin_fraction": 0.05,
+          "label_line_overlap": false,
+          "label_label_overlap": false,
+          "passed": true
+        }
+      ],
+      "renderer_sha256": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+      "protocol_sha256": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+      "dependencies": {
+        "python": "3.13.9",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.3",
+        "pillow": "12.3.0"
+      },
+      "visual_inspection": "All six selected baseline PNGs were individually viewed before promotion. Only A and the original black midpoint marks are displayed; labels, shaded cutting planes and hidden lines are clear. No red variant overlays are included."
+    }
+  },
+  "Solid71": {
+    "source_dataset": "Author designed",
+    "source_key": "midpoint-cut:triangular_prism_corner",
+    "user_source_instruction": "来源都写Author designed，和之前的一样。",
+    "original_source_image_available": false,
+    "source_image_note": "Author-created question; no external source image exists. original_image is null; NO_EXTERNAL_SOURCE is a renderer-schema sentinel, not a file path.",
+    "design_reference": {
+      "path": "temp/midpoint_induction_five/triangular_prism_corner",
+      "question_sha256": "fb03a067b97b978e09c4c606c82ad7267650789ba517bb60eaee7bf865775517",
+      "scene_sha256": "291ab358e7957b7988689382163ff0fff7be092e7107f0ad2258ad6b6a4e05a0",
+      "image_sha256": "c3e78a15ae11fd34c7b3152afffa5412356461c3dd0864607e4fe3278564571c"
+    },
+    "answer_verification": {
+      "status": "verified",
+      "verified_answer": 42,
+      "reasoning": "Triangle AMN has one quarter the area of base ABC. The retained tetrahedron TAMN has the prism's altitude, and its volume is one third of base area times altitude. Thus its volume is 504*(1/4)*(1/3)=42.",
+      "geometry": {
+        "passed": true,
+        "full_plane_solid_intersection_verified": true,
+        "intersection_xyz": [
+          [
+            6.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            3.5,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            12.0
+          ]
+        ],
+        "side_A": -1.0,
+        "volume_by_face_clipping_and_centroid_tetrahedra": 42.000000000000014,
+        "total_volume_by_faces": 503.9999999999999,
+        "independent_exact_volume": "42",
+        "independent_method": "Exact rational determinant of the retained tetrahedron",
+        "exact_fraction": "1/12",
+        "black_midpoints": [
+          {
+            "id": "M",
+            "edge": [
+              "A",
+              "B"
+            ],
+            "residual": 0.0
+          },
+          {
+            "id": "N",
+            "edge": [
+              "A",
+              "C"
+            ],
+            "residual": 0.0
+          }
+        ],
+        "visibility_by_outward_face_normals": [
+          {
+            "id": "edge_BC",
+            "visibility": "hidden",
+            "supporting_faces": [
+              "face_CBA",
+              "face_BCVU"
+            ]
+          },
+          {
+            "id": "edge_AB",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_CBA",
+              "face_ABUT"
+            ]
+          },
+          {
+            "id": "edge_AC",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_CBA",
+              "face_CATV"
+            ]
+          },
+          {
+            "id": "edge_TU",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_TUV",
+              "face_ABUT"
+            ]
+          },
+          {
+            "id": "edge_UV",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_TUV",
+              "face_BCVU"
+            ]
+          },
+          {
+            "id": "edge_TV",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_TUV",
+              "face_CATV"
+            ]
+          },
+          {
+            "id": "edge_BU",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_ABUT",
+              "face_BCVU"
+            ]
+          },
+          {
+            "id": "edge_AT",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_ABUT",
+              "face_CATV"
+            ]
+          },
+          {
+            "id": "edge_CV",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_BCVU",
+              "face_CATV"
+            ]
+          },
+          {
+            "id": "section_TM",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_ABUT"
+            ]
+          },
+          {
+            "id": "section_MN",
+            "visibility": "hidden",
+            "supporting_faces": [
+              "face_CBA"
+            ]
+          },
+          {
+            "id": "section_NT",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_CATV"
+            ]
+          }
+        ],
+        "solid_faces": [
+          {
+            "id": "face_CBA",
+            "points": [
+              "C",
+              "B",
+              "A"
+            ],
+            "outward_normal": [
+              -0.0,
+              -0.0,
+              -1.0
+            ],
+            "offset": 0.0,
+            "toward_dot": -0.43629152802035903,
+            "front_facing": false
+          },
+          {
+            "id": "face_TUV",
+            "points": [
+              "T",
+              "U",
+              "V"
+            ],
+            "outward_normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "offset": 12.0,
+            "toward_dot": 0.43629152802035903,
+            "front_facing": true
+          },
+          {
+            "id": "face_ABUT",
+            "points": [
+              "A",
+              "B",
+              "U",
+              "T"
+            ],
+            "outward_normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "offset": 0.0,
+            "toward_dot": 0.6362584783630236,
+            "front_facing": true
+          },
+          {
+            "id": "face_BCVU",
+            "points": [
+              "B",
+              "C",
+              "V",
+              "U"
+            ],
+            "outward_normal": [
+              0.5038710255240861,
+              0.8637789008984335,
+              0.0
+            ],
+            "offset": 6.046452306289034,
+            "toward_dot": -0.8701788611188935,
+            "front_facing": false
+          },
+          {
+            "id": "face_CATV",
+            "points": [
+              "C",
+              "A",
+              "T",
+              "V"
+            ],
+            "outward_normal": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "offset": 0.0,
+            "toward_dot": 0.6362584783630236,
+            "front_facing": true
+          }
+        ]
+      },
+      "reasoning_zh": "AMN 与底面 ABC 的面积比为1/4。含 A 的部分为 T-AMN 四面体，其高度等于柱高，但体积还有锥体的1/3系数。因此体积为504×1/4×1/3=42。"
+    },
+    "redraw_verification": {
+      "id": "Solid71",
+      "answer": 42,
+      "png_sha256": "c3e78a15ae11fd34c7b3152afffa5412356461c3dd0864607e4fe3278564571c",
+      "scene_sha256": "99bc2f45c3211e8f889573875bb3624420110a0637fc3890ba180952ce99bec7",
+      "repeat_png_bytes_identical": true,
+      "repeat_svg_bytes_identical": true,
+      "matches_selected_draft_bytes": true,
+      "size": [
+        768,
+        768
+      ],
+      "fully_opaque": true,
+      "grayscale_only": true,
+      "ink_bbox_px": [
+        54,
+        64,
+        714,
+        704
+      ],
+      "ink_center_px": [
+        384.0,
+        384.0
+      ],
+      "long_side_fraction": 0.859375,
+      "render_checks": [
+        {
+          "id": "projection_and_visibility",
+          "type": "projection",
+          "passed": true,
+          "projection_sha256": "60b9c9df63d0124494b837a59968440db280c2a1447a9615b69b3d81d860e021",
+          "automatic_occlusion": false
+        },
+        {
+          "id": "M_on_edge",
+          "type": "collinear",
+          "basis": "Given: marked point lies on this original edge.",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "M_midpoint",
+          "type": "equal_length",
+          "basis": "Given: every marked point is the midpoint of its edge.",
+          "measured": [
+            6.0,
+            6.0
+          ],
+          "passed": true
+        },
+        {
+          "id": "N_on_edge",
+          "type": "collinear",
+          "basis": "Given: marked point lies on this original edge.",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "N_midpoint",
+          "type": "equal_length",
+          "basis": "Given: every marked point is the midpoint of its edge.",
+          "measured": [
+            3.5,
+            3.5
+          ],
+          "passed": true
+        },
+        {
+          "id": "layout",
+          "type": "layout",
+          "outer_margin_fraction": 0.05,
+          "label_line_overlap": false,
+          "label_label_overlap": false,
+          "passed": true
+        }
+      ],
+      "renderer_sha256": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+      "protocol_sha256": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+      "dependencies": {
+        "python": "3.13.9",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.3",
+        "pillow": "12.3.0"
+      },
+      "visual_inspection": "All six selected baseline PNGs were individually viewed before promotion. Only A and the original black midpoint marks are displayed; labels, shaded cutting planes and hidden lines are clear. No red variant overlays are included."
+    }
+  },
+  "Solid72": {
+    "source_dataset": "Author designed",
+    "source_key": "midpoint-cut:rectangular_prism_corner",
+    "user_source_instruction": "来源都写Author designed，和之前的一样。",
+    "original_source_image_available": false,
+    "source_image_note": "Author-created question; no external source image exists. original_image is null; NO_EXTERNAL_SOURCE is a renderer-schema sentinel, not a file path.",
+    "design_reference": {
+      "path": "temp/midpoint_induction_five/rectangular_prism_corner",
+      "question_sha256": "6abba3edd87f1bb665cd2958888d2b880091d8d37ab3b2f8750a474e8faa6973",
+      "scene_sha256": "13c83592ef9b2935f626c0123d9f5eab86e15efb776b3288226f45d638481955",
+      "image_sha256": "453073fa61d01bbe5de419d77886ac25f847ee1f7351469fcc293f71212eaba8"
+    },
+    "answer_verification": {
+      "status": "verified",
+      "verified_answer": 40,
+      "reasoning": "Let the three perpendicular edge lengths be a,b,h. The retained tetrahedron has intercepts a/2,b/2,h on those edges, so its volume is (1/6)(a/2)(b/2)h=960/24=40.",
+      "geometry": {
+        "passed": true,
+        "full_plane_solid_intersection_verified": true,
+        "intersection_xyz": [
+          [
+            5.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            4.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            12.0
+          ]
+        ],
+        "side_A": -1.0,
+        "volume_by_face_clipping_and_centroid_tetrahedra": 40.00000000000001,
+        "total_volume_by_faces": 959.999999999999,
+        "independent_exact_volume": "40",
+        "independent_method": "Exact rational determinant of the retained tetrahedron",
+        "exact_fraction": "1/24",
+        "black_midpoints": [
+          {
+            "id": "M",
+            "edge": [
+              "A",
+              "B"
+            ],
+            "residual": 0.0
+          },
+          {
+            "id": "N",
+            "edge": [
+              "A",
+              "D"
+            ],
+            "residual": 0.0
+          }
+        ],
+        "visibility_by_outward_face_normals": [
+          {
+            "id": "edge_CD",
+            "visibility": "hidden",
+            "supporting_faces": [
+              "face_DCBA",
+              "face_CDWV"
+            ]
+          },
+          {
+            "id": "edge_BC",
+            "visibility": "hidden",
+            "supporting_faces": [
+              "face_DCBA",
+              "face_BCVU"
+            ]
+          },
+          {
+            "id": "edge_AB",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_DCBA",
+              "face_ABUT"
+            ]
+          },
+          {
+            "id": "edge_AD",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_DCBA",
+              "face_DATW"
+            ]
+          },
+          {
+            "id": "edge_TU",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_TUVW",
+              "face_ABUT"
+            ]
+          },
+          {
+            "id": "edge_UV",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_TUVW",
+              "face_BCVU"
+            ]
+          },
+          {
+            "id": "edge_VW",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_TUVW",
+              "face_CDWV"
+            ]
+          },
+          {
+            "id": "edge_TW",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_TUVW",
+              "face_DATW"
+            ]
+          },
+          {
+            "id": "edge_BU",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_ABUT",
+              "face_BCVU"
+            ]
+          },
+          {
+            "id": "edge_AT",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_ABUT",
+              "face_DATW"
+            ]
+          },
+          {
+            "id": "edge_CV",
+            "visibility": "hidden",
+            "supporting_faces": [
+              "face_BCVU",
+              "face_CDWV"
+            ]
+          },
+          {
+            "id": "edge_DW",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_CDWV",
+              "face_DATW"
+            ]
+          },
+          {
+            "id": "section_TM",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_ABUT"
+            ]
+          },
+          {
+            "id": "section_MN",
+            "visibility": "hidden",
+            "supporting_faces": [
+              "face_DCBA"
+            ]
+          },
+          {
+            "id": "section_NT",
+            "visibility": "visible",
+            "supporting_faces": [
+              "face_DATW"
+            ]
+          }
+        ],
+        "solid_faces": [
+          {
+            "id": "face_DCBA",
+            "points": [
+              "D",
+              "C",
+              "B",
+              "A"
+            ],
+            "outward_normal": [
+              -0.0,
+              -0.0,
+              -1.0
+            ],
+            "offset": 0.0,
+            "toward_dot": -0.4118385909023512,
+            "front_facing": false
+          },
+          {
+            "id": "face_TUVW",
+            "points": [
+              "T",
+              "U",
+              "V",
+              "W"
+            ],
+            "outward_normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "offset": 12.0,
+            "toward_dot": 0.4118385909023512,
+            "front_facing": true
+          },
+          {
+            "id": "face_ABUT",
+            "points": [
+              "A",
+              "B",
+              "U",
+              "T"
+            ],
+            "outward_normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "offset": 0.0,
+            "toward_dot": 0.6717367307921844,
+            "front_facing": true
+          },
+          {
+            "id": "face_BCVU",
+            "points": [
+              "B",
+              "C",
+              "V",
+              "U"
+            ],
+            "outward_normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "offset": 10.0,
+            "toward_dot": -0.6157586698928358,
+            "front_facing": false
+          },
+          {
+            "id": "face_CDWV",
+            "points": [
+              "C",
+              "D",
+              "W",
+              "V"
+            ],
+            "outward_normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "offset": 8.0,
+            "toward_dot": -0.6717367307921844,
+            "front_facing": false
+          },
+          {
+            "id": "face_DATW",
+            "points": [
+              "D",
+              "A",
+              "T",
+              "W"
+            ],
+            "outward_normal": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "offset": 0.0,
+            "toward_dot": 0.6157586698928358,
+            "front_facing": true
+          }
+        ]
+      },
+      "reasoning_zh": "设三条互相垂直的棱长为a、b、h。保留四面体的三个垂直截距为a/2、b/2、h，因此体积为(1/6)(a/2)(b/2)h=abh/24=960/24=40。"
+    },
+    "redraw_verification": {
+      "id": "Solid72",
+      "answer": 40,
+      "png_sha256": "453073fa61d01bbe5de419d77886ac25f847ee1f7351469fcc293f71212eaba8",
+      "scene_sha256": "fef1c2f7c554a31e38ac582137f97e39711c2e9bb766c812865ced57b32878e7",
+      "repeat_png_bytes_identical": true,
+      "repeat_svg_bytes_identical": true,
+      "matches_selected_draft_bytes": true,
+      "size": [
+        768,
+        768
+      ],
+      "fully_opaque": true,
+      "grayscale_only": true,
+      "ink_bbox_px": [
+        121,
+        54,
+        647,
+        714
+      ],
+      "ink_center_px": [
+        384.0,
+        384.0
+      ],
+      "long_side_fraction": 0.859375,
+      "render_checks": [
+        {
+          "id": "projection_and_visibility",
+          "type": "projection",
+          "passed": true,
+          "projection_sha256": "bf53da90d178a9334d7d11793809b652e9abe419f72743157f85e7005397ef6b",
+          "automatic_occlusion": false
+        },
+        {
+          "id": "M_on_edge",
+          "type": "collinear",
+          "basis": "Given: marked point lies on this original edge.",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "M_midpoint",
+          "type": "equal_length",
+          "basis": "Given: every marked point is the midpoint of its edge.",
+          "measured": [
+            5.0,
+            5.0
+          ],
+          "passed": true
+        },
+        {
+          "id": "N_on_edge",
+          "type": "collinear",
+          "basis": "Given: marked point lies on this original edge.",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "N_midpoint",
+          "type": "equal_length",
+          "basis": "Given: every marked point is the midpoint of its edge.",
+          "measured": [
+            4.0,
+            4.0
+          ],
+          "passed": true
+        },
+        {
+          "id": "layout",
+          "type": "layout",
+          "outer_margin_fraction": 0.05,
+          "label_line_overlap": false,
+          "label_label_overlap": false,
+          "passed": true
+        }
+      ],
+      "renderer_sha256": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+      "protocol_sha256": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+      "dependencies": {
+        "python": "3.13.9",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.3",
+        "pillow": "12.3.0"
+      },
+      "visual_inspection": "All six selected baseline PNGs were individually viewed before promotion. Only A and the original black midpoint marks are displayed; labels, shaded cutting planes and hidden lines are clear. No red variant overlays are included."
+    }
   }
 }
