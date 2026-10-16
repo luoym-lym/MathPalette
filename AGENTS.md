@@ -10,9 +10,9 @@
 
 使用 `dataset_tools/question_review.py 分支 题号 --instruction "用户明确通过原话"` 保存审核并同步索引；不得用修改指令、数学检查或本工具执行成功代替用户批准。
 
-Base 使用 `Analytics/dataset_generator/generate_base_variants.py`，每题从 Base1～Base6 不放回抽四种。三个分支的 Special 分别使用各自 `workbench/`，由用户 Pass / Collect。不得伪造通过记录。
+三个分支的 Base 均未启用。Special 分别使用各自 `workbench/`，由用户 Pass / Collect。不得伪造通过记录。
 
-平面、立体分别使用分支 `REDRAW_PROTOCOL.md` 和 `dataset_generator/protocol.json`；立体须分别冻结三维几何、投影和可见性。两个几何分支的 Base 尚未启用；Special 工作台需求见 `GEOMETRY_WORKBENCH_REQUIREMENTS.md`。原对象实虚线覆盖属于变体外观操作，不改写原冻结场景。
+平面、立体分别使用分支 `REDRAW_PROTOCOL.md` 和 `dataset_generator/protocol.json`；立体须分别冻结三维几何、投影和可见性。几何 Special 工作台需求见 `GEOMETRY_WORKBENCH_REQUIREMENTS.md`。原对象实虚线覆盖属于变体外观操作，不改写原冻结场景。
 
 未通过的新题在独立暂存区制作，不写进正式目录或清单。临时输出放 `.runtime/`；运行时缓存、日志和预览不作为正式数据。来源图片缺失时如实记录，不用重绘图冒充。
 

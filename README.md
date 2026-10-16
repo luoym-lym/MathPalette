@@ -5,7 +5,7 @@
 | 内容 | 数量 / 入口 |
 | --- | --- |
 | 正式原题 | [question_bank.jsonl](question_bank.jsonl)，237 条 |
-| 自动 Base | Analytics 每题 4 张，共 184 张及对应插件 |
+| Base | 三个分支均未启用，汇总索引中的 `base_plugins` 为空列表 |
 | 人工 Special | 当前 Analytics 共 113 张，保留原 Pass / Collect 时间 |
 | 来源截图 | MathVerse 125 张、MathVista 56 张、SOLIDGEO 9 张，另有 3 张作者提供的参考图；DynaMath 20 题的来源截图在原库中缺失 |
 | 解析几何 Special 工作台 | 双击 [Analytics/start_special_workbench.cmd](Analytics/start_special_workbench.cmd)，端口 8767 |
@@ -16,7 +16,7 @@
 | MathVista 来源与署名 | [provenance/mathvista/README.md](provenance/mathvista/README.md)，含完整源记录与入库核验 |
 | SOLIDGEO 来源与清理记录 | [来源署名](provenance/SOLIDGEO_ATTRIBUTION.md)、[保留题目与清理核验](provenance/solidgeo_cleanup.json) |
 
-Ana01～Ana20 来自 DynaMath，Ana21～Ana45 来自 MathVerse，Ana46 来自 MathVista。Plane01～Plane16 来自 MathVerse，Plane17～Plane71 来自 MathVista；Solid01～Solid16 来自 MathVerse，Solid17～Solid25 来自 SOLIDGEO。图片、绘图类、Base 插件和工作台使用相同题号。清理前编号仅保存在 [迁移记录](provenance/cleanup.json) 中。
+Ana01～Ana20 来自 DynaMath，Ana21～Ana45 来自 MathVerse，Ana46 来自 MathVista。Plane01～Plane16 来自 MathVerse，Plane17～Plane71 来自 MathVista；Solid01～Solid16 来自 MathVerse，Solid17～Solid25 来自 SOLIDGEO。图片、绘图类、Special 插件和工作台使用相同题号。清理前编号仅保存在 [迁移记录](provenance/cleanup.json) 中。
 
 Plane109～Plane114 为用户确认收集的六道原创交点计数题，来源统一为 `Author designed`，按 `temp/requested_six` 的图1～图6顺序入库，答案依次为 6、4、5、6、6、8。正式数据保留黑白原图、冻结场景和逐题绘图程序；构造、独立求交和像素复现核验见 [来源记录](provenance/source_notes.json)。没有外部来源图片，`original_image` 为 `null`；暂存红点诱导图未收集为 Special。
 
@@ -43,7 +43,7 @@ Plane109～Plane114 为用户确认收集的六道原创交点计数题，来源
 ## 目录
 
 ```text
-Analytics/       正式清单、图片、绘图器、Base、Special、工作台、评测程序
+Analytics/       正式清单、图片、绘图器、Special 工作台、评测程序
 PlaneGeometry/   正式清单、图片、冻结二维场景、绘图器、Special 工作台
 SolidGeometry/   正式清单、图片、冻结三维场景、绘图器、Special 工作台
 dataset_tools/   正式索引、内容校验和几何重绘
@@ -63,7 +63,6 @@ SOLIDGEO 本批审核已结束，只保留用户已 Pass 的 9 道正式题。�
 python -m pip install -r requirements.txt
 python -X utf8 -B dataset_tools/catalog.py check
 python -X utf8 -B dataset_tools/catalog.py build
-python -X utf8 -B Analytics/dataset_generator/generate_base_variants.py check --redraw
 python -X utf8 -B Analytics/workbench/launch_workbench.py --check
 python -X utf8 -B PlaneGeometry/workbench/launch_workbench.py --check
 python -X utf8 -B SolidGeometry/workbench/launch_workbench.py --check
@@ -72,7 +71,7 @@ python -X utf8 -B dataset_tools/geometry_dataset.py SolidGeometry Solid01
 python -X utf8 -B Analytics/special_variant/Ana01/draw_variants.py C01
 ```
 
-三套工作台分别展示各分支的正式题，保存独立草稿和收集进度，可以同时运行。平面与立体首版提供原对象改色及实虚线、四色标记点、四色辅助虚线、已有顶点和新增点吸附；画板和 Agent 使用相同插件限制。原题数据和审核记录不由标注工具修改。平面、立体的 Base 尚未启用。
+三套工作台分别展示各分支的正式题，保存独立草稿和收集进度，可以同时运行。平面与立体首版提供原对象改色及实虚线、四色标记点、四色辅助虚线、已有顶点和新增点吸附；画板和 Agent 使用相同插件限制。原题数据和审核记录不由标注工具修改。三个分支的 Base 均未启用。
 
 双击 CMD 时，工作台启动器会自动寻找与正式数据冻结版本匹配的 Python，避免系统 Python 与 Conda 环境混用导致像素校验失败。启动窗口会显示实际解释器路径和依赖版本；也可通过 `MATHPALETTE_PYTHON` 指定匹配的解释器。
 

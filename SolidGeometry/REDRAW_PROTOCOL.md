@@ -135,7 +135,7 @@ python -B SolidGeometry/dataset_generator/test_renderer.py
 
 `draw(scene_path)` 默认重绘输出到 `SolidGeometry/reproduced/`；传入 `output_path` 可指定 PNG 或 SVG 路径。每题制作入口应记录两次 PNG/SVG 重绘一致性、实际依赖和输入/输出指纹。固定依赖下要求像素一致，跨版本比较须区分渲染差异与几何变化。通用检查使用独立构造场景，不依赖外部题目或示例图。
 
-Special 工作台使用 `images/ + plugins/ + recipes.json + draw_variants.py + 全局索引`，操作声明三维几何、投影、原可见性与成图样式的影响。首版支持原对象改色、显式实虚线覆盖、投影画板上的点与辅助线（实线或虚线），并吸附已有顶点及新增点；详见 [工作台需求](../GEOMETRY_WORKBENCH_REQUIREMENTS.md) 和 [使用说明](workbench/README.md)。仅改色保留各显隐片段的原线型，显式实虚线操作可以覆盖原可见棱或隐藏棱的成图线型，原三维场景、投影与可见性区间保持冻结。Special 由用户 Pass / Collect 后正式收集，不生成测试通过记录。Base 尚未启用，不能直接套入 Analytics 的 Base1 / Base2。
+Special 工作台使用 `images/ + plugins/ + recipes.json + draw_variants.py + 全局索引`，操作声明三维几何、投影、原可见性与成图样式的影响。首版支持原对象改色、显式实虚线覆盖、投影画板上的点与辅助线（实线或虚线），并吸附已有顶点及新增点；详见 [工作台需求](../GEOMETRY_WORKBENCH_REQUIREMENTS.md) 和 [使用说明](workbench/README.md)。仅改色保留各显隐片段的原线型，显式实虚线操作可以覆盖原可见棱或隐藏棱的成图线型，原三维场景、投影与可见性区间保持冻结。Special 由用户 Pass / Collect 后正式收集，不生成测试通过记录。三个分支的 Base 均未启用。
 
 ## 7. 验收与报告
 
