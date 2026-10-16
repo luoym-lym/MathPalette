@@ -7,6 +7,8 @@ import re
 from pathlib import Path
 
 from matplotlib.patches import Patch
+from partial_style import apply_partial_styles, object_paths, validate_interval
+from workbench_io import compatible_style_renderer
 
 from renderer_adapter import RENDER_LOCK, RendererAdapter, scene_png
 from workbench_io import (GENERATOR_VERSION, ROOT, SCHEMA_VERSION, WorkbenchError, atomic_write,
@@ -82,6 +84,7 @@ class PluginRenderer:
     def __init__(self, config, adapter, metadata):
         self.config, self.adapter, self.metadata = config, adapter, metadata
         self.schema = read_json(ROOT / "plugin.schema.json")
+        self.interval_paths = {}
 
     def normalize(self, plugin):
         check_schema(plugin, self.schema, self.schema)
@@ -96,13 +99,27 @@ class PluginRenderer:
         for index, action in enumerate(normalized["params"]["actions"]):
             action_type = action["type"]
             for key, value in self.config["defaults"][action_type].items():
+                if action_type == "add_line" and key == "dash_pattern_pt" and action.get("linestyle") == "solid":
+                    continue
                 action.setdefault(key, copy.deepcopy(value))
             if action_type == "set_object_style":
                 target = objects.get(action["target"])
                 if not target or not target.get("styleable"):
                     raise WorkbenchError(f"actions[{index}].target：{action['target']} 不是可修改的原曲线/轮廓。")
-                if not any(key in action for key in ("color", "linestyle")):
-                    raise WorkbenchError("原对象样式操作至少需要 color 或 linestyle。")
+                if not any(key in action for key in ("color", "linestyle", "linewidth_pt")):
+                    raise WorkbenchError("原对象样式操作至少需要 color、linestyle 或 linewidth_pt。")
+                if "interval" in action:
+                    key = (qid, action["target"])
+                    if key not in self.interval_paths:
+                        with RENDER_LOCK:
+                            scene = self.adapter.scene(qid)
+                            try:
+                                scene.fig.canvas.draw()
+                                self.interval_paths[key] = [{k: p[k] for k in ("id", "sha256", "closed")}
+                                                            for p in object_paths(scene, action["target"])]
+                            finally:
+                                scene.close()
+                    validate_interval(action["interval"], self.interval_paths[key])
             else:
                 if action["id"] in used:
                     raise WorkbenchError(f"actions[{index}].id：{action['id']} 与原对象或已有动作冲突。")
@@ -129,7 +146,8 @@ class PluginRenderer:
 
     def appearance_changes(self, plugin):
         """Keep rendered line-style changes distinct from frozen visibility."""
-        overrides = [{"target": a["target"], "rendered_linestyle": a["linestyle"]}
+        overrides = [{"target": a["target"], "rendered_linestyle": a["linestyle"],
+                      **({"interval": copy.deepcopy(a["interval"])} if "interval" in a else {})}
                      for a in plugin["params"]["actions"]
                      if a["type"] == "set_object_style" and "linestyle" in a]
         return {"world_geometry_changed": False, "projection_changed": False,
@@ -138,13 +156,18 @@ class PluginRenderer:
                 "rendered_line_styles_changed": bool(overrides)}
 
     def apply_actions(self, scene, plugin):
+        partial_targets = apply_partial_styles(scene, plugin["params"]["actions"])
         for action in plugin["params"]["actions"]:
+            if action["type"] == "set_object_style" and action["target"] in partial_targets:
+                continue
             typ = action["type"]
             if typ == "set_object_style":
                 owned = scene.artists.get(action["target"])
                 if not owned:
                     raise WorkbenchError("冻结参数的目标对象不存在。", 409, "object_changed")
                 for artist in owned:
+                    if "linewidth_pt" in action:
+                        artist.set_linewidth(action["linewidth_pt"])
                     if "color" in action:
                         artist.set_color(action["color"])
                     # Color-only overrides preserve each visible/hidden fragment.
@@ -156,7 +179,8 @@ class PluginRenderer:
             elif typ == "add_line":
                 a, b = action["endpoints"]
                 scene.ax.plot([a[0], b[0]], [a[1], b[1]], color=action["color"], linewidth=1,
-                              marker=None, linestyle=(0, [3.7, 1.6]), solid_capstyle="butt",
+                              marker=None, linestyle=(0, [3.7, 1.6]) if action["linestyle"] == "dashed" else "solid",
+                              solid_capstyle="butt",
                               dash_capstyle="butt", zorder=9, clip_on=True)
 
     def render(self, plugin, frozen=False):
@@ -192,7 +216,10 @@ def render_special_recipe(recipe, output_path=None, config_path=None):
     adapter = RendererAdapter(config)
     if (not renderer_matches(recipe, adapter) or
             recipe.get("schema_sha256") != file_hash(ROOT / "plugin.schema.json")):
-        raise WorkbenchError("重绘执行器或 schema 文件与通过时不同。", 409, "renderer_changed")
+        if (not compatible_style_renderer(recipe) or any(
+                "interval" in a or a["type"] == "set_object_style" and "linewidth_pt" in a
+                for a in recipe["params"]["actions"])):
+            raise WorkbenchError("重绘执行器或 schema 文件与通过时不同。", 409, "renderer_changed")
     if adapter.manifest["fingerprint"] != recipe["baseline_fingerprint"]:
         raise WorkbenchError("重绘输入基线不一致。", 409, "baseline_changed")
     plugin = {key: copy.deepcopy(recipe[key]) for key in (

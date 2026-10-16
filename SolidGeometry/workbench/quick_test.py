@@ -22,6 +22,13 @@ SYSTEM_PROMPT = (
 )
 API_BASES = {"https://api.minimaxi.com/v1", "https://api.minimax.io/v1"}
 MAX_RESPONSE_BYTES = 8 * 1024 * 1024
+TEST_PROFILES = {
+    "quicktest1": {"label": "Quick Test 1", "model": "MiniMax-M3",
+                   "thinking": {"type": "disabled"}},
+    "quicktest2": {"label": "Quick Test 2", "model": "MiniMax-M3.1-Flash-Preview",
+                   "thinking": {"type": "adaptive"}, "reasoning_effort": "low"},
+}
+DEFAULT_PROFILE = "quicktest1"
 
 
 def load_api_key(project):
@@ -81,12 +88,15 @@ def parse_response(data):
 
 
 def call_minimax(settings, key, question, image):
-    payload = {"model": settings["model"], "stream": False, "thinking": {"type": "disabled"},
+    payload = {"model": settings["model"], "stream": False,
+               "thinking": copy.deepcopy(settings.get("thinking", {"type": "disabled"})),
                "messages": [{"role": "system", "content": SYSTEM_PROMPT},
                             {"role": "user", "content": [
                                 {"type": "text", "text": question},
                                 {"type": "image_url", "image_url": {
                                     "url": "data:image/png;base64," + base64.b64encode(image).decode("ascii")}}]}]}
+    if "reasoning_effort" in settings:
+        payload["reasoning_effort"] = settings["reasoning_effort"]
     request = Request(settings["api_base"] + "/chat/completions",
                       data=json.dumps(payload, ensure_ascii=False).encode("utf-8"),
                       headers={"Authorization": "Bearer " + key, "Content-Type": "application/json"})
@@ -126,38 +136,54 @@ class QuickTests:
         self.settings = {"model": "MiniMax-M3", "api_base": "https://api.minimaxi.com/v1",
                          **workbench.config.get("quick_test", {})}
         if self.settings["api_base"] not in API_BASES or self.settings["model"] != "MiniMax-M3":
-            raise WorkbenchError("Quick Test 须使用 MiniMax 官方接口与 MiniMax-M3。")
+            raise WorkbenchError("Quick Test 须使用 MiniMax 官方接口；默认模型为 MiniMax-M3。")
         self.lock, self.active, self.closed = threading.RLock(), None, False
 
-    def _path(self, cid):
+    def _path(self, cid, profile=DEFAULT_PROFILE):
         if not isinstance(cid, str) or not re.fullmatch(r"[0-9a-f]{32}", cid):
             raise WorkbenchError("候选 ID 无效。")
-        return contained_path(self.root, cid + ".json")
+        if not isinstance(profile, str) or profile not in TEST_PROFILES:
+            raise WorkbenchError("Quick Test 模式无效。", 400, "invalid_quick_test_profile")
+        # Keep the original filename for existing M3 results.
+        suffix = "" if profile == DEFAULT_PROFILE else "." + profile
+        return contained_path(self.root, cid + suffix + ".json")
 
     def snapshot(self, state):
         with self.lock:
             candidate = state.get("candidate")
-            job = None
+            jobs = {profile: None for profile in TEST_PROFILES}
             if candidate:
                 cid = candidate["candidate_id"]
-                path = self._path(cid)
-                if self.active and self.active["candidate_id"] == cid:
-                    job = copy.deepcopy(self.active)
-                elif path.is_file():
-                    job = read_json(path)
-                    if job.get("status") == "running":
-                        job.update(status="interrupted", error="上次测试随服务停止而中断；需要时可手动重试。")
-                        atomic_json(path, job)
-                if job and any(job.get(key) != value for key, value in {
-                        "branch": "SolidGeometry", "question_id": state["question_id"],
-                        "candidate_id": cid, "pixel_sha256": candidate["pixel_sha256"],
-                        "png_sha256": candidate["png_sha256"],
-                        "parameter_key": candidate["parameter_key"], "input_revision": state["input_revision"]}.items()):
+                for profile, settings in TEST_PROFILES.items():
+                    path = self._path(cid, profile)
                     job = None
-            return {"model": self.settings["model"], "configured": bool(load_api_key(self.project)),
-                    "running_candidate_id": self.active["candidate_id"] if self.active else None, "job": job}
+                    if self.active and self.active["candidate_id"] == cid and self.active["profile"] == profile:
+                        job = copy.deepcopy(self.active)
+                    elif path.is_file():
+                        job = read_json(path)
+                        if job.get("status") == "running":
+                            job.update(status="interrupted", error="上次测试随服务停止而中断；需要时可手动重试。")
+                            atomic_json(path, job)
+                    if job and (job.get("profile", DEFAULT_PROFILE) != profile or
+                                job.get("model") != settings["model"] or
+                                any(job.get(key) != value for key, value in {
+                        "branch": "SolidGeometry", "question_id": state["question_id"],
+                        "png_sha256": candidate["png_sha256"],
+                        "candidate_id": cid, "pixel_sha256": candidate["pixel_sha256"],
+                        "parameter_key": candidate["parameter_key"], "input_revision": state["input_revision"]}.items())):
+                        job = None
+                    jobs[profile] = job
+            return {"model": self.settings["model"], "profiles": copy.deepcopy(TEST_PROFILES),
+                    "configured": bool(load_api_key(self.project)),
+                    "running_candidate_id": self.active["candidate_id"] if self.active else None,
+                    "running_profile": self.active["profile"] if self.active else None,
+                    "jobs": jobs, "job": jobs[DEFAULT_PROFILE]}
 
     def start(self, body):
+        profile = body.get("profile", DEFAULT_PROFILE)
+        if not isinstance(profile, str) or profile not in TEST_PROFILES:
+            raise WorkbenchError("Quick Test 模式无效。", 400, "invalid_quick_test_profile")
+        settings = {**self.settings, **copy.deepcopy(TEST_PROFILES[profile])}
         packet, image = self.workbench.quick_test_input(
             body["question_id"], body["candidate_id"], body["context_token"],
             body["pixel_sha256"], body["parameter_key"])
@@ -168,20 +194,21 @@ class QuickTests:
             if self.closed:
                 raise WorkbenchError("工作台正在停止，请重启后再试。", 409, "server_stopping")
             if self.active:
-                if self.active["candidate_id"] == packet["candidate_id"]:
+                if self.active["candidate_id"] == packet["candidate_id"] and self.active["profile"] == profile:
                     return copy.deepcopy(self.active)
                 raise WorkbenchError("已有一个 Quick Test 正在运行，请等待完成。", 409, "quick_test_running")
             job = {**packet, "run_id": uuid.uuid4().hex, "status": "running", "started_at": timestamp(),
-                   "model": self.settings["model"], "answer": "", "thinking": "", "error": None}
-            atomic_json(self._path(job["candidate_id"]), job)
+                   "profile": profile, "model": settings["model"], "thinking_mode": settings["thinking"]["type"],
+                   "reasoning_effort": settings.get("reasoning_effort"), "answer": "", "thinking": "", "error": None}
+            atomic_json(self._path(job["candidate_id"], job["profile"]), job)
             self.active = job
-            threading.Thread(target=self._run, args=(copy.deepcopy(job), image, key), daemon=True).start()
+            threading.Thread(target=self._run, args=(copy.deepcopy(job), image, key, settings), daemon=True).start()
             return copy.deepcopy(job)
 
-    def _run(self, job, image, key):
+    def _run(self, job, image, key, settings):
         start = time.monotonic()
         try:
-            result = self.caller(self.settings, key, job["question"], image)
+            result = self.caller(settings, key, job["question"], image)
             job.update(result, status="completed")
         except Exception as error:
             message = str(error) if isinstance(error, WorkbenchError) else "Quick Test 调用失败，请重试或检查模型接口。"
@@ -191,7 +218,7 @@ class QuickTests:
             if self.closed:
                 return
             try:
-                atomic_json(self._path(job["candidate_id"]), job)
+                atomic_json(self._path(job["candidate_id"], job["profile"]), job)
             finally:
                 self.active = None
 
@@ -200,5 +227,5 @@ class QuickTests:
             self.closed = True
             if self.active:
                 job = {**self.active, "status": "interrupted", "error": "服务停止，测试已中断；需要时可手动重试。"}
-                atomic_json(self._path(job["candidate_id"]), job)
+                atomic_json(self._path(job["candidate_id"], job["profile"]), job)
                 self.active = None

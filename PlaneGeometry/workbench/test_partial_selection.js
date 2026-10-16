@@ -1,0 +1,18 @@
+"use strict";
+const assert = require("node:assert/strict"), partial = require("./web/partial-selection.js");
+const path = {id: "p0", sha256: "0".repeat(64), closed: false, samples: [[0, 0, 0], [100, 0, 1]]};
+const crossing = {id: "p1", samples: [[50, -50, 0], [50, 50, 1]]};
+assert.equal(partial.nearest([path, crossing], [50, 1], 8, "p0").path_id, "p0");
+assert.equal(partial.nearest([path, crossing], [50, 10], 8, "p0"), null);
+const hit = partial.nearest([path], [23, 2], 8, null, [{id:"J01",pixel:[25,0]}]);
+assert.equal(hit.u, .25); assert.equal(hit.snap, "J01");
+assert.equal(partial.nearest([path], [23,2],8,null,[{id:"off_path",pixel:[23,3]}]).snap,undefined);
+const range = partial.interval(path,[{path_id:"p0",u:.8},{path_id:"p0",u:.2}]);
+assert.equal(range.start,.2); assert.equal(range.end,.8);
+assert.deepEqual(partial.traces(path,range),[[[20,0,.2],[80,0,.8]]]);
+assert.equal(partial.interval(path,[{path_id:"p0",u:.5},{path_id:"p0",u:.5}]),null);
+assert.equal(partial.interval(path,[{path_id:"p0",u:.2},{path_id:"p1",u:.8}]),null);
+const closed = {...path,closed:true};
+assert.equal(partial.traces(closed,{...range,wrap:true}).length,2);
+assert.equal(partial.interval(path,[{path_id:"p0",u:.2},{path_id:"p0",u:.8}],true),null);
+console.log("partial selection: crossing lock, snapping, intervals, gaps, complement passed");

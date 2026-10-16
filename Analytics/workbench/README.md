@@ -12,7 +12,7 @@ python -X utf8 -B MathPalette/Analytics/workbench/launch_workbench.py
 
 启动器会检查 `requirements.txt` 和已通过 recipes 中冻结的环境版本，自动寻找匹配的 Python，并打印实际使用的路径与版本。它会检查当前 Python、项目虚拟环境、本机 Miniconda/Anaconda 和 PATH；也可用 `MATHPALETTE_PYTHON` 指定解释器完整路径。当前正式环境为 Python 3.13.9、Matplotlib 3.11.2、NumPy 2.5.3、Pillow 12.3.0。没有匹配环境时会在渲染前停止并列出版本差异，保留原图和收集记录。
 
-1. 在左侧选择题目，核对原图、题干、答案，点击“打开画板”。
+1. 在左侧选择题目，核对原图、题干、答案，点击“打开画板”。题号搜索下方的「来源」可按正式清单中的数据集筛选，默认「全部来源」；与题号搜索及已完成列表的特殊情况筛选组合生效，「上一题／下一题」遵循当前筛选。
 2. 选择红点工具并点击放点；辅助线工具点击两个端点或拖动；曲线样式工具点击原曲线，再选择颜色或实线/虚线。
 3. 按住 Ctrl 吸附整数格点；勾选吸附可持续启用。画线时 Shift 约束水平/竖直方向。支持撤销、重做、删除、清空。
 4. 等待服务器渲染预览，检查实际图片，满意后点画板 Pass。一次 Pass 保存一份 C 变体，同一题可继续收集 C02、C03 等。
@@ -42,13 +42,13 @@ Analytics/special_variant/
 
 ## Quick Test
 
-在画板完成标注后点击「提交到当前候选」，或由 agent 提交候选，再点击候选图右上角的 **Quick Test**。工作台会用 **MiniMax-M3** 读取题干和这张候选图，以关闭思考的模式直接回答，展示回答、用时和 token 数。以前测试中保存的思考内容仍可查看。标准答案、原图、标注意图及绘图参数不发送给模型；不调用 judge，也不自动 Pass / No Pass。
+在画板完成标注后点击「提交到当前候选」，或由 agent 提交候选，再点击候选图右上角的 **Quick Test 1** 或 **Quick Test 2**。Quick Test 1 使用 **MiniMax-M3 · nonthinking**；Quick Test 2 使用 **MiniMax-M3.1-Flash-Preview · low**。两种模式分别显示并保存回答、思考（如有）、用时和 token 数，互不覆盖。以前测试中保存的思考内容仍可查看。标准答案、原图、标注意图及绘图参数不发送给模型；不调用 judge，也不自动 Pass / No Pass。
 
-使用项目根目录 `.env` 中的 `MINIMAX_API_KEY`，当前已配置为中国区订阅接口 `https://api.minimaxi.com/v1`。Key 只由服务端读取。`config.json` 的 `quick_test` 控制模型和接口；修改配置后重新双击 CMD。请求设置 `thinking: {"type": "disabled"}`，不发送 `max_tokens` 或 `max_completion_tokens`，也不设置本地等待超时。实际输出长度仍由模型服务决定。
+使用项目根目录 `.env` 中的 `MINIMAX_API_KEY`，当前已配置为中国区订阅接口 `https://api.minimaxi.com/v1`。Key 只由服务端读取。`config.json` 的 `quick_test` 保留默认 M3 与接口配置；两个按钮的模型模式在 `quick_test.py` 固定。修改配置后重新双击 CMD。Quick Test 1 设置 `thinking: {"type": "disabled"}`；Quick Test 2 设置 `thinking: {"type": "adaptive"}`、`reasoning_effort: "low"`。两者均不发送 `max_tokens` 或 `max_completion_tokens`，也不设置本地等待超时。实际输出长度仍由模型服务决定。
 
 每次手动点击调用一次模型；运行期间禁用重复调用，不自动重试。切题、替换候选后不会将旧结果显示在新候选上。每个候选只保存最近一次测试到 `.runtime/analytics_special/quick_tests/`，刷新页面可恢复；这些输出属于临时工作记录，不进入正式数据。请求失败后可以手动重试；接口若返回长度截断，页面会显示提示。
 
-官方高速版名称是 `MiniMax-M2.7-highspeed`，M2.7 不接受原生图片输入，因此本功能按用户选择使用 M3。接口说明：[MiniMax 图片输入与思考输出](https://platform.minimax.io/docs/api-reference/text-openai-api)。
+模型参数见 [MiniMax Chat Completions 官方接口](https://platform.minimax.io/docs/api-reference/text-chat-openai)。
 
 ## 更新未完成题目与重启
 
@@ -83,3 +83,11 @@ python -B MathPalette/Analytics/special_variant/Ana01/draw_variants.py C01
 
 
 运行状态位于项目 `.runtime/analytics_special/`。正式数据与代码独立；已 Pass 的 recipes 和 Collect 记录可恢复收集状态。题目仅来自 46 道正式 Analytics 题。草稿路径和删除备份均相对于该运行目录。
+
+## 特殊情况与后期复审
+
+点击题目顶部「特殊标记」，将当前题计入 Collect 完成并切换到下一道未完成题。无需先 Pass 变体；已有通过图保持原样，当前待审候选留在运行状态中，不会自动 Pass 或 No Pass。画板打开或正在生成候选时，先返回工作台并等待生成结束。
+
+侧栏「已完成」显示「特殊情况 · 待复审」，可勾选「只看特殊情况 · 待复审」，点击「复审」重新打开。复审完成后照常 Pass / Collect；再次特殊标记则继续留待后审。重新打开和再次完成会保留历史记录。
+
+标记保存在 `special_variant/<题号>/collection.json` 的 `current.special_case=true`、`current.review_status="pending"`，并同步 `collected_index.jsonl`；完成时间使用 `collected_at`。普通重启及清理运行缓存后仍能恢复特殊完成状态。未通过候选与浏览器草稿仍属于运行数据，清理对应缓存后不保证保留。特殊标记只记录整题的工作进度，不创建变体通过记录，也不改变原题审核。

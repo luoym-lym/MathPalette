@@ -1,0 +1,316 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "Solid67",
+  "status": "user_approved",
+  "subject": "SolidGeometry",
+  "source_dataset": "Author designed",
+  "source_image": "../../originals/Solid67.png",
+  "source_note": "Problem and baseline image supplied by the author in this conversation. The two black points are M, N, the midpoints of AB, AC; the gray cut is TMN. Only A is labeled in the source and in the redraw. Construction IDs are internal.",
+  "world_unit": "unspecified length unit",
+  "points": {
+    "A": [
+      0,
+      0,
+      0
+    ],
+    "B": [
+      8,
+      0,
+      0
+    ],
+    "C": [
+      0,
+      9,
+      0
+    ],
+    "T": [
+      0,
+      0,
+      10
+    ],
+    "M": [
+      4,
+      0,
+      0
+    ],
+    "N": [
+      0,
+      4.5,
+      0
+    ]
+  },
+  "projection": {
+    "kind": "oblique",
+    "name": "Frozen source-oriented parallel projection of a volume-120 tetrahedron",
+    "matrix": [
+      [
+        -0.6285714285714286,
+        0.4444444444444444,
+        0.0
+      ],
+      [
+        0.375,
+        0.15079365079365079,
+        0.8985714285714286
+      ]
+    ],
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "toward_viewer": [
+      -0.5400442498412416,
+      -0.763776867632613,
+      0.35354929597260476
+    ]
+  },
+  "view": {
+    "xlim": [
+      -5.457778918154196,
+      4.429207489582769
+    ],
+    "ylim": [
+      -0.6605827211024282,
+      9.226403686634537
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "visibility": {
+    "mode": "frozen_intervals",
+    "projection_sha256": "75ff47f3b01216023d20f4529f7cc71ce3b1984080a6d5289e44e51baaf0ab75",
+    "notes": "A is in front of face TBC. Faces TAB and TAC face the viewer. BC is the hidden rear edge; MN is on the hidden base ABC. Both are dashed, matching the supplied baseline. TM and TN are visible section traces. TA remains solid over the semantic fill. The gray face denotes the cut, not an opaque material hiding the given edges."
+  },
+  "objects": [
+    {
+      "id": "cut_fill",
+      "type": "face",
+      "points": [
+        "T",
+        "M",
+        "N"
+      ],
+      "role": "section",
+      "visibility": "visible",
+      "semantic_fill_reason": "The gray triangle is the cutting plane restricted to the tetrahedron."
+    },
+    {
+      "id": "edge_BC",
+      "type": "segment",
+      "points": [
+        "B",
+        "C"
+      ],
+      "role": "edge",
+      "visibility": "hidden"
+    },
+    {
+      "id": "section_MN",
+      "type": "segment",
+      "points": [
+        "M",
+        "N"
+      ],
+      "role": "section",
+      "visibility": "hidden"
+    },
+    {
+      "id": "edge_TB",
+      "type": "segment",
+      "points": [
+        "T",
+        "B"
+      ],
+      "role": "edge",
+      "visibility": "visible"
+    },
+    {
+      "id": "edge_TC",
+      "type": "segment",
+      "points": [
+        "T",
+        "C"
+      ],
+      "role": "edge",
+      "visibility": "visible"
+    },
+    {
+      "id": "edge_AB",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ],
+      "role": "edge",
+      "visibility": "visible"
+    },
+    {
+      "id": "edge_AC",
+      "type": "segment",
+      "points": [
+        "A",
+        "C"
+      ],
+      "role": "edge",
+      "visibility": "visible"
+    },
+    {
+      "id": "edge_TA",
+      "type": "segment",
+      "points": [
+        "T",
+        "A"
+      ],
+      "role": "edge",
+      "visibility": "visible"
+    },
+    {
+      "id": "section_TM",
+      "type": "segment",
+      "points": [
+        "T",
+        "M"
+      ],
+      "role": "section",
+      "visibility": "visible"
+    },
+    {
+      "id": "section_TN",
+      "type": "segment",
+      "points": [
+        "T",
+        "N"
+      ],
+      "role": "section",
+      "visibility": "visible"
+    },
+    {
+      "id": "midpoint_M",
+      "type": "point",
+      "point": "M",
+      "role": "given_point",
+      "visibility": "visible"
+    },
+    {
+      "id": "midpoint_N",
+      "type": "point",
+      "point": "N",
+      "role": "given_point",
+      "visibility": "visible"
+    }
+  ],
+  "labels": [
+    {
+      "id": "label_A",
+      "type": "vertex",
+      "text": "A",
+      "anchor": "A",
+      "offset_pt": [
+        0,
+        -8
+      ],
+      "ha": "center",
+      "va": "top"
+    }
+  ],
+  "dimensions": [],
+  "constraints": [
+    {
+      "id": "M_on_AB",
+      "type": "collinear",
+      "points": [
+        "A",
+        "M",
+        "B"
+      ],
+      "basis": "Given: the left black point lies on edge AB."
+    },
+    {
+      "id": "M_midpoint",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "M"
+        ],
+        [
+          "M",
+          "B"
+        ]
+      ],
+      "basis": "Given: each marked point is the midpoint of its edge."
+    },
+    {
+      "id": "N_on_AC",
+      "type": "collinear",
+      "points": [
+        "A",
+        "N",
+        "C"
+      ],
+      "basis": "Given: the right black point lies on edge AC."
+    },
+    {
+      "id": "N_midpoint",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "N"
+        ],
+        [
+          "N",
+          "C"
+        ]
+      ],
+      "basis": "Given: each marked point is the midpoint of its edge."
+    },
+    {
+      "id": "base_coplanarity",
+      "type": "coplanar",
+      "points": [
+        "A",
+        "B",
+        "C",
+        "M",
+        "N"
+      ],
+      "basis": "Construction: both midpoint marks lie in base ABC."
+    },
+    {
+      "id": "midpoint_segment_parallel",
+      "type": "parallel",
+      "segments": [
+        [
+          "M",
+          "N"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "basis": "Derived verification of the midpoint theorem; no extra mark is drawn."
+    }
+  ],
+  "ambiguities": [
+    "No edge lengths, right angles, regularity, or measurement units are given. The axis-aligned world coordinates are one valid construction and add no displayed condition.",
+    "The target is the attached baseline.png, which has exactly two black midpoint marks. The separately attached special.png has an additional red point and is not the redraw source."
+  ]
+}

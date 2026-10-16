@@ -23,7 +23,7 @@ from workbench_io import (WorkbenchError, canonical_hash, contained_path, enviro
 
 RENDER_LOCK = threading.RLock()
 BRANCH = "PlaneGeometry"
-STYLEABLE = {"segment", "circle", "arc", "polygon", "angle_arc", "right_angle", "equal_tick", "parallel_mark", "ellipse"}
+STYLEABLE = {"segment", "circle", "arc", "polygon", "angle_arc", "right_angle", "equal_tick", "parallel_mark", "ellipse", "bezier_curve"}
 # Plane02 predates dimension roles. These legacy measurement/extension points
 # are not mathematical vertices. The original frozen scene stays untouched.
 SNAP_EXCLUDED = {"Plane02": {"aq1", "aq2", "P_extension", "Q_extension"},
@@ -78,7 +78,12 @@ def snap_points(frozen):
         if isinstance(value, str) and value in frozen["points"]:
             exposed.setdefault(value, set()).add(reason)
     for item in frozen["objects"]:
-        if item["type"] == "point":
+        if item["type"] == "bezier_curve":
+            # Explicit frozen curve boundaries, including unmarked intersections.
+            # No inferred points and no visible point symbols are added.
+            for value in item["points"]:
+                add(value, "curve_boundary")
+        elif item["type"] == "point":
             add(item["point"], "point_symbol")
         elif item.get("role") != "dimension" and (item["type"] == "segment" or
                 item["type"] == "polygon" and len(item["points"]) <= 16):
@@ -134,10 +139,12 @@ class RendererAdapter:
             family = row.get("renderer_family")
             if not family or family in self.family_renderers:
                 continue
-            if family not in {"plane", "plane_extended", "plane_arrows", "plane_curves"}:
+            if family not in {"plane", "plane_extended", "plane_arrows", "plane_curves", "author_curves"}:
                 raise WorkbenchError("不支持的平面冻结绘图器家族。")
-            relative = f"dataset_generator/mathverse_renderers/{family}/common_renderer.py"
-            protocol = f"dataset_generator/mathverse_renderers/{family}/protocol.json"
+            directory = ("dataset_generator/author_curves" if family == "author_curves"
+                         else f"dataset_generator/mathverse_renderers/{family}")
+            relative = directory + "/common_renderer.py"
+            protocol = directory + "/protocol.json"
             if not {relative, protocol}.issubset(row.get("runtime_dependencies", [])):
                 raise WorkbenchError("冻结绘图器与协议必须列入审核依赖。")
             spec = importlib.util.spec_from_file_location("_plane_special_" + family,

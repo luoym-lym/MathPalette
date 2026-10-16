@@ -30,7 +30,7 @@
 | 操作 | 必填参数 | 限定样式 |
 | --- | --- | --- |
 | `add_point` | `id`、`xy=[x,y]` | 实心 `filled=true`，`size_pt2=50`，`edge_linewidth_pt=1`；默认红色 |
-| `add_line` | `id`、`endpoints=[[x1,y1],[x2,y2]]` | `linestyle="dashed"`、`linewidth_pt=1`、`dash_pattern_pt=[3.7,1.6]`；默认蓝色 |
+| `add_line` | `id`、`endpoints=[[x1,y1],[x2,y2]]` | `linestyle="solid"` 或 `"dashed"`（默认虚线）、`linewidth_pt=1`；仅虚线可带 `dash_pattern_pt=[3.7,1.6]`，实线须省略；默认蓝色 |
 | `set_object_style` | `target`，至少一个 `color` / `linestyle` | 原对象颜色可选四色及黑色；`linestyle` 为 `solid` / `dashed` |
 
 新增点/线只允许红 `#DC2626`、蓝 `#2563EB`、绿 `#16A34A`、橙 `#EA580C`；原对象另允许黑 `#000000`。省略新增样式由配置补齐并冻结，不得改变固定尺寸。原对象省略颜色/线型则保持该项，包括对象中各片段不同的原线型；恢复原样须移除对应 `set_object_style`，不要猜测黑色/实线替代恢复。
@@ -46,3 +46,6 @@ python -X utf8 -B PlaneGeometry/workbench/agent_cli.py status --candidate ID
 使用返回的真实路径、TOKEN、ID。用户要求修改当前待审候选时，submit 加 `--replace 当前候选ID`。遇到 `stale_context`、`stale_candidate`、输入变化或未知对象时重新读取 context，不覆盖新候选。服务默认 `http://127.0.0.1:8768`，自定义服务指定 `--url`，自定义配置指定 `--config`。
 
 提交后查看返回 `image_path` 的实际候选 PNG，核实标记与用户要求。告诉用户修改了哪题、哪些对象以及候选已显示。用户拒绝后读取反馈，等待用户新指令；Pass 后结果冻结，后续修改另交新候选。
+
+
+局部样式：`set_object_style` 可带 `interval={path_id,path_sha256,start,end,wrap}` 和 `linewidth_pt`（0.5、1、1.5、2、3）。从 `/api/drawing-scene/<题号>` 的 `targets[].partial_paths` 取得路径 ID、sha256 及参数样本；参数是原矢量路径有序段编号归一化值，不是像素比例或空间距离。`0 ≤ start < end ≤ 1`，仅闭合路径允许 `wrap=true` 选择补区间。省略 interval 仍改整个对象。仅改颜色应省略 linestyle 和 linewidth_pt。重叠动作按数组顺序逐属性覆盖；删除指定动作即撤回该次修改。局部切分只用于变体渲染，原场景及审核指纹保持冻结。

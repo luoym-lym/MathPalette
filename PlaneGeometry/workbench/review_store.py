@@ -12,6 +12,7 @@ import uuid
 from pathlib import Path
 
 from render_plugins import PluginRenderer
+from workbench_io import compatible_style_renderer
 from renderer_adapter import RENDER_LOCK, RendererAdapter
 from workbench_io import (GENERATOR_VERSION, ROOT, SCHEMA_VERSION, WorkbenchError, atomic_json,
                           atomic_write, canonical_hash, contained_path, environment_versions,
@@ -119,8 +120,11 @@ class Workbench:
             old_records = read_json(snapshot) if snapshot.is_file() else None
             compatible_renderer = progress_renderer_matches(
                 previous_signature, self.signature, self.adapter, expected, old_records)
+            metadata_update = compatible_style_renderer(previous_signature)
             if any(previous_signature.get(key) != value and
-                   not (key == "renderer_sha256" and compatible_renderer) for key, value in self.signature.items()
+                   not (key == "renderer_sha256" and (compatible_renderer or metadata_update) or
+                        key == "schema_sha256" and metadata_update)
+                   for key, value in self.signature.items()
                    if key != "baseline_fingerprint"):
                 raise WorkbenchError("渲染器、schema 或依赖版本不一致；请恢复原版本。", 409, "version_mismatch")
             if self.progress["output_relative"] != self.output_relative.as_posix():
@@ -425,14 +429,20 @@ class Workbench:
                 self.progress = progress
             return self.snapshot()
 
-    def collect(self, qid, token):
+    def mark_special(self, qid, token):
+        """Complete the question for now, recording an explicit need for later review."""
+        return self.collect(qid, token, special_case=True)
+
+    def collect(self, qid, token, *, special_case=False):
         with self.submit_lock, self.lock:
             self._recover()
             question = self.progress["questions"].get(qid)
             if question and question.get("collected"):
                 return self.snapshot()
-            self._check_context(qid, token)
-            if not question["accepted"]:
+            # A special case can keep its pending candidate for later review.
+            # It does not approve that candidate or create an accepted recipe.
+            self._check_context(qid, token, replace=question.get("candidate_id") if special_case and question else None)
+            if not special_case and not question["accepted"]:
                 raise WorkbenchError("先 Pass 保存至少一张 C 变体，再 Collect 完成整道题。")
             progress = copy.deepcopy(self.progress)
             question = progress["questions"][qid]
@@ -446,6 +456,8 @@ class Workbench:
                 "accepted_count": len(question["accepted"]),
                 "slots": [r["slot_id"] for r in question["accepted"]],
             }
+            if special_case:
+                question["collection_record"].update(special_case=True, review_status="pending")
             active = [key for key in self.adapter.records if not progress["questions"][key].get("collected")]
             later = [key for key in active if key > qid]
             progress["current_question"] = later[0] if later else active[0] if active else None
@@ -778,15 +790,21 @@ class Workbench:
             return {**context, "original_image_url": f"/api/original-image/{qid}?revision={context['input_revision']}" if qid else None, "status": status,
                     "error": error, "accepted": accepted, "review_token": self.review_token,
                     "poll_interval_ms": self.config["poll_interval_ms"],
-                    "questions": [{"id": key, "accepted_count": len(self.progress["questions"][key]["accepted"]),
+                    "questions": [{"id": key, "source_dataset": self.adapter.records[key]["source_dataset"],
+                                   "accepted_count": len(self.progress["questions"][key]["accepted"]),
                                    "has_pending": bool(self.progress["questions"][key]["candidate_id"])}
                                   for key in self.active_questions()],
                     "completed_questions": [{"id": key,
+                                             "source_dataset": self.adapter.records[key]["source_dataset"],
                                              "accepted_count": len(question["accepted"]),
-                                             "collected_at": question["collected_at"]}
+                                             "collected_at": question["collected_at"],
+                                             "special_case": question["collection_record"].get("special_case", False),
+                                             "review_status": question["collection_record"].get("review_status")}
                                             for key, question in self.progress["questions"].items()
                                             if question.get("collected")],
                     "collected_total": sum(bool(q.get("collected")) for q in self.progress["questions"].values()),
+                    "special_case_total": sum(bool(q.get("collected") and q.get("collection_record", {}).get("special_case"))
+                                              for q in self.progress["questions"].values()),
                     "accepted_total": sum(len(q["accepted"]) for q in self.progress["questions"].values())}
 
     def highlight(self, qid, oid):

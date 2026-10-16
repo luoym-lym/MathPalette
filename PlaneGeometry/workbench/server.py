@@ -100,6 +100,7 @@ def make_handler(workbench, quick_tests=None):
                           "/app.js": ("app.js", "text/javascript; charset=utf-8"),
                           "/quick-test.js": ("quick-test.js", "text/javascript; charset=utf-8"),
                           "/drawing-board.js": ("drawing-board.js", "text/javascript; charset=utf-8"),
+                          "/partial-selection.js": ("partial-selection.js", "text/javascript; charset=utf-8"),
                           "/geometry-input.js": ("geometry-input.js", "text/javascript; charset=utf-8"),
                           "/style.css": ("style.css", "text/css; charset=utf-8")}
                 if path in static:
@@ -129,7 +130,7 @@ def make_handler(workbench, quick_tests=None):
                     return self._send(workbench.submit(body["plugin_path"], body["context_token"], body.get("replace")))
                 if path == "/api/highlight":
                     return self._send(workbench.highlight(body["question_id"], body["object_id"]))
-                if path in ("/api/navigate", "/api/review", "/api/drawing-preview", "/api/drawing-submit", "/api/collect", "/api/reopen", "/api/delete-accepted", "/api/shutdown", "/api/quick-test"):
+                if path in ("/api/navigate", "/api/review", "/api/drawing-preview", "/api/drawing-submit", "/api/collect", "/api/mark-special", "/api/reopen", "/api/delete-accepted", "/api/shutdown", "/api/quick-test"):
                     token = self.headers.get("X-Review-Token", "")
                     if not hmac.compare_digest(token, workbench.review_token):
                         raise WorkbenchError("页面会话已过期；请刷新工作台。", 403, "invalid_session")
@@ -141,6 +142,8 @@ def make_handler(workbench, quick_tests=None):
                         return
                     if path == "/api/navigate":
                         return self._send(workbench.navigate(body["question_id"]))
+                    if path == "/api/mark-special":
+                        return self._send(workbench.mark_special(body["question_id"], body["context_token"]))
                     if path == "/api/collect":
                         return self._send(workbench.collect(body["question_id"], body["context_token"]))
                     if path == "/api/reopen":

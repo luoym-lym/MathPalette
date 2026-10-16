@@ -160,7 +160,7 @@
           "$ref": "#/$defs/color"
         },
         "linestyle": {
-          "const": "dashed"
+          "$ref": "#/$defs/linestyle"
         },
         "linewidth_pt": {
           "$ref": "#/$defs/linewidth"
@@ -192,6 +192,50 @@
         },
         "linestyle": {
           "$ref": "#/$defs/linestyle"
+        },
+        "linewidth_pt": {
+          "type": "number",
+          "enum": [
+            0.5,
+            1,
+            1.5,
+            2,
+            3
+          ]
+        },
+        "interval": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "path_id",
+            "path_sha256",
+            "start",
+            "end",
+            "wrap"
+          ],
+          "properties": {
+            "path_id": {
+              "type": "string",
+              "pattern": "^p[0-9]+$"
+            },
+            "path_sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "start": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "end": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "wrap": {
+              "type": "boolean"
+            }
+          }
         }
       }
     },

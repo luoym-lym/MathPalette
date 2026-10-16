@@ -1,0 +1,477 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "Solid69",
+  "status": "user_approved",
+  "subject": "SolidGeometry",
+  "source_dataset": "Author designed",
+  "source_image": "NO_EXTERNAL_SOURCE",
+  "source_note": "New question designed for this conversation. No source screenshot was supplied; original_image is null. NO_EXTERNAL_SOURCE is a schema sentinel, not a file path. Generated baseline is not an original source image.",
+  "world_unit": "unspecified length unit",
+  "points": {
+    "A": [
+      0,
+      0,
+      0
+    ],
+    "B": [
+      12,
+      0,
+      0
+    ],
+    "C": [
+      0,
+      8,
+      0
+    ],
+    "D": [
+      0,
+      0,
+      18
+    ],
+    "M": [
+      0,
+      4,
+      0
+    ],
+    "N": [
+      0,
+      0,
+      9
+    ],
+    "P": [
+      6,
+      0,
+      9
+    ],
+    "Q": [
+      6,
+      4,
+      0
+    ]
+  },
+  "projection": {
+    "kind": "oblique",
+    "name": "Frozen author-designed parallel projection",
+    "matrix": [
+      [
+        0.0,
+        -0.625,
+        0.2222222222222222
+      ],
+      [
+        0.6666666666666666,
+        0.375,
+        0.07500000000000001
+      ]
+    ],
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "toward_viewer": [
+      0.2824527644396808,
+      -0.32136847865137014,
+      -0.9038488462069785
+    ],
+    "choice_reason": "Separate the original edges and section while placing true extra midpoints inside its 2D projection; no external screenshot exists."
+  },
+  "view": {
+    "xlim": [
+      -5.23008677450906,
+      4.230086774509061
+    ],
+    "ylim": [
+      -0.9288456473620674,
+      8.531327901656054
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "visibility": {
+    "mode": "frozen_intervals",
+    "projection_sha256": "56faa677fd2653abd870262997977fd334235285ea497b40f9df3014179cf9c2",
+    "notes": "Computed from outward face normals for this convex solid; edge visible iff an incident face faces toward viewer. Each cut trace uses its supporting original face. Gray fill is semantic and does not cull original edges.",
+    "solid_faces": [
+      {
+        "id": "face_CBA",
+        "points": [
+          "C",
+          "B",
+          "A"
+        ],
+        "outward_normal": [
+          -0.0,
+          -0.0,
+          -1.0
+        ],
+        "offset": 0.0,
+        "toward_dot": 0.9038488462069785,
+        "front_facing": true
+      },
+      {
+        "id": "face_ABD",
+        "points": [
+          "A",
+          "B",
+          "D"
+        ],
+        "outward_normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "offset": 0.0,
+        "toward_dot": 0.32136847865137014,
+        "front_facing": true
+      },
+      {
+        "id": "face_DCA",
+        "points": [
+          "D",
+          "C",
+          "A"
+        ],
+        "outward_normal": [
+          -1.0,
+          -0.0,
+          -0.0
+        ],
+        "offset": 0.0,
+        "toward_dot": -0.2824527644396808,
+        "front_facing": false
+      },
+      {
+        "id": "face_BCD",
+        "points": [
+          "B",
+          "C",
+          "D"
+        ],
+        "outward_normal": [
+          0.520265981714472,
+          0.780398972571708,
+          0.34684398780964804
+        ],
+        "offset": 6.243191780573664,
+        "toward_dot": -0.4173396039728628,
+        "front_facing": false
+      }
+    ]
+  },
+  "objects": [
+    {
+      "id": "cut_fill",
+      "type": "face",
+      "points": [
+        "M",
+        "N",
+        "P",
+        "Q"
+      ],
+      "role": "section",
+      "visibility": "visible",
+      "semantic_fill_reason": "Full convex-solid intersection with the specified cutting plane; semantic gray fill, not opaque surface culling."
+    },
+    {
+      "id": "edge_BC",
+      "type": "segment",
+      "points": [
+        "B",
+        "C"
+      ],
+      "role": "edge",
+      "visibility": "visible",
+      "supporting_faces": [
+        "face_CBA",
+        "face_BCD"
+      ]
+    },
+    {
+      "id": "edge_AB",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ],
+      "role": "edge",
+      "visibility": "visible",
+      "supporting_faces": [
+        "face_CBA",
+        "face_ABD"
+      ]
+    },
+    {
+      "id": "edge_AC",
+      "type": "segment",
+      "points": [
+        "A",
+        "C"
+      ],
+      "role": "edge",
+      "visibility": "visible",
+      "supporting_faces": [
+        "face_CBA",
+        "face_DCA"
+      ]
+    },
+    {
+      "id": "edge_BD",
+      "type": "segment",
+      "points": [
+        "B",
+        "D"
+      ],
+      "role": "edge",
+      "visibility": "visible",
+      "supporting_faces": [
+        "face_ABD",
+        "face_BCD"
+      ]
+    },
+    {
+      "id": "edge_AD",
+      "type": "segment",
+      "points": [
+        "A",
+        "D"
+      ],
+      "role": "edge",
+      "visibility": "visible",
+      "supporting_faces": [
+        "face_ABD",
+        "face_DCA"
+      ]
+    },
+    {
+      "id": "edge_CD",
+      "type": "segment",
+      "points": [
+        "C",
+        "D"
+      ],
+      "role": "edge",
+      "visibility": "hidden",
+      "supporting_faces": [
+        "face_DCA",
+        "face_BCD"
+      ]
+    },
+    {
+      "id": "section_MN",
+      "type": "segment",
+      "points": [
+        "M",
+        "N"
+      ],
+      "role": "section",
+      "visibility": "hidden",
+      "supporting_faces": [
+        "face_DCA"
+      ]
+    },
+    {
+      "id": "section_NP",
+      "type": "segment",
+      "points": [
+        "N",
+        "P"
+      ],
+      "role": "section",
+      "visibility": "visible",
+      "supporting_faces": [
+        "face_ABD"
+      ]
+    },
+    {
+      "id": "section_PQ",
+      "type": "segment",
+      "points": [
+        "P",
+        "Q"
+      ],
+      "role": "section",
+      "visibility": "hidden",
+      "supporting_faces": [
+        "face_BCD"
+      ]
+    },
+    {
+      "id": "section_QM",
+      "type": "segment",
+      "points": [
+        "Q",
+        "M"
+      ],
+      "role": "section",
+      "visibility": "visible",
+      "supporting_faces": [
+        "face_CBA"
+      ]
+    },
+    {
+      "id": "midpoint_M",
+      "type": "point",
+      "point": "M",
+      "role": "given_point",
+      "visibility": "visible"
+    },
+    {
+      "id": "midpoint_N",
+      "type": "point",
+      "point": "N",
+      "role": "given_point",
+      "visibility": "visible"
+    },
+    {
+      "id": "midpoint_P",
+      "type": "point",
+      "point": "P",
+      "role": "given_point",
+      "visibility": "visible"
+    },
+    {
+      "id": "midpoint_Q",
+      "type": "point",
+      "point": "Q",
+      "role": "given_point",
+      "visibility": "visible"
+    }
+  ],
+  "labels": [
+    {
+      "id": "label_A",
+      "type": "vertex",
+      "text": "A",
+      "anchor": "A",
+      "offset_pt": [
+        0,
+        -8
+      ],
+      "ha": "center",
+      "va": "top"
+    }
+  ],
+  "dimensions": [],
+  "constraints": [
+    {
+      "id": "M_on_edge",
+      "type": "collinear",
+      "points": [
+        "A",
+        "M",
+        "C"
+      ],
+      "basis": "Given: marked point lies on this original edge."
+    },
+    {
+      "id": "M_midpoint",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "M"
+        ],
+        [
+          "M",
+          "C"
+        ]
+      ],
+      "basis": "Given: every marked point is the midpoint of its edge."
+    },
+    {
+      "id": "N_on_edge",
+      "type": "collinear",
+      "points": [
+        "A",
+        "N",
+        "D"
+      ],
+      "basis": "Given: marked point lies on this original edge."
+    },
+    {
+      "id": "N_midpoint",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "N"
+        ],
+        [
+          "N",
+          "D"
+        ]
+      ],
+      "basis": "Given: every marked point is the midpoint of its edge."
+    },
+    {
+      "id": "P_on_edge",
+      "type": "collinear",
+      "points": [
+        "B",
+        "P",
+        "D"
+      ],
+      "basis": "Given: marked point lies on this original edge."
+    },
+    {
+      "id": "P_midpoint",
+      "type": "equal_length",
+      "segments": [
+        [
+          "B",
+          "P"
+        ],
+        [
+          "P",
+          "D"
+        ]
+      ],
+      "basis": "Given: every marked point is the midpoint of its edge."
+    },
+    {
+      "id": "Q_on_edge",
+      "type": "collinear",
+      "points": [
+        "B",
+        "Q",
+        "C"
+      ],
+      "basis": "Given: marked point lies on this original edge."
+    },
+    {
+      "id": "Q_midpoint",
+      "type": "equal_length",
+      "segments": [
+        [
+          "B",
+          "Q"
+        ],
+        [
+          "Q",
+          "C"
+        ]
+      ],
+      "basis": "Given: every marked point is the midpoint of its edge."
+    }
+  ],
+  "ambiguities": [
+    "Internal construction IDs are not visible labels. Coordinates supply a valid realization and add no unstated displayed lengths or right angles.",
+    "Projection is A=(0,0), B=(0,8), C=(-5,3), D=(4,1.35). AB is the foreground central edge. The red midpoint projects inside gray MNPQ. Faces ABC and ABD face the viewer; ACD and BCD are rear. CD is the only hidden solid edge. Section MN and PQ are hidden; NP and QM visible."
+  ]
+}

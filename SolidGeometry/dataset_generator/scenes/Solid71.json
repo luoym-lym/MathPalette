@@ -1,0 +1,460 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "Solid71",
+  "status": "user_approved",
+  "subject": "SolidGeometry",
+  "source_dataset": "Author designed",
+  "source_image": "NO_EXTERNAL_SOURCE",
+  "source_note": "New question designed for this conversation. No source screenshot was supplied; original_image is null. NO_EXTERNAL_SOURCE is a schema sentinel, not a file path. Generated baseline is not an original source image.",
+  "world_unit": "unspecified length unit",
+  "points": {
+    "A": [
+      0,
+      0,
+      0
+    ],
+    "B": [
+      12,
+      0,
+      0
+    ],
+    "C": [
+      0,
+      7,
+      0
+    ],
+    "T": [
+      0,
+      0,
+      12
+    ],
+    "U": [
+      12,
+      0,
+      12
+    ],
+    "V": [
+      0,
+      7,
+      12
+    ],
+    "M": [
+      6,
+      0,
+      0
+    ],
+    "N": [
+      0,
+      3.5,
+      0
+    ]
+  },
+  "projection": {
+    "kind": "oblique",
+    "name": "Frozen author-designed parallel projection",
+    "matrix": [
+      [
+        -0.6,
+        0.6,
+        0.0
+      ],
+      [
+        0.18,
+        0.3,
+        0.7
+      ]
+    ],
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "toward_viewer": [
+      -0.6362584783630236,
+      -0.6362584783630236,
+      0.43629152802035903
+    ],
+    "choice_reason": "Separate the original edges and section while placing true extra midpoints inside its 2D projection; no external screenshot exists."
+  },
+  "view": {
+    "xlim": [
+      -7.49184549297819,
+      4.509142039446911
+    ],
+    "ylim": [
+      -0.9722550051596937,
+      11.028732527265408
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86,
+      "include": [
+        "geometry",
+        "labels",
+        "dimensions",
+        "markers"
+      ],
+      "equal_scale": true,
+      "center": "content_bbox"
+    }
+  },
+  "visibility": {
+    "mode": "frozen_intervals",
+    "projection_sha256": "60b9c9df63d0124494b837a59968440db280c2a1447a9615b69b3d81d860e021",
+    "notes": "Computed from outward face normals for this convex solid; edge visible iff an incident face faces toward viewer. Each cut trace uses its supporting original face. Gray fill is semantic and does not cull original edges.",
+    "solid_faces": [
+      {
+        "id": "face_CBA",
+        "points": [
+          "C",
+          "B",
+          "A"
+        ],
+        "outward_normal": [
+          -0.0,
+          -0.0,
+          -1.0
+        ],
+        "offset": 0.0,
+        "toward_dot": -0.43629152802035903,
+        "front_facing": false
+      },
+      {
+        "id": "face_TUV",
+        "points": [
+          "T",
+          "U",
+          "V"
+        ],
+        "outward_normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "offset": 12.0,
+        "toward_dot": 0.43629152802035903,
+        "front_facing": true
+      },
+      {
+        "id": "face_ABUT",
+        "points": [
+          "A",
+          "B",
+          "U",
+          "T"
+        ],
+        "outward_normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "offset": 0.0,
+        "toward_dot": 0.6362584783630236,
+        "front_facing": true
+      },
+      {
+        "id": "face_BCVU",
+        "points": [
+          "B",
+          "C",
+          "V",
+          "U"
+        ],
+        "outward_normal": [
+          0.5038710255240861,
+          0.8637789008984335,
+          0.0
+        ],
+        "offset": 6.046452306289034,
+        "toward_dot": -0.8701788611188935,
+        "front_facing": false
+      },
+      {
+        "id": "face_CATV",
+        "points": [
+          "C",
+          "A",
+          "T",
+          "V"
+        ],
+        "outward_normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "offset": 0.0,
+        "toward_dot": 0.6362584783630236,
+        "front_facing": true
+      }
+    ]
+  },
+  "objects": [
+    {
+      "id": "cut_fill",
+      "type": "face",
+      "points": [
+        "T",
+        "M",
+        "N"
+      ],
+      "role": "section",
+      "visibility": "visible",
+      "semantic_fill_reason": "Full convex-solid intersection with the specified cutting plane; semantic gray fill, not opaque surface culling."
+    },
+    {
+      "id": "edge_BC",
+      "type": "segment",
+      "points": [
+        "B",
+        "C"
+      ],
+      "role": "edge",
+      "visibility": "hidden",
+      "supporting_faces": [
+        "face_CBA",
+        "face_BCVU"
+      ]
+    },
+    {
+      "id": "edge_AB",
+      "type": "segment",
+      "points": [
+        "A",
+        "B"
+      ],
+      "role": "edge",
+      "visibility": "visible",
+      "supporting_faces": [
+        "face_CBA",
+        "face_ABUT"
+      ]
+    },
+    {
+      "id": "edge_AC",
+      "type": "segment",
+      "points": [
+        "A",
+        "C"
+      ],
+      "role": "edge",
+      "visibility": "visible",
+      "supporting_faces": [
+        "face_CBA",
+        "face_CATV"
+      ]
+    },
+    {
+      "id": "edge_TU",
+      "type": "segment",
+      "points": [
+        "T",
+        "U"
+      ],
+      "role": "edge",
+      "visibility": "visible",
+      "supporting_faces": [
+        "face_TUV",
+        "face_ABUT"
+      ]
+    },
+    {
+      "id": "edge_UV",
+      "type": "segment",
+      "points": [
+        "U",
+        "V"
+      ],
+      "role": "edge",
+      "visibility": "visible",
+      "supporting_faces": [
+        "face_TUV",
+        "face_BCVU"
+      ]
+    },
+    {
+      "id": "edge_TV",
+      "type": "segment",
+      "points": [
+        "T",
+        "V"
+      ],
+      "role": "edge",
+      "visibility": "visible",
+      "supporting_faces": [
+        "face_TUV",
+        "face_CATV"
+      ]
+    },
+    {
+      "id": "edge_BU",
+      "type": "segment",
+      "points": [
+        "B",
+        "U"
+      ],
+      "role": "edge",
+      "visibility": "visible",
+      "supporting_faces": [
+        "face_ABUT",
+        "face_BCVU"
+      ]
+    },
+    {
+      "id": "edge_AT",
+      "type": "segment",
+      "points": [
+        "A",
+        "T"
+      ],
+      "role": "edge",
+      "visibility": "visible",
+      "supporting_faces": [
+        "face_ABUT",
+        "face_CATV"
+      ]
+    },
+    {
+      "id": "edge_CV",
+      "type": "segment",
+      "points": [
+        "C",
+        "V"
+      ],
+      "role": "edge",
+      "visibility": "visible",
+      "supporting_faces": [
+        "face_BCVU",
+        "face_CATV"
+      ]
+    },
+    {
+      "id": "section_TM",
+      "type": "segment",
+      "points": [
+        "T",
+        "M"
+      ],
+      "role": "section",
+      "visibility": "visible",
+      "supporting_faces": [
+        "face_ABUT"
+      ]
+    },
+    {
+      "id": "section_MN",
+      "type": "segment",
+      "points": [
+        "M",
+        "N"
+      ],
+      "role": "section",
+      "visibility": "hidden",
+      "supporting_faces": [
+        "face_CBA"
+      ]
+    },
+    {
+      "id": "section_NT",
+      "type": "segment",
+      "points": [
+        "N",
+        "T"
+      ],
+      "role": "section",
+      "visibility": "visible",
+      "supporting_faces": [
+        "face_CATV"
+      ]
+    },
+    {
+      "id": "midpoint_M",
+      "type": "point",
+      "point": "M",
+      "role": "given_point",
+      "visibility": "visible"
+    },
+    {
+      "id": "midpoint_N",
+      "type": "point",
+      "point": "N",
+      "role": "given_point",
+      "visibility": "visible"
+    }
+  ],
+  "labels": [
+    {
+      "id": "label_A",
+      "type": "vertex",
+      "text": "A",
+      "anchor": "A",
+      "offset_pt": [
+        0,
+        -8
+      ],
+      "ha": "center",
+      "va": "top"
+    }
+  ],
+  "dimensions": [],
+  "constraints": [
+    {
+      "id": "M_on_edge",
+      "type": "collinear",
+      "points": [
+        "A",
+        "M",
+        "B"
+      ],
+      "basis": "Given: marked point lies on this original edge."
+    },
+    {
+      "id": "M_midpoint",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "M"
+        ],
+        [
+          "M",
+          "B"
+        ]
+      ],
+      "basis": "Given: every marked point is the midpoint of its edge."
+    },
+    {
+      "id": "N_on_edge",
+      "type": "collinear",
+      "points": [
+        "A",
+        "N",
+        "C"
+      ],
+      "basis": "Given: marked point lies on this original edge."
+    },
+    {
+      "id": "N_midpoint",
+      "type": "equal_length",
+      "segments": [
+        [
+          "A",
+          "N"
+        ],
+        [
+          "N",
+          "C"
+        ]
+      ],
+      "basis": "Given: every marked point is the midpoint of its edge."
+    }
+  ],
+  "ambiguities": [
+    "Internal construction IDs are not visible labels. Coordinates supply a valid realization and add no unstated displayed lengths or right angles.",
+    "The complete prism outline and top triangle TUV must remain clear; only bottom midpoints M,N are black. Foreground lateral edge AT carries the red midpoint. The actual cut is triangular, not a parallel-to-base cut."
+  ]
+}

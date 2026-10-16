@@ -9,6 +9,7 @@ from matplotlib.colors import to_hex
 from matplotlib.path import Path
 
 from renderer_adapter import RENDER_LOCK
+from partial_style import describe_paths
 
 
 # Geometry annotation presets are fixed by the confirmed workbench requirements.
@@ -82,6 +83,7 @@ def describe_captured_scene(scene, qid):
                 styles.append({"color": color, "linewidth_pt": linewidth,
                                "linestyle": "dashed" if dashed else "solid"})
         targets.append({"id": obj["id"], "kind": obj["kind"], "paths": paths,
+                        "partial_paths": describe_paths(scene, obj["id"]),
                         "source_call": obj["source_call"], **styles[0], "fragment_styles": styles})
     # The actual affine transforms account for the frozen viewport and equal aspect.
     transform = scene.ax.transData.get_affine().get_matrix()
