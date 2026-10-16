@@ -12,7 +12,7 @@ class Plane113:
     def __init__(self):
         self.id = 'Plane113'
         self.source_dataset = 'Author designed'
-        self.question = '图中不同图形之间共有多少个交点？'
+        self.question = 'Count the intersection points in the figure.'
         self.query = self.question
         self.answer = 6
         self.answer_type = 'number'
