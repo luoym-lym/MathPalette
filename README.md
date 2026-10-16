@@ -1,13 +1,13 @@
 # MathPalette
 
-本目录只收集用户确认的正式题目。当前 **225 题**：Analytics 51、PlaneGeometry 102、SolidGeometry 72。来源为 DynaMath 20 题、MathVerse 125 题、MathVista 56 题、SOLIDGEO 9 题、Author designed 15 题。
+本目录只收集用户确认的正式题目。当前 **237 题**：Analytics 51、PlaneGeometry 114、SolidGeometry 72。来源为 DynaMath 20 题、MathVerse 125 题、MathVista 56 题、SOLIDGEO 9 题、Author designed 27 题。
 
 | 内容 | 数量 / 入口 |
 | --- | --- |
-| 正式原题 | [question_bank.jsonl](question_bank.jsonl)，225 条 |
+| 正式原题 | [question_bank.jsonl](question_bank.jsonl)，237 条 |
 | 自动 Base | Analytics 每题 4 张，共 184 张及对应插件 |
 | 人工 Special | 当前 Analytics 共 113 张，保留原 Pass / Collect 时间 |
-| 来源截图 | MathVerse 57 张、MathVista 56 张、SOLIDGEO 9 张；DynaMath 20 题的来源截图在原库中缺失 |
+| 来源截图 | MathVerse 125 张、MathVista 56 张、SOLIDGEO 9 张，另有 3 张作者提供的参考图；DynaMath 20 题的来源截图在原库中缺失 |
 | 解析几何 Special 工作台 | 双击 [Analytics/start_special_workbench.cmd](Analytics/start_special_workbench.cmd)，端口 8767 |
 | 平面几何 Special 工作台 | 双击 [PlaneGeometry/start_special_workbench.cmd](PlaneGeometry/start_special_workbench.cmd)，端口 8768 |
 | 立体几何 Special 工作台 | 双击 [SolidGeometry/start_special_workbench.cmd](SolidGeometry/start_special_workbench.cmd)，端口 8769 |
@@ -17,6 +17,8 @@
 | SOLIDGEO 来源与清理记录 | [来源署名](provenance/SOLIDGEO_ATTRIBUTION.md)、[保留题目与清理核验](provenance/solidgeo_cleanup.json) |
 
 Ana01～Ana20 来自 DynaMath，Ana21～Ana45 来自 MathVerse，Ana46 来自 MathVista。Plane01～Plane16 来自 MathVerse，Plane17～Plane71 来自 MathVista；Solid01～Solid16 来自 MathVerse，Solid17～Solid25 来自 SOLIDGEO。图片、绘图类、Base 插件和工作台使用相同题号。清理前编号仅保存在 [迁移记录](provenance/cleanup.json) 中。
+
+Plane109～Plane114 为用户确认收集的六道原创交点计数题，来源统一为 `Author designed`，按 `temp/requested_six` 的图1～图6顺序入库，答案依次为 6、4、5、6、6、8。正式数据保留黑白原图、冻结场景和逐题绘图程序；构造、独立求交和像素复现核验见 [来源记录](provenance/source_notes.json)。没有外部来源图片，`original_image` 为 `null`；暂存红点诱导图未收集为 Special。
 
 ## 数据内容
 
