@@ -16,13 +16,14 @@ from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 from http.server import ThreadingHTTPServer
 
-from quick_test import QuickTests, TEST_PROFILES, call_minimax, load_api_key, parse_response
+from quick_test import QuickTests, TEST_PROFILES, MIMO_API_BASE, call_model, call_minimax, load_api_key, parse_response
 from review_store import Workbench
 from server import make_handler
 from workbench_io import WorkbenchError, load_config
 
 PROJECT = Path(__file__).resolve().parents[2]
 KEY = "sk-cp-quick-test-fixture"
+MIMO_KEY = "tp-quick-test-fixture"
 RESULT = {"answer": "(2, 2)", "thinking": "Fixture reasoning <script>never execute</script>",
           "usage": {"total_tokens": 30}, "finish_reason": "stop", "response_model": "MiniMax-M3", "truncated": False}
 SETTINGS = {"model": "MiniMax-M3", "api_base": "https://api.minimaxi.com/v1"}
@@ -72,6 +73,51 @@ class ClientTests(unittest.TestCase):
         self.assertEqual((result["answer"], result["thinking"]), ("final", "brief reasoning"))
         self.assertNotIn(KEY, request.data.decode())
 
+    def test_mimo_modes_use_token_plan_with_separate_reasoning(self):
+        for profile, thinking in (("quicktest3", "disabled"), ("quicktest4", "enabled")):
+            with self.subTest(profile=profile):
+                response = {"model": "mimo-v2.6-flash", "choices": [{"message": {
+                    "content": "final", "reasoning_content": "reasoning" if thinking == "enabled" else ""},
+                    "finish_reason": "stop"}], "usage": {"total_tokens": 123}}
+                settings = {**TEST_PROFILES[profile], "api_base": MIMO_API_BASE}
+                with patch("quick_test.build_opener") as opener:
+                    opener.return_value.open.return_value = io.BytesIO(json.dumps(response).encode())
+                    result = call_model(settings, MIMO_KEY, "QUESTION ONLY", b"exact candidate PNG")
+                    request = opener.return_value.open.call_args.args[0]
+                    self.assertIsNone(opener.return_value.open.call_args.kwargs["timeout"])
+                    self.assertEqual(opener.return_value.open.call_count, 1)
+                payload = json.loads(request.data)
+                self.assertEqual(set(payload), {"model", "stream", "thinking", "messages"})
+                self.assertEqual(payload["model"], "mimo-v2.6-flash")
+                self.assertEqual(payload["thinking"], {"type": thinking})
+                self.assertFalse(payload["stream"])
+                self.assertEqual(payload["messages"][1]["content"][0]["text"], "QUESTION ONLY")
+                url = payload["messages"][1]["content"][1]["image_url"]["url"]
+                self.assertEqual(base64.b64decode(url.split(",", 1)[1]), b"exact candidate PNG")
+                self.assertEqual(request.full_url, MIMO_API_BASE + "/chat/completions")
+                self.assertEqual(request.get_header("Authorization"), "Bearer " + MIMO_KEY)
+                self.assertNotIn(MIMO_KEY, request.data.decode())
+                self.assertEqual(result["answer"], "final")
+                self.assertEqual(result["thinking"], "reasoning" if thinking == "enabled" else "")
+                self.assertEqual(result["usage"]["total_tokens"], 123)
+
+    def test_mimo_errors_redact_token_plan_keys_and_do_not_retry(self):
+        settings = {**TEST_PROFILES["quicktest4"], "api_base": MIMO_API_BASE}
+        error = HTTPError(MIMO_API_BASE, 401, "Unauthorized", {}, io.BytesIO(json.dumps({
+            "error": {"message": "bad " + MIMO_KEY + " tp-other-secret ttp-team-secret"}}).encode()))
+        with patch("quick_test.build_opener") as opener:
+            opener.return_value.open.side_effect = error
+            with self.assertRaises(WorkbenchError) as raised:
+                call_model(settings, MIMO_KEY, "question", b"image")
+            self.assertEqual(opener.return_value.open.call_count, 1)
+        self.assertIn("MiMo HTTP 401", str(raised.exception))
+        for key in (MIMO_KEY, "tp-other-secret", "ttp-team-secret"):
+            self.assertNotIn(key, str(raised.exception))
+        with patch("quick_test.build_opener") as opener:
+            with self.assertRaises(WorkbenchError):
+                call_model({**settings, "api_base": SETTINGS["api_base"]}, MIMO_KEY, "question", b"image")
+            opener.assert_not_called()
+
     def test_truncation_and_missing_thinking(self):
         result = parse_response({"choices": [{"message": {"reasoning_content": "partial"}, "finish_reason": "length"}]})
         self.assertTrue(result["truncated"])
@@ -110,6 +156,11 @@ class ClientTests(unittest.TestCase):
             self.assertTrue(Path(directory).resolve().is_relative_to(fixture_parent.resolve()))
             Path(directory, ".env").write_text('export MINIMAX_API_KEY="' + KEY + '"\n', encoding="utf-8")
             self.assertEqual(load_api_key(directory), KEY)
+            Path(directory, ".env").write_text("MINIMAX_API_KEY=" + KEY + "\nexport MIMO_API_KEY='" + MIMO_KEY + "'\n", encoding="utf-8")
+            with patch.dict(os.environ, {"MIMO_API_KEY": ""}):
+                self.assertEqual(load_api_key(directory, "MIMO_API_KEY"), MIMO_KEY)
+            with patch.dict(os.environ, {"MIMO_API_KEY": "tp-env-fixture"}):
+                self.assertEqual(load_api_key(directory, "MIMO_API_KEY"), "tp-env-fixture")
 
 
 class WorkflowTests(unittest.TestCase):
@@ -145,7 +196,7 @@ class WorkflowTests(unittest.TestCase):
         cls.temporary.cleanup()
 
     def setUp(self):
-        self.environment = patch.dict(os.environ, {"MINIMAX_API_KEY": KEY})
+        self.environment = patch.dict(os.environ, {"MINIMAX_API_KEY": KEY, "MIMO_API_KEY": MIMO_KEY})
         self.environment.start()
 
     def tearDown(self):
@@ -158,10 +209,10 @@ class WorkflowTests(unittest.TestCase):
         self.assertIsNone(manager.active)
         return manager.snapshot(self.bench.snapshot())["jobs"][profile]
 
-    def test_two_modes_keep_independent_results_and_restore_legacy_m3(self):
+    def test_four_modes_keep_independent_results_and_restore_legacy_m3(self):
         calls = []
         def provider(settings, key, question, image):
-            calls.append(copy.deepcopy(settings))
+            calls.append((copy.deepcopy(settings), key))
             return {**RESULT, "answer": settings["model"], "response_model": settings["model"]}
         manager = QuickTests(self.bench, provider)
         before = copy.deepcopy(self.bench.progress)
@@ -170,7 +221,14 @@ class WorkflowTests(unittest.TestCase):
             manager.start({**self.body, "profile": profile})
             saved[profile] = self.wait_done(manager, profile)
             self.assertEqual(saved[profile]["model"], TEST_PROFILES[profile]["model"])
-        first, second = calls
+        self.assertEqual([key for _, key in calls], [KEY, KEY, MIMO_KEY, MIMO_KEY])
+        first, second, third, fourth = [settings for settings, _ in calls]
+        self.assertEqual(third["api_base"], MIMO_API_BASE)
+        self.assertEqual(fourth["api_base"], MIMO_API_BASE)
+        self.assertEqual(third["thinking"], {"type": "disabled"})
+        self.assertEqual(fourth["thinking"], {"type": "enabled"})
+        self.assertNotIn("reasoning_effort", third)
+        self.assertNotIn("reasoning_effort", fourth)
         self.assertEqual(first["thinking"], {"type": "disabled"})
         self.assertNotIn("reasoning_effort", first)
         self.assertEqual(second["thinking"], {"type": "adaptive"})
@@ -180,6 +238,7 @@ class WorkflowTests(unittest.TestCase):
         self.assertEqual(snapshot["job"], saved["quicktest1"])
         self.assertEqual(self.bench.progress, before)
         self.assertNotIn(KEY, json.dumps(snapshot))
+        self.assertNotIn(MIMO_KEY, json.dumps(snapshot))
         # Existing M3 cache filenames and records without a profile remain readable.
         legacy = dict(saved["quicktest1"])
         for name in ("profile", "thinking_mode", "reasoning_effort"):
@@ -189,10 +248,57 @@ class WorkflowTests(unittest.TestCase):
         restored = QuickTests(self.bench, lambda *args: self.fail("Restoring must not call the model"))
         jobs = restored.snapshot(self.bench.snapshot())["jobs"]
         self.assertEqual(jobs["quicktest1"]["run_id"], saved["quicktest1"]["run_id"])
-        self.assertEqual(jobs["quicktest2"], saved["quicktest2"])
+        for profile in ("quicktest2", "quicktest3", "quicktest4"):
+            self.assertEqual(jobs[profile], saved[profile])
         stale = self.bench.snapshot()
         stale["candidate"] = {**stale["candidate"], "pixel_sha256": "changed"}
-        self.assertEqual(restored.snapshot(stale)["jobs"], {"quicktest1": None, "quicktest2": None})
+        self.assertEqual(restored.snapshot(stale)["jobs"], {profile: None for profile in TEST_PROFILES})
+        restored.close()
+
+    def test_provider_credentials_enable_profiles_independently(self):
+        calls = []
+        manager = QuickTests(self.bench, lambda *args: calls.append(args) or copy.deepcopy(RESULT))
+        try:
+            for available, enabled in (("MIMO_API_KEY", {"quicktest3", "quicktest4"}),
+                                       ("MINIMAX_API_KEY", {"quicktest1", "quicktest2"})):
+                with self.subTest(available=available), patch("quick_test.load_api_key", side_effect=
+                        lambda project, variable="MINIMAX_API_KEY": "fixture-key" if variable == available else ""):
+                    snapshot = manager.snapshot(self.bench.snapshot())
+                    self.assertEqual(snapshot["configured"], available == "MINIMAX_API_KEY")
+                    self.assertEqual(snapshot["configured_profiles"], {p: p in enabled for p in TEST_PROFILES})
+                    for profile in set(TEST_PROFILES) - enabled:
+                        with self.assertRaises(WorkbenchError) as raised:
+                            manager.start({**self.body, "profile": profile})
+                        self.assertEqual(raised.exception.code, "missing_api_key")
+                        missing = "MINIMAX_API_KEY" if profile in ("quicktest1", "quicktest2") else "MIMO_API_KEY"
+                        self.assertIn(missing, str(raised.exception))
+            self.assertFalse(calls)
+        finally:
+            manager.close()
+
+    def test_mimo_inflight_prevents_cross_provider_calls(self):
+        entered, release, finished = threading.Event(), threading.Event(), threading.Event()
+        calls = []
+        def provider(settings, *args):
+            calls.append(settings["provider"])
+            entered.set(); release.wait(5); finished.set()
+            return copy.deepcopy(RESULT)
+        manager = QuickTests(self.bench, provider)
+        body = {**self.body, "profile": "quicktest4"}
+        try:
+            job = manager.start(body)
+            self.assertTrue(entered.wait(2))
+            self.assertEqual(manager.start(body)["run_id"], job["run_id"])
+            for profile in ("quicktest1", "quicktest2", "quicktest3"):
+                with self.assertRaises(WorkbenchError) as raised:
+                    manager.start({**self.body, "profile": profile})
+                self.assertEqual(raised.exception.code, "quick_test_running")
+            self.assertEqual(calls, ["mimo"])
+        finally:
+            manager.close(); release.set()
+        self.assertTrue(finished.wait(2))
+        restored = QuickTests(self.bench, lambda *args: self.fail("Do not retry automatically"))
+        self.assertEqual(restored.snapshot(self.bench.snapshot())["jobs"]["quicktest4"]["status"], "interrupted")
         restored.close()
 
     def test_invalid_mode_never_calls_provider(self):
@@ -327,15 +433,22 @@ class WorkflowTests(unittest.TestCase):
                 urlopen(request)
             self.assertEqual(raised.exception.code, 403)
             self.assertFalse(calls)
-            request.add_header("X-Review-Token", self.bench.review_token)
-            with urlopen(request) as response:
-                self.assertEqual(response.status, 202)
-            self.wait_done(manager, "quicktest2")
-            with urlopen(base + "/api/state") as response:
-                state = json.load(response)
-            self.assertEqual(state["quick_test"]["jobs"]["quicktest2"]["status"], "completed")
-            self.assertEqual(state["quick_test"]["jobs"]["quicktest2"]["reasoning_effort"], "low")
-            self.assertNotIn(KEY, json.dumps(state))
+            for profile in ("quicktest2", "quicktest3", "quicktest4"):
+                request = Request(base + "/api/quick-test", data=json.dumps({**self.body, "profile": profile}).encode(),
+                                  headers={"Content-Type": "application/json", "X-Review-Token": self.bench.review_token})
+                with urlopen(request) as response:
+                    self.assertEqual(response.status, 202)
+                self.wait_done(manager, profile)
+                with urlopen(base + "/api/state") as response:
+                    state = json.load(response)
+                saved = state["quick_test"]["jobs"][profile]
+                self.assertEqual(saved["status"], "completed")
+                self.assertEqual(saved["thinking_mode"], TEST_PROFILES[profile]["thinking"]["type"])
+                self.assertEqual(saved["provider"], TEST_PROFILES[profile]["provider"])
+                self.assertEqual(calls[-1][1], MIMO_KEY if saved["provider"] == "mimo" else KEY)
+                self.assertNotIn(KEY, json.dumps(state))
+                self.assertNotIn(MIMO_KEY, json.dumps(state))
+            self.assertEqual(len(calls), 3)
         finally:
             server.shutdown(); server.server_close(); thread.join(); manager.close()
 

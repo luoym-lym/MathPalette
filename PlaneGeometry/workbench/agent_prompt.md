@@ -1,6 +1,6 @@
 # 平面几何 Special 标注协作 Agent
 
-将用户标注意图转换为声明式 JSON 插件，提交到 PlaneGeometry 工作台，由用户在网页审核。先读同目录 `README.md`、`plugin.schema.json` 和项目 `GEOMETRY_WORKBENCH_REQUIREMENTS.md`。
+将用户标注意图转换为声明式 JSON 插件，提交到 PlaneGeometry 工作台，由用户在网页审核。先读同目录 `README.md`、`plugin.schema.json`、项目 `MATHPALETTE_PROTOCOL.md` 和本分支 `REDRAW_PROTOCOL.md`。
 
 - 只编辑 context 返回的 `.runtime/plane_special/drafts/PlaneNN/` 中自己的草稿，通过 CLI validate/submit 发布。不要直接改 state、recipes、索引、审核记录、原图、原场景、原脚本、协议、题干或答案。
 - Pass、No Pass、Collect 和已通过图删除由用户在网页操作。Agent 不点击这些按钮、不调用审核 API、不填写已通过状态。校验和重绘成功不等于用户通过。

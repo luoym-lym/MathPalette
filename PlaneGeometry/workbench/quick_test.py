@@ -21,22 +21,31 @@ SYSTEM_PROMPT = (
     "include the option letter in your final answer."
 )
 API_BASES = {"https://api.minimaxi.com/v1", "https://api.minimax.io/v1"}
+MIMO_API_BASE = "https://token-plan-cn.xiaomimimo.com/v1"
+PROVIDERS = {
+    "minimax": {"label": "MiniMax", "api_key_env": "MINIMAX_API_KEY", "api_bases": API_BASES},
+    "mimo": {"label": "小米 MiMo", "api_key_env": "MIMO_API_KEY", "api_bases": {MIMO_API_BASE}},
+}
 MAX_RESPONSE_BYTES = 8 * 1024 * 1024
 TEST_PROFILES = {
-    "quicktest1": {"label": "Quick Test 1", "model": "MiniMax-M3",
+    "quicktest1": {"label": "Quick Test 1", "provider": "minimax", "model": "MiniMax-M3",
                    "thinking": {"type": "disabled"}},
-    "quicktest2": {"label": "Quick Test 2", "model": "MiniMax-M3.1-Flash-Preview",
+    "quicktest2": {"label": "Quick Test 2", "provider": "minimax", "model": "MiniMax-M3.1-Flash-Preview",
                    "thinking": {"type": "adaptive"}, "reasoning_effort": "low"},
+    "quicktest3": {"label": "Quick Test 3", "provider": "mimo", "model": "mimo-v2.6-flash",
+                   "thinking": {"type": "disabled"}},
+    "quicktest4": {"label": "Quick Test 4", "provider": "mimo", "model": "mimo-v2.6-flash",
+                   "thinking": {"type": "enabled"}},
 }
 DEFAULT_PROFILE = "quicktest1"
 
 
-def load_api_key(project):
-    key = os.environ.get("MINIMAX_API_KEY", "").strip()
+def load_api_key(project, variable="MINIMAX_API_KEY"):
+    key = os.environ.get(variable, "").strip()
     path = Path(project) / ".env"
     if not key and path.is_file():
         for line in path.read_text(encoding="utf-8-sig").splitlines():
-            match = re.match(r"\s*(?:export\s+)?MINIMAX_API_KEY\s*=\s*(.*?)\s*$", line)
+            match = re.match(rf"\s*(?:export\s+)?{re.escape(variable)}\s*=\s*(.*?)\s*$", line)
             if match:
                 key = match.group(1).strip()
                 if len(key) >= 2 and key[0] == key[-1] and key[0] in "\"'":
@@ -49,7 +58,7 @@ def load_api_key(project):
 
 def safe_error(message, key):
     message = str(message).replace(key, "[REDACTED]") if key else str(message)
-    return re.sub(r"sk-[A-Za-z0-9_-]+", "[REDACTED]", message)[:1000]
+    return re.sub(r"(?:sk|tp|ttp)-[A-Za-z0-9_-]+", "[REDACTED]", message)[:1000]
 
 
 class NoRedirect(HTTPRedirectHandler):
@@ -58,22 +67,22 @@ class NoRedirect(HTTPRedirectHandler):
         return None
 
 
-def parse_response(data):
+def parse_response(data, provider="MiniMax"):
     if not isinstance(data, dict):
-        raise WorkbenchError("MiniMax 返回了无效响应。", 502, "model_response_invalid")
+        raise WorkbenchError(f"{provider} 返回了无效响应。", 502, "model_response_invalid")
     base = data.get("base_resp") or {}
     if data.get("error") or base.get("status_code", 0) != 0:
         error = data.get("error") or base
         message = error.get("message") or error.get("status_msg") if isinstance(error, dict) else str(error)
-        raise WorkbenchError("MiniMax：" + str(message), 502, "model_request_failed")
+        raise WorkbenchError(provider + "：" + str(message), 502, "model_request_failed")
     choices = data.get("choices")
     if not isinstance(choices, list) or not choices or not isinstance(choices[0], dict):
-        raise WorkbenchError("MiniMax 没有返回回答。", 502, "model_response_invalid")
+        raise WorkbenchError(f"{provider} 没有返回回答。", 502, "model_response_invalid")
     choice = choices[0]
     message = choice.get("message") or {}
     answer, thinking = message.get("content") or "", message.get("reasoning_content") or ""
     if not isinstance(answer, str) or not isinstance(thinking, str):
-        raise WorkbenchError("MiniMax 返回了无法识别的回答格式。", 502, "model_response_invalid")
+        raise WorkbenchError(f"{provider} 返回了无法识别的回答格式。", 502, "model_response_invalid")
     # Some compatible responses still place thinking inside content.
     embedded = re.findall(r"<think>(.*?)</think>", answer, flags=re.DOTALL)
     if embedded:
@@ -81,13 +90,17 @@ def parse_response(data):
             thinking = "\n\n".join(embedded)
         answer = re.sub(r"<think>.*?</think>", "", answer, flags=re.DOTALL)
     if not answer.strip() and not thinking.strip():
-        raise WorkbenchError("MiniMax 返回了空回答。", 502, "model_response_invalid")
+        raise WorkbenchError(f"{provider} 返回了空回答。", 502, "model_response_invalid")
     return {"answer": answer.strip(), "thinking": thinking.strip(),
             "finish_reason": choice.get("finish_reason"), "usage": data.get("usage") or {},
             "response_model": data.get("model"), "truncated": choice.get("finish_reason") == "length"}
 
 
-def call_minimax(settings, key, question, image):
+def call_model(settings, key, question, image):
+    provider = PROVIDERS[settings.get("provider", "minimax")]
+    label = provider["label"]
+    if settings["api_base"] not in provider["api_bases"]:
+        raise WorkbenchError(f"{label} 接口地址无效。")
     payload = {"model": settings["model"], "stream": False,
                "thinking": copy.deepcopy(settings.get("thinking", {"type": "disabled"})),
                "messages": [{"role": "system", "content": SYSTEM_PROMPT},
@@ -105,31 +118,35 @@ def call_minimax(settings, key, question, image):
         with build_opener(NoRedirect()).open(request, timeout=None) as response:
             raw = response.read(MAX_RESPONSE_BYTES + 1)
         if len(raw) > MAX_RESPONSE_BYTES:
-            raise WorkbenchError("MiniMax 响应过大，已停止读取。", 502, "model_response_invalid")
-        return parse_response(json.loads(raw))
+            raise WorkbenchError(f"{label} 响应过大，已停止读取。", 502, "model_response_invalid")
+        return parse_response(json.loads(raw), label)
     except HTTPError as error:
         hints = {401: "Key 无效或与国内/国际区不匹配", 403: "当前 Key 没有此模型的调用权限",
                  429: "达到套餐额度或速率限制，请稍后手动重试"}
         detail = hints.get(error.code, "模型请求失败")
         try:
             body = json.loads(error.read(16384))
-            provider = body.get("error") or body.get("base_resp") or {}
-            if isinstance(provider, dict):
-                detail += "：" + str(provider.get("message") or provider.get("status_msg") or "")
+            provider_error = body.get("error") or body.get("base_resp") or {}
+            if isinstance(provider_error, dict):
+                detail += "：" + str(provider_error.get("message") or provider_error.get("status_msg") or "")
         except (ValueError, OSError, AttributeError):
             pass
-        raise WorkbenchError(f"MiniMax HTTP {error.code} — {safe_error(detail, key)}",
+        raise WorkbenchError(f"{label} HTTP {error.code} — {safe_error(detail, key)}",
                              502, "model_request_failed") from None
     except (TimeoutError, URLError) as error:
         timed_out = isinstance(error, TimeoutError) or isinstance(getattr(error, "reason", None), TimeoutError)
-        detail = "模型请求超时，可手动重试。" if timed_out else "无法连接 MiniMax，请检查网络后重试。"
+        detail = "模型请求超时，可手动重试。" if timed_out else f"无法连接 {label}，请检查网络后重试。"
         raise WorkbenchError(detail, 502, "model_request_failed") from None
     except (ValueError, UnicodeError):
-        raise WorkbenchError("MiniMax 返回的响应不是有效 JSON。", 502, "model_response_invalid") from None
+        raise WorkbenchError(f"{label} 返回的响应不是有效 JSON。", 502, "model_response_invalid") from None
+
+
+def call_minimax(settings, key, question, image):
+    return call_model({**settings, "provider": "minimax"}, key, question, image)
 
 
 class QuickTests:
-    def __init__(self, workbench, caller=call_minimax):
+    def __init__(self, workbench, caller=call_model):
         self.workbench, self.caller = workbench, caller
         self.project = Path(workbench.config["config_path"]).resolve().parents[2]
         self.root = contained_path(workbench.root, "quick_tests")
@@ -137,6 +154,9 @@ class QuickTests:
                          **workbench.config.get("quick_test", {})}
         if self.settings["api_base"] not in API_BASES or self.settings["model"] != "MiniMax-M3":
             raise WorkbenchError("Quick Test 须使用 MiniMax 官方接口；默认模型为 MiniMax-M3。")
+        self.mimo_api_base = self.settings.pop("mimo_api_base", MIMO_API_BASE)
+        if self.mimo_api_base not in PROVIDERS["mimo"]["api_bases"]:
+            raise WorkbenchError("Quick Test 3、4 须使用小米 Token Plan 官方接口。")
         self.lock, self.active, self.closed = threading.RLock(), None, False
 
     def _path(self, cid, profile=DEFAULT_PROFILE):
@@ -172,8 +192,12 @@ class QuickTests:
                         "parameter_key": candidate["parameter_key"], "input_revision": state["input_revision"]}.items())):
                         job = None
                     jobs[profile] = job
+            configured = {name: bool(load_api_key(self.project, provider["api_key_env"]))
+                          for name, provider in PROVIDERS.items()}
             return {"model": self.settings["model"], "profiles": copy.deepcopy(TEST_PROFILES),
-                    "configured": bool(load_api_key(self.project)),
+                    "configured": configured["minimax"],
+                    "configured_profiles": {profile: configured[settings["provider"]]
+                                            for profile, settings in TEST_PROFILES.items()},
                     "running_candidate_id": self.active["candidate_id"] if self.active else None,
                     "running_profile": self.active["profile"] if self.active else None,
                     "jobs": jobs, "job": jobs[DEFAULT_PROFILE]}
@@ -183,12 +207,16 @@ class QuickTests:
         if not isinstance(profile, str) or profile not in TEST_PROFILES:
             raise WorkbenchError("Quick Test 模式无效。", 400, "invalid_quick_test_profile")
         settings = {**self.settings, **copy.deepcopy(TEST_PROFILES[profile])}
+        provider = PROVIDERS[settings["provider"]]
+        if settings["provider"] == "mimo":
+            settings["api_base"] = self.mimo_api_base
+            settings.pop("reasoning_effort", None)
         packet, image = self.workbench.quick_test_input(
             body["question_id"], body["candidate_id"], body["context_token"],
             body["pixel_sha256"], body["parameter_key"])
-        key = load_api_key(self.project)
+        key = load_api_key(self.project, provider["api_key_env"])
         if not key:
-            raise WorkbenchError("请在项目 .env 中配置 MINIMAX_API_KEY 后重试。", 400, "missing_api_key")
+            raise WorkbenchError(f"请在项目 .env 中配置 {provider['api_key_env']} 后重试。", 400, "missing_api_key")
         with self.lock:
             if self.closed:
                 raise WorkbenchError("工作台正在停止，请重启后再试。", 409, "server_stopping")
@@ -197,7 +225,7 @@ class QuickTests:
                     return copy.deepcopy(self.active)
                 raise WorkbenchError("已有一个 Quick Test 正在运行，请等待完成。", 409, "quick_test_running")
             job = {**packet, "run_id": uuid.uuid4().hex, "status": "running", "started_at": timestamp(),
-                   "profile": profile, "model": settings["model"], "thinking_mode": settings["thinking"]["type"],
+                   "profile": profile, "provider": settings["provider"], "model": settings["model"], "thinking_mode": settings["thinking"]["type"],
                    "reasoning_effort": settings.get("reasoning_effort"), "answer": "", "thinking": "", "error": None}
             atomic_json(self._path(job["candidate_id"], job["profile"]), job)
             self.active = job

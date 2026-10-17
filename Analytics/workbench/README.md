@@ -4,10 +4,10 @@
 
 ## 启动与手动标注
 
-双击本目录的 `start_workbench.cmd`，或数据集目录的 `start_special_workbench.cmd`。打开 http://127.0.0.1:8767 。也可以从 Research 目录执行：
+双击本目录的 `start_workbench.cmd`，或数据集目录的 `start_special_workbench.cmd`。打开 http://127.0.0.1:8767 。也可以从项目根目录执行：
 
 ```powershell
-python -X utf8 -B MathPalette/Analytics/workbench/launch_workbench.py
+python -X utf8 -B Analytics/workbench/launch_workbench.py
 ```
 
 启动器会检查 `requirements.txt` 和已通过 recipes 中冻结的环境版本，自动寻找匹配的 Python，并打印实际使用的路径与版本。它会检查当前 Python、项目虚拟环境、本机 Miniconda/Anaconda 和 PATH；也可用 `MATHPALETTE_PYTHON` 指定解释器完整路径。当前正式环境为 Python 3.13.9、Matplotlib 3.11.2、NumPy 2.5.3、Pillow 12.3.0。没有匹配环境时会在渲染前停止并列出版本差异，保留原图和收集记录。
@@ -42,13 +42,20 @@ Analytics/special_variant/
 
 ## Quick Test
 
-在画板完成标注后点击「提交到当前候选」，或由 agent 提交候选，再点击候选图右上角的 **Quick Test 1** 或 **Quick Test 2**。Quick Test 1 使用 **MiniMax-M3 · nonthinking**；Quick Test 2 使用 **MiniMax-M3.1-Flash-Preview · low**。两种模式分别显示并保存回答、思考（如有）、用时和 token 数，互不覆盖。以前测试中保存的思考内容仍可查看。标准答案、原图、标注意图及绘图参数不发送给模型；不调用 judge，也不自动 Pass / No Pass。
+提交候选后，手动点击候选图右上角的测试按钮：
 
-使用项目根目录 `.env` 中的 `MINIMAX_API_KEY`，当前已配置为中国区订阅接口 `https://api.minimaxi.com/v1`。Key 只由服务端读取。`config.json` 的 `quick_test` 保留默认 M3 与接口配置；两个按钮的模型模式在 `quick_test.py` 固定。修改配置后重新双击 CMD。Quick Test 1 设置 `thinking: {"type": "disabled"}`；Quick Test 2 设置 `thinking: {"type": "adaptive"}`、`reasoning_effort: "low"`。两者均不发送 `max_tokens` 或 `max_completion_tokens`，也不设置本地等待超时。实际输出长度仍由模型服务决定。
+| 按钮 | 模型 | 思考模式 | 服务端凭据 |
+| --- | --- | --- | --- |
+| Quick Test 1 | MiniMax-M3 | nonthinking | `MINIMAX_API_KEY` |
+| Quick Test 2 | MiniMax-M3.1-Flash-Preview | adaptive · low | `MINIMAX_API_KEY` |
+| Quick Test 3 | MiMo-V2.6-Flash | nonthinking（`disabled`） | `MIMO_API_KEY` |
+| Quick Test 4 | MiMo-V2.6-Flash | thinking（`enabled`） | `MIMO_API_KEY` |
 
-每次手动点击调用一次模型；运行期间禁用重复调用，不自动重试。切题、替换候选后不会将旧结果显示在新候选上。每个候选只保存最近一次测试到 `.runtime/analytics_special/quick_tests/`，刷新页面可恢复；这些输出属于临时工作记录，不进入正式数据。请求失败后可以手动重试；接口若返回长度截断，页面会显示提示。
+凭据仅由服务端从环境变量或项目根目录 `.env` 读取；按各自 Key 是否配置独立启用按钮。小米使用 Token Plan 专属 Key（`tp-` 或 `ttp-`），接口为 `https://token-plan-cn.xiaomimimo.com/v1`，由 `config.json` 的 `quick_test.mimo_api_base` 指定，不复用 MiniMax 的 Key 或接口。模型与思考模式在 `quick_test.py` 固定。配置变更后重新启动工作台。小米接入与思考开关见[官方 Token Plan 文档](https://mimo.mi.com/docs/en-US/tokenplan/Token%20Plan/quick-access)和[Chat Completions 文档](https://mimo.mi.com/docs/en-US/api/chat)。
 
-模型参数见 [MiniMax Chat Completions 官方接口](https://platform.minimax.io/docs/api-reference/text-chat-openai)。
+四种模式的回答、思考（如有）、用时和 token 数分别显示并保存，互不覆盖，刷新页面可恢复。每次手动操作仅一次调用，运行期间禁止重复调用，不自动重试或判分，不自动 Pass / Collect。请求只含正式题干和当前候选 PNG；标准答案、原图、说明、标注意图和绘图参数不发送。均不发送 `max_tokens` 或 `max_completion_tokens`，不设置本地等待超时；实际输出长度由模型服务决定，发生长度截断时页面提示。
+
+结果绑定题号、候选 ID、参数和实际 PNG 指纹，分别保存在 `.runtime/analytics_special/quick_tests/`；每种模式保存该候选最近一次测试，切题、替换或审核后不会显示为另一份候选的结果。保留原 Quick Test 1、2 缓存兼容。这些输出属于临时工作记录，不进入正式数据。软件测试使用 mock API，不发送真实模型请求。
 
 ## 更新未完成题目与重启
 
@@ -62,12 +69,12 @@ Analytics/special_variant/
 
 让 agent 先阅读本目录 `agent_prompt.md`。你也可以在画板点击“提交到当前候选”，再让 agent 修改该候选。所有方案最终由你在网页 Pass / No Pass；agent 不代替你审核。
 
-从 Research 目录运行：
+从项目根目录运行：
 
 ```powershell
-python -B MathPalette/Analytics/workbench/agent_cli.py context
-python -B MathPalette/Analytics/workbench/agent_cli.py validate --plugin MathPalette/Analytics/workbench/drafts/Ana01/plugin.json
-python -B MathPalette/Analytics/workbench/agent_cli.py submit --plugin MathPalette/Analytics/workbench/drafts/Ana01/plugin.json --context-token TOKEN
+python -B Analytics/workbench/agent_cli.py context
+python -B Analytics/workbench/agent_cli.py validate --plugin .runtime/analytics_special/drafts/Ana01/plugin.json
+python -B Analytics/workbench/agent_cli.py submit --plugin .runtime/analytics_special/drafts/Ana01/plugin.json --context-token TOKEN
 ```
 
 使用 context 返回的真实题号、对象 ID、token；修改待审候选时按提示使用 `--replace ID`。不要从旧工作台提交到新服务。
@@ -75,14 +82,14 @@ python -B MathPalette/Analytics/workbench/agent_cli.py submit --plugin MathPalet
 ## 重绘与检查
 
 ```powershell
-python -X utf8 -B MathPalette/Analytics/workbench/launch_workbench.py --check
-python -B MathPalette/Analytics/special_variant/Ana01/draw_variants.py C01
+python -X utf8 -B Analytics/workbench/launch_workbench.py --check
+python -B Analytics/special_variant/Ana01/draw_variants.py C01
 ```
 
-重绘默认保存到工作台 `reproduced/`，不覆盖正式图片。函数提供 `draw_C01(output_path=None)`。文本使用 DejaVu Sans，部分中文字形不受支持，优先使用数学标签。
+重绘默认保存到项目 `.runtime/analytics_special/reproduced/`，不覆盖正式图片。函数提供 `draw_C01(output_path=None)`。文本使用 DejaVu Sans，部分中文字形不受支持，优先使用数学标签。
 
 
-运行状态位于项目 `.runtime/analytics_special/`。正式数据与代码独立；已 Pass 的 recipes 和 Collect 记录可恢复收集状态。题目仅来自 46 道正式 Analytics 题。草稿路径和删除备份均相对于该运行目录。
+运行状态位于项目 `.runtime/analytics_special/`。正式数据与代码独立；已 Pass 的 recipes 和 Collect 记录可恢复收集状态。题目来自 `Analytics/dataset.jsonl` 的正式清单。草稿路径和删除备份均相对于该运行目录。
 
 ## 特殊情况与后期复审
 
