@@ -1,0 +1,191 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "Plane122",
+  "status": "formal",
+  "source_dataset": "Author designed",
+  "source_image": "../../originals/Plane122.png",
+  "view": {
+    "xlim": [
+      0.38156223083548646,
+      7.096678509905254
+    ],
+    "ylim": [
+      0.49270227713178283,
+      7.20781855620155
+    ],
+    "layout": "frozen_content_fit"
+  },
+  "points": {
+    "L1": [
+      0.54,
+      1.82
+    ],
+    "L2": [
+      6.94,
+      5.82
+    ],
+    "P": [
+      3.48,
+      6.62
+    ],
+    "A": [
+      6.142921348314605,
+      2.359325842696628
+    ],
+    "B": [
+      5.230561797752809,
+      1.7891011235955059
+    ],
+    "C": [
+      4.011685393258427,
+      1.0273033707865171
+    ],
+    "H": [
+      4.811460674157303,
+      4.489662921348314
+    ]
+  },
+  "objects": [
+    {
+      "id": "axis_l",
+      "type": "segment",
+      "points": [
+        "L1",
+        "L2"
+      ]
+    },
+    {
+      "id": "P_dot",
+      "type": "point",
+      "point": "P"
+    },
+    {
+      "id": "A_dot",
+      "type": "point",
+      "point": "A"
+    },
+    {
+      "id": "B_dot",
+      "type": "point",
+      "point": "B"
+    },
+    {
+      "id": "C_dot",
+      "type": "point",
+      "point": "C"
+    }
+  ],
+  "labels": [
+    {
+      "id": "P_label",
+      "type": "vertex",
+      "point": "P",
+      "offset_pt": [
+        0,
+        16
+      ]
+    },
+    {
+      "id": "A_label",
+      "type": "vertex",
+      "point": "A",
+      "offset_pt": [
+        9,
+        -15
+      ]
+    },
+    {
+      "id": "B_label",
+      "type": "vertex",
+      "point": "B",
+      "offset_pt": [
+        -9,
+        -15
+      ]
+    },
+    {
+      "id": "C_label",
+      "type": "vertex",
+      "point": "C",
+      "offset_pt": [
+        0,
+        -16
+      ]
+    },
+    {
+      "id": "l_label",
+      "type": "vertex",
+      "point": "L2",
+      "text": "l",
+      "offset_pt": [
+        -13,
+        8
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "H_on_axis",
+      "type": "collinear",
+      "points": [
+        "L1",
+        "H",
+        "L2"
+      ]
+    },
+    {
+      "id": "PA_perpendicular_to_axis",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "P",
+          "A"
+        ],
+        [
+          "L1",
+          "L2"
+        ]
+      ]
+    },
+    {
+      "id": "H_bisects_PA",
+      "type": "equal_length",
+      "segments": [
+        [
+          "P",
+          "H"
+        ],
+        [
+          "H",
+          "A"
+        ]
+      ]
+    },
+    {
+      "id": "H_between_P_A",
+      "type": "between",
+      "points": [
+        "P",
+        "H",
+        "A"
+      ]
+    },
+    {
+      "id": "candidate_row_parallel_axis",
+      "type": "parallel",
+      "segments": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "L1",
+          "L2"
+        ]
+      ]
+    }
+  ],
+  "ambiguities": [],
+  "distance_markers": []
+}
