@@ -18,10 +18,22 @@ def _draw(slot_id, output_path=None):
 def draw_C01(output_path=None):
     return _draw("C01", output_path)
 
+def draw_C02(output_path=None):
+    return _draw("C02", output_path)
+
+def draw_C03(output_path=None):
+    return _draw("C03", output_path)
+
+def draw_C04(output_path=None):
+    return _draw("C04", output_path)
+
+def draw_C05(output_path=None):
+    return _draw("C05", output_path)
+
 if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser(description='确定性重绘人工通过 C 图')
-    parser.add_argument('slot_id', choices=['C01'])
+    parser.add_argument('slot_id', choices=['C01', 'C02', 'C03', 'C04', 'C05'])
     parser.add_argument('--output', type=Path)
     args = parser.parse_args()
     print(json.dumps(_draw(args.slot_id, args.output), ensure_ascii=False))

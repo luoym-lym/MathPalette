@@ -4,7 +4,7 @@
 
 仅用户明确确认的原题进入正式数据。三个分支 `dataset.jsonl` 都只包含正式题；根目录 `question_bank.jsonl` 是 `dataset_tools/catalog.py build` 生成的汇总。不得恢复旧候选清单或把 Special Pass/Collect 当成原题通过。
 
-正式题号统一：当前为 Ana01～Ana51、Plane01～Plane114、Solid01～Solid72。Analytics 的 DynaMath 使用 Ana01～Ana20，MathVerse 使用 Ana21～Ana45 与 Ana47～Ana51，MathVista 使用 Ana46；Solid17～Solid25 来自 SOLIDGEO。题源以各分支 `dataset.jsonl` 为准。新增题号继续递增，不复用、不建立另一套 formal/candidate 编号。
+正式题号统一：当前为 Ana01～Ana51、Plane01～Plane121、Solid01～Solid72。Analytics 的 DynaMath 使用 Ana01～Ana20，MathVerse 使用 Ana21～Ana45 与 Ana47～Ana51，MathVista 使用 Ana46；Solid17～Solid25 来自 SOLIDGEO。题源以各分支 `dataset.jsonl` 为准。新增题号继续递增，不复用、不建立另一套 formal/candidate 编号。
 
 用户通过原话、时间及当前内容指纹在 `provenance/approvals.json`。改题干、答案、绘图输入或原图时，须用户重新确认后更新记录。迁移仅在题干、答案及像素一致的核验通过后更新路径/编号指纹，保留旧指纹和原审核时间。
 

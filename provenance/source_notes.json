@@ -139,11 +139,13 @@
   },
   "Ana29": {
     "answer_verification": {
-      "reasoning": "The plotted cubic has open endpoint (-3,0), closed endpoint (1,-4), local minimum (-2,-4) and local maximum (0,0). The source GT appears to swap domain and range; preserved as instructed.",
-      "verified_answer": "domain (-3,1]; range [-4,0]",
-      "issue": "Source GT appears incorrect: it reports domain [-4,0) and range (-3,1], but the graph gives domain (-3,1] and range [-4,0]. Retained source answer.",
-      "status": "needs_review",
-      "issue_zh": "图中定义域为 (-3,1]、值域为 [-4,0]；来源答案混淆了两者及端点。"
+      "reasoning": "The source and redraw both have an open endpoint (-3,0), a closed endpoint (1,-4), a local minimum (-2,-4), and a local maximum (0,0). Thus the domain is (-3,1] and the range is [-4,0]. Both range bounds are attained; the open left endpoint does not exclude y=0.",
+      "verified_answer": "domain: (-3, 1] and range: [-4, 0]",
+      "status": "corrected_user_confirmed",
+      "previous_source_answer": "domain: [-4, 0) and range: (-3, 1]",
+      "user_confirmation": "确认修改。",
+      "confirmation_context": "User confirmed the explicitly displayed domain (-3,1] and range [-4,0] answer-only repair.",
+      "correction_record": "provenance/ana29_answer_correction.json"
     }
   },
   "Ana30": {
@@ -37678,5 +37680,1088 @@
     },
     "collection_scope": "Only the black baseline question is formal. Red-point inducing variants remain staged and have no Special Pass/Collect approval.",
     "source_image_note": "Author-created question; no external source image exists. original_image is null."
+  },
+  "Plane115": {
+    "source_dataset": "Author designed",
+    "source_key": "straight-line-continuation:PO_beyond_O",
+    "original_source_image_available": true,
+    "user_provided_design_reference": {
+      "original_image": "originals/Plane115.png",
+      "sha256": "489e3aec0a4236d84e581de25be3348a4b6bd60225cf02732c42a5b47202b2e3"
+    },
+    "geometry_notes": {
+      "construction": "P=(0,0), O=(3,2), A=(6,4), B=(6,2.7), C=(6,5.3). Coordinates are hidden drawing inputs.",
+      "user_requested_edit": "然后把ABC三个点的间距拉大一点，看起来明显一点。",
+      "spacing_adjustment": "Move C upward and B downward, keeping P, O and A collinear and preserving top-to-bottom C, A, B order. Only segment PO is drawn; the continuation is intentionally left for the solver.",
+      "answer_derivation": "A=O+1*(O-P). B and C each lie a positive distance from line PO. Therefore only A is on the continuation beyond O.",
+      "question_formatting": "The repository-required Choices: heading separates the user's unchanged option text."
+    },
+    "redraw_verification": {
+      "id": "Plane115",
+      "status": "formal",
+      "user_approved": true,
+      "size": [
+        768,
+        768
+      ],
+      "opaque": true,
+      "black_only": true,
+      "repeat_png_pixels_identical": true,
+      "repeat_svg_bytes_identical": true,
+      "script_redraw_bytes_identical": true,
+      "source_bytes_preserved": true,
+      "content_bbox_px": [
+        54,
+        107,
+        714,
+        660
+      ],
+      "center_offset_px": [
+        0.0,
+        -0.5
+      ],
+      "long_side_fraction": 0.859375,
+      "adjacent_candidate_gap_px": 125.35267287786046,
+      "source_adjacent_candidate_gap_px_approx": 78,
+      "geometry_checks": [
+        {
+          "id": "P_O_A_collinear",
+          "type": "collinear",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "O_between_P_A",
+          "type": "between",
+          "measured": 0.0,
+          "passed": true
+        }
+      ],
+      "answer_check": {
+        "A": {
+          "perpendicular_distance": 0.0,
+          "ray_parameter_beyond_O": 1.0,
+          "on_continuation": true
+        },
+        "B": {
+          "perpendicular_distance": 1.0816653826391966,
+          "ray_parameter_beyond_O": 0.8,
+          "on_continuation": false
+        },
+        "C": {
+          "perpendicular_distance": 1.0816653826391964,
+          "ray_parameter_beyond_O": 1.2,
+          "on_continuation": false
+        }
+      },
+      "source_sha256": "489e3aec0a4236d84e581de25be3348a4b6bd60225cf02732c42a5b47202b2e3",
+      "scene_sha256": "ede3e5a02fd9be8e3d060bf57e65c02bf993e1e164152e8c9669ecad84e282ab",
+      "image_sha256": "627d61d0dbcbbd3603d728ce612d909943c8f0653f85b4218252fae797ee7ed5",
+      "script_sha256": "d58b36e5c167e8b20bd28b02c5180b8156bb9661e2bedd52ea567446b4498e7f",
+      "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+      "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+      "dependencies": {
+        "python": "3.13.9",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.3",
+        "pillow": "12.3.0"
+      },
+      "visual_inspection": "Inspected the actual 768x768 PNG: P and O label the segment endpoints; C, A and B are distinct and ordered from top to bottom. Candidate labels sit to the right of their dots. The continuation is not drawn. All labels are legible, with no clipping or overlap.",
+      "matches_approved_preview_pixels": true
+    }
+  },
+  "Plane116": {
+    "source_dataset": "Author designed",
+    "source_key": "parallel:reference_PQ:detached_candidates_A_B_C",
+    "original_source_image_available": false,
+    "source_image_note": "Original author-designed geometry; no external source image exists. original_image is null.",
+    "geometry_notes": {
+      "task_type": "parallel",
+      "independent_measurements": {
+        "A": {
+          "slope": 0.4000000000000001
+        },
+        "B": {
+          "slope": 0.15
+        },
+        "C": {
+          "slope": 0.65
+        }
+      },
+      "relation_errors": {
+        "A": 0.0,
+        "B": 0.22955108810182354,
+        "C": 0.1946188385891714
+      },
+      "unique_answer": "A"
+    },
+    "reviewed_draft_migration": {
+      "reviewed_draft_id": "Plane117",
+      "formal_id": "Plane116",
+      "reason": "Only selected originals receive the next three contiguous formal IDs after Plane115.",
+      "staged_question_sha256": "bde102e5400c04558e50f1e5728484e2d44791a8d8586496a9a603602d1d658c",
+      "staged_scene_sha256": "3ebe6b4f78c647e56087a9a8a35a1ffb72723841ef0883215247b1a435aed702",
+      "staged_script_sha256": "54b69e4902b26e9f82ce40104d0f38c15235d0a966ec58738dcd7326a1f9c042",
+      "reviewed_original_png_sha256": "7acd014287fdc337bbe46894c0cbe6079964007a45bec2be129eef388345cdfc",
+      "question_choices_answer_unchanged": true,
+      "geometry_labels_view_unchanged": true,
+      "original_png_bytes_unchanged": true
+    },
+    "redraw_verification": {
+      "size": [
+        768,
+        768
+      ],
+      "opaque": true,
+      "repeat_pixels_identical": true,
+      "matches_user_reviewed_original_pixels": true,
+      "geometry_checks": [],
+      "content_bbox_px": [
+        54,
+        126,
+        715,
+        642
+      ],
+      "center_offset_px": [
+        0.5,
+        0.0
+      ],
+      "long_side_fraction": 0.8606770833333334,
+      "scene_sha256": "13e971516ede49c85877ed759a0cea75a65e7f331dfe9ba3646e651c51816932",
+      "script_sha256": "9a012e0c3e96648d18305c92388076698d31802545b6900c8ef338ce37e8e875",
+      "image_sha256": "7acd014287fdc337bbe46894c0cbe6079964007a45bec2be129eef388345cdfc",
+      "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+      "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+    },
+    "collection_scope": {
+      "originals_only": true,
+      "user_instruction": "12张标注也都扔掉。只保留三道原题。",
+      "annotations_retained": false
+    }
+  },
+  "Plane117": {
+    "source_dataset": "Author designed",
+    "source_key": "perpendicularity:reference_PQ:candidates_OA_OB_OC",
+    "original_source_image_available": false,
+    "source_image_note": "Original author-designed geometry; no external source image exists. original_image is null.",
+    "geometry_notes": {
+      "task_type": "perpendicular",
+      "independent_measurements": {
+        "A": {
+          "angle_to_PQ_deg": 63.43494882292201
+        },
+        "B": {
+          "angle_to_PQ_deg": 108.43494882292201
+        },
+        "C": {
+          "angle_to_PQ_deg": 90.00000000000001
+        }
+      },
+      "relation_errors": {
+        "A": 0.447213595499958,
+        "B": 0.3162277660168379,
+        "C": 1.7653576200869497e-16
+      },
+      "unique_answer": "C"
+    },
+    "reviewed_draft_migration": {
+      "reviewed_draft_id": "Plane118",
+      "formal_id": "Plane117",
+      "reason": "Only selected originals receive the next three contiguous formal IDs after Plane115.",
+      "staged_question_sha256": "f4e494ae34e66eabab28d7ebb08a48ca82d3b2ac65c118cc57b43e50c9767e09",
+      "staged_scene_sha256": "48519228ca948fb76aa8886c4377e56fe89206bbd4786becb7f4e03cd7b6ad2f",
+      "staged_script_sha256": "419b3b6ad74170035bd0393f2e95883737a9c38eb0862f1a4a2102f80922de61",
+      "reviewed_original_png_sha256": "05bc049bd2e42d83057019bf783e8224cabb29fbf53e0b9c63e10f362b25d644",
+      "question_choices_answer_unchanged": true,
+      "geometry_labels_view_unchanged": true,
+      "original_png_bytes_unchanged": true
+    },
+    "redraw_verification": {
+      "size": [
+        768,
+        768
+      ],
+      "opaque": true,
+      "repeat_pixels_identical": true,
+      "matches_user_reviewed_original_pixels": true,
+      "geometry_checks": [
+        {
+          "id": "PQ_perpendicular_OC",
+          "type": "perpendicular",
+          "measured": 2.220446049250313e-16,
+          "passed": true
+        }
+      ],
+      "content_bbox_px": [
+        54,
+        129,
+        714,
+        639
+      ],
+      "center_offset_px": [
+        0.0,
+        0.0
+      ],
+      "long_side_fraction": 0.859375,
+      "scene_sha256": "24401839333140a1ecff2e4779b760acc83d511ee295f6c7579392711d35b628",
+      "script_sha256": "ddd86b0df3316caf50017ca4b522f2dd44d2ee56ff6e092694954c6a74135fb7",
+      "image_sha256": "05bc049bd2e42d83057019bf783e8224cabb29fbf53e0b9c63e10f362b25d644",
+      "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+      "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+    },
+    "collection_scope": {
+      "originals_only": true,
+      "user_instruction": "12张标注也都扔掉。只保留三道原题。",
+      "annotations_retained": false
+    }
+  },
+  "Plane118": {
+    "source_dataset": "Author designed",
+    "source_key": "equal_angle:reference_R:candidates_A_B_C",
+    "original_source_image_available": false,
+    "source_image_note": "Original author-designed geometry; no external source image exists. original_image is null.",
+    "geometry_notes": {
+      "task_type": "equal_angle",
+      "independent_measurements": {
+        "A": {
+          "degrees": 50.0,
+          "reference_degrees": 34.99999999999999
+        },
+        "B": {
+          "degrees": 25.000000000000004,
+          "reference_degrees": 34.99999999999999
+        },
+        "C": {
+          "degrees": 34.99999999999999,
+          "reference_degrees": 34.99999999999999
+        }
+      },
+      "relation_errors": {
+        "A": 15.000000000000007,
+        "B": 9.99999999999999,
+        "C": 0.0
+      },
+      "unique_answer": "C"
+    },
+    "reviewed_draft_migration": {
+      "reviewed_draft_id": "Plane120",
+      "formal_id": "Plane118",
+      "reason": "Only selected originals receive the next three contiguous formal IDs after Plane115.",
+      "staged_question_sha256": "817885ff74be7cdd0362067627e96c8d3f745ce0da7e68da335ab893cdbc9cbd",
+      "staged_scene_sha256": "fa73442d73845c07d5b7a36902ded9f9e4a85c457d78b32fdeca1505cbae3a92",
+      "staged_script_sha256": "4d6dd2bf3e68a6bfe9fe4d00bb058c978d728b18bb2591e562b8f58484d81392",
+      "reviewed_original_png_sha256": "50b7d394fb0e095652aa6e5428da7a771116b80fc6a3d589fadc153732beb256",
+      "question_choices_answer_unchanged": true,
+      "geometry_labels_view_unchanged": true,
+      "original_png_bytes_unchanged": true
+    },
+    "redraw_verification": {
+      "size": [
+        768,
+        768
+      ],
+      "opaque": true,
+      "repeat_pixels_identical": true,
+      "matches_user_reviewed_original_pixels": true,
+      "geometry_checks": [
+        {
+          "id": "R_measure",
+          "type": "angle",
+          "measured": 34.99999999999999,
+          "passed": true
+        },
+        {
+          "id": "A_measure",
+          "type": "angle",
+          "measured": 50.0,
+          "passed": true
+        },
+        {
+          "id": "B_measure",
+          "type": "angle",
+          "measured": 25.000000000000004,
+          "passed": true
+        },
+        {
+          "id": "C_measure",
+          "type": "angle",
+          "measured": 34.99999999999999,
+          "passed": true
+        },
+        {
+          "id": "arc_binding_R_label",
+          "type": "angle_annotation",
+          "label_id": "R_label",
+          "arc_id": "R_arc",
+          "measured": 1,
+          "passed": true
+        },
+        {
+          "id": "arc_binding_A_label",
+          "type": "angle_annotation",
+          "label_id": "A_label",
+          "arc_id": "A_arc",
+          "measured": 1,
+          "passed": true
+        },
+        {
+          "id": "arc_binding_B_label",
+          "type": "angle_annotation",
+          "label_id": "B_label",
+          "arc_id": "B_arc",
+          "measured": 1,
+          "passed": true
+        },
+        {
+          "id": "arc_binding_C_label",
+          "type": "angle_annotation",
+          "label_id": "C_label",
+          "arc_id": "C_arc",
+          "measured": 1,
+          "passed": true
+        }
+      ],
+      "content_bbox_px": [
+        54,
+        114,
+        714,
+        655
+      ],
+      "center_offset_px": [
+        0.0,
+        0.5
+      ],
+      "long_side_fraction": 0.859375,
+      "scene_sha256": "d725ca1c3167a38d16cd30f413c5fd1fd93bc82e97e21a88b424eb4cc07a8ec0",
+      "script_sha256": "7d6b8e583968de98cba283bda784a3e98a4ab306e7dc824928794ce0dc5d2067",
+      "image_sha256": "50b7d394fb0e095652aa6e5428da7a771116b80fc6a3d589fadc153732beb256",
+      "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+      "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+    },
+    "collection_scope": {
+      "originals_only": true,
+      "user_instruction": "12张标注也都扔掉。只保留三道原题。",
+      "annotations_retained": false
+    }
+  },
+  "Plane119": {
+    "source_dataset": "Author designed",
+    "source_key": "polygon-side-count:irregular_hexagon",
+    "user_provided_reference": true,
+    "original_source_image_available": true,
+    "geometry_notes": {
+      "source_corner_estimates_px": [
+        [
+          186,
+          110
+        ],
+        [
+          581,
+          55
+        ],
+        [
+          712,
+          384
+        ],
+        [
+          603,
+          658
+        ],
+        [
+          274,
+          712
+        ],
+        [
+          55,
+          603
+        ]
+      ],
+      "closed_boundary_order": [
+        "V1",
+        "V2",
+        "V3",
+        "V4",
+        "V5",
+        "V6"
+      ],
+      "answer_derivation": "Six distinct corners joined by six non-collinear sides form one simple closed polygon.",
+      "reconstruction_note": "Corner coordinates are traced from the supplied raster; no metric conditions or vertex labels are added."
+    },
+    "reviewed_draft_migration": {
+      "staged_question_sha256": "1c0e7f8cd19ce9a12d6404a01eb1d89acfd17c995b3073f278e0ae7006bc3bd5",
+      "staged_scene_sha256": "8410be09dbbbd7bdbfa5a7200e0a639c390ac60bbd9115bb89b5f307a65e2c36",
+      "staged_script_sha256": "480671b03993abeeef60a3ef0dd292f14f8755ae65c12748ca98f9e1ed8bceef",
+      "reviewed_png_sha256": "15f80869b04825fceb385248d3f1142d01016a1a781f0ad22199c4f81bd349b0",
+      "question_answer_unchanged": true,
+      "geometry_view_unchanged": true,
+      "reviewed_png_bytes_unchanged": true,
+      "source_png_bytes_unchanged": true,
+      "scene_changes": "Collection status and relative source-image path only."
+    },
+    "redraw_verification": {
+      "id": "Plane119",
+      "answer": 6,
+      "unique_vertices": 6,
+      "nonzero_edges": 6,
+      "direction_changes": 6,
+      "closed_cycle": true,
+      "vertex_degrees": {
+        "V1": 2,
+        "V2": 2,
+        "V3": 2,
+        "V4": 2,
+        "V5": 2,
+        "V6": 2
+      },
+      "convex": true,
+      "geometry_checks": [
+        {
+          "id": "nonintersection_1_3",
+          "type": "intersection",
+          "measured": false,
+          "passed": true
+        },
+        {
+          "id": "nonintersection_1_4",
+          "type": "intersection",
+          "measured": false,
+          "passed": true
+        },
+        {
+          "id": "nonintersection_1_5",
+          "type": "intersection",
+          "measured": false,
+          "passed": true
+        },
+        {
+          "id": "nonintersection_2_4",
+          "type": "intersection",
+          "measured": false,
+          "passed": true
+        },
+        {
+          "id": "nonintersection_2_5",
+          "type": "intersection",
+          "measured": false,
+          "passed": true
+        },
+        {
+          "id": "nonintersection_2_6",
+          "type": "intersection",
+          "measured": false,
+          "passed": true
+        },
+        {
+          "id": "nonintersection_3_5",
+          "type": "intersection",
+          "measured": false,
+          "passed": true
+        },
+        {
+          "id": "nonintersection_3_6",
+          "type": "intersection",
+          "measured": false,
+          "passed": true
+        },
+        {
+          "id": "nonintersection_4_6",
+          "type": "intersection",
+          "measured": false,
+          "passed": true
+        }
+      ],
+      "size": [
+        768,
+        768
+      ],
+      "opaque": true,
+      "repeat_png_pixels_identical": true,
+      "repeat_svg_bytes_identical": true,
+      "source_bytes_preserved": true,
+      "content_bbox_px": [
+        53,
+        53,
+        715,
+        715
+      ],
+      "center_offset_px": [
+        0.0,
+        0.0
+      ],
+      "long_side_fraction": 0.8619791666666666,
+      "source_sha256": "080c6d514727a6b1a33a475e668aba68f0e20296f4016a3963de99d50271c158",
+      "png_sha256": "15f80869b04825fceb385248d3f1142d01016a1a781f0ad22199c4f81bd349b0",
+      "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+      "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+      "dependencies": {
+        "python": "3.13.9",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.3",
+        "pillow": "12.3.0"
+      },
+      "visual_inspection": "Inspected the actual final PNG alongside the supplied source: all six corners and six connecting sides remain distinct; the outline is closed, without self-intersections, extra dots, labels, shading or clipping. Orientation and relative shape follow the source.",
+      "scene_sha256": "75b66586e30e9afc66eab1989a8d3b658ca09341ad22bd83eb19e70c304e9a21",
+      "script_sha256": "9a36b82e11a4eb72bbaa8e85337cf2d873468a21fefab09220ef775f9ea21630",
+      "formal_redraw_matches_reviewed_pixels": true
+    }
+  },
+  "Plane120": {
+    "source_dataset": "Author designed",
+    "source_key": "structure-count:open-path-turns",
+    "original_source_image_available": false,
+    "source_image_note": "Original author design created in this workspace; no external source image exists. original_image is null.",
+    "geometry_notes": {
+      "task_type": "structure-count:open-path-turns",
+      "independent_verification": {
+        "segments": 6,
+        "turns": 5,
+        "endpoints_excluded": true
+      },
+      "construction_verification": {
+        "question_id": "Plane120",
+        "path_order": [
+          "P",
+          "T1",
+          "T2",
+          "T3",
+          "T4",
+          "T5",
+          "Q"
+        ],
+        "segment_count": 6,
+        "segment_lengths": [
+          2.080865204668481,
+          1.9999999999999998,
+          2.147091055358389,
+          1.9000000000000001,
+          2.5,
+          1.9
+        ],
+        "all_segments_nonzero": true,
+        "interior_vertex_count": 5,
+        "turns": [
+          {
+            "vertex": "T1",
+            "cross_product": -3.4000000000000004,
+            "non_collinear": true
+          },
+          {
+            "vertex": "T2",
+            "cross_product": 3.8,
+            "non_collinear": true
+          },
+          {
+            "vertex": "T3",
+            "cross_product": -3.6100000000000003,
+            "non_collinear": true
+          },
+          {
+            "vertex": "T4",
+            "cross_product": -4.75,
+            "non_collinear": true
+          },
+          {
+            "vertex": "T5",
+            "cross_product": 4.75,
+            "non_collinear": true
+          }
+        ],
+        "all_five_interior_vertices_non_collinear": true,
+        "nonadjacent_segment_intersections": [
+          {
+            "segments": [
+              1,
+              3
+            ],
+            "intersects": false
+          },
+          {
+            "segments": [
+              1,
+              4
+            ],
+            "intersects": false
+          },
+          {
+            "segments": [
+              1,
+              5
+            ],
+            "intersects": false
+          },
+          {
+            "segments": [
+              1,
+              6
+            ],
+            "intersects": false
+          },
+          {
+            "segments": [
+              2,
+              4
+            ],
+            "intersects": false
+          },
+          {
+            "segments": [
+              2,
+              5
+            ],
+            "intersects": false
+          },
+          {
+            "segments": [
+              2,
+              6
+            ],
+            "intersects": false
+          },
+          {
+            "segments": [
+              3,
+              5
+            ],
+            "intersects": false
+          },
+          {
+            "segments": [
+              3,
+              6
+            ],
+            "intersects": false
+          },
+          {
+            "segments": [
+              4,
+              6
+            ],
+            "intersects": false
+          }
+        ],
+        "non_self_intersecting": true,
+        "endpoint_turns_excluded": true,
+        "answer": 5,
+        "answer_matches_counted_turns": true,
+        "all_checks_pass": true
+      },
+      "answer": 5
+    },
+    "reviewed_draft_migration": {
+      "reviewed_draft_id": "Plane120",
+      "formal_id": "Plane120",
+      "reason": "Assign the next two consecutive formal IDs after Plane119 to the selected originals.",
+      "staged_question_sha256": "41f89b7f35ad7f57b00a989ee774c543db7664f758d190f0fbb80f60ccf6c155",
+      "staged_scene_sha256": "9add58ea4c8e3d09e38d37e025843399e42ef4e26e9f8d1a72a47f13a0a1500c",
+      "staged_script_sha256": "364c40a7dc65cd8b8a79a508f41a5e1eb585a358a1cee37935bbe6a03954ac2f",
+      "reviewed_original_png_sha256": "dacc925d68b846cbdab29ca553a6eac831466e7003f3bf9b79cdd73f1a1e4544",
+      "question_answer_unchanged": true,
+      "geometry_labels_view_unchanged": true,
+      "reviewed_original_png_bytes_unchanged": true
+    },
+    "redraw_verification": {
+      "size": [
+        768,
+        768
+      ],
+      "opaque": true,
+      "repeat_pixels_identical": true,
+      "repeat_svg_bytes_identical": true,
+      "matches_user_reviewed_original_pixels": true,
+      "geometry_checks": [
+        {
+          "id": "nonintersection_1_3",
+          "type": "intersection",
+          "measured": false,
+          "passed": true
+        },
+        {
+          "id": "nonintersection_1_4",
+          "type": "intersection",
+          "measured": false,
+          "passed": true
+        },
+        {
+          "id": "nonintersection_1_5",
+          "type": "intersection",
+          "measured": false,
+          "passed": true
+        },
+        {
+          "id": "nonintersection_1_6",
+          "type": "intersection",
+          "measured": false,
+          "passed": true
+        },
+        {
+          "id": "nonintersection_2_4",
+          "type": "intersection",
+          "measured": false,
+          "passed": true
+        },
+        {
+          "id": "nonintersection_2_5",
+          "type": "intersection",
+          "measured": false,
+          "passed": true
+        },
+        {
+          "id": "nonintersection_2_6",
+          "type": "intersection",
+          "measured": false,
+          "passed": true
+        },
+        {
+          "id": "nonintersection_3_5",
+          "type": "intersection",
+          "measured": false,
+          "passed": true
+        },
+        {
+          "id": "nonintersection_3_6",
+          "type": "intersection",
+          "measured": false,
+          "passed": true
+        },
+        {
+          "id": "nonintersection_4_6",
+          "type": "intersection",
+          "measured": false,
+          "passed": true
+        }
+      ],
+      "content_bbox_px": [
+        54,
+        236,
+        714,
+        534
+      ],
+      "scene_sha256": "672642ac8788b05e441cf111c67841097ebab9667f9c53814b02e7b12be07bb7",
+      "script_sha256": "1d02974eddeecffb2dd175f6ba0725c974b3d34864d50e7b23bf1399ea4aa3e4",
+      "image_sha256": "dacc925d68b846cbdab29ca553a6eac831466e7003f3bf9b79cdd73f1a1e4544",
+      "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+      "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+      "environment": {
+        "python": "3.13.9",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.3",
+        "pillow": "12.3.0"
+      }
+    }
+  },
+  "Plane121": {
+    "source_dataset": "Author designed",
+    "source_key": "structure-count:rectangle-line-regions",
+    "original_source_image_available": false,
+    "source_image_note": "Original author design created in this workspace; no external source image exists. original_image is null.",
+    "geometry_notes": {
+      "task_type": "structure-count:rectangle-line-regions",
+      "independent_verification": {
+        "vertices": 13,
+        "edges": 19,
+        "components": 1
+      },
+      "construction_verification": {
+        "id": "Plane124",
+        "method": "independent segment arrangement plus planar graph Euler cycle rank",
+        "rectangle": {
+          "xlim": [
+            -4,
+            4
+          ],
+          "ylim": [
+            -3,
+            3
+          ]
+        },
+        "upward_shift": 1.3,
+        "segments": {
+          "frame_bottom": {
+            "a": [
+              -4.0,
+              -3.0
+            ],
+            "b": [
+              4.0,
+              -3.0
+            ]
+          },
+          "frame_right": {
+            "a": [
+              4.0,
+              -3.0
+            ],
+            "b": [
+              4.0,
+              3.0
+            ]
+          },
+          "frame_top": {
+            "a": [
+              4.0,
+              3.0
+            ],
+            "b": [
+              -4.0,
+              3.0
+            ]
+          },
+          "frame_left": {
+            "a": [
+              -4.0,
+              3.0
+            ],
+            "b": [
+              -4.0,
+              -3.0
+            ]
+          },
+          "cut_horizontal": {
+            "a": [
+              -4.0,
+              2.2
+            ],
+            "b": [
+              4.0,
+              2.2
+            ]
+          },
+          "cut_ascending": {
+            "a": [
+              -4.0,
+              -2.3
+            ],
+            "b": [
+              3.0666666666666664,
+              3.0
+            ]
+          },
+          "cut_descending": {
+            "a": [
+              -3.125,
+              3.0
+            ],
+            "b": [
+              4.0,
+              -2.7
+            ]
+          }
+        },
+        "pairwise_segment_intersections": {
+          "frame_bottom x frame_right": [
+            [
+              4.0,
+              -3.0
+            ]
+          ],
+          "frame_bottom x frame_left": [
+            [
+              -4.0,
+              -3.0
+            ]
+          ],
+          "frame_right x frame_top": [
+            [
+              4.0,
+              3.0
+            ]
+          ],
+          "frame_right x cut_horizontal": [
+            [
+              4.0,
+              2.2
+            ]
+          ],
+          "frame_right x cut_descending": [
+            [
+              4.0,
+              -2.7000000000000006
+            ]
+          ],
+          "frame_top x frame_left": [
+            [
+              -4.0,
+              3.0
+            ]
+          ],
+          "frame_top x cut_ascending": [
+            [
+              3.066666666666667,
+              3.0
+            ]
+          ],
+          "frame_top x cut_descending": [
+            [
+              -3.125000000000001,
+              3.0
+            ]
+          ],
+          "frame_left x cut_horizontal": [
+            [
+              -4.0,
+              2.2
+            ]
+          ],
+          "frame_left x cut_ascending": [
+            [
+              -4.0,
+              -2.3
+            ]
+          ],
+          "cut_horizontal x cut_ascending": [
+            [
+              2.0,
+              2.2
+            ]
+          ],
+          "cut_horizontal x cut_descending": [
+            [
+              -2.1250000000000004,
+              2.2
+            ]
+          ],
+          "cut_ascending x cut_descending": [
+            [
+              -0.12903225806451601,
+              0.6032258064516132
+            ]
+          ]
+        },
+        "interior_cut_intersections": [
+          {
+            "segments": [
+              "cut_horizontal",
+              "cut_ascending"
+            ],
+            "xy": [
+              2.0,
+              2.2
+            ]
+          },
+          {
+            "segments": [
+              "cut_horizontal",
+              "cut_descending"
+            ],
+            "xy": [
+              -2.1250000000000004,
+              2.2
+            ]
+          },
+          {
+            "segments": [
+              "cut_ascending",
+              "cut_descending"
+            ],
+            "xy": [
+              -0.12903225806451601,
+              0.6032258064516132
+            ]
+          }
+        ],
+        "intersections_strictly_inside_rectangle": true,
+        "pairwise_intersection_points_mutually_distinct": true,
+        "false_special_points": [
+          {
+            "id": "H_fake_left",
+            "xy": [
+              -2.8,
+              2.2
+            ],
+            "on_segment": "cut_horizontal",
+            "is_intersection": false
+          },
+          {
+            "id": "H_fake_right",
+            "xy": [
+              2.9,
+              2.2
+            ],
+            "on_segment": "cut_horizontal",
+            "is_intersection": false
+          },
+          {
+            "id": "A_fake",
+            "xy": [
+              -1.8,
+              -0.65
+            ],
+            "on_segment": "cut_ascending",
+            "is_intersection": false
+          },
+          {
+            "id": "D_fake",
+            "xy": [
+              1.25,
+              -0.5
+            ],
+            "on_segment": "cut_descending",
+            "is_intersection": false
+          }
+        ],
+        "arrangement_graph": {
+          "connected": true,
+          "vertices": 13,
+          "edges": 19,
+          "bounded_faces_euler_E_minus_V_plus_1": 7
+        },
+        "verified_answer": 7,
+        "reasoning": "Starting from one region, each successive chord adds one more region than the number of distinct earlier interior crossings on it: 1+1, then +2, then +3, giving 7. Independently, the connected embedded graph has E−V+1=7 bounded faces."
+      },
+      "answer": 7,
+      "requested_layout_revision": {
+        "instruction": "120、124留下，剩下的删掉。然后124这道题把矩形内部的直线稍微往上移一点。",
+        "followup_instruction": "再往上一一些，现在的移动都看不出来。",
+        "upward_shift_display_units": 1.3,
+        "additional_upward_shift_from_previous_display_units": 1.0,
+        "method": "Translate the three supporting lines together, reclip at the fixed rectangle, and translate all seven red markers by the same amount."
+      },
+      "upward_shift_pixels": 106.6644336448598,
+      "final_cut_equations": [
+        "y = 2.2",
+        "y = 0.75*x + 0.7",
+        "y = -0.8*x + 0.5"
+      ]
+    },
+    "reviewed_draft_migration": {
+      "reviewed_draft_id": "Plane124",
+      "formal_id": "Plane121",
+      "reason": "Assign the next two consecutive formal IDs after Plane119 to the selected originals.",
+      "staged_question_sha256": "0d55081b5b277e0c5bfecefa983de1608c6fc38ffe2469a7ff6b1aee2398b6ba",
+      "staged_scene_sha256": "0d3ec5e22e8fdf9d7528e248f72e1cbd35188edcae4ca2d9ed49849844d9fe9b",
+      "staged_script_sha256": "d5684d62896a04dfacca6dbe38d44ca02b6d20e2fe06063b1ddd886fae129195",
+      "reviewed_original_png_sha256": "e148d541fd647953693b70b7379c4828044a56dde49ffc74bae4962ad67127aa",
+      "question_answer_unchanged": true,
+      "geometry_labels_view_unchanged": true,
+      "reviewed_original_png_bytes_unchanged": true
+    },
+    "redraw_verification": {
+      "size": [
+        768,
+        768
+      ],
+      "opaque": true,
+      "repeat_pixels_identical": true,
+      "repeat_svg_bytes_identical": true,
+      "matches_user_reviewed_original_pixels": true,
+      "geometry_checks": [],
+      "content_bbox_px": [
+        54,
+        136,
+        714,
+        632
+      ],
+      "scene_sha256": "dbb13d7f26d15711cc24b170447a2259c4f56fd322793af95a254cc0861a38a3",
+      "script_sha256": "838ff3d65fa2470f9dbfef55ab24d02686132eca82eb7a3d592675232997fc06",
+      "image_sha256": "e148d541fd647953693b70b7379c4828044a56dde49ffc74bae4962ad67127aa",
+      "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+      "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+      "environment": {
+        "python": "3.13.9",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.3",
+        "pillow": "12.3.0"
+      }
+    }
   }
 }

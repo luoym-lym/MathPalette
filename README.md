@@ -2,14 +2,14 @@
 
 MathPalette 研究统一渲染条件下，视觉标记如何影响视觉语言模型的数学推理。原题经用户确认后收集，人工 Special 从原图独立派生，冻结操作以便重绘。标记方法、已有方案盘点和后续探索见 [Conclusion.md](Conclusion.md)。
 
-截至 2026-10-17，正式数据为 **237 题、127 张 Special**：Analytics 51 题 / 113 张，PlaneGeometry 114 题 / 11 张，SolidGeometry 72 题 / 3 张。Special 覆盖 36 道原题。题源为 DynaMath 20 题、MathVerse 125 题、MathVista 56 题、SOLIDGEO 9 题、Author designed 27 题；最新数量以 `catalog.py check` 为准。
+截至 2026-10-17，正式数据为 **244 题、137 张 Special**：Analytics 51 题 / 113 张，PlaneGeometry 121 题 / 21 张，SolidGeometry 72 题 / 3 张。Special 覆盖 39 道原题。题源为 DynaMath 20 题、MathVerse 125 题、MathVista 56 题、SOLIDGEO 9 题、Author designed 34 题；最新数量以 `catalog.py check` 为准。
 
 | 内容 | 数量 / 入口 |
 | --- | --- |
-| 正式原题 | [question_bank.jsonl](question_bank.jsonl)，237 条 |
+| 正式原题 | [question_bank.jsonl](question_bank.jsonl)，244 条 |
 | Base | 三个分支均未启用，汇总索引中的 `base_plugins` 为空列表 |
-| 人工 Special | 共 127 张，保留原 Pass / Collect 时间；只有完成标记、没有已通过图片的题不计入变体数 |
-| 来源截图 | MathVerse 125 张、MathVista 56 张、SOLIDGEO 9 张，另有 3 张作者提供的参考图；DynaMath 20 题的来源截图在原库中缺失 |
+| 人工 Special | 共 137 张，保留原 Pass / Collect 时间；只有完成标记、没有已通过图片的题不计入变体数 |
+| 来源截图 | MathVerse 125 张、MathVista 56 张、SOLIDGEO 9 张，另有 5 张作者提供的参考图；DynaMath 20 题的来源截图在原库中缺失 |
 | 解析几何 Special 工作台 | 双击 [Analytics/start_special_workbench.cmd](Analytics/start_special_workbench.cmd)，端口 8767 |
 | 平面几何 Special 工作台 | 双击 [PlaneGeometry/start_special_workbench.cmd](PlaneGeometry/start_special_workbench.cmd)，端口 8768 |
 | 立体几何 Special 工作台 | 双击 [SolidGeometry/start_special_workbench.cmd](SolidGeometry/start_special_workbench.cmd)，端口 8769 |
@@ -18,11 +18,19 @@ MathPalette 研究统一渲染条件下，视觉标记如何影响视觉语言�
 | MathVista 来源与署名 | [provenance/mathvista/README.md](provenance/mathvista/README.md)，含完整源记录与入库核验 |
 | SOLIDGEO 来源与清理记录 | [来源署名](provenance/SOLIDGEO_ATTRIBUTION.md)、[保留题目与清理核验](provenance/solidgeo_cleanup.json) |
 
-当前题号为 Ana01～Ana51、Plane01～Plane114、Solid01～Solid72。Ana01～Ana20 来自 DynaMath，Ana21～Ana45 与 Ana47～Ana51 来自 MathVerse，Ana46 来自 MathVista。Plane01～Plane16 与 Plane72～Plane93 来自 MathVerse，Plane17～Plane71 来自 MathVista，Plane94～Plane114 为 Author designed；Solid01～Solid16 与 Solid26～Solid66 来自 MathVerse，Solid17～Solid25 来自 SOLIDGEO，Solid67～Solid72 为 Author designed。图片、绘图类、Special 插件和工作台使用相同题号。清理前编号仅保存在 [迁移记录](provenance/cleanup.json) 中。
+当前题号为 Ana01～Ana51、Plane01～Plane121、Solid01～Solid72。Ana01～Ana20 来自 DynaMath，Ana21～Ana45 与 Ana47～Ana51 来自 MathVerse，Ana46 来自 MathVista。Plane01～Plane16 与 Plane72～Plane93 来自 MathVerse，Plane17～Plane71 来自 MathVista，Plane94～Plane121 为 Author designed；Solid01～Solid16 与 Solid26～Solid66 来自 MathVerse，Solid17～Solid25 来自 SOLIDGEO，Solid67～Solid72 为 Author designed。图片、绘图类、Special 插件和工作台使用相同题号。清理前编号仅保存在 [迁移记录](provenance/cleanup.json) 中。
 
-Author designed 平面题包括 Plane94～Plane99 曲线追踪、Plane100～Plane102 最短路径、Plane103～Plane108 图形比较，以及 Plane109～Plane114 交点计数。最短路径三题分别使用等半径双圆、单圆偏置端点、不等半径双圆；正式图保留黑色几何和尺寸标注，精确答案以 `dataset.jsonl` 为准。
+Author designed 平面题包括 Plane94～Plane99 曲线追踪、Plane100～Plane102 最短路径、Plane103～Plane108 图形比较、Plane109～Plane114 交点计数、Plane115 直线延长判断，Plane116～Plane118 平行、垂直和等角判断，Plane119 多边形边数判断，以及 Plane120～Plane121 折线转折与平面分区计数。最短路径三题分别使用等半径双圆、单圆偏置端点、不等半径双圆；正式图保留黑色几何和尺寸标注，精确答案以 `dataset.jsonl` 为准。
 
 Plane109～Plane114 为用户确认收集的六道原创交点计数题，来源统一为 `Author designed`，按 `temp/requested_six` 的图1～图6顺序入库，答案依次为 6、4、5、6、6、8。正式数据保留黑白原图、冻结场景和逐题绘图程序；构造、独立求交和像素复现核验见 [来源记录](provenance/source_notes.json)。没有外部来源图片，`original_image` 为 `null`；暂存红点诱导图未收集为 Special。
+
+Plane115 为用户确认收集的原创直线延长判断题，答案为 A（Point A）。重绘图保留线段 PO 与 C、A、B 三个候选点，相邻候选点间距从参考图约 78 px 增至约 125 px；P、O、A 共线且 O 位于 P 与 A 之间。作者提供的参考图原样保存在 `PlaneGeometry/originals/Plane115.png`。
+
+Plane116～Plane118 分别为平行、垂直、等角判断题，答案依次为 A、C、C；对应用户审阅时的暂存编号 Plane117、Plane118、Plane120。按连续题号迁入时保留题干、选项、答案和原图像素，编号对应关系及内容哈希见 [来源记录](provenance/source_notes.json)。本次仅收集这三道原题，配套标注、其余两题和已被替代的旧稿已移入回收站。
+
+Plane119 为用户确认的原创多边形边数判断题，答案为 6。正式图为六条边组成的闭合不规则六边形，作者上传的参考图原样保存在 `PlaneGeometry/originals/Plane119.png`。
+
+Plane120、Plane121 为用户确认收集的折线转折与矩形分区计数题，答案分别为 5、7；对应审阅时的暂存编号 Plane120、Plane124。Plane121 使用三条内部直线累计上移约 107 px 的最终确认版；三个交点互异，仍将矩形分成 7 个区域。两题均无外部来源图片，原题图像像素原样保留；编号映射、冻结几何及复现核验见 [来源记录](provenance/source_notes.json)。
 
 Solid67～Solid72 为用户确认的六道中点截面体积题，答案依次为 30、108、144、60、42、40。Solid67 保留用户提供的参考图，其余五题 `original_image` 为 `null`；当前 Solid67 已有 3 张 Special。构造、原题修订和来源答案争议统一保存在 [source_notes.json](provenance/source_notes.json)，原题审核见 [approvals.json](provenance/approvals.json)。
 

@@ -182,7 +182,7 @@ Solid67 的三张都只加一个点：C01 为中央投影棱附近的红点，C0
 
 ## 在解释效果前要处理的已有边界
 
-**Ana29 已有标准答案争议。** [source_notes.json](provenance/source_notes.json) 已记录 `needs_review`：正式脚本绘制开端点 `(-3,0)`、闭端点 `(1,-4)` 的曲线，对应定义域 `(-3,1]`、值域 `[-4,0]`；当前正式答案仍为 `domain: [-4, 0) and range: (-3, 1]`。这项冲突不是本次新发现的模型失误。该题三份 Special 可用于描述标记操作，在复审前不宜据现有答案判定干扰成功。本次不改题干、答案或批准指纹。
+**Ana29 的标准答案已按用户确认修正。** 原盘点时 [source_notes.json](provenance/source_notes.json) 记录了来源答案争议。用户随后明确回复“确认修改。”，当前正式答案已统一为 `domain: (-3, 1] and range: [-4, 0]`；旧答案、原批准凭据和本次确认见 [修订核验记录](provenance/ana29_answer_correction.json)。原图与三张 Special 的图片、插件参数及原 Pass／Collect 时间保持不变，三张变体已逐份重放核对像素与 PNG 文件字节一致。后续评测应使用修正后的答案，不能沿用旧答案的判分。
 
 同一来源记录里 Ana21、Ana39 也留有历史答案争议说明，但当前正式答案分别为 `(2,2)`、B，已与说明中的独立核验值一致。不能仅因为历史字段仍写 `needs_review` 就把它们判成当前答案错误。
 
@@ -222,7 +222,7 @@ Solid67 的三张都只加一个点：C01 为中央投影棱附近的红点，C0
 | [Ana24](Analytics/special_variant/Ana24/recipes.json) | C01～C05（5） | 两红点依次为 `(3,0),(0,-3)`；`(0,-2),(3,0)`；`(5,1),(0,-3)`；`(-4,-5),(0,-2)`；`(-4,-5),(3,0)`。 |
 | [Ana25](Analytics/special_variant/Ana25/recipes.json) | C01～C05（5） | C01～C04 从原圆心 `(1,2)` 画蓝虚线到红点，末端依次为 `(5,4)`、`(6,2)`、`(-3,5)`、`(3,5)`；C05 只加红点 `(4,0)`。 |
 | [Ana27](Analytics/special_variant/Ana27/recipes.json) | C01～C03（3） | C01：红点 `(-1,0)`；C02：红点 `(0,1)` 与蓝虚线 `(-7,0)→(0,1)`；C03：蓝虚线 `(0,1)→(-7,2)` 并标两端。 |
-| [Ana29](Analytics/special_variant/Ana29/recipes.json) | C01～C03（3） | C01：红点 `(0,1),(1,-4)`；C02：两条近水平蓝虚线，约 y=`2,-3`；C03：竖虚线 `x=-4,1`。本题标准答案争议见前文。 |
+| [Ana29](Analytics/special_variant/Ana29/recipes.json) | C01～C03（3） | C01：红点 `(0,1),(1,-4)`；C02：两条近水平蓝虚线，约 y=`2,-3`；C03：竖虚线 `x=-4,1`。本题答案已修正，见前文修订说明。 |
 | [Ana32](Analytics/special_variant/Ana32/recipes.json) | C01～C03（3） | C01：竖虚线 `x=-2,2`；C02：轴上红点 x=`-3,2`；C03：轴上红点 x=`-4,1`。 |
 | [Ana35](Analytics/special_variant/Ana35/recipes.json) | C01～C02（2） | C01：红点 `(3,4)`，从该点向 `(-1,-7)`、`(7,-7)` 加两条蓝虚线；C02：只标真实顶点 `(3,3)`。整题有特殊完成标记，不能据此忽略两张已通过图。 |
 | [Ana36](Analytics/special_variant/Ana36/recipes.json) | C01～C02（2） | C01：红点 `(0,1)`；C02：红点 `(-5,0)`。 |
