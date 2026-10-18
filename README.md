@@ -2,13 +2,13 @@
 
 MathPalette 研究统一渲染条件下，视觉标记如何影响视觉语言模型的数学推理。原题经用户确认后收集，人工 Special 从原图独立派生，冻结操作以便重绘。标记方法、已有方案盘点和后续探索见 [Conclusion.md](Conclusion.md)。
 
-截至 2026-10-18，正式数据为 **251 题、141 张 Special**：Analytics 51 题 / 113 张，PlaneGeometry 122 题 / 21 张，SolidGeometry 78 题 / 7 张。Special 覆盖 40 道原题。题源为 DynaMath 20 题、MathVerse 125 题、MathVista 56 题、SOLIDGEO 9 题、Author designed 41 题；最新数量以 `catalog.py check` 为准。
+截至 2026-10-18，正式数据为 **251 题、144 张 Special**：Analytics 51 题 / 116 张，PlaneGeometry 122 题 / 21 张，SolidGeometry 78 题 / 7 张。Special 覆盖 42 道原题。题源为 DynaMath 20 题、MathVerse 125 题、MathVista 56 题、SOLIDGEO 9 题、Author designed 41 题；最新数量以 `catalog.py check` 为准。
 
 | 内容 | 数量 / 入口 |
 | --- | --- |
 | 正式原题 | [question_bank.jsonl](question_bank.jsonl)，251 条 |
 | Base | 三个分支均未启用，汇总索引中的 `base_plugins` 为空列表 |
-| 人工 Special | 共 141 张，保留原 Pass / Collect 时间；只有完成标记、没有已通过图片的题不计入变体数 |
+| 人工 Special | 共 144 张，保留原 Pass / Collect 时间；只有完成标记、没有已通过图片的题不计入变体数 |
 | 来源截图 | MathVerse 125 张、MathVista 56 张、SOLIDGEO 9 张，另有 7 张作者提供的参考图；DynaMath 20 题的来源截图在原库中缺失 |
 | 解析几何 Special 工作台 | 双击 [Analytics/start_special_workbench.cmd](Analytics/start_special_workbench.cmd)，端口 8767 |
 | 平面几何 Special 工作台 | 双击 [PlaneGeometry/start_special_workbench.cmd](PlaneGeometry/start_special_workbench.cmd)，端口 8768 |
