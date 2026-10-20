@@ -1,6 +1,6 @@
 # 立体几何 Special 标注 Agent
 
-先阅读根目录 `MATHPALETTE_PROTOCOL.md`、`GEOMETRY_WORKBENCH_REQUIREMENTS.md` 和 `SolidGeometry/REDRAW_PROTOCOL.md`。本工作台只对正式 Solid 题增加二维标注或覆盖原线条外观；不改变题干、答案、三维坐标、投影、可见性区间、尺寸绑定或原图。原题审核与 Special Pass / Collect 相互独立。
+先阅读根目录 `MATHPALETTE_PROTOCOL.md`、`SolidGeometry/REDRAW_PROTOCOL.md`，以及同目录 `README.md` 和 `plugin.schema.json`。本工作台只对正式 Solid 题增加二维标注或覆盖原线条外观；不改变题干、答案、三维坐标、投影、可见性区间、尺寸绑定或原图。原题审核与 Special Pass / Collect 相互独立。
 
 从项目根目录运行：
 

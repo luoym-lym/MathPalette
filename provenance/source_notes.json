@@ -139,11 +139,13 @@
   },
   "Ana29": {
     "answer_verification": {
-      "reasoning": "The plotted cubic has open endpoint (-3,0), closed endpoint (1,-4), local minimum (-2,-4) and local maximum (0,0). The source GT appears to swap domain and range; preserved as instructed.",
-      "verified_answer": "domain (-3,1]; range [-4,0]",
-      "issue": "Source GT appears incorrect: it reports domain [-4,0) and range (-3,1], but the graph gives domain (-3,1] and range [-4,0]. Retained source answer.",
-      "status": "needs_review",
-      "issue_zh": "图中定义域为 (-3,1]、值域为 [-4,0]；来源答案混淆了两者及端点。"
+      "reasoning": "The source and redraw both have an open endpoint (-3,0), a closed endpoint (1,-4), a local minimum (-2,-4), and a local maximum (0,0). Thus the domain is (-3,1] and the range is [-4,0]. Both range bounds are attained; the open left endpoint does not exclude y=0.",
+      "verified_answer": "domain: (-3, 1] and range: [-4, 0]",
+      "status": "corrected_user_confirmed",
+      "previous_source_answer": "domain: [-4, 0) and range: (-3, 1]",
+      "user_confirmation": "确认修改。",
+      "confirmation_context": "User confirmed the explicitly displayed domain (-3,1] and range [-4,0] answer-only repair.",
+      "correction_record": "provenance/ana29_answer_correction.json"
     }
   },
   "Ana30": {
@@ -36154,5 +36156,5529 @@
       "visual_inspection": "Inspected all six prepared baseline diagrams. Labels, outlines, right-angle markers and angle arcs are legible, with no clipping, grids or colored overlays. The prepared images preserve the selected baseline pixels."
     },
     "source_image_note": "Author-created question; no external source image exists. original_image is null."
+  },
+  "Plane109": {
+    "source_dataset": "Author designed",
+    "source_key": "intersection-counting:equal_circles_small_center",
+    "user_source_instruction": "看一下这个库。把temp文件夹里面的6道后面做的基础题目放到正式题库里面去。来源是Author designed",
+    "original_source_image_available": false,
+    "design_reference": "temp/requested_six/equal_circles_small_center",
+    "staged_input_sha256": {
+      "question.json": "603d9907d38d6983930193e45e769d0e39d881fc760679b4acf79f754ca98614",
+      "scene.json": "3b739d417433d8528ace9faaf7f441af3244119dfe22af90c02ea1daa9e77781",
+      "original.png": "8c025b0ee86969685b5bc87eacbff22c4282a7d8420e3c3a5cf607b25e766857",
+      "source_notes.json": "875955c97232eb12a4a81568c01b58ffbd69613633ce30dd0acb221961141e1f"
+    },
+    "geometry_notes": {
+      "center_distance": 2.3,
+      "previous_center_distance": 1.8,
+      "radius": 1.65,
+      "previous_scene": "../three_equal_circles/scene.json",
+      "selection": "outer_three",
+      "previous_centers": [
+        [
+          0,
+          1.0392304845413265
+        ],
+        [
+          -0.9,
+          -0.5196152422706632
+        ],
+        [
+          0.9,
+          -0.5196152422706632
+        ]
+      ],
+      "construction": "三个等圆，中央区域缩小",
+      "counting": "Count each distinct crossing between different original shapes once. Polygon corners are excluded; crossings between the two lines are included."
+    },
+    "redraw_verification": {
+      "answer": 6,
+      "analytic_and_parametric_positions_match": true,
+      "intersections": [
+        {
+          "xy": [
+            -1.5996950765959597,
+            0.9235843830939964
+          ],
+          "pairs": [
+            [
+              "top",
+              "left"
+            ]
+          ]
+        },
+        {
+          "xy": [
+            -0.44969507659595975,
+            -0.2596315735259268
+          ],
+          "pairs": [
+            [
+              "top",
+              "right"
+            ]
+          ]
+        },
+        {
+          "xy": [
+            0.0,
+            -1.8471687661879928
+          ],
+          "pairs": [
+            [
+              "left",
+              "right"
+            ]
+          ]
+        },
+        {
+          "xy": [
+            0.0,
+            0.5192631470518536
+          ],
+          "pairs": [
+            [
+              "left",
+              "right"
+            ]
+          ]
+        },
+        {
+          "xy": [
+            0.44969507659595975,
+            -0.2596315735259268
+          ],
+          "pairs": [
+            [
+              "top",
+              "left"
+            ]
+          ]
+        },
+        {
+          "xy": [
+            1.5996950765959597,
+            0.9235843830939964
+          ],
+          "pairs": [
+            [
+              "top",
+              "right"
+            ]
+          ]
+        }
+      ],
+      "explicit_geometry_checks": [
+        {
+          "id": "crossing_1_on_left",
+          "type": "on_circle",
+          "measured": 1.65,
+          "passed": true
+        },
+        {
+          "id": "crossing_1_on_top",
+          "type": "on_circle",
+          "measured": 1.65,
+          "passed": true
+        },
+        {
+          "id": "crossing_2_on_right",
+          "type": "on_circle",
+          "measured": 1.65,
+          "passed": true
+        },
+        {
+          "id": "crossing_2_on_top",
+          "type": "on_circle",
+          "measured": 1.65,
+          "passed": true
+        },
+        {
+          "id": "crossing_3_on_left",
+          "type": "on_circle",
+          "measured": 1.65,
+          "passed": true
+        },
+        {
+          "id": "crossing_3_on_right",
+          "type": "on_circle",
+          "measured": 1.65,
+          "passed": true
+        },
+        {
+          "id": "crossing_4_on_left",
+          "type": "on_circle",
+          "measured": 1.65,
+          "passed": true
+        },
+        {
+          "id": "crossing_4_on_right",
+          "type": "on_circle",
+          "measured": 1.65,
+          "passed": true
+        },
+        {
+          "id": "crossing_5_on_left",
+          "type": "on_circle",
+          "measured": 1.65,
+          "passed": true
+        },
+        {
+          "id": "crossing_5_on_top",
+          "type": "on_circle",
+          "measured": 1.65,
+          "passed": true
+        },
+        {
+          "id": "crossing_6_on_right",
+          "type": "on_circle",
+          "measured": 1.65,
+          "passed": true
+        },
+        {
+          "id": "crossing_6_on_top",
+          "type": "on_circle",
+          "measured": 1.65,
+          "passed": true
+        }
+      ],
+      "requirements": {
+        "passed": true,
+        "old_center_distance": 1.8,
+        "new_center_distance": 2.3,
+        "old_common_region_area": 1.5099448861020275,
+        "new_common_region_area": 0.46305434869564654,
+        "area_ratio": 0.3066697022902847
+      },
+      "repeat_png_identical": true,
+      "repeat_svg_identical": true,
+      "matches_approved_baseline_pixels": true,
+      "formal_png_byte_identical_to_baseline": true,
+      "size": [
+        768,
+        768
+      ],
+      "opaque": true,
+      "black_only": true,
+      "content_bbox_px": [
+        53,
+        71,
+        714,
+        696
+      ],
+      "occupancy": 0.8619791666666666,
+      "center_error_px": 0.0,
+      "scene_sha256": "8f029a3aa5fc93301ba8279d020cbc463f4e1c90db585707917fc06ecd6b669b",
+      "image_sha256": "8c025b0ee86969685b5bc87eacbff22c4282a7d8420e3c3a5cf607b25e766857",
+      "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+      "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+      "dependencies": {
+        "python": "3.13.9",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.3",
+        "Pillow": "12.3.0",
+        "freetype": "2.14.3"
+      },
+      "visual_inspection": "Inspected the six black baseline diagrams. Every crossing is visible; no clipping, labels, or colored overlays."
+    },
+    "collection_scope": "Only the black baseline question is formal. Red-point inducing variants remain staged and have no Special Pass/Collect approval.",
+    "source_image_note": "Author-created question; no external source image exists. original_image is null."
+  },
+  "Plane110": {
+    "source_dataset": "Author designed",
+    "source_key": "intersection-counting:unequal_circles_four_crossings",
+    "user_source_instruction": "看一下这个库。把temp文件夹里面的6道后面做的基础题目放到正式题库里面去。来源是Author designed",
+    "original_source_image_available": false,
+    "design_reference": "temp/requested_six/unequal_circles_four_crossings",
+    "staged_input_sha256": {
+      "question.json": "d40cceb5f50ec43169291776e2bd488f649ee72e4aa87351ae05d5c65b1ca273",
+      "scene.json": "976b2139edde8278eb49208b142896be41cde551427b5f67fe3e896c80ca05ca",
+      "original.png": "f7b3d958c4154ecfe85128759c7305d431c99cbfdd4236707fbab423662d0dd7",
+      "source_notes.json": "c04f3614dc19c4d8a830b0d9ad189c1f80ed124bed3e20349402e396cdcf2bed"
+    },
+    "geometry_notes": {
+      "retained_from": "../visual_intersections/unequal_loops",
+      "keep_original_pixels": true,
+      "baseline_original_pixels_sha256": "39ff2723c8c151b7938cc5a509387bf961d130932a8aef96aeefaac7256a2951",
+      "construction": "三个不等圆，沿用指定的图1",
+      "counting": "Count each distinct crossing between different original shapes once. Polygon corners are excluded; crossings between the two lines are included."
+    },
+    "redraw_verification": {
+      "answer": 4,
+      "analytic_and_parametric_positions_match": true,
+      "intersections": [
+        {
+          "xy": [
+            0.15902991149963308,
+            -1.0181588495854723
+          ],
+          "pairs": [
+            [
+              "curve_0",
+              "curve_1"
+            ]
+          ]
+        },
+        {
+          "xy": [
+            0.557108074225981,
+            1.303963766318224
+          ],
+          "pairs": [
+            [
+              "curve_0",
+              "curve_1"
+            ]
+          ]
+        },
+        {
+          "xy": [
+            1.002249241804092,
+            1.3459726434421708
+          ],
+          "pairs": [
+            [
+              "curve_1",
+              "curve_2"
+            ]
+          ]
+        },
+        {
+          "xy": [
+            1.9463356638562852,
+            0.8214801867465081
+          ],
+          "pairs": [
+            [
+              "curve_1",
+              "curve_2"
+            ]
+          ]
+        }
+      ],
+      "explicit_geometry_checks": [
+        {
+          "id": "crossing_1_on_curve_0",
+          "type": "on_circle",
+          "measured": 1.7000000000000002,
+          "passed": true
+        },
+        {
+          "id": "crossing_1_on_curve_1",
+          "type": "on_circle",
+          "measured": 1.3000000000000005,
+          "passed": true
+        },
+        {
+          "id": "crossing_2_on_curve_0",
+          "type": "on_circle",
+          "measured": 1.7,
+          "passed": true
+        },
+        {
+          "id": "crossing_2_on_curve_1",
+          "type": "on_circle",
+          "measured": 1.3000000000000003,
+          "passed": true
+        },
+        {
+          "id": "crossing_3_on_curve_1",
+          "type": "on_circle",
+          "measured": 1.2999999999999998,
+          "passed": true
+        },
+        {
+          "id": "crossing_3_on_curve_2",
+          "type": "on_circle",
+          "measured": 0.6500000000000002,
+          "passed": true
+        },
+        {
+          "id": "crossing_4_on_curve_1",
+          "type": "on_circle",
+          "measured": 1.3,
+          "passed": true
+        },
+        {
+          "id": "crossing_4_on_curve_2",
+          "type": "on_circle",
+          "measured": 0.6500000000000002,
+          "passed": true
+        }
+      ],
+      "requirements": {
+        "passed": true,
+        "chosen_previous_original_pixels_preserved": true
+      },
+      "repeat_png_identical": true,
+      "repeat_svg_identical": true,
+      "matches_approved_baseline_pixels": true,
+      "formal_png_byte_identical_to_baseline": true,
+      "size": [
+        768,
+        768
+      ],
+      "opaque": true,
+      "black_only": true,
+      "content_bbox_px": [
+        53,
+        151,
+        714,
+        616
+      ],
+      "occupancy": 0.8619791666666666,
+      "center_error_px": 0.0,
+      "scene_sha256": "467fcf1e815d890e44989703ddd3a87d300aa6bfe1023bfb57badbafa6c1936a",
+      "image_sha256": "f7b3d958c4154ecfe85128759c7305d431c99cbfdd4236707fbab423662d0dd7",
+      "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+      "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+      "dependencies": {
+        "python": "3.13.9",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.3",
+        "Pillow": "12.3.0",
+        "freetype": "2.14.3"
+      },
+      "visual_inspection": "Inspected the six black baseline diagrams. Every crossing is visible; no clipping, labels, or colored overlays."
+    },
+    "collection_scope": "Only the black baseline question is formal. Red-point inducing variants remain staged and have no Special Pass/Collect approval.",
+    "source_image_note": "Author-created question; no external source image exists. original_image is null."
+  },
+  "Plane111": {
+    "source_dataset": "Author designed",
+    "source_key": "intersection-counting:circle_nonparallel_lines",
+    "user_source_instruction": "看一下这个库。把temp文件夹里面的6道后面做的基础题目放到正式题库里面去。来源是Author designed",
+    "original_source_image_available": false,
+    "design_reference": "temp/requested_six/circle_nonparallel_lines",
+    "staged_input_sha256": {
+      "question.json": "5e8ea8e6ad5179f3fa3eb3da08a3acaa6d5e345a813fc44fd9ad72aa82d5f253",
+      "scene.json": "8462616f55d862d2dc173880081d457e2ab8f7c9286e7744bebd41e26dde166a",
+      "original.png": "a143b0822de97f4008b918b00c1826d34e2f0d10124120ff7934c1b114a7e327",
+      "source_notes.json": "4d0b82d605d3e06201dbeeb2f6afa01fdbfcdc7da1fdecc425beb34fbb9609cd"
+    },
+    "geometry_notes": {
+      "unbounded_lines": [
+        {
+          "object_id": "line_a",
+          "semantic_type": "line",
+          "anchor": [
+            0,
+            0.35
+          ],
+          "direction": [
+            1,
+            0.25
+          ],
+          "clipping": "Frozen finite display interval containing every intersection with the other original shapes."
+        },
+        {
+          "object_id": "line_b",
+          "semantic_type": "line",
+          "anchor": [
+            0,
+            -0.1
+          ],
+          "direction": [
+            1,
+            -0.7
+          ],
+          "clipping": "Frozen finite display interval containing every intersection with the other original shapes."
+        }
+      ],
+      "counting": "Count each distinct crossing between different original shapes once. Polygon corners are excluded; crossings between the two lines are included.",
+      "construction": "圆与两条不平行直线"
+    },
+    "redraw_verification": {
+      "answer": 5,
+      "analytic_and_parametric_positions_match": true,
+      "intersections": [
+        {
+          "xy": [
+            -1.7478381048599623,
+            -0.08695952621499062
+          ],
+          "pairs": [
+            [
+              "circle",
+              "line_a"
+            ]
+          ]
+        },
+        {
+          "xy": [
+            -1.4790639505617877,
+            0.9353447653932512
+          ],
+          "pairs": [
+            [
+              "circle",
+              "line_b"
+            ]
+          ]
+        },
+        {
+          "xy": [
+            -0.47368421052631593,
+            0.231578947368421
+          ],
+          "pairs": [
+            [
+              "line_a",
+              "line_b"
+            ]
+          ]
+        },
+        {
+          "xy": [
+            1.3851042190181628,
+            -1.0695729533127138
+          ],
+          "pairs": [
+            [
+              "circle",
+              "line_b"
+            ]
+          ]
+        },
+        {
+          "xy": [
+            1.5831322225070208,
+            0.7457830556267552
+          ],
+          "pairs": [
+            [
+              "circle",
+              "line_a"
+            ]
+          ]
+        }
+      ],
+      "explicit_geometry_checks": [
+        {
+          "id": "crossing_1_on_circle",
+          "type": "on_circle",
+          "measured": 1.75,
+          "passed": true
+        },
+        {
+          "id": "crossing_1_on_line_a",
+          "type": "between",
+          "measured": 2.7755575615628914e-17,
+          "passed": true
+        },
+        {
+          "id": "crossing_2_on_circle",
+          "type": "on_circle",
+          "measured": 1.7499999999999996,
+          "passed": true
+        },
+        {
+          "id": "crossing_2_on_line_b",
+          "type": "between",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "crossing_3_on_line_a",
+          "type": "between",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "crossing_3_on_line_b",
+          "type": "between",
+          "measured": 2.220446049250313e-16,
+          "passed": true
+        },
+        {
+          "id": "crossing_4_on_circle",
+          "type": "on_circle",
+          "measured": 1.7499999999999987,
+          "passed": true
+        },
+        {
+          "id": "crossing_4_on_line_b",
+          "type": "between",
+          "measured": 4.440892098500626e-16,
+          "passed": true
+        },
+        {
+          "id": "crossing_5_on_circle",
+          "type": "on_circle",
+          "measured": 1.7499999999999998,
+          "passed": true
+        },
+        {
+          "id": "crossing_5_on_line_a",
+          "type": "between",
+          "measured": 0.0,
+          "passed": true
+        }
+      ],
+      "requirements": {
+        "passed": true,
+        "line_angle_degrees": 49.028263666485145,
+        "line_line_crossing_included": true
+      },
+      "repeat_png_identical": true,
+      "repeat_svg_identical": true,
+      "matches_approved_baseline_pixels": true,
+      "formal_png_byte_identical_to_baseline": true,
+      "size": [
+        768,
+        768
+      ],
+      "opaque": true,
+      "black_only": true,
+      "content_bbox_px": [
+        53,
+        152,
+        714,
+        615
+      ],
+      "occupancy": 0.8619791666666666,
+      "center_error_px": 0.0,
+      "scene_sha256": "3fdb8c3d58c0067eb36b5b30cf44717ee35d20dbc317c55850f3c97528421f4c",
+      "image_sha256": "a143b0822de97f4008b918b00c1826d34e2f0d10124120ff7934c1b114a7e327",
+      "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+      "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+      "dependencies": {
+        "python": "3.13.9",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.3",
+        "Pillow": "12.3.0",
+        "freetype": "2.14.3"
+      },
+      "visual_inspection": "Inspected the six black baseline diagrams. Every crossing is visible; no clipping, labels, or colored overlays."
+    },
+    "collection_scope": "Only the black baseline question is formal. Red-point inducing variants remain staged and have no Special Pass/Collect approval.",
+    "source_image_note": "Author-created question; no external source image exists. original_image is null."
+  },
+  "Plane112": {
+    "source_dataset": "Author designed",
+    "source_key": "intersection-counting:two_circles_offcenter_line",
+    "user_source_instruction": "看一下这个库。把temp文件夹里面的6道后面做的基础题目放到正式题库里面去。来源是Author designed",
+    "original_source_image_available": false,
+    "design_reference": "temp/requested_six/two_circles_offcenter_line",
+    "staged_input_sha256": {
+      "question.json": "ef4f7f2dbf1d246b5e425d32588de6f77dba3b271a385faf65b6d2cd672f0336",
+      "scene.json": "49ed5956daf78e637385ddafb4dedc635410eda66c8a6f03c210672d21bca224",
+      "original.png": "a08cfbe6ff6d99e3fed2222760a57f9e0937bae93c7e03f14a31b97239a50b59",
+      "source_notes.json": "e7b71eccf72105fdf7587072364f624199a1fbac51352cbaddabbe4b135accd2"
+    },
+    "geometry_notes": {
+      "unbounded_lines": [
+        {
+          "object_id": "line",
+          "semantic_type": "line",
+          "anchor": [
+            0,
+            -0.6
+          ],
+          "direction": [
+            1,
+            0.16
+          ],
+          "clipping": "Frozen finite display interval containing every intersection with the other original shapes."
+        }
+      ],
+      "line_avoids_both_centers": true,
+      "construction": "两个圆与不过任一圆心的直线",
+      "counting": "Count each distinct crossing between different original shapes once. Polygon corners are excluded; crossings between the two lines are included."
+    },
+    "redraw_verification": {
+      "answer": 6,
+      "analytic_and_parametric_positions_match": true,
+      "intersections": [
+        {
+          "xy": [
+            -1.9926368849521967,
+            -0.9188219015923516
+          ],
+          "pairs": [
+            [
+              "left_circle",
+              "line"
+            ]
+          ]
+        },
+        {
+          "xy": [
+            -0.3255463966993375,
+            -0.6520874234718941
+          ],
+          "pairs": [
+            [
+              "right_circle",
+              "line"
+            ]
+          ]
+        },
+        {
+          "xy": [
+            0.0030760337958954387,
+            -1.0707776789389936
+          ],
+          "pairs": [
+            [
+              "left_circle",
+              "right_circle"
+            ]
+          ]
+        },
+        {
+          "xy": [
+            0.25829382921780325,
+            1.3537913775691304
+          ],
+          "pairs": [
+            [
+              "left_circle",
+              "right_circle"
+            ]
+          ]
+        },
+        {
+          "xy": [
+            0.5027772905684218,
+            -0.5195556335090525
+          ],
+          "pairs": [
+            [
+              "left_circle",
+              "line"
+            ]
+          ]
+        },
+        {
+          "xy": [
+            2.4784325121439554,
+            -0.20345079805696709
+          ],
+          "pairs": [
+            [
+              "right_circle",
+              "line"
+            ]
+          ]
+        }
+      ],
+      "explicit_geometry_checks": [
+        {
+          "id": "crossing_1_on_left_circle",
+          "type": "on_circle",
+          "measured": 1.6,
+          "passed": true
+        },
+        {
+          "id": "crossing_1_on_line",
+          "type": "between",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "crossing_2_on_line",
+          "type": "between",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "crossing_2_on_right_circle",
+          "type": "on_circle",
+          "measured": 1.5,
+          "passed": true
+        },
+        {
+          "id": "crossing_3_on_left_circle",
+          "type": "on_circle",
+          "measured": 1.6,
+          "passed": true
+        },
+        {
+          "id": "crossing_3_on_right_circle",
+          "type": "on_circle",
+          "measured": 1.5000000000000002,
+          "passed": true
+        },
+        {
+          "id": "crossing_4_on_left_circle",
+          "type": "on_circle",
+          "measured": 1.6,
+          "passed": true
+        },
+        {
+          "id": "crossing_4_on_right_circle",
+          "type": "on_circle",
+          "measured": 1.5,
+          "passed": true
+        },
+        {
+          "id": "crossing_5_on_left_circle",
+          "type": "on_circle",
+          "measured": 1.6000000000000005,
+          "passed": true
+        },
+        {
+          "id": "crossing_5_on_line",
+          "type": "between",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "crossing_6_on_line",
+          "type": "between",
+          "measured": 1.1102230246251565e-16,
+          "passed": true
+        },
+        {
+          "id": "crossing_6_on_right_circle",
+          "type": "on_circle",
+          "measured": 1.5000000000000002,
+          "passed": true
+        }
+      ],
+      "requirements": {
+        "passed": true,
+        "line_distance_from_each_center": [
+          0.9815159881252052,
+          0.48384590963918583
+        ]
+      },
+      "repeat_png_identical": true,
+      "repeat_svg_identical": true,
+      "matches_approved_baseline_pixels": true,
+      "formal_png_byte_identical_to_baseline": true,
+      "size": [
+        768,
+        768
+      ],
+      "opaque": true,
+      "black_only": true,
+      "content_bbox_px": [
+        53,
+        201,
+        714,
+        566
+      ],
+      "occupancy": 0.8619791666666666,
+      "center_error_px": 0.0,
+      "scene_sha256": "fd36fbf52e4b311977195c4f203c9d9c5e45fd3aaa964545ebadabad1d758233",
+      "image_sha256": "a08cfbe6ff6d99e3fed2222760a57f9e0937bae93c7e03f14a31b97239a50b59",
+      "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+      "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+      "dependencies": {
+        "python": "3.13.9",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.3",
+        "Pillow": "12.3.0",
+        "freetype": "2.14.3"
+      },
+      "visual_inspection": "Inspected the six black baseline diagrams. Every crossing is visible; no clipping, labels, or colored overlays."
+    },
+    "collection_scope": "Only the black baseline question is formal. Red-point inducing variants remain staged and have no Special Pass/Collect approval.",
+    "source_image_note": "Author-created question; no external source image exists. original_image is null."
+  },
+  "Plane113": {
+    "source_dataset": "Author designed",
+    "source_key": "intersection-counting:overlapping_rectangles",
+    "user_source_instruction": "看一下这个库。把temp文件夹里面的6道后面做的基础题目放到正式题库里面去。来源是Author designed",
+    "original_source_image_available": false,
+    "design_reference": "temp/requested_six/overlapping_rectangles",
+    "staged_input_sha256": {
+      "question.json": "b6ff7daa78a0f4d4b4e9e87ebf6da978db644306ecbed23444fb6c0d39f0dc8d",
+      "scene.json": "4d65fc1bd29183c2f345a1b3ed19ba12a2ee830abc2783aa0fb891ce50bdf8bb",
+      "original.png": "b0b6621714ab082c8f8aa526dc60eda1b6aa7b3a05f9dd0d59907f713a03c043",
+      "source_notes.json": "5a83938836ebda04c58d37161bdb71d558d3c6db643925aa466a36db4a08f8a0"
+    },
+    "geometry_notes": {
+      "rectangles_are_not_squares": true,
+      "counting": "Count each distinct crossing between different original shapes once. Polygon corners are excluded; crossings between the two lines are included.",
+      "construction": "两个交叠矩形"
+    },
+    "redraw_verification": {
+      "answer": 6,
+      "analytic_and_parametric_positions_match": true,
+      "intersections": [
+        {
+          "xy": [
+            -1.0176511467625504,
+            1.25
+          ],
+          "pairs": [
+            [
+              "rectangle_a_edge_3",
+              "rectangle_b_edge_3"
+            ]
+          ]
+        },
+        {
+          "xy": [
+            -0.5197630748202755,
+            -1.15
+          ],
+          "pairs": [
+            [
+              "rectangle_a_edge_1",
+              "rectangle_b_edge_4"
+            ]
+          ]
+        },
+        {
+          "xy": [
+            1.2822500100112082,
+            1.25
+          ],
+          "pairs": [
+            [
+              "rectangle_a_edge_3",
+              "rectangle_b_edge_2"
+            ]
+          ]
+        },
+        {
+          "xy": [
+            1.5576176938584463,
+            -1.15
+          ],
+          "pairs": [
+            [
+              "rectangle_a_edge_1",
+              "rectangle_b_edge_1"
+            ]
+          ]
+        },
+        {
+          "xy": [
+            2.0,
+            -0.8735688550651733
+          ],
+          "pairs": [
+            [
+              "rectangle_a_edge_2",
+              "rectangle_b_edge_1"
+            ]
+          ]
+        },
+        {
+          "xy": [
+            2.0,
+            0.10135990780206794
+          ],
+          "pairs": [
+            [
+              "rectangle_a_edge_2",
+              "rectangle_b_edge_2"
+            ]
+          ]
+        }
+      ],
+      "explicit_geometry_checks": [
+        {
+          "id": "rectangle_a_right_0",
+          "type": "perpendicular",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "rectangle_a_opposite_0",
+          "type": "equal_length",
+          "measured": [
+            4.4,
+            4.4
+          ],
+          "passed": true
+        },
+        {
+          "id": "rectangle_a_right_1",
+          "type": "perpendicular",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "rectangle_a_opposite_1",
+          "type": "equal_length",
+          "measured": [
+            2.4,
+            2.4
+          ],
+          "passed": true
+        },
+        {
+          "id": "rectangle_a_right_2",
+          "type": "perpendicular",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "rectangle_a_opposite_2",
+          "type": "equal_length",
+          "measured": [
+            4.4,
+            4.4
+          ],
+          "passed": true
+        },
+        {
+          "id": "rectangle_a_right_3",
+          "type": "perpendicular",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "rectangle_a_opposite_3",
+          "type": "equal_length",
+          "measured": [
+            2.4,
+            2.4
+          ],
+          "passed": true
+        },
+        {
+          "id": "rectangle_b_right_0",
+          "type": "perpendicular",
+          "measured": 1.1102230246251565e-16,
+          "passed": true
+        },
+        {
+          "id": "rectangle_b_opposite_0",
+          "type": "equal_length",
+          "measured": [
+            2.8,
+            2.8
+          ],
+          "passed": true
+        },
+        {
+          "id": "rectangle_b_right_1",
+          "type": "perpendicular",
+          "measured": 2.220446049250313e-16,
+          "passed": true
+        },
+        {
+          "id": "rectangle_b_opposite_1",
+          "type": "equal_length",
+          "measured": [
+            3.3999999999999995,
+            3.3999999999999995
+          ],
+          "passed": true
+        },
+        {
+          "id": "rectangle_b_right_2",
+          "type": "perpendicular",
+          "measured": 1.1102230246251565e-16,
+          "passed": true
+        },
+        {
+          "id": "rectangle_b_opposite_2",
+          "type": "equal_length",
+          "measured": [
+            2.8,
+            2.8
+          ],
+          "passed": true
+        },
+        {
+          "id": "rectangle_b_right_3",
+          "type": "perpendicular",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "rectangle_b_opposite_3",
+          "type": "equal_length",
+          "measured": [
+            3.3999999999999995,
+            3.3999999999999995
+          ],
+          "passed": true
+        },
+        {
+          "id": "crossing_1_on_rectangle_a_edge_3",
+          "type": "between",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "crossing_1_on_rectangle_b_edge_3",
+          "type": "between",
+          "measured": 2.220446049250313e-16,
+          "passed": true
+        },
+        {
+          "id": "crossing_2_on_rectangle_a_edge_1",
+          "type": "between",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "crossing_2_on_rectangle_b_edge_4",
+          "type": "between",
+          "measured": 4.440892098500626e-16,
+          "passed": true
+        },
+        {
+          "id": "crossing_3_on_rectangle_a_edge_3",
+          "type": "between",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "crossing_3_on_rectangle_b_edge_2",
+          "type": "between",
+          "measured": 1.1102230246251565e-16,
+          "passed": true
+        },
+        {
+          "id": "crossing_4_on_rectangle_a_edge_1",
+          "type": "between",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "crossing_4_on_rectangle_b_edge_1",
+          "type": "between",
+          "measured": 2.220446049250313e-16,
+          "passed": true
+        },
+        {
+          "id": "crossing_5_on_rectangle_a_edge_2",
+          "type": "between",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "crossing_5_on_rectangle_b_edge_1",
+          "type": "between",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "crossing_6_on_rectangle_a_edge_2",
+          "type": "between",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "crossing_6_on_rectangle_b_edge_2",
+          "type": "between",
+          "measured": 5.551115123125783e-17,
+          "passed": true
+        }
+      ],
+      "requirements": {
+        "passed": true,
+        "adjacent_side_lengths": [
+          [
+            4.4,
+            2.4
+          ],
+          [
+            2.8,
+            3.3999999999999995
+          ]
+        ]
+      },
+      "repeat_png_identical": true,
+      "repeat_svg_identical": true,
+      "matches_approved_baseline_pixels": true,
+      "formal_png_byte_identical_to_baseline": true,
+      "size": [
+        768,
+        768
+      ],
+      "opaque": true,
+      "black_only": true,
+      "content_bbox_px": [
+        53,
+        85,
+        714,
+        682
+      ],
+      "occupancy": 0.8619791666666666,
+      "center_error_px": 0.0,
+      "scene_sha256": "72507b46fa36c1152b70613f1ee37d4ee78957475d3c5af0fb9b1457eefaebd5",
+      "image_sha256": "b0b6621714ab082c8f8aa526dc60eda1b6aa7b3a05f9dd0d59907f713a03c043",
+      "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+      "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+      "dependencies": {
+        "python": "3.13.9",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.3",
+        "Pillow": "12.3.0",
+        "freetype": "2.14.3"
+      },
+      "visual_inspection": "Inspected the six black baseline diagrams. Every crossing is visible; no clipping, labels, or colored overlays."
+    },
+    "collection_scope": "Only the black baseline question is formal. Red-point inducing variants remain staged and have no Special Pass/Collect approval.",
+    "source_image_note": "Author-created question; no external source image exists. original_image is null."
+  },
+  "Plane114": {
+    "source_dataset": "Author designed",
+    "source_key": "intersection-counting:circle_crossing_square",
+    "user_source_instruction": "看一下这个库。把temp文件夹里面的6道后面做的基础题目放到正式题库里面去。来源是Author designed",
+    "original_source_image_available": false,
+    "design_reference": "temp/requested_six/circle_crossing_square",
+    "staged_input_sha256": {
+      "question.json": "76de81212da21d9bc5c185b4af14574dd912ed1b8ee888e381c5156ee3b4650a",
+      "scene.json": "cfca38adad6546219c1c9f696010923d4a5046be42bada446e2223ddf8213cfd",
+      "original.png": "f2931ee87c5f792b0529ee0d1fd4c12b7790d5fa00ca65d72a1b776fa9e82004",
+      "source_notes.json": "1cef8a491d4b01bf14218f59955e40d9dc13bf7bfc2c3075f78507123797cb14"
+    },
+    "geometry_notes": {
+      "neither_inscribed_nor_containing": true,
+      "counting": "Count each distinct crossing between different original shapes once. Polygon corners are excluded; crossings between the two lines are included.",
+      "concentric": true,
+      "shared_center": [
+        0.0,
+        0.0
+      ],
+      "alignment_instruction": "??????????????????",
+      "construction": "圆与正方形边界相交"
+    },
+    "redraw_verification": {
+      "answer": 8,
+      "analytic_and_parametric_positions_match": true,
+      "intersections": [
+        {
+          "xy": [
+            -1.5,
+            -0.9013878188659974
+          ],
+          "pairs": [
+            [
+              "circle",
+              "square_edge_4"
+            ]
+          ]
+        },
+        {
+          "xy": [
+            -1.5,
+            0.9013878188659974
+          ],
+          "pairs": [
+            [
+              "circle",
+              "square_edge_4"
+            ]
+          ]
+        },
+        {
+          "xy": [
+            -0.9013878188659974,
+            -1.5
+          ],
+          "pairs": [
+            [
+              "circle",
+              "square_edge_1"
+            ]
+          ]
+        },
+        {
+          "xy": [
+            -0.9013878188659974,
+            1.5
+          ],
+          "pairs": [
+            [
+              "circle",
+              "square_edge_3"
+            ]
+          ]
+        },
+        {
+          "xy": [
+            0.9013878188659974,
+            -1.5
+          ],
+          "pairs": [
+            [
+              "circle",
+              "square_edge_1"
+            ]
+          ]
+        },
+        {
+          "xy": [
+            0.9013878188659974,
+            1.5
+          ],
+          "pairs": [
+            [
+              "circle",
+              "square_edge_3"
+            ]
+          ]
+        },
+        {
+          "xy": [
+            1.5,
+            -0.9013878188659974
+          ],
+          "pairs": [
+            [
+              "circle",
+              "square_edge_2"
+            ]
+          ]
+        },
+        {
+          "xy": [
+            1.5,
+            0.9013878188659974
+          ],
+          "pairs": [
+            [
+              "circle",
+              "square_edge_2"
+            ]
+          ]
+        }
+      ],
+      "explicit_geometry_checks": [
+        {
+          "id": "square_right_0",
+          "type": "perpendicular",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "square_opposite_0",
+          "type": "equal_length",
+          "measured": [
+            3.0,
+            3.0
+          ],
+          "passed": true
+        },
+        {
+          "id": "square_equal_0",
+          "type": "equal_length",
+          "measured": [
+            3.0,
+            3.0
+          ],
+          "passed": true
+        },
+        {
+          "id": "square_right_1",
+          "type": "perpendicular",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "square_opposite_1",
+          "type": "equal_length",
+          "measured": [
+            3.0,
+            3.0
+          ],
+          "passed": true
+        },
+        {
+          "id": "square_equal_1",
+          "type": "equal_length",
+          "measured": [
+            3.0,
+            3.0
+          ],
+          "passed": true
+        },
+        {
+          "id": "square_right_2",
+          "type": "perpendicular",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "square_opposite_2",
+          "type": "equal_length",
+          "measured": [
+            3.0,
+            3.0
+          ],
+          "passed": true
+        },
+        {
+          "id": "square_equal_2",
+          "type": "equal_length",
+          "measured": [
+            3.0,
+            3.0
+          ],
+          "passed": true
+        },
+        {
+          "id": "square_right_3",
+          "type": "perpendicular",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "square_opposite_3",
+          "type": "equal_length",
+          "measured": [
+            3.0,
+            3.0
+          ],
+          "passed": true
+        },
+        {
+          "id": "square_equal_3",
+          "type": "equal_length",
+          "measured": [
+            3.0,
+            3.0
+          ],
+          "passed": true
+        },
+        {
+          "id": "crossing_1_on_circle",
+          "type": "on_circle",
+          "measured": 1.75,
+          "passed": true
+        },
+        {
+          "id": "crossing_1_on_square_edge_4",
+          "type": "between",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "crossing_2_on_circle",
+          "type": "on_circle",
+          "measured": 1.75,
+          "passed": true
+        },
+        {
+          "id": "crossing_2_on_square_edge_4",
+          "type": "between",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "crossing_3_on_circle",
+          "type": "on_circle",
+          "measured": 1.75,
+          "passed": true
+        },
+        {
+          "id": "crossing_3_on_square_edge_1",
+          "type": "between",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "crossing_4_on_circle",
+          "type": "on_circle",
+          "measured": 1.75,
+          "passed": true
+        },
+        {
+          "id": "crossing_4_on_square_edge_3",
+          "type": "between",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "crossing_5_on_circle",
+          "type": "on_circle",
+          "measured": 1.75,
+          "passed": true
+        },
+        {
+          "id": "crossing_5_on_square_edge_1",
+          "type": "between",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "crossing_6_on_circle",
+          "type": "on_circle",
+          "measured": 1.75,
+          "passed": true
+        },
+        {
+          "id": "crossing_6_on_square_edge_3",
+          "type": "between",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "crossing_7_on_circle",
+          "type": "on_circle",
+          "measured": 1.75,
+          "passed": true
+        },
+        {
+          "id": "crossing_7_on_square_edge_2",
+          "type": "between",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "crossing_8_on_circle",
+          "type": "on_circle",
+          "measured": 1.75,
+          "passed": true
+        },
+        {
+          "id": "crossing_8_on_square_edge_2",
+          "type": "between",
+          "measured": 0.0,
+          "passed": true
+        }
+      ],
+      "requirements": {
+        "passed": true,
+        "circle_and_square_centers_coincide": true,
+        "shared_center": [
+          0.0,
+          0.0
+        ],
+        "intersections_per_square_edge": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "neither_inscribed_nor_containing": true
+      },
+      "repeat_png_identical": true,
+      "repeat_svg_identical": true,
+      "matches_approved_baseline_pixels": true,
+      "formal_png_byte_identical_to_baseline": true,
+      "size": [
+        768,
+        768
+      ],
+      "opaque": true,
+      "black_only": true,
+      "content_bbox_px": [
+        53,
+        53,
+        714,
+        714
+      ],
+      "occupancy": 0.8619791666666666,
+      "center_error_px": 0.0,
+      "scene_sha256": "f5e911ee1399b52914affdb2431239c84d3a9d08242ebf3ad4ca5dc8c0504d3c",
+      "image_sha256": "f2931ee87c5f792b0529ee0d1fd4c12b7790d5fa00ca65d72a1b776fa9e82004",
+      "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+      "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+      "dependencies": {
+        "python": "3.13.9",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.3",
+        "Pillow": "12.3.0",
+        "freetype": "2.14.3"
+      },
+      "visual_inspection": "Inspected the six black baseline diagrams. Every crossing is visible; no clipping, labels, or colored overlays."
+    },
+    "collection_scope": "Only the black baseline question is formal. Red-point inducing variants remain staged and have no Special Pass/Collect approval.",
+    "source_image_note": "Author-created question; no external source image exists. original_image is null."
+  },
+  "Plane115": {
+    "source_dataset": "Author designed",
+    "source_key": "straight-line-continuation:PO_beyond_O",
+    "original_source_image_available": true,
+    "user_provided_design_reference": {
+      "original_image": "originals/Plane115.png",
+      "sha256": "489e3aec0a4236d84e581de25be3348a4b6bd60225cf02732c42a5b47202b2e3"
+    },
+    "geometry_notes": {
+      "construction": "P=(0,0), O=(3,2), A=(6,4), B=(6,2.7), C=(6,5.3). Coordinates are hidden drawing inputs.",
+      "user_requested_edit": "然后把ABC三个点的间距拉大一点，看起来明显一点。",
+      "spacing_adjustment": "Move C upward and B downward, keeping P, O and A collinear and preserving top-to-bottom C, A, B order. Only segment PO is drawn; the continuation is intentionally left for the solver.",
+      "answer_derivation": "A=O+1*(O-P). B and C each lie a positive distance from line PO. Therefore only A is on the continuation beyond O.",
+      "question_formatting": "The repository-required Choices: heading separates the user's unchanged option text."
+    },
+    "redraw_verification": {
+      "id": "Plane115",
+      "status": "formal",
+      "user_approved": true,
+      "size": [
+        768,
+        768
+      ],
+      "opaque": true,
+      "black_only": true,
+      "repeat_png_pixels_identical": true,
+      "repeat_svg_bytes_identical": true,
+      "script_redraw_bytes_identical": true,
+      "source_bytes_preserved": true,
+      "content_bbox_px": [
+        54,
+        107,
+        714,
+        660
+      ],
+      "center_offset_px": [
+        0.0,
+        -0.5
+      ],
+      "long_side_fraction": 0.859375,
+      "adjacent_candidate_gap_px": 125.35267287786046,
+      "source_adjacent_candidate_gap_px_approx": 78,
+      "geometry_checks": [
+        {
+          "id": "P_O_A_collinear",
+          "type": "collinear",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "O_between_P_A",
+          "type": "between",
+          "measured": 0.0,
+          "passed": true
+        }
+      ],
+      "answer_check": {
+        "A": {
+          "perpendicular_distance": 0.0,
+          "ray_parameter_beyond_O": 1.0,
+          "on_continuation": true
+        },
+        "B": {
+          "perpendicular_distance": 1.0816653826391966,
+          "ray_parameter_beyond_O": 0.8,
+          "on_continuation": false
+        },
+        "C": {
+          "perpendicular_distance": 1.0816653826391964,
+          "ray_parameter_beyond_O": 1.2,
+          "on_continuation": false
+        }
+      },
+      "source_sha256": "489e3aec0a4236d84e581de25be3348a4b6bd60225cf02732c42a5b47202b2e3",
+      "scene_sha256": "ede3e5a02fd9be8e3d060bf57e65c02bf993e1e164152e8c9669ecad84e282ab",
+      "image_sha256": "627d61d0dbcbbd3603d728ce612d909943c8f0653f85b4218252fae797ee7ed5",
+      "script_sha256": "d58b36e5c167e8b20bd28b02c5180b8156bb9661e2bedd52ea567446b4498e7f",
+      "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+      "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+      "dependencies": {
+        "python": "3.13.9",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.3",
+        "pillow": "12.3.0"
+      },
+      "visual_inspection": "Inspected the actual 768x768 PNG: P and O label the segment endpoints; C, A and B are distinct and ordered from top to bottom. Candidate labels sit to the right of their dots. The continuation is not drawn. All labels are legible, with no clipping or overlap.",
+      "matches_approved_preview_pixels": true
+    }
+  },
+  "Plane116": {
+    "source_dataset": "Author designed",
+    "source_key": "parallel:reference_PQ:detached_candidates_A_B_C",
+    "original_source_image_available": false,
+    "source_image_note": "Original author-designed geometry; no external source image exists. original_image is null.",
+    "geometry_notes": {
+      "task_type": "parallel",
+      "independent_measurements": {
+        "A": {
+          "slope": 0.4000000000000001
+        },
+        "B": {
+          "slope": 0.15
+        },
+        "C": {
+          "slope": 0.65
+        }
+      },
+      "relation_errors": {
+        "A": 0.0,
+        "B": 0.22955108810182354,
+        "C": 0.1946188385891714
+      },
+      "unique_answer": "A"
+    },
+    "reviewed_draft_migration": {
+      "reviewed_draft_id": "Plane117",
+      "formal_id": "Plane116",
+      "reason": "Only selected originals receive the next three contiguous formal IDs after Plane115.",
+      "staged_question_sha256": "bde102e5400c04558e50f1e5728484e2d44791a8d8586496a9a603602d1d658c",
+      "staged_scene_sha256": "3ebe6b4f78c647e56087a9a8a35a1ffb72723841ef0883215247b1a435aed702",
+      "staged_script_sha256": "54b69e4902b26e9f82ce40104d0f38c15235d0a966ec58738dcd7326a1f9c042",
+      "reviewed_original_png_sha256": "7acd014287fdc337bbe46894c0cbe6079964007a45bec2be129eef388345cdfc",
+      "question_choices_answer_unchanged": true,
+      "geometry_labels_view_unchanged": true,
+      "original_png_bytes_unchanged": true
+    },
+    "redraw_verification": {
+      "size": [
+        768,
+        768
+      ],
+      "opaque": true,
+      "repeat_pixels_identical": true,
+      "matches_user_reviewed_original_pixels": true,
+      "geometry_checks": [],
+      "content_bbox_px": [
+        54,
+        126,
+        715,
+        642
+      ],
+      "center_offset_px": [
+        0.5,
+        0.0
+      ],
+      "long_side_fraction": 0.8606770833333334,
+      "scene_sha256": "13e971516ede49c85877ed759a0cea75a65e7f331dfe9ba3646e651c51816932",
+      "script_sha256": "9a012e0c3e96648d18305c92388076698d31802545b6900c8ef338ce37e8e875",
+      "image_sha256": "7acd014287fdc337bbe46894c0cbe6079964007a45bec2be129eef388345cdfc",
+      "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+      "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+    },
+    "collection_scope": {
+      "originals_only": true,
+      "user_instruction": "12张标注也都扔掉。只保留三道原题。",
+      "annotations_retained": false
+    }
+  },
+  "Plane117": {
+    "source_dataset": "Author designed",
+    "source_key": "perpendicularity:reference_PQ:candidates_OA_OB_OC",
+    "original_source_image_available": false,
+    "source_image_note": "Original author-designed geometry; no external source image exists. original_image is null.",
+    "geometry_notes": {
+      "task_type": "perpendicular",
+      "independent_measurements": {
+        "A": {
+          "angle_to_PQ_deg": 63.43494882292201
+        },
+        "B": {
+          "angle_to_PQ_deg": 108.43494882292201
+        },
+        "C": {
+          "angle_to_PQ_deg": 90.00000000000001
+        }
+      },
+      "relation_errors": {
+        "A": 0.447213595499958,
+        "B": 0.3162277660168379,
+        "C": 1.7653576200869497e-16
+      },
+      "unique_answer": "C"
+    },
+    "reviewed_draft_migration": {
+      "reviewed_draft_id": "Plane118",
+      "formal_id": "Plane117",
+      "reason": "Only selected originals receive the next three contiguous formal IDs after Plane115.",
+      "staged_question_sha256": "f4e494ae34e66eabab28d7ebb08a48ca82d3b2ac65c118cc57b43e50c9767e09",
+      "staged_scene_sha256": "48519228ca948fb76aa8886c4377e56fe89206bbd4786becb7f4e03cd7b6ad2f",
+      "staged_script_sha256": "419b3b6ad74170035bd0393f2e95883737a9c38eb0862f1a4a2102f80922de61",
+      "reviewed_original_png_sha256": "05bc049bd2e42d83057019bf783e8224cabb29fbf53e0b9c63e10f362b25d644",
+      "question_choices_answer_unchanged": true,
+      "geometry_labels_view_unchanged": true,
+      "original_png_bytes_unchanged": true
+    },
+    "redraw_verification": {
+      "size": [
+        768,
+        768
+      ],
+      "opaque": true,
+      "repeat_pixels_identical": true,
+      "matches_user_reviewed_original_pixels": true,
+      "geometry_checks": [
+        {
+          "id": "PQ_perpendicular_OC",
+          "type": "perpendicular",
+          "measured": 2.220446049250313e-16,
+          "passed": true
+        }
+      ],
+      "content_bbox_px": [
+        54,
+        129,
+        714,
+        639
+      ],
+      "center_offset_px": [
+        0.0,
+        0.0
+      ],
+      "long_side_fraction": 0.859375,
+      "scene_sha256": "24401839333140a1ecff2e4779b760acc83d511ee295f6c7579392711d35b628",
+      "script_sha256": "ddd86b0df3316caf50017ca4b522f2dd44d2ee56ff6e092694954c6a74135fb7",
+      "image_sha256": "05bc049bd2e42d83057019bf783e8224cabb29fbf53e0b9c63e10f362b25d644",
+      "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+      "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+    },
+    "collection_scope": {
+      "originals_only": true,
+      "user_instruction": "12张标注也都扔掉。只保留三道原题。",
+      "annotations_retained": false
+    }
+  },
+  "Plane118": {
+    "source_dataset": "Author designed",
+    "source_key": "equal_angle:reference_R:candidates_A_B_C",
+    "original_source_image_available": false,
+    "source_image_note": "Original author-designed geometry; no external source image exists. original_image is null.",
+    "geometry_notes": {
+      "task_type": "equal_angle",
+      "independent_measurements": {
+        "A": {
+          "degrees": 50.0,
+          "reference_degrees": 34.99999999999999
+        },
+        "B": {
+          "degrees": 25.000000000000004,
+          "reference_degrees": 34.99999999999999
+        },
+        "C": {
+          "degrees": 34.99999999999999,
+          "reference_degrees": 34.99999999999999
+        }
+      },
+      "relation_errors": {
+        "A": 15.000000000000007,
+        "B": 9.99999999999999,
+        "C": 0.0
+      },
+      "unique_answer": "C"
+    },
+    "reviewed_draft_migration": {
+      "reviewed_draft_id": "Plane120",
+      "formal_id": "Plane118",
+      "reason": "Only selected originals receive the next three contiguous formal IDs after Plane115.",
+      "staged_question_sha256": "817885ff74be7cdd0362067627e96c8d3f745ce0da7e68da335ab893cdbc9cbd",
+      "staged_scene_sha256": "fa73442d73845c07d5b7a36902ded9f9e4a85c457d78b32fdeca1505cbae3a92",
+      "staged_script_sha256": "4d6dd2bf3e68a6bfe9fe4d00bb058c978d728b18bb2591e562b8f58484d81392",
+      "reviewed_original_png_sha256": "50b7d394fb0e095652aa6e5428da7a771116b80fc6a3d589fadc153732beb256",
+      "question_choices_answer_unchanged": true,
+      "geometry_labels_view_unchanged": true,
+      "original_png_bytes_unchanged": true
+    },
+    "redraw_verification": {
+      "size": [
+        768,
+        768
+      ],
+      "opaque": true,
+      "repeat_pixels_identical": true,
+      "matches_user_reviewed_original_pixels": true,
+      "geometry_checks": [
+        {
+          "id": "R_measure",
+          "type": "angle",
+          "measured": 34.99999999999999,
+          "passed": true
+        },
+        {
+          "id": "A_measure",
+          "type": "angle",
+          "measured": 50.0,
+          "passed": true
+        },
+        {
+          "id": "B_measure",
+          "type": "angle",
+          "measured": 25.000000000000004,
+          "passed": true
+        },
+        {
+          "id": "C_measure",
+          "type": "angle",
+          "measured": 34.99999999999999,
+          "passed": true
+        },
+        {
+          "id": "arc_binding_R_label",
+          "type": "angle_annotation",
+          "label_id": "R_label",
+          "arc_id": "R_arc",
+          "measured": 1,
+          "passed": true
+        },
+        {
+          "id": "arc_binding_A_label",
+          "type": "angle_annotation",
+          "label_id": "A_label",
+          "arc_id": "A_arc",
+          "measured": 1,
+          "passed": true
+        },
+        {
+          "id": "arc_binding_B_label",
+          "type": "angle_annotation",
+          "label_id": "B_label",
+          "arc_id": "B_arc",
+          "measured": 1,
+          "passed": true
+        },
+        {
+          "id": "arc_binding_C_label",
+          "type": "angle_annotation",
+          "label_id": "C_label",
+          "arc_id": "C_arc",
+          "measured": 1,
+          "passed": true
+        }
+      ],
+      "content_bbox_px": [
+        54,
+        114,
+        714,
+        655
+      ],
+      "center_offset_px": [
+        0.0,
+        0.5
+      ],
+      "long_side_fraction": 0.859375,
+      "scene_sha256": "d725ca1c3167a38d16cd30f413c5fd1fd93bc82e97e21a88b424eb4cc07a8ec0",
+      "script_sha256": "7d6b8e583968de98cba283bda784a3e98a4ab306e7dc824928794ce0dc5d2067",
+      "image_sha256": "50b7d394fb0e095652aa6e5428da7a771116b80fc6a3d589fadc153732beb256",
+      "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+      "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+    },
+    "collection_scope": {
+      "originals_only": true,
+      "user_instruction": "12张标注也都扔掉。只保留三道原题。",
+      "annotations_retained": false
+    }
+  },
+  "Plane119": {
+    "source_dataset": "Author designed",
+    "source_key": "polygon-side-count:irregular_hexagon",
+    "user_provided_reference": true,
+    "original_source_image_available": true,
+    "geometry_notes": {
+      "source_corner_estimates_px": [
+        [
+          186,
+          110
+        ],
+        [
+          581,
+          55
+        ],
+        [
+          712,
+          384
+        ],
+        [
+          603,
+          658
+        ],
+        [
+          274,
+          712
+        ],
+        [
+          55,
+          603
+        ]
+      ],
+      "closed_boundary_order": [
+        "V1",
+        "V2",
+        "V3",
+        "V4",
+        "V5",
+        "V6"
+      ],
+      "answer_derivation": "Six distinct corners joined by six non-collinear sides form one simple closed polygon.",
+      "reconstruction_note": "Corner coordinates are traced from the supplied raster; no metric conditions or vertex labels are added."
+    },
+    "reviewed_draft_migration": {
+      "staged_question_sha256": "1c0e7f8cd19ce9a12d6404a01eb1d89acfd17c995b3073f278e0ae7006bc3bd5",
+      "staged_scene_sha256": "8410be09dbbbd7bdbfa5a7200e0a639c390ac60bbd9115bb89b5f307a65e2c36",
+      "staged_script_sha256": "480671b03993abeeef60a3ef0dd292f14f8755ae65c12748ca98f9e1ed8bceef",
+      "reviewed_png_sha256": "15f80869b04825fceb385248d3f1142d01016a1a781f0ad22199c4f81bd349b0",
+      "question_answer_unchanged": true,
+      "geometry_view_unchanged": true,
+      "reviewed_png_bytes_unchanged": true,
+      "source_png_bytes_unchanged": true,
+      "scene_changes": "Collection status and relative source-image path only."
+    },
+    "redraw_verification": {
+      "id": "Plane119",
+      "answer": 6,
+      "unique_vertices": 6,
+      "nonzero_edges": 6,
+      "direction_changes": 6,
+      "closed_cycle": true,
+      "vertex_degrees": {
+        "V1": 2,
+        "V2": 2,
+        "V3": 2,
+        "V4": 2,
+        "V5": 2,
+        "V6": 2
+      },
+      "convex": true,
+      "geometry_checks": [
+        {
+          "id": "nonintersection_1_3",
+          "type": "intersection",
+          "measured": false,
+          "passed": true
+        },
+        {
+          "id": "nonintersection_1_4",
+          "type": "intersection",
+          "measured": false,
+          "passed": true
+        },
+        {
+          "id": "nonintersection_1_5",
+          "type": "intersection",
+          "measured": false,
+          "passed": true
+        },
+        {
+          "id": "nonintersection_2_4",
+          "type": "intersection",
+          "measured": false,
+          "passed": true
+        },
+        {
+          "id": "nonintersection_2_5",
+          "type": "intersection",
+          "measured": false,
+          "passed": true
+        },
+        {
+          "id": "nonintersection_2_6",
+          "type": "intersection",
+          "measured": false,
+          "passed": true
+        },
+        {
+          "id": "nonintersection_3_5",
+          "type": "intersection",
+          "measured": false,
+          "passed": true
+        },
+        {
+          "id": "nonintersection_3_6",
+          "type": "intersection",
+          "measured": false,
+          "passed": true
+        },
+        {
+          "id": "nonintersection_4_6",
+          "type": "intersection",
+          "measured": false,
+          "passed": true
+        }
+      ],
+      "size": [
+        768,
+        768
+      ],
+      "opaque": true,
+      "repeat_png_pixels_identical": true,
+      "repeat_svg_bytes_identical": true,
+      "source_bytes_preserved": true,
+      "content_bbox_px": [
+        53,
+        53,
+        715,
+        715
+      ],
+      "center_offset_px": [
+        0.0,
+        0.0
+      ],
+      "long_side_fraction": 0.8619791666666666,
+      "source_sha256": "080c6d514727a6b1a33a475e668aba68f0e20296f4016a3963de99d50271c158",
+      "png_sha256": "15f80869b04825fceb385248d3f1142d01016a1a781f0ad22199c4f81bd349b0",
+      "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+      "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+      "dependencies": {
+        "python": "3.13.9",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.3",
+        "pillow": "12.3.0"
+      },
+      "visual_inspection": "Inspected the actual final PNG alongside the supplied source: all six corners and six connecting sides remain distinct; the outline is closed, without self-intersections, extra dots, labels, shading or clipping. Orientation and relative shape follow the source.",
+      "scene_sha256": "75b66586e30e9afc66eab1989a8d3b658ca09341ad22bd83eb19e70c304e9a21",
+      "script_sha256": "9a36b82e11a4eb72bbaa8e85337cf2d873468a21fefab09220ef775f9ea21630",
+      "formal_redraw_matches_reviewed_pixels": true
+    }
+  },
+  "Plane120": {
+    "source_dataset": "Author designed",
+    "source_key": "structure-count:open-path-turns",
+    "original_source_image_available": false,
+    "source_image_note": "Original author design created in this workspace; no external source image exists. original_image is null.",
+    "geometry_notes": {
+      "task_type": "structure-count:open-path-turns",
+      "independent_verification": {
+        "segments": 6,
+        "turns": 5,
+        "endpoints_excluded": true
+      },
+      "construction_verification": {
+        "question_id": "Plane120",
+        "path_order": [
+          "P",
+          "T1",
+          "T2",
+          "T3",
+          "T4",
+          "T5",
+          "Q"
+        ],
+        "segment_count": 6,
+        "segment_lengths": [
+          2.080865204668481,
+          1.9999999999999998,
+          2.147091055358389,
+          1.9000000000000001,
+          2.5,
+          1.9
+        ],
+        "all_segments_nonzero": true,
+        "interior_vertex_count": 5,
+        "turns": [
+          {
+            "vertex": "T1",
+            "cross_product": -3.4000000000000004,
+            "non_collinear": true
+          },
+          {
+            "vertex": "T2",
+            "cross_product": 3.8,
+            "non_collinear": true
+          },
+          {
+            "vertex": "T3",
+            "cross_product": -3.6100000000000003,
+            "non_collinear": true
+          },
+          {
+            "vertex": "T4",
+            "cross_product": -4.75,
+            "non_collinear": true
+          },
+          {
+            "vertex": "T5",
+            "cross_product": 4.75,
+            "non_collinear": true
+          }
+        ],
+        "all_five_interior_vertices_non_collinear": true,
+        "nonadjacent_segment_intersections": [
+          {
+            "segments": [
+              1,
+              3
+            ],
+            "intersects": false
+          },
+          {
+            "segments": [
+              1,
+              4
+            ],
+            "intersects": false
+          },
+          {
+            "segments": [
+              1,
+              5
+            ],
+            "intersects": false
+          },
+          {
+            "segments": [
+              1,
+              6
+            ],
+            "intersects": false
+          },
+          {
+            "segments": [
+              2,
+              4
+            ],
+            "intersects": false
+          },
+          {
+            "segments": [
+              2,
+              5
+            ],
+            "intersects": false
+          },
+          {
+            "segments": [
+              2,
+              6
+            ],
+            "intersects": false
+          },
+          {
+            "segments": [
+              3,
+              5
+            ],
+            "intersects": false
+          },
+          {
+            "segments": [
+              3,
+              6
+            ],
+            "intersects": false
+          },
+          {
+            "segments": [
+              4,
+              6
+            ],
+            "intersects": false
+          }
+        ],
+        "non_self_intersecting": true,
+        "endpoint_turns_excluded": true,
+        "answer": 5,
+        "answer_matches_counted_turns": true,
+        "all_checks_pass": true
+      },
+      "answer": 5
+    },
+    "reviewed_draft_migration": {
+      "reviewed_draft_id": "Plane120",
+      "formal_id": "Plane120",
+      "reason": "Assign the next two consecutive formal IDs after Plane119 to the selected originals.",
+      "staged_question_sha256": "41f89b7f35ad7f57b00a989ee774c543db7664f758d190f0fbb80f60ccf6c155",
+      "staged_scene_sha256": "9add58ea4c8e3d09e38d37e025843399e42ef4e26e9f8d1a72a47f13a0a1500c",
+      "staged_script_sha256": "364c40a7dc65cd8b8a79a508f41a5e1eb585a358a1cee37935bbe6a03954ac2f",
+      "reviewed_original_png_sha256": "dacc925d68b846cbdab29ca553a6eac831466e7003f3bf9b79cdd73f1a1e4544",
+      "question_answer_unchanged": true,
+      "geometry_labels_view_unchanged": true,
+      "reviewed_original_png_bytes_unchanged": true
+    },
+    "redraw_verification": {
+      "size": [
+        768,
+        768
+      ],
+      "opaque": true,
+      "repeat_pixels_identical": true,
+      "repeat_svg_bytes_identical": true,
+      "matches_user_reviewed_original_pixels": true,
+      "geometry_checks": [
+        {
+          "id": "nonintersection_1_3",
+          "type": "intersection",
+          "measured": false,
+          "passed": true
+        },
+        {
+          "id": "nonintersection_1_4",
+          "type": "intersection",
+          "measured": false,
+          "passed": true
+        },
+        {
+          "id": "nonintersection_1_5",
+          "type": "intersection",
+          "measured": false,
+          "passed": true
+        },
+        {
+          "id": "nonintersection_1_6",
+          "type": "intersection",
+          "measured": false,
+          "passed": true
+        },
+        {
+          "id": "nonintersection_2_4",
+          "type": "intersection",
+          "measured": false,
+          "passed": true
+        },
+        {
+          "id": "nonintersection_2_5",
+          "type": "intersection",
+          "measured": false,
+          "passed": true
+        },
+        {
+          "id": "nonintersection_2_6",
+          "type": "intersection",
+          "measured": false,
+          "passed": true
+        },
+        {
+          "id": "nonintersection_3_5",
+          "type": "intersection",
+          "measured": false,
+          "passed": true
+        },
+        {
+          "id": "nonintersection_3_6",
+          "type": "intersection",
+          "measured": false,
+          "passed": true
+        },
+        {
+          "id": "nonintersection_4_6",
+          "type": "intersection",
+          "measured": false,
+          "passed": true
+        }
+      ],
+      "content_bbox_px": [
+        54,
+        236,
+        714,
+        534
+      ],
+      "scene_sha256": "672642ac8788b05e441cf111c67841097ebab9667f9c53814b02e7b12be07bb7",
+      "script_sha256": "1d02974eddeecffb2dd175f6ba0725c974b3d34864d50e7b23bf1399ea4aa3e4",
+      "image_sha256": "dacc925d68b846cbdab29ca553a6eac831466e7003f3bf9b79cdd73f1a1e4544",
+      "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+      "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+      "environment": {
+        "python": "3.13.9",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.3",
+        "pillow": "12.3.0"
+      }
+    }
+  },
+  "Plane121": {
+    "source_dataset": "Author designed",
+    "source_key": "structure-count:rectangle-line-regions",
+    "original_source_image_available": false,
+    "source_image_note": "Original author design created in this workspace; no external source image exists. original_image is null.",
+    "geometry_notes": {
+      "task_type": "structure-count:rectangle-line-regions",
+      "independent_verification": {
+        "vertices": 13,
+        "edges": 19,
+        "components": 1
+      },
+      "construction_verification": {
+        "id": "Plane124",
+        "method": "independent segment arrangement plus planar graph Euler cycle rank",
+        "rectangle": {
+          "xlim": [
+            -4,
+            4
+          ],
+          "ylim": [
+            -3,
+            3
+          ]
+        },
+        "upward_shift": 1.3,
+        "segments": {
+          "frame_bottom": {
+            "a": [
+              -4.0,
+              -3.0
+            ],
+            "b": [
+              4.0,
+              -3.0
+            ]
+          },
+          "frame_right": {
+            "a": [
+              4.0,
+              -3.0
+            ],
+            "b": [
+              4.0,
+              3.0
+            ]
+          },
+          "frame_top": {
+            "a": [
+              4.0,
+              3.0
+            ],
+            "b": [
+              -4.0,
+              3.0
+            ]
+          },
+          "frame_left": {
+            "a": [
+              -4.0,
+              3.0
+            ],
+            "b": [
+              -4.0,
+              -3.0
+            ]
+          },
+          "cut_horizontal": {
+            "a": [
+              -4.0,
+              2.2
+            ],
+            "b": [
+              4.0,
+              2.2
+            ]
+          },
+          "cut_ascending": {
+            "a": [
+              -4.0,
+              -2.3
+            ],
+            "b": [
+              3.0666666666666664,
+              3.0
+            ]
+          },
+          "cut_descending": {
+            "a": [
+              -3.125,
+              3.0
+            ],
+            "b": [
+              4.0,
+              -2.7
+            ]
+          }
+        },
+        "pairwise_segment_intersections": {
+          "frame_bottom x frame_right": [
+            [
+              4.0,
+              -3.0
+            ]
+          ],
+          "frame_bottom x frame_left": [
+            [
+              -4.0,
+              -3.0
+            ]
+          ],
+          "frame_right x frame_top": [
+            [
+              4.0,
+              3.0
+            ]
+          ],
+          "frame_right x cut_horizontal": [
+            [
+              4.0,
+              2.2
+            ]
+          ],
+          "frame_right x cut_descending": [
+            [
+              4.0,
+              -2.7000000000000006
+            ]
+          ],
+          "frame_top x frame_left": [
+            [
+              -4.0,
+              3.0
+            ]
+          ],
+          "frame_top x cut_ascending": [
+            [
+              3.066666666666667,
+              3.0
+            ]
+          ],
+          "frame_top x cut_descending": [
+            [
+              -3.125000000000001,
+              3.0
+            ]
+          ],
+          "frame_left x cut_horizontal": [
+            [
+              -4.0,
+              2.2
+            ]
+          ],
+          "frame_left x cut_ascending": [
+            [
+              -4.0,
+              -2.3
+            ]
+          ],
+          "cut_horizontal x cut_ascending": [
+            [
+              2.0,
+              2.2
+            ]
+          ],
+          "cut_horizontal x cut_descending": [
+            [
+              -2.1250000000000004,
+              2.2
+            ]
+          ],
+          "cut_ascending x cut_descending": [
+            [
+              -0.12903225806451601,
+              0.6032258064516132
+            ]
+          ]
+        },
+        "interior_cut_intersections": [
+          {
+            "segments": [
+              "cut_horizontal",
+              "cut_ascending"
+            ],
+            "xy": [
+              2.0,
+              2.2
+            ]
+          },
+          {
+            "segments": [
+              "cut_horizontal",
+              "cut_descending"
+            ],
+            "xy": [
+              -2.1250000000000004,
+              2.2
+            ]
+          },
+          {
+            "segments": [
+              "cut_ascending",
+              "cut_descending"
+            ],
+            "xy": [
+              -0.12903225806451601,
+              0.6032258064516132
+            ]
+          }
+        ],
+        "intersections_strictly_inside_rectangle": true,
+        "pairwise_intersection_points_mutually_distinct": true,
+        "false_special_points": [
+          {
+            "id": "H_fake_left",
+            "xy": [
+              -2.8,
+              2.2
+            ],
+            "on_segment": "cut_horizontal",
+            "is_intersection": false
+          },
+          {
+            "id": "H_fake_right",
+            "xy": [
+              2.9,
+              2.2
+            ],
+            "on_segment": "cut_horizontal",
+            "is_intersection": false
+          },
+          {
+            "id": "A_fake",
+            "xy": [
+              -1.8,
+              -0.65
+            ],
+            "on_segment": "cut_ascending",
+            "is_intersection": false
+          },
+          {
+            "id": "D_fake",
+            "xy": [
+              1.25,
+              -0.5
+            ],
+            "on_segment": "cut_descending",
+            "is_intersection": false
+          }
+        ],
+        "arrangement_graph": {
+          "connected": true,
+          "vertices": 13,
+          "edges": 19,
+          "bounded_faces_euler_E_minus_V_plus_1": 7
+        },
+        "verified_answer": 7,
+        "reasoning": "Starting from one region, each successive chord adds one more region than the number of distinct earlier interior crossings on it: 1+1, then +2, then +3, giving 7. Independently, the connected embedded graph has E−V+1=7 bounded faces."
+      },
+      "answer": 7,
+      "requested_layout_revision": {
+        "instruction": "120、124留下，剩下的删掉。然后124这道题把矩形内部的直线稍微往上移一点。",
+        "followup_instruction": "再往上一一些，现在的移动都看不出来。",
+        "upward_shift_display_units": 1.3,
+        "additional_upward_shift_from_previous_display_units": 1.0,
+        "method": "Translate the three supporting lines together, reclip at the fixed rectangle, and translate all seven red markers by the same amount."
+      },
+      "upward_shift_pixels": 106.6644336448598,
+      "final_cut_equations": [
+        "y = 2.2",
+        "y = 0.75*x + 0.7",
+        "y = -0.8*x + 0.5"
+      ]
+    },
+    "reviewed_draft_migration": {
+      "reviewed_draft_id": "Plane124",
+      "formal_id": "Plane121",
+      "reason": "Assign the next two consecutive formal IDs after Plane119 to the selected originals.",
+      "staged_question_sha256": "0d55081b5b277e0c5bfecefa983de1608c6fc38ffe2469a7ff6b1aee2398b6ba",
+      "staged_scene_sha256": "0d3ec5e22e8fdf9d7528e248f72e1cbd35188edcae4ca2d9ed49849844d9fe9b",
+      "staged_script_sha256": "d5684d62896a04dfacca6dbe38d44ca02b6d20e2fe06063b1ddd886fae129195",
+      "reviewed_original_png_sha256": "e148d541fd647953693b70b7379c4828044a56dde49ffc74bae4962ad67127aa",
+      "question_answer_unchanged": true,
+      "geometry_labels_view_unchanged": true,
+      "reviewed_original_png_bytes_unchanged": true
+    },
+    "redraw_verification": {
+      "size": [
+        768,
+        768
+      ],
+      "opaque": true,
+      "repeat_pixels_identical": true,
+      "repeat_svg_bytes_identical": true,
+      "matches_user_reviewed_original_pixels": true,
+      "geometry_checks": [],
+      "content_bbox_px": [
+        54,
+        136,
+        714,
+        632
+      ],
+      "scene_sha256": "dbb13d7f26d15711cc24b170447a2259c4f56fd322793af95a254cc0861a38a3",
+      "script_sha256": "838ff3d65fa2470f9dbfef55ab24d02686132eca82eb7a3d592675232997fc06",
+      "image_sha256": "e148d541fd647953693b70b7379c4828044a56dde49ffc74bae4962ad67127aa",
+      "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+      "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+      "environment": {
+        "python": "3.13.9",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.3",
+        "pillow": "12.3.0"
+      }
+    }
+  },
+  "Plane122": {
+    "source_dataset": "Author designed",
+    "source_key": "reflection:point_P:line_l:candidates_A_B_C",
+    "user_provided_reference": true,
+    "original_source_image_available": true,
+    "geometry_notes": {
+      "source_estimates_px": {
+        "axis_endpoints": [
+          [
+            54,
+            586
+          ],
+          [
+            694,
+            186
+          ]
+        ],
+        "P": [
+          348,
+          106
+        ],
+        "candidates": {
+          "A": [
+            614,
+            532
+          ],
+          "B": [
+            523,
+            589
+          ],
+          "C": [
+            401,
+            665
+          ]
+        }
+      },
+      "axis_semantics": "Straight line l, shown by a finite segment following the source orientation; endpoints have no displayed names or dots.",
+      "construction": "A is the exact reflection of P across l. B and C retain the source row parallel to l with subpixel trace adjustments.",
+      "answer_derivation": "Only A has midpoint with P on l and joining segment perpendicular to l. All three candidates are at the same perpendicular distance from l as P.",
+      "hidden_foot": "H is used only for verification and is not rendered or labeled.",
+      "added_visible_conditions": false
+    },
+    "reviewed_draft_migration": {
+      "staged_question_sha256": "3d63bdca5c3f7c9b8e2e135432d941f21015eca319d3317c7bd0d3c7f110ddd1",
+      "staged_scene_sha256": "c371001211c71625befbd57c1df02f034236dc825428525cdb54c9adbb60d544",
+      "staged_script_sha256": "8e6100f51b1e576937cfd75af5692d2fc95b575ab8a92a95fa2207c4b4a40869",
+      "reviewed_png_sha256": "e927c3d8c4a6bf11b84d946cf50917144fe1d352a2dfa2c556e34a3ab4d5717c",
+      "source_png_sha256": "f019d58903a49ccdab9676b595c4de51ad652be94c4b9d9575db50037e88c39c",
+      "question_choices_answer_unchanged": true,
+      "geometry_labels_view_unchanged": true,
+      "reviewed_png_bytes_unchanged": true,
+      "source_png_bytes_unchanged": true,
+      "scene_changes": "Collection status and relative source-image path only."
+    },
+    "redraw_verification": {
+      "id": "Plane122",
+      "answer": "A",
+      "independent_reflection_point": [
+        6.142921348314607,
+        2.35932584269663
+      ],
+      "candidate_reflection_errors": {
+        "A": 2.5121479338940403e-15,
+        "B": 1.0758978482064554,
+        "C": 2.51325497349508
+      },
+      "signed_axis_distances": {
+        "P": 2.512194975615073,
+        "A": -2.512194975615073,
+        "B": -2.5121949756150728,
+        "C": -2.5121949756150723
+      },
+      "geometry_checks": [
+        {
+          "id": "H_on_axis",
+          "type": "collinear",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "PA_perpendicular_to_axis",
+          "type": "perpendicular",
+          "measured": 4.440892098500626e-16,
+          "passed": true
+        },
+        {
+          "id": "H_bisects_PA",
+          "type": "equal_length",
+          "measured": [
+            2.512194975615073,
+            2.5121949756150728
+          ],
+          "passed": true
+        },
+        {
+          "id": "H_between_P_A",
+          "type": "between",
+          "measured": 4.440892098500626e-16,
+          "passed": true
+        },
+        {
+          "id": "candidate_row_parallel_axis",
+          "type": "parallel",
+          "measured": 1.6653345369377348e-16,
+          "passed": true
+        }
+      ],
+      "candidate_trace_adjustment_px": {
+        "A": 0.29981267559822833,
+        "B": 0.10599978800061491,
+        "C": 0.3179993640018824
+      },
+      "content_bbox_px": [
+        54,
+        65,
+        715,
+        704
+      ],
+      "center_offset_px": [
+        0.5,
+        0.5
+      ],
+      "long_side_fraction": 0.8606770833333334,
+      "size": [
+        768,
+        768
+      ],
+      "opaque": true,
+      "repeat_png_pixels_identical": true,
+      "repeat_svg_bytes_identical": true,
+      "source_bytes_preserved": true,
+      "source_sha256": "f019d58903a49ccdab9676b595c4de51ad652be94c4b9d9575db50037e88c39c",
+      "scene_sha256": "1b42e3bb45d60ba6410e2a448d784b3ceee423b3f620482ff9ceae4cc2169cc7",
+      "script_sha256": "5d472209e624f286a5f03006d1ebbb1ffa7abfa98be4bf6b7f9f2e29ab155de2",
+      "png_sha256": "e927c3d8c4a6bf11b84d946cf50917144fe1d352a2dfa2c556e34a3ab4d5717c",
+      "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+      "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+      "dependencies": {
+        "python": "3.13.9",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.3",
+        "pillow": "12.3.0"
+      },
+      "visual_inspection": "Viewed the actual final PNG against the supplied reference: P, A, B, C and the line label l are clear and separated. The original line orientation and candidate order are preserved. No projection foot, perpendicular, midpoint, distance marking, or answer cue is drawn.",
+      "formal_redraw_matches_reviewed_pixels": true
+    }
+  },
+  "Solid73": {
+    "source_dataset": "Author designed",
+    "source_key": "triangular-prism-net:lateral-edge-from-P",
+    "user_provided_reference": true,
+    "original_source_image_available": true,
+    "geometry_notes": {
+      "net_model": "Three unit-width rectangles of drawing height 1.5; equilateral caps on the first upper and third lower edges. Construction dimensions are unlabelled, not added givens.",
+      "display_model": "Unfolded net embedded in z=0 with an orthographic page projection.",
+      "folded_prism_verification": {
+        "net_faces": {
+          "rectangle_1": [
+            "B0",
+            "B1",
+            "T1",
+            "T0"
+          ],
+          "rectangle_2": [
+            "B1",
+            "B2",
+            "T2",
+            "T1"
+          ],
+          "rectangle_3": [
+            "B2",
+            "B3",
+            "T3",
+            "T2"
+          ],
+          "upper_triangle": [
+            "T0",
+            "T1",
+            "P"
+          ],
+          "lower_triangle": [
+            "B2",
+            "Q",
+            "B3"
+          ]
+        },
+        "folded_points": {
+          "B0": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "B1": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "B2": [
+            0.5,
+            0.8660254037844386,
+            0.0
+          ],
+          "B3": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "T0": [
+            0.0,
+            0.0,
+            1.5
+          ],
+          "T1": [
+            1.0,
+            0.0,
+            1.5
+          ],
+          "T2": [
+            0.5,
+            0.8660254037844386,
+            1.5
+          ],
+          "T3": [
+            0.0,
+            0.0,
+            1.5
+          ],
+          "P": [
+            0.5,
+            0.8660254037844386,
+            1.5
+          ],
+          "Q": [
+            1.0,
+            0.0,
+            0.0
+          ]
+        },
+        "cut_boundary_identifications": [
+          [
+            [
+              "T0",
+              "B0"
+            ],
+            [
+              "T3",
+              "B3"
+            ]
+          ],
+          [
+            [
+              "T0",
+              "P"
+            ],
+            [
+              "T3",
+              "T2"
+            ]
+          ],
+          [
+            [
+              "P",
+              "T1"
+            ],
+            [
+              "T2",
+              "T1"
+            ]
+          ],
+          [
+            [
+              "B2",
+              "Q"
+            ],
+            [
+              "B2",
+              "B1"
+            ]
+          ],
+          [
+            [
+              "Q",
+              "B3"
+            ],
+            [
+              "B1",
+              "B0"
+            ]
+          ]
+        ],
+        "vertex_equivalence_classes": [
+          [
+            "T0",
+            "T3"
+          ],
+          [
+            "T1"
+          ],
+          [
+            "T2",
+            "P"
+          ],
+          [
+            "B0",
+            "B3"
+          ],
+          [
+            "B1",
+            "Q"
+          ],
+          [
+            "B2"
+          ]
+        ],
+        "closed_prism_counts": {
+          "vertices": 6,
+          "edges": 9,
+          "faces": 5,
+          "euler_characteristic": 2
+        },
+        "all_faces_rigid_distance_errors": {
+          "rectangle_1": 0.0,
+          "rectangle_2": 1.1102230246251565e-16,
+          "rectangle_3": 1.1102230246251565e-16,
+          "upper_triangle": 1.1102230246251565e-16,
+          "lower_triangle": 1.1102230246251565e-16
+        },
+        "point_R_net_vertex": "B2",
+        "P_coincides_with": "T2",
+        "lateral_edge_from_P": [
+          "T2",
+          "B2"
+        ],
+        "unique_correct_marked_point": "R",
+        "reasoning": "Folding identifies P with T2, the upper endpoint of the rectangular fold edge directly above R. The lower endpoint of that same lateral edge is B2, labeled R. Q instead matches B1, and S matches B0."
+      },
+      "answer_in_english": "B. Point R"
+    },
+    "reviewed_draft_migration": {
+      "staged_id": "Solid73",
+      "formal_id": "Solid73",
+      "staged_question_sha256": "453d3d78efc5c230101b96c68df13b6ea9945758688ec5bd58f03ea16d21a976",
+      "staged_scene_sha256": "8e0d5dae702bf7cc0460e0fee9301093abd340b9fa17b9e455f4e9f6c6b767aa",
+      "staged_script_sha256": "d83a53ac4f9c18f00a5fd40a4d3490b2cf877dcb53e496556c4d1d7008367fb9",
+      "reviewed_png_sha256": "2988d7244953749e703a7d742e4a3f624fc232a034bb5ffaf90c3502b7a38b51",
+      "source_png_sha256": "92070f07bb18075c83983667f05ff108667da0503e3e5ca84dd330bd945f6d29",
+      "question_choices_answer_unchanged": true,
+      "geometry_labels_view_projection_visibility_unchanged": true,
+      "reviewed_png_bytes_unchanged": true,
+      "source_png_bytes_unchanged": true,
+      "scene_changes": "Formal identity, collection status and provenance paths only."
+    },
+    "redraw_verification": {
+      "id": "Solid73",
+      "answer": "B",
+      "answer_text": "Point R",
+      "unique_candidate": "R",
+      "geometry_checks": [
+        {
+          "id": "projection_and_visibility",
+          "type": "projection",
+          "passed": true,
+          "projection_sha256": "81459dcb4b08459d7b78a5ef3294528ed94a664ee54950d0e901b159edf27fc3",
+          "automatic_occlusion": false
+        },
+        {
+          "id": "upper_equilateral_0",
+          "type": "distance",
+          "basis": "Given equilateral bases; choose side length 1 as an unlabelled drawing scale.",
+          "measured": 1.0,
+          "passed": true
+        },
+        {
+          "id": "upper_equilateral_1",
+          "type": "distance",
+          "basis": "Given equilateral bases; choose side length 1 as an unlabelled drawing scale.",
+          "measured": 0.9999999999999998,
+          "passed": true
+        },
+        {
+          "id": "upper_equilateral_2",
+          "type": "distance",
+          "basis": "Given equilateral bases; choose side length 1 as an unlabelled drawing scale.",
+          "measured": 0.9999999999999998,
+          "passed": true
+        },
+        {
+          "id": "lower_equilateral_0",
+          "type": "distance",
+          "basis": "Given equilateral bases; choose side length 1 as an unlabelled drawing scale.",
+          "measured": 1.0,
+          "passed": true
+        },
+        {
+          "id": "lower_equilateral_1",
+          "type": "distance",
+          "basis": "Given equilateral bases; choose side length 1 as an unlabelled drawing scale.",
+          "measured": 0.9999999999999999,
+          "passed": true
+        },
+        {
+          "id": "lower_equilateral_2",
+          "type": "distance",
+          "basis": "Given equilateral bases; choose side length 1 as an unlabelled drawing scale.",
+          "measured": 0.9999999999999999,
+          "passed": true
+        },
+        {
+          "id": "rectangle_0_right_angle",
+          "type": "perpendicular",
+          "basis": "Given rectangular lateral faces, drawn unfolded in one plane.",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "rectangle_1_right_angle",
+          "type": "perpendicular",
+          "basis": "Given rectangular lateral faces, drawn unfolded in one plane.",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "rectangle_2_right_angle",
+          "type": "perpendicular",
+          "basis": "Given rectangular lateral faces, drawn unfolded in one plane.",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "unfolded_net_plane",
+          "type": "coplanar",
+          "basis": "The figure is an unfolded planar net; z=0 is the page plane.",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "layout",
+          "type": "layout",
+          "outer_margin_fraction": 0.05,
+          "label_line_overlap": false,
+          "label_label_overlap": false,
+          "passed": true
+        }
+      ],
+      "folding_verification": {
+        "net_faces": {
+          "rectangle_1": [
+            "B0",
+            "B1",
+            "T1",
+            "T0"
+          ],
+          "rectangle_2": [
+            "B1",
+            "B2",
+            "T2",
+            "T1"
+          ],
+          "rectangle_3": [
+            "B2",
+            "B3",
+            "T3",
+            "T2"
+          ],
+          "upper_triangle": [
+            "T0",
+            "T1",
+            "P"
+          ],
+          "lower_triangle": [
+            "B2",
+            "Q",
+            "B3"
+          ]
+        },
+        "folded_points": {
+          "B0": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "B1": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "B2": [
+            0.5,
+            0.8660254037844386,
+            0.0
+          ],
+          "B3": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "T0": [
+            0.0,
+            0.0,
+            1.5
+          ],
+          "T1": [
+            1.0,
+            0.0,
+            1.5
+          ],
+          "T2": [
+            0.5,
+            0.8660254037844386,
+            1.5
+          ],
+          "T3": [
+            0.0,
+            0.0,
+            1.5
+          ],
+          "P": [
+            0.5,
+            0.8660254037844386,
+            1.5
+          ],
+          "Q": [
+            1.0,
+            0.0,
+            0.0
+          ]
+        },
+        "cut_boundary_identifications": [
+          [
+            [
+              "T0",
+              "B0"
+            ],
+            [
+              "T3",
+              "B3"
+            ]
+          ],
+          [
+            [
+              "T0",
+              "P"
+            ],
+            [
+              "T3",
+              "T2"
+            ]
+          ],
+          [
+            [
+              "P",
+              "T1"
+            ],
+            [
+              "T2",
+              "T1"
+            ]
+          ],
+          [
+            [
+              "B2",
+              "Q"
+            ],
+            [
+              "B2",
+              "B1"
+            ]
+          ],
+          [
+            [
+              "Q",
+              "B3"
+            ],
+            [
+              "B1",
+              "B0"
+            ]
+          ]
+        ],
+        "vertex_equivalence_classes": [
+          [
+            "T0",
+            "T3"
+          ],
+          [
+            "T1"
+          ],
+          [
+            "T2",
+            "P"
+          ],
+          [
+            "B0",
+            "B3"
+          ],
+          [
+            "B1",
+            "Q"
+          ],
+          [
+            "B2"
+          ]
+        ],
+        "closed_prism_counts": {
+          "vertices": 6,
+          "edges": 9,
+          "faces": 5,
+          "euler_characteristic": 2
+        },
+        "all_faces_rigid_distance_errors": {
+          "rectangle_1": 0.0,
+          "rectangle_2": 1.1102230246251565e-16,
+          "rectangle_3": 1.1102230246251565e-16,
+          "upper_triangle": 1.1102230246251565e-16,
+          "lower_triangle": 1.1102230246251565e-16
+        },
+        "point_R_net_vertex": "B2",
+        "P_coincides_with": "T2",
+        "lateral_edge_from_P": [
+          "T2",
+          "B2"
+        ],
+        "unique_correct_marked_point": "R",
+        "reasoning": "Folding identifies P with T2, the upper endpoint of the rectangular fold edge directly above R. The lower endpoint of that same lateral edge is B2, labeled R. Q instead matches B1, and S matches B0."
+      },
+      "size": [
+        768,
+        768
+      ],
+      "opaque": true,
+      "content_bbox_px": [
+        96,
+        55,
+        672,
+        714
+      ],
+      "long_side_fraction": 0.8580729166666666,
+      "center_offset_px": [
+        0.0,
+        0.5
+      ],
+      "repeat_png_pixels_identical": true,
+      "repeat_svg_bytes_identical": true,
+      "source_bytes_preserved": true,
+      "source_sha256": "92070f07bb18075c83983667f05ff108667da0503e3e5ca84dd330bd945f6d29",
+      "scene_sha256": "fce77801bb125d3ef39d40a455fa308d692cbb01ac58f04e1d541f0ae969cabe",
+      "script_sha256": "1519acb103180a9aa4dc140e48e4b9659232562139f4e7ad7cf8767cfef0c23a",
+      "png_sha256": "2988d7244953749e703a7d742e4a3f624fc232a034bb5ffaf90c3502b7a38b51",
+      "projection_sha256": "81459dcb4b08459d7b78a5ef3294528ed94a664ee54950d0e901b159edf27fc3",
+      "renderer_sha256": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+      "protocol_sha256": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+      "dependencies": {
+        "python": "3.13.9",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.3",
+        "pillow": "12.3.0"
+      },
+      "visual_inspection": "Viewed the actual final PNG against the uploaded reference. The three equal-width rectangles, both equilateral triangular caps, all fourteen solid edges, and P/Q/R/S label ownership are preserved. No dots, dimensions, fold hints, or answer cues were added; no clipping or label overlap is present.",
+      "formal_redraw_matches_reviewed_pixels": true
+    }
+  },
+  "Solid74": {
+    "source_dataset": "Author designed",
+    "original_source_image_available": false,
+    "geometry_notes": {
+      "net_faces": {
+        "face_0_0": [
+          "v0_0",
+          "v1_0",
+          "v1_1",
+          "v0_1"
+        ],
+        "face_1_0": [
+          "v1_0",
+          "v2_0",
+          "v2_1",
+          "v1_1"
+        ],
+        "face_1_1": [
+          "v1_1",
+          "v2_1",
+          "v2_2",
+          "v1_2"
+        ],
+        "face_2_-1": [
+          "v2_-1",
+          "v3_-1",
+          "v3_0",
+          "v2_0"
+        ],
+        "face_2_0": [
+          "v2_0",
+          "v3_0",
+          "v3_1",
+          "v2_1"
+        ],
+        "face_3_0": [
+          "v3_0",
+          "v4_0",
+          "v4_1",
+          "v3_1"
+        ]
+      },
+      "fold_model": "Every square is a unit square. Face (1,0) starts centered at (0,0,0) with local axes u=(1,0,0), v=(0,1,0), n=(0,0,1). Each child square is rigidly rotated 90 degrees about its shared unit edge, then translated to preserve that edge.",
+      "folded_points": {
+        "v1_0": [
+          -0.5,
+          -0.5,
+          0.0
+        ],
+        "v1_1": [
+          -0.5,
+          0.5,
+          0.0
+        ],
+        "v2_0": [
+          0.5,
+          -0.5,
+          0.0
+        ],
+        "v2_1": [
+          0.5,
+          0.5,
+          0.0
+        ],
+        "v3_0": [
+          0.5,
+          -0.5,
+          -1.0
+        ],
+        "v3_1": [
+          0.5,
+          0.5,
+          -1.0
+        ],
+        "v0_0": [
+          -0.5,
+          -0.5,
+          -1.0
+        ],
+        "v0_1": [
+          -0.5,
+          0.5,
+          -1.0
+        ],
+        "v1_2": [
+          -0.5,
+          0.5,
+          -1.0
+        ],
+        "v2_2": [
+          0.5,
+          0.5,
+          -1.0
+        ],
+        "v4_0": [
+          -0.5,
+          -0.5,
+          -1.0
+        ],
+        "v4_1": [
+          -0.5,
+          0.5,
+          -1.0
+        ],
+        "v2_-1": [
+          -0.5,
+          -0.5,
+          0.0
+        ],
+        "v3_-1": [
+          -0.5,
+          -0.5,
+          -1.0
+        ]
+      },
+      "label_anchors": {
+        "P": "v1_2",
+        "Q": "v3_-1",
+        "R": "v0_1",
+        "S": "v1_1"
+      },
+      "label_folded_points": {
+        "P": [
+          -0.5,
+          0.5,
+          -1.0
+        ],
+        "Q": [
+          -0.5,
+          -0.5,
+          -1.0
+        ],
+        "R": [
+          -0.5,
+          0.5,
+          -1.0
+        ],
+        "S": [
+          -0.5,
+          0.5,
+          0.0
+        ]
+      },
+      "face_rigid_distance_max_error": {
+        "face_0_0": 0.0,
+        "face_1_0": 0.0,
+        "face_1_1": 0.0,
+        "face_2_-1": 0.0,
+        "face_2_0": 0.0,
+        "face_3_0": 0.0
+      },
+      "physical_vertex_classes": [
+        [
+          "v1_0",
+          "v2_-1"
+        ],
+        [
+          "v1_1"
+        ],
+        [
+          "v2_0"
+        ],
+        [
+          "v2_1"
+        ],
+        [
+          "v3_0"
+        ],
+        [
+          "v3_1",
+          "v2_2"
+        ],
+        [
+          "v0_0",
+          "v4_0",
+          "v3_-1"
+        ],
+        [
+          "v0_1",
+          "v1_2",
+          "v4_1"
+        ]
+      ],
+      "physical_edge_classes": [
+        {
+          "endpoints": [
+            [
+              -0.5,
+              -0.5,
+              -1.0
+            ],
+            [
+              -0.5,
+              -0.5,
+              0.0
+            ]
+          ],
+          "incident_net_face_edges": 2
+        },
+        {
+          "endpoints": [
+            [
+              -0.5,
+              -0.5,
+              0.0
+            ],
+            [
+              -0.5,
+              0.5,
+              0.0
+            ]
+          ],
+          "incident_net_face_edges": 2
+        },
+        {
+          "endpoints": [
+            [
+              -0.5,
+              0.5,
+              -1.0
+            ],
+            [
+              -0.5,
+              0.5,
+              0.0
+            ]
+          ],
+          "incident_net_face_edges": 2
+        },
+        {
+          "endpoints": [
+            [
+              -0.5,
+              -0.5,
+              -1.0
+            ],
+            [
+              -0.5,
+              0.5,
+              -1.0
+            ]
+          ],
+          "incident_net_face_edges": 2
+        },
+        {
+          "endpoints": [
+            [
+              -0.5,
+              -0.5,
+              0.0
+            ],
+            [
+              0.5,
+              -0.5,
+              0.0
+            ]
+          ],
+          "incident_net_face_edges": 2
+        },
+        {
+          "endpoints": [
+            [
+              0.5,
+              -0.5,
+              0.0
+            ],
+            [
+              0.5,
+              0.5,
+              0.0
+            ]
+          ],
+          "incident_net_face_edges": 2
+        },
+        {
+          "endpoints": [
+            [
+              -0.5,
+              0.5,
+              0.0
+            ],
+            [
+              0.5,
+              0.5,
+              0.0
+            ]
+          ],
+          "incident_net_face_edges": 2
+        },
+        {
+          "endpoints": [
+            [
+              0.5,
+              0.5,
+              -1.0
+            ],
+            [
+              0.5,
+              0.5,
+              0.0
+            ]
+          ],
+          "incident_net_face_edges": 2
+        },
+        {
+          "endpoints": [
+            [
+              -0.5,
+              0.5,
+              -1.0
+            ],
+            [
+              0.5,
+              0.5,
+              -1.0
+            ]
+          ],
+          "incident_net_face_edges": 2
+        },
+        {
+          "endpoints": [
+            [
+              -0.5,
+              -0.5,
+              -1.0
+            ],
+            [
+              0.5,
+              -0.5,
+              -1.0
+            ]
+          ],
+          "incident_net_face_edges": 2
+        },
+        {
+          "endpoints": [
+            [
+              0.5,
+              -0.5,
+              -1.0
+            ],
+            [
+              0.5,
+              -0.5,
+              0.0
+            ]
+          ],
+          "incident_net_face_edges": 2
+        },
+        {
+          "endpoints": [
+            [
+              0.5,
+              -0.5,
+              -1.0
+            ],
+            [
+              0.5,
+              0.5,
+              -1.0
+            ]
+          ],
+          "incident_net_face_edges": 2
+        }
+      ],
+      "physical_counts": {
+        "vertices": 8,
+        "edges": 12,
+        "faces": 6,
+        "edge_incidence_each": 2
+      },
+      "answer_reasoning": "P is at net vertex v1_2 on the cap above face (1,0). R is anchored at v0_1. The independent fold map sends both to (-0.5, 0.5, -1.0), so they are the same cube vertex. Q maps to (0.5, 0.5, -1.0), and S maps to (-0.5, 0.5, 0.0), both distinct from P. Thus B, Point R, is uniquely correct.",
+      "wrong_same_color_inference": "In the Special draft, P and Q are both red. This color pairing may suggest that Q matches P, but their folded coordinates differ in x; the annotation is intentionally a false visual cue and does not change the question conditions."
+    },
+    "source_key": "cube-net:vertex-coincidence",
+    "reviewed_draft_migration": {
+      "staged_id": "Solid75",
+      "formal_id": "Solid74",
+      "numbering_instruction": "不不不，不要改工作台。你可以修改编号。",
+      "staged_question_sha256": "0bc484a0c5ea2b1464c6e5e7141c5232c75a52b15280284e4bc0e74382d43a15",
+      "staged_scene_sha256": "6de8bcb1fdd742f6855fa8d2ce3804bc607174101aaad487fed91e9706c19104",
+      "staged_script_sha256": "e4b7b162f04562bcade0e57d55e6feefe84f8ee42d34bfdab4568147a3929826",
+      "reviewed_png_sha256": "c7a4ca73a7dc52f8eb23836090496f7a7e4e9539144af018022a1237ac6f8198",
+      "question_choices_answer_unchanged": true,
+      "geometry_labels_view_projection_visibility_unchanged": true,
+      "reviewed_png_bytes_unchanged": true,
+      "original_image_available": false,
+      "scene_changes": "ID, collection status and provenance note only."
+    },
+    "redraw_verification": {
+      "dependencies": {
+        "python": "3.13.9",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.3",
+        "pillow": "12.3.0"
+      },
+      "geometry_checks": [
+        {
+          "id": "projection_and_visibility",
+          "type": "projection",
+          "passed": true,
+          "projection_sha256": "81459dcb4b08459d7b78a5ef3294528ed94a664ee54950d0e901b159edf27fc3",
+          "automatic_occlusion": false
+        },
+        {
+          "id": "all_net_vertices_coplanar",
+          "type": "coplanar",
+          "basis": "The supplied object is an unfolded net lying in the page plane z=0.",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "layout",
+          "type": "layout",
+          "outer_margin_fraction": 0.05,
+          "label_line_overlap": false,
+          "label_label_overlap": false,
+          "passed": true
+        }
+      ],
+      "bbox": [
+        55,
+        116,
+        716,
+        650
+      ],
+      "repeat_png_pixels_identical": true,
+      "repeat_svg_bytes_identical": true,
+      "visual_inspection": "Manually inspected regenerated original.png and special.png at 768x768. The six square outlines are clear and P, Q, R, and S labels are readable without obscuring net edges. In special.png, red markers sit at P on the upper cap and Q on the separate lower cap, making the intended false same-color pairing visible. No clipping or distracting overlap was observed.",
+      "id": "Solid74",
+      "scene_sha256": "f20355495ba091f2d7dd083a513de9c6d41e5bfdf4b518eda1d9b46786696e26",
+      "script_sha256": "b6957e85ba45eb41fee5155156fd6e7bf8afd17d2885828681497e79874ae926",
+      "png_sha256": "c7a4ca73a7dc52f8eb23836090496f7a7e4e9539144af018022a1237ac6f8198",
+      "renderer_sha256": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+      "protocol_sha256": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+      "formal_redraw_matches_reviewed_pixels": true
+    },
+    "independent_review": {
+      "id": "Solid75",
+      "answer_independently_verified": "B",
+      "rigid_face_max_error": 0.0,
+      "closed_convex_solid_counts": {
+        "vertices": 8,
+        "edges": 12,
+        "faces": 6
+      },
+      "all_edges_have_two_incident_faces": true,
+      "flat_net_max_face_overlap_area": 0.0,
+      "geometry_and_projection_sha256": "6de8bcb1fdd742f6855fa8d2ce3804bc607174101aaad487fed91e9706c19104",
+      "special_png_sha256": "99a095ef4bc8ea19f4f38057e4e8184b28b448b8ca0d1c2736fe19fa0487bdf5"
+    }
+  },
+  "Solid75": {
+    "source_dataset": "Author designed",
+    "original_source_image_available": false,
+    "geometry_notes": {
+      "net_faces": {
+        "central": [
+          "A",
+          "B",
+          "C"
+        ],
+        "flap_D": [
+          "A",
+          "D",
+          "B"
+        ],
+        "flap_E": [
+          "B",
+          "E",
+          "C"
+        ],
+        "flap_F": [
+          "C",
+          "F",
+          "A"
+        ]
+      },
+      "net_points": {
+        "A": [
+          0,
+          0,
+          0
+        ],
+        "B": [
+          1,
+          0,
+          0
+        ],
+        "C": [
+          0.5,
+          0.8660254037844386,
+          0
+        ],
+        "D": [
+          0.5,
+          -0.8660254037844386,
+          0
+        ],
+        "E": [
+          1.5,
+          0.8660254037844386,
+          0
+        ],
+        "F": [
+          -0.5,
+          0.8660254037844386,
+          0
+        ]
+      },
+      "flat_scene_z": 0,
+      "net_face_edge_lengths": {
+        "central": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "flap_D": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "flap_E": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "flap_F": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "folded_points": {
+        "A": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "B": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "C": [
+          0.5,
+          0.8660254037844386,
+          0.0
+        ],
+        "D": [
+          0.5,
+          0.28867513459481287,
+          0.816496580927726
+        ],
+        "E": [
+          0.5,
+          0.28867513459481287,
+          0.816496580927726
+        ],
+        "F": [
+          0.5,
+          0.28867513459481287,
+          0.816496580927726
+        ],
+        "W": [
+          0.5,
+          0.28867513459481287,
+          0.816496580927726
+        ]
+      },
+      "folded_aliases": {
+        "D": "W",
+        "E": "W",
+        "F": "W"
+      },
+      "folded_faces": {
+        "ABC": [
+          "A",
+          "B",
+          "C"
+        ],
+        "ABW": [
+          "A",
+          "B",
+          "W"
+        ],
+        "BCW": [
+          "B",
+          "C",
+          "W"
+        ],
+        "CAW": [
+          "C",
+          "A",
+          "W"
+        ]
+      },
+      "physical_edge_classes": {
+        "AB": [
+          "A",
+          "B"
+        ],
+        "BC": [
+          "B",
+          "C"
+        ],
+        "CA": [
+          "C",
+          "A"
+        ],
+        "AD": [
+          "A",
+          "W"
+        ],
+        "BD": [
+          "B",
+          "W"
+        ],
+        "CE": [
+          "C",
+          "W"
+        ],
+        "BE": [
+          "B",
+          "W"
+        ],
+        "CF": [
+          "C",
+          "W"
+        ],
+        "AF": [
+          "A",
+          "W"
+        ]
+      },
+      "mapped_net_edge_classes": {
+        "A-B": [
+          "AB",
+          "AB"
+        ],
+        "B-C": [
+          "BC",
+          "BC"
+        ],
+        "A-C": [
+          "AC",
+          "AC"
+        ],
+        "A-W": [
+          "AD",
+          "AF"
+        ],
+        "B-W": [
+          "BD",
+          "BE"
+        ],
+        "C-W": [
+          "CE",
+          "CF"
+        ]
+      },
+      "physical_edges_unique": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "C",
+          "A"
+        ],
+        [
+          "A",
+          "W"
+        ],
+        [
+          "B",
+          "W"
+        ],
+        [
+          "C",
+          "W"
+        ]
+      ],
+      "edge_incidence_by_face": {
+        "A-B": 2,
+        "B-C": 2,
+        "A-C": 2,
+        "A-W": 2,
+        "B-W": 2,
+        "C-W": 2
+      },
+      "face_edge_lengths": {
+        "ABC": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "ABW": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "BCW": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "CAW": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "answer_derivation": "D, E, and F coincide at W. AD maps to AW and BC remains BC; these edges share no endpoint.",
+      "wrong_inference": "BE maps to BW and CF maps to CW; each shares W with AD even though neither flat edge shares a letter with AD.",
+      "answer": "B"
+    },
+    "source_key": "regular-tetrahedron-net:opposite-edge-AD",
+    "reviewed_draft_migration": {
+      "staged_id": "Solid77",
+      "formal_id": "Solid75",
+      "numbering_instruction": "不不不，不要改工作台。你可以修改编号。",
+      "staged_question_sha256": "6f6720e3d694bce2587fc484e4044d67292a3731f0e220dea8a5c62f1c72c5f9",
+      "staged_scene_sha256": "f70eddeb73bee7607a1c4e3629428fcf31e2c73459582ae5fa674de3e6c8ad59",
+      "staged_script_sha256": "ee549b45b57d962f744ea47bf413a2040bce4e8be33b1bed3ec58cf29348a7ec",
+      "reviewed_png_sha256": "a39e64bf2dbc55bfa620b08c4045a832816a5659f4cd78effa6996bc5bc2ead9",
+      "question_choices_answer_unchanged": true,
+      "geometry_labels_view_projection_visibility_unchanged": true,
+      "reviewed_png_bytes_unchanged": true,
+      "original_image_available": false,
+      "scene_changes": "ID, collection status and provenance note only."
+    },
+    "redraw_verification": {
+      "dependencies": {
+        "python": "3.13.9",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.3",
+        "pillow": "12.3.0"
+      },
+      "geometry_checks": [
+        {
+          "id": "projection_and_visibility",
+          "type": "projection",
+          "passed": true,
+          "projection_sha256": "81459dcb4b08459d7b78a5ef3294528ed94a664ee54950d0e901b159edf27fc3",
+          "automatic_occlusion": false
+        },
+        {
+          "id": "layout",
+          "type": "layout",
+          "outer_margin_fraction": 0.05,
+          "label_line_overlap": false,
+          "label_label_overlap": false,
+          "passed": true
+        }
+      ],
+      "bbox": [
+        56,
+        95,
+        713,
+        669
+      ],
+      "repeat_png_pixels_identical": true,
+      "repeat_svg_bytes_identical": true,
+      "visual_inspection": "inspected_original_and_special_pngs; all six labels are legible, the net edges are unobstructed, and only AD and BE are recolored red.",
+      "id": "Solid75",
+      "scene_sha256": "48b3b50975d7ae91ab2f12614e59556562a18432bccf43872140ad245dc3c9fd",
+      "script_sha256": "f04b47d9737fa686227c82f65faf701a0a321352ba8043c6d1845022c03b1794",
+      "png_sha256": "a39e64bf2dbc55bfa620b08c4045a832816a5659f4cd78effa6996bc5bc2ead9",
+      "renderer_sha256": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+      "protocol_sha256": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+      "formal_redraw_matches_reviewed_pixels": true
+    },
+    "independent_review": {
+      "id": "Solid77",
+      "answer_independently_verified": "B",
+      "rigid_face_max_error": 1.1102230246251565e-16,
+      "closed_convex_solid_counts": {
+        "vertices": 4,
+        "edges": 6,
+        "faces": 4
+      },
+      "all_edges_have_two_incident_faces": true,
+      "flat_net_max_face_overlap_area": 0.0,
+      "geometry_and_projection_sha256": "f70eddeb73bee7607a1c4e3629428fcf31e2c73459582ae5fa674de3e6c8ad59",
+      "special_png_sha256": "12dff61f3faa4ff47654f0b7cb9433b6a43a9f1cda8d5cd7bc823ff62febfac8"
+    }
+  },
+  "Solid76": {
+    "source_dataset": "Author designed",
+    "original_source_image_available": false,
+    "geometry_notes": {
+      "solid_vertices": {
+        "p0": [
+          0,
+          0,
+          0
+        ],
+        "p1": [
+          1,
+          0,
+          0
+        ],
+        "p2": [
+          1,
+          1,
+          0
+        ],
+        "p3": [
+          0,
+          1,
+          0
+        ],
+        "p4": [
+          0,
+          0,
+          1
+        ],
+        "p5": [
+          1,
+          0,
+          1
+        ],
+        "p6": [
+          1,
+          1,
+          1
+        ],
+        "p7": [
+          0,
+          1,
+          1
+        ]
+      },
+      "solid_faces": {
+        "base": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+        ],
+        "s0": [
+          "p0",
+          "p1",
+          "p5",
+          "p4"
+        ],
+        "s1": [
+          "p1",
+          "p2",
+          "p6",
+          "p5"
+        ],
+        "s2": [
+          "p2",
+          "p3",
+          "p7",
+          "p6"
+        ],
+        "s3": [
+          "p3",
+          "p0",
+          "p4",
+          "p7"
+        ],
+        "top": [
+          "p4",
+          "p5",
+          "p6",
+          "p7"
+        ]
+      },
+      "unfolding_root": "base",
+      "unfolding_tree": [
+        [
+          "base",
+          "s0"
+        ],
+        [
+          "base",
+          "s1"
+        ],
+        [
+          "base",
+          "s2"
+        ],
+        [
+          "base",
+          "s3"
+        ],
+        [
+          "s1",
+          "top"
+        ]
+      ],
+      "net_faces": {
+        "base": [
+          "v00",
+          "v01",
+          "v02",
+          "v03"
+        ],
+        "s0": [
+          "v00",
+          "v01",
+          "v04",
+          "v05"
+        ],
+        "s1": [
+          "v01",
+          "v02",
+          "v06",
+          "v07"
+        ],
+        "s2": [
+          "v02",
+          "v03",
+          "v08",
+          "v09"
+        ],
+        "s3": [
+          "v03",
+          "v00",
+          "v10",
+          "v11"
+        ],
+        "top": [
+          "v12",
+          "v07",
+          "v06",
+          "v13"
+        ]
+      },
+      "folded_points": {
+        "v00": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "v01": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "v02": [
+          1.0,
+          1.0,
+          0.0
+        ],
+        "v03": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "v04": [
+          1.0,
+          0.0,
+          1.0
+        ],
+        "v05": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "v06": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "v07": [
+          1.0,
+          0.0,
+          1.0
+        ],
+        "v08": [
+          0.0,
+          1.0,
+          1.0
+        ],
+        "v09": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "v10": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "v11": [
+          0.0,
+          1.0,
+          1.0
+        ],
+        "v12": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "v13": [
+          0.0,
+          1.0,
+          1.0
+        ]
+      },
+      "label_anchors": {
+        "A": "v05",
+        "B": "v04",
+        "C": "v10",
+        "D": "v00",
+        "E": "v11",
+        "F": "v03"
+      },
+      "label_folded_points": {
+        "A": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "B": [
+          1.0,
+          0.0,
+          1.0
+        ],
+        "C": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "D": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "E": [
+          0.0,
+          1.0,
+          1.0
+        ],
+        "F": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      "rigid_face_max_distance_errors": {
+        "base": 0.0,
+        "s0": 0.0,
+        "s1": 0.0,
+        "s2": 0.0,
+        "s3": 0.0,
+        "top": 0.0
+      },
+      "flat_net_max_face_overlap_area": 0.0,
+      "physical_vertex_classes": [
+        [
+          "v00"
+        ],
+        [
+          "v01"
+        ],
+        [
+          "v02"
+        ],
+        [
+          "v03"
+        ],
+        [
+          "v04",
+          "v07"
+        ],
+        [
+          "v05",
+          "v10",
+          "v12"
+        ],
+        [
+          "v06",
+          "v09"
+        ],
+        [
+          "v08",
+          "v11",
+          "v13"
+        ]
+      ],
+      "physical_edges": [
+        {
+          "endpoints": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "incident_face_count": 2
+        },
+        {
+          "endpoints": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0,
+              0.0
+            ]
+          ],
+          "incident_face_count": 2
+        },
+        {
+          "endpoints": [
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0,
+              0.0
+            ]
+          ],
+          "incident_face_count": 2
+        },
+        {
+          "endpoints": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ]
+          ],
+          "incident_face_count": 2
+        },
+        {
+          "endpoints": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "incident_face_count": 2
+        },
+        {
+          "endpoints": [
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              1.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "incident_face_count": 2
+        },
+        {
+          "endpoints": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "incident_face_count": 2
+        },
+        {
+          "endpoints": [
+            [
+              1.0,
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0,
+              1.0
+            ]
+          ],
+          "incident_face_count": 2
+        },
+        {
+          "endpoints": [
+            [
+              1.0,
+              0.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0,
+              1.0
+            ]
+          ],
+          "incident_face_count": 2
+        },
+        {
+          "endpoints": [
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              1.0
+            ]
+          ],
+          "incident_face_count": 2
+        },
+        {
+          "endpoints": [
+            [
+              0.0,
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0,
+              1.0
+            ]
+          ],
+          "incident_face_count": 2
+        },
+        {
+          "endpoints": [
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0,
+              1.0
+            ]
+          ],
+          "incident_face_count": 2
+        }
+      ],
+      "counts": {
+        "vertices": 8,
+        "edges": 12,
+        "faces": 6
+      },
+      "candidate_no_shared_endpoint": {
+        "A": false,
+        "B": false,
+        "C": true
+      },
+      "answer_reasoning": "A and C fold to the same cube vertex. Both CD and CE therefore meet AB at A. DF joins two other vertices and has no endpoint in common with AB.",
+      "false_color_pairing": "AB and CD are separate on the sheet and colored alike, but C folds onto A; the same-color pair actually shares a vertex.",
+      "displayed_dimensions_are_construction_only": true
+    },
+    "source_key": "solid80:net-edge-endpoint-identification",
+    "reviewed_draft_migration": {
+      "staged_id": "Solid80",
+      "formal_id": "Solid76",
+      "numbering_instruction": "不不不，不要改工作台。你可以修改编号。",
+      "staged_question_sha256": "544502c1296838dfe932cc64d551012cef1d41d1f8f66108973826949764de3f",
+      "staged_scene_sha256": "8ca5f6b9cbb8068fb6fd94c4a265ba23ef3ca29c419429d6711d60e5d6eb4783",
+      "staged_script_sha256": "c3f3f6677306e948a56d9236df0c984d227900ecda810b6bfcfe681b988028c3",
+      "reviewed_png_sha256": "30c5e3c76e7851d4a2c7e22d3280357766f4c0791a64a6bb6cc30bd450bc2eba",
+      "question_choices_answer_unchanged": true,
+      "geometry_labels_view_projection_visibility_unchanged": true,
+      "reviewed_png_bytes_unchanged": true,
+      "original_image_available": false,
+      "scene_changes": "ID, collection status and provenance note only."
+    },
+    "redraw_verification": {
+      "dependencies": {
+        "python": "3.13.9",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.3",
+        "pillow": "12.3.0"
+      },
+      "geometry_checks": [
+        {
+          "id": "projection_and_visibility",
+          "type": "projection",
+          "passed": true,
+          "projection_sha256": "81459dcb4b08459d7b78a5ef3294528ed94a664ee54950d0e901b159edf27fc3",
+          "automatic_occlusion": false
+        },
+        {
+          "id": "flat_net_coplanar",
+          "type": "coplanar",
+          "basis": "An unfolded net lies in the page plane; not a condition added by a colored annotation.",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "layout",
+          "type": "layout",
+          "outer_margin_fraction": 0.05,
+          "label_line_overlap": false,
+          "label_label_overlap": false,
+          "passed": true
+        }
+      ],
+      "bbox": [
+        54,
+        134,
+        714,
+        634
+      ],
+      "repeat_png_pixels_identical": true,
+      "repeat_svg_bytes_identical": true,
+      "visual_inspection": "Viewed the actual original.png and special.png at 768 x 768. Checked every face boundary and vertex label against the frozen net: no clipping or text/line overlap. The original is entirely black; only the separate net edges AB and CD are red in the Special draft. All diagram geometry, labels and viewport stay fixed.",
+      "id": "Solid76",
+      "scene_sha256": "2af6ad84c80a5f8bdf5da1b1e3af6029f0098de2c3fd5085282cef56521eee1c",
+      "script_sha256": "4dc4dd9710ab3617c6acab6078f687d6954212f544f56c346e2b3f2a8b476f0b",
+      "png_sha256": "30c5e3c76e7851d4a2c7e22d3280357766f4c0791a64a6bb6cc30bd450bc2eba",
+      "renderer_sha256": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+      "protocol_sha256": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+      "formal_redraw_matches_reviewed_pixels": true
+    },
+    "independent_review": {
+      "id": "Solid80",
+      "verified_answer": "C",
+      "convex_solid_counts": {
+        "vertices": 8,
+        "edges": 12,
+        "faces": 6
+      },
+      "all_face_pairwise_distances_preserved": true,
+      "max_rigid_face_distance_error": 0.0,
+      "all_physical_edges_have_two_faces": true,
+      "red_edges_are_separate_in_net_but_share_folded_endpoint": true,
+      "scene_sha256": "8ca5f6b9cbb8068fb6fd94c4a265ba23ef3ca29c419429d6711d60e5d6eb4783",
+      "original_png_sha256": "30c5e3c76e7851d4a2c7e22d3280357766f4c0791a64a6bb6cc30bd450bc2eba",
+      "special_png_sha256": "7d8a9164c6c6d870578cbcf1d03df8ea4e6f7233e52934f41b5120b62d5bf068"
+    }
+  },
+  "Solid77": {
+    "source_dataset": "Author designed",
+    "original_source_image_available": false,
+    "geometry_notes": {
+      "solid_vertices": {
+        "b0": [
+          0,
+          0,
+          0
+        ],
+        "b1": [
+          1,
+          0,
+          0
+        ],
+        "b2": [
+          0.5,
+          0.8660254037844386,
+          0
+        ],
+        "t0": [
+          0,
+          0,
+          1.35
+        ],
+        "t1": [
+          1,
+          0,
+          1.35
+        ],
+        "t2": [
+          0.5,
+          0.8660254037844386,
+          1.35
+        ]
+      },
+      "solid_faces": {
+        "base": [
+          "b0",
+          "b1",
+          "b2"
+        ],
+        "s0": [
+          "b0",
+          "b1",
+          "t1",
+          "t0"
+        ],
+        "s1": [
+          "b1",
+          "b2",
+          "t2",
+          "t1"
+        ],
+        "s2": [
+          "b2",
+          "b0",
+          "t0",
+          "t2"
+        ],
+        "top": [
+          "t0",
+          "t1",
+          "t2"
+        ]
+      },
+      "unfolding_root": "base",
+      "unfolding_tree": [
+        [
+          "base",
+          "s0"
+        ],
+        [
+          "base",
+          "s1"
+        ],
+        [
+          "base",
+          "s2"
+        ],
+        [
+          "s1",
+          "top"
+        ]
+      ],
+      "net_faces": {
+        "base": [
+          "v00",
+          "v01",
+          "v02"
+        ],
+        "s0": [
+          "v00",
+          "v01",
+          "v03",
+          "v04"
+        ],
+        "s1": [
+          "v01",
+          "v02",
+          "v05",
+          "v06"
+        ],
+        "s2": [
+          "v02",
+          "v00",
+          "v07",
+          "v08"
+        ],
+        "top": [
+          "v09",
+          "v06",
+          "v05"
+        ]
+      },
+      "folded_points": {
+        "v00": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "v01": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "v02": [
+          0.5,
+          0.8660254037844386,
+          0.0
+        ],
+        "v03": [
+          1.0,
+          0.0,
+          1.35
+        ],
+        "v04": [
+          0.0,
+          0.0,
+          1.35
+        ],
+        "v05": [
+          0.5,
+          0.8660254037844386,
+          1.35
+        ],
+        "v06": [
+          1.0,
+          0.0,
+          1.35
+        ],
+        "v07": [
+          0.0,
+          0.0,
+          1.35
+        ],
+        "v08": [
+          0.5,
+          0.8660254037844386,
+          1.35
+        ],
+        "v09": [
+          0.0,
+          0.0,
+          1.35
+        ]
+      },
+      "label_anchors": {
+        "A": "v00",
+        "B": "v04",
+        "C": "v09",
+        "D": "v06",
+        "E": "v05"
+      },
+      "label_folded_points": {
+        "A": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "B": [
+          0.0,
+          0.0,
+          1.35
+        ],
+        "C": [
+          0.0,
+          0.0,
+          1.35
+        ],
+        "D": [
+          1.0,
+          0.0,
+          1.35
+        ],
+        "E": [
+          0.5,
+          0.8660254037844386,
+          1.35
+        ]
+      },
+      "rigid_face_max_distance_errors": {
+        "base": 0.0,
+        "s0": 0.0,
+        "s1": 2.220446049250313e-16,
+        "s2": 1.1102230246251565e-16,
+        "top": 2.220446049250313e-16
+      },
+      "flat_net_max_face_overlap_area": 0.0,
+      "physical_vertex_classes": [
+        [
+          "v00"
+        ],
+        [
+          "v01"
+        ],
+        [
+          "v02"
+        ],
+        [
+          "v03",
+          "v06"
+        ],
+        [
+          "v04",
+          "v07",
+          "v09"
+        ],
+        [
+          "v05",
+          "v08"
+        ]
+      ],
+      "physical_edges": [
+        {
+          "endpoints": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "incident_face_count": 2
+        },
+        {
+          "endpoints": [
+            [
+              0.5,
+              0.866025404,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "incident_face_count": 2
+        },
+        {
+          "endpoints": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.5,
+              0.866025404,
+              0.0
+            ]
+          ],
+          "incident_face_count": 2
+        },
+        {
+          "endpoints": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              1.35
+            ]
+          ],
+          "incident_face_count": 2
+        },
+        {
+          "endpoints": [
+            [
+              0.0,
+              0.0,
+              1.35
+            ],
+            [
+              1.0,
+              0.0,
+              1.35
+            ]
+          ],
+          "incident_face_count": 2
+        },
+        {
+          "endpoints": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.35
+            ]
+          ],
+          "incident_face_count": 2
+        },
+        {
+          "endpoints": [
+            [
+              0.5,
+              0.866025404,
+              0.0
+            ],
+            [
+              0.5,
+              0.866025404,
+              1.35
+            ]
+          ],
+          "incident_face_count": 2
+        },
+        {
+          "endpoints": [
+            [
+              0.5,
+              0.866025404,
+              1.35
+            ],
+            [
+              1.0,
+              0.0,
+              1.35
+            ]
+          ],
+          "incident_face_count": 2
+        },
+        {
+          "endpoints": [
+            [
+              0.0,
+              0.0,
+              1.35
+            ],
+            [
+              0.5,
+              0.866025404,
+              1.35
+            ]
+          ],
+          "incident_face_count": 2
+        }
+      ],
+      "counts": {
+        "vertices": 6,
+        "edges": 9,
+        "faces": 5
+      },
+      "candidate_no_shared_endpoint": {
+        "A": false,
+        "B": true,
+        "C": false
+      },
+      "answer_reasoning": "B and C fold to the same vertex on one triangular base. CD and CE consequently meet AB at B. DE is the other edge of that triangular base and shares neither endpoint of AB.",
+      "false_color_pairing": "The red rectangle edge AB and red triangular edge CD look separate, but C is the second flat copy of B.",
+      "displayed_dimensions_are_construction_only": true
+    },
+    "source_key": "solid81:net-edge-endpoint-identification",
+    "reviewed_draft_migration": {
+      "staged_id": "Solid81",
+      "formal_id": "Solid77",
+      "numbering_instruction": "不不不，不要改工作台。你可以修改编号。",
+      "staged_question_sha256": "1ccb22ca8e8260ccc8d0cb28b1765a0392e5bc96eec06f34a6086b8a44cac5f3",
+      "staged_scene_sha256": "924951a3665583cbd08913bfaa2abbabd3b95e66a7190dd4980edc107777e06c",
+      "staged_script_sha256": "e143affaabd33a180044f1af7fa97d0091190e434827c6cf2584766df9dca92d",
+      "reviewed_png_sha256": "01fbb968025a34f7501bd6fb7983e220b39ed04c09945eb4dd28971ab7b1461c",
+      "question_choices_answer_unchanged": true,
+      "geometry_labels_view_projection_visibility_unchanged": true,
+      "reviewed_png_bytes_unchanged": true,
+      "original_image_available": false,
+      "scene_changes": "ID, collection status and provenance note only."
+    },
+    "redraw_verification": {
+      "dependencies": {
+        "python": "3.13.9",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.3",
+        "pillow": "12.3.0"
+      },
+      "geometry_checks": [
+        {
+          "id": "projection_and_visibility",
+          "type": "projection",
+          "passed": true,
+          "projection_sha256": "81459dcb4b08459d7b78a5ef3294528ed94a664ee54950d0e901b159edf27fc3",
+          "automatic_occlusion": false
+        },
+        {
+          "id": "flat_net_coplanar",
+          "type": "coplanar",
+          "basis": "An unfolded net lies in the page plane; not a condition added by a colored annotation.",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "layout",
+          "type": "layout",
+          "outer_margin_fraction": 0.05,
+          "label_line_overlap": false,
+          "label_label_overlap": false,
+          "passed": true
+        }
+      ],
+      "bbox": [
+        53,
+        117,
+        715,
+        651
+      ],
+      "repeat_png_pixels_identical": true,
+      "repeat_svg_bytes_identical": true,
+      "visual_inspection": "Viewed the actual original.png and special.png at 768 x 768. Checked every face boundary and vertex label against the frozen net: no clipping or text/line overlap. The original is entirely black; only the separate net edges AB and CD are red in the Special draft. All diagram geometry, labels and viewport stay fixed.",
+      "id": "Solid77",
+      "scene_sha256": "48de7d3f3069e3bca320448f75457896f9d0c30a707dbba3c45fa10299d07616",
+      "script_sha256": "8d48d09e6cfbb53e396357a74c47b34b5170097678b4f8a9a8af40917a09c86a",
+      "png_sha256": "01fbb968025a34f7501bd6fb7983e220b39ed04c09945eb4dd28971ab7b1461c",
+      "renderer_sha256": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+      "protocol_sha256": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+      "formal_redraw_matches_reviewed_pixels": true
+    },
+    "independent_review": {
+      "id": "Solid81",
+      "verified_answer": "B",
+      "convex_solid_counts": {
+        "vertices": 6,
+        "edges": 9,
+        "faces": 5
+      },
+      "all_face_pairwise_distances_preserved": true,
+      "max_rigid_face_distance_error": 2.220446049250313e-16,
+      "all_physical_edges_have_two_faces": true,
+      "red_edges_are_separate_in_net_but_share_folded_endpoint": true,
+      "scene_sha256": "924951a3665583cbd08913bfaa2abbabd3b95e66a7190dd4980edc107777e06c",
+      "original_png_sha256": "01fbb968025a34f7501bd6fb7983e220b39ed04c09945eb4dd28971ab7b1461c",
+      "special_png_sha256": "7c23cf81d515a02d02ff74bce59d3ff17c54e03853820f9b515d8c56cd38b27f"
+    }
+  },
+  "Solid78": {
+    "source_dataset": "Author designed",
+    "original_source_image_available": false,
+    "geometry_notes": {
+      "solid_vertices": {
+        "p0": [
+          -0.5,
+          -0.5,
+          0
+        ],
+        "p1": [
+          0.5,
+          -0.5,
+          0
+        ],
+        "p2": [
+          0.5,
+          0.5,
+          0
+        ],
+        "p3": [
+          -0.5,
+          0.5,
+          0
+        ],
+        "apex": [
+          0,
+          0,
+          1.0
+        ]
+      },
+      "solid_faces": {
+        "base": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+        ],
+        "s0": [
+          "p0",
+          "p1",
+          "apex"
+        ],
+        "s1": [
+          "p1",
+          "p2",
+          "apex"
+        ],
+        "s2": [
+          "p2",
+          "p3",
+          "apex"
+        ],
+        "s3": [
+          "p3",
+          "p0",
+          "apex"
+        ]
+      },
+      "unfolding_root": "s0",
+      "unfolding_tree": [
+        [
+          "s0",
+          "s1"
+        ],
+        [
+          "s1",
+          "s2"
+        ],
+        [
+          "s2",
+          "s3"
+        ],
+        [
+          "s0",
+          "base"
+        ]
+      ],
+      "net_faces": {
+        "s0": [
+          "v00",
+          "v01",
+          "v02"
+        ],
+        "s1": [
+          "v01",
+          "v03",
+          "v02"
+        ],
+        "s2": [
+          "v03",
+          "v04",
+          "v02"
+        ],
+        "s3": [
+          "v04",
+          "v05",
+          "v02"
+        ],
+        "base": [
+          "v00",
+          "v01",
+          "v06",
+          "v07"
+        ]
+      },
+      "folded_points": {
+        "v00": [
+          -0.5,
+          -0.5,
+          0.0
+        ],
+        "v01": [
+          0.5,
+          -0.5,
+          0.0
+        ],
+        "v02": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "v03": [
+          0.5,
+          0.5,
+          0.0
+        ],
+        "v04": [
+          -0.5,
+          0.5,
+          0.0
+        ],
+        "v05": [
+          -0.5,
+          -0.5,
+          0.0
+        ],
+        "v06": [
+          0.5,
+          0.5,
+          0.0
+        ],
+        "v07": [
+          -0.5,
+          0.5,
+          0.0
+        ]
+      },
+      "label_anchors": {
+        "A": "v00",
+        "B": "v01",
+        "C": "v05",
+        "D": "v04",
+        "E": "v02"
+      },
+      "label_folded_points": {
+        "A": [
+          -0.5,
+          -0.5,
+          0.0
+        ],
+        "B": [
+          0.5,
+          -0.5,
+          0.0
+        ],
+        "C": [
+          -0.5,
+          -0.5,
+          0.0
+        ],
+        "D": [
+          -0.5,
+          0.5,
+          0.0
+        ],
+        "E": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "rigid_face_max_distance_errors": {
+        "s0": 2.220446049250313e-16,
+        "s1": 2.220446049250313e-16,
+        "s2": 0.0,
+        "s3": 2.220446049250313e-16,
+        "base": 0.0
+      },
+      "flat_net_max_face_overlap_area": 5.551115123125783e-17,
+      "physical_vertex_classes": [
+        [
+          "v00",
+          "v05"
+        ],
+        [
+          "v01"
+        ],
+        [
+          "v02"
+        ],
+        [
+          "v03",
+          "v06"
+        ],
+        [
+          "v04",
+          "v07"
+        ]
+      ],
+      "physical_edges": [
+        {
+          "endpoints": [
+            [
+              -0.5,
+              -0.5,
+              0.0
+            ],
+            [
+              0.5,
+              -0.5,
+              0.0
+            ]
+          ],
+          "incident_face_count": 2
+        },
+        {
+          "endpoints": [
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.5,
+              -0.5,
+              0.0
+            ]
+          ],
+          "incident_face_count": 2
+        },
+        {
+          "endpoints": [
+            [
+              -0.5,
+              -0.5,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "incident_face_count": 2
+        },
+        {
+          "endpoints": [
+            [
+              0.5,
+              -0.5,
+              0.0
+            ],
+            [
+              0.5,
+              0.5,
+              0.0
+            ]
+          ],
+          "incident_face_count": 2
+        },
+        {
+          "endpoints": [
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.5,
+              0.5,
+              0.0
+            ]
+          ],
+          "incident_face_count": 2
+        },
+        {
+          "endpoints": [
+            [
+              -0.5,
+              0.5,
+              0.0
+            ],
+            [
+              0.5,
+              0.5,
+              0.0
+            ]
+          ],
+          "incident_face_count": 2
+        },
+        {
+          "endpoints": [
+            [
+              -0.5,
+              0.5,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "incident_face_count": 2
+        },
+        {
+          "endpoints": [
+            [
+              -0.5,
+              -0.5,
+              0.0
+            ],
+            [
+              -0.5,
+              0.5,
+              0.0
+            ]
+          ],
+          "incident_face_count": 2
+        }
+      ],
+      "counts": {
+        "vertices": 5,
+        "edges": 8,
+        "faces": 5
+      },
+      "candidate_no_shared_endpoint": {
+        "A": true,
+        "B": false,
+        "C": false
+      },
+      "answer_reasoning": "The open fan closes by identifying C with A. Both CD and CE then meet AB at A. DE is the lateral edge from D to the apex E and meets neither A nor B.",
+      "false_color_pairing": "The first and last base-side edges AB and CD are colored alike although their end vertices A and C are identified when the fan closes.",
+      "displayed_dimensions_are_construction_only": true
+    },
+    "source_key": "solid82:net-edge-endpoint-identification",
+    "reviewed_draft_migration": {
+      "staged_id": "Solid82",
+      "formal_id": "Solid78",
+      "numbering_instruction": "不不不，不要改工作台。你可以修改编号。",
+      "staged_question_sha256": "bea5a324e5645bbe3f831ff08f48a3e2df14e6d3a321e19079b77a84ac94f02c",
+      "staged_scene_sha256": "5900780f9964a8d6485b17b89a0e26be4e2acd8d7ebbf02ab34bc3741e75bf82",
+      "staged_script_sha256": "4ec8c4d7bc3633b06ac2abcd4a91b27e6b95e5773880b3cb336f61fdec78bd9d",
+      "reviewed_png_sha256": "3e7ee28afc17e52e96d9910c48df67d383b22112bdcba1be29de1cf17b8eac5f",
+      "question_choices_answer_unchanged": true,
+      "geometry_labels_view_projection_visibility_unchanged": true,
+      "reviewed_png_bytes_unchanged": true,
+      "original_image_available": false,
+      "scene_changes": "ID, collection status and provenance note only."
+    },
+    "redraw_verification": {
+      "dependencies": {
+        "python": "3.13.9",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.3",
+        "pillow": "12.3.0"
+      },
+      "geometry_checks": [
+        {
+          "id": "projection_and_visibility",
+          "type": "projection",
+          "passed": true,
+          "projection_sha256": "81459dcb4b08459d7b78a5ef3294528ed94a664ee54950d0e901b159edf27fc3",
+          "automatic_occlusion": false
+        },
+        {
+          "id": "flat_net_coplanar",
+          "type": "coplanar",
+          "basis": "An unfolded net lies in the page plane; not a condition added by a colored annotation.",
+          "measured": 0.0,
+          "passed": true
+        },
+        {
+          "id": "layout",
+          "type": "layout",
+          "outer_margin_fraction": 0.05,
+          "label_line_overlap": false,
+          "label_label_overlap": false,
+          "passed": true
+        }
+      ],
+      "bbox": [
+        206,
+        54,
+        562,
+        714
+      ],
+      "repeat_png_pixels_identical": true,
+      "repeat_svg_bytes_identical": true,
+      "visual_inspection": "Viewed the actual original.png and special.png at 768 x 768. Checked every face boundary and vertex label against the frozen net: no clipping or text/line overlap. The original is entirely black; only the separate net edges AB and CD are red in the Special draft. All diagram geometry, labels and viewport stay fixed.",
+      "id": "Solid78",
+      "scene_sha256": "045a9348b779ce97e94395070d44d52079e832d58f1c5d5de7d1a50a77c473c5",
+      "script_sha256": "d7706c6f9cfeb9956e0d48246ff5f4d18e4508461919d2614c51eb11487bbd76",
+      "png_sha256": "3e7ee28afc17e52e96d9910c48df67d383b22112bdcba1be29de1cf17b8eac5f",
+      "renderer_sha256": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+      "protocol_sha256": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+      "formal_redraw_matches_reviewed_pixels": true
+    },
+    "independent_review": {
+      "id": "Solid82",
+      "verified_answer": "A",
+      "convex_solid_counts": {
+        "vertices": 5,
+        "edges": 8,
+        "faces": 5
+      },
+      "all_face_pairwise_distances_preserved": true,
+      "max_rigid_face_distance_error": 2.220446049250313e-16,
+      "all_physical_edges_have_two_faces": true,
+      "red_edges_are_separate_in_net_but_share_folded_endpoint": true,
+      "scene_sha256": "5900780f9964a8d6485b17b89a0e26be4e2acd8d7ebbf02ab34bc3741e75bf82",
+      "original_png_sha256": "3e7ee28afc17e52e96d9910c48df67d383b22112bdcba1be29de1cf17b8eac5f",
+      "special_png_sha256": "845d05c1713bade3321a5b9af39b6aefb720f1e82f3f184ad7405202eb98fddb"
+    }
   }
 }

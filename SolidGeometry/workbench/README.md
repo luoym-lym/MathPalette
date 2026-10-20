@@ -6,7 +6,7 @@
 python -X utf8 -B SolidGeometry/workbench/launch_workbench.py
 ```
 
-启动器复用既有工作台的冻结依赖检查、解释器选择、端口与重启处理；可用 `MATHPALETTE_PYTHON` 指定解释器。`requirements.txt` 和已通过 recipes 的依赖必须匹配。工作台读取 `SolidGeometry/dataset.jsonl` 中的 16 道正式题；选题、候选、浏览器草稿和审核令牌独立于平面与解析工作台。
+启动器复用既有工作台的冻结依赖检查、解释器选择、端口与重启处理；可用 `MATHPALETTE_PYTHON` 指定解释器。`requirements.txt` 和已通过 recipes 的依赖必须匹配。工作台读取 `SolidGeometry/dataset.jsonl` 中的正式题；选题、候选、浏览器草稿和审核令牌独立于平面与解析工作台。
 
 侧栏题号搜索下方的「来源」可按正式清单中的数据集筛选，默认「全部来源」；与题号搜索及已完成列表的特殊情况筛选组合生效，「上一题／下一题」遵循当前筛选。
 
@@ -16,19 +16,23 @@ python -X utf8 -B SolidGeometry/workbench/launch_workbench.py
 
 按住 Ctrl 或启用“始终吸附几何点”时，鼠标按屏幕距离吸附到已有顶点、命名点或本画板新增点，并保存精确二维投影坐标。松开 Ctrl 可自由定位。辅助线支持两次点击、拖动，或选择起点/终点后点“连接所选两点”；同一投影位置的不同空间点仍分别列出原 ID。Shift 仅限制画面水平/竖直，不覆盖吸附端点，也不表示空间垂直关系。不会自动添加中点、圆心、整数格点或投影交点。
 
-画板预览由原冻结公共 renderer 和受限插件渲染器生成。未标注的 16 题须逐题与正式原图像素一致；保持 768×768、不透明白底、原视窗和标签。鼠标高亮、吸附提示和控制点不进入 PNG。撤销/重做、删除标记、取消线段、清空、提交候选和 Pass 均沿用原流程。
+画板预览由原冻结公共 renderer 和受限插件渲染器生成。进入工作台的原题须通过无操作重绘与正式原图的像素一致性校验；保持 768×768、不透明白底、原视窗和标签。鼠标高亮、吸附提示和控制点不进入 PNG。撤销/重做、删除标记、取消线段、清空、提交候选和 Pass 均沿用原流程。
 
 Pass 保存一份 C 变体；No Pass 拒绝本候选；Collect 结束整题，已完成列表可重新打开。删除已通过图使用可恢复事务。通过图仅在用户 Pass 后创建于 `SolidGeometry/special_variant/`；Collect 和特殊标记另存整题完成记录，每题包含 `images/`、`plugins/`、`recipes.json`、`draw_variants.py`，完成题另有 `collection.json`。保存原场景、原 PNG、绘图入口、公共 renderer、协议、插件执行器、schema 和依赖的指纹；显式线型覆盖另外记录为 `appearance_changes.rendered_visibility_style_overrides`。原三维几何、投影和冻结可见性区间保持只读。
 
 运行状态、草稿、未通过图、预览、删除备份和 Quick Test 回答只写 `.runtime/solid_special/`。清理运行缓存后，已 Pass 的 recipes 和 Collect 记录可恢复收集状态；未通过草稿仍属于临时数据。修改已审核题目须另行获得用户批准，不能用 Special 审核替代原题批准。
 
-**Quick Test 1** 调用 MiniMax-M3（nonthinking），**Quick Test 2** 调用 MiniMax-M3.1-Flash-Preview（low）。每次点击仅调用所选模型一次；两种模式的回答、思考（如有）、用时和 token 数分别显示并保存，互不覆盖。仅发送本题正式题干和当前候选 PNG；标准答案、原图、意图与参数不发送。不增加判分器，不自动重试、Pass 或 Collect。服务端读取项目现有环境配置；页面与记录不保存密钥。结果绑定本分支、题号、候选、PNG 与像素指纹，替换候选不会错用旧回答。
+**Quick Test 1** 调用 MiniMax-M3（nonthinking），**Quick Test 2** 调用 MiniMax-M3.1-Flash-Preview（adaptive · low），**Quick Test 3** 调用 MiMo-V2.6-Flash（nonthinking，`thinking.type=disabled`），**Quick Test 4** 调用 MiMo-V2.6-Flash（thinking，`thinking.type=enabled`）。四种模式的回答、思考（如有）、用时和 token 数分别显示并保存，互不覆盖，刷新可恢复；兼容已有 Quick Test 1、2 记录。
+
+MiniMax 使用 `MINIMAX_API_KEY`；小米使用项目根目录 `.env` 或环境变量中的 `MIMO_API_KEY`，须为 Token Plan 专属 Key（`tp-` 或 `ttp-`）。小米接口由 `config.json` 的 `quick_test.mimo_api_base` 指定，默认 `https://token-plan-cn.xiaomimimo.com/v1`。两家凭据分别读取，按各自配置独立启用按钮；Key 仅在服务端使用，页面与记录不保存密钥。更改配置后重启工作台。接入与思考参数见[小米 Token Plan 文档](https://mimo.mi.com/docs/en-US/tokenplan/Token%20Plan/quick-access)和[Chat Completions 文档](https://mimo.mi.com/docs/en-US/api/chat)。
+
+每次手动点击仅调用所选模型一次，运行时禁止重复调用；不自动重试、判分、Pass 或 Collect。仅发送本题正式题干和当前候选 PNG；标准答案、原图、意图与参数不发送。不发送 `max_tokens` 或 `max_completion_tokens`，不设置本地等待超时；服务端截断时页面显示提示。结果绑定本分支、题号、候选、PNG 与像素指纹，按模式保存在 `.runtime/solid_special/quick_tests/`，每种模式保存该候选最近一次测试；替换候选不会错用旧回答。软件测试使用 mock API，不发送真实模型请求。
 
 Agent 使用 [agent_prompt.md](agent_prompt.md)、[plugin.schema.json](plugin.schema.json) 和 `agent_cli.py`；绘图输入与候选冲突保护同画板一致。
 
 ```powershell
 python -X utf8 -B SolidGeometry/workbench/agent_cli.py context
-python -X utf8 -B SolidGeometry/special_variant/Solid01/draw_variants.py C01
+python -X utf8 -B SolidGeometry/special_variant/Solid67/draw_variants.py C01
 ```
 
 离线重绘默认写 `.runtime/solid_special/reproduced/`，核对通过时环境、执行器、该题冻结依赖与最终像素，拒绝覆盖正式输入或已通过 PNG。
@@ -41,7 +45,7 @@ python -X utf8 -B SolidGeometry/workbench/test_quick_test.py
 node SolidGeometry/workbench/test_board_geometry.js
 ```
 
-需要隔离启动时，同时指定 `--data-dir` 与 `--output-dir`，例如将两者设在项目 `.runtime/solid_workbench_tests/` 中两个独立子目录。相对路径以调用命令时的目录为准，支持 `--flag value` 和 `--flag=value`。测试程序自动清理自身夹具；浏览器验收后应停止测试服务并删除对应预览、日志、缓存，不删除用户既有状态。需求见 [GEOMETRY_WORKBENCH_REQUIREMENTS.md](../../GEOMETRY_WORKBENCH_REQUIREMENTS.md)。
+需要隔离启动时，同时指定 `--data-dir` 与 `--output-dir`，例如将两者设在项目 `.runtime/solid_workbench_tests/` 中两个独立子目录。相对路径以调用命令时的目录为准，支持 `--flag value` 和 `--flag=value`。测试程序自动清理自身夹具；浏览器验收后应停止测试服务并删除对应预览、日志、缓存，不删除用户既有状态。原图规则见 [立体重绘协议](../REDRAW_PROTOCOL.md)，标注范围以本说明和 [插件 schema](plugin.schema.json) 为准。
 
 ## 特殊情况与后期复审
 

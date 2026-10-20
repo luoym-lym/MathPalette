@@ -1,8 +1,17 @@
 "use strict";
 (() => {
-  const profiles = ["quicktest1", "quicktest2"];
-  const labels = {quicktest1: "Quick Test 1", quicktest2: "Quick Test 2"};
-  const modes = {quicktest1: "MiniMax-M3 · nonthinking", quicktest2: "MiniMax-M3.1-Flash-Preview · low"};
+  const profiles = ["quicktest1", "quicktest2", "quicktest3", "quicktest4"];
+  const labels = {quicktest1: "Quick Test 1", quicktest2: "Quick Test 2", quicktest3: "Quick Test 3", quicktest4: "Quick Test 4"};
+  const modes = {quicktest1: "MiniMax-M3 · nonthinking", quicktest2: "MiniMax-M3.1-Flash-Preview · low",
+    quicktest3: "MiMo-V2.6-Flash · nonthinking", quicktest4: "MiMo-V2.6-Flash · thinking"};
+  const keyName = profile => profile === "quicktest3" || profile === "quicktest4" ? "MIMO_API_KEY" : "MINIMAX_API_KEY";
+  const configured = (config, profile) => config?.configured_profiles?.[profile] ?? (keyName(profile) === "MINIMAX_API_KEY" && !!config?.configured);
+  const hints = {
+    quicktest1: "发送题干和当前候选图；关闭思考，直接回答，不自动判分。",
+    quicktest2: "发送题干和当前候选图；思考强度为 low，分别显示回答和思考，不自动判分。",
+    quicktest3: "发送题干和当前候选图；关闭思考，直接回答，不自动判分。",
+    quicktest4: "发送题干和当前候选图；开启思考，分别显示回答和思考，不自动判分。"
+  };
   const element = (profile, name) => $(profile + "-" + name);
   let currentKey = "", sending = null;
   let localErrors = {}, outputKeys = {};
@@ -14,9 +23,9 @@
     const config = state?.quick_test, running = !!config?.running_candidate_id;
     for (const profile of profiles) {
       const job = result(config, profile), button = element(profile, "button");
-      button.disabled = !ready || !!sending || running || !config?.configured;
+      button.disabled = !ready || !!sending || running || !configured(config, profile);
       button.textContent = sending === profile || job?.status === "running" ? `${labels[profile]} · 测试中…` : labels[profile];
-      button.title = !config?.configured ? "在项目 .env 中配置 MINIMAX_API_KEY" : running ?
+      button.title = !configured(config, profile) ? `在项目 .env 中配置 ${keyName(profile)}` : running ?
         "正在等待模型返回结果" : `使用 ${modes[profile]} 回答当前候选图中的题目`;
     }
   }
@@ -29,11 +38,10 @@
       const job = result(config, profile);
       element(profile, "panel").hidden = !value?.candidate;
       element(profile, "model").textContent = modes[profile];
-      element(profile, "hint").textContent = !config?.configured ? "请在项目 .env 中配置 MINIMAX_API_KEY。" :
+      element(profile, "hint").textContent = !configured(config, profile) ? `请在项目 .env 中配置 ${keyName(profile)}。` :
         config.running_candidate_id && config.running_candidate_id !== value.candidate?.candidate_id ?
           "另一个候选正在测试，完成后即可测试当前图。" :
-          profile === "quicktest1" ? "发送题干和当前候选图；关闭思考，直接回答，不自动判分。" :
-          "发送题干和当前候选图；思考强度为 low，分别显示回答和思考，不自动判分。";
+          hints[profile];
       const error = localErrors[profile] || job?.error || "";
       element(profile, "error").hidden = !error;
       element(profile, "error").textContent = error;

@@ -4,10 +4,10 @@
 
 ## 工作边界
 
-- 使用公共声明式插件接口，不逐题编写 Matplotlib，不修改原题源代码、原图、题干、答案、协议或已有 A/B/C 正式数据。
+- 使用公共声明式插件接口，不逐题编写 Matplotlib，不修改原题源代码、原图、题干、答案、协议或已有正式变体。
 - 可以编辑自己的 `drafts/AnaXX/` 文件。只通过 `agent_cli.py submit` 发布候选，不直接写 state、recipes、索引、重绘函数或审核记录。
 - **Pass / No Pass 只由用户在网页决定。你不能点击 Pass，不能调用审核 API，不能填写已通过状态。** validate 成功、渲染成功或你的视觉判断都不等于人工认可。
-- C 可以有意增加不在曲线上的点、误导性线段，或修改曲线颜色和线型。小数坐标合法，不套用 B 类整数点或必须在曲线上的约束。
+- C 可以有意增加不在曲线上的点、误导性线段，或修改曲线颜色和线型。小数坐标合法，不要求新增点在曲线上；Base 尚未启用。
 - 不自动生成多份方案，不自动补数量，不在用户拒绝后无限尝试。不替用户虚构攻击目标或验证效果。
 - Collect 完成整道题由用户在网页执行，agent 不调用 Collect 接口。若 context 的 question_id 为 null，表示没有待标注题，停止提交。重启后旧候选可能变为 stale_input，须重新读 context 后制作候选。
 
@@ -56,20 +56,20 @@
 
 ## 常用命令
 
-从 Research 目录运行以下真实入口：
+从项目根目录运行以下入口：
 
 ```powershell
-python -B MathPalette/Analytics/Analytics/workbench/agent_cli.py context
-python -B MathPalette/Analytics/Analytics/workbench/agent_cli.py highlight --object curve_001
+python -B Analytics/workbench/agent_cli.py context
+python -B Analytics/workbench/agent_cli.py highlight --object curve_001
 ```
 
-正常协作将方案写到 context 给出的 `draft_directory`，例如 `MathPalette/Analytics/Analytics/workbench/drafts/Ana04/plugin.json`。以下 TOKEN 与 ID 要替换为 context/submit 的真实返回值：
+正常协作将方案写到 context 给出的 `draft_directory`，例如 `.runtime/analytics_special/drafts/Ana04/plugin.json`。以下 TOKEN 与 ID 要替换为 context/submit 的真实返回值：
 
 ```powershell
-python -B MathPalette/Analytics/Analytics/workbench/agent_cli.py validate --plugin MathPalette/Analytics/Analytics/workbench/drafts/Ana04/plugin.json
-python -B MathPalette/Analytics/Analytics/workbench/agent_cli.py submit --plugin MathPalette/Analytics/Analytics/workbench/drafts/Ana04/plugin.json --context-token TOKEN
-python -B MathPalette/Analytics/Analytics/workbench/agent_cli.py status --candidate ID
-python -B MathPalette/Analytics/Analytics/workbench/agent_cli.py submit --plugin MathPalette/Analytics/Analytics/workbench/drafts/Ana04/plugin.json --context-token TOKEN --replace ID
+python -B Analytics/workbench/agent_cli.py validate --plugin .runtime/analytics_special/drafts/Ana04/plugin.json
+python -B Analytics/workbench/agent_cli.py submit --plugin .runtime/analytics_special/drafts/Ana04/plugin.json --context-token TOKEN
+python -B Analytics/workbench/agent_cli.py status --candidate ID
+python -B Analytics/workbench/agent_cli.py submit --plugin .runtime/analytics_special/drafts/Ana04/plugin.json --context-token TOKEN --replace ID
 ```
 
 其他工作目录使用 context 中的 `cli_entry` 绝对路径并加引号。自定义配置用 `--config 路径`，独立测试服务用 `--url http://127.0.0.1:端口`；这两个选项可放在子命令前或后。CLI 不提供审核命令。

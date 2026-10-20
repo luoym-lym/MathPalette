@@ -46,9 +46,20 @@ python -X utf8 -B PlaneGeometry/workbench/agent_cli.py status --candidate ID
 
 ## Quick Test
 
-对已提交候选手动点击 **Quick Test 1**（MiniMax-M3，nonthinking）或 **Quick Test 2**（MiniMax-M3.1-Flash-Preview，low），沿用现有服务端环境配置。两种模式的回答、思考（如有）、用时和 token 数分别显示并保存，互不覆盖。每次手动操作仅一次调用，不自动重试或判分。请求只含正式题干和当前候选 PNG；标准答案、原图、说明、标注意图和绘图参数不发送。Key 只在服务端从项目 `.env` 或环境变量读取。
+提交候选后，手动点击候选图右上角的测试按钮：
 
-结果绑定 PlaneGeometry、题号、候选 ID、参数和实际 PNG 指纹，保存在 `.runtime/plane_special/quick_tests/`；切题、替换或审核后不会显示为另一份候选的结果。软件测试使用 mock API，不发送付费模型请求。
+| 按钮 | 模型 | 思考模式 | 服务端凭据 |
+| --- | --- | --- | --- |
+| Quick Test 1 | MiniMax-M3 | nonthinking | `MINIMAX_API_KEY` |
+| Quick Test 2 | MiniMax-M3.1-Flash-Preview | adaptive · low | `MINIMAX_API_KEY` |
+| Quick Test 3 | MiMo-V2.6-Flash | nonthinking（`disabled`） | `MIMO_API_KEY` |
+| Quick Test 4 | MiMo-V2.6-Flash | thinking（`enabled`） | `MIMO_API_KEY` |
+
+凭据仅由服务端从环境变量或项目根目录 `.env` 读取；按各自 Key 是否配置独立启用按钮。小米使用 Token Plan 专属 Key（`tp-` 或 `ttp-`），接口为 `https://token-plan-cn.xiaomimimo.com/v1`，由 `config.json` 的 `quick_test.mimo_api_base` 指定，不复用 MiniMax 的 Key 或接口。模型与思考模式在 `quick_test.py` 固定。配置变更后重新启动工作台。小米接入与思考开关见[官方 Token Plan 文档](https://mimo.mi.com/docs/en-US/tokenplan/Token%20Plan/quick-access)和[Chat Completions 文档](https://mimo.mi.com/docs/en-US/api/chat)。
+
+四种模式的回答、思考（如有）、用时和 token 数分别显示并保存，互不覆盖，刷新页面可恢复。每次手动操作仅一次调用，运行期间禁止重复调用，不自动重试或判分，不自动 Pass / Collect。请求只含正式题干和当前候选 PNG；标准答案、原图、说明、标注意图和绘图参数不发送。均不发送 `max_tokens` 或 `max_completion_tokens`，不设置本地等待超时；实际输出长度由模型服务决定，发生长度截断时页面提示。
+
+结果绑定题号、候选 ID、参数和实际 PNG 指纹，分别保存在 `.runtime/plane_special/quick_tests/`；每种模式保存该候选最近一次测试，切题、替换或审核后不会显示为另一份候选的结果。保留原 Quick Test 1、2 缓存兼容。这些输出属于临时工作记录，不进入正式数据。软件测试使用 mock API，不发送真实模型请求。
 
 ## 保存、重绘与测试
 
@@ -70,7 +81,7 @@ Pass 冻结实际操作、原图/场景/协议/原脚本/geometry_dataset.py 输
 在保留完整项目输入和工作台代码的环境中离线重绘：
 
 ```powershell
-python -X utf8 -B PlaneGeometry/special_variant/Plane01/draw_variants.py C01
+python -X utf8 -B PlaneGeometry/special_variant/Plane94/draw_variants.py C01
 ```
 
 默认写 `.runtime/plane_special/reproduced/`，不覆盖正式图。其他题更新后可查历史基线继续重放；本题场景、题目记录、绘图输入、执行器或依赖变化则停止，不能自动更新旧通过记录。
@@ -84,9 +95,9 @@ python -X utf8 -B PlaneGeometry/workbench/test_quick_test.py
 python -X utf8 -B PlaneGeometry/workbench/launch_workbench.py --check --data-dir .runtime/plane_workbench_tests/check_state --output-dir .runtime/plane_workbench_tests/check_output
 ```
 
-测试涵盖 16 题逐像素基线、每个可选对象的全部真实路径/片段、样式与填充/标签隔离、参数拒绝、精确吸附、候选冲突、临时 Pass/Collect 事务、冷启动恢复、离线入口、删除恢复及 Quick Test mock。所有审核夹具明确标记为 `TEMPORARY SOFTWARE TEST FIXTURE`，仅写 `.runtime/plane_workbench_tests/`，不进入真实 Special 或根索引。浏览器联调同样同时指定 `--data-dir` 和 `--output-dir`。
+测试按当前正式清单逐题核对像素基线、每个可选对象的全部真实路径/片段、样式与填充/标签隔离、参数拒绝、精确吸附、候选冲突、临时 Pass/Collect 事务、冷启动恢复、离线入口、删除恢复及 Quick Test mock。所有审核夹具明确标记为 `TEMPORARY SOFTWARE TEST FIXTURE`，仅写 `.runtime/plane_workbench_tests/`，不进入真实 Special 或根索引。浏览器联调同样同时指定 `--data-dir` 和 `--output-dir`。
 
-实现依据：[已确认需求](../../GEOMETRY_WORKBENCH_REQUIREMENTS.md)、[平面重绘协议](../REDRAW_PROTOCOL.md)。Base 仍未启用。
+实现范围以本说明和 [插件 schema](plugin.schema.json) 为准；原图遵循 [平面重绘协议](../REDRAW_PROTOCOL.md)。Base 仍未启用。
 
 ## 特殊情况与后期复审
 

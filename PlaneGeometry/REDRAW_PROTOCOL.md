@@ -21,7 +21,6 @@ PlaneGeometry/
   dataset_generator/
     protocol.json                       机器样式与数值容差
     common_renderer.py                  公共绘图器与约束核对
-    requirements.txt
     test_renderer.py                    独立构造场景的通用核对
 ```
 
@@ -115,7 +114,7 @@ PlaneGeometry/
 python -B PlaneGeometry/dataset_generator/test_renderer.py
 ```
 
-重绘不重新采样。Special 工作台使用 `images/ + plugins/ + recipes.json + draw_variants.py + 全局索引`，冻结实际操作参数和输入哈希。首版操作为原对象颜色与实虚线覆盖、标记点、辅助线（实线或虚线），Ctrl 吸附已有顶点和新增点；详见 [工作台需求](../GEOMETRY_WORKBENCH_REQUIREMENTS.md) 和 [使用说明](workbench/README.md)。这些操作作用于独立变体，不修改本协议所约束的原图、冻结场景和原题审核记录。Special 仅由用户 Pass / Collect 后正式收集，不生成测试通过记录。Base 尚未启用，不将几何图套入 Analytics 的 Base1 / Base2。
+重绘不重新采样。Special 工作台使用 `images/ + plugins/ + recipes.json + draw_variants.py + 全局索引`，冻结实际操作参数和输入哈希。首版操作为原对象颜色与实虚线覆盖、标记点、辅助线（实线或虚线），Ctrl 吸附已有顶点和新增点；当前整体/局部样式范围详见 [使用说明](workbench/README.md) 和 [插件 schema](workbench/plugin.schema.json)。这些操作作用于独立变体，不修改本协议所约束的原图、冻结场景和原题审核记录。Special 仅由用户 Pass / Collect 后正式收集，不生成测试通过记录。三个分支的 Base 均未启用。
 
 ## 6. 验收与报告
 

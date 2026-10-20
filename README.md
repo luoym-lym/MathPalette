@@ -1,22 +1,46 @@
 # MathPalette
 
-本目录只收集用户确认的正式题目。当前 **225 题**：Analytics 51、PlaneGeometry 102、SolidGeometry 72。来源为 DynaMath 20 题、MathVerse 125 题、MathVista 56 题、SOLIDGEO 9 题、Author designed 15 题。
+MathPalette 研究统一渲染条件下，视觉标记如何影响视觉语言模型的数学推理。原题经用户确认后收集，人工 Special 从原图独立派生，冻结操作以便重绘。标记方法、已有方案盘点和后续探索见 [Conclusion.md](Conclusion.md)。
+
+截至 2026-10-18，正式数据为 **251 题、144 张 Special**：Analytics 51 题 / 116 张，PlaneGeometry 122 题 / 21 张，SolidGeometry 78 题 / 7 张。Special 覆盖 42 道原题。题源为 DynaMath 20 题、MathVerse 125 题、MathVista 56 题、SOLIDGEO 9 题、Author designed 41 题；最新数量以 `catalog.py check` 为准。
 
 | 内容 | 数量 / 入口 |
 | --- | --- |
-| 正式原题 | [question_bank.jsonl](question_bank.jsonl)，225 条 |
-| 自动 Base | Analytics 每题 4 张，共 184 张及对应插件 |
-| 人工 Special | 当前 Analytics 共 113 张，保留原 Pass / Collect 时间 |
-| 来源截图 | MathVerse 57 张、MathVista 56 张、SOLIDGEO 9 张；DynaMath 20 题的来源截图在原库中缺失 |
+| 正式原题 | [question_bank.jsonl](question_bank.jsonl)，251 条 |
+| Base | 三个分支均未启用，汇总索引中的 `base_plugins` 为空列表 |
+| 人工 Special | 共 144 张，保留原 Pass / Collect 时间；只有完成标记、没有已通过图片的题不计入变体数 |
+| 来源截图 | MathVerse 125 张、MathVista 56 张、SOLIDGEO 9 张，另有 7 张作者提供的参考图；DynaMath 20 题的来源截图在原库中缺失 |
 | 解析几何 Special 工作台 | 双击 [Analytics/start_special_workbench.cmd](Analytics/start_special_workbench.cmd)，端口 8767 |
 | 平面几何 Special 工作台 | 双击 [PlaneGeometry/start_special_workbench.cmd](PlaneGeometry/start_special_workbench.cmd)，端口 8768 |
 | 立体几何 Special 工作台 | 双击 [SolidGeometry/start_special_workbench.cmd](SolidGeometry/start_special_workbench.cmd)，端口 8769 |
-| 几何工作台需求 | [GEOMETRY_WORKBENCH_REQUIREMENTS.md](GEOMETRY_WORKBENCH_REQUIREMENTS.md) |
+| 工作台使用与标注范围 | [解析](Analytics/workbench/README.md)、[平面](PlaneGeometry/workbench/README.md)、[立体](SolidGeometry/workbench/README.md)；Agent 说明和插件 schema 在各工作台目录 |
 | 审核凭据 | [provenance/approvals.json](provenance/approvals.json) |
 | MathVista 来源与署名 | [provenance/mathvista/README.md](provenance/mathvista/README.md)，含完整源记录与入库核验 |
 | SOLIDGEO 来源与清理记录 | [来源署名](provenance/SOLIDGEO_ATTRIBUTION.md)、[保留题目与清理核验](provenance/solidgeo_cleanup.json) |
 
-Ana01～Ana20 来自 DynaMath，Ana21～Ana45 来自 MathVerse，Ana46 来自 MathVista。Plane01～Plane16 来自 MathVerse，Plane17～Plane71 来自 MathVista；Solid01～Solid16 来自 MathVerse，Solid17～Solid25 来自 SOLIDGEO。图片、绘图类、Base 插件和工作台使用相同题号。清理前编号仅保存在 [迁移记录](provenance/cleanup.json) 中。
+当前题号为 Ana01～Ana51、Plane01～Plane122、Solid01～Solid78。Ana01～Ana20 来自 DynaMath，Ana21～Ana45 与 Ana47～Ana51 来自 MathVerse，Ana46 来自 MathVista。Plane01～Plane16 与 Plane72～Plane93 来自 MathVerse，Plane17～Plane71 来自 MathVista，Plane94～Plane122 为 Author designed；Solid01～Solid16 与 Solid26～Solid66 来自 MathVerse，Solid17～Solid25 来自 SOLIDGEO，Solid67～Solid78 为 Author designed。图片、绘图类、Special 插件和工作台使用相同题号。清理前编号仅保存在 [迁移记录](provenance/cleanup.json) 中。
+
+Author designed 平面题包括 Plane94～Plane99 曲线追踪、Plane100～Plane102 最短路径、Plane103～Plane108 图形比较、Plane109～Plane114 交点计数、Plane115 直线延长判断，Plane116～Plane118 平行、垂直和等角判断，Plane119 多边形边数判断，Plane120～Plane121 折线转折与平面分区计数，以及 Plane122 轴对称点判断。最短路径三题分别使用等半径双圆、单圆偏置端点、不等半径双圆；正式图保留黑色几何和尺寸标注，精确答案以 `dataset.jsonl` 为准。
+
+Plane109～Plane114 为用户确认收集的六道原创交点计数题，来源统一为 `Author designed`，按 `temp/requested_six` 的图1～图6顺序入库，答案依次为 6、4、5、6、6、8。正式数据保留黑白原图、冻结场景和逐题绘图程序；构造、独立求交和像素复现核验见 [来源记录](provenance/source_notes.json)。没有外部来源图片，`original_image` 为 `null`；暂存红点诱导图未收集为 Special。
+
+Plane115 为用户确认收集的原创直线延长判断题，答案为 A（Point A）。重绘图保留线段 PO 与 C、A、B 三个候选点，相邻候选点间距从参考图约 78 px 增至约 125 px；P、O、A 共线且 O 位于 P 与 A 之间。作者提供的参考图原样保存在 `PlaneGeometry/originals/Plane115.png`。
+
+Plane116～Plane118 分别为平行、垂直、等角判断题，答案依次为 A、C、C；对应用户审阅时的暂存编号 Plane117、Plane118、Plane120。按连续题号迁入时保留题干、选项、答案和原图像素，编号对应关系及内容哈希见 [来源记录](provenance/source_notes.json)。本次仅收集这三道原题，配套标注、其余两题和已被替代的旧稿已移入回收站。
+
+Plane119 为用户确认的原创多边形边数判断题，答案为 6。正式图为六条边组成的闭合不规则六边形，作者上传的参考图原样保存在 `PlaneGeometry/originals/Plane119.png`。
+
+Plane120、Plane121 为用户确认收集的折线转折与矩形分区计数题，答案分别为 5、7；对应审阅时的暂存编号 Plane120、Plane124。Plane121 使用三条内部直线累计上移约 107 px 的最终确认版；三个交点互异，仍将矩形分成 7 个区域。两题均无外部来源图片，原题图像像素原样保留；编号映射、冻结几何及复现核验见 [来源记录](provenance/source_notes.json)。
+
+Plane122 为用户确认的原创轴对称点判断题，答案为 A（Point A）。直线 l 垂直平分 PA；图中仅保留参考图已有的四个点、点名与直线 l，不添加垂足或辅助线。上传参考图原样保存在 `PlaneGeometry/originals/Plane122.png`，构造和复现核验见 [来源记录](provenance/source_notes.json)。
+
+Solid67～Solid72 为用户确认的六道中点截面体积题，答案依次为 30、108、144、60、42、40。Solid67 保留用户提供的参考图，其余五题 `original_image` 为 `null`；当前 Solid67 已有 3 张 Special。构造、原题修订和来源答案争议统一保存在 [source_notes.json](provenance/source_notes.json)，原题审核见 [approvals.json](provenance/approvals.json)。
+
+Solid73 为用户确认的原创三棱柱展开图题，题干和选项均为英文，答案为 B（Point R）。上传参考图原样保存在 `SolidGeometry/originals/Solid73.png`；三维折叠对应、边界粘合与像素复现核验见 [来源记录](provenance/source_notes.json)。
+
+Solid74、Solid75 为用户确认的立方体顶点重合与正四面体相对棱题，答案依次为 B（Point R）、B（Edge BC）；对应审阅时的 75、77。按用户允许修改编号的要求连续收录，题干、选项、答案和原题图像像素保持不变。两题均无外部来源图，编号映射、三维折叠及复现核验见 [来源记录](provenance/source_notes.json)。配套标注仍为未通过草稿，工作台代码保持原样。
+
+Solid76～Solid78 为用户确认的立方体、直三棱柱和四棱锥展开图共端点判断题，对应审阅时的 80、81、82，答案依次为 C（Edge DF）、B（Edge DE）、A（Edge DE）。按连续题号收录时，英文题干、选项、答案和原题图像像素保持不变；三题均无外部来源图片。编号映射、独立折叠核验和复现记录见 [来源记录](provenance/source_notes.json)。
 
 ## 数据内容
 
@@ -41,7 +65,7 @@ Ana01～Ana20 来自 DynaMath，Ana21～Ana45 来自 MathVerse，Ana46 来自 Ma
 ## 目录
 
 ```text
-Analytics/       正式清单、图片、绘图器、Base、Special、工作台、评测程序
+Analytics/       正式清单、图片、绘图器、Special 工作台、评测程序
 PlaneGeometry/   正式清单、图片、冻结二维场景、绘图器、Special 工作台
 SolidGeometry/   正式清单、图片、冻结三维场景、绘图器、Special 工作台
 dataset_tools/   正式索引、内容校验和几何重绘
@@ -61,7 +85,6 @@ SOLIDGEO 本批审核已结束，只保留用户已 Pass 的 9 道正式题。�
 python -m pip install -r requirements.txt
 python -X utf8 -B dataset_tools/catalog.py check
 python -X utf8 -B dataset_tools/catalog.py build
-python -X utf8 -B Analytics/dataset_generator/generate_base_variants.py check --redraw
 python -X utf8 -B Analytics/workbench/launch_workbench.py --check
 python -X utf8 -B PlaneGeometry/workbench/launch_workbench.py --check
 python -X utf8 -B SolidGeometry/workbench/launch_workbench.py --check
@@ -70,11 +93,11 @@ python -X utf8 -B dataset_tools/geometry_dataset.py SolidGeometry Solid01
 python -X utf8 -B Analytics/special_variant/Ana01/draw_variants.py C01
 ```
 
-三套工作台分别展示各分支的正式题，保存独立草稿和收集进度，可以同时运行。平面与立体首版提供原对象改色及实虚线、四色标记点、四色辅助虚线、已有顶点和新增点吸附；画板和 Agent 使用相同插件限制。原题数据和审核记录不由标注工具修改。平面、立体的 Base 尚未启用。
+三套工作台分别展示各分支的正式题，保存独立草稿和收集进度，可以同时运行。平面与立体支持四色标记点、实线/虚线辅助线、已有点吸附，以及原对象整体或局部区间的颜色、线型和白名单线宽覆盖；画板和 Agent 使用相同插件限制。立体的三维几何、投影和原可见性分别冻结，外观覆盖只作用于变体。原题数据和审核记录不由标注工具修改。三个分支的 Base 均未启用。
 
 双击 CMD 时，工作台启动器会自动寻找与正式数据冻结版本匹配的 Python，避免系统 Python 与 Conda 环境混用导致像素校验失败。启动窗口会显示实际解释器路径和依赖版本；也可通过 `MATHPALETTE_PYTHON` 指定匹配的解释器。
 
-候选图右上角提供 **Quick Test**：使用 `.env` 中的 `MINIMAX_API_KEY` 调用中国区 MiniMax-M3，关闭思考后直接回答候选图对应的题目，不设置本地输出上限。画板标注后先点击「提交到当前候选」即可测试；不接入 judge，不自动收集。结果分别保存在 `.runtime/analytics_special/quick_tests/`、`.runtime/plane_special/quick_tests/` 和 `.runtime/solid_special/quick_tests/`。
+候选图右上角提供 **Quick Test**，可手动调用配置的模型模式；具体模型、密钥变量和参数见各工作台说明与 `quick_test.py`。画板标注后先点击「提交到当前候选」即可测试。请求只含正式题干与当前候选 PNG，不发送标准答案、原图或标注意图；不接入 judge，不自动收集。结果分别保存在 `.runtime/analytics_special/quick_tests/`、`.runtime/plane_special/quick_tests/` 和 `.runtime/solid_special/quick_tests/`。
 
 评测程序在 `Analytics/evaluation/`，默认读取项目根目录 `.env`。评测会调用模型 API；本次清理只检查数据加载与本地重绘，没有运行模型评测。新增结果默认写入 `.runtime/evaluation/`。
 

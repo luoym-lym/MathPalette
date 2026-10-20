@@ -39,7 +39,7 @@
           <button id="original-zoom" class="image-button" aria-label="放大原图到 768×768" disabled><img id="original-image" alt="当前题目原图"></button>
           <div class="image-footer">点击图片放大 · 固定坐标 [−8, 8]</div>
         </section>
-        <section class="image-card"><div class="card-heading"><h2>当前候选</h2><div class="candidate-actions"><span id="candidate-count">等待提交</span><button id="quicktest1-button" disabled>Quick Test 1</button><button id="quicktest2-button" disabled>Quick Test 2</button></div></div>
+        <section class="image-card"><div class="card-heading"><h2>当前候选</h2><div class="candidate-actions"><span id="candidate-count">等待提交</span><button id="quicktest1-button" disabled>Quick Test 1</button><button id="quicktest2-button" disabled>Quick Test 2</button><button id="quicktest3-button" disabled>Quick Test 3</button><button id="quicktest4-button" disabled>Quick Test 4</button></div></div>
           <div id="candidate-frame" class="candidate-frame"><button id="candidate-zoom" class="image-button" aria-label="放大候选图到 768×768" hidden disabled><img id="candidate-image" alt="待人工审核的 C 候选图"></button>
             <div id="waiting" class="waiting"><span class="waiting-symbol">＋</span><strong>等待 agent 提交方案</strong><p>在另一个终端与 agent 讨论标记，<br>提交成功后，候选会自动出现在这里。</p></div>
           </div>
@@ -59,6 +59,20 @@
         <div id="quicktest2-error" class="error" role="alert" hidden></div>
         <p id="quicktest2-warning" class="quick-test-warning" hidden>接口返回了长度截断，以下内容可能不完整。</p>
         <div id="quicktest2-output" hidden><h3>模型回答</h3><pre id="quicktest2-answer"></pre><details id="quicktest2-thinking-details" open hidden><summary>模型思考</summary><pre id="quicktest2-thinking"></pre></details></div>
+      </section>
+      <section id="quicktest3-panel" class="quick-test-panel" aria-label="候选图 Quick Test 3" hidden>
+        <div class="quick-test-heading"><h2>Quick Test 3 <span id="quicktest3-model">MiMo-V2.6-Flash · nonthinking</span></h2><span id="quicktest3-status" role="status"></span></div>
+        <p id="quicktest3-hint" class="muted">发送题干和当前候选图；关闭思考，直接回答，不自动判分。</p>
+        <div id="quicktest3-error" class="error" role="alert" hidden></div>
+        <p id="quicktest3-warning" class="quick-test-warning" hidden>接口返回了长度截断，以下内容可能不完整。</p>
+        <div id="quicktest3-output" hidden><h3>模型回答</h3><pre id="quicktest3-answer"></pre><details id="quicktest3-thinking-details" open hidden><summary>模型思考</summary><pre id="quicktest3-thinking"></pre></details></div>
+      </section>
+      <section id="quicktest4-panel" class="quick-test-panel" aria-label="候选图 Quick Test 4" hidden>
+        <div class="quick-test-heading"><h2>Quick Test 4 <span id="quicktest4-model">MiMo-V2.6-Flash · thinking</span></h2><span id="quicktest4-status" role="status"></span></div>
+        <p id="quicktest4-hint" class="muted">发送题干和当前候选图；开启思考，分别显示回答和思考，不自动判分。</p>
+        <div id="quicktest4-error" class="error" role="alert" hidden></div>
+        <p id="quicktest4-warning" class="quick-test-warning" hidden>接口返回了长度截断，以下内容可能不完整。</p>
+        <div id="quicktest4-output" hidden><h3>模型回答</h3><pre id="quicktest4-answer"></pre><details id="quicktest4-thinking-details" open hidden><summary>模型思考</summary><pre id="quicktest4-thinking"></pre></details></div>
       </section>
       <section id="candidate-info" class="candidate-info" hidden><h2>方案与操作</h2><p id="description"></p><p id="intent" class="muted"></p><ul id="action-summary"></ul><details><summary>查看冻结插件参数</summary><pre id="candidate-params"></pre></details></section>
       <section class="review-bar" aria-label="人工审核">
