@@ -37,8 +37,7 @@ FIXTURES = PROJECT / ".runtime" / "special_case_tests"
 
 class FixtureAdapter:
     def __init__(self, config):
-        self.records = {qid: {"id": qid, "source_dataset": "IsolatedTestFixture",
-                             "question": "Isolated software test fixture; not a user-approved question.",
+        self.records = {qid: {"id": qid, "question": "Isolated software test fixture; not a user-approved question.",
                              "answer": "fixture", "answer_type": "text"} for qid in (Q1, Q2)}
         self.original_paths = {qid: PROJECT / BRANCH / "image" / (qid + ".png") for qid in self.records}
         self.sources = {qid: {"source_file": str(PROJECT / "fixture.py")} for qid in self.records}

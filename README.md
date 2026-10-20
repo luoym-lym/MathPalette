@@ -128,14 +128,3 @@ python -X utf8 -B Analytics/special_variant/Ana01/draw_variants.py C01
 此前已删除 73 道，本次删除剩余 86 道。保留题的正式题干、答案、来源图、重绘图、冻结场景、绘图程序和审核记录均保持不变；清理前后文件指纹及通过凭据见 [清理记录](provenance/solidgeo_cleanup.json)。[来源署名](provenance/SOLIDGEO_ATTRIBUTION.md) 中的 168 题指最初审核批次，当前正式收集数量为 9 题。`source_notes.json` 内的旧候选路径仅作历史追溯，运行依赖全部位于正式目录。
 
 此后，用户确认了 Solid17～Solid25 的题干清理版：删除图片占位符、残留标题和填空占位，统一英文提问，并同步逐题脚本。数学条件、答案、选项和绘图输入保持原样；修改前后题干、原 Pass 凭据、本次确认及像素核验见 [题干修订记录](provenance/solidgeo_wording_cleanup.json)。当前审核指纹对应已确认的新版题干。
-
-
-## MathVerse 原题候选审核
-
-本分支新增 731 道未批准的 MathVerse 候选及独立本地审核工作台。Windows 在根目录双击 `start_mathverse_review.cmd`。逐题 Pass 才正式入库；Delete 删除该候选专属材料。
-
-- [启动与审核说明](review_workbench/README.md)
-- [实际浏览器、事务和兼容验证](review_workbench/VALIDATION.md)
-- [候选来源与版本](review_candidates/mathverse/SOURCES.md)
-
-候选与现有正式题库分开保存，应用不会自动提交、推送或合并。

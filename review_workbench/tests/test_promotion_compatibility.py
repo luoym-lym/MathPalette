@@ -1,4 +1,4 @@
-"""Small isolated promotion/stock-workbench regression fixtures.
+"""Isolated promotion checks using the master formal schema and renderers.
 
 No real approval, formal manifest, source image, recipe, or candidate is changed.
 The temporary fixture approvals are explicitly synthetic test-only records.
@@ -10,10 +10,8 @@ import ast
 import hashlib
 import importlib.util
 import json
-import os
 from pathlib import Path
 import shutil
-import subprocess
 import sys
 import tempfile
 import unittest
@@ -28,71 +26,6 @@ from review_candidates.mathverse.promotion import prepare
 def _json(path, value):
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-
-
-def _inspect_fixture(root, branch):
-    """A fresh process avoids the three workbenches' intentional module names."""
-    sys.path[:0] = [str(root / branch / 'workbench'), str(root)]
-    from workbench_io import load_config
-    from renderer_adapter import RendererAdapter
-    from render_plugins import PluginRenderer
-    config = load_config(root / branch / 'workbench/config.json')
-    adapter = RendererAdapter(config)
-    for qid, record in adapter.records.items():
-        metadata = adapter.inspect_question(qid)
-        json.dumps(adapter.sources[qid])  # Context must be JSON-serializable.
-        native = adapter.scene(qid)
-        try:
-            assert not native.ax.images, 'An editable figure must not be a raster wrapper.'
-            assert native.artists
-        finally:
-            native.close()
-        renderer = PluginRenderer(config, adapter, {qid: metadata})
-        actions = [{'type': 'add_point', 'id': 'fixture_point', 'xy': [0, 0]}]
-        target = next(o for o in metadata['objects'] if o.get('styleable'))
-        actions.append({'type': 'set_curve_style' if branch == 'Analytics' else 'set_object_style',
-                        'target': target['id'], 'color': '#DC2626', 'linestyle': 'dashed'})
-        plugin = {'plugin_schema_version': '1.0.0', 'question_id': qid, 'category': 'C',
-                  'operation': 'C_manual', 'params': {'actions': actions}}
-        normalized, data, digest = renderer.render(plugin)
-        _, replay, replay_digest = renderer.render(normalized, frozen=True)
-        assert data == replay and digest == replay_digest != metadata['original_pixel_sha256']
-        # All promoted scenes and dependencies must participate in the manifest.
-        for relative in [record['scene'], 'dataset_generator/common_renderer.py',
-                         'dataset_generator/protocol.json', *record.get('runtime_dependencies', [])]:
-            path = root / branch / relative
-            original = path.read_bytes()
-            try:
-                path.write_bytes(original + b'\n')
-                try:
-                    adapter.assert_baseline()
-                except Exception:
-                    pass
-                else:
-                    raise AssertionError('Changed dependency was not rejected: ' + relative)
-            finally:
-                path.write_bytes(original)
-    if branch == 'Analytics':
-        sys.path.insert(0, str(root / branch / 'dataset_generator'))
-        from base_support import Dataset, canonical_hash
-        from generate_base_variants import BaseGenerator, make_plugin
-        dataset, generator = Dataset(root / branch), BaseGenerator(root / branch)
-        for qid, row in dataset.records.items():
-            original = dataset.verify_original(qid)
-            for operation in ('Base1', 'Base2', 'Base3', 'Base4', 'Base5', 'Base6'):
-                plugin = make_plugin(qid, operation, 19081, generator.policy)
-                first = generator.render(plugin)
-                assert first == generator.render(plugin)
-                assert first != original
-            before = canonical_hash(dataset.baseline(qid))
-            for relative in [row['scene'], *row['runtime_dependencies']]:
-                path = root / branch / relative
-                data = path.read_bytes()
-                try:
-                    path.write_bytes(data + b'\n')
-                    assert canonical_hash(dataset.baseline(qid)) != before
-                finally:
-                    path.write_bytes(data)
 
 
 class PromotionCompatibility(unittest.TestCase):
@@ -112,22 +45,17 @@ class PromotionCompatibility(unittest.TestCase):
         selected = [next(row for row in candidates if row['renderer_family'] == family) for family in families]
         # Cover native semantic fill and ellipse extensions, beyond easy first-family examples.
         for kind in ('region', 'curved_region', 'ellipse'):
-            extra = next(row for row in candidates if row['subject'] == 'PlaneGeometry' and any(
-                obj.get('type') == kind for obj in catalog.read(ROOT / row['scene'])['objects']))
-            if extra not in selected:
+            extra = next((row for row in candidates if row['subject'] == 'PlaneGeometry' and any(
+                obj.get('type') == kind for obj in catalog.read(ROOT / row['scene'])['objects'])), None)
+            if extra is not None and extra not in selected:
                 selected.append(extra)
         cls.cases, branch_rows, notes = [], {b: [] for b in catalog.BRANCHES}, {}
         for branch in catalog.BRANCHES:
             target = cls.root / branch
-            shutil.copytree(ROOT / branch / 'workbench', target / 'workbench',
-                            ignore=shutil.ignore_patterns('__pycache__', '*.pyc'))
             helper = target / 'dataset_generator'
             helper.mkdir(parents=True, exist_ok=True)
             for name in ('common_renderer.py', 'protocol.json'):
                 shutil.copy2(ROOT / branch / 'dataset_generator' / name, helper / name)
-            if branch == 'Analytics':
-                for name in ('base_support.py', 'generate_base_variants.py', 'base_protocol.json'):
-                    shutil.copy2(ROOT / branch / 'dataset_generator' / name, helper / name)
         prefixes = {'Analytics': 'Ana', 'PlaneGeometry': 'Plane', 'SolidGeometry': 'Solid'}
         for row in selected:
             branch = row['subject']
@@ -217,7 +145,9 @@ class PromotionCompatibility(unittest.TestCase):
                     prepare(ROOT, candidate, identity)
 
     def test_solid_rejects_different_canonical_renderer(self):
-        candidate = next(row for row, branch, _ in self.cases if branch == 'SolidGeometry')
+        candidate = next((row for row, branch, _ in self.cases if branch == 'SolidGeometry'), None)
+        if candidate is None:
+            self.skipTest('No pending SolidGeometry candidates remain')
         original_read = Path.read_bytes
         for name in ('common_renderer.py', 'protocol.json'):
             target = ROOT / 'SolidGeometry/dataset_generator' / name
@@ -228,19 +158,6 @@ class PromotionCompatibility(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, 'differs from the canonical renderer'):
                     prepare(ROOT, candidate, 'Solid50')
 
-    def test_native_workbench_noop_special_base_and_dependency_guards(self):
-        for branch in catalog.BRANCHES:
-            with self.subTest(branch=branch):
-                environment = dict(os.environ, MPLCONFIGDIR=str(self.root / '.mpl'),
-                                   XDG_CACHE_HOME=str(self.root / '.cache'), PYTHONDONTWRITEBYTECODE='1')
-                result = subprocess.run([sys.executable, '-B', str(Path(__file__).resolve()),
-                                         '--inspect', str(self.root), branch], env=environment,
-                                        capture_output=True, text=True, timeout=180)
-                self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-
 
 if __name__ == '__main__':
-    if len(sys.argv) > 1 and sys.argv[1] == '--inspect':
-        _inspect_fixture(Path(sys.argv[2]), sys.argv[3])
-    else:
-        unittest.main()
+    unittest.main()

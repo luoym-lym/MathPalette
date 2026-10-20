@@ -10,7 +10,7 @@ node --check review_workbench/static/app.js
 node --check review_workbench/static/review-core.js
 ```
 
-The pure tests cover state normalization, filters, progress, next-item selection, source/candidate option values, nested verification schemas, source corrections, exact-versus-numeric answers, and extraction of available verification explanations from all 731 packaged candidates. The packaged-data test is read-only.
+The pure tests cover state normalization, filters, progress, next-item selection, source/candidate option values, nested verification schemas, source corrections, exact-versus-numeric answers, and extraction of available verification explanations from all currently pending candidates. The packaged-data test is read-only.
 
 ## Synthetic browser scenarios
 

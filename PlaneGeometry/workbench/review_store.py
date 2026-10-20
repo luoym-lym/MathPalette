@@ -17,7 +17,7 @@ from renderer_adapter import RENDER_LOCK, RendererAdapter
 from workbench_io import (GENERATOR_VERSION, ROOT, SCHEMA_VERSION, WorkbenchError, atomic_json,
                           atomic_write, canonical_hash, contained_path, environment_versions,
                           file_hash, json_bytes, pixel_hash, protect_output_paths, read_json,
-                          renderer_fingerprint, progress_renderer_matches, timestamp)
+                          renderer_fingerprint, timestamp)
 
 
 class StoreLock:
@@ -116,15 +116,9 @@ class Workbench:
         if progress_path.exists():
             self.progress = read_json(progress_path)
             previous_signature = self.progress["signature"]
-            snapshot = self.state_dir / "dataset_snapshot.json"
-            old_records = read_json(snapshot) if snapshot.is_file() else None
-            compatible_renderer = progress_renderer_matches(
-                previous_signature, self.signature, self.adapter, expected, old_records)
             metadata_update = compatible_style_renderer(previous_signature)
             if any(previous_signature.get(key) != value and
-                   not (key == "renderer_sha256" and (compatible_renderer or metadata_update) or
-                        key == "schema_sha256" and metadata_update)
-                   for key, value in self.signature.items()
+                   not (key in ("renderer_sha256", "schema_sha256") and metadata_update) for key, value in self.signature.items()
                    if key != "baseline_fingerprint"):
                 raise WorkbenchError("渲染器、schema 或依赖版本不一致；请恢复原版本。", 409, "version_mismatch")
             if self.progress["output_relative"] != self.output_relative.as_posix():

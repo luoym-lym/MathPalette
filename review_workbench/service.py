@@ -113,7 +113,7 @@ class ReviewService:
         return row, item, shared
 
     def _fingerprint(self, row, item, shared):
-        # Read only this candidate and its actual runtime dependencies, never all 731.
+        # Read only this candidate and its actual runtime dependencies.
         files = {}
         for directory in (item, shared):
             for path in sorted(directory.rglob('*')):

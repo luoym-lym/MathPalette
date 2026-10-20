@@ -1,60 +1,27 @@
-# MathVerse original review: validation record
+# 原题审核工作台验证
 
-Validation date: 2026-10-11 (UTC). This is a local review application, not a hosted service. All destructive test actions were executed in isolated repository copies. The publishable worktree retains all **731 unapproved candidates** and the original **142 formal questions**; its formal datasets, source notes, approvals and root catalog remain byte-identical to the user baseline.
+本分支以本地 `master` 为正式数据和公共工作台基线。旧文档中的 142 道正式题、731 道待审核题和 Base 兼容检查不再作为当前状态或验收条件。
 
-## Candidate coverage
+## 验证范围
 
-- Official Vision Dominant pool: 788; 57 already collected parent problems excluded; 731 distinct candidates remain.
-- Rendering branches: 436 PlaneGeometry, 178 Analytics, 117 SolidGeometry.
-- All 731 retain original source images, English source/current questions and answers, redraw PNG/SVG, frozen inputs, code, adaptation notes and independent verification evidence.
-- Candidate and promoted scripts reproduce all 731 images with exact RGB pixel equality in the pinned environment. Formal promotion was independently tested without the review directory present.
-- All 731 pass formal answer/schema/path checks. 37 option-label formatting inconsistencies found during integration were normalized without changing option values, order or correct answers; pre-normalization text is retained in provenance.
-- Answer-consistency labels resolve choice letters to values. Uncertain expression equivalence is shown for manual confirmation rather than automatically declared equal.
+- 正式数据、原图、绘图输入、审核指纹和 Special 包与 `master` 比较；不新建真实批准记录。
+- 三个 Special 工作台的公共文件恢复为 `master` 版本，移除旧 Base 和旧绘图器兼容桥。
+- 原题 Pass/Delete 的列表、详情、内容变化拒绝、幂等性、事务回滚、进程中断恢复、并发编号和 HTTP 检查在独立临时副本执行。
+- 候选转正式记录的 schema、来源、编号和独立重绘使用当前仍在待审核清单中的代表题。
+- 测试按当前正式清单推导下一题号，按当前候选清单选择绘图家族，不恢复历史候选来凑固定测试数量。
+- 当前已无待审核立体题；依赖立体候选的测试明确跳过，不记为执行通过。
 
-## Real cloud-browser testing
+## 运行命令
 
-Three rounds were performed with Chromium on the cloud Linux desktop and the actual HTTP backend, using two independent test copies and final resource refreshes. This was not merely an HTML screenshot or a mocked backend.
+本轮验证（2026-10-20，正式基线 `master`：`fdcecc96`）：正式目录和审核指纹检查通过，251 道原题、144 张 Special、0 Base；启动环境匹配。Python 共 16 项，14 项通过、2 项因无待审核立体题而跳过；前端 7 项通过，两份前端脚本语法检查通过。
 
-1. Initial display: full source/redraw images, source zoom at 150% and close, scrolling question/choices/answer/verification/adaptation panels, Pass busy feedback and next-question transition, Delete confirmation/cancellation and actual deletion.
-2. Interrupted and repeated flows: refresh persistence; passed/deleted history with disabled actions; source/branch navigation; empty search and recovery; stale-content fingerprint rejection followed by reload; stopped server and same-request retry after restart; rapid double-click Pass; navigation while a previous Pass is pending; last item in a pending filter; final history item in the all-status filter.
-3. Final code: previously malformed-choice candidate MV0339 successfully promoted to Plane72 in a fresh copy; Solid MV0635 promoted to Solid26; refreshing during its in-flight Pass recovered the saved result without another import. Full formal catalog validation passed after the browser mutations.
+```powershell
+python -X utf8 -B dataset_tools/catalog.py check
+python -X utf8 -B review_workbench/launch_workbench.py --check
+python -X utf8 -B -m unittest discover -s review_workbench/tests -v
+node --test review_workbench/tests/test_review_core.cjs
+node --check review_workbench/static/app.js
+node --check review_workbench/static/review-core.js
+```
 
-Filesystem checks confirmed that deleting a test candidate removed its own directory while preserving other candidates and shared resources. A failed stale-content action did not add a formal question. The browser showed immediate pending/disabled states, and successful operations advanced or showed durable history as appropriate. No application-origin console errors were found in the final round; cloud-browser extension diagnostics were separate from this application.
-
-## Automated and independent checks
-
-- 11 backend tests: seven renderer families, full formal validation, unchanged old approvals, dependency/image tamper rejection, invalid existing formal content rejection, external edits during rendering, recovery, concurrent numbering, idempotency and HTTP protections.
-- Independent hard-exit fault injection at nine transaction points: restart restored exact pre-operation file bytes for uncommitted operations; committed decisions remained committed.
-- Concurrent processes assigned distinct formal IDs. Same request IDs replayed one result. Conflicting IDs and stale fingerprints were rejected.
-- Same-origin/Host/custom-header enforcement rejected four invalid HTTP write classes without modifying candidates.
-- Delete scope comparison changed only the selected item plus the candidate index and minimal decision state; no other candidate, formal item or shared dependency was deleted.
-- Seven frontend core tests cover all 731 verification/evidence shapes, safe text handling and state helpers. JavaScript syntax and DOM references were checked.
-- Existing answer-schema/catalog-lock tests: 9 passed. Existing Plane and Solid workbench suites: 8 and 6 passed. Promotion compatibility suite: 3 passed.
-- A separate set of 13 synthetic automated-browser scenarios is supplied for future regression use but was **not executed here** because the sandbox could not launch its own headless browser. The real cloud-browser tests above were executed separately and are not presented as that automated suite.
-
-Final combined Python discovery: **20/20 passed**, followed by **7/7 frontend core tests**. Legacy compatibility additionally passed 90 fail-closed code/dependency negative checks and seven old-progress protection checks.
-
-## Performance observations
-
-Measured on the cloud test machine with the pinned Python environment and 731 candidates:
-
-- Candidate list: approximately 8–15 ms
-- Current-item detail: approximately 14–21 ms
-- Delete backend: approximately 31–36 ms; one actual browser deletion displayed the next item within 185 ms
-- Pass: approximately 2.52–2.67 seconds, including one isolated redraw and complete formal catalog verification
-
-These are measurements, not guarantees for every Windows machine. The implementation avoids all-candidate image hashing/rendering and Git/AST scanning during each decision. Source-note JSON is loaded once per full catalog validation rather than once per formal question; approval and dependency checks still run for every formal item.
-
-## Existing workbench compatibility
-
-Independent testing covered all 873 originals (142 existing plus 731 promoted candidates) through the three native workbench no-op paths with pixel equality. Seven rendering families passed representative Special operations and replay. Both new Analytics families passed all six Base operations with deterministic changed pixels; altered scene/renderer dependencies were detected.
-
-The repository's legacy stock-only geometry helper is deliberately unchanged because its code is part of existing approval fingerprints. Extended-object questions must be reproduced through the formal row's `script`, not that old low-level stock-only helper. The README gives the supported invocation.
-
-Legacy variant compatibility uses an explicit fail-closed version registry rather than rewriting user approvals or recipes. The 184 old Base and 95 old Special variants were replayed with identical pixels. Their existing PNGs and recipe records are preserved; compressed PNG streams may differ without pixel changes. The compatibility code only recognizes the explicitly audited version/dependency combinations and rejects altered dependencies or unknown code versions.
-
-## Boundaries
-
-- Windows launcher/path/locking/publishing branches were reviewed and the interpreter-selection launcher was exercised, including a starting Python with no third-party imports. A native Windows desktop double-click was **not** performed in this Linux cloud environment.
-- Passing automated mathematical or rendering checks is not user approval. No genuine candidate was approved or deleted as part of these tests.
-- No automatic Git commit, push or merge is performed by the local application. After local review, normal Git tools remain under the user's control.
+以上软件测试不能代替用户原题审核。合成测试批准仅存在于临时副本中，不进入正式数据。浏览器交互未在本轮重新验证；合成浏览器测试的运行条件见 `tests/FRONTEND_TESTING.md`。

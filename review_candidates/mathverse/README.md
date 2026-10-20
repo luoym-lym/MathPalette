@@ -1,13 +1,15 @@
 # MathVerse offline candidate review
 
-This package contains 731 unapproved candidates. Agent verification is not user Pass. The existing 142 formal questions are separate and unchanged by packaging.
+Pending candidates are listed in the current `index.jsonl`; completed decisions remain in `review_state.json`. Agent verification is not user Pass. Formal questions and review rules follow the local `master` branch. Never restore completed or deleted candidates from an older package index.
+
+`validation_summary.json` records the initial packaging checks and pinned rendering environment. Its counts describe that historical snapshot, not the current queue or formal bank.
 
 ## Layout and identity
 
 - `index.jsonl`: the only candidate listing. Every file path is relative to the **repository root**, not this folder.
 - `items/MV####/candidate.json`: the same complete record for one question. `MV####` is its original MathVerse problem index padded to four digits; `source_key=testmini:<sample_index>` is preserved. `legacy_id` retains its staging identifier.
 - Each item contains source PNG, redrawn PNG/SVG, frozen scene, portable `redraw.py`, original author entry `source_redraw.py`, source/adaptation evidence and verification. `source_redraw.py` is byte-identical historical evidence for the old source layout; execute `redraw.py` instead.
-- `shared/`: seven isolated renderer families, exact machine protocols and a small dispatcher. Do not replace these with a single stock renderer: arrows, curved regions, polygon holes, ellipse handling and Analytics wrappers differ.
+- `shared/`: isolated renderer families, exact machine protocols and a small dispatcher. Do not replace these with a single stock renderer: arrows, curved regions, polygon holes, ellipse handling and Analytics wrappers differ.
 - Deleting a candidate removes only its `items/MV####/` directory and index row. Shared renderer dependencies are intentionally independent of other candidate directories.
 
 ## Offline use
@@ -36,7 +38,7 @@ Formal scripts, class IDs and frozen scene IDs are renamed together. Images keep
 
 ## Rebuilding
 
-`build_package.py /path/to/audited/staging` reconstructs the package from its original audited staging tree. This is a packaging tool, not needed for offline review or reproduction. It does not import candidates into the formal bank and does not create approval records.
+`build_package.py` is the historical packaging utility. It is not part of the current review workflow and must not be used to restore an old index or deleted/completed candidates. It does not grant approval.
 
 Use `validate_package.py --formal` to additionally prepare every candidate with a temporary formal ID in isolated temporary directories and compare all promoted redraws against the reference pixels. This does not add rows, approvals or files to the formal branches. `--output PATH` chooses the runtime validation report.
 

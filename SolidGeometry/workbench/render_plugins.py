@@ -13,7 +13,7 @@ from workbench_io import compatible_style_renderer
 from renderer_adapter import RENDER_LOCK, RendererAdapter, scene_png
 from workbench_io import (GENERATOR_VERSION, ROOT, SCHEMA_VERSION, WorkbenchError, atomic_write,
                           canonical_hash, contained_path, environment_versions, file_hash,
-                          load_config, protect_output_paths, read_json, renderer_fingerprint, renderer_matches)
+                          load_config, protect_output_paths, read_json, renderer_fingerprint)
 
 
 def check_schema(value, rule, schema, path="plugin"):
@@ -213,13 +213,13 @@ def render_special_recipe(recipe, output_path=None, config_path=None):
         raise WorkbenchError("recipe 不是当前版本的人工作品；拒绝跨版本重绘。", 409, "version_mismatch")
     if recipe.get("environment") != environment_versions():
         raise WorkbenchError("重绘依赖版本与通过时不同。", 409, "environment_changed")
-    adapter = RendererAdapter(config)
-    if (not renderer_matches(recipe, adapter) or
+    if (recipe.get("renderer_sha256") != renderer_fingerprint() or
             recipe.get("schema_sha256") != file_hash(ROOT / "plugin.schema.json")):
         if (not compatible_style_renderer(recipe) or any(
                 "interval" in a or a["type"] == "set_object_style" and "linewidth_pt" in a
                 for a in recipe["params"]["actions"])):
             raise WorkbenchError("重绘执行器或 schema 文件与通过时不同。", 409, "renderer_changed")
+    adapter = RendererAdapter(config)
     if adapter.manifest["fingerprint"] != recipe["baseline_fingerprint"]:
         raise WorkbenchError("重绘输入基线不一致。", 409, "baseline_changed")
     plugin = {key: copy.deepcopy(recipe[key]) for key in (

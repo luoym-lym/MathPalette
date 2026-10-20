@@ -28,19 +28,19 @@ test('separate numerical verification record includes uniquely matched choice wi
   const e=C.evidence({choices:{C:'12\\sqrt{3}'},verification_data:{'answer_verification.json':{theorem_result:20.784609690826528,answer_check:{unique:true,matching_options:['C']}}}});
   assert.match(e.derived,/C · 12\\sqrt\{3\} ≈ 20.78460969/);
 });
-test('all packaged candidates retain original text, source values, and available independent solutions',()=>{
+test('all pending candidates retain original text, source values, and available independent solutions',(t)=>{
   const root=path.resolve(__dirname,'../..');const index=path.join(root,'review_candidates/mathverse/index.jsonl');
   if(!fs.existsSync(index))return;
-  const rows=fs.readFileSync(index,'utf8').trim().split('\n').map(JSON.parse);assert.equal(rows.length,731);
-  let structured=0,analytic=0;
+  const rows=fs.readFileSync(index,'utf8').split('\n').filter(line=>line.trim()).map(JSON.parse);
+  if(!rows.length){t.skip('No pending candidates remain');return;}
+  assert.equal(new Set(rows.map(row=>row.id)).size,rows.length);
   for(const row of rows){
     const provenance_data=JSON.parse(fs.readFileSync(path.join(root,row.provenance),'utf8'));
     const verification_data=JSON.parse(fs.readFileSync(path.join(root,row.verification),'utf8'));
     const e=C.evidence({...row,provenance_data,verification_data});
     assert.ok(e.originalQuestion,`${row.id}: missing source question`);assert.notEqual(e.originalAnswer,'未提供',row.id);
-    if(provenance_data.audit?.independent_solution?.computed_answer!=null){assert.notEqual(e.derived,'见核验说明',row.id);structured++;}
-    if(provenance_data.audit?.answer_verification?.answer!=null){assert.notEqual(e.derived,'见核验说明',row.id);analytic++;}
+    if(provenance_data.audit?.independent_solution?.computed_answer!=null){assert.notEqual(e.derived,'见核验说明',row.id);}
+    if(provenance_data.audit?.answer_verification?.answer!=null){assert.notEqual(e.derived,'见核验说明',row.id);}
     assert.ok(e.explanation,`${row.id}: missing verification explanation`);
   }
-  assert.ok(structured>100);assert.ok(analytic>100);
 });

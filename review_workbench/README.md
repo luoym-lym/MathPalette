@@ -1,6 +1,6 @@
 # MathVerse 原题审核工作台
 
-这是独立的本地原题审核页面。731 道未批准候选留在 `review_candidates/mathverse/`；首次启动、浏览、筛选、预取图片均不会批准或删除任何题，也不会改变现有 142 道正式题。
+这是独立的本地原题审核页面。待审核候选保存在 `review_candidates/mathverse/`，数量以当前 `index.jsonl` 为准。首次启动、浏览、筛选和预取图片不会批准或删除题目。正式数据、审核协议和三个 Special 工作台以本地 `master` 为准。
 
 ## Windows 启动
 
@@ -44,7 +44,7 @@ start_mathverse_review.cmd
 
 ## 性能与事务
 
-候选列表只读一份轻量 JSONL 和决定状态，不读 731 份图片、不全量重绘。详情只散列当前题和其实际依赖；图片按内容哈希缓存。Delete 不调用 Git、不扫描全仓库 AST、不重绘。Pass 保留完整正式题库校验，不以性能为由跳过批准指纹。
+候选列表只读一份轻量 JSONL 和决定状态，不读全部候选图片、不全量重绘。详情只散列当前题和其实际依赖；图片按内容哈希缓存。Delete 不调用 Git、不扫描全仓库 AST、不重绘。Pass 保留完整正式题库校验，不以性能为由跳过批准指纹。
 
 所有修改使用与三个 Special 工作台相同的跨进程 catalog 锁；内层审核函数明确复用已持有的锁，不重入。正式编号、批准记录、两级清单、来源记录和候选移除构成一个持久事务。每次写入前记录准确的前后哈希和备份，重启会回滚未提交操作或保留已经提交的成功结果。恢复发现外部修改时会停止并报告 `recovery_required`，不会覆盖这些修改。
 
@@ -57,7 +57,7 @@ start_mathverse_review.cmd
 .venv\Scripts\python.exe -B dataset_tools/catalog.py check
 ```
 
-测试会创建独立临时副本，绝不对当前 731 候选或 142 正式题执行 Pass/Delete。更完整的测试记录见 `VALIDATION.md`。
+测试会创建独立临时副本，绝不对实际待审核题目或正式题库执行 Pass/Delete。测试按当前候选家族和正式编号选择夹具；已无待审核题目的分支会明确跳过。更完整的测试记录见 `VALIDATION.md`。
 
 高级启动（用你已验证匹配的 Python）：
 
@@ -78,3 +78,9 @@ python -B PlaneGeometry/dataset_generator/plane_plot72.py .runtime/reproduced/Pl
 ```
 
 旧 `dataset_tools/geometry_dataset.py` 及其命令行入口仅支持原 stock 绘图器的对象，不能用它重绘新增的 region、curved_region、ellipse 等扩展。保留该旧文件是为了不改变现有 96 道几何题的已批准依赖指纹。新题独立复现请始终调用正式记录指定的脚本，不要改用这个旧辅助入口，也不要将输出指向正式原图、来源图或冻结场景。
+
+## 分支边界
+
+本分支仅增加原题审核工作台、待审核候选及 Pass/Delete 的事务支持。三个 Special 工作台与 `master` 保持相同；不保留旧 Base 生成器或旧绘图器兼容注册表。公共审核工具只增加可选的事务发布接口，原有命令行、内容指纹和完整题库校验规则沿用 `master`。
+
+不要从历史打包清单恢复已通过或已删除的候选。审核进度以当前 `index.jsonl` 和 `review_state.json` 为准，正式通过凭据仍只来自 `provenance/approvals.json`。

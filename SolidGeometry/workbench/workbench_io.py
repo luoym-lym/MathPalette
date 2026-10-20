@@ -6,7 +6,6 @@ import io
 import json
 import os
 import platform
-import sys
 import tempfile
 from datetime import datetime, timezone
 from importlib.metadata import version
@@ -75,29 +74,6 @@ def compatible_style_renderer(signature):
     """
     old = read_json(ROOT / "style_compatibility.json")["whole_object_v1"]
     return all(signature.get(key) == value for key, value in old.items())
-
-
-def renderer_matches(recipe, adapter):
-    current = renderer_fingerprint()
-    if recipe.get("renderer_sha256") == current:
-        return True
-    project = ROOT.parent.parent
-    if str(project) not in sys.path:
-        sys.path.insert(0, str(project))
-    from dataset_tools.legacy_variant_compatibility import legacy_renderer_matches
-    record = adapter.records.get(recipe.get("question_id"), {})
-    return legacy_renderer_matches(ROOT.parent.name + "/Special",
-                                   recipe.get("renderer_sha256"), current,
-                                   record, adapter.manifest["files"])
-
-
-def progress_renderer_matches(previous, current, adapter, old_manifest, old_records):
-    project = ROOT.parent.parent
-    if str(project) not in sys.path:
-        sys.path.insert(0, str(project))
-    from dataset_tools.legacy_variant_compatibility import legacy_progress_matches
-    return legacy_progress_matches(ROOT.parent.name + "/Special", previous, current,
-                                   adapter.records, adapter.manifest, old_manifest, old_records)
 
 
 def _unique_object(pairs):

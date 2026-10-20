@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
 
-from workbench_io import (WorkbenchError, canonical_hash, contained_path, environment_versions,
+from workbench_io import (WorkbenchError, canonical_hash, environment_versions,
                           file_hash, parse_json, pixel_hash, read_json)
 
 RENDER_LOCK = threading.RLock()
@@ -72,9 +72,6 @@ class RendererAdapter:
                             **{f"image/{qid}.png": p for qid, p in self.original_paths.items()},
                             **{f"scenes/{qid}.json": p for qid, p in self.scene_paths.items()},
                             **{f"question_classes/{p.name}": p for p in self.source_files}}
-        for row in self.records.values():
-            for dependency in row.get("runtime_dependencies", []):
-                self.input_files["runtime_dependencies/" + dependency] = contained_path(branch, dependency)
         self.manifest = self.make_manifest()
         if expected_manifest and self.manifest != expected_manifest:
             raise WorkbenchError("输入基线或依赖版本变化；请恢复已审核环境。", 409, "baseline_changed")
@@ -90,21 +87,6 @@ class RendererAdapter:
         finally:
             sys.dont_write_bytecode = old_bytecode
         self.protocol = read_json(config["protocol_file"])
-        self.family_renderers = {}
-        for row in self.records.values():
-            family = row.get("renderer_family")
-            if not family or family in self.family_renderers:
-                continue
-            if family != "solid":
-                raise WorkbenchError("不支持的立体冻结绘图器家族。")
-            relative = f"dataset_generator/mathverse_renderers/{family}/common_renderer.py"
-            protocol = f"dataset_generator/mathverse_renderers/{family}/protocol.json"
-            if not {relative, protocol}.issubset(row.get("runtime_dependencies", [])):
-                raise WorkbenchError("冻结绘图器与协议必须列入审核依赖。")
-            spec = importlib.util.spec_from_file_location("_solid_special_" + family, contained_path(branch, relative))
-            renderer = importlib.util.module_from_spec(spec)
-            spec.loader.exec_module(renderer)
-            self.family_renderers[family] = (renderer, read_json(contained_path(branch, protocol)))
         self.scenes = {qid: read_json(path) for qid, path in self.scene_paths.items()}
         self.sources = {}
         for qid, record in self.records.items():
@@ -124,8 +106,7 @@ class RendererAdapter:
 
     def question_dependencies(self, qid):
         return ("common_renderer.py", "protocol.json", "geometry_dataset.py", f"image/{qid}.png",
-                f"scenes/{qid}.json", f"question_classes/{Path(self.sources[qid]['source_file']).name}") + tuple(
-                    "runtime_dependencies/" + p for p in self.records[qid].get("runtime_dependencies", []))
+                f"scenes/{qid}.json", f"question_classes/{Path(self.sources[qid]['source_file']).name}")
 
     def assert_baseline(self):
         if self.make_manifest() != self.manifest:
@@ -134,7 +115,6 @@ class RendererAdapter:
     def snap_points(self, qid):
         """Only displayed vertices/point labels; never all construction anchors."""
         frozen = self.scenes[qid]
-        renderer, _ = self.family_renderers.get(self.records[qid].get("renderer_family"), (self.renderer, self.protocol))
         refs = set()
         for item in frozen["objects"]:
             # Existing relation-symbol corners are drawing construction anchors,
@@ -157,7 +137,7 @@ class RendererAdapter:
                 names[label["anchor"]] = label["text"]
         return [{"id": ref, "label": names.get(ref, ref), "source": "frozen_scene",
                  "world_xyz": copy.deepcopy(frozen["points"][ref]),
-                 "xy": renderer.project(frozen, renderer.point(frozen, ref)).tolist()}
+                 "xy": self.renderer.project(frozen, self.renderer.point(frozen, ref)).tolist()}
                 for ref in frozen["points"] if ref in refs]
 
     def scene(self, qid):
@@ -165,10 +145,9 @@ class RendererAdapter:
             raise WorkbenchError("不存在此立体题号。")
         with RENDER_LOCK:
             frozen = self.scenes[qid]
-            renderer, protocol = self.family_renderers.get(self.records[qid].get("renderer_family"), (self.renderer, self.protocol))
             # Invoke the original renderer unchanged. Its frozen object order
             # maps 1:n actual artists back to each stable scene ID.
-            fig, _ = renderer.render_scene(frozen, protocol)
+            fig, _ = self.renderer.render_scene(frozen, self.protocol)
             try:
                 ax = fig.axes[0]
                 lines, patches = iter(ax.lines), iter(ax.patches)
@@ -177,9 +156,9 @@ class RendererAdapter:
                     kind, oid = item["type"], item["id"]
                     owned, expected = [], []
                     if kind == "circular_arc":
-                        expected = [xy for _, xy in renderer.arc_parts(frozen, item)]
+                        expected = [xy for _, xy in self.renderer.arc_parts(frozen, item)]
                     elif kind in ("segment", "polyline"):
-                        expected = [renderer.project(frozen, [renderer.point(frozen, r) for r in item["points"]])]
+                        expected = [self.renderer.project(frozen, [self.renderer.point(frozen, r) for r in item["points"]])]
                     if expected:
                         for xy in expected:
                             artist = next(lines)
@@ -202,7 +181,7 @@ class RendererAdapter:
                         "artist_count": len(owned)})
                 # Dimensions and labels stay on the original figure and are
                 # deliberately not exposed as editable geometry.
-                return Scene(fig, ax, objects, artists, self.snap_points(qid), renderer.render_settings(protocol))
+                return Scene(fig, ax, objects, artists, self.snap_points(qid), self.renderer.render_settings(self.protocol))
             except Exception:
                 plt.close(fig)
                 raise

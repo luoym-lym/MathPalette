@@ -57,7 +57,7 @@ def validate_formal_row(root, branch, row):
         if scene['id'] != row['id'] or scene['source_dataset'] != row['source_dataset']:
             raise ValueError(f"{row['id']}: scene identity/source differs from the formal record")
 
-def content(root, branch, row, *, source_notes=None):
+def content(root, branch, row):
     root = Path(root)
     paths = [row[k] for k in PATH_FIELDS if row.get(k)]
     dependencies = row.get('runtime_dependencies', [])
@@ -68,10 +68,8 @@ def content(root, branch, row, *, source_notes=None):
     files = {p:file_hash(contained(root/branch,p)) for p in paths}
     if branch != 'Analytics':
         files['../dataset_tools/geometry_dataset.py'] = file_hash(root/'dataset_tools/geometry_dataset.py')
-    if source_notes is None:
-        notes_path=root/'provenance/source_notes.json'
-        source_notes=read(notes_path) if notes_path.exists() else {}
-    notes=source_notes.get(row['id'],{})
+    notes_path=root/'provenance/source_notes.json'
+    notes=read(notes_path).get(row['id'],{}) if notes_path.exists() else {}
     return {'branch':branch,'record':row,'files':files,'source_notes':notes}
 
 def assert_formal_dataset(dataset_file):
@@ -81,20 +79,16 @@ def assert_formal_dataset(dataset_file):
     if branch not in BRANCHES or dataset_file.name!='dataset.jsonl':
         raise ValueError('Use a formal branch dataset.jsonl')
     approvals=read(root/'provenance/approvals.json')['approvals']
-    notes_path=root/'provenance/source_notes.json'
-    source_notes=read(notes_path) if notes_path.exists() else {}
     for row in rows(dataset_file):
         validate_formal_row(root, branch, row)
         approval=approvals.get(row['id'],{})
         if (approval.get('reviewer')!='user' or not approval.get('instruction') or
-                digest(content(root,branch,row,source_notes=source_notes))!=approval.get('content_sha256')):
+                digest(content(root,branch,row))!=approval.get('content_sha256')):
             raise ValueError(f"{row['id']}: explicit approval of current original required")
 
 def catalog(root=ROOT):
     root = Path(root)
     approvals = read(root/'provenance/approvals.json')['approvals']
-    notes_path=root/'provenance/source_notes.json'
-    source_notes=read(notes_path) if notes_path.exists() else {}
     result, seen = [], set()
     required={'id','source_dataset','question','answer','answer_type','image','original_image','script'}
     for branch in BRANCHES:
@@ -108,7 +102,7 @@ def catalog(root=ROOT):
             approval=approvals.get(qid)
             if not approval or approval.get('reviewer')!='user' or not approval.get('instruction') or not approval.get('approved_at_utc'):
                 raise ValueError(f'Missing explicit user approval: {qid}')
-            current=digest(content(root,branch,row,source_notes=source_notes))
+            current=digest(content(root,branch,row))
             if current != approval.get('content_sha256'):
                 raise ValueError(f'{qid}: approved content changed; user reapproval required')
             item={'branch':branch,**row}
@@ -175,17 +169,12 @@ def build(root=ROOT):
         return build_locked(root)
 
 def build_locked(root=ROOT, *, publish=None):
-    """Fully validate under the caller's catalog lock, then publish the catalog.
-
-    An optional durable publisher receives (target_path, utf8_bytes). Its caller
-    owns rollback; validation is identical to the default atomic file publisher.
-    """
+    """Validate under the catalog lock; optionally publish through a review transaction."""
     root = Path(root).resolve()
     result = catalog(root)
     target = root / 'question_bank.jsonl'
-    payload = ''.join(json.dumps(row, ensure_ascii=False) + '\n' for row in result).encode('utf-8')
     if publish is not None:
-        publish(target, payload)
+        publish(target, ''.join(json.dumps(row, ensure_ascii=False) + '\n' for row in result).encode('utf-8'))
         return result
     descriptor, name = tempfile.mkstemp(prefix='.question_bank.', suffix='.tmp', dir=root)
     temporary = Path(name)
