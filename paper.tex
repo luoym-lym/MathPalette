@@ -1,0 +1,190 @@
+%%%%%%%% ICML 2026 EXAMPLE LATEX SUBMISSION FILE %%%%%%%%%%%%%%%%%
+
+\documentclass{article}
+
+% Recommended, but optional, packages for figures and better typesetting:
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{booktabs} % for professional tables
+
+% hyperref makes hyperlinks in the resulting PDF.
+% If your build breaks (sometimes temporarily if a hyperlink spans a page)
+% please comment out the following usepackage line and replace
+% \usepackage{icml2026} with \usepackage[nohyperref]{icml2026} above.
+\usepackage{hyperref}
+
+
+% Attempt to make hyperref and algorithmic work together better:
+\newcommand{\theHalgorithm}{\arabic{algorithm}}
+
+% Use the following line for the initial blind version submitted for review:
+\usepackage{icml2026}
+
+% For preprint, use
+% \usepackage[preprint]{icml2026}
+
+% If accepted, instead use the following line for the camera-ready submission:
+% \usepackage[accepted]{icml2026}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsthm}
+
+
+% if you use cleveref..
+\usepackage[capitalize,noabbrev]{cleveref}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% THEOREMS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+% Todonotes is useful during development; simply uncomment the next line
+%    and comment out the line below the next line to turn off comments
+%\usepackage[disable,textsize=tiny]{todonotes}
+\usepackage[textsize=tiny]{todonotes}
+
+% The \icmltitle you define below is probably too long as a header.
+% Therefore, a short form for the running title is supplied here:
+\icmltitlerunning{MathPalette: Evaluating Multimodal Mathematical Reasoning under Controlled Visual Distractions}
+
+\begin{document}
+
+\twocolumn[
+  \icmltitle{MathPalette: Evaluating Multimodal Mathematical Reasoning under Controlled Visual Distractions}
+
+  % It is OKAY to include author information, even for blind submissions: the
+  % style file will automatically remove it for you unless you've provided
+  % the [accepted] option to the icml2026 package.
+
+  % List of affiliations: The first argument should be a (short) identifier you
+  % will use later to specify author affiliations Academic affiliations
+  % should list Department, University, City, Region, Country Industry
+  % affiliations should list Company, City, Region, Country
+
+  % You can specify symbols, otherwise they are numbered in order. Ideally, you
+  % should not use this facility. Affiliations will be numbered in order of
+  % appearance and this is the preferred way.
+  \icmlsetsymbol{equal}{*}
+
+  \begin{icmlauthorlist}
+    \icmlauthor{Firstname1 Lastname1}{equal,yyy}
+    \icmlauthor{Firstname2 Lastname2}{equal,yyy,comp}
+    \icmlauthor{Firstname3 Lastname3}{comp}
+    \icmlauthor{Firstname4 Lastname4}{sch}
+    \icmlauthor{Firstname5 Lastname5}{yyy}
+    \icmlauthor{Firstname6 Lastname6}{sch,yyy,comp}
+    \icmlauthor{Firstname7 Lastname7}{comp}
+    %\icmlauthor{}{sch}
+    \icmlauthor{Firstname8 Lastname8}{sch}
+    \icmlauthor{Firstname8 Lastname8}{yyy,comp}
+    %\icmlauthor{}{sch}
+    %\icmlauthor{}{sch}
+  \end{icmlauthorlist}
+
+  \icmlaffiliation{yyy}{Department of XXX, University of YYY, Location, Country}
+  \icmlaffiliation{comp}{Company Name, Location, Country}
+  \icmlaffiliation{sch}{School of ZZZ, Institute of WWW, Location, Country}
+
+  \icmlcorrespondingauthor{Firstname1 Lastname1}{first1.last1@xxx.edu}
+  \icmlcorrespondingauthor{Firstname2 Lastname2}{first2.last2@www.uk}
+
+  % You may provide any keywords that you find helpful for describing your
+  % paper; these are used to populate the "keywords" metadata in the PDF but
+  % will not be shown in the document
+  \icmlkeywords{Machine Learning, ICML}
+
+  \vskip 0.3in
+]
+
+% this must go after the closing bracket ] following \twocolumn[ ...
+
+% This command actually creates the footnote in the first column listing the
+% affiliations and the copyright notice. The command takes one argument, which
+% is text to display at the start of the footnote. The \icmlEqualContribution
+% command is standard text for equal contribution. Remove it (just {}) if you
+% do not need this facility.
+
+% Use ONE of the following lines. DO NOT remove the command.
+% If you have no special notice, KEEP empty braces:
+\printAffiliationsAndNotice{}  % no special notice (required even if empty)
+% Or, if applicable, use the standard equal contribution text:
+% \printAffiliationsAndNotice{\icmlEqualContribution}
+
+\begin{abstract}
+  This document provides a basic paper template and submission guidelines.
+  Abstracts must be a single paragraph, ideally between 4--6 sentences long.
+  Gross violations will trigger corrections at the camera-ready phase.
+\end{abstract}
+
+\section{Introduction}
+
+Vision-Language Models (VLMs) have advanced rapidly, demonstrating strong capabilities in multimodal understanding and reasoning \cite{bai2025qwen3vl, singh2025gpt5, glmv2025glm45v, deng2026openvlthinker}. Among these tasks, visual mathematical reasoning has drawn widespread attention as a key testbed for cross-modal reasoning \cite{lu2024mathvista, wang2024mathvision, zhang2024mathverse}. Solving mathematical problems with diagrams requires models to identify objects, read numerical values, and understand structural relations from the image to complete the reasoning process.
+
+Therefore, the robustness of visual diagram comprehension in these models is crucial. Recent studies have begun to evaluate the robustness of multimodal mathematical reasoning: for instance, DynaMath \cite{zou2025dynamath} dynamically generates problem variants through programs, while RoMMath \cite{zhao2025rommath} constructs a benchmark focused on adversarial perturbations. However, these works not only struggle to ensure unified control and effective comparison between original problems and their variants, but also largely rely on generic, untargeted surface perturbations at the visual level. This raises a central question: \emph{Beyond generic surface perturbations, can VLMs withstand visual inducements closely tied to key mathematical structures?}
+
+To explore this question, we introduce \textbf{MathPalette}, a benchmark for evaluating the mathematical reasoning robustness of VLMs under controlled visual distractions. We draw all base problem diagrams using a unified plotting protocol, reducing irrelevant stylistic diversity to establish a standardized, ``textbook-style'' baseline that ensures the stability of baseline evaluation. Building on this foundation, we introduce two types of visual distractions while ensuring that the problems remain solvable and their answers unchanged. One is automatically generated generic visual perturbations similar to prior work \cite{zou2025dynamath, zhao2025rommath, bae2026idis}, such as changing background colors, grids, or adding random elements; the other is human-annotated visually inducing features closely tied to key mathematical structures, testing whether models can still capture the true problem-solving information without being misled.
+
+\section{Related Work}
+
+\subsection{Visual Mathematical Reasoning Benchmarks}
+
+Early visual mathematical benchmarks primarily focused on plane geometry problem solving \cite{chen2021geoqa, lu2021intergps, chen2022unigeo}. Subsequent benchmarks expanded the evaluation scope to broader mathematical subjects and finer-grained capabilities, including MathVista \cite{lu2024mathvista}, MathVision \cite{wang2024mathvision}, MMMU \cite{yue2024mmmu}, MathVerse \cite{zhang2024mathverse}, We-Math \cite{qiao2025wemath}, and SolidGeo \cite{wang2025solidgeo}. Considering the robustness of model problem-solving, GeomVerse \cite{kazemi2023geomverse} and DynaMath \cite{zou2025dynamath} moved beyond static test sets by using programs to procedurally or dynamically generate geometry problems and problem variants across varying reasoning depths, numerical values, function types, and visual conditions. Building upon this programmatic paradigm, our work takes a step further by enforcing a unified plotting protocol and more rigorous rendering controls to establish a stable baseline while strictly preserving the original problem and ground-truth answer across visual interventions.
+
+\subsection{Visual Robustness and Distractors in VLMs}
+
+Recent studies have begun to evaluate the robustness of VLMs against hallucinations and visual distractions; for instance, HallusionBench \cite{guan2024hallusionbench} examines visual illusions, while Distract-Bench \cite{sun2026distractbench} and Idis \cite{bae2026idis} test model stability under irrelevant image compositing, watermarks, or text overlays. In visual mathematical reasoning, RoMMath \cite{zhao2025rommath} and DynaMath \cite{zou2025dynamath} assess robustness by varying diagram styles, adding visual noise, or introducing irrelevant auxiliary lines and symbols. However, distractions in general VQA mostly inject explicit external noise, whereas existing perturbations in visual mathematics remain limited to style variations or superimposed irrelevant elements, lacking specificity to concrete mathematical structures and failing to fully expose the issues that truly affect visual comprehension. In contrast, our work not only encompasses these generic visual perturbations, but also newly introduces visually inducing features targeting key mathematical structures, significantly revealing the vulnerabilities of current models in visual mathematical reasoning while the problems remain clearly solvable for humans.
+
+\section{MathPalette: Geometry is the Art of Reasoning Well from Badly Drawn Figures}
+
+As Henri Poincar\'e famously noted, true mathematical reasoning should not be swayed by the superficial rendering of a figure; to examine whether VLMs possess this capability, we construct \textbf{MathPalette}. For each problem, MathPalette adopts a three-tier controlled design comprising standardized baseline diagrams under a unified plotting protocol (\textbf{MathPalette-Orig}), automatically generated generic surface perturbations (\textbf{MathPalette-BaseVar}), and human-annotated visually inducing variants (\textbf{MathPalette-SpecialVar}). Details are provided below.
+
+\subsection{Dataset Overview}
+
+\subsection{MathPalette-Orig}
+
+To eliminate inconsistencies in resolution, decorative colors, and plotting styles across heterogeneous source images, we programmatically redraw all base problems under a unified plotting protocol to construct a standardized, ``textbook-style'' baseline, \textbf{MathPalette-Orig}. Visually, all diagrams share uniform canvas dimensions, equal-aspect viewports, standardized typography, and monochrome line styles, while removing task-irrelevant decorative fills, shading, and embedded text (detailed rendering parameters are provided in the Appendix). In the underlying representation, we decouple mathematical structure from visual appearance by freezing per-problem function sampling parameters, planar coordinates and topological constraints, as well as 3D geometry, 2D projections, and visibility intervals for solid figures. All base diagrams undergo automated geometric validation, redraw consistency checks, and human verification, ensuring strict mathematical fidelity and providing a noise-free foundation for introducing controlled visual distractions.
+
+\subsection{MathPalette-BaseVar}
+
+Building upon the standardized base diagrams, we construct \textbf{MathPalette-BaseVar} by automatically introducing untargeted, generic visual perturbations to evaluate model sensitivity to ordinary surface style changes and random visual noise. These perturbations simulate surface modifications common in prior studies \cite{zou2025dynamath, zhao2025rommath, bae2026idis}, such as changing background colors, adjusting grid styles, or randomly adding irrelevant points, lines, and simple geometric shapes to the canvas. For each problem, all variants are automatically and independently generated from the corresponding \textbf{MathPalette-Orig} diagram by randomly sampling perturbation types and parameters from a predefined operation pool (detailed generation rules are provided in the Appendix).
+
+\subsection{MathPalette-SpecialVar}
+
+Unlike random generic surface perturbations, \textbf{MathPalette-SpecialVar} aims to test whether models can still rely on correct mathematical relations for reasoning by annotating visually inducing features closely tied to each problem's mathematical structure. We describe the main inducement strategies below, followed by the action constraints and verification procedure.
+
+\subsubsection{Answer-Level Inducement}
+
+The first category is answer-level inducement, where we add marker points or reference lines near the critical locations on which the solution depends, so that the markers themselves present a ready-made but incorrect answer. Solving these problems requires models to read coordinates, count zeros and intersections, or locate interval endpoints from the original curves and geometric objects; these markers offer a shortcut by which an answer can be obtained simply by reading their positions or counting them, testing whether models extract information from the original objects or directly adopt the more conspicuous markers. None of the markers occludes information needed for solving, such as curve trajectories, endpoints, intersections, and text labels, so humans can still obtain the correct answer directly from the diagram. For example, we place a point above or below a function's local maximum, mark five or seven points on a diagram with six actual intersections, or draw a vertical reference line at $x=2$ or $x=4$ beside a true vertical asymptote at $x=3$.
+
+\subsubsection{Condition-Level Inducement}
+
+The second category is condition-level inducement, where we add markers that resemble auxiliary points or lines used in problem solving, yet do not match the actual geometric relations in the diagram. Unlike answer-level inducement, these markers do not directly provide an answer, but enter the reasoning process as intermediate conditions; if a model treats them as valid given conditions, its subsequent calculations lead to an incorrect result, testing whether models verify the conditions they use against the original diagram. These constructions are merely overlaid onto the base diagram, leaving the original objects and annotations intact while keeping the mathematical conditions and ground-truth answer unchanged. For example, we mark two points near a line such that the slope computed from them differs from the line's true slope, or draw a dashed line from the center of a circle to an exterior point to suggest a radius larger than the actual one.
+
+\subsubsection{Relation-Level Inducement}
+
+The third category is relation-level inducement, which aims to interfere with the model's identification of structural relations among geometric objects, such as continuity, collinearity, congruence, or spatial correspondence. Unlike the first two categories, which target numerical readouts or quantitative calculation conditions, this category visually suggests incorrect object bindings or groupings by adding connecting cues or modifying the colors and line styles of objects and local intervals, testing whether models identify relations based on rigorous geometric and topological definitions rather than superficial visual associations. For example, in curve-tracing problems, we color segments of different curves on either side of an intersection identically to confuse curve continuity; in figure-comparison problems, we give the target figure and an incorrect option the same visual style to suggest congruence.
+
+\subsubsection{Action Constraints and Verification}
+
+When constructing variants, all inducing cues can only be generated through a small set of predefined primitive operations, such as adding marker points, adding reference lines, and modifying the color, line style, or line width of existing objects, either entirely or over local intervals; colors, point sizes, and line widths are likewise restricted to fixed options. Every variant is individually reviewed by human experts to confirm that the inducing cues neither occlude critical information nor introduce ambiguity into the problem, and that the original answer remains unique, following the answer-preserving principle of invariant image editing \cite{agarwal2020causalvqa}. Each approved variant is frozen as a set of operation parameters, from which it can be programmatically redrawn into an image pixel-identical to the reviewed version. In our experiments, we further report human evaluation results to validate the soundness of our benchmark construction. More details are provided in the Appendix.
+
+\section*{Impact Statement}
+
+This paper presents work whose goal is to advance the field of Machine Learning. There are many potential societal consequences of our work, none which we feel must be specifically highlighted here.
+
+\bibliography{example_paper}
+\bibliographystyle{icml2026}
+
+\end{document}
