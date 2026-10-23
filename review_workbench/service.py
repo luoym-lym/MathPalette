@@ -239,6 +239,10 @@ class ReviewService:
                         raise ReviewError('This source question is already in the formal bank', status=409, code='duplicate_source')
                     prefix = PREFIXES[branch]
                     numbers = [int(r['id'][len(prefix):]) for r in datasets[branch] if re.fullmatch(prefix + r'[0-9]+', r['id'])]
+                    # Deleted formal questions still reserve their assigned IDs.
+                    numbers += [int(d['formal_id'][len(prefix):]) for d in state['decisions'].values()
+                                if d.get('branch') == branch and
+                                re.fullmatch(prefix + r'[0-9]+', d.get('formal_id', ''))]
                     formal_id = f'{prefix}{max(numbers, default=0) + 1:02d}'
                     formal, writes, notes = self._prepare(row, formal_id)
                     self._verify_redraw(branch, formal, writes, transaction.directory)
