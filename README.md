@@ -1,20 +1,21 @@
 # MathPalette
 
-MathPalette 研究统一渲染条件下，视觉标记如何影响视觉语言模型的数学推理。原题经用户确认后收集，人工 Special 从原图独立派生，冻结操作以便重绘。标记方法、已有方案盘点和后续探索见 [Conclusion.md](Conclusion.md)。
+MathPalette 研究统一渲染条件下，视觉标记如何影响视觉语言模型的数学推理。原题经用户确认后收集，Special 从原图独立派生、经用户审核后保存，冻结操作以便重绘。标记方法与后续探索见 [Conclusion.md](Conclusion.md)（2026-10-17 的历史盘点）。[paper.tex](paper.tex) 是研究设计草稿，包含尚未启用的 BaseVar 设计；当前可用数据与功能以本说明和数据协议为准。编译论文还需准备 ICML 2026 模板及其参考文献文件。
 
-截至 2026-10-18，正式数据为 **251 题、144 张 Special**：Analytics 51 题 / 116 张，PlaneGeometry 122 题 / 21 张，SolidGeometry 78 题 / 7 张。Special 覆盖 42 道原题。题源为 DynaMath 20 题、MathVerse 125 题、MathVista 56 题、SOLIDGEO 9 题、Author designed 41 题；最新数量以 `catalog.py check` 为准。
+截至 2026-10-23，正式数据为 **251 题、252 张 Special**：Analytics 51 题 / 116 张，PlaneGeometry 122 题 / 106 张，SolidGeometry 78 题 / 30 张。Special 覆盖 66 道原题。题源为 DynaMath 20 题、MathVerse 125 题、MathVista 56 题、SOLIDGEO 9 题、Author designed 41 题；最新数量以 `catalog.py check` 为准。
 
 | 内容 | 数量 / 入口 |
 | --- | --- |
 | 正式原题 | [question_bank.jsonl](question_bank.jsonl)，251 条 |
 | Base | 三个分支均未启用，汇总索引中的 `base_plugins` 为空列表 |
-| 人工 Special | 共 144 张，保留原 Pass / Collect 时间；只有完成标记、没有已通过图片的题不计入变体数 |
+| 已审核 Special | 共 252 张，保留原 Pass / Collect 时间；只有完成标记、没有已通过图片的题不计入变体数 |
 | 来源截图 | MathVerse 125 张、MathVista 56 张、SOLIDGEO 9 张，另有 7 张作者提供的参考图；DynaMath 20 题的来源截图在原库中缺失 |
 | 解析几何 Special 工作台 | 双击 [Analytics/start_special_workbench.cmd](Analytics/start_special_workbench.cmd)，端口 8767 |
 | 平面几何 Special 工作台 | 双击 [PlaneGeometry/start_special_workbench.cmd](PlaneGeometry/start_special_workbench.cmd)，端口 8768 |
 | 立体几何 Special 工作台 | 双击 [SolidGeometry/start_special_workbench.cmd](SolidGeometry/start_special_workbench.cmd)，端口 8769 |
 | 工作台使用与标注范围 | [解析](Analytics/workbench/README.md)、[平面](PlaneGeometry/workbench/README.md)、[立体](SolidGeometry/workbench/README.md)；Agent 说明和插件 schema 在各工作台目录 |
 | 审核凭据 | [provenance/approvals.json](provenance/approvals.json) |
+| Author designed 变体审核 | [本轮用户审核确认](provenance/author_designed_variant_review_20261023.json)、[初次批量 Pass 授权](provenance/author_designed_variant_pass_20261023.json)、[Plane122 改色记录](provenance/plane122_axis_black_20261023.json)；初次授权记录中的槽位属于当时快照，当前保留内容以正式 recipes 为准 |
 | MathVista 来源与署名 | [provenance/mathvista/README.md](provenance/mathvista/README.md)，含完整源记录与入库核验 |
 | SOLIDGEO 来源与清理记录 | [来源署名](provenance/SOLIDGEO_ATTRIBUTION.md)、[保留题目与清理核验](provenance/solidgeo_cleanup.json) |
 
@@ -22,11 +23,11 @@ MathPalette 研究统一渲染条件下，视觉标记如何影响视觉语言�
 
 Author designed 平面题包括 Plane94～Plane99 曲线追踪、Plane100～Plane102 最短路径、Plane103～Plane108 图形比较、Plane109～Plane114 交点计数、Plane115 直线延长判断，Plane116～Plane118 平行、垂直和等角判断，Plane119 多边形边数判断，Plane120～Plane121 折线转折与平面分区计数，以及 Plane122 轴对称点判断。最短路径三题分别使用等半径双圆、单圆偏置端点、不等半径双圆；正式图保留黑色几何和尺寸标注，精确答案以 `dataset.jsonl` 为准。
 
-Plane109～Plane114 为用户确认收集的六道原创交点计数题，来源统一为 `Author designed`，按 `temp/requested_six` 的图1～图6顺序入库，答案依次为 6、4、5、6、6、8。正式数据保留黑白原图、冻结场景和逐题绘图程序；构造、独立求交和像素复现核验见 [来源记录](provenance/source_notes.json)。没有外部来源图片，`original_image` 为 `null`；暂存红点诱导图未收集为 Special。
+Plane109～Plane114 为用户确认收集的六道原创交点计数题，来源统一为 `Author designed`，按当时暂存图1～图6的顺序入库，答案依次为 6、4、5、6、6、8。正式数据保留黑白原图、冻结场景和逐题绘图程序；构造、独立求交和像素复现核验见 [来源记录](provenance/source_notes.json)。没有外部来源图片，`original_image` 为 `null`；后续通过工作台收集的诱导变体保存在各题的 `special_variant/` 目录中。
 
 Plane115 为用户确认收集的原创直线延长判断题，答案为 A（Point A）。重绘图保留线段 PO 与 C、A、B 三个候选点，相邻候选点间距从参考图约 78 px 增至约 125 px；P、O、A 共线且 O 位于 P 与 A 之间。作者提供的参考图原样保存在 `PlaneGeometry/originals/Plane115.png`。
 
-Plane116～Plane118 分别为平行、垂直、等角判断题，答案依次为 A、C、C；对应用户审阅时的暂存编号 Plane117、Plane118、Plane120。按连续题号迁入时保留题干、选项、答案和原图像素，编号对应关系及内容哈希见 [来源记录](provenance/source_notes.json)。本次仅收集这三道原题，配套标注、其余两题和已被替代的旧稿已移入回收站。
+Plane116～Plane118 分别为平行、垂直、等角判断题，答案依次为 A、C、C；对应用户审阅时的暂存编号 Plane117、Plane118、Plane120。按连续题号迁入时保留题干、选项、答案和原图像素，编号对应关系及内容哈希见 [来源记录](provenance/source_notes.json)。原题入库时清理了未收集的配套标注和旧稿；后续 Special 及整题完成记录以各题工作台目录为准。
 
 Plane119 为用户确认的原创多边形边数判断题，答案为 6。正式图为六条边组成的闭合不规则六边形，作者上传的参考图原样保存在 `PlaneGeometry/originals/Plane119.png`。
 
@@ -38,7 +39,7 @@ Solid67～Solid72 为用户确认的六道中点截面体积题，答案依次�
 
 Solid73 为用户确认的原创三棱柱展开图题，题干和选项均为英文，答案为 B（Point R）。上传参考图原样保存在 `SolidGeometry/originals/Solid73.png`；三维折叠对应、边界粘合与像素复现核验见 [来源记录](provenance/source_notes.json)。
 
-Solid74、Solid75 为用户确认的立方体顶点重合与正四面体相对棱题，答案依次为 B（Point R）、B（Edge BC）；对应审阅时的 75、77。按用户允许修改编号的要求连续收录，题干、选项、答案和原题图像像素保持不变。两题均无外部来源图，编号映射、三维折叠及复现核验见 [来源记录](provenance/source_notes.json)。配套标注仍为未通过草稿，工作台代码保持原样。
+Solid74、Solid75 为用户确认的立方体顶点重合与正四面体相对棱题，答案依次为 B（Point R）、B（Edge BC）；对应审阅时的 75、77。按用户允许修改编号的要求连续收录，题干、选项、答案和原题图像像素保持不变。两题均无外部来源图，编号映射、三维折叠及复现核验见 [来源记录](provenance/source_notes.json)。后续通过的 Special 保存在正式工作台输出目录，零变体的完成题仅保留整题完成记录。
 
 Solid76～Solid78 为用户确认的立方体、直三棱柱和四棱锥展开图共端点判断题，对应审阅时的 80、81、82，答案依次为 C（Edge DF）、B（Edge DE）、A（Edge DE）。按连续题号收录时，英文题干、选项、答案和原题图像像素保持不变；三题均无外部来源图片。编号映射、独立折叠核验和复现记录见 [来源记录](provenance/source_notes.json)。
 
@@ -58,7 +59,7 @@ Solid76～Solid78 为用户确认的立方体、直三棱柱和四棱锥展开�
 | `scene` | 几何题的冻结场景，含坐标、标签、约束；立体还含投影与显隐 |
 | `base_plugins` / `special_plugins` | 根目录汇总清单中的插件路径；尚未收集时为空列表 |
 
-每份变体保留图片、插件、`recipes.json` 与 `draw_variants.py`。recipes 保存冻结参数、哈希、环境及生成/人工通过时间；公共绘图器和机器协议也是重绘依赖，不能只留下逐题脚本。源题与当前题干或答案不同的说明保存在 `provenance/source_notes.json`。
+每份变体保留图片、插件、`recipes.json` 与 `draw_variants.py`。recipes 保存冻结参数、哈希、环境及生成/用户通过时间；公共绘图器和机器协议也是重绘依赖，不能只留下逐题脚本。插件中的 `description`、`intent` 保留生成时的说明，正式收集状态以 recipes 的 `status="passed"` 为准，模型测试结果另属于临时实验记录。源题与当前题干或答案不同的说明保存在 `provenance/source_notes.json`。
 
 答案类型统一为 `choice`、`number`、`expression`、`text`，含义见 [数据协议](MATHPALETTE_PROTOCOL.md)。正式清单保存题干、答案、选项和数据集来源；场景只保留绘图、约束及必要解释。表示迁移记录见 [schema_normalization.json](provenance/schema_normalization.json)，原用户通过时间和变体 Pass / Collect 时间保留。
 
