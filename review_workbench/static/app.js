@@ -26,7 +26,7 @@
     } catch (_) { element.textContent = text; }
   }
   class ApiError extends Error { constructor(message,status,code) {super(message);this.status=status;this.code=code;} }
-  async function request(url,options={},timeout=20000) {
+  async function request(url,options={},timeout=150000) {
     const controller = new AbortController();
     const outer = options.signal;
     const abort = () => controller.abort();
@@ -208,7 +208,7 @@
     state.operation=attempt;state.attempts[attempt.id]=attempt;saveAttempts();state.listGeneration++;$('refresh').disabled=true;renderActions();
     showNotice(`正在${action==='pass'?'收录':'删除'} ${attempt.id}，审核记录正在保存。`);
     try {
-      const result=await request(`/api/candidates/${encodeURIComponent(attempt.id)}/${action}`,{method:'POST',headers:{'Content-Type':'application/json','X-Review-Workbench':'1'},body:JSON.stringify({fingerprint:attempt.fingerprint,request_id:attempt.request_id})},30000);
+      const result=await request(`/api/candidates/${encodeURIComponent(attempt.id)}/${action}`,{method:'POST',headers:{'Content-Type':'application/json','X-Review-Workbench':'1'},body:JSON.stringify({fingerprint:attempt.fingerprint,request_id:attempt.request_id})},240000);
       const nextStatus=result.status|| (action==='pass'?'passed':'deleted');
       const row=state.rows.find(row=>row.id===attempt.id);if(row){row.status=C.status(nextStatus);row.formal_id=result.formal_id||row.formal_id;}
       if(result.summary)state.summary=result.summary;else state.summary=C.compactSummary(state.rows);

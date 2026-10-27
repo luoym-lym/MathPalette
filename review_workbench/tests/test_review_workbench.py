@@ -103,6 +103,24 @@ class WorkbenchTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'approved content changed'):
             catalog.catalog(self.root)
 
+    def test_catalog_rejects_source_notes_changed_during_validation(self):
+        notes_path = self.root / 'provenance/source_notes.json'
+        original_validate = catalog.validate_formal_row
+        calls = 0
+
+        def change_after_first_row(root, branch, row):
+            nonlocal calls
+            original_validate(root, branch, row)
+            calls += 1
+            if calls == 2:
+                notes = catalog.read(notes_path)
+                notes['Ana01']['test_concurrent_change'] = True
+                notes_path.write_text(json.dumps(notes), encoding='utf-8')
+
+        with patch.object(catalog, 'validate_formal_row', side_effect=change_after_first_row):
+            with self.assertRaisesRegex(ValueError, 'Source notes changed during catalog validation'):
+                catalog.catalog(self.root)
+
     def test_delete_is_local_idempotent_and_removes_files(self):
         first, second = self.rows[:2]
         detail = self.service.detail(first['id'])

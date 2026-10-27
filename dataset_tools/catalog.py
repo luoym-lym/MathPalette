@@ -57,7 +57,20 @@ def validate_formal_row(root, branch, row):
         if scene['id'] != row['id'] or scene['source_dataset'] != row['source_dataset']:
             raise ValueError(f"{row['id']}: scene identity/source differs from the formal record")
 
-def content(root, branch, row):
+def _source_notes_snapshot(root):
+    path = Path(root) / 'provenance/source_notes.json'
+    data = path.read_bytes() if path.exists() else None
+    notes = json.loads(data.decode('utf-8-sig')) if data is not None else {}
+    fingerprint = hashlib.sha256(data).hexdigest() if data is not None else None
+    return notes, fingerprint
+
+def _assert_source_notes_unchanged(root, fingerprint):
+    path = Path(root) / 'provenance/source_notes.json'
+    current = file_hash(path) if path.exists() else None
+    if current != fingerprint:
+        raise ValueError('Source notes changed during catalog validation; retry')
+
+def content(root, branch, row, *, source_notes=None):
     root = Path(root)
     paths = [row[k] for k in PATH_FIELDS if row.get(k)]
     dependencies = row.get('runtime_dependencies', [])
@@ -68,8 +81,10 @@ def content(root, branch, row):
     files = {p:file_hash(contained(root/branch,p)) for p in paths}
     if branch != 'Analytics':
         files['../dataset_tools/geometry_dataset.py'] = file_hash(root/'dataset_tools/geometry_dataset.py')
-    notes_path=root/'provenance/source_notes.json'
-    notes=read(notes_path).get(row['id'],{}) if notes_path.exists() else {}
+    if source_notes is None:
+        notes_path=root/'provenance/source_notes.json'
+        source_notes=read(notes_path) if notes_path.exists() else {}
+    notes=source_notes.get(row['id'],{})
     return {'branch':branch,'record':row,'files':files,'source_notes':notes}
 
 def assert_formal_dataset(dataset_file):
@@ -79,16 +94,19 @@ def assert_formal_dataset(dataset_file):
     if branch not in BRANCHES or dataset_file.name!='dataset.jsonl':
         raise ValueError('Use a formal branch dataset.jsonl')
     approvals=read(root/'provenance/approvals.json')['approvals']
+    source_notes, notes_fingerprint = _source_notes_snapshot(root)
     for row in rows(dataset_file):
         validate_formal_row(root, branch, row)
         approval=approvals.get(row['id'],{})
         if (approval.get('reviewer')!='user' or not approval.get('instruction') or
-                digest(content(root,branch,row))!=approval.get('content_sha256')):
+                digest(content(root,branch,row,source_notes=source_notes))!=approval.get('content_sha256')):
             raise ValueError(f"{row['id']}: explicit approval of current original required")
+    _assert_source_notes_unchanged(root, notes_fingerprint)
 
 def catalog(root=ROOT):
     root = Path(root)
     approvals = read(root/'provenance/approvals.json')['approvals']
+    source_notes, notes_fingerprint = _source_notes_snapshot(root)
     result, seen = [], set()
     required={'id','source_dataset','question','answer','answer_type','image','original_image','script'}
     for branch in BRANCHES:
@@ -102,7 +120,7 @@ def catalog(root=ROOT):
             approval=approvals.get(qid)
             if not approval or approval.get('reviewer')!='user' or not approval.get('instruction') or not approval.get('approved_at_utc'):
                 raise ValueError(f'Missing explicit user approval: {qid}')
-            current=digest(content(root,branch,row))
+            current=digest(content(root,branch,row,source_notes=source_notes))
             if current != approval.get('content_sha256'):
                 raise ValueError(f'{qid}: approved content changed; user reapproval required')
             item={'branch':branch,**row}
@@ -123,6 +141,7 @@ def catalog(root=ROOT):
             result.append(item)
     if set(approvals)!=seen:
         raise ValueError('Approval records must match the formal question set exactly')
+    _assert_source_notes_unchanged(root, notes_fingerprint)
     return result
 
 @contextmanager

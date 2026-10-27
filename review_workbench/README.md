@@ -48,6 +48,8 @@ start_mathverse_review.cmd
 
 所有修改使用与三个 Special 工作台相同的跨进程 catalog 锁；内层审核函数明确复用已持有的锁，不重入。正式编号、批准记录、两级清单、来源记录和候选移除构成一个持久事务。每次写入前记录准确的前后哈希和备份，重启会回滚未提交操作或保留已经提交的成功结果。恢复发现外部修改时会停止并报告 `recovery_required`，不会覆盖这些修改。
 
+完整校验在每轮读取一次来源记录快照，并在结束时检查快照是否被外部修改；每道题的批准指纹仍逐一验证。审核工作台等待 catalog 锁最多 120 秒，页面为提交操作保留更长等待时间，避免题库增长或并发审核时过早超时。
+
 `review_candidates/mathverse/review_state.json` 是实际操作后的持久历史/幂等状态，不是审核批准的替代来源；正式批准仍以 `provenance/approvals.json` 为准。进行中的恢复数据在 `.runtime/review_workbench/transactions/`。若程序异常退出，请先重新启动恢复，不能在恢复前手动清空 `.runtime/`。
 
 ## 验证和独立复现
@@ -81,6 +83,6 @@ python -B PlaneGeometry/dataset_generator/plane_plot72.py .runtime/reproduced/Pl
 
 ## 分支边界
 
-本分支仅增加原题审核工作台、待审核候选及 Pass/Delete 的事务支持。三个 Special 工作台与 `master` 保持相同；不保留旧 Base 生成器或旧绘图器兼容注册表。公共审核工具只增加可选的事务发布接口，原有命令行、内容指纹和完整题库校验规则沿用 `master`。
+本分支增加原题审核工作台、待审核候选及 Pass/Delete 的事务支持。三个 Special 工作台与 `master` 保持相同；不保留旧 Base 生成器或旧绘图器兼容注册表。公共审核工具增加可选事务发布接口，并在每轮校验中复用来源记录快照；原有命令行、内容指纹和完整题库校验规则沿用 `master`。
 
 不要从历史打包清单恢复已通过或已删除的候选。审核进度以当前 `index.jsonl` 和 `review_state.json` 为准，正式通过凭据仍只来自 `provenance/approvals.json`。

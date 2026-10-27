@@ -20,6 +20,7 @@ ID_PATTERN = re.compile(r'MV[0-9]{4,8}\Z')
 REQUEST_PATTERN = re.compile(r'[A-Za-z0-9][A-Za-z0-9._:-]{7,127}\Z')
 PATH_FIELDS = ('image', 'original_image', 'scene', 'script', 'svg', 'original_script', 'provenance', 'verification', 'candidate_path')
 PREFIXES = {'Analytics': 'Ana', 'PlaneGeometry': 'Plane', 'SolidGeometry': 'Solid'}
+CATALOG_LOCK_TIMEOUT_SECONDS = 120
 
 
 class ReviewError(ValueError):
@@ -44,7 +45,7 @@ class ReviewService:
         self.state_path = safe_path(self.root, PACKAGE / 'review_state.json')
         self.fault = fault
         # Recovery does not approve anything and is serialized against all writers.
-        with catalog.catalog_write_lock(self.root):
+        with catalog.catalog_write_lock(self.root, timeout=CATALOG_LOCK_TIMEOUT_SECONDS):
             recover(self.root)
             self._index()
 
@@ -73,7 +74,7 @@ class ReviewService:
                 'deleted': sum(x['status'] == 'deleted' for x in decisions)}
 
     def list_candidates(self):
-        with catalog.catalog_write_lock(self.root):
+        with catalog.catalog_write_lock(self.root, timeout=CATALOG_LOCK_TIMEOUT_SECONDS):
             recover(self.root)
             rows, state = self._index(), self._state()
             return {'candidates': [{'id': row['id'], 'branch': row['subject'], 'status': 'pending',
@@ -130,7 +131,7 @@ class ReviewService:
         return catalog.digest({'record': row, 'files': files}), files
 
     def detail(self, qid):
-        with catalog.catalog_write_lock(self.root):
+        with catalog.catalog_write_lock(self.root, timeout=CATALOG_LOCK_TIMEOUT_SECONDS):
             recover(self.root)
             decision = self._state()['decisions'].get(qid)
             if decision:
@@ -148,7 +149,7 @@ class ReviewService:
     def image(self, qid, kind, expected_hash):
         if kind not in ('source', 'redraw') or not re.fullmatch('[0-9a-f]{64}', expected_hash or ''):
             raise ReviewError('Invalid image request')
-        with catalog.catalog_write_lock(self.root):
+        with catalog.catalog_write_lock(self.root, timeout=CATALOG_LOCK_TIMEOUT_SECONDS):
             row, _, _ = self._load(qid)
             path = safe_path(self.root, row['original_image' if kind == 'source' else 'image'])
             data = path.read_bytes()
@@ -206,7 +207,7 @@ class ReviewService:
         if not isinstance(request_id, str) or not REQUEST_PATTERN.fullmatch(request_id):
             raise ReviewError('A unique request_id (8–128 characters) is required')
         started = time.perf_counter()
-        with catalog.catalog_write_lock(self.root):
+        with catalog.catalog_write_lock(self.root, timeout=CATALOG_LOCK_TIMEOUT_SECONDS):
             recover(self.root)
             protected = [self.index_path, self.state_path, self.root / 'provenance/source_notes.json',
                          self.root / 'provenance/approvals.json', self.root / 'question_bank.jsonl']
