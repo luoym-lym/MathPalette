@@ -2,24 +2,24 @@
 
 MathPalette 研究统一渲染条件下，视觉标记如何影响视觉语言模型的数学推理。原题经用户确认后收集，Special 从原图独立派生、经用户审核后保存，冻结操作以便重绘。标记方法与后续探索见 [Conclusion.md](Conclusion.md)（2026-10-17 的历史盘点）。[paper.tex](paper.tex) 是研究设计草稿，包含尚未启用的 BaseVar 设计；当前可用数据与功能以本说明和数据协议为准。编译论文还需准备 ICML 2026 模板及其参考文献文件。
 
-截至 2026-10-23，正式数据为 **251 题、252 张 Special**：Analytics 51 题 / 116 张，PlaneGeometry 122 题 / 106 张，SolidGeometry 78 题 / 30 张。Special 覆盖 66 道原题。题源为 DynaMath 20 题、MathVerse 125 题、MathVista 56 题、SOLIDGEO 9 题、Author designed 41 题；最新数量以 `catalog.py check` 为准。
+截至 2026-10-27，正式数据为 **265 题、335 张 Special**：Analytics 51 题 / 116 张，PlaneGeometry 136 题 / 189 张，SolidGeometry 78 题 / 30 张。Special 覆盖 80 道原题。题源为 DynaMath 20 题、MathVerse 125 题、MathVista 56 题、SOLIDGEO 9 题、Author designed 55 题；最新数量以 `catalog.py check` 为准。
 
 | 内容 | 数量 / 入口 |
 | --- | --- |
-| 正式原题 | [question_bank.jsonl](question_bank.jsonl)，251 条 |
+| 正式原题 | [question_bank.jsonl](question_bank.jsonl)，265 条 |
 | Base | 三个分支均未启用，汇总索引中的 `base_plugins` 为空列表 |
-| 已审核 Special | 共 252 张，保留原 Pass / Collect 时间；只有完成标记、没有已通过图片的题不计入变体数 |
-| 来源截图 | MathVerse 125 张、MathVista 56 张、SOLIDGEO 9 张，另有 7 张作者提供的参考图；DynaMath 20 题的来源截图在原库中缺失 |
+| 已审核 Special | 共 335 张，保留原 Pass / Collect 时间；只有完成标记、没有已通过图片的题不计入变体数 |
+| 来源截图 | MathVerse 125 张、MathVista 56 张、SOLIDGEO 9 张，另有 9 张作者提供的参考图；DynaMath 20 题的来源截图在原库中缺失 |
 | 解析几何 Special 工作台 | 双击 [Analytics/start_special_workbench.cmd](Analytics/start_special_workbench.cmd)，端口 8767 |
 | 平面几何 Special 工作台 | 双击 [PlaneGeometry/start_special_workbench.cmd](PlaneGeometry/start_special_workbench.cmd)，端口 8768 |
 | 立体几何 Special 工作台 | 双击 [SolidGeometry/start_special_workbench.cmd](SolidGeometry/start_special_workbench.cmd)，端口 8769 |
 | 工作台使用与标注范围 | [解析](Analytics/workbench/README.md)、[平面](PlaneGeometry/workbench/README.md)、[立体](SolidGeometry/workbench/README.md)；Agent 说明和插件 schema 在各工作台目录 |
 | 审核凭据 | [provenance/approvals.json](provenance/approvals.json) |
-| Author designed 变体审核 | [本轮用户审核确认](provenance/author_designed_variant_review_20261023.json)、[初次批量 Pass 授权](provenance/author_designed_variant_pass_20261023.json)、[Plane122 改色记录](provenance/plane122_axis_black_20261023.json)；初次授权记录中的槽位属于当时快照，当前保留内容以正式 recipes 为准 |
+| Author designed 变体审核 | [本轮用户审核确认](provenance/author_designed_variant_review_20261023.json)、[初次批量 Pass 授权](provenance/author_designed_variant_pass_20261023.json)、[Plane122 改色记录](provenance/plane122_axis_black_20261023.json)、[网格与扇形变体通过及 Collect 记录](provenance/grid_spinner_variant_pass_collect_20261026.json)；初次授权记录中的槽位属于当时快照，当前保留内容以正式 recipes 为准 |
 | MathVista 来源与署名 | [provenance/mathvista/README.md](provenance/mathvista/README.md)，含完整源记录与入库核验 |
 | SOLIDGEO 来源与清理记录 | [来源署名](provenance/SOLIDGEO_ATTRIBUTION.md)、[保留题目与清理核验](provenance/solidgeo_cleanup.json) |
 
-当前题号为 Ana01～Ana51、Plane01～Plane122、Solid01～Solid78。Ana01～Ana20 来自 DynaMath，Ana21～Ana45 与 Ana47～Ana51 来自 MathVerse，Ana46 来自 MathVista。Plane01～Plane16 与 Plane72～Plane93 来自 MathVerse，Plane17～Plane71 来自 MathVista，Plane94～Plane122 为 Author designed；Solid01～Solid16 与 Solid26～Solid66 来自 MathVerse，Solid17～Solid25 来自 SOLIDGEO，Solid67～Solid78 为 Author designed。图片、绘图类、Special 插件和工作台使用相同题号。清理前编号仅保存在 [迁移记录](provenance/cleanup.json) 中。
+当前题号为 Ana01～Ana51、Plane01～Plane136、Solid01～Solid78。Ana01～Ana20 来自 DynaMath，Ana21～Ana45 与 Ana47～Ana51 来自 MathVerse，Ana46 来自 MathVista。Plane01～Plane16 与 Plane72～Plane93 来自 MathVerse，Plane17～Plane71 来自 MathVista，Plane94～Plane136 为 Author designed；Solid01～Solid16 与 Solid26～Solid66 来自 MathVerse，Solid17～Solid25 来自 SOLIDGEO，Solid67～Solid78 为 Author designed。图片、绘图类、Special 插件和工作台使用相同题号。清理前编号仅保存在 [迁移记录](provenance/cleanup.json) 中。
 
 Author designed 平面题包括 Plane94～Plane99 曲线追踪、Plane100～Plane102 最短路径、Plane103～Plane108 图形比较、Plane109～Plane114 交点计数、Plane115 直线延长判断，Plane116～Plane118 平行、垂直和等角判断，Plane119 多边形边数判断，Plane120～Plane121 折线转折与平面分区计数，以及 Plane122 轴对称点判断。最短路径三题分别使用等半径双圆、单圆偏置端点、不等半径双圆；正式图保留黑色几何和尺寸标注，精确答案以 `dataset.jsonl` 为准。
 
@@ -34,6 +34,10 @@ Plane119 为用户确认的原创多边形边数判断题，答案为 6。正式
 Plane120、Plane121 为用户确认收集的折线转折与矩形分区计数题，答案分别为 5、7；对应审阅时的暂存编号 Plane120、Plane124。Plane121 使用三条内部直线累计上移约 107 px 的最终确认版；三个交点互异，仍将矩形分成 7 个区域。两题均无外部来源图片，原题图像像素原样保留；编号映射、冻结几何及复现核验见 [来源记录](provenance/source_notes.json)。
 
 Plane122 为用户确认的原创轴对称点判断题，答案为 A（Point A）。直线 l 垂直平分 PA；图中仅保留参考图已有的四个点、点名与直线 l，不添加垂足或辅助线。上传参考图原样保存在 `PlaneGeometry/originals/Plane122.png`，构造和复现核验见 [来源记录](provenance/source_notes.json)。
+
+Plane123～Plane129 为用户确认收录的七道单位方格阴影多边形面积题，来源统一为 `Author designed`。顺序为参照凹箭头、偏置箭头、双凹口箭头、不等削角、沙漏、非45度斜带、凹阶梯，答案依次为 10、13.5、14、33/2、18、7、18。Plane123 保留用户上传的参考图，其余六题 `original_image` 为 `null`；六道新题使用各自调整后的英文措辞。独立面积验算、冻结场景及像素复现证据见 [来源记录](provenance/source_notes.json)，用户确认原话和当前内容指纹见 [审核记录](provenance/approvals.json)。这七题共保存 41 张 Special：Plane123 有 5 张，其余各 6 张，均已 Collect；用户手工图和本轮新增图的原通过记录分别保留。
+
+Plane130～Plane136 为用户确认收录的七道圆盘阴影扇形概率题，来源统一为 `Author designed`，均使用已审核的精简英文题干。顺序为参照题、上半圆内侧灰区、上半圆端部灰区、下半圆内侧灰区、上半圆五扇区、竖直直径、倾斜直径五扇区，答案依次为 1/6、7/36、5/36、1/8、11/72、13/72、1/9。样本空间均为整个圆盘，按面积均匀取点。Plane130 保留用户上传的参考图，其余六题 `original_image` 为 `null`；题干、答案及重绘像素与审核版一致，角度和面积比核验见 [来源记录](provenance/source_notes.json)。这七题各保存 6 张 Special，均已 Collect；Plane130 原有的 2 张手工图与本轮追加的 4 张、其余六题各新增的 6 张均保留冻结插件、图片和离线重绘入口。
 
 Solid67～Solid72 为用户确认的六道中点截面体积题，答案依次为 30、108、144、60、42、40。Solid67 保留用户提供的参考图，其余五题 `original_image` 为 `null`；当前 Solid67 已有 3 张 Special。构造、原题修订和来源答案争议统一保存在 [source_notes.json](provenance/source_notes.json)，原题审核见 [approvals.json](provenance/approvals.json)。
 
