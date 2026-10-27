@@ -1,0 +1,57 @@
+{
+  "reviewer": "independent /root/review_transformation_batch",
+  "source_id": "2570",
+  "category": "transformation_geometry",
+  "reviewed_utc": "2026-10-27T01:56:37.555591+00:00",
+  "verdict": "excluded",
+  "user_approval": false,
+  "hashes": {
+    "original.jpg": "236c7e78d6417997ddf325174f7a1e9c20bd2cde1493483d7b282d78764257e2",
+    "source.json": "f9d1fdba16d871f400d969b687f3c777d6cdca3f47707d7bbf78a36bbc50f83a",
+    "scene.json": "69fd94d88402e7eee830dc27efbf89ebc45439ccbd9cda570899523e0830c73a",
+    "render.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
+    "image.png": "80e7420fb3cbddb7a0dcb86b2a476409f0155c773b49e0882751fc34b82e0fd9",
+    "audit.json": "f46356877483b78425e2eea6535423c69aaae2c083facd100bf97a82dbfe7f5c",
+    "redraw_report.json": "4d0fcfc58c4fed1d4f041a735b1770c515f500be88398c1dc5f994b843567937"
+  },
+  "dependency_hashes": {
+    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  },
+  "explicit_inspected_facts": [
+    "Individually viewed source and candidate: B correctly permutes symbol positions but its square remains oppositely oblique instead of rotating to near-axis-aligned. All other options fail symbol positions."
+  ],
+  "checks": {
+    "two_renders_equal_candidate": true,
+    "source_record_and_bytes_match": true,
+    "report_hashes_valid": true,
+    "opaque768": true,
+    "bbox": [
+      54,
+      243,
+      713,
+      525
+    ],
+    "occupancy": 0.859375,
+    "layout_occupancy_pass": true,
+    "independent_numeric_checks": {
+      "source_answer": "B",
+      "independent_result": "No exact rigid-rotation option",
+      "source_square_edge_angle": 32.00000000000003,
+      "B_square_edge_angle": -32.00000000000002,
+      "orientation_error_mod90": 34.00000000000006,
+      "proof": "Clockwise120 rotates source~32degree square edge to~\u221288degree. B~\u221232degree is not equivalent modulo90; orientation error cannot be ignored for rigid motion."
+    }
+  },
+  "required_changes": [],
+  "blocker": {
+    "action": "Resolve source contradiction",
+    "target": "2570",
+    "reason": "Explicit adjudication of position-only icons versus rigid rotation required. Do not silently change B square to match answer.",
+    "completed": "Views, independent math, source preservation and reproducibility checked",
+    "outcome": "Excluded from final delivery under latest user authorization; source/audit retained unchanged, no adjudication required."
+  },
+  "previous_revisions": [],
+  "exclusion_reason": "Explicit adjudication of position-only icons versus rigid rotation required. Do not silently change B square to match answer.",
+  "exclusion_authority": "User: \u590d\u6838\u4e2d\u6709\u95ee\u9898\u7684\u9898\u76ee\u53ef\u4ee5\u76f4\u63a5\u4e22\u5f03\u3002\u6211\u9700\u8981\u4fdd\u8bc1\u4f60\u6700\u540e\u7ed9\u6211\u7684\u9898\u76ee\u7684\u8d28\u91cf\u3002"
+}

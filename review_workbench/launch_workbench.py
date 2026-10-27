@@ -8,6 +8,15 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 REQUIRED = {'python': '3.13.9', 'numpy': '2.5.3', 'matplotlib': '3.11.2', 'pillow': '12.3.0', 'freetype': '2.14.3'}
+MATHVISION_REQUIRED = {'python': '3.12', 'numpy': '2.3.5', 'matplotlib': '3.10.8', 'pillow': '12.3.0', 'freetype': '2.6.1'}
+
+def matching_sources(found):
+    matched = []
+    if found == REQUIRED:
+        matched.append('MathVerse')
+    if str(found.get('python', '')).startswith('3.12.') and all(found.get(key) == value for key, value in MATHVISION_REQUIRED.items() if key != 'python'):
+        matched.append('MathVision')
+    return matched
 PROBE = '''
 import json, platform
 from importlib.metadata import version
@@ -21,7 +30,8 @@ def candidates():
     if override:
         return [Path(override).expanduser()]
     paths = [Path(sys.executable)]
-    prefixes = [ROOT / '.venv', ROOT / 'venv']
+    paths.extend(Path(os.environ[key]).expanduser() for key in ('MATHPALETTE_MATHVISION_PYTHON', 'MATHPALETTE_MATHVERSE_PYTHON') if os.environ.get(key))
+    prefixes = [ROOT / name for name in ('.venv', 'venv', '.venv-mathvision', '.venv-mathverse')]
     if os.environ.get('CONDA_PREFIX'):
         prefixes.append(Path(os.environ['CONDA_PREFIX']))
     conda = Path.home() / '.conda/environments.txt'
@@ -44,9 +54,9 @@ def select_python():
         except (OSError, ValueError, subprocess.TimeoutExpired):
             found = {}
         checked.append(f'{path}: {json.dumps(found, ensure_ascii=False)}')
-        if found == REQUIRED:
+        if matching_sources(found):
             return path, found
-    raise ValueError('没有找到匹配的重绘环境。\n需要：' + json.dumps(REQUIRED) +
+    raise ValueError('没有找到匹配的重绘环境。\n需要：' + json.dumps({'MathVerse': REQUIRED, 'MathVision': MATHVISION_REQUIRED}) +
                      '\n已检查：\n' + '\n'.join(checked) +
                      '\n请按 review_workbench/README.md 准备环境，或设置 MATHPALETTE_PYTHON 为匹配的 python.exe 路径。\n未修改候选、正式题库或批准记录。')
 
@@ -55,9 +65,11 @@ def main():
     python, found = select_python()
     print('MathPalette Python: ' + str(python), flush=True)
     print('Render environment: ' + json.dumps(found), flush=True)
+    print('Matching redraw source(s): ' + ', '.join(matching_sources(found)), flush=True)
+    print('Browsing is available for both sources. A different source may need its own MATHPALETTE_MATHVERSE_PYTHON or MATHPALETTE_MATHVISION_PYTHON; Pass always verifies exact pixels.', flush=True)
     arguments = sys.argv[1:]
     if '--check' in arguments:
-        print(json.dumps({'environment_matches': True, 'mutations': 0}))
+        print(json.dumps({'environment_matches': True, 'matching_sources': matching_sources(found), 'mutations': 0}))
         return
     raise SystemExit(subprocess.call([str(python), '-X', 'utf8', '-B', str(ROOT / 'review_workbench/server.py'), *arguments], cwd=ROOT))
 

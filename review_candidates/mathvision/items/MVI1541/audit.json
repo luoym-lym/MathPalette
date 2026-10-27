@@ -1,0 +1,37 @@
+{
+  "source_viewed": true,
+  "inventory": {
+    "panels": 1,
+    "board": "5columns4rows",
+    "labels": [
+      "P",
+      "Q",
+      "R",
+      "S",
+      "T",
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "walls": "outerborder withleftentryP2; internalverticalwallsatP/Qrow3,Q/Rrow2,R/Srow1",
+    "robot": "native sun-in-square pictogram andrightwardentryarrow",
+    "reference_grid": "gray distinguishes fromblackwalls"
+  },
+  "explicit_conditions": [
+    "turnrightatwall;stoponlyifrightalsoblocked"
+  ],
+  "layout_only": "Frozen uniform scale and placement; source orientation retained.",
+  "answer_verification": {
+    "status": "verified",
+    "answer": "E",
+    "reason": "Follow right-turn rule: entersP2, cycles eventually aroundT4,T1,S1,S4 indefinitely; no terminal cell.",
+    "conditions": [
+      "turnrightatwall;stoponlyifrightalsoblocked"
+    ]
+  },
+  "self_review": {
+    "status": "actually_viewed",
+    "facts": "Revised blackouterwalls retained distinct fromgraygrid, openentryP2, threeinternalwalls, all labels androbotentryarrow visible."
+  }
+}

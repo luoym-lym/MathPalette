@@ -1,0 +1,63 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:2965",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "solid geometry",
+  "original_record": {
+    "id": "2965",
+    "question": "The solid shown was formed by cutting a right circular cylinder in half. If the base has a radius of 6 cm and the height is 10 cm, what is the total surface area, in terms of $\\pi$, of the solid? <image1>",
+    "options": [],
+    "image": "images/2965.jpg",
+    "decoded_image": {
+      "path": "images/2965.jpg",
+      "original_path": "2965.jpg"
+    },
+    "answer": "96\\pi+120",
+    "solution": "The surface area of the solid can be split into four pieces:  the top and bottom, the curved side, and the flat side.\n\nThe top and bottom pieces are semicircles with radius 6; together, they add up to a circle with radius 6 and area $\\pi(6^2)=36\\pi$.\n\nThe curved side can be rolled out to a rectangle with height 10.  The width of this rectangle is half the circumference of the base of the cylinder, which is $\\frac{1}{2}\\cdot 2\\pi\\cdot 6 = 6\\pi$.  Thus the area of the curved side is $10\\cdot 6\\pi = 60\\pi$.\n\nThe flat side is a rectangle with height 10.  The width of this rectangle is the diameter of the cylinder, which is $6\\cdot 2 = 12$.  Thus the area of the flat side is $10\\cdot 12 = 120$.\n\nFinally, the total surface area of the solid is $36\\pi+60\\pi+120=\\boxed{96\\pi+120}$.",
+    "level": 2,
+    "subject": "solid geometry"
+  },
+  "source_package": "MathVision_redrawn_solid_geometry_240_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:00.302878+00:00",
+    "complete": true,
+    "category": "solid_geometry",
+    "source_questions": 244,
+    "retained": 240,
+    "excluded": 4,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "inventory": [
+      "Single solid half-cylinder; upper semicircular boundary and diameter; two diameter endpoint vertical edges; right curved-surface silhouette; lower diameter solid and whole lower semicircle dashed; no labels."
+    ],
+    "explicit_conditions": [
+      "Cylinder halved through its axis, r=6 cm and h=10 cm."
+    ],
+    "layout_choices": [
+      "Solid semicylinder, not a hollow tube; cut plane is y=0; no thickness inferred."
+    ],
+    "answer_check": {
+      "reasoning": "Two semicircle ends total 36π; curved half-cylinder area 60π; cut rectangle 12×10=120; total 96π+120.",
+      "answer": "96π+120",
+      "matches_source": true
+    },
+    "source_image_sha256": "d8570a70faf0d1f095a64d082d8468ccdd1750335383cb28ad50bcc3bf21fa7c",
+    "source_viewed": true
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

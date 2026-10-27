@@ -1,0 +1,50 @@
+{
+  "reviewer": "independent /root/review_transformation_batch",
+  "source_id": "254",
+  "category": "transformation_geometry",
+  "reviewed_utc": "2026-10-27T03:03:38.032467+00:00",
+  "verdict": "agent_verified",
+  "user_approval": false,
+  "hashes": {
+    "original.jpg": "c442c72d2489a7420b2595b13e6d4801501889466ff4c1d25bf35ea0307cfbef",
+    "source.json": "1fe3045aed047f1a1fc592d2fd8136788cee2693627869336b86b10d74068dce",
+    "scene.json": "d9241af4e1fc3475af71f021eb0ae480044964757377dacbeafe81079e3cc920",
+    "render.py": "c31ac1a6bb192b69f95976bf4df6d9307a597a8448028ac3c2c66353423f075f",
+    "image.png": "b50322a09a003ae280231c4e39ef295126d465f3a25560418af40b0ee01e41a8",
+    "audit.json": "ea4572c0c220f23ad0c207815f37bc1d0bda15ffc848cf604f41d9066c1f939e",
+    "redraw_report.json": "bfccca6e39e9fa93170bc8de101e8e79cf59b2181d9514537480709e18f54a17"
+  },
+  "explicit_inspected_facts": [
+    "Individually viewed original and candidate: equilateral unit triangle initially on square right edge with marked free vertex; gray intermediate triangles and marked vertex positions show counterclockwise rolling about upper-right corner. Next panel triangle above square with marked point at upper-left pivot, further ghost positions and ellipsis retained.",
+    "Every external corner pivot turns360-90-60=210 degrees. After one circuit four pivots rotate840 degrees, permuting triangle vertices by120 degrees. First return of marked triangle requires three circuits=12 pivots. Marked vertex is pivot4 times and moves on8 unit-radius arcs each210 degrees. Total8\u00d77pi/6=28pi/3, optionB."
+  ],
+  "checks": {
+    "source_record_and_bytes_match": true,
+    "two_independent_renders_equal_candidate": true,
+    "opaque768": true,
+    "bbox": [
+      54,
+      285,
+      713,
+      482
+    ],
+    "occupancy": 0.859375,
+    "independent_numeric_checks": {
+      "corner_turn_degrees": 210,
+      "pivots_for_full_return": 12,
+      "moving_arcs": 8,
+      "stationary_pivots": 4,
+      "path": "28pi/3",
+      "answer": "B"
+    },
+    "renderer_checks": [],
+    "report_hashes_valid": true,
+    "isolated_standalone_render_identical": true
+  },
+  "required_changes": [],
+  "previous_revisions": [],
+  "dependency_hashes": {
+    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  }
+}

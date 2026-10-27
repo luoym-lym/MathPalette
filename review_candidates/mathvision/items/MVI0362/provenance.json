@@ -1,0 +1,66 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:362",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "solid geometry",
+  "original_record": {
+    "id": "362",
+    "question": "The solid shown in the diagram has 12 regular pentagonal faces, the other faces being either equilateral triangles or squares. Each pentagonal face is surrounded by 5 square faces and each triangular face is surrounded by 3 square faces. John writes 1 on each triangular face, 5 on each pentagonal face and -1 on each square. What is the total of the numbers written on the solid?\n<image1>",
+    "options": [],
+    "image": "images/362.jpg",
+    "decoded_image": {
+      "path": "images/362.jpg",
+      "original_path": "362.jpg"
+    },
+    "answer": "50",
+    "solution": null,
+    "level": 3,
+    "subject": "solid geometry"
+  },
+  "source_package": "MathVision_redrawn_solid_geometry_240_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:00.302878+00:00",
+    "complete": true,
+    "category": "solid_geometry",
+    "source_questions": 244,
+    "retained": 240,
+    "excluded": 4,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "source_id": "362",
+    "source_image_viewed": true,
+    "source_image_sha256": "97b8d26970f00a46f00de06c4ce180716ba3985b97d2b1896f10b3327bc91e2c",
+    "inventory": [
+      "Left rhombicosidodecahedron with central square, pentagons above/below, triangles left/right; no hidden edges",
+      "Right three legend rows:5→pentagon containing5;1→triangle containing1;-1→square containing-1",
+      "Pentagons medium gray, triangles dark gray, squares light gray"
+    ],
+    "conditions": "The solid shown in the diagram has 12 regular pentagonal faces, the other faces being either equilateral triangles or squares. Each pentagonal face is surrounded by 5 square faces and each triangular face is surrounded by 3 square faces. John writes 1 on each triangular face, 5 on each pentagonal face and -1 on each square. What is the total of the numbers written on the solid?\n<image1>",
+    "panel_option_mapping": "single diagram; textual choices preserved in source.json",
+    "ambiguities": [
+      "Source mathematical panel network reconstructed from exact uniform polyhedron coordinates, not a raster silhouette. Decorative lighting removed. Visible face classes and central-face pose preserved; unseen back edges omitted."
+    ],
+    "answer_verification": {
+      "reasoning": "Each of12 pentagons touches5 squares, and each square has2 pentagon neighbors:30 squares. Each square has2 triangle neighbors and each triangle3 squares:20 triangles. Sum12*5+20*1-30=50. Exact native convex model verifies12/30/20 face census and all stated adjacency.",
+      "result": "50",
+      "verified": true
+    },
+    "stage": "source_audit_complete"
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

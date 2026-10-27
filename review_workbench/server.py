@@ -1,4 +1,4 @@
-"""Loopback-only MathVerse original-question review server (no third-party API)."""
+"""Loopback-only multi-source original-question review server (no third-party API)."""
 from __future__ import annotations
 import argparse
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -15,7 +15,7 @@ import webbrowser
 ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
-from review_workbench.service import ReviewService, ReviewError
+from review_workbench.service import MultiSourceReviewService, ReviewError
 from review_workbench.transactions import RecoveryRequired, safe_path
 
 
@@ -88,11 +88,11 @@ class ReviewHandler(BaseHTTPRequestHandler):
             if path.path == '/api/candidates':
                 self._json(self.server.service.list_candidates())
                 return
-            match = re.fullmatch(r'/api/candidates/(MV[0-9]{4,8})', path.path)
+            match = re.fullmatch(r'/api/candidates/(MVI?[0-9]{4,8})', path.path)
             if match:
                 self._json(self.server.service.detail(match[1]))
                 return
-            match = re.fullmatch(r'/api/candidates/(MV[0-9]{4,8})/image/(source|redraw)', path.path)
+            match = re.fullmatch(r'/api/candidates/(MVI?[0-9]{4,8})/image/(source|redraw)', path.path)
             if match:
                 query = parse_qs(path.query)
                 data, suffix = self.server.service.image(match[1], match[2], query.get('sha256', [''])[0])
@@ -128,7 +128,7 @@ class ReviewHandler(BaseHTTPRequestHandler):
             body = json.loads(self.rfile.read(length))
             if not isinstance(body, dict) or set(body) != {'fingerprint', 'request_id'}:
                 raise ReviewError('Request must contain fingerprint and request_id only')
-            match = re.fullmatch(r'/api/candidates/(MV[0-9]{4,8})/(pass|delete)', urlsplit(self.path).path)
+            match = re.fullmatch(r'/api/candidates/(MVI?[0-9]{4,8})/(pass|delete)', urlsplit(self.path).path)
             if not match:
                 raise ReviewError('API endpoint not found', status=404, code='not_found')
             self._json(self.server.service.decide(match[1], match[2], body['fingerprint'], body['request_id']))
@@ -149,10 +149,10 @@ def main():
     parser.add_argument('--no-browser', action='store_true')
     args = parser.parse_args()
     os.environ['PYTHONDONTWRITEBYTECODE'] = '1'
-    service = ReviewService(args.root)
+    service = MultiSourceReviewService(args.root)
     server = ReviewHTTPServer(('127.0.0.1', args.port), service)
     url = f'http://127.0.0.1:{server.server_address[1]}/'
-    print(f'MathVerse original review: {url}\nOnly clicking Pass approves an original. Ctrl+C stops this server.', flush=True)
+    print(f'MathPalette original review: {url}\nOnly clicking Pass approves an original. Ctrl+C stops this server.', flush=True)
     if not args.no_browser:
         threading.Timer(0.3, webbrowser.open, args=[url]).start()
     try:

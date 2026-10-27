@@ -1,0 +1,71 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:2845",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "combinatorial geometry",
+  "original_record": {
+    "id": "2845",
+    "question": "What is the maximum number of $T$-shaped polyominos (shown below) that we can put into a $6 \\times 6$ grid without any overlaps. The blocks can be rotated.\\n<image1>",
+    "options": [],
+    "image": "images/2845.jpg",
+    "decoded_image": {
+      "path": "images/2845.jpg",
+      "original_path": "2845.jpg"
+    },
+    "answer": "8",
+    "solution": "It is easy to show that 8 is possible. First each tile has area 4 and total area is 36 so we can have at most 9 tiles. We will show that 9 is not possible. Color the 6 × 6 grid in a checkboard pattern. Then there are an 18 white squares. Each tile will cover either 1 or 3 white squares. Hence 9 tiles will cover an odd number of white squares. This isn't possible so the maximum is 8.",
+    "level": 5,
+    "subject": "combinatorial geometry"
+  },
+  "source_package": "MathVision_redrawn_combinatorial_geometry_296_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:05.052366+00:00",
+    "complete": true,
+    "category": "combinatorial_geometry",
+    "source_questions": 308,
+    "retained": 296,
+    "excluded": 12,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "source_viewed": true,
+    "inventory": {
+      "panels": 1,
+      "Ttetromino": "threeunitsacrosstop andonebelowcenter",
+      "labels": []
+    },
+    "explicit_conditions": [
+      "6x6board",
+      "Trotationsallowed"
+    ],
+    "layout_only": "Frozen uniform scale and placement; source orientation retained.",
+    "answer_verification": {
+      "status": "verified",
+      "answer": "8",
+      "reason": "9wouldtileentire6x6but eachT coversoddblackcount;9oddcannot18. Exhaustiveplacementsearch finds8disjointT masks:[4289, 1124335616, 17156, 17989369856, 15099494400, 1080, 137396224, 8587264]",
+      "conditions": [
+        "6x6board",
+        "Trotationsallowed"
+      ]
+    },
+    "self_review": {
+      "status": "actually_viewed",
+      "facts": "ViewedTfourunitcells, threeacrosstop andsinglebelowcenter."
+    }
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

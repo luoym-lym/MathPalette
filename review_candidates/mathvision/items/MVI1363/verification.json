@@ -1,0 +1,58 @@
+{
+  "reviewer": "independent /root/review_transformation_batch",
+  "source_id": "1363",
+  "category": "transformation_geometry",
+  "reviewed_utc": "2026-10-27T01:53:02.662411+00:00",
+  "verdict": "agent_verified",
+  "user_approval": false,
+  "hashes": {
+    "original.jpg": "a838cd3ba2f3ab8b68a30b34e2c2ef50a61200ca2c23a1663aecbd8538c27ca2",
+    "source.json": "5372c4d0b5731aca0608314349fe2473062e3e3b7eb9705d619af269bf0405a2",
+    "scene.json": "5e9d160f42a856e919f79c5352cfcc3d2c269edce650ac73db531f9ac22be072",
+    "render.py": "a784f4e368c340b05917dfffd243fe98a33a0a48434910fce5b5ce2b227315a1",
+    "image.png": "42f1b06e67946228797d76e2545af31034979def8b503ad9193b800e236141c2",
+    "audit.json": "5f7425eb9652404d3e8d69da2e79abae912be64e72a2b1a0e6ec41435239acfa",
+    "redraw_report.json": "2eb30b03b96e55a6585768467de3b9f93068c6b491d6a6f41770bf0f4624647c"
+  },
+  "explicit_inspected_facts": [
+    "Individually viewed source/output: original rectangle A/B left,D/C right; folded Dprime above A; N bottom crease/M top crease, light-gray flap, solid AN/AM/MN and dashed MD/DC/CN. Curved leftward fold arrow D to Dprime preserved."
+  ],
+  "checks": {
+    "source_record_and_bytes_match": true,
+    "two_independent_renders_equal_candidate": true,
+    "opaque768": true,
+    "bbox": [
+      54,
+      200,
+      714,
+      568
+    ],
+    "occupancy": 0.8606770833333334,
+    "independent_numeric_checks": {
+      "answer": "D",
+      "area": 47.0,
+      "proof": "Perpendicular bisector of CA intersects bottom at7.5 and top at8.5; reflecting D gives(32/17,128/17). Shoelace of A,B,N,M,Dprime yields47."
+    },
+    "renderer_checks": [
+      {
+        "id": "width",
+        "type": "distance",
+        "measured": 4.0,
+        "passed": true
+      },
+      {
+        "id": "length",
+        "type": "distance",
+        "measured": 16.0,
+        "passed": true
+      }
+    ],
+    "report_hashes_valid": true
+  },
+  "required_changes": [],
+  "previous_revisions": [],
+  "dependency_hashes": {
+    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  }
+}

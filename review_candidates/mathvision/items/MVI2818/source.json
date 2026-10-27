@@ -1,0 +1,14 @@
+{
+  "id": "2818",
+  "question": "Consider the $5\\times 5$ grid $Z^2_5 = \\{(a, b) : 0 \\le a, b \\le 4\\}$.\\nSay that two points $(a, b)$,$(x, y)$ are adjacent if $a - x  \\equiv  -1, 0, 1$ (mod $5$) and $b - y \\equiv -1, 0, 1$ (mod $5$) .\\nFor example, in the diagram, all of the squares marked with $\\cdot$ are adjacent to the square marked with $\\times$.\\n\\nWhat is the largest number of $\\times$ that can be placed on the grid such that no two are adjacent?\\n<image1>",
+  "options": [],
+  "image": "images/2818.jpg",
+  "decoded_image": {
+    "path": "images/2818.jpg",
+    "original_path": "2818.jpg"
+  },
+  "answer": "5",
+  "solution": "First, see that we can place $5 \\times$ on the grid. Start with one $\\times$ in any location. Fix a direction, make one knight's move away in that direction and place another $\\times$. Repeat three times. The result looks like this:\\n\\begin{tabular}{|c|c|c|c|c|}\\n\\hline$\\times$ & $\\cdot$ & & & $\\cdot$ \\\\n\\hline$\\cdot$ & $\\cdot$ & $\\times$ & & $\\cdot$ \\\\n\\hline & & & & $\\times$ \\\\n\\hline & $\\times$ & & & \\\\n\\hline$\\cdot$ & $\\cdot$ & & $\\times$ & $\\cdot$ \\\\n\\hline\\n\\end{tabular}\\n\\nNext, we see that we can't have more than 5 . Suppose we did. Then by pigeonhole, at least one column has at least two $\\times$ in it. In the remainder, we show that if some column has two $\\times$, then there are at most $4 \\times$ in the whole grid.\\n\\nNotice that a column may not have more than two $\\times$ in it. Furthermore, if one column has two $\\times$, then the adjacent columns must be empty. Then there are two columns not adjacent to the column which has two $\\times$ in it. If either column has two $\\times$, then the other is empty. Therefore, there are at most two $\\times$ among them.",
+  "level": 5,
+  "subject": "combinatorial geometry"
+}

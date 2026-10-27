@@ -1,0 +1,118 @@
+{
+  "reviewer": "independent /root/review_transformation_batch",
+  "source_id": "2842",
+  "category": "transformation_geometry",
+  "reviewed_utc": "2026-10-27T02:13:23.614177+00:00",
+  "verdict": "agent_verified",
+  "user_approval": false,
+  "hashes": {
+    "original.jpg": "8fb766fed9c05eba25d7551b4c63be02a46de16c658ba6c46a4479eb4f56e685",
+    "source.json": "373bd448bc89a3e4dd013eb68799a2b93db323db47fc879b607ff5c5a4e5ac74",
+    "scene.json": "841281b88937f326461019d8f02269bf6e2b64e8e13a0592a8d578525c54d4f7",
+    "render.py": "50d9e49980341c62c8b125d255c0a9e28a968f9d1b92f3d816cf04ed246cae73",
+    "image.png": "a11afb707d7d214ba6afd506d0b109897b28016394d2e0f1f1efc941a22eefe4",
+    "audit.json": "4c5b32e9c572ddb5f14adece7c74216b1b6674e6f68e9131a0327cf0099c76c0",
+    "redraw_report.json": "08bed4c137cdd025d0efe91ae975e897c7b516c6315416fec1dcbb3b2ecc5f16"
+  },
+  "explicit_inspected_facts": [
+    "Individually viewed source/output:7\u00d75 rectangle A upper-left,B upper-right,C lower-right,D lower-left, unit grid, incoming45degree dashed ray throughA to bottom at x5 and partial reflected continuation. Source path preserved; revised labels and dots black.",
+    "Re-viewed original and revised candidate: A/B/C/D and dots now black; gray unit grid and reflected dashed ray unchanged. Previous decorative blue styling issue resolved."
+  ],
+  "checks": {
+    "source_record_and_bytes_match": true,
+    "two_independent_renders_equal_candidate": true,
+    "opaque768": true,
+    "bbox": [
+      55,
+      141,
+      712,
+      626
+    ],
+    "occupancy": 0.8567708333333334,
+    "independent_numeric_checks": {
+      "answer": "10",
+      "unfolded_wall_event_parameters": [
+        5,
+        7,
+        10,
+        14,
+        15,
+        20,
+        21,
+        25,
+        28,
+        30
+      ],
+      "first_corner_parameter": 35,
+      "proof": "Unfold45degree ray. First simultaneous vertical/horizontal grid boundary occurs lcm(7,5)=35. Before it there are6 horizontal and4 vertical hits with no overlap, total10."
+    },
+    "renderer_checks": [],
+    "report_hashes_valid": true
+  },
+  "required_changes": [],
+  "previous_revisions": [
+    {
+      "reviewer": "independent /root/review_transformation_batch",
+      "source_id": "2842",
+      "category": "transformation_geometry",
+      "reviewed_utc": "2026-10-27T02:04:06.301146+00:00",
+      "verdict": "needs_revision",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "8fb766fed9c05eba25d7551b4c63be02a46de16c658ba6c46a4479eb4f56e685",
+        "source.json": "373bd448bc89a3e4dd013eb68799a2b93db323db47fc879b607ff5c5a4e5ac74",
+        "scene.json": "841281b88937f326461019d8f02269bf6e2b64e8e13a0592a8d578525c54d4f7",
+        "render.py": "1ab9c206ed9cfeb039f87f79d2f4375aadbe10502f4d8e47c1b89c9f5130c9a8",
+        "image.png": "927da42b34d3dc05c86959869ed8a0a71da1941fa7a3fc4c24099fd6d68d0227",
+        "audit.json": "8166f48fc04ba0c9e0cdd8c50e9c806704cb2f9c4d54c683176e1297601e6f6e",
+        "redraw_report.json": "194f5254cfeca4ee054a6a6d8a57bbc8e08c7c78223bdcc8f31056d9d3dd092e"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed source/output:7\u00d75 rectangle A upper-left,B upper-right,C lower-right,D lower-left, unit grid, incoming45degree dashed ray throughA to bottom at x5 and partial reflected continuation. Source path preserved but blue label styling violates pure-black text protocol."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          55,
+          141,
+          712,
+          626
+        ],
+        "occupancy": 0.8567708333333334,
+        "independent_numeric_checks": {
+          "answer": "10",
+          "unfolded_wall_event_parameters": [
+            5,
+            7,
+            10,
+            14,
+            15,
+            20,
+            21,
+            25,
+            28,
+            30
+          ],
+          "first_corner_parameter": 35,
+          "proof": "Unfold45degree ray. First simultaneous vertical/horizontal grid boundary occurs lcm(7,5)=35. Before it there are6 horizontal and4 vertical hits with no overlap, total10."
+        },
+        "renderer_checks": [],
+        "report_hashes_valid": true
+      },
+      "required_changes": [
+        "Remove blue text override; vertex labels pure black per protocol. Blue vertex dots should also normalize black (all same semantic class). Preserve differentiated gray grid and dashed ray. Rerender and rebind hashes."
+      ],
+      "previous_revisions": [],
+      "dependency_hashes": {
+        "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+        "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+      }
+    }
+  ],
+  "dependency_hashes": {
+    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  }
+}

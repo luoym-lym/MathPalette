@@ -1,0 +1,129 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:640",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "combinatorial geometry",
+  "original_record": {
+    "id": "640",
+    "question": "Erik has 4 bricks of the same size: <image1>. Which of the cubes shown below can he make with his 4 bricks?\n<image2>",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "image": "images/640.jpg",
+    "decoded_image": {
+      "path": "images/640.jpg",
+      "original_path": "640.jpg"
+    },
+    "answer": "C",
+    "solution": null,
+    "level": 2,
+    "subject": "combinatorial geometry"
+  },
+  "source_package": "MathVision_redrawn_combinatorial_geometry_296_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:05.052366+00:00",
+    "complete": true,
+    "category": "combinatorial_geometry",
+    "source_questions": 308,
+    "retained": 296,
+    "excluded": 12,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "inventory": {
+      "given": "four identical 2x1x1 bricks: one white, three gray",
+      "options": "A-E 2x2x2 cubes with exact front/right/top rectangular region partitions, white/gray colors and letter labels"
+    },
+    "answer_verification": {
+      "method": "One white brick contains exactly two white unit cubes. Counting distinct visible white cubes gives4,4,2,4,4, so only C can work. C has the explicit four-domino disjoint full-cube partition recorded below; first domino white, remaining three gray.",
+      "visible_white_cube_counts": [
+        4,
+        4,
+        2,
+        4,
+        4
+      ],
+      "constructive_C_dominoes": [
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ]
+      ],
+      "verified_answer": "C"
+    },
+    "source_actually_viewed": true,
+    "source_inventory_complete": true,
+    "explicit_conditions_vs_layout": "Geometry and option identity preserved. Locations and panel spacing are display layout only.",
+    "user_approval": false,
+    "prior_triage": {
+      "source_actually_viewed": true,
+      "inventory_notes": "Four identical dominoid bricks, one white and three gray, and five colored cube options. Need native 3D face color and hidden inventory verification.",
+      "source_inventory_complete": false,
+      "answer_verification": "pending unless explicit reasoning in notes",
+      "user_approval": false
+    }
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

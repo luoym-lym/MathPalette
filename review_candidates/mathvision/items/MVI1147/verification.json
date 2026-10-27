@@ -1,0 +1,54 @@
+{
+  "reviewer": "independent /root/review_transformation_batch",
+  "source_id": "1147",
+  "category": "transformation_geometry",
+  "reviewed_utc": "2026-10-27T01:45:43.960751+00:00",
+  "verdict": "agent_verified",
+  "user_approval": false,
+  "hashes": {
+    "original.jpg": "7362123b1f7d8c6bc8589d920a0c34d90685891f8fd6d15a831415b5d448a92e",
+    "source.json": "518d6bfe00fe481b67abf2b07e377f4dc54d44325bad418e6302f6a604ad4c92",
+    "scene.json": "14a032eb2006f3498dd92b7bc10d33609d146a67a39df7a3f4d76a8b4070805f",
+    "render.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
+    "image.png": "23ce9174c84809291409d91717f8e5382b82f83e53ec57049358a69541b0ea2b",
+    "audit.json": "c21d738cbf686cddfb425094442c81899c81dcca748051df09546363545ada0a",
+    "redraw_report.json": "1509fb347aa6ac57464a0bec5f751c1614ee1e7fe8ec80e598f09fcde4a28b56"
+  },
+  "explicit_inspected_facts": [
+    "Individually viewed source/output: upper square has two small open holes near left/bottom at exchanged offsets; lower A two diagonals, B three verticals, C central cross, D three rising parallel diagonals, E two verticals. Hole pair and every crease panel retained."
+  ],
+  "checks": {
+    "source_record_and_bytes_match": true,
+    "two_independent_renders_equal_candidate": true,
+    "opaque768": true,
+    "bbox": [
+      54,
+      231,
+      713,
+      535
+    ],
+    "occupancy": 0.859375,
+    "independent_numeric_checks": {
+      "answer": "D",
+      "holes_local_coordinates": [
+        [
+          0.33000000000000007,
+          1.0999999999999996
+        ],
+        [
+          1.0999999999999996,
+          0.33000000000000007
+        ]
+      ],
+      "proof": "Holes reflect in rising main diagonal y=x. Vertical folds B/E preserve y and cannot pair them; horizontal/vertical C cannot swap unequal coordinates. A also folds opposite diagonal, requiring additional holes at the opposite corner. D secondary parallel corner folds do not cover the lower-left punch location, so only the pair results."
+    },
+    "renderer_checks": [],
+    "report_hashes_valid": true
+  },
+  "required_changes": [],
+  "previous_revisions": [],
+  "dependency_hashes": {
+    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  }
+}

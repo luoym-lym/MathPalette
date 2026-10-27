@@ -1,0 +1,277 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVision_2568",
+  "status": "staging",
+  "subject": "SolidGeometry",
+  "source_dataset": "MathVision",
+  "source_image": "original.jpg",
+  "source_note": "Original image and question retained independently; no formal approval.",
+  "world_unit": "unit",
+  "points": {
+    "p000": [
+      0,
+      0,
+      0
+    ],
+    "p001": [
+      0,
+      0,
+      5
+    ],
+    "p010": [
+      0,
+      10,
+      0
+    ],
+    "p011": [
+      0,
+      10,
+      5
+    ],
+    "p100": [
+      20,
+      0,
+      0
+    ],
+    "p101": [
+      20,
+      0,
+      5
+    ],
+    "p110": [
+      20,
+      10,
+      0
+    ],
+    "p111": [
+      20,
+      10,
+      5
+    ],
+    "rear_left_clip": [
+      0,
+      7.142857142857143,
+      0
+    ],
+    "rear_right_clip": [
+      15,
+      10,
+      0
+    ]
+  },
+  "projection": {
+    "kind": "oblique",
+    "matrix": [
+      [
+        1,
+        0.7,
+        0
+      ],
+      [
+        0,
+        0.7,
+        1
+      ]
+    ],
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "toward_viewer": [
+      0.7,
+      -1.0,
+      0.7
+    ],
+    "name": "source-aligned parallel oblique",
+    "reason": "Retains source orientation; geometry is independent of page projection"
+  },
+  "view": {
+    "xlim": [
+      -0.6945857558139519,
+      27.749273255813954
+    ],
+    "ylim": [
+      -8.249273255813952,
+      20.194585755813954
+    ],
+    "layout": {
+      "method": "native viewport fit to actual nonwhite pixels",
+      "bbox_px": [
+        54,
+        236,
+        712,
+        530
+      ],
+      "long_side_fraction": 0.8580729166666666,
+      "center_error_px": [
+        -0.5,
+        -0.5
+      ]
+    }
+  },
+  "visibility": {
+    "mode": "frozen_intervals",
+    "projection_sha256": "491da2559faed6268bb5033f1a33d721918772f9ca01e8da8fb570bb8fe6124f",
+    "note": "Source-displayed lines only; no automatic hidden edge completion."
+  },
+  "objects": [
+    {
+      "id": "material1",
+      "type": "face",
+      "points": [
+        "p100",
+        "p110",
+        "p111",
+        "p101"
+      ],
+      "role": "region",
+      "visibility": "visible",
+      "semantic_fill_reason": "Source gray front and right walls identify folded cardboard material; top is open."
+    },
+    {
+      "id": "material0",
+      "type": "face",
+      "points": [
+        "p000",
+        "p100",
+        "p101",
+        "p001"
+      ],
+      "role": "region",
+      "visibility": "visible",
+      "semantic_fill_reason": "Source gray front and right walls identify folded cardboard material; top is open."
+    },
+    {
+      "id": "line_0",
+      "type": "segment",
+      "points": [
+        "p000",
+        "p100"
+      ],
+      "role": "edge",
+      "visibility": "visible"
+    },
+    {
+      "id": "line_1",
+      "type": "segment",
+      "points": [
+        "rear_left_clip",
+        "p010"
+      ],
+      "role": "edge",
+      "visibility": "hidden"
+    },
+    {
+      "id": "line_2",
+      "type": "segment",
+      "points": [
+        "p000",
+        "p001"
+      ],
+      "role": "edge",
+      "visibility": "visible"
+    },
+    {
+      "id": "line_3",
+      "type": "segment",
+      "points": [
+        "p001",
+        "p101"
+      ],
+      "role": "edge",
+      "visibility": "visible"
+    },
+    {
+      "id": "line_4",
+      "type": "segment",
+      "points": [
+        "p001",
+        "p011"
+      ],
+      "role": "edge",
+      "visibility": "visible"
+    },
+    {
+      "id": "line_5",
+      "type": "segment",
+      "points": [
+        "p010",
+        "rear_right_clip"
+      ],
+      "role": "edge",
+      "visibility": "hidden"
+    },
+    {
+      "id": "line_6",
+      "type": "segment",
+      "points": [
+        "p010",
+        "p011"
+      ],
+      "role": "edge",
+      "visibility": "hidden"
+    },
+    {
+      "id": "line_7",
+      "type": "segment",
+      "points": [
+        "p011",
+        "p111"
+      ],
+      "role": "edge",
+      "visibility": "visible"
+    },
+    {
+      "id": "line_8",
+      "type": "segment",
+      "points": [
+        "p100",
+        "p110"
+      ],
+      "role": "edge",
+      "visibility": "visible"
+    },
+    {
+      "id": "line_9",
+      "type": "segment",
+      "points": [
+        "p100",
+        "p101"
+      ],
+      "role": "edge",
+      "visibility": "visible"
+    },
+    {
+      "id": "line_10",
+      "type": "segment",
+      "points": [
+        "p101",
+        "p111"
+      ],
+      "role": "edge",
+      "visibility": "visible"
+    },
+    {
+      "id": "line_11",
+      "type": "segment",
+      "points": [
+        "p110",
+        "p111"
+      ],
+      "role": "edge",
+      "visibility": "visible"
+    }
+  ],
+  "dimensions": [],
+  "labels": [],
+  "constraints": [],
+  "ambiguities": [
+    "Hidden rear-bottom lines clipped at opaque gray front/right walls as in source. No top face fill: top rectangular boundary is opening. Source rear bottom edges dashed through schematic walls retained."
+  ]
+}

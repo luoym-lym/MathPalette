@@ -1,0 +1,74 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:1934",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "combinatorial geometry",
+  "original_record": {
+    "id": "1934",
+    "question": "An annulus is a shape made from two concentric circles. The diagram shows an annulus consisting of two concentric circles of radii 2 and 9. Inside this annulus two circles are drawn without overlapping, each being tangent to both of the concentric circles that make the annulus. In a different annulus made by concentric circles of radii 1 and 9 , what would be the largest possible number of non-overlapping circles that could be drawn in this way?\n<image1>",
+    "options": [],
+    "image": "images/1934.jpg",
+    "decoded_image": {
+      "path": "images/1934.jpg",
+      "original_path": "1934.jpg"
+    },
+    "answer": "3",
+    "solution": "The diameter of the non-overlapping circles is the difference between the radius of the large circle and the radius of the small circle, namely $9-1=8$. Thus the radius of each circle is $4 \\mathrm{~cm}$, and the centre of each circle is $1+4=5 \\mathrm{~cm}$ from the centre of the inner circle. The closest the circles could be is when they are touching. The diagram shows two of these circles and the inner circle of radius $1 \\mathrm{~cm}$. We need to establish the size of angle $C A B$. Since $5^{2}+5^{2}<8^{2}$, we deduce that $\\angle C A B>90^{\\circ}$, and hence it is not possible to fit 4 circles in the annulus.  ![](https://cdn.mathpix.com/cropped/2023_12_27_0f4ed2787981bb911326g-253.jpg?height=520&width=551&top_left_y=2090&top_left_x=1278)  We can also show that $\\angle C A B<120^{\\circ}$. For if $\\angle C A B=120^{\\circ}$, then $\\angle C A D=60^{\\circ}$ and $A D=2 \\frac{1}{2}$.  But $A D=\\sqrt{5^{2}-4^{2}}=3$, so $\\angle C A D<60^{\\circ}$ and $\\angle C A B<120^{\\circ}$. Hence three circles can fit in the annulus, and that is the maximum.",
+    "level": 3,
+    "subject": "combinatorial geometry"
+  },
+  "source_package": "MathVision_redrawn_combinatorial_geometry_296_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:05.052366+00:00",
+    "complete": true,
+    "category": "combinatorial_geometry",
+    "source_questions": 308,
+    "retained": 296,
+    "excluded": 12,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "source_viewed": true,
+    "inventory": {
+      "panels": 1,
+      "circles": 4,
+      "annulus": "radii2and9",
+      "inserted": "twocirclesradius3.5,upperandright,tangenttobothannulusboundariesandeachother",
+      "fill": "none",
+      "labels": []
+    },
+    "explicit_conditions": [
+      "sourceannulusradii2and9",
+      "twononoverlappingtangentcircles"
+    ],
+    "layout_only": "Frozen uniform scale and placement; source orientation retained.",
+    "answer_verification": {
+      "status": "verified",
+      "answer": "3",
+      "reason": "Questiontargetannulus1,9requirescircle4,centerdistance5;adjacentseparationangle2asin(.8)>90and<120,hencemax3. Sourceexample2,9retained.",
+      "conditions": [
+        "sourceannulusradii2and9",
+        "twononoverlappingtangentcircles"
+      ]
+    },
+    "self_review": {
+      "status": "actually_viewed",
+      "facts": "Unfilledannulusradii2and9, twotangent3.5circlesupper/right; allfourcirclesandtopology retained."
+    }
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

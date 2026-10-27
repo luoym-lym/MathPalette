@@ -1,0 +1,101 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:998",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "transformation geometry",
+  "original_record": {
+    "id": "998",
+    "question": "A folded napkin was cut through (see picture). What does it look like when unfolded?\n<image1>\n<image2>",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "image": "images/998.jpg",
+    "decoded_image": {
+      "path": "images/998.jpg",
+      "original_path": "998.jpg"
+    },
+    "answer": "C",
+    "solution": null,
+    "level": 3,
+    "subject": "transformation geometry"
+  },
+  "source_package": "MathVision_redrawn_transformation_geometry_160_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:02.513020+00:00",
+    "complete": true,
+    "category": "transformation_geometry",
+    "source_questions": 168,
+    "retained": 160,
+    "excluded": 8,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "inventory": [
+      "Twice-folded square paper/napkin with two triangular cuts, one on each perpendicular folded edge",
+      "Four physical quarter layers grouped into two partly opened rigid 3D packets",
+      "Five square option panels retaining four/five holes and their horizontal/vertical rhombus orientation"
+    ],
+    "explicit_conditions": "A folded napkin was cut through (see picture). What does it look like when unfolded?\n<image1>\n<image2>",
+    "answer_review": {
+      "status": "verified",
+      "source_answer": "C",
+      "computed_answer": "C",
+      "reasoning": "Use quarter coordinates x in[0,1],y in[0,1], with fold edges x=0 and y=1. Reflect each triangular notch across its fold edge, then across the other crease. The left-edge notch produces two wide horizontal rhombi at the top/bottom of the unfolded square; the top-edge notch produces two tall vertical rhombi at left/right. No cut reaches the intersection of folds, so no central hole occurs. Only C has this arrangement.",
+      "reflection_maps": [
+        "(x,y)",
+        "(-x,y)",
+        "(x,2-y)",
+        "(-x,2-y)"
+      ],
+      "result_hole_centers_unfolded": [
+        [
+          -0.5,
+          1
+        ],
+        [
+          0.5,
+          1
+        ],
+        [
+          0,
+          0.5
+        ],
+        [
+          0,
+          1.5
+        ]
+      ],
+      "result_orientation": [
+        "vertical",
+        "vertical",
+        "horizontal",
+        "horizontal"
+      ]
+    },
+    "display_conditions": "Semantic paper fill gray, cutouts white; outlines black1pt. Options preserve orientation distinctions, not merely hole counts. Projection, hinge angle and exact edge-occlusion subdivision frozen independently.",
+    "source_viewed": true,
+    "source_artifact_exclusions": [
+      "Blue imageN headers and separator rules are dataset packaging, not the question figure."
+    ],
+    "native_model": "3D coordinates, rigid folded paper / wood model, explicit projection and boundary visibility. Native analytic vector objects only."
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

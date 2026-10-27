@@ -1,0 +1,63 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:2981",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "solid geometry",
+  "original_record": {
+    "id": "2981",
+    "question": "The right pyramid shown has a square base and all eight of its edges are the same length. What is the degree measure of angle $ABD$?<image1>",
+    "options": [],
+    "image": "images/2981.jpg",
+    "decoded_image": {
+      "path": "images/2981.jpg",
+      "original_path": "2981.jpg"
+    },
+    "answer": "45",
+    "solution": "Let $x$ represent the length of each of the edges. If we draw the diagonal $\\overline{BD}$, we create the right triangle $BCD$. Since $\\overline{BC}\\cong\\overline{DC}$, $\\triangle BCD$ is a 45-45-90 right triangle, which means the hypotenuse has a length of $\\sqrt{2}$ times the length of each leg. So $BD=x\\sqrt{2}$. Since $\\triangle ABD$ is an isosceles triangle, we know that drawing a segment from $A$ to the midpoint of $\\overline{BD}$ splits the triangles into two congruent right triangles. Each right triangle has a hypotenuse of length $x$ and a leg of length $\\frac{BD}{2}=\\frac{x\\sqrt{2}}{2}=\\frac{x}{\\sqrt{2}}$. Notice that the hypotenuse has a length of $\\sqrt{2}$ times the length of the bottom leg, which means the triangle is another 45-45-90 right triangle. That means the degree measure of angle $ABD$ is $\\boxed{45^\\circ}$.\n\n[asy]size(170);\nimport three; defaultpen(linewidth(0.7)); currentprojection = orthographic(0.8,-1,0.15);\npen sm = fontsize(8); triple A = (.5,.5,1), B = (0,0,0), C = (1,0,0), D = (1,1,0), E = (0,1,0); /* should be A = (.5,.5,1/2^.5) */\ndraw(A--B--C--D--A--C); draw(A--E--D,linewidth(0.7)+linetype(\"3 3\")); draw(B--E,linewidth(0.7)+linetype(\"2 2\"));\nlabel(\"A\",A,N,sm); label(\"B\",B,S,sm); label(\"C\",C,S,sm);label(\"D\",D,(1,0),sm);label(\"E\",E,NW,sm); draw(B--D); label(\"$x$\", (B+C)/2, SW); label(\"$x$\", (C+D)/2, SE); label(\"$x\\sqrt{2}$\", (B+D)/2, N, sm); label(\"$\\frac{x}{\\sqrt{2}}$\", (B+(B+D)/2)/2, N, sm); label(\"$x$\",(A+B)/2, NW); draw(A--(B+D)/2);\n\n[/asy]",
+    "level": 2,
+    "subject": "solid geometry"
+  },
+  "source_package": "MathVision_redrawn_solid_geometry_240_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:00.302878+00:00",
+    "complete": true,
+    "category": "solid_geometry",
+    "source_questions": 244,
+    "retained": 240,
+    "excluded": 4,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "inventory": [
+      "Square pyramid apex A, base B-C-D-E; five solid edges and three hidden edges meeting E; five labels; no dots or angle arcs."
+    ],
+    "explicit_conditions": [
+      "Right square pyramid, all eight edges equal."
+    ],
+    "layout_choices": [
+      "Unit scale; apex height sqrt(1/2); base diagonal BD not added."
+    ],
+    "answer_check": {
+      "reasoning": "Triangle ABD has AB=AD=s and BD=s√2; cosine at B is BD/(2s)=1/√2 so angle ABD=45°.",
+      "answer": "45",
+      "matches_source": true
+    },
+    "source_image_sha256": "c513b9121cd3e108341673ff47170bb82cc9c9bcb3029f0766deb4cae4ef8c50",
+    "source_viewed": true
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

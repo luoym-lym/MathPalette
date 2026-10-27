@@ -1,0 +1,84 @@
+{
+  "reviewer": "independent /root/review_geometry_redraws",
+  "category": "solid_geometry",
+  "source_id": "180",
+  "reviewed_utc": "2026-10-27T03:22:55.465076+00:00",
+  "verdict": "agent_verified",
+  "user_approval": false,
+  "hashes": {
+    "source.json": "4ef87696199ee4b52f0649c98199e8a80268e10e5ccef34abf0e6b65a8adf1f2",
+    "original.jpg": "07e7850f40ce5911138dad0091c390ce370ec27c7d24fbe7af615cad1091e656",
+    "scene.json": "19f37e0a2678d284525db3f6c4d9df09fe0eb873fa75800bd3d216406b2b7a9e",
+    "image.png": "b50f188399b30815bdd1455d06758f5e54d7340a07199320dde394c44c276caa",
+    "image.svg": "5d8d6f29a16399dd3c58b820a10c14c1763556db93a75ecb059a5ce6851cbabe",
+    "render.py": "854fffeddd6220bb2986f53708d7d8058a3048946d2fefcb72c7e8f724c1eb44",
+    "redraw_report.json": "5e7993a62eb42453111cc83fd7785df32b955b5cfba1a79cef2852b6714c0107",
+    "audit.json": "f2f67ddfecff38d88661962a726cf5e79199c568ca180ae21369d9639d2065ca"
+  },
+  "explicit_inspected_facts": [
+    "Actually re-viewed original and corrected candidate: front aperture now has only near left/bottom wall boundaries and white rear patch; extra far internal grid/diagonal removed. Top/right near-wall shading and outer ungridded cube retained.",
+    "Independently checked20-cell model is exactly3\u00b3 minus all cells with at least2 coordinates1, hence three intersecting through-tunnels not blind cavities. Removed7 gives remaining600g, C."
+  ],
+  "checks": {
+    "source_record_matches_export": true,
+    "source_image_matches_export": true,
+    "report_hashes_match": true,
+    "isolated_standalone_entry_twice_identical": true,
+    "reproduction_matches_pixels": true,
+    "size": [
+      768,
+      768
+    ],
+    "opaque": true,
+    "bbox": [
+      52,
+      52,
+      715,
+      715
+    ],
+    "occupancy": 0.8645833333333334,
+    "center_offset_px": [
+      0.0,
+      0.0
+    ],
+    "scoped_dependencies": {},
+    "independent_removed_count": 7,
+    "remaining_weight_g": 600
+  },
+  "required_changes": [],
+  "previous_revisions": [
+    {
+      "reviewer": "independent /root/review_geometry_redraws",
+      "category": "solid_geometry",
+      "source_id": "180",
+      "reviewed_utc": "2026-10-27T02:54:55.192841+00:00",
+      "verdict": "needs_revision",
+      "user_approval": false,
+      "hashes": {
+        "source.json": "4ef87696199ee4b52f0649c98199e8a80268e10e5ccef34abf0e6b65a8adf1f2",
+        "original.jpg": "07e7850f40ce5911138dad0091c390ce370ec27c7d24fbe7af615cad1091e656",
+        "scene.json": "15a93ca4134c18e5cb8f3c2d4e8a1c6c19c95e97e271fdc6e2a015597d087ac4",
+        "image.png": "d860f9a2cd899e2e94a78b46184ed31858658e5e1f3460f104063d95c365c0b8",
+        "image.svg": "66dd45d7a1fa0a5d723a3beef1966e6527edfca1d27cfef1969efa68c993e0a5",
+        "render.py": "854fffeddd6220bb2986f53708d7d8058a3048946d2fefcb72c7e8f724c1eb44",
+        "redraw_report.json": "ff8df7df8dadd130dd720796a5c7b93208fa9d5f2c954927d8b27bd9ef8d6019",
+        "audit.json": "0368b1b2730c35beec4958bddba41aa53b48c858dd3fb619c93dbea95a464b5f"
+      },
+      "explicit_inspected_facts": [
+        "Actually viewed original and current draft: source has three central square through-hole entrances; front aperture shows left wall, bottom wall and white rear visible patch, no far internal grid. Draft adds vertical/horizontal/diagonal far aperture seams and fills rear patch gray.",
+        "No source/key inconsistency: three length3 unit tunnels share central unit cube, union7, remaining20*30g=600g C."
+      ],
+      "checks": {
+        "source_record_matches_export": true,
+        "source_image_matches_export": true,
+        "original_and_current_draft_actually_viewed": true,
+        "semantic_fidelity_pass": false,
+        "determinism_and_final_geometry_review": "pending after semantic repair"
+      },
+      "required_changes": [
+        "Repair front aperture native inner-wall clipping and source-displayed edge selection: omit added far internal grid/diagonal, preserve source white patch. Do not convert through-tunnels into blind cavities."
+      ],
+      "previous_revisions": []
+    }
+  ]
+}

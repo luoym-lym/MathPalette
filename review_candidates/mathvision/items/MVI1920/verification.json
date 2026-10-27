@@ -1,0 +1,54 @@
+{
+  "reviewer": "independent /root/review_transformation_batch",
+  "source_id": "1920",
+  "category": "transformation_geometry",
+  "reviewed_utc": "2026-10-27T03:15:59.920939+00:00",
+  "verdict": "agent_verified",
+  "user_approval": false,
+  "hashes": {
+    "original.jpg": "da5bb7844924f1c9747fc70fb68a96c64e60c3333cdd58058d09c809cf32bd39",
+    "source.json": "c79e7c695a544b099640b130ad0f95c40c7612e9384386292c50ca6a5fd4a932",
+    "scene.json": "09c0a028987674fe33a51b4d2b10f713c0940aad634932f01638f52b6177dfda",
+    "render.py": "f9732f2acaa0bede016cf487f76a96121d8ba56370bac5227e1bdcb3985d50d8",
+    "image.png": "1f7e62188e8e4b0811f848154007651e734f81b74bec47eb38d81c076204f2e9",
+    "audit.json": "5f71dc91e1ed7dfb44818aec9ac1bb5d42d06083dd69d6119f78f9602a8be6a7",
+    "redraw_report.json": "445af9a7f8c664e6cbc5fec70a1f175d421f38bb40cd681b6ef798900b625cde"
+  },
+  "explicit_inspected_facts": [
+    "Individually viewed original and candidate: five gray zigzag tracks with wheel and forward rolling arrow, candidate paths and terminal arrows. Peak/trough types in A-E order are ['round/round', 'sharp/round', 'flat/flat', 'sharp/sharp', 'round/sharp']. Source-specific order preserved.",
+    "Wheel center remains perpendicular distance r from each straight slope. At convex peak, contact stays at apex and center follows radius-r circular arc; at concave trough, two offset straight lines meet sharply as contact switches. Therefore rounded peaks/sharp troughs E. Numerically checked finalE arc samples radius0.3 equal wheel radius."
+  ],
+  "checks": {
+    "source_record_and_bytes_match": true,
+    "two_independent_renders_equal_candidate": true,
+    "opaque768": true,
+    "bbox": [
+      53,
+      275,
+      713,
+      493
+    ],
+    "occupancy": 0.8606770833333334,
+    "independent_numeric_checks": {
+      "candidate_peak_trough_order": [
+        "round/round",
+        "sharp/round",
+        "flat/flat",
+        "sharp/sharp",
+        "round/sharp"
+      ],
+      "E_peak_radius": 0.3,
+      "radius_error": 6.661338147750939e-16,
+      "answer": "E"
+    },
+    "renderer_checks": [],
+    "report_hashes_valid": true,
+    "isolated_standalone_render_identical": true
+  },
+  "required_changes": [],
+  "previous_revisions": [],
+  "dependency_hashes": {
+    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  }
+}

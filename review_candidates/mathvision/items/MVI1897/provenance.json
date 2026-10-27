@@ -1,0 +1,83 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:1897",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "combinatorial geometry",
+  "original_record": {
+    "id": "1897",
+    "question": "If $r, s$, and $t$ denote the lengths of the 'lines' in the picture, then which of the following inequalities is correct? <image1>",
+    "options": [
+      "$r<s<t$",
+      "$r<t<s$",
+      "$s<r<t$",
+      "$s<t<r$",
+      "$t<s<r$"
+    ],
+    "image": "images/1897.jpg",
+    "decoded_image": {
+      "path": "images/1897.jpg",
+      "original_path": "1897.jpg"
+    },
+    "answer": "E",
+    "solution": "If each square has side-length one unit, then the length $r$ is 16 units. The length $s$ consists of 8 straight unit lengths and two semicircles with radius 1 unit, so $s=8+2 \\pi$. The length $t$ consists of 8 straight unit lengths and two diagonals (that together make the hypotenuse of a right-angled triangle with short sides both of length 4 units), so $t=8+2 \\sqrt{8}$. Since $\\sqrt{8}<3<\\pi<4$, we have $t<s<r$.",
+    "level": 3,
+    "subject": "combinatorial geometry"
+  },
+  "source_package": "MathVision_redrawn_combinatorial_geometry_296_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:05.052366+00:00",
+    "complete": true,
+    "category": "combinatorial_geometry",
+    "source_questions": 308,
+    "retained": 296,
+    "excluded": 12,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "source_viewed": true,
+    "inventory": {
+      "panels": 3,
+      "grid": "30x5",
+      "r": "orthogonalstair",
+      "s": "upperandlowersemicirclesradius1plusstraightsegments",
+      "t": "twodiagonalsandcentralvertical",
+      "labels": [
+        "r",
+        "s",
+        "t"
+      ]
+    },
+    "explicit_conditions": [
+      "unitgrid comparison"
+    ],
+    "layout_only": "Frozen uniform scale and placement; source orientation retained.",
+    "answer_verification": {
+      "status": "verified",
+      "answer": "E",
+      "reason": "r16,s8+2pi,t8+4sqrt2; t<s<r.",
+      "conditions": [
+        "unitgrid comparison"
+      ]
+    },
+    "self_review": {
+      "status": "actually_viewed",
+      "facts": "Viewed revisedr/s/t routes andsemicircles2.5pt stronglyseparatedfrom1ptgraygrid; letters16pt,nochangegeometry."
+    },
+    "semantic_linewidth_override": "r/s/t routes2.5pt,graygrid1pt,routeletters16pt. Rootrequestedsourceboldsemantics."
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

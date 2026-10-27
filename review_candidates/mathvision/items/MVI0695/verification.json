@@ -1,0 +1,64 @@
+{
+  "reviewer": "independent /root/review_transformation_batch",
+  "source_id": "695",
+  "category": "transformation_geometry",
+  "reviewed_utc": "2026-10-27T02:57:22.298525+00:00",
+  "verdict": "agent_verified",
+  "user_approval": false,
+  "hashes": {
+    "original.jpg": "127c9a3e61388444ce44fe3d575808af0c5d7c77a5df4514fc25493e0d8e4ff3",
+    "source.json": "74889e5fa3baeeeefb536323b23866526941a2e024e5372938dbd0cc7f4387d2",
+    "scene.json": "ec9969e46337aefcb20cf4838c53f1dd879dbfba29296a95272c3ccd5d461047",
+    "render.py": "225175cbdfda7d5a5b47672c7691d9fc4d46eaffbc884e50425ca354da42b4ba",
+    "image.png": "7ca5fe9eaff3b7aec8c9efa6eb13bbc62c8798e994c0a742c7daa55fc2b7a5e4",
+    "audit.json": "8d0c3e3e69b789933d1d4753f854a897eaf41dcd0991779154389c82397562e8",
+    "redraw_report.json": "2f15490d38257d9a11b8dc9e5751212db07d044f5c272ac1f934a37c14742c7a"
+  },
+  "explicit_inspected_facts": [
+    "Individually viewed source and candidate: bottom half folds upward then left half rightward, resulting quarter-sheet lower-left corner diagonally cut. Dashed removed corner retained. A square central hole,B diamond central hole,C outer diamond,D cross,E cross with diamond hole; gray paper/white holes preserved.",
+    "The cut corner lies at both fold axes, hence original center. Reflect its triangular cut across horizontal and vertical centerlines: four right triangles form central diamond; outer square corners untouched. OnlyB matches. Candidate diamond tips all0.75 from center, consistent with cut legs0.75."
+  ],
+  "checks": {
+    "source_record_and_bytes_match": true,
+    "two_independent_renders_equal_candidate": true,
+    "opaque768": true,
+    "bbox": [
+      54,
+      231,
+      713,
+      536
+    ],
+    "occupancy": 0.859375,
+    "independent_numeric_checks": {
+      "cut_leg": 0.75,
+      "unfolded_hole_vertices": [
+        [
+          -0.75,
+          0.0
+        ],
+        [
+          0.0,
+          0.75
+        ],
+        [
+          0.75,
+          0.0
+        ],
+        [
+          0.0,
+          -0.75
+        ]
+      ],
+      "answer": "B"
+    },
+    "renderer_checks": [],
+    "report_hashes_valid": true,
+    "isolated_standalone_render_identical": true
+  },
+  "required_changes": [],
+  "previous_revisions": [],
+  "dependency_hashes": {
+    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  }
+}

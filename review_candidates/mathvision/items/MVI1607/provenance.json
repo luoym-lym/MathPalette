@@ -1,0 +1,66 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:1607",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "solid geometry",
+  "original_record": {
+    "id": "1607",
+    "question": "Each of the four vertices and six edges of the tetrahedron $P Q R S$ is marked with one of the numbers $1,2,3,4,5,6,7,8,9$ and 11 ; so the number 10 is not used. Each number is used exactly once. Each edge is marked with the sum of the numbers at the two vertices connected by that edge. Edge $P Q$ is marked with number 9 . Which number is used to mark edge RS? <image1>",
+    "options": [],
+    "image": "images/1607.jpg",
+    "decoded_image": {
+      "path": "images/1607.jpg",
+      "original_path": "1607.jpg"
+    },
+    "answer": "5",
+    "solution": "Let the values at the vertices $P, Q, R$ and $S$ be $p, q, r$ and $s$ respectively. The values on the edges are equal to the sum of the values at the vertices connected by that edge. Each vertex is at the end of three edges. Also, the sum of the values on all the edges and the values on all the vertices must be the same as the sum of the numbers 1 to 11 (excluding 10). Therefore $3(p+q+r+s)+p+q+r+s=$ $1+2+3+4+5+6+7+8+9+11$. This simplifies to $4(p+q+r+s)=56$ or $p+q+r+s=14$. Edge $P Q$ is marked with 9 so that $p+q=9$. This leaves $r+s=5$ so edge $R S$ will be marked with 5.  [Alternative solution:] Labels 1 and 2 must be placed on vertices as it is impossible to find two numbers from the list that will add to give either 1 or 2 . This implies that 3 must be placed on an edge between 1 and 2 . Once 3 has been placed on an edge, 4 must be placed on a vertex as the only two numbers in the list that add to give 4 are 1 and 3 and 3 is not on a vertex. Then 11 must be placed on an edge as it is the largest number and so could not be part of any sum. Since the two largest vertex numbers must add to give the largest edge number, the remaining vertex has a value of 7 . Hence the numbers on the vertices are 1, 2, 4 and 7 . Edge $P Q$ is marked with $9(=2+7)$ so edge $R S$ must be marked with $5(=1+4)$.",
+    "level": 4,
+    "subject": "solid geometry"
+  },
+  "source_package": "MathVision_redrawn_solid_geometry_240_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:00.302878+00:00",
+    "complete": true,
+    "category": "solid_geometry",
+    "source_questions": 244,
+    "retained": 240,
+    "excluded": 4,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "source_id": "1607",
+    "source_image_viewed": true,
+    "source_image_sha256": "4cd7bc7d201c194c1910cc9b2beaa81deb94201c48a8ac903010da4ba914f5d9",
+    "inventory": [
+      "Tetrahedral wireframe with six solid edges, rear horizontal edge crosses front-to-apex edge without a junction",
+      "Vertex labelsPQRS;9beside lowerleft edge;?beside upperright edge",
+      "1103has four open-circle vertex symbols;1607no circles"
+    ],
+    "conditions": "Each of the four vertices and six edges of the tetrahedron $P Q R S$ is marked with one of the numbers $1,2,3,4,5,6,7,8,9$ and 11 ; so the number 10 is not used. Each number is used exactly once. Each edge is marked with the sum of the numbers at the two vertices connected by that edge. Edge $P Q$ is marked with number 9 . Which number is used to mark edge RS? <image1>",
+    "panel_option_mapping": "single diagram; textual choices preserved in source.json",
+    "ambiguities": [
+      "Allsix sourceedges are solid, retained as transparent wireframe with no opaque faces; crossing is not an extra vertex.1103 hollow pointmarkers normalize to protocol filled black markers, preserving the same four marked vertices. No mark is added to1607."
+    ],
+    "answer_verification": {
+      "reasoning": "The sum of all ten labels is1+2+3+4+5+6+7+8+9+11=56. Each vertex label appears once itself and three times among edge sums, so four times the vertexsum=56, vertexsum14. Oppositeedges partition all four vertices. Since the given edge sums9,the opposite edge sums14-9=5. A valid assignment uses vertices1,2,4,7 and edges3,5,8,6,9,11, confirming feasibility.",
+      "result": "5",
+      "verified": true
+    },
+    "stage": "source_audit_complete"
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

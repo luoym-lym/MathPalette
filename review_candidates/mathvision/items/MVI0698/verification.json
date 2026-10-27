@@ -1,0 +1,48 @@
+{
+  "reviewer": "independent /root/review_transformation_batch",
+  "source_id": "698",
+  "category": "transformation_geometry",
+  "reviewed_utc": "2026-10-27T02:18:43.920642+00:00",
+  "verdict": "agent_verified",
+  "user_approval": false,
+  "hashes": {
+    "original.jpg": "b849f171813e327323048f0abd947865ad553e2d84e8dac03964274251900132",
+    "source.json": "7157779b1e1a57b49b1d762f42602c041018b5c0e2c0040a4e5ab7b65365f2c3",
+    "scene.json": "2555add3b35d8d49a50be72a5a069d6db747ac6ebd5c3d2f98ace9d011bb6bf8",
+    "render.py": "f9732f2acaa0bede016cf487f76a96121d8ba56370bac5227e1bdcb3985d50d8",
+    "image.png": "778f91ff15ea62104326432dbfb16411a3974dc772d0c148819c34e5fc9aa504",
+    "audit.json": "040ad19392fdf69042b33b4c45167d906320bbcd8cd0f01b044ae1d97d27c292",
+    "redraw_report.json": "61fc301453ebd6c509d65120cf5b67c001bb3d6a3b8214a3127e77fdbace9b2f"
+  },
+  "explicit_inspected_facts": [
+    "Individually viewed original and candidate: R row moves black registration corner bottom-left to top-left; S row retains bottom-left and adds upright club; target registration corner top-right and club stem left. Bottom three question boxes, right arrows and repeated target retained. Source image tags and blue separators excluded as export artifacts.",
+    "R is clockwise90. Starting bottom-left corner needs two R operations to reach top-right. Printed upright club needs exactly one subsequent R to point its stem left; so S must occur between the two rotations: RSR, option B. Numeric clockwise rotation verified on asymmetric club stem."
+  ],
+  "checks": {
+    "source_record_and_bytes_match": true,
+    "two_independent_renders_equal_candidate": true,
+    "opaque768": true,
+    "bbox": [
+      54,
+      94,
+      713,
+      673
+    ],
+    "occupancy": 0.859375,
+    "independent_numeric_checks": {
+      "R_clockwise_degrees": 90,
+      "rotations_total": 2,
+      "rotations_after_print": 1,
+      "stem_rotation_verified": true,
+      "answer": "B:RSR"
+    },
+    "renderer_checks": [],
+    "report_hashes_valid": true
+  },
+  "required_changes": [],
+  "previous_revisions": [],
+  "dependency_hashes": {
+    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  }
+}

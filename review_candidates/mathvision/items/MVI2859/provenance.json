@@ -1,0 +1,70 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:2859",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "combinatorial geometry",
+  "original_record": {
+    "id": "2859",
+    "question": "How many lines pass through exactly two points in the following hexagonal grid?\\n<image1>",
+    "options": [],
+    "image": "images/2859.jpg",
+    "decoded_image": {
+      "path": "images/2859.jpg",
+      "original_path": "2859.jpg"
+    },
+    "answer": "60",
+    "solution": "From a total of 19 points, there are $\\left(\\begin{array}{c}19 \\ 2\\end{array}\\right)=171$ ways to choose two points. We consider lines that pass through more than 2 points.\\n- There are $6+6+3=15$ lines that pass through exactly three points. These are: the six sides of the largest hexagon, three lines through the center (perpendicular to the sides of the largest hexagon), and the other six lines perpendiculars to the sides of the largest hexagon.\\n- There are 6 lines that pass through exactly four points. (They are parallel to the sides of the largest hexagon.)\\n- There are 3 lines that pass through exactly five points. (They all pass through the center.)\\n\\nFor each $n=3,4,5$, a line that passes through $n$ points will be counted $\\left(\\begin{array}{l}n \\ 2\\end{array}\\right)$ times, and so the corresponding amount will have to be subtracted. Hence the answer is\\n$$\\n171-\\left(\\begin{array}{l}\\n3 \\\\n2\\n\\end{array}\\right) \\cdot 15-\\left(\\begin{array}{l}\\n4 \\\\n2\\n\\end{array}\\right) \\cdot 6-\\left(\\begin{array}{l}\\n5 \\\\n2\\n\\end{array}\\right) \\cdot 3=171-45-36-30=60 .\\n$$",
+    "level": 5,
+    "subject": "combinatorial geometry"
+  },
+  "source_package": "MathVision_redrawn_combinatorial_geometry_296_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:05.052366+00:00",
+    "complete": true,
+    "category": "combinatorial_geometry",
+    "source_questions": 308,
+    "retained": 296,
+    "excluded": 12,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "source_viewed": true,
+    "inventory": {
+      "panels": 1,
+      "dots": 19,
+      "layout": "hexagonal triangularlattice radius2",
+      "labels": []
+    },
+    "explicit_conditions": [
+      "19pointhexagonalgrid"
+    ],
+    "layout_only": "Frozen uniform scale and placement; source orientation retained.",
+    "answer_verification": {
+      "status": "verified",
+      "answer": "60",
+      "reason": "Integeraxialcoordinate line-normalization enumeratesallpairlines; exactly60containexactly2points.",
+      "conditions": [
+        "19pointhexagonalgrid"
+      ]
+    },
+    "self_review": {
+      "status": "actually_viewed",
+      "facts": "Viewed19triangularlatticedots rows3,4,5,4,3."
+    }
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

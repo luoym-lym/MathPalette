@@ -1,0 +1,117 @@
+{
+  "reviewer": "independent /root",
+  "source_id": "1571",
+  "category": "combinatorial_geometry",
+  "reviewed_utc": "2026-10-27T02:05:49.140696+00:00",
+  "verdict": "agent_verified",
+  "user_approval": false,
+  "hashes": {
+    "original.jpg": "42a521d85b676e1a6ef2c59195bf95cbed8865572aaa36c0fa745cf32aac79fc",
+    "source.json": "a95d760382c34759d5344d9363dcf3ee214ea1e51844b9b6997ca4dedd936b8a",
+    "scene.json": "3b6067911b2600c4caa2aa864300195c86fa31a2f1a37688e78b772c4a34845f",
+    "render.py": "e5733287dc63eb9d4c4febb53b278f7e2e9e0b0e46f472ba42112b3a3bcc29df",
+    "image.png": "9c345ba378422da6dff0952c90eca4c846ba68f6bdf27de810afe510a5c3ea31",
+    "audit.json": "2d61e9ae32f701942e76afc37671a8f437043ae98a308149326057ddf569a404",
+    "redraw_report.json": "8970bce952d25073b2ad12b17115f759bef9c1b67fe2db44b40617bddecf14b1",
+    "../upper_comb_renderer.py": "f8b46c832ae8ff8e16730970bd31d1d549035f4e230f49acb6b88141efda0d84"
+  },
+  "explicit_inspected_facts": [
+    "Actuallyviewedsource/candidate:exact7axisaligned1x3barsin5x5box;twoemptygreyregions(0,0)-(1,2)and(2,2)-(4,3),no inventedseparatorinsideemptyregions. Independentlyresolvedauthoruncertainty:onlyleftmostverticalbar caninitiallymove,down. Afterthatonlyupperhorizontalbars canbe second distinctbar; movingonlyone leavesboth2x1centralgapandatmost1x2leftgap,no1x3space. Moveleftbar down2 thenbothupperhorizontalbarsleft1,creatingverticalspaceatx3,y2..5. BFSoverdistinctmovedbar masks corroboratesmin3."
+  ],
+  "checks": {
+    "source_record_and_bytes_match": true,
+    "two_independent_renders_equal_candidate": true,
+    "opaque768": true,
+    "bbox": [
+      54,
+      54,
+      714,
+      714
+    ],
+    "occupancy": 0.8606770833333334,
+    "independent_numeric_checks": {
+      "frozen_bar_rectangles": [
+        [
+          0,
+          2,
+          1,
+          3
+        ],
+        [
+          1,
+          4,
+          3,
+          1
+        ],
+        [
+          1,
+          3,
+          3,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          3
+        ],
+        [
+          1,
+          0,
+          1,
+          3
+        ],
+        [
+          2,
+          1,
+          3,
+          1
+        ],
+        [
+          2,
+          0,
+          3,
+          1
+        ]
+      ],
+      "exhaustive_slide_results": {
+        "2": {
+          "no_solution_with_max_distinct_bars": 2,
+          "exhausted_states": 13
+        },
+        "3": {
+          "moved_distinct": 3,
+          "path": [
+            [
+              0,
+              0,
+              -2
+            ],
+            [
+              1,
+              -1,
+              0
+            ],
+            [
+              2,
+              -1,
+              0
+            ]
+          ],
+          "insert": [
+            3,
+            2,
+            1,
+            3
+          ],
+          "states": 13
+        }
+      },
+      "continuous_motion_lower_bound": "Onlyleftverticalcanfirstmove;atmostoneofthetwoupperhorizontalbarscannotfree3contiguouscells.",
+      "answer": 3
+    },
+    "renderer_checks": []
+  },
+  "required_changes": [],
+  "previous_revisions": []
+}

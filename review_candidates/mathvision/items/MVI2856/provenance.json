@@ -1,0 +1,61 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:2856",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "transformation geometry",
+  "original_record": {
+    "id": "2856",
+    "question": "Will stands at a point $P$ on the edge of a circular room with perfectly reflective walls. He shines two laser pointers into the room, forming angles of $n^o$ and $(n + 1)^o$ with the tangent at $P$, where $n$ is a positive integer less than $90$. The lasers reflect off of the walls, illuminating the points they hit on the walls, until they reach $P$ again. ($P$ is also illuminated at the end.) What is the minimum possible number of illuminated points on the walls of the room?\\n<image1>",
+    "options": [],
+    "image": "images/2856.jpg",
+    "decoded_image": {
+      "path": "images/2856.jpg",
+      "original_path": "2856.jpg"
+    },
+    "answer": "28",
+    "solution": "Note that we want the path drawn out by the lasers to come back to $P$ in as few steps as possible. Observe that if a laser is fired with an angle of $n$ degrees from the tangent, then the number of points it creates on the circle is $\\frac{180}{\\operatorname{gcd}(180, n)}$. (Consider the regular polygon created by linking all the points that show up on the circle-if the center of the circle is $\\mathrm{O}$, and the vertices are numbered $V_1, V_2, \\ldots, V_k$, the angle $\\angle V_1 O V_2$ is equal to $2 \\operatorname{gcd}(180, n)$, so there are a total of $\\frac{360}{2 \\operatorname{gcd}(180, n)}$ sides).\\nNow, we consider the case with both $n$ and $n+1$. Note that we wish to minimize the value $\\frac{180}{\\operatorname{gcd}(180, n)}+$ $\\frac{180}{\\operatorname{gcd}(180, n+1)}$, or maximize both $\\operatorname{gcd}(180, n)$ and $\\operatorname{gcd}(180, n+1)$. Note that since $n$ and $n+1$ are relatively prime and $180=(4)(9)(5)$, the expression is maximized when $\\operatorname{gcd}(180, n)=20$ and $\\operatorname{god}(180, n+1)=9$ (or vice versa). This occurs when $n=80$. Plugging this into our expression, we have that the number of points that show up from the laser fired at 80 degrees is $\\frac{180}{20}=9$ and the number of points that appear from the laser fired at 81 degrees is $\\frac{180}{9}=20$. However, since both have a point that shows up at $P$ (and no other overlapping points since $\\operatorname{gcd}(9,20)=1$ ), we see that the answer is $20+9-1=28$.",
+    "level": 5,
+    "subject": "transformation geometry"
+  },
+  "source_package": "MathVision_redrawn_transformation_geometry_160_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:02.513020+00:00",
+    "complete": true,
+    "category": "transformation_geometry",
+    "source_questions": 168,
+    "retained": 160,
+    "excluded": 8,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "source_viewed": true,
+    "inventory": [
+      "Circlewithbottomtangentline,P atbottomtangency. Two initialsolidlaserchords fromP towardrightwall; subsequenttwo-reflectionsegmentsdashed. Noanglevalues orcenterpoint. Exactillustrativeangles35°and36° preservequestionn,n+1ratherthansourceexaggeration."
+    ],
+    "explicit_conditions": "Question transformation and pictured connectivity, options, hole types/positions; no inferred metric labels.",
+    "display_conditions": "Uniform scale and panel arrangement only.",
+    "answer_review": {
+      "status": "verified",
+      "answer": "28",
+      "reason": "Forangle n°, illuminatedboundarysubgroup hasq=180/gcd(180,n)points. Forconsecutiveangles unioncount=q1+q2−gcd(q1,q2). Exhaustive n1..89 givesminimum28; fullenumerationstored."
+    },
+    "source_artifact_exclusions": [
+      "Blue <imageN> composite headings and separators are dataset packaging, not question content."
+    ]
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

@@ -1,0 +1,69 @@
+{
+  "source_viewed": true,
+  "source_audit_method": "Viewed full original.jpg and enlarged individual six animals; rechecked combined.json row 598 and exact source JPEG hash.",
+  "source_sha256": "5bcf27a06ebc1de13787fefd037060db818d2e97531a1ef785e398212bdbaf3d",
+  "inventory": [
+    "Four connected regular hexagons, each divided into six triangular sectors; the first two tiles contain artwork, the final two remain empty.",
+    "Three bold shared mirror edges alternate direction 120°, 60°, 120° in the fixed upward-positive coordinate frame.",
+    "A curved arrow from the first tile toward the first-reflected tile, with the source text spiegeln.",
+    "Six distinct colored cartoons: floppy-eared brown dog, green/blue butterfly, brown three-segment ant, red cream-spotted ladybird, tan pointed-eared cat with raised curved tail, gray curved dolphin with fins and forked tail.",
+    "Five answer options A–E, each retaining all six animal identities and full orientations; no option is removed or replaced by a text description."
+  ],
+  "explicit_conditions": "The images are reflections along the bold edges. Identity, sector assignment, pose and handedness distinguish the options. Every artwork instance must be the exact transform of the same frozen native definition.",
+  "display_conditions": "Regular-hexagon layout, matching first reflection, relative upper/option tile radii, arrow and all five option layouts preserved. Only global equal-scale view fitting and non-geometric label whitespace adjusted for repository fonts.",
+  "canonical_tile_inventory": {
+    "top": "butterfly; long body upright with antennae downward",
+    "upper_right": "ant; head upper-left, tapered abdomen lower-right",
+    "lower_right": "dolphin; snout upper-right, tail lower-right",
+    "bottom": "cat; upright, head at left and raised tail at right",
+    "lower_left": "ladybird; head lower-right, five main cream spots and two small rim highlights",
+    "upper_left": "dog; upside-down/vertical, head toward lower-right, tail and hindquarters above"
+  },
+  "option_transforms_relative_to_canonical_C": {
+    "A": "reflection across direction 120°",
+    "B": "rotation +120°",
+    "C": "identity",
+    "D": "rotation −120°",
+    "E": "rotation −60°"
+  },
+  "answer_review": {
+    "status": "verified",
+    "source_answer": "B",
+    "answer": "B",
+    "reason": "Let F(a) denote reflection across a line of direction a. The canonical first-reflected tile is C and the initial tile is F(120°)C (option A). The remaining two folds produce F(120°)F(60°)C=R(120°)C, uniquely option B. Equivalently, all three folds turn the initial artwork into its horizontal-axis reflection. Matrix checks use the actual centers and three shared edges."
+  },
+  "artwork_implementation": {
+    "method": "Manual code-native Bézier paths and ellipses authored from visual inspection, not pixel tracing, automatic vectorization or raster embedding. Six shared frozen definitions; 42 instances. All placements and 2x2 matrices frozen in scene.json.",
+    "source_image_opened_during_render": false,
+    "preserved": "Distinct identities, source colors, heads, tails, fins/ears/antennae/legs, butterfly patches and ladybird spot pattern; every animal pose/handedness changes consistently under exactly the same transform as its sector.",
+    "limitation": "Low-resolution source cartoon curves have been hand-reconstructed, not claimed as an exact reproduction of every original contour or JPEG texture. Independent source-fidelity review remains mandatory."
+  },
+  "source_artifact_exclusions": [
+    "Blue <image1>/<image2> headings and blue separator are dataset-export wrappers, not puzzle content."
+  ],
+  "author_visual_review": {
+    "status": "completed_after_protocol_repair",
+    "full_final_png_viewed": true,
+    "enlarged_canonical_tile_viewed": true,
+    "enlarged_all_five_option_panels_viewed": true,
+    "findings": "Every actual stroked animal detail is now 1pt and the three fold edges are 2.5pt. Actual full-size and enlarged images inspected: all six animal identities, colored regions, relevant poses and handedness remain clear, and no essential source detail is destroyed. The dog ear/muzzle/tail, cat ears/raised tail, ant three segments/six legs, butterfly patches/antennae, ladybird spots/head, and dolphin fins/tail remain discernible. No artwork geometry or colors were changed.",
+    "reviewed_output_sha256": "3e7fcf19335b8e606ba54cc21609165a34e3a439cad107ba092984c8aabc15e0",
+    "reviewed_scene_sha256": "882fa5b748b25fc79bfd29e316c6ef9b5258386bdf3b756d37432a2aa260aede"
+  },
+  "standalone_execution": {
+    "status": "passed",
+    "cwd": "/tmp",
+    "command": "python /absolute/path/to/598/render.py",
+    "rerun_output_sha256": "3e7fcf19335b8e606ba54cc21609165a34e3a439cad107ba092984c8aabc15e0",
+    "two_in_process_render_pixels_equal": true
+  },
+  "independent_review": "pending_post_repair",
+  "user_approval": false,
+  "protocol_repair": {
+    "reason": "Post-review audit rejected self-declared thin artwork outline exception.",
+    "repair": "65 actually stroked artwork layers normalized to1pt; 27 no-outline color-fill layers left unchanged; three semantic bold fold edges normalized to2.5pt. Geometry, colors, placements and reflection matrices are byte-equivalent after excluding widths/status. Renderer validation now rejects nonconforming stroke widths.",
+    "independent_recheck_required": true,
+    "new_output_sha256": "3e7fcf19335b8e606ba54cc21609165a34e3a439cad107ba092984c8aabc15e0",
+    "new_scene_sha256": "882fa5b748b25fc79bfd29e316c6ef9b5258386bdf3b756d37432a2aa260aede"
+  }
+}

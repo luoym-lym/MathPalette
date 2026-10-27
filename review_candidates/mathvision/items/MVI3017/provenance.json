@@ -1,0 +1,63 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:3017",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "solid geometry",
+  "original_record": {
+    "id": "3017",
+    "question": "Five points $A$, $B$, $C$, $D$, and $O$ lie on a flat field.  $A$ is directly north of $O$, $B$ is directly west of $O$, $C$ is directly south of $O$, and $D$ is directly east of $O$. The  distance between $C$ and $D$ is 140 m.  A hot-air balloon is positioned in the air at $H$ directly above $O$. The balloon is held in place by four ropes $HA$, $HB$, $HC$, and $HD$.  Rope $HC$ has length 150 m and rope $HD$ has length 130 m. <image1>\n\nTo reduce the total length of rope used, rope $HC$ and rope $HD$ are to be replaced by a single rope $HP$ where $P$ is a point on the straight line between $C$ and $D$. (The balloon remains at the same position $H$ above $O$ as described above.)  Determine the greatest length of rope that can be saved.",
+    "options": [],
+    "image": "images/3017.jpg",
+    "decoded_image": {
+      "path": "images/3017.jpg",
+      "original_path": "3017.jpg"
+    },
+    "answer": "160",
+    "solution": "To save the most rope, we must have $HP$ having minimum length.\nFor $HP$ to have minimum length, $HP$ must be perpendicular to $CD$. [asy]\npair C, D, H, P;\nH=(90,120);\nC=(0,0);\nD=(140,0);\nP=(90,0);\ndraw(H--C--D--H--P);\nlabel(\"H\", H, N);\nlabel(\"C\", C, SW);\nlabel(\"D\", D, SE);\nlabel(\"P\", P, S);\nlabel(\"150\", (C+H)/2, NW);\nlabel(\"130\", (D+H)/2, NE);\n[/asy] (Among other things, we can see from this diagram that sliding $P$ away from the perpendicular position does make $HP$ longer.)\nIn the diagram, $HC=150$, $HD=130$ and $CD=140$.\nLet $HP=x$ and $PD=a$.  Then $CP=140-a$.\nBy the Pythagorean Theorem in $\\triangle HPC$, $x^2 + (140-a)^2 = 150^2$.\nBy the Pythagorean Theorem in $\\triangle HPD$, $x^2+a^2 = 130^2$.\nSubtracting the second equation from the first, we obtain \\begin{align*}\n(140-a)^2 - a^2 & = 150^2 - 130^2 \\\\\n(19600 - 280a+a^2)-a^2 & = 5600 \\\\\n19600 -280a & = 5600 \\\\\n280a & = 14000 \\\\\na & = 50\n\\end{align*} Therefore, $x^2 + 90^2 = 150^2$ or $x^2 = 150^2 - 90^2 = 22500 - 8100 = 14400$ so $x =120$.\nSo the shortest possible rope that we can use is 120 m, which saves $130+150-120 = \\boxed{160}$ m of rope.",
+    "level": 2,
+    "subject": "solid geometry"
+  },
+  "source_package": "MathVision_redrawn_solid_geometry_240_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:00.302878+00:00",
+    "complete": true,
+    "category": "solid_geometry",
+    "source_questions": 244,
+    "retained": 240,
+    "excluded": 4,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "inventory": [
+      "Ground-plane parallelogram; solid north-south AOC and west-east BOD; solid vertical OH; dashed ropes HA,HB,HC,HD; six dots and labels; P not shown."
+    ],
+    "explicit_conditions": [
+      "O at cardinal intersection; H directly above O; HC150,HD130,CD140."
+    ],
+    "layout_choices": [
+      "OA and OB chosen for display; no replacement HP rope or P introduced."
+    ],
+    "answer_check": {
+      "reasoning": "In triangle HCD, semiperimeter210, area√(210×60×80×70)=8400; minimum HP=2×8400/140=120, foot inside CD. Saving150+130−120=160m.",
+      "answer": "160",
+      "matches_source": true
+    },
+    "source_image_sha256": "7a2ace059d4220322e3dd7a474eb94dd6ee014e09adb0a82dff5a0773de41bb3",
+    "source_viewed": true
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

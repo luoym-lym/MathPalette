@@ -1,0 +1,241 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MathVision_3039",
+  "status": "staging",
+  "subject": "SolidGeometry",
+  "source_dataset": "MathVision",
+  "source_image": "original.jpg",
+  "source_note": "Original image and question retained independently; no formal approval.",
+  "world_unit": "unit",
+  "points": {
+    "O": [
+      0,
+      0,
+      5
+    ],
+    "B": [
+      0,
+      0,
+      0
+    ],
+    "R": [
+      3,
+      0,
+      5
+    ],
+    "L": [
+      -3,
+      0,
+      5
+    ],
+    "r": [
+      3,
+      0,
+      0
+    ],
+    "l": [
+      -3,
+      0,
+      0
+    ],
+    "labelr": [
+      1.5,
+      0,
+      5
+    ],
+    "labelh": [
+      3,
+      0,
+      2.5
+    ]
+  },
+  "projection": {
+    "kind": "oblique",
+    "matrix": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0.3,
+        1
+      ]
+    ],
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "toward_viewer": [
+      0.0,
+      -1.0,
+      0.3
+    ],
+    "name": "source-aligned parallel oblique",
+    "reason": "Retains source orientation; geometry is independent of page projection"
+  },
+  "view": {
+    "xlim": [
+      -3.41989791720656,
+      3.7224367273648284
+    ],
+    "ylim": [
+      -1.0711673222856941,
+      6.071167322285694
+    ],
+    "layout": {
+      "method": "native viewport fit to actual nonwhite pixels",
+      "bbox_px": [
+        78,
+        54,
+        690,
+        713
+      ],
+      "long_side_fraction": 0.859375,
+      "center_error_px": [
+        0.5,
+        0.0
+      ]
+    }
+  },
+  "visibility": {
+    "mode": "frozen_intervals",
+    "projection_sha256": "6bd127e628e925101cf27c25e302168a4e77cfe2246a6e3e70e1e10f23194cd6",
+    "note": "Source-displayed lines only; no automatic hidden edge completion."
+  },
+  "objects": [
+    {
+      "id": "arc_0",
+      "type": "circular_arc",
+      "center": "O",
+      "radius": 3,
+      "u": [
+        1,
+        0,
+        0
+      ],
+      "v": [
+        0,
+        1,
+        0
+      ],
+      "domain_deg": [
+        0,
+        360
+      ],
+      "role": "edge",
+      "intervals": [
+        {
+          "start_deg": 0,
+          "end_deg": 360,
+          "samples": 721,
+          "visibility": "visible"
+        }
+      ]
+    },
+    {
+      "id": "arc_1",
+      "type": "circular_arc",
+      "center": "B",
+      "radius": 3,
+      "u": [
+        1,
+        0,
+        0
+      ],
+      "v": [
+        0,
+        1,
+        0
+      ],
+      "domain_deg": [
+        180,
+        360
+      ],
+      "role": "edge",
+      "intervals": [
+        {
+          "start_deg": 180,
+          "end_deg": 360,
+          "samples": 721,
+          "visibility": "visible"
+        }
+      ]
+    },
+    {
+      "id": "line_2",
+      "type": "segment",
+      "points": [
+        "L",
+        "l"
+      ],
+      "role": "silhouette",
+      "visibility": "visible"
+    },
+    {
+      "id": "line_3",
+      "type": "segment",
+      "points": [
+        "R",
+        "r"
+      ],
+      "role": "silhouette",
+      "visibility": "visible"
+    },
+    {
+      "id": "line_4",
+      "type": "segment",
+      "points": [
+        "O",
+        "R"
+      ],
+      "role": "auxiliary",
+      "visibility": "visible"
+    }
+  ],
+  "dimensions": [],
+  "labels": [
+    {
+      "id": "label_0",
+      "type": "text",
+      "anchor": "labelr",
+      "text": "r = 3",
+      "offset_pt": [
+        0,
+        16
+      ]
+    },
+    {
+      "id": "label_1",
+      "type": "text",
+      "anchor": "labelh",
+      "text": "h",
+      "offset_pt": [
+        18,
+        0
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "dist_0",
+      "type": "distance",
+      "points": [
+        "O",
+        "R"
+      ],
+      "value": 3,
+      "basis": "explicit source dimension"
+    }
+  ],
+  "ambiguities": [
+    "Height 5 is used only in geometry; unknown label h retained; rear bottom semicircle is omitted in source and not added."
+  ]
+}

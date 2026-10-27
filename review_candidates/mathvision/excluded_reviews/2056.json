@@ -1,0 +1,90 @@
+{
+  "reviewer": "independent /root/review_transformation_batch",
+  "source_id": "2056",
+  "category": "transformation_geometry",
+  "reviewed_utc": "2026-10-27T03:09:47.436306+00:00",
+  "verdict": "excluded",
+  "user_approval": false,
+  "hashes": {
+    "original.jpg": "a5fc3978efb41e66983d7b8eb104bc69b914970eb20d3a1cadf7fa867a7ba454",
+    "source.json": "98d44ce7e166f9eb4f14864b11f9dac7f2e04b5734be17b24a4014534d804c48",
+    "audit.json": "4e6ab2a66735f1a3c6cce3832a7dad2e6861e722931ee09bf181be6ae75bc955"
+  },
+  "explicit_inspected_facts": [
+    "Actually viewed original: ray at C leaves toward upper-left at alpha above BC; beta is angle of upper mirror atB. Text explicitly says finite segments AB,BC and AB=AC.",
+    "NormalizeB=(0,0),C=(1,0). Equal AB=AC forces A=(1/2,tan(beta)/2). First reflected ray intersects supporting line y=x tan(beta) at x=tan(alpha)/(tan(alpha)+tan(beta))>1/2. It misses finite AB entirely; only initial bounce atC occurs. No candidate has been produced; source retained.",
+    "Independent finite ray/segment intersection and specular-reflection simulation confirms originalAB=AC:1; extending both mirrors to rays:81; changing condition toAB=BC:71. Last two are hypothetical variants, not permitted source corrections.",
+    "Read updated author audit: finite AB=AC first upper intersection1.8248699067 timesA liesoutside segment,1bounce; unbounded81; hypotheticalAB=BC71. Agreeswith independent calculation alreadyrecorded; exclusion unchanged."
+  ],
+  "checks": {
+    "independent_numeric_checks": {
+      "alpha_deg": 19.94,
+      "beta_deg": 1.994,
+      "A_x": 0.5,
+      "intersection_x": 0.9124349533554853,
+      "finite_segment_bounce_count": 1,
+      "supplied_answer": 71,
+      "ray_simulation_variants": {
+        "finite_AB_equals_AC": 1,
+        "unbounded_rays": 81,
+        "hypothetical_AB_equals_BC": 71
+      }
+    }
+  },
+  "exclusion_reason": "Finite-segment condition contradicts drawn repeated reflections and supplied71.",
+  "exclusion_authority": "User permits discarding problematic reviewed items, quality first.",
+  "blocker": {
+    "action": "Independently adjudicate source diagram/question/answer",
+    "target": "2056",
+    "reason": "Finite-segment condition contradicts drawn repeated reflections and supplied71.",
+    "completed": true,
+    "outcome": "Excluded; original artifacts preserved without silent correction."
+  },
+  "required_changes": [],
+  "previous_revisions": [
+    {
+      "reviewer": "independent /root/review_transformation_batch",
+      "source_id": "2056",
+      "category": "transformation_geometry",
+      "reviewed_utc": "2026-10-27T03:09:47.436306+00:00",
+      "verdict": "excluded",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "a5fc3978efb41e66983d7b8eb104bc69b914970eb20d3a1cadf7fa867a7ba454",
+        "source.json": "98d44ce7e166f9eb4f14864b11f9dac7f2e04b5734be17b24a4014534d804c48",
+        "audit.json": "be3f5d06280de25de0af6531b7a2b9e4142da49fee9b78bb8ad382b9088c78b1"
+      },
+      "explicit_inspected_facts": [
+        "Actually viewed original: ray at C leaves toward upper-left at alpha above BC; beta is angle of upper mirror atB. Text explicitly says finite segments AB,BC and AB=AC.",
+        "NormalizeB=(0,0),C=(1,0). Equal AB=AC forces A=(1/2,tan(beta)/2). First reflected ray intersects supporting line y=x tan(beta) at x=tan(alpha)/(tan(alpha)+tan(beta))>1/2. It misses finite AB entirely; only initial bounce atC occurs. No candidate has been produced; source retained.",
+        "Independent finite ray/segment intersection and specular-reflection simulation confirms originalAB=AC:1; extending both mirrors to rays:81; changing condition toAB=BC:71. Last two are hypothetical variants, not permitted source corrections."
+      ],
+      "checks": {
+        "independent_numeric_checks": {
+          "alpha_deg": 19.94,
+          "beta_deg": 1.994,
+          "A_x": 0.5,
+          "intersection_x": 0.9124349533554853,
+          "finite_segment_bounce_count": 1,
+          "supplied_answer": 71,
+          "ray_simulation_variants": {
+            "finite_AB_equals_AC": 1,
+            "unbounded_rays": 81,
+            "hypothetical_AB_equals_BC": 71
+          }
+        }
+      },
+      "exclusion_reason": "Finite-segment condition contradicts drawn repeated reflections and supplied71.",
+      "exclusion_authority": "User permits discarding problematic reviewed items, quality first.",
+      "blocker": {
+        "action": "Independently adjudicate source diagram/question/answer",
+        "target": "2056",
+        "reason": "Finite-segment condition contradicts drawn repeated reflections and supplied71.",
+        "completed": true,
+        "outcome": "Excluded; original artifacts preserved without silent correction."
+      },
+      "required_changes": [],
+      "previous_revisions": []
+    }
+  ]
+}

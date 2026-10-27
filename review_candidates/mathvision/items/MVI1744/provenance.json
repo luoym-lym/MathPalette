@@ -1,0 +1,90 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:1744",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "combinatorial geometry",
+  "original_record": {
+    "id": "1744",
+    "question": "Henna has four hair ribbons of width $10 \\mathrm{~cm}$. When she measures them, she finds that each ribbon is $25 \\mathrm{~cm}$ longer than the next smallest ribbon. She then arranges the ribbons to form two different shapes as shown in the diagram. How much longer is the perimeter of the second shape than the perimeter of the first shape? <image1>",
+    "options": [
+      "$75 \\mathrm{~cm}$",
+      "$50 \\mathrm{~cm}$",
+      "$25 \\mathrm{~cm}$",
+      "$20 \\mathrm{~cm}$",
+      "$0 \\mathrm{~cm}$"
+    ],
+    "image": "images/1744.jpg",
+    "decoded_image": {
+      "path": "images/1744.jpg",
+      "original_path": "1744.jpg"
+    },
+    "answer": "B",
+    "solution": "Let the length of the shortest ribbon be $x \\mathrm{~cm}$. Therefore the lengths of the other ribbons are $(x+25) \\mathrm{cm},(x+50) \\mathrm{cm}$ and $(x+75) \\mathrm{cm}$. The perimeter of the first shape (starting from the lower left corner and working clockwise) is $(x+10+25+10+25+10+25+10+x+75+40) \\mathrm{cm}=(2 x+230) \\mathrm{cm}$ while the perimeter of the second shape (again starting from the lower left corner) is $(x+50+10+25+10+50+10+75+10+x+40) \\mathrm{cm}=(2 x+280) \\mathrm{cm}$. Hence the difference between the two perimeters is $(2 x+280) \\mathrm{cm}-(2 x+230) \\mathrm{cm}=50 \\mathrm{~cm}$.",
+    "level": 2,
+    "subject": "combinatorial geometry"
+  },
+  "source_package": "MathVision_redrawn_combinatorial_geometry_296_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:05.052366+00:00",
+    "complete": true,
+    "category": "combinatorial_geometry",
+    "source_questions": 308,
+    "retained": 296,
+    "excluded": 12,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "source_viewed": true,
+    "inventory": {
+      "panels": 2,
+      "ribbons_per_panel": 4,
+      "leftheight_order": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "rightheight_order": [
+        3,
+        2,
+        4,
+        1
+      ],
+      "labels": []
+    },
+    "explicit_conditions": [
+      "width10cm",
+      "successiveheightdifference25cm"
+    ],
+    "layout_only": "Frozen uniform scale and placement; source orientation retained.",
+    "answer_verification": {
+      "status": "verified",
+      "answer": "B",
+      "reason": "Perimeterofbottomalignedbars=2totalwidth+endheights+sumadjacentheightdifferences. Frozenheights35,60,85,110yieldleft300,right350,difference50cm.",
+      "conditions": [
+        "width10cm",
+        "successiveheightdifference25cm"
+      ],
+      "layout_parameter": "shortestheight35chosenforlayout;diffindependentofthischoice"
+    },
+    "self_review": {
+      "status": "actually_viewed",
+      "facts": "Twofour-ribbonassembliespreserveleftheightorder1234,right3241 andequalwidths; no labelsadded."
+    }
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

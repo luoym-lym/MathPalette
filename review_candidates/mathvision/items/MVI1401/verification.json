@@ -1,0 +1,78 @@
+{
+  "reviewer": "independent /root/review_geometry_redraws",
+  "source_id": "1401",
+  "category": "solid_geometry",
+  "reviewed_utc": "2026-10-27T04:32:19.968612+00:00",
+  "verdict": "agent_verified",
+  "user_approval": false,
+  "hashes": {
+    "source.json": "0c0bd3cb13a251ea0035ca00e3918480268484cd539663c1082228092fdebbbb",
+    "original.jpg": "29525d3fb752efd21388a8ece854800f64d6a345a484a1492a48bf37d7acffea",
+    "audit.json": "89623ab30d6f955ee1588b1da8bbe438e706819bff96d69436f26503611dd8fe",
+    "scene.json": "194026b4444cc79048bc3072731a9c92d48e1a6c94f68505029ce4a57c46773e",
+    "image.png": "4659d794625e415c4dc469d3cc527750bb0c4884936d20510f7f7ebcbcd206d7",
+    "image.svg": "3672458c02eabbbc35b6c38b86aeb63172dc7cfa9e240c54b3b7314b22604d8a",
+    "render.py": "504abfb71f17442fda0a0c52c0b3a39d3e2e95e51377ae6a89399efb61f50115",
+    "renderer_semantic.py": "9ed4899e54556ad6c34e1df60cbd50ac58ca63d7fac462d1fc2beaee5574b7f8",
+    "redraw_report.json": "1048404f922fcf1c57b2746a06679e7a69faf2406b46cb17c2efdcf6e677abb2"
+  },
+  "explicit_inspected_facts": [
+    "Freshly viewed source photograph and new native PNG independently. Five front stem arcs rise left-to-right around opaque post, matching photographed winding count and handedness; no rear stem lines added.",
+    "Leaves, wood texture and photographic stem thickness are nonsemantic here; exact five-turn centerline and right full-height1m remain. Explicit15cm circumference and100cm height correctly take priority over non-scale photo; normalization documented, not silently stretched.",
+    "Native radius.15/(2\u03c0),pitch.2m and10\u03c0 parameter span give1.25m=C. No unfolded answer diagram, labels or extra clues.",
+    "Reviewed local renderer diff: grayscale material validation and tessellation fill antialias only; geometry/labels/stroke/protocol validation unchanged. Prior asset hold retained in history."
+  ],
+  "checks": {
+    "source_export_equal": true,
+    "all_report_hashes_match": true,
+    "independent_two_standalone_png_svg_byte_identical": true,
+    "outputs_match_saved": true,
+    "helix_coordinate_max_residual": 1.1102230246251565e-16,
+    "front_arc_count": 5,
+    "analytic_length_m": 1.25,
+    "opaque_768": true,
+    "bbox": [
+      312,
+      53,
+      455,
+      714
+    ],
+    "occupancy": 0.8619791666666666,
+    "center_offset_px": [
+      0.0,
+      0.0
+    ]
+  },
+  "required_changes": [],
+  "previous_revisions": [
+    {
+      "reviewer": "independent /root/review_geometry_redraws",
+      "category": "solid_geometry",
+      "source_id": "1401",
+      "reviewed_utc": "2026-10-27T02:23:15.866809+00:00",
+      "verdict": "blocked",
+      "user_approval": false,
+      "review_scope": "source-only exclusion adjudication; no candidate approval",
+      "hashes": {
+        "source.json": "0c0bd3cb13a251ea0035ca00e3918480268484cd539663c1082228092fdebbbb",
+        "original.jpg": "29525d3fb752efd21388a8ece854800f64d6a345a484a1492a48bf37d7acffea",
+        "audit.json": "b252188a82039ea08f46543307b4f32b18a892a854a4716328d1bd0c6586c5d6"
+      },
+      "explicit_inspected_facts": [
+        "Source is an actual photographic leafy climbing plant around a post with 1m marker. Five-turn helix math yields1.25m,C, but replacing the photograph by an invented bare helix or foliage is not a faithful native redraw under current route."
+      ],
+      "checks": {
+        "original_actually_viewed": true,
+        "question_options_answer_audit_read": true,
+        "source_record_matches_export": true,
+        "source_image_matches_export": true,
+        "candidate_reviewed": false
+      },
+      "disposition_recommendation": "exclude_from_final_kept_subset_under_user_quality_first_instruction",
+      "required_changes": [
+        "Do not silently modify the source, key, or semantic image content; retain original and audit evidence."
+      ],
+      "previous_revisions": []
+    }
+  ]
+}

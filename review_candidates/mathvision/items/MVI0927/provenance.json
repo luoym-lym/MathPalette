@@ -1,0 +1,128 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:927",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "solid geometry",
+  "original_record": {
+    "id": "927",
+    "question": "Amelia glues these six stickers on the faces of a cube: <image1>. The figure shows this cube in two different positions. Which adhesive is on the opposite side of the duck?\n<image2>\n<image3>",
+    "options": [
+      "(A)",
+      "(B)",
+      "(C)",
+      "(D)",
+      "(E)"
+    ],
+    "image": "images/927.jpg",
+    "decoded_image": {
+      "path": "images/927.jpg",
+      "original_path": "927.jpg"
+    },
+    "answer": "E",
+    "solution": null,
+    "level": 5,
+    "subject": "solid geometry"
+  },
+  "source_package": "MathVision_redrawn_solid_geometry_240_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:00.302878+00:00",
+    "complete": true,
+    "category": "solid_geometry",
+    "source_questions": 244,
+    "retained": 240,
+    "excluded": 4,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "source_id": "927",
+    "source_dataset": "MathVision",
+    "source_image_viewed": true,
+    "source_image_sha256": "77e1980e40fde1294b3192ea800fa406148487df47512ba69f7120236c7681b0",
+    "source_copy_hash_matches_export": true,
+    "inventory": [
+      "Six colored reference stickers, in order: mouse, elephant, duck, ladybird, dog, fly.",
+      "First monochrome cube: top mouse, front ladybird, right duck. Second monochrome cube: top fly, front dog, right ladybird.",
+      "Five colored choices: A elephant, B mouse, C ladybird, D dog, E fly.",
+      "Every native sticker occurrence reuses the same species artwork. Distinct colors retained for references/options, monochrome source face treatments retained on cubes."
+    ],
+    "conditions": "Amelia glues these six stickers on the faces of a cube: <image1>. The figure shows this cube in two different positions. Which adhesive is on the opposite side of the duck?\n<image2>\n<image3>",
+    "panel_option_mapping": {
+      "image1": "six colored animal stickers in original source order",
+      "image2": "two cube views with frozen directed animal poses",
+      "image3": {
+        "A": "elephant",
+        "B": "mouse",
+        "C": "ladybird",
+        "D": "dog",
+        "E": "fly"
+      }
+    },
+    "source_observed_poses": {
+      "first_mouse": "Top; head points along -X, native art right along +Y.",
+      "first_ladybird": "Front (-Y); head points downward (-Z), art right -X.",
+      "first_duck": "Right (+X); native art up +Y, art right -Z; bill points downward.",
+      "second_fly": "Top; head points -X, art right +Y.",
+      "second_dog": "Front; upright +Z, art right +X; face remains left-facing.",
+      "second_ladybird": "Right (+X); head points toward front (-Y), art right +Z."
+    },
+    "answer_verification": {
+      "source_answer": "E",
+      "verified": true,
+      "method": "Independent enumeration of all 24 determinant +1 signed-permutation cube rotations, retaining both common ladybird face normal and directed native artwork axes.",
+      "identity_only_candidates": 4,
+      "directed_orientation_candidates": 1,
+      "unique_rotation": [
+        [
+          0,
+          -1,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          -1,
+          0,
+          0
+        ]
+      ],
+      "reasoning": "The unique rotation maps the first right-face duck normal +X to second bottom -Z. Second fly is on top +Z. Therefore duck and fly are opposite. Adjacency alone is not used as proof.",
+      "opposite_pairs": {
+        "mouse": "dog",
+        "ladybird": "elephant",
+        "duck": "fly",
+        "fly": "duck",
+        "dog": "mouse",
+        "elephant": "ladybird"
+      },
+      "result": "E (fly)"
+    },
+    "ambiguities": [
+      "Exact source contour pixels are not reproduced. The six small animal drawings are hand-authored native cubic Bézier artwork preserving species, main anatomy, asymmetry, colors, and source orientation.",
+      "Source blue image headings and blue separator rules are dataset packaging, not mathematical data, and are omitted.",
+      "The inferred unseen-face arrangement is used only in the answer audit and is not drawn."
+    ],
+    "prior_hold_history": "Original blocked_asset_route audit/report/status retained unchanged in prior_hold_history/. That hold was capability-related, not a proved source/key conflict.",
+    "stage": "native_redraw_and_author_visual_inspection_complete",
+    "independent_review": "pending",
+    "user_approved": false,
+    "stroke_protocol": "All native stroked outlines/details and cube edges are exactly 1pt; no thin artwork exception or thin-polygon workaround."
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

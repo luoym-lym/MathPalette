@@ -1,0 +1,75 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:932",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "combinatorial geometry",
+  "original_record": {
+    "id": "932",
+    "question": "A panel is composed of 4 circles. When Lucy touches a circle, this circle and the others that touch this circle change their color from white to black or from black to white, as shown in the picture. Starting with all white circles, at least how many circles must Lucy touch, one after the other, so that all circles turn black?\n<image1>",
+    "options": [],
+    "image": "images/932.jpg",
+    "decoded_image": {
+      "path": "images/932.jpg",
+      "original_path": "932.jpg"
+    },
+    "answer": "4",
+    "solution": null,
+    "level": 2,
+    "subject": "combinatorial geometry"
+  },
+  "source_package": "MathVision_redrawn_combinatorial_geometry_296_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:05.052366+00:00",
+    "complete": true,
+    "category": "combinatorial_geometry",
+    "source_questions": 308,
+    "retained": 296,
+    "excluded": 12,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "inventory": {
+      "panels": "before and after2x2 touching circle panels separated by right arrow; glove index touches upper-left circle",
+      "before_black_indices": [
+        0
+      ],
+      "after_black_indices": [
+        1,
+        2
+      ],
+      "circle_index_order": "top-left,top-right,bottom-left,bottom-right",
+      "pictogram": "white glove with native closed cubic contour, gray-purple outline and index crease"
+    },
+    "answer_verification": {
+      "method": "Enumerate16 parity press vectors of self+orthogonal-neighbor toggles; unique vector producing all black from all white is1111. Repeating any circle twice cancels, hence minimum4. Illustrated single press maps1000 to0110.",
+      "successful_press_vectors": [
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "verified_answer": "4"
+    },
+    "source_actually_viewed": true,
+    "source_inventory_complete": true,
+    "explicit_conditions_vs_layout": "Geometry and option identity preserved. Locations and panel spacing are display layout only.",
+    "user_approval": false
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

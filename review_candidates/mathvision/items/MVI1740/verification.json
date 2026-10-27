@@ -1,0 +1,58 @@
+{
+  "reviewer": "independent /root/review_transformation_batch",
+  "source_id": "1740",
+  "category": "transformation_geometry",
+  "reviewed_utc": "2026-10-27T01:48:07.800583+00:00",
+  "verdict": "agent_verified",
+  "user_approval": false,
+  "hashes": {
+    "original.jpg": "9af26fac21ad5cd03eb3a1237d95ba6819133a7ff347b4112d8cc279f9f2cda5",
+    "source.json": "5e222ee04acb15c9b6736685b86cb0a679dbe1561cfae1bd0638e5a7da3db48c",
+    "scene.json": "e08a1df67b8e8384221c3f81b9a14f2f9ce3badd5a46beb0202646a4047f8114",
+    "render.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
+    "image.png": "d307fffb38dd7a3620c21e8734b2af8c495bc3fb9af37936dbe69321144aec82",
+    "audit.json": "28573155d911b348117003b945d695326865904ef45e9ed798af23ec8bf4af33",
+    "redraw_report.json": "9f7d09ea16896794afdaeb93e5f483c53013b1eb599b2dbde42c8dfe51d2d94d"
+  },
+  "explicit_inspected_facts": [
+    "Individually viewed source/output: long ribbon divided into four unequal rectangles in same narrow/wide/narrowest/widest order; center dots joined only in first pair and last pair. Horizontal lines pass continuously across corresponding separators, with no connection across middle boundary."
+  ],
+  "checks": {
+    "source_record_and_bytes_match": true,
+    "two_independent_renders_equal_candidate": true,
+    "opaque768": true,
+    "bbox": [
+      54,
+      359,
+      713,
+      408
+    ],
+    "occupancy": 0.859375,
+    "independent_numeric_checks": {
+      "answer": "A",
+      "partition_endpoints": [
+        0,
+        5.142857142857143,
+        18.0,
+        20.571428571428573,
+        36
+      ],
+      "center_x_coordinates": [
+        2.5714285714285716,
+        11.571428571428571,
+        19.285714285714285,
+        28.285714285714285
+      ],
+      "sum_cm": 18.000000000000007,
+      "proof": "Pair-center separation is half the sum of each pair of widths, hence total=(a+b+c+d)/2=36/2=18 independently of partition."
+    },
+    "renderer_checks": [],
+    "report_hashes_valid": true
+  },
+  "required_changes": [],
+  "previous_revisions": [],
+  "dependency_hashes": {
+    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  }
+}

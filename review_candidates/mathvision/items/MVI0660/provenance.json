@@ -1,0 +1,237 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:660",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "combinatorial geometry",
+  "original_record": {
+    "id": "660",
+    "question": "The bee wants to get to the flower. Each arrow indicates a move to one neighbouring square. Which path can the bee fly to get to the flower?\n<image1>",
+    "options": [
+      "$\\downarrow \\rightarrow \\rightarrow \\downarrow \\downarrow \\downarrow$",
+      "$\\downarrow \\downarrow \\rightarrow \\downarrow \\downarrow \\rightarrow$",
+      "$\\rightarrow \\downarrow \\rightarrow \\downarrow \\rightarrow \\rightarrow$",
+      "$\\rightarrow \\rightarrow \\downarrow \\downarrow \\downarrow \\downarrow$",
+      "$\\rightarrow \\downarrow \\rightarrow \\downarrow \\downarrow \\rightarrow$"
+    ],
+    "image": "images/660.jpg",
+    "decoded_image": {
+      "path": "images/660.jpg",
+      "original_path": "660.jpg"
+    },
+    "answer": "E",
+    "solution": null,
+    "level": 2,
+    "subject": "combinatorial geometry"
+  },
+  "source_package": "MathVision_redrawn_combinatorial_geometry_296_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:05.052366+00:00",
+    "complete": true,
+    "category": "combinatorial_geometry",
+    "source_questions": 308,
+    "retained": 296,
+    "excluded": 12,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "inventory": {
+      "image1": "4x4 grid with dashed interior boundaries; decorative alternating yellow source-row background normalized to white by protocol; bee top-left facing right, flower bottom-right with pink petals,yellow center,green stem and leaves",
+      "native_pictograms": "bee wing/body/head ellipses,circular eyes,black abdomen stripes,antennae,legs,stinger; flower native cubic stem and circles/ellipses"
+    },
+    "answer_verification": {
+      "method": "Simulate each six-step option from cell(0,3); require all intermediate cells inside4x4 and endpoint(3,0). Only E has3right and3down moves.",
+      "path_results": [
+        {
+          "path": "DRRDDD",
+          "visited": [
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              2,
+              -1
+            ]
+          ],
+          "valid": false
+        },
+        {
+          "path": "DDRDDR",
+          "visited": [
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              -1
+            ],
+            [
+              2,
+              -1
+            ]
+          ],
+          "valid": false
+        },
+        {
+          "path": "RDRDRR",
+          "visited": [
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "valid": false
+        },
+        {
+          "path": "RRDDDD",
+          "visited": [
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              2,
+              -1
+            ]
+          ],
+          "valid": false
+        },
+        {
+          "path": "RDRDDR",
+          "visited": [
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ]
+          ],
+          "valid": true
+        }
+      ],
+      "verified_answer": "E"
+    },
+    "source_actually_viewed": true,
+    "source_inventory_complete": true,
+    "explicit_conditions_vs_layout": "Geometry and option identity preserved. Locations and panel spacing are display layout only.",
+    "user_approval": false
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

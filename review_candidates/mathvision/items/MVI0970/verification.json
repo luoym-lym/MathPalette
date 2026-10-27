@@ -1,0 +1,56 @@
+{
+  "reviewer": "independent /root/review_transformation_batch",
+  "source_id": "970",
+  "category": "transformation_geometry",
+  "reviewed_utc": "2026-10-27T03:09:46.191719+00:00",
+  "verdict": "agent_verified",
+  "user_approval": false,
+  "hashes": {
+    "original.jpg": "e1a81fd0319250b94876e67a8512edeebfa2d37b74247775e8896b78d9d9eeb9",
+    "source.json": "035b8f26c55b955c30c4342bacd6cfb6db9daaf1d9bbf5aefc4c928e4d0dc63a",
+    "scene.json": "15da356c4a5a25a5e85a9c10821a78207640f4e5f3271fb27271511ea0780497",
+    "render.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
+    "image.png": "e76511b62d2b190b8ee3feef5b7c9f17298defedd79c7bad21841e191b646673",
+    "audit.json": "c0c062154a152338fe361c4b95f64583e7d03910feee0908c0482f4f3ae48151",
+    "redraw_report.json": "09a0df2f295d17f2dee5f90c63a93f706194b15bff4b0b57b11a8ced9719097d"
+  },
+  "explicit_inspected_facts": [
+    "Individually viewed source and candidate: transparent square has separate upper-right and lower-left outlined triangular art with positive-slope single hatching; horizontal downfold then vertical rightfold. A has two negative-slope hatched lower triangles,B crosshatches lower-right,C opposite hatch slopes,D crossed lower-left square,E crossed lower-left triangle and different internal lines. Every distractor hatch class preserved.",
+    "Fold top down maps its hatch vector(1,1) to(1,-1); fold left right maps lower-left hatch(1,1) to(-1,1), same negative slope. The two triangular regions land separately in lower-left and lower-right positions, not overlapping, so no crosshatching. Internal folds/edges give A."
+  ],
+  "checks": {
+    "source_record_and_bytes_match": true,
+    "two_independent_renders_equal_candidate": true,
+    "opaque768": true,
+    "bbox": [
+      53,
+      213,
+      713,
+      554
+    ],
+    "occupancy": 0.8606770833333334,
+    "independent_numeric_checks": {
+      "hatch_vectors_after_folds": [
+        [
+          1,
+          -1
+        ],
+        [
+          -1,
+          1
+        ]
+      ],
+      "crosshatch_overlap": false,
+      "answer": "A"
+    },
+    "renderer_checks": [],
+    "report_hashes_valid": true,
+    "isolated_standalone_render_identical": true
+  },
+  "required_changes": [],
+  "previous_revisions": [],
+  "dependency_hashes": {
+    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  }
+}

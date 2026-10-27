@@ -1,12 +1,14 @@
-# MathVerse 原题审核工作台
+# MathPalette 原题审核工作台（MathVerse + MathVision）
 
-这是独立的本地原题审核页面。待审核候选保存在 `review_candidates/mathverse/`，数量以当前 `index.jsonl` 为准。首次启动、浏览、筛选和预取图片不会批准或删除题目。正式数据、审核协议和三个 Special 工作台以本地 `master` 为准。
+这是独立的本地原题审核页面。MathVision 新增 696 道待人工审核候选，保存在 `review_candidates/mathvision/`；24 道已排除题只保留排除台账和现有证据，不进入审核队列，也不凭空补充已不在成品包里的原图。页面可按数据源及原始类别筛选；MathVerse 使用 `MV####`，MathVision 使用 `MVI####`。两者候选索引和审核历史独立保存，正式编号与事务锁共用。
+
+既有 MathVerse 待审核候选保存在 `review_candidates/mathverse/`，两个来源的数量分别以各自当前 `index.jsonl` 为准。首次启动、浏览、筛选和预取图片不会批准或删除题目。正式数据、审核协议和三个 Special 工作台以本地 `master` 为准。
 
 ## Windows 启动
 
-在项目根目录双击 **start_mathverse_review.cmd**。默认地址为 http://127.0.0.1:8770/ 。保持命令窗口开启，关闭时按 Ctrl+C。
+在项目根目录双击 **start_review.cmd**（原 **start_mathverse_review.cmd** 仍兼容，打开同一联合工作台）。默认地址为 http://127.0.0.1:8770/ 。保持命令窗口开启，关闭时按 Ctrl+C。
 
-启动器会检查现有 Python、项目 `.venv` / `venv` 和已登记的 Conda 环境。它不联网、不自动安装软件。严格重绘参考环境：
+启动器会检查现有 Python、项目 `.venv` / `venv` 和已登记的 Conda 环境。它不联网、不自动安装软件。MathVerse 严格重绘参考环境（既有要求不变）：
 
 - CPython 3.13.9
 - NumPy 2.5.3、Matplotlib 3.11.2、Pillow 12.3.0
@@ -31,6 +33,35 @@ start_mathverse_review.cmd
 端口被占用时：`start_mathverse_review.cmd --port 8771`。
 不要把服务暴露到局域网或公网；它只允许绑定 127.0.0.1。
 
+## MathVision 环境与两个来源共存
+
+MathVision 冻结包参考环境为 Python 3.12.x（成品验证为 3.12.14）、NumPy 2.3.5、Matplotlib 3.10.8、Pillow 12.3.0、FreeType 2.6.1。可在独立环境安装 `review_candidates/mathvision/requirements.txt`。启动器接受任意一个来源的参考环境，因此可使用 MathVision 环境直接打开联合工作台；它不会联网或安装依赖。浏览、筛选与 Delete 不执行重绘。
+
+只审核本次 MathVision 新题时，可在项目根目录运行以下 Windows 命令（保留原 `.venv` 不动）：
+
+```bat
+py -3.12 -m venv .venv-mathvision
+.venv-mathvision\Scripts\python.exe -m pip install -r review_candidates\mathvision\requirements.txt
+set MATHPALETTE_PYTHON=%CD%\.venv-mathvision\Scripts\python.exe
+set MATHPALETTE_MATHVISION_PYTHON=%MATHPALETTE_PYTHON%
+start_review.cmd
+```
+
+页面的数据源选 **MathVision** 即可看到本次696题。安装依赖是你在本地明确运行的命令，启动器本身不安装或覆盖环境。
+
+**两套绘图依赖不能装进同一个 Python 环境。** 同时审核两个来源时，可分别指定解释器（不需要合并依赖版本）：
+
+```bat
+set MATHPALETTE_PYTHON=C:\envs\mathvision\Scripts\python.exe
+set MATHPALETTE_MATHVISION_PYTHON=C:\envs\mathvision\Scripts\python.exe
+set MATHPALETTE_MATHVERSE_PYTHON=C:\envs\mathverse\Scripts\python.exe
+start_review.cmd
+```
+
+`MATHPALETTE_PYTHON` 只选择服务进程；两项来源专用变量选择 Pass 时执行重绘的解释器。未设置来源专用变量时使用服务进程解释器。`--check` 报告当前解释器匹配哪个来源，**不表示两个来源都能严格重绘**。若另一来源环境未准备好，仍可浏览它，但其 Pass 在重绘失败或像素不一致时安全停止，绝不保存半个批准或放宽像素检查。
+
+MathVision 的三个原始类别分别为组合几何 296 题、变换几何 160 题、立体几何 240 题。正式目标分支依据冻结场景采用的平面/三维协议确定，和来源主题不是同一个字段；例如组合几何也有立体场景。成品包里的历史制作状态及 `agent_verified` 均不是用户批准，全部新候选从 `prepared_for_user_review` / `user_approved=false` 开始。
+
 ## 审核内容与按钮
 
 页面并排显示来源原图与代码重绘图，并区分来源题干/答案、当前改编题干/答案、独立核验推导及核验限制。自动数学检查和像素检查都不等于用户批准。`needs_manual_confirmation` 明确表示仍需人工判断，不能当作已独立证明。
@@ -50,7 +81,7 @@ start_mathverse_review.cmd
 
 完整校验在每轮读取一次来源记录快照，并在结束时检查快照是否被外部修改；每道题的批准指纹仍逐一验证。审核工作台等待 catalog 锁最多 120 秒，页面为提交操作保留更长等待时间，避免题库增长或并发审核时过早超时。
 
-`review_candidates/mathverse/review_state.json` 是实际操作后的持久历史/幂等状态，不是审核批准的替代来源；正式批准仍以 `provenance/approvals.json` 为准。进行中的恢复数据在 `.runtime/review_workbench/transactions/`。若程序异常退出，请先重新启动恢复，不能在恢复前手动清空 `.runtime/`。
+`review_candidates/<mathverse 或 mathvision>/review_state.json` 是各来源实际操作后的持久历史/幂等状态，不是审核批准的替代来源；正式批准仍以 `provenance/approvals.json` 为准。进行中的恢复数据在 `.runtime/review_workbench/transactions/`。若程序异常退出，请先重新启动恢复，不能在恢复前手动清空 `.runtime/`。
 
 ## 验证和独立复现
 

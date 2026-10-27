@@ -1,0 +1,54 @@
+{
+  "reviewer": "independent /root/review_transformation_batch",
+  "source_id": "2204",
+  "category": "transformation_geometry",
+  "reviewed_utc": "2026-10-27T01:50:17.314721+00:00",
+  "verdict": "agent_verified",
+  "user_approval": false,
+  "hashes": {
+    "original.jpg": "86b20e87999742fab010bf4f83efdc4ff5ca4875397a609465f368e8a2738345",
+    "source.json": "c7ab5b20eceddc986277e8089dcc884585b57c21451979fcb9fab681a7ad1779",
+    "scene.json": "76091748da8a56c1d226c47743d19189c32dcb566dfdff3f6129f6ff31f67ef8",
+    "render.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
+    "image.png": "9da3fb8b78e026289210b42645d8969ddec1d2302fe32138ca613019b2c57783",
+    "audit.json": "a9aa32e836b62a918cff29ca3581886aeab744a93b98c2bdbdbb97fe49b76284",
+    "redraw_report.json": "d412586a808525a0255f214f62565f837289a692438e99ef2e532a5d1633842f"
+  },
+  "explicit_inspected_facts": [
+    "Individually viewed original/output: original outlined upright F in first quadrant above five options arranged A/B/C then D/E. Axis attachment at origin, glyph chirality, bar lengths, and all x/y labels preserved. E rises at far right from horizontal base; no reflected/rotated distractor swapped."
+  ],
+  "checks": {
+    "source_record_and_bytes_match": true,
+    "two_independent_renders_equal_candidate": true,
+    "opaque768": true,
+    "bbox": [
+      54,
+      151,
+      713,
+      616
+    ],
+    "occupancy": 0.859375,
+    "independent_numeric_checks": {
+      "answer": "E",
+      "composite_matrix": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "proof": "Clockwise quarter-turn (x,y)->(y,-x), y-axis reflection ->(-y,-x), half-turn ->(y,x). Swapping coordinates maps each original F vertex exactly to E."
+    },
+    "renderer_checks": [],
+    "report_hashes_valid": true
+  },
+  "required_changes": [],
+  "previous_revisions": [],
+  "dependency_hashes": {
+    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  }
+}

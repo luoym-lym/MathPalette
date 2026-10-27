@@ -1,0 +1,102 @@
+{
+  "reviewer": "independent /root/review_geometry_redraws",
+  "category": "solid_geometry",
+  "source_id": "3013",
+  "reviewed_utc": "2026-10-27T01:04:56.170667+00:00",
+  "verdict": "agent_verified",
+  "user_approval": false,
+  "hashes": {
+    "source.json": "33fc226699eb5e70b07c782dbe122f5e49b89f689abab0fd5f59403277e42196",
+    "original.jpg": "21e086fd0b6721150546d8b5367118dbf8ce779f8ea54a9fd5d5b888dd8236c1",
+    "scene.json": "26c1e57a48299a1250cf6ad9e7d6a41f36c8841a74bf06dbe6387c6688623e60",
+    "image.png": "d4a769c77fef69ca5c260a1cfb5091e658d82783ba83c29cc883da0be2bb5ebd",
+    "image.svg": "20ce4004ae7475d1693ffc656ca6021e4970d415e33dff31916af9e4a3a05b7d",
+    "render.py": "7d1cff844b87e4a7fc30e62e7cdeb89279f5b07b7f3036f87facbc06a6ce8bfd",
+    "redraw_report.json": "63e8736af797d3afaba6b10a6a99278a8d00adcf69be1677aab830b8cb3ae39e",
+    "audit.json": "2c3b8f5a0a48322745b7541d669b8e50682aa90ce59a6295d0e6d018b7e6c8d9"
+  },
+  "explicit_inspected_facts": [
+    "Viewed original and candidate individually: source foreground pyramid red/pink normalized same gray, eight dots, cube rear vertical clipped at pyramid boundary, no labels. Source dashed O-C is exposed face ridge, not hidden.",
+    "Native cube vertices0/2, apex(1,1,1), basearea4 height1, volume4/3 preserved.",
+    "Re-viewed corrected candidate: prior visibility defects resolved, exact source panels/labels/mark count and no added solution retained. Native camera/radial visibility and mathematical dimensions independently checked with current frozen scene."
+  ],
+  "checks": {
+    "source_record_matches_export": true,
+    "source_image_matches_export": true,
+    "report_hashes_match": true,
+    "renderer_hash_valid": true,
+    "protocol_hash_valid": true,
+    "independent_twice_render_identical": true,
+    "reproduction_matches_pixels": true,
+    "size": [
+      768,
+      768
+    ],
+    "opaque": true,
+    "bbox": [
+      54,
+      126,
+      713,
+      641
+    ],
+    "occupancy": 0.859375,
+    "center_offset_px": [
+      0.0,
+      0.0
+    ],
+    "layout_pass": true,
+    "constraints": [
+      {
+        "id": "projection_and_visibility",
+        "type": "projection",
+        "passed": true,
+        "projection_sha256": "f94b7f5fff5bdd38997d56c739f4ad58768536a443671404a3b3e32ce1b8b04f",
+        "automatic_occlusion": false
+      },
+      {
+        "id": "layout",
+        "type": "layout",
+        "outer_margin_fraction": 0.05,
+        "label_line_overlap": false,
+        "label_label_overlap": false,
+        "passed": true
+      }
+    ],
+    "pyramid_volume": 1.3333333333333333,
+    "semantic_ridge_visible": true
+  },
+  "required_changes": [],
+  "previous_revisions": [
+    {
+      "reviewer": "independent /root/review_geometry_redraws",
+      "category": "solid_geometry",
+      "source_id": "3013",
+      "reviewed_utc": "2026-10-27T01:02:09.353006+00:00",
+      "verdict": "needs_revision",
+      "user_approval": false,
+      "hashes": {
+        "source.json": "33fc226699eb5e70b07c782dbe122f5e49b89f689abab0fd5f59403277e42196",
+        "original.jpg": "21e086fd0b6721150546d8b5367118dbf8ce779f8ea54a9fd5d5b888dd8236c1",
+        "scene.json": "335f341245ce88b2d2cd7c9d903af84a4fa8650f914feab4eb5a8b65c9a8ee2c",
+        "image.png": "912d91fd03e67310fc69292a2ea2df8880446867dd591a30ebb4372304d0ffb4",
+        "image.svg": "290d4dcdddd7a4be2e3f77c499b08c6ea35bc5bb5279692a4f88b9bf970f6e61",
+        "render.py": "7d1cff844b87e4a7fc30e62e7cdeb89279f5b07b7f3036f87facbc06a6ce8bfd",
+        "redraw_report.json": "23fb7a9d89fe97f0d4df5ee93575332f7e636ca444dec4ba4ceb51c1f952a86e",
+        "audit.json": "2c3b8f5a0a48322745b7541d669b8e50682aa90ce59a6295d0e6d018b7e6c8d9"
+      },
+      "explicit_inspected_facts": [
+        "Viewed original and candidate individually: source foreground pyramid red/pink normalized same gray, eight dots, cube rear vertical clipped at pyramid boundary, no labels. Source dashed O-C is exposed face ridge, not hidden.",
+        "Native cube vertices0/2, apex(1,1,1), basearea4 height1, volume4/3 preserved."
+      ],
+      "checks": {
+        "ridge_visibility_pass": false,
+        "camera_direction_pass": false
+      },
+      "required_changes": [
+        "line_12 O-C: visible auxiliary + dashed and semantic_note, not hidden edge.",
+        "toward_viewer must point toward foreground/top [0.8,1,0.37], not current opposite; refresh projection hash and frozen visibility binding."
+      ],
+      "previous_revisions": []
+    }
+  ]
+}

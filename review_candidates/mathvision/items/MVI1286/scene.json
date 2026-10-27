@@ -1,0 +1,237 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MV1286",
+  "status": "staged",
+  "subject": "SolidGeometry",
+  "source_dataset": "MathVision",
+  "source_image": "original.jpg",
+  "source_note": "Original immutable source record retained in source.json; no formal approval",
+  "world_unit": "unit",
+  "points": {
+    "S": [
+      0,
+      0,
+      0
+    ],
+    "A": [
+      2,
+      0,
+      0
+    ],
+    "B": [
+      0,
+      3,
+      0
+    ],
+    "C": [
+      0,
+      0,
+      4
+    ]
+  },
+  "projection": {
+    "kind": "oblique",
+    "matrix": [
+      [
+        -0.4,
+        0.16666666666666666,
+        0.35
+      ],
+      [
+        -0.9,
+        -0.6333333333333333,
+        -0.225
+      ]
+    ],
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "offset": [
+      0,
+      1
+    ],
+    "toward_viewer": [
+      0.18416666666666665,
+      -0.405,
+      0.4033333333333333
+    ],
+    "reason": "Frozen source-facing oblique projection of exact true3D geometry; screen layout not used as true length"
+  },
+  "visibility": {
+    "mode": "frozen_intervals",
+    "projection_sha256": "f587213f9566a02f735aea26cdebd87f0539c8ff59a6d5d61949f8a66e8d64fa",
+    "notes": "Explicit source line visibility; no automatic completion of omitted hidden edges"
+  },
+  "view": {
+    "xlim": [
+      -0.9487457718225643,
+      1.5508398556311427
+    ],
+    "ylim": [
+      -1.1925602164251934,
+      1.3070254110285136
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86
+    }
+  },
+  "objects": [
+    {
+      "id": "edgeSA",
+      "type": "segment",
+      "role": "edge",
+      "points": [
+        "S",
+        "A"
+      ],
+      "visibility": "visible"
+    },
+    {
+      "id": "edgeSB",
+      "type": "segment",
+      "role": "edge",
+      "points": [
+        "S",
+        "B"
+      ],
+      "visibility": "visible"
+    },
+    {
+      "id": "edgeSC",
+      "type": "segment",
+      "role": "edge",
+      "points": [
+        "S",
+        "C"
+      ],
+      "visibility": "visible"
+    },
+    {
+      "id": "edgeAB",
+      "type": "segment",
+      "role": "edge",
+      "points": [
+        "A",
+        "B"
+      ],
+      "visibility": "visible"
+    },
+    {
+      "id": "edgeAC",
+      "type": "segment",
+      "role": "edge",
+      "points": [
+        "A",
+        "C"
+      ],
+      "visibility": "hidden"
+    },
+    {
+      "id": "edgeBC",
+      "type": "segment",
+      "role": "edge",
+      "points": [
+        "B",
+        "C"
+      ],
+      "visibility": "visible"
+    }
+  ],
+  "dimensions": [],
+  "labels": [
+    {
+      "id": "labelS",
+      "type": "vertex",
+      "text": "S",
+      "anchor": "S",
+      "offset_pt": [
+        0,
+        15
+      ]
+    },
+    {
+      "id": "labelA",
+      "type": "vertex",
+      "text": "A",
+      "anchor": "A",
+      "offset_pt": [
+        -12,
+        -8
+      ]
+    },
+    {
+      "id": "labelB",
+      "type": "vertex",
+      "text": "B",
+      "anchor": "B",
+      "offset_pt": [
+        0,
+        -15
+      ]
+    },
+    {
+      "id": "labelC",
+      "type": "vertex",
+      "text": "C",
+      "anchor": "C",
+      "offset_pt": [
+        13,
+        0
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "rightAB",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "S",
+          "A"
+        ],
+        [
+          "S",
+          "B"
+        ]
+      ],
+      "basis": "question all planeangles atS90°"
+    },
+    {
+      "id": "rightAC",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "S",
+          "A"
+        ],
+        [
+          "S",
+          "C"
+        ]
+      ],
+      "basis": "question all planeangles atS90°"
+    },
+    {
+      "id": "rightBC",
+      "type": "perpendicular",
+      "segments": [
+        [
+          "S",
+          "B"
+        ],
+        [
+          "S",
+          "C"
+        ]
+      ],
+      "basis": "question all planeangles atS90°"
+    }
+  ],
+  "ambiguities": [
+    "Right angles given only inquestion, no new square markers added. Exact coordinatesSA2,SB3,SC4 used but unlabelled."
+  ]
+}

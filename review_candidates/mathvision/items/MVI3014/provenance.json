@@ -1,0 +1,61 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:3014",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "transformation geometry",
+  "original_record": {
+    "id": "3014",
+    "question": "A rectangular piece of paper $ABCD$ is folded so that edge $CD$ lies along edge $AD,$ making a crease $DP.$ It is unfolded, and then folded again so that edge $AB$ lies along edge $AD,$ making a second crease $AQ.$ The two creases meet at $R,$ forming triangles $PQR$ and $ADR$. If $AB=5\\mbox{ cm}$ and $AD=8\\mbox{ cm},$ what is the area of quadrilateral $DRQC,$ in $\\mbox{cm}^2?$\n\n<image1>",
+    "options": [],
+    "image": "images/3014.jpg",
+    "decoded_image": {
+      "path": "images/3014.jpg",
+      "original_path": "3014.jpg"
+    },
+    "answer": "11.5",
+    "solution": "To find the area of quadrilateral $DRQC,$ we subtract the area of $\\triangle PRQ$ from the area of $\\triangle PDC.$\n\nFirst, we calculate the area of $\\triangle PDC.$ We know that $DC=AB=5\\text{ cm}$ and that $\\angle DCP = 90^\\circ.$ When the paper is first folded, $PC$ is parallel to $AB$ and lies across the entire width of the paper, so $PC=AB=5\\text{ cm}.$ Therefore, the area of $\\triangle PDC$ is $$\n\\frac{1}{2}\\times 5 \\times 5 = \\frac{25}{2}=12.5\\mbox{ cm}^2.\n$$ Next, we calculate the area of $\\triangle PRQ.$ We know that $\\triangle PDC$ has $PC=5\\text{ cm},$ $\\angle PCD=90^\\circ,$ and is isosceles with $PC=CD.$ Thus, $\\angle DPC=45^\\circ.$ Similarly, $\\triangle ABQ$ has $AB=BQ=5\\text{ cm}$ and $\\angle BQA=45^\\circ.$ Therefore, since $BC=8\\text{ cm}$ and $PB=BC-PC,$ we have $PB=3\\text{ cm}.$ Similarly, $QC=3\\text{ cm}.$ Since $$PQ=BC-BP-QC,$$ we get $PQ=2\\text{ cm}.$ Also, $$\\angle RPQ=\\angle DPC=45^\\circ$$ and $$\\angle RQP = \\angle BQA=45^\\circ.$$\n\n[asy]\ndraw((0,0)--(7.0711,-7.0711)--(7.0711,7.0711)--cycle,black+linewidth(1));\ndraw((0,0)--(0.7071,-0.7071)--(1.4142,0)--(0.7071,0.7071)--cycle,black+linewidth(1));\nlabel(\"$P$\",(7.0711,7.0711),N);\nlabel(\"$Q$\",(7.0711,-7.0711),S);\nlabel(\"$R$\",(0,0),W);\nlabel(\"2\",(7.0711,7.0711)--(7.0711,-7.0711),E);\nlabel(\"$45^\\circ$\",(7.0711,-4.0711),W);\nlabel(\"$45^\\circ$\",(7.0711,4.0711),W);\n[/asy]\n\nUsing four of these triangles, we can create a square of side length $2\\text{ cm}$ (thus area $4 \\mbox{ cm}^2$).\n\n[asy]\nunitsize(0.25cm);\ndraw((0,0)--(10,0)--(10,10)--(0,10)--cycle,black+linewidth(1));\ndraw((0,0)--(10,10),black+linewidth(1));\ndraw((0,10)--(10,0),black+linewidth(1));\nlabel(\"2\",(10,0)--(10,10),E);\n[/asy]\n\nThe area of one of these triangles (for example, $\\triangle PRQ$) is $\\frac{1}{4}$ of the area of the square, or $1\\mbox{ cm}^2.$ So the area of quadrilateral $DRQC$ is therefore $12.5-1=\\boxed{11.5}\\mbox{ cm}^2.$",
+    "level": 4,
+    "subject": "transformation geometry"
+  },
+  "source_package": "MathVision_redrawn_transformation_geometry_160_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:02.513020+00:00",
+    "complete": true,
+    "category": "transformation_geometry",
+    "source_questions": 168,
+    "retained": 160,
+    "excluded": 8,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "source_viewed": true,
+    "inventory": [
+      "Threeportraitrectanglepanels. FirstABCD. SecondfoldoutlineA-B-P-D withC onleftlevelP, solidCP, dashedDP, northwestfoldarrow. ThirdunfoldedABCD, dashedDPandAQintersectR, P andQ rightedge. Allsourcepointnamesretained separatelyboundin eachpanel."
+    ],
+    "explicit_conditions": "Question transformation and pictured connectivity, options, hole types/positions; no inferred metric labels.",
+    "display_conditions": "Uniform scale and panel arrangement only.",
+    "answer_review": {
+      "status": "verified",
+      "answer": "11.5",
+      "reason": "UseA(0,8),B(5,8),C(5,0),D(0,0),P(5,5),Q(5,3),R(4,4). ShoelaceareaDRQC=11.5cm². Foldrays45° satisfyadjacentedgescoincide."
+    },
+    "source_artifact_exclusions": [
+      "Blue <imageN> composite headings and separators are dataset packaging, not question content."
+    ]
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

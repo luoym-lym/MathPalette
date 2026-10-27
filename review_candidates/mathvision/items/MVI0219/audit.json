@@ -1,0 +1,21 @@
+{
+  "source_id": "219",
+  "source_image_viewed": true,
+  "source_image_sha256": "81e2ad9fc01e8239c9154aac70f8d348520267456bb9b7ad61afc7665d93de02",
+  "inventory": [
+    "Transparent2×2×2cubegrid withfour opaque checkerboard cubes",
+    "Opaque cubes frontlowerleft,frontupperright,rearupperleft,rearlowerright",
+    "Opaque cube front/top/right faces shaded; transparent cell interiors white; rear gridedges visible only where not occluded"
+  ],
+  "conditions": "In the diagram to the right a $2 \\times 2 \\times 2$ cube is made up of four transparent $1 \\times 1 \\times 1$ cubes and four non-transparent black $1 \\times 1 \\times 1$ cubes. They are placed in a way so that the entire big cube is nontransparent; i.e. looking at it from the front to the back, the right to the left, the top to the bottom, at no point you can look through the cube. What is the minimum number of black $1 \\times 1 \\times 1$ cubes needed to make a $3 \\times 3 \\times 3$ cube non-transparent in the same way?\n<image1>",
+  "panel_option_mapping": "single diagram; textual choices preserved in source.json",
+  "ambiguities": [
+    "Source dark/lightgray shading differentiates orientation of identical opaque black cubes, not different material classes; normalized all opaque faces to protocolgray, transparent faces unfilled. No answer3cube diagram substituted."
+  ],
+  "answer_verification": {
+    "reasoning": "Looking along one axis gives9disjoint rows of3cells, each must contain an opaque cube, so at least9blackcubes. Nine suffice: choose all(x,y,z)in{0,1,2}³ with z=(x+y)mod3. Each axisparallel row contains exactlyone selected cube because any two coordinates determine the third modulo3. Thusminimum9. The supplied2cube illustration uses parityx+y+z even to blockeachlength2row.",
+    "result": "9",
+    "verified": true
+  },
+  "stage": "source_audit_complete"
+}

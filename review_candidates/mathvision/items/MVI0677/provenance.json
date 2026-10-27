@@ -1,0 +1,66 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:677",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "solid geometry",
+  "original_record": {
+    "id": "677",
+    "question": "The big cube is made up of three different kinds of building blocks (see diagram). How many of the little white cubes are needed for this big cube?\n<image1>",
+    "options": [],
+    "image": "images/677.jpg",
+    "decoded_image": {
+      "path": "images/677.jpg",
+      "original_path": "677.jpg"
+    },
+    "answer": "11",
+    "solution": null,
+    "level": 5,
+    "subject": "solid geometry"
+  },
+  "source_package": "MathVision_redrawn_solid_geometry_240_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:00.302878+00:00",
+    "complete": true,
+    "category": "solid_geometry",
+    "source_questions": 244,
+    "retained": 240,
+    "excluded": 4,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "source_id": "677",
+    "source_image_viewed": true,
+    "source_image_sha256": "01628ca6d9be3395056d6ea19bc83afcec6a307f850af1b2f9b10f25886c3aa4",
+    "inventory": [
+      "Leftlightgray3×3Lpentacube,darkgray1×1×3bar,whiteunitcube; assemblyarrow",
+      "Right3×3×3cube withsourcefront/top/right materialpattern andpieceboundaryseams",
+      "Light/darkgray retain distinct semanticmaterialclasses"
+    ],
+    "conditions": "The big cube is made up of three different kinds of building blocks (see diagram). How many of the little white cubes are needed for this big cube?\n<image1>",
+    "panel_option_mapping": "single diagram; textual choices preserved in source.json",
+    "ambiguities": [
+      "Root clarified that source-semantic distinctgrays must be supported by scopednative renderer rather thanmerged/excluded. Per-item frozenrenderer extends only semanticfacepalette; originalgeometry/visibility/style/layoutchecks retained."
+    ],
+    "answer_verification": {
+      "reasoning": "Front-rightLcells(2,y,2)plus(2,0,z<2); rear-leftLcells(0,2,z)plus(x>0,2,0). Darkbars are(0,0,z)and(1,y,1). These two5cellLs andtwo3cellbars occupy16distinctcells;remaining27-16=11white. Sourcevisiblepattern forces theseorientations, and noadditionalL/bar canhide insoleinteriorunitcell.",
+      "result": "11",
+      "verified": true
+    },
+    "stage": "source_audit_complete"
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

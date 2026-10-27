@@ -1,0 +1,130 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:2816",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "combinatorial geometry",
+  "original_record": {
+    "id": "2816",
+    "question": "Suppose we have a hexagonal grid in the shape of a hexagon of side length $4$ as shown at left. Define a “chunk” to be four tiles, two of which are adjacent to the other three, and the other two of which are adjacent to just two of the others. The three possible rotations of these are shown at right.\\n\\nIn how many ways can we choose a chunk from the grid?\\n<image1>",
+    "options": [],
+    "image": "images/2816.jpg",
+    "decoded_image": {
+      "path": "images/2816.jpg",
+      "original_path": "2816.jpg"
+    },
+    "answer": "72",
+    "solution": "Call a hexagon (hex) a \"centerpiece\" of a chunk if it is in one of the two chunk's hexes adjacent to all the other hexes in the chunk. If we sum over all hexes the number of chunks that the hex is a centerpiece of, we will clearly get twice the number of chunks. Each corner is a centerpiece of only one, each edge is a centerpiece of two, and each middle piece is a centerpiece of six. Since there are 19 middle pieces, 12 edge pieces, and 6 corner pieces, this gives $144 / 2=72$ chunks.",
+    "level": 5,
+    "subject": "combinatorial geometry"
+  },
+  "source_package": "MathVision_redrawn_combinatorial_geometry_296_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:05.052366+00:00",
+    "complete": true,
+    "category": "combinatorial_geometry",
+    "source_questions": 308,
+    "retained": 296,
+    "excluded": 12,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "source_viewed": true,
+    "inventory": {
+      "panels": 4,
+      "board_hexagons": 37,
+      "hexagon_side": 4,
+      "chunks": [
+        [
+          [
+            0,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            -1,
+            1
+          ]
+        ],
+        [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            -1,
+            1
+          ]
+        ]
+      ],
+      "chunk_tiles": 4,
+      "labels": [],
+      "chunk_layout": "verticaldiamond left; downslope rhombus upperright; upslope rhombus lowerright"
+    },
+    "explicit_conditions": [
+      "regularhexagonalboard side4",
+      "chunkadjacencydegrees3,3,2,2"
+    ],
+    "layout_only": "Frozen uniform scale and placement; source orientation retained.",
+    "answer_verification": {
+      "status": "verified",
+      "answer": "72",
+      "reason": "Enumeratedadjacentcenterpairs withtheir2commonneighborsinsideboard; deduplicated4tilesetscount72.",
+      "conditions": [
+        "regularhexagonalboard side4",
+        "chunkadjacencydegrees3,3,2,2"
+      ]
+    },
+    "self_review": {
+      "status": "actually_viewed",
+      "facts": "Viewed37hexboard andthree4hexchunks; revisedupperright/downwardandlowerright/upwardorientationsmatchsource."
+    }
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

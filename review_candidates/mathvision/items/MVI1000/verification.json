@@ -1,0 +1,55 @@
+{
+  "reviewer": "independent /root/review_transformation_batch",
+  "source_id": "1000",
+  "category": "transformation_geometry",
+  "reviewed_utc": "2026-10-27T02:59:57.555388+00:00",
+  "verdict": "agent_verified",
+  "user_approval": false,
+  "hashes": {
+    "original.jpg": "b3363d1a17257c2a84e2acbc9e28e7a86e9c22a473a125876025d360aa1becaf",
+    "source.json": "b1485a669dc61960cab36f9633620c4e7c3733a77f2eb5b65d2851c27bf7d447",
+    "scene.json": "200a031a1f3301c27382f67ec6bd3b3471fe1c1e7e5b80ca5ba759c71ced1bba",
+    "render.py": "f9732f2acaa0bede016cf487f76a96121d8ba56370bac5227e1bdcb3985d50d8",
+    "image.png": "353497a07a471b54fffcb1e34136462a3ec5361835bb0e8993c5b4b4e41c4908",
+    "audit.json": "ddebbcd4a4b44374e5cd7118a66cd51a53dd9cde477b8a0b15318c0a880dde64",
+    "redraw_report.json": "c861b0151b5d734a60280c47354d33ecc66afa6b5e8c63748aee303cf02c283c"
+  },
+  "explicit_inspected_facts": [
+    "Individually viewed original and candidate: five hooked y silhouettes. A opens right with lower-left hook; B opens left with lower-right hook; C inverted with top-right hook; D opens right with upper-left hook; E upright mirrored with lower-right hook. Chirality of every option preserved.",
+    "Clockwise90 matrix then vertical-edge reflection then halfturn has matrix[[0,1],[1,0]], reflection in y=x. Normal lowercase y has a descending lower-left tail curving left; coordinate swap produces leftward tail curving down, while its arms point right: A. D would put tail hook upward and is not this composition."
+  ],
+  "checks": {
+    "source_record_and_bytes_match": true,
+    "two_independent_renders_equal_candidate": true,
+    "opaque768": true,
+    "bbox": [
+      53,
+      356,
+      714,
+      411
+    ],
+    "occupancy": 0.8619791666666666,
+    "independent_numeric_checks": {
+      "transformation_matrix": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "answer": "A"
+    },
+    "renderer_checks": [],
+    "report_hashes_valid": true,
+    "isolated_standalone_render_identical": true
+  },
+  "required_changes": [],
+  "previous_revisions": [],
+  "dependency_hashes": {
+    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  }
+}

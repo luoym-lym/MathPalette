@@ -1,0 +1,66 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:1328",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "solid geometry",
+  "original_record": {
+    "id": "1328",
+    "question": "There are three great circles on a sphere that intersect each other in a right angle. Starting in point S a little bug moves along the great circles in the direction indicated. At crossings it turns alternately to the right or left. How many quarter circles does it crawl along until it is back in point S?\n<image1>",
+    "options": [],
+    "image": "images/1328.jpg",
+    "decoded_image": {
+      "path": "images/1328.jpg",
+      "original_path": "1328.jpg"
+    },
+    "answer": "6",
+    "solution": null,
+    "level": 2,
+    "subject": "solid geometry"
+  },
+  "source_package": "MathVision_redrawn_solid_geometry_240_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:00.302878+00:00",
+    "complete": true,
+    "category": "solid_geometry",
+    "source_questions": 244,
+    "retained": 240,
+    "excluded": 4,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "source_id": "1328",
+    "source_image_viewed": true,
+    "source_image_sha256": "ad2de0dc4d3bf9f308217a22e96e24c0cbf0ac897be10ff11c830523556c1727",
+    "inventory": [
+      "Sphereoutercircle;three mutuallyorthogonal great-circle networks, untraveledparts dashed",
+      "Smarkedatrightfrontintersection; three solidheavy traveledquarterarcs andonearrowoneach",
+      "Three dasheddiameters meetatmarkedcenter; sourcehollowS/centermarkers"
+    ],
+    "conditions": "There are three great circles on a sphere that intersect each other in a right angle. Starting in point S a little bug moves along the great circles in the direction indicated. At crossings it turns alternately to the right or left. How many quarter circles does it crawl along until it is back in point S?\n<image1>",
+    "panel_option_mapping": "single diagram; textual choices preserved in source.json",
+    "ambiguities": [
+      "Source dashednetwork is diagrammaticuntraveledgreat-circleguidance, not a physicallyopaque-sphere visibilityclassification: routeincludesoppositehemisphere andisexplicitlyshownsolid. Preservefullnetwork asdashedauxiliary, highlighted3givenquartersasgraysemanticribbon+blackcenterline. Hollowmarkers normalizefilledblack; noadditionalverticesnamed."
+    ],
+    "answer_verification": {
+      "reasoning": "Chooseintersectionnormals+x,-y,+z,-x,+y,-z. Starting+xandmovingtoward-y, arrivingtangent isminuspreviousnormal. Rightturn iscross(arrivingtangent,currentnormal); leftturn iscross(currentnormal,arrivingtangent). AlternatingR,L gives+x→-y→+z→-x→+y→-z→+x. Noearlierpoint equalsstart,so6quartercircles.",
+      "result": "6",
+      "verified": true
+    },
+    "stage": "source_audit_complete"
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

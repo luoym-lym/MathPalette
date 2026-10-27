@@ -1,0 +1,121 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:936",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "transformation geometry",
+  "original_record": {
+    "id": "936",
+    "question": "Vania has a sheet of paper divided into nine equal squares. She wants to fold the sheet as shown in the picture, initially with horizontal folds and then with vertical folds, until she leaves the colored square on top of the layers. Vania wants to write the numbers from 1 to 9 , one in each square, so that these numbers are in ascending order, starting with the number 1 at the top, after the folds are made above. On the open sheet, indicated at the side, which numbers should she write in place of $a, b$ and $c$?\n<image1>\n<image2>",
+    "options": [
+      "$a=9, b=5, c=3$",
+      "$a=4, b=6, c=8$",
+      "$a=7, b=5, c=3$",
+      "$a=3, b=5, c=7$",
+      "$a=6, b=4, c=7$"
+    ],
+    "image": "images/936.jpg",
+    "decoded_image": {
+      "path": "images/936.jpg",
+      "original_path": "936.jpg"
+    },
+    "answer": "C",
+    "solution": null,
+    "level": 1,
+    "subject": "transformation geometry"
+  },
+  "source_package": "MathVision_redrawn_transformation_geometry_160_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:02.513020+00:00",
+    "complete": true,
+    "category": "transformation_geometry",
+    "source_questions": 168,
+    "retained": 160,
+    "excluded": 8,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "inventory": [
+      "Initial3×3 square grid with shaded upper-left cell",
+      "Horizontal accordion: all9 congruent square faces, alternating fold direction, downward fold arrow",
+      "Vertical accordion of3 three-layer packets, first packet shaded, rightward fold arrow",
+      "Second open3×3 grid with a at upper-right,b at center,c at lower-left"
+    ],
+    "explicit_conditions": "Vania has a sheet of paper divided into nine equal squares. She wants to fold the sheet as shown in the picture, initially with horizontal folds and then with vertical folds, until she leaves the colored square on top of the layers. Vania wants to write the numbers from 1 to 9 , one in each square, so that these numbers are in ascending order, starting with the number 1 at the top, after the folds are made above. On the open sheet, indicated at the side, which numbers should she write in place of $a, b$ and $c$?\n<image1>\n<image2>",
+    "answer_review": {
+      "status": "verified",
+      "source_answer": "C",
+      "computed_answer": "C",
+      "reasoning": "The first accordion fold puts the three rows into a stack with the shaded row on top. The second accordion fold alternates the orientation of the three column packets: column0 forward(row0,row1,row2), column1 reversed(row2,row1,row0), column2 forward(row0,row1,row2). Thus the open-sheet numbers by rows are[1,6,7],[2,5,8],[3,4,9], giving a=7,b=5,c=3.",
+      "closed_stack_top_to_bottom_rc": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "unfolded_cell_numbers": {
+        "r0c0": 1,
+        "r1c0": 2,
+        "r2c0": 3,
+        "r2c1": 4,
+        "r1c1": 5,
+        "r0c1": 6,
+        "r0c2": 7,
+        "r1c2": 8,
+        "r2c2": 9
+      }
+    },
+    "display_conditions": "All folded panel coordinates are genuine3D rigid square cells under one frozen oblique projection. Only overall panel placement/unit scale differs between explanatory diagrams. Native grey marking, fold arrows, creases and variable labels, no answer numbers in image.",
+    "source_viewed": true,
+    "source_artifact_exclusions": [
+      "Blue imageN headers and separator rules are dataset packaging, not the question figure."
+    ],
+    "native_model": "3D coordinates, rigid folded paper / wood model, explicit projection and boundary visibility. Native analytic vector objects only."
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

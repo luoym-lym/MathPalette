@@ -1,0 +1,51 @@
+{
+  "reviewer": "independent /root/review_transformation_batch",
+  "source_id": "813",
+  "category": "transformation_geometry",
+  "reviewed_utc": "2026-10-27T03:02:24.862438+00:00",
+  "verdict": "agent_verified",
+  "user_approval": false,
+  "hashes": {
+    "original.jpg": "281ed27e8fdb4bd54768c1a464dfdfa05486883419e4dd11603fa999340c5a32",
+    "source.json": "419d75f241ac5c6b7989c6204b1936ca6ab5616a42ac49879d1183814c708785",
+    "scene.json": "c747a6118d56cc266f6ba3606cd9e6f777e247a1fe9adcc9bb95bfcf358ced9c",
+    "render.py": "7d71cedd7752a0212d63762c2738bea36729f0004959e70c1fbfafcc36bfbad5",
+    "image.png": "eeaf0908a84b3b28ea3bf2d887be91109dd84c5a0457a4dcbc63a34469c06874",
+    "audit.json": "53a9a241a9ff23c89b8dcecf89ed31a45a736b5a92675b8d5ec855ce71292675",
+    "redraw_report.json": "7b16df2221bca31f8c116182d34026a76b0617afd206bbd1583abcaa94a5a507"
+  },
+  "explicit_inspected_facts": [
+    "Individually viewed original and candidate: octagon vertex-up, vertical then horizontal then diagonal folds, resulting wedge right-angle at center and horizontal cut toward scissors at right. Options preserve tilted-square holeA, pointed-up octagonB, axis-aligned squareC, four-point starD, flat-top octagonE; outer octagons unchanged.",
+    "Unfold horizontal cut across diagonal fold gives perpendicular vertical cut. Further horizontal/vertical-axis unfolding closes four sides x=\u00b1c,y=\u00b1c around original center. Thus central axis-aligned square hole with outer octagon untouched: C. Candidate C coordinates have equal absolute values0.72."
+  ],
+  "checks": {
+    "source_record_and_bytes_match": true,
+    "two_independent_renders_equal_candidate": true,
+    "opaque768": true,
+    "bbox": [
+      54,
+      248,
+      713,
+      519
+    ],
+    "occupancy": 0.859375,
+    "independent_numeric_checks": {
+      "hole_coordinate_abs": 0.72,
+      "fold_reflections": [
+        "vertical",
+        "horizontal",
+        "diagonal"
+      ],
+      "answer": "C"
+    },
+    "renderer_checks": [],
+    "report_hashes_valid": true,
+    "isolated_standalone_render_identical": true
+  },
+  "required_changes": [],
+  "previous_revisions": [],
+  "dependency_hashes": {
+    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  }
+}

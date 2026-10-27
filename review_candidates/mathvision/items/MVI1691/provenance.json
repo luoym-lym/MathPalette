@@ -1,0 +1,96 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:1691",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "solid geometry",
+  "original_record": {
+    "id": "1691",
+    "question": "A triangular pyramid is built with 20 cannonballs, as shown. Each cannonball is labelled with one of A, B, C, D or E. There are four cannonballs with each type of label.\n<image1>\nThe diagrams show the labels on the cannonballs on three of the faces of the pyramid. What is the label on the hidden cannonball in the middle of the fourth face?",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "image": "images/1691.jpg",
+    "decoded_image": {
+      "path": "images/1691.jpg",
+      "original_path": "1691.jpg"
+    },
+    "answer": "D",
+    "solution": "Note that each cannonball on the two non-horizontal edges of each pictured face appears on two of those faces, except the cannonball at the vertex which appears on all three. Hence, when the labels of the cannonballs are counted, these must only be counted once. Careful counting of the cannonballs shown gives four cannonballs labelled $A, B, C$ and $E$ but only three labelled $D$. Hence the cannonball at the centre of the hidden face is labelled $D$.",
+    "level": 4,
+    "subject": "solid geometry"
+  },
+  "source_package": "MathVision_redrawn_solid_geometry_240_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:00.302878+00:00",
+    "complete": true,
+    "category": "solid_geometry",
+    "source_questions": 244,
+    "retained": 240,
+    "excluded": 4,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "source_id": "1691",
+    "source_image_viewed": true,
+    "source_image_sha256": "8df40dea7a0d08fa6395039043b216806023d07c16653594d8d6098e84683f9e",
+    "inventory": [
+      "Unlabelled20sphere tetrahedralpyramid, layers10/6/3/1",
+      "Threeplanar triangularface diagrams each10graycircles withA-Elabels",
+      "Face1 rowsD/CA/BED/DECA;face2D/BC/EAB/CBAD;face3D/AB/DCE/AEBC",
+      "1218unlabelledpyramid above3facepanels;1691pyramidleftof3facepanels"
+    ],
+    "conditions": "A triangular pyramid is built with 20 cannonballs, as shown. Each cannonball is labelled with one of A, B, C, D or E. There are four cannonballs with each type of label.\n<image1>\nThe diagrams show the labels on the cannonballs on three of the faces of the pyramid. What is the label on the hidden cannonball in the middle of the fourth face?",
+    "panel_option_mapping": {
+      "unlabelled": "20balltetrahedron",
+      "facepanels_left_to_right": [
+        [
+          "D",
+          "CA",
+          "BED",
+          "DECA"
+        ],
+        [
+          "D",
+          "BC",
+          "EAB",
+          "CBAD"
+        ],
+        [
+          "D",
+          "AB",
+          "DCE",
+          "AEBC"
+        ]
+      ],
+      "layout": "onehorizontalrow"
+    },
+    "ambiguities": [
+      "1691source shaded3Dballimage is geometric; nativeorthographic sphere silhouettes replace lighting, not shapeidentity.1218source circles alreadyflatgray. Allthreeface-label arrays retained withoutaddinghiddenlabel oranswer."
+    ],
+    "answer_verification": {
+      "reasoning": "Assign barycentricintegercoordinates(a,b,c,d)sum3 to20spheres. Eachsourceface giveslabels on oneofthree faces containingapex. Sharededges agree. Deduplicated19visiblelabels countA4,B4,C4,D3,E4. Onlyunseen sphere isbasefacecenter(1,1,1,0),soitmustbeD toreachfour ofeach.",
+      "result": "D",
+      "verified": true
+    },
+    "stage": "source_audit_complete"
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

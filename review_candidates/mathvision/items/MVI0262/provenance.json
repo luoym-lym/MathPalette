@@ -1,0 +1,81 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:262",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "solid geometry",
+  "original_record": {
+    "id": "262",
+    "question": "The cube pictured on the side is intersected by a plane that passes through the three points adjacent to $A$, that is $D, E$ and $B$. In a similar way the cube is also intersected by those planes that go through the three points adjacent to each of the other seven vertices. These planes dissect the cube into several pieces. What does the piece that contains the centre of the cube look like?\n<image1>\n<image2>",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "image": "images/262.jpg",
+    "decoded_image": {
+      "path": "images/262.jpg",
+      "original_path": "262.jpg"
+    },
+    "answer": "A",
+    "solution": null,
+    "level": 3,
+    "subject": "solid geometry"
+  },
+  "source_package": "MathVision_redrawn_solid_geometry_240_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:00.302878+00:00",
+    "complete": true,
+    "category": "solid_geometry",
+    "source_questions": 244,
+    "retained": 240,
+    "excluded": 4,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "source_id": "262",
+    "source_image_viewed": true,
+    "source_image_sha256": "a0b82c31c00cb5c47ea1c90f551092b072be4c4f9c4509f6f880e9fa89ee583a",
+    "inventory": [
+      "Upper cube with exact source labelsD/A on front top,C/B front bottom,H/E back top,F back bottom-right; no G or hidden edges",
+      "Lower optionsA octahedron,B tilted cube,C all-corner truncated cube,D icosahedron; thin rear edges present",
+      "OptionE text: The centre of the cube belongs to several pieces."
+    ],
+    "conditions": "The cube pictured on the side is intersected by a plane that passes through the three points adjacent to $A$, that is $D, E$ and $B$. In a similar way the cube is also intersected by those planes that go through the three points adjacent to each of the other seven vertices. These planes dissect the cube into several pieces. What does the piece that contains the centre of the cube look like?\n<image1>\n<image2>",
+    "panel_option_mapping": {
+      "image1": "labelled cube",
+      "image2": {
+        "A": "octahedron",
+        "B": "cube",
+        "C": "truncated cube",
+        "D": "icosahedron",
+        "E": "centre belongs to several pieces"
+      }
+    },
+    "ambiguities": [
+      "Blue image1/image2 wrappers omitted. Source faint rear edges in options normalize protocol dashed hidden edges; no hidden edges added to the upper cube where absent. All four geometric distractor classes and fullE text retained, not replaced by answer-only schematic."
+    ],
+    "answer_verification": {
+      "reasoning": "Model cube[-1,1]^3. Plane through the three neighbors of corner(sx,sy,sz) has equation sx*x+sy*y+sz*z=1. The piece containing0 satisfies all8 inequalities, equivalently|x|+|y|+|z|<=1. Its six vertices are coordinate unit vectors ±e1,±e2,±e3 and its8faces are triangles: octahedronA. Origin satisfies every inequality strictly, so it belongs to just one piece, excludingE.",
+      "result": "A",
+      "verified": true
+    },
+    "stage": "source_audit_complete"
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

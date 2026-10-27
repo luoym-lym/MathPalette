@@ -1,0 +1,34 @@
+{
+  "source_viewed": true,
+  "inventory": {
+    "panels": 2,
+    "left": "5x5labeledpartialgrid withright/top continuationhalfcells",
+    "black_cells": "evenrowandevencol",
+    "right": "Lthreeunits orientationtwoverticalleftonebottomright",
+    "labels": [
+      "1..5eachaxis",
+      "an L-triomino"
+    ],
+    "continuation": "Open top/right continuation; no invented closingouterframe"
+  },
+  "explicit_conditions": [
+    "101x101",
+    "evenevencellsremoved",
+    "rotationsallowed"
+  ],
+  "layout_only": "Frozen uniform scale and placement; source orientation retained.",
+  "answer_verification": {
+    "status": "verified",
+    "answer": "2550",
+    "reason": "EachLrequires2mixed-paritycells;5100mixedcells upperbound2550. Construct onoddoddnodesindexed i,j0..50: skipi=j. Fori<j use(2i,2j),(2i,2j-1),(2i+1,2j); fori>j use(2i,2j),(2i,2j+1),(2i-1,2j). All2550Ltiles independentlycheckedinside101square, avoidholesandpairwisedisjoint. Witnesssaved.",
+    "conditions": [
+      "101x101",
+      "evenevencellsremoved in1basedcoordinates",
+      "rotationsallowed"
+    ]
+  },
+  "self_review": {
+    "status": "actually_viewed",
+    "facts": "Viewedrevisedopencontinuationtop/right, blackevenevenholes,labelled1..5 axes,andLtile; answerlowerboundstilluncertain."
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:344",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "solid geometry",
+  "original_record": {
+    "id": "344",
+    "question": "Two rectangular blocks and a cube are joined to form a larger rectangular block, which volume is $280 \\mathrm{~cm}^{3}$. The cube, in dark gray in the picture, has volume equal to $125 \\mathrm{~cm}^{3}$ and the smaller rectangular block has volume equal to $75 \\mathrm{~cm}^{3}$. What is the area of the face marked with the question mark?\n<image1>",
+    "options": [
+      "$16 \\mathrm{~cm}^{2}$",
+      "$18 \\mathrm{~cm}^{2}$",
+      "$20 \\mathrm{~cm}^{2}$",
+      "$24 \\mathrm{~cm}^{2}$",
+      "$56 \\mathrm{~cm}^{2}$"
+    ],
+    "image": "images/344.jpg",
+    "decoded_image": {
+      "path": "images/344.jpg",
+      "original_path": "344.jpg"
+    },
+    "answer": "A",
+    "solution": null,
+    "level": 3,
+    "subject": "solid geometry"
+  },
+  "source_package": "MathVision_redrawn_solid_geometry_240_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:00.302878+00:00",
+    "complete": true,
+    "category": "solid_geometry",
+    "source_questions": 244,
+    "retained": 240,
+    "excluded": 4,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "source_id": "344",
+    "source_image_viewed": true,
+    "source_image_sha256": "b558978c08d5eee585aca563943d7b6ae56cdb04b0e75743e9eff4f8700c905e",
+    "inventory": [
+      "rectangular combined block split into rear full-width slab, front-left rectangular block, front-right graycube",
+      "graycube side5; smallerblock shares full cube height/depth",
+      "question mark on top rear slab; no hidden edges"
+    ],
+    "conditions": "Two rectangular blocks and a cube are joined to form a larger rectangular block, which volume is $280 \\mathrm{~cm}^{3}$. The cube, in dark gray in the picture, has volume equal to $125 \\mathrm{~cm}^{3}$ and the smaller rectangular block has volume equal to $75 \\mathrm{~cm}^{3}$. What is the area of the face marked with the question mark?\n<image1>",
+    "panel_option_mapping": "single diagram; textual choices preserved in source.json",
+    "ambiguities": [
+      "Source uses oblique skew preserving front-right graycube. Only cube needs semantic fill; smaller block light shading removed. No solved dimensions are labelled."
+    ],
+    "answer_verification": {
+      "reasoning": "Cube side5 gives common height5. Smaller front-left block volume75 has top area15 and depth5, so width3. Combined front width8. Total top area280/5=56. Front region top area25+15=40, leaving rear face56-40=16cm², option A.",
+      "result": "A",
+      "verified": true
+    },
+    "stage": "source_audit_complete"
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

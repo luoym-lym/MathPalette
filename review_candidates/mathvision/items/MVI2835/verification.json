@@ -1,0 +1,73 @@
+{
+  "reviewer": "independent /root/review_transformation_batch",
+  "source_id": "2835",
+  "category": "transformation_geometry",
+  "reviewed_utc": "2026-10-27T02:04:06.123616+00:00",
+  "verdict": "agent_verified",
+  "user_approval": false,
+  "hashes": {
+    "original.jpg": "a15c85a761fccf07cdcd3b089b56215672177dc1e3844fe7c7d098081dc14171",
+    "source.json": "9743e36f3cf75df7a6c73d56acd7fe2188d1d78735adfed3b6e27c18ada91948",
+    "scene.json": "968312a17a0c512f2d8b7e0a0aa8ddbcfb658adcfdfe60b016220d0949b4a31a",
+    "render.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
+    "image.png": "091e0c8fa4f8eda918ca5372536f8f488c699a46bdf1aab1bd114890b5fe775d",
+    "audit.json": "e5e7cdbe1e7afda84fdf8790b1fb1e5dc367505276c28bf378c05748810b3dad",
+    "redraw_report.json": "9692880d725968e3227548ca4b6609b6005e980981954fe3ae33496c75ca0b24"
+  },
+  "explicit_inspected_facts": [
+    "Individually viewed original/output: two rightward rays from A0, alternating A1 upper/A2 lower/A3 upper/A4 lower, solid first links then dashed continuation. Explicit1degree opening replaces exaggerated source angle; labels remain distinct, very shallow geometry is honest to stated constraint."
+  ],
+  "checks": {
+    "source_record_and_bytes_match": true,
+    "two_independent_renders_equal_candidate": true,
+    "opaque768": true,
+    "bbox": [
+      54,
+      349,
+      713,
+      418
+    ],
+    "occupancy": 0.859375,
+    "independent_numeric_checks": {
+      "answer": "90",
+      "r_k": "sin(k degrees)/sin(1 degree)",
+      "r89": 57.28996163075943,
+      "r90": 57.298688498550185,
+      "r91": 57.28996163075943,
+      "proof": "For alternating points on the two diagram rays, unit-step cosine rule gives r_k=2cos1\u00b0 r_(k\u22121)\u2212r_(k\u22122), hence sine formula. It strictly increases through90 and decreases at91; alternate quadratic root is previous same-ray point, also not farther."
+    },
+    "renderer_checks": [
+      {
+        "id": "unit1",
+        "type": "distance",
+        "measured": 1.0,
+        "passed": true
+      },
+      {
+        "id": "unit2",
+        "type": "distance",
+        "measured": 0.9999999999999999,
+        "passed": true
+      },
+      {
+        "id": "unit3",
+        "type": "distance",
+        "measured": 1.0000000000000004,
+        "passed": true
+      },
+      {
+        "id": "unit4",
+        "type": "distance",
+        "measured": 0.9999999999999997,
+        "passed": true
+      }
+    ],
+    "report_hashes_valid": true
+  },
+  "required_changes": [],
+  "previous_revisions": [],
+  "dependency_hashes": {
+    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  }
+}

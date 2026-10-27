@@ -1,0 +1,54 @@
+{
+  "reviewer": "independent /root/review_transformation_batch",
+  "source_id": "2327",
+  "category": "transformation_geometry",
+  "reviewed_utc": "2026-10-27T01:58:24.836657+00:00",
+  "verdict": "agent_verified",
+  "user_approval": false,
+  "hashes": {
+    "original.jpg": "d597def31afc5aced2ae2299ee6af829013235f8b510b62d6a910d730526d80d",
+    "source.json": "7f06702ee77cd49cea554c0863813b136362eb20ed601984e48b0b827744d03e",
+    "scene.json": "51d9ffc80de8f21cfb755060aaf3fc5b9000912691804dbe8f61728e7aeb27a8",
+    "render.py": "72ed6412df7fb4870ef4f96749d436e14ac4e5550032349009fec0a7b6296252",
+    "image.png": "7ff1f3a17ebcbf6e37dd2d778078abb06865286ed1db6d40b34566e279c40a3e",
+    "audit.json": "fa62ecab54020af9ea7842d7672c7107b0b3b6bd94dde6d43540f80041c54ae1",
+    "redraw_report.json": "93b78b8fb5808d673dbe33ffd38ee5e69c577f69869a505ed6ef70a699543482"
+  },
+  "explicit_inspected_facts": [
+    "Individually viewed source/output: collinear A-B-C-D in that order, dotted rotated arms meet at upper apex marked small cross, left clockwise/right anticlockwise directional arrows. Candidate adjusts illustrative unequal spans to enforce true rotational length invariance without adding numeric labels."
+  ],
+  "checks": {
+    "source_record_and_bytes_match": true,
+    "two_independent_renders_equal_candidate": true,
+    "opaque768": true,
+    "bbox": [
+      54,
+      270,
+      713,
+      497
+    ],
+    "occupancy": 0.859375,
+    "independent_numeric_checks": {
+      "answer": "C",
+      "triangle_sides_symbolic": [
+        "x",
+        "y-x",
+        "z-y"
+      ],
+      "inequalities": [
+        "x<z/2",
+        "y<x+z/2",
+        "y>z/2"
+      ],
+      "proof": "Strict triangle inequalities give respectively2x<z,2y<2x+z,and2y>z. Thus I/II necessary, III opposite to necessary condition. Frozen rotated segment lengths checked3 and3.7."
+    },
+    "renderer_checks": [],
+    "report_hashes_valid": true
+  },
+  "required_changes": [],
+  "previous_revisions": [],
+  "dependency_hashes": {
+    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  }
+}

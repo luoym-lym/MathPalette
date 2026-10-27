@@ -1,0 +1,115 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:2782",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "transformation geometry",
+  "original_record": {
+    "id": "2782",
+    "question": "A square piece of paper is folded twice into four equal quarters, as shown below, then cut along the dashed line. When unfolded, the paper will match which of the following figures?\n<image1>\n<image2>",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "image": "images/2782.jpg",
+    "decoded_image": {
+      "path": "images/2782.jpg",
+      "original_path": "2782.jpg"
+    },
+    "answer": "E",
+    "solution": null,
+    "level": 3,
+    "subject": "transformation geometry"
+  },
+  "source_package": "MathVision_redrawn_transformation_geometry_160_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:02.513020+00:00",
+    "complete": true,
+    "category": "transformation_geometry",
+    "source_questions": 168,
+    "retained": 160,
+    "excluded": 8,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "inventory": [
+      "Initial solid-gray square",
+      "Rightward fold arrow",
+      "Native partially folded four-quarter paper stack, reverse face banded",
+      "Second rightward arrow",
+      "Closed four-layer quarter with open stacked edges at top/left and folds at bottom/right; dashed cut joining bottom midpoint to right midpoint",
+      "Five complete options in source3+2 arrangement: four boundary V cuts, two boundary V cuts, square central hole, triangular central hole, diamond central hole"
+    ],
+    "explicit_conditions": "A square piece of paper is folded twice into four equal quarters, as shown below, then cut along the dashed line. When unfolded, the paper will match which of the following figures?\n<image1>\n<image2>",
+    "answer_review": {
+      "status": "verified",
+      "source_answer": "E",
+      "computed_answer": "E",
+      "reasoning": "The common folded corner is lower-right: the right and bottom boundaries are the two crease edges, while the source top/left heavy boundaries are the stacked open edges. In quarter coordinates0<=x,y<=1, the dashed segment joins(.5,0) to(1,.5). Reflect the removed triangle across x=1 and y=0; the four triangles form one central diamond with vertices(.5,0),(1,.5),(1.5,0),(1,-.5) in the original square[0,2]×[-1,1]. That is E, not a boundary notch or axis-aligned square.",
+      "fold_axes": [
+        "x=1",
+        "y=0"
+      ],
+      "unfolded_hole_vertices": [
+        [
+          0.5,
+          0
+        ],
+        [
+          1,
+          0.5
+        ],
+        [
+          1.5,
+          0
+        ],
+        [
+          1,
+          -0.5
+        ]
+      ],
+      "normalized_hole_vertices": [
+        [
+          0.25,
+          0.5
+        ],
+        [
+          0.5,
+          0.75
+        ],
+        [
+          0.75,
+          0.5
+        ],
+        [
+          0.5,
+          0.25
+        ]
+      ],
+      "removed_area_fraction": 0.125
+    },
+    "display_conditions": "Actual3D rigid square faces and hinge model, separately frozen projection/occlusion. Native reverse-side material bands retain source meaning. Four offset display layers explain source heavy stack edges without changing1pt line protocol or adding mathematical conditions.",
+    "source_viewed": true,
+    "source_artifact_exclusions": [
+      "Blue imageN headers and separator rules are dataset packaging, not the question figure."
+    ],
+    "native_model": "3D coordinates, rigid folded paper / wood model, explicit projection and boundary visibility. Native analytic vector objects only."
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

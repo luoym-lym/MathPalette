@@ -1,0 +1,70 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:1793",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "combinatorial geometry",
+  "original_record": {
+    "id": "1793",
+    "question": "What is the largest number of \" $\\mathrm{T}$ \" shaped pieces, as shown, that can be placed on the $4 \\times 5$ grid in the diagram, without any overlap of the pieces? <image1>",
+    "options": [],
+    "image": "images/1793.jpg",
+    "decoded_image": {
+      "path": "images/1793.jpg",
+      "original_path": "1793.jpg"
+    },
+    "answer": "4",
+    "solution": "Colour the cells of the grid alternately black and white, as shown in the first diagram. Each \"T\" shaped piece fits over three cells of one colour and one of the other colour, as shown in the second diagram. Suppose that for one of the two colours, say white, there are three pieces each covering three cells of that colour. Since there are only ten white cells in  ![](https://cdn.mathpix.com/cropped/2023_12_27_cd50dd081de367811fcfg-04.jpg?height=208&width=272&top_left_y=661&top_left_x=1600) the grid, only one white cell is not covered by the three pieces. Hence, as each piece covers at least one white cell, at most one more piece could be placed on the grid. Therefore at most four pieces could be placed on the grid.  Alternatively, if there are no more than two \"T\" shaped pieces that each cover three white cells and no more than two that cover three black cells, then again there is a maximum of four \"T\" shaped pieces that could be placed on the grid.  ![](https://cdn.mathpix.com/cropped/2023_12_27_cd50dd081de367811fcfg-04.jpg?height=217&width=277&top_left_y=908&top_left_x=1598)  \\begin{tabular}{|l|l|l|l|l|} \\hline 1 & & 4 & 4 & 4 \\\\ \\hline 1 & 1 & & 4 & 3 \\\\ \\hline 1 & 2 & & 3 & 3 \\\\ \\hline 2 & 2 & 2 & & 3 \\\\ \\hline \\end{tabular}  The third diagram shows one of the many different possible ways in which four pieces could be placed, showing that it is possible to place four pieces on the grid.",
+    "level": 2,
+    "subject": "combinatorial geometry"
+  },
+  "source_package": "MathVision_redrawn_combinatorial_geometry_296_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:05.052366+00:00",
+    "complete": true,
+    "category": "combinatorial_geometry",
+    "source_questions": 308,
+    "retained": 296,
+    "excluded": 12,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "source_viewed": true,
+    "inventory": {
+      "panels": 2,
+      "left": "greyTtetromino withthreeuppercellsandlowercenter",
+      "right": "5x4whitegrid",
+      "labels": []
+    },
+    "explicit_conditions": [
+      "nonoverlapTtetrominoeson20cells"
+    ],
+    "layout_only": "Frozen uniform scale and placement; source orientation retained.",
+    "answer_verification": {
+      "status": "verified",
+      "answer": "4",
+      "reason": "EachTcovers3ofonecheckercolorand1oftheother;5Tswouldgiveoddnumberof3whitepiecesbut10whitecellsrequires2.5, impossible. FourTplacementsfit (source-independentpackingcanbewitnessed).",
+      "conditions": [
+        "nonoverlapTtetrominoeson20cells"
+      ]
+    },
+    "self_review": {
+      "status": "actually_viewed",
+      "facts": "Leftfour-cellTshaded andright5x4grid preserved, no proposedpacking inserted."
+    }
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

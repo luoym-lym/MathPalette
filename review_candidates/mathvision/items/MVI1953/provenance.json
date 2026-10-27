@@ -1,0 +1,67 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:1953",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "transformation geometry",
+  "original_record": {
+    "id": "1953",
+    "question": "Two identical rectangles with sides of length $3 \\mathrm{~cm}$ and $9 \\mathrm{~cm}$ are overlapping as in the diagram. What is the area of the overlap of the two rectangles? <image1>",
+    "options": [
+      "$12 \\mathrm{~cm}^{2}$",
+      "$13.5 \\mathrm{~cm}^{2}$",
+      "$14 \\mathrm{~cm}^{2}$",
+      "$15 \\mathrm{~cm}^{2}$",
+      "$16 \\mathrm{~cm}^{2}$"
+    ],
+    "image": "images/1953.jpg",
+    "decoded_image": {
+      "path": "images/1953.jpg",
+      "original_path": "1953.jpg"
+    },
+    "answer": "D",
+    "solution": "First we prove that the four white triangles are congruent. Note that they each have a right angle. Also angles $H G A$ and $F G E$ are equal (vertically opposite). The quadrilateral $A C E G$ is a parallelogram since each of its sides come from the rectangles. Hence angles $F G E$ and $G A C$ are equal (corresponding), and angles $G A C$ and $E C D$ are equal (corresponding). Therefore each triangle has a right-angle, and an angle equal to $H G A$, and therefore they each have the same angles. Moreover, they each have a corresponding side of length $3 \\mathrm{~cm}$. By labelling triangle $A B C$ with lengths $3, x$ and $y$, Pythagoras' Theorem gives $x^{2}+3^{2}=y^{2}$ [1]. The triangles $A B C$ and $C D E$ are congruent, so $C D=C B=x$. Since $A D=9$, we can see $x+y=9[2]$.  Equation [2] rearranges to $x=9-y$, so $x^{2}=(9-y)^{2}=81-$ $18 y+y^{2}$. Substituting this into [1] gives $81-18 y+y^{2}+3^{2}=y^{2}$, so $18 y=90$ and $y=5$. Thus $x=9-5=4$. The area of each white triangle is $\\frac{1}{2} \\times 3 x=\\frac{1}{2} \\times 3 \\times 4=6 \\mathrm{~cm}^{2}$. Thus the overlap is $3 \\times 9-2 \\times 6=15 \\mathrm{~cm}^{2}$.  ![](https://cdn.mathpix.com/cropped/2023_12_27_0f4ed2787981bb911326g-297.jpg?height=408&width=483&top_left_y=1715&top_left_x=1386)",
+    "level": 4,
+    "subject": "transformation geometry"
+  },
+  "source_package": "MathVision_redrawn_transformation_geometry_160_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:02.513020+00:00",
+    "complete": true,
+    "category": "transformation_geometry",
+    "source_questions": 168,
+    "retained": 160,
+    "excluded": 8,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "source_viewed": true,
+    "inventory": [
+      "Two3×9rectangles sharingoppositediagonalendpoints, oneaxisalignedandoneoblique; grayoverlapparallelogram. No labels."
+    ],
+    "explicit_conditions": "Question transformation and pictured connectivity, options, hole types/positions; no inferred metric labels.",
+    "display_conditions": "Uniform scale and panel arrangement only.",
+    "answer_review": {
+      "status": "verified",
+      "answer": "D",
+      "reason": "Reflectionof9×3rectangleacrossdiagonal mapsremainingvertices to(7.2,5.4),(1.8,−2.4). Intersectionswithhorizontaledges(4,3),(5,0), overlapbase5,height3, area15, optionD."
+    },
+    "source_artifact_exclusions": [
+      "Blue <imageN> composite headings and separators are dataset packaging, not question content."
+    ]
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

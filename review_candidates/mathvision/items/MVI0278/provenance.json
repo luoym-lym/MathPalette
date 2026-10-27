@@ -1,0 +1,73 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:278",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "solid geometry",
+  "original_record": {
+    "id": "278",
+    "question": "On a standard die the sum of the numbers on opposite faces is always 7. Two identical standard dice are shown in the figure. How many dots could there be on the non-visible right-hand face (marked with \"?\")?\n<image1>",
+    "options": [
+      "only 5",
+      "only 2",
+      "either 2 or 5",
+      "either 1, 2, 3 or 5",
+      "either 2,3 or 5"
+    ],
+    "image": "images/278.jpg",
+    "decoded_image": {
+      "path": "images/278.jpg",
+      "original_path": "278.jpg"
+    },
+    "answer": "A",
+    "solution": null,
+    "level": 3,
+    "subject": "solid geometry"
+  },
+  "source_package": "MathVision_redrawn_solid_geometry_240_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:00.302878+00:00",
+    "complete": true,
+    "category": "solid_geometry",
+    "source_questions": 244,
+    "retained": 240,
+    "excluded": 4,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "source_id": "278",
+    "source_image_viewed": true,
+    "source_image_sha256": "0ec1dcbad4df9174569d91250b1040ad76faa1f9dd6b432e987c7ed5ba4792e5",
+    "inventory": [
+      "two adjacent identical dice",
+      "left top2,front1,leftface3",
+      "right top6,front4; unseen rightface indicated by left-pointing arrow and?",
+      "all visible pips and face boundaries"
+    ],
+    "conditions": "On a standard die the sum of the numbers on opposite faces is always 7. Two identical standard dice are shown in the figure. How many dots could there be on the non-visible right-hand face (marked with \"?\")?\n<image1>",
+    "panel_option_mapping": "single diagram; textual choices preserved in source.json",
+    "ambiguities": [
+      "Pips normalized to protocol black point markers at matching face positions; no hidden face pips added."
+    ],
+    "answer_verification": {
+      "reasoning": "First die has normals top2,front1,left3; opposites bottom5,back6,right4. Rotate orientation so oldback6 becomes top and oldright4 becomes front; right-handed cube rotation then puts oldbottom5 on right. Hence only5, optionA.",
+      "result": "A",
+      "verified": true
+    },
+    "stage": "source_audit_complete"
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

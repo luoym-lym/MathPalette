@@ -1,0 +1,131 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:1574",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "transformation geometry",
+  "original_record": {
+    "id": "1574",
+    "question": "Andrea has wound some rope around a piece of wood, as shown in the diagram on the right. She rotates the wood $180^{\\circ}$ as shown by the arrow in the diagram. What does she see after the rotation?\n<image1>\n<image2>",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "image": "images/1574.jpg",
+    "decoded_image": {
+      "path": "images/1574.jpg",
+      "original_path": "1574.jpg"
+    },
+    "answer": "D",
+    "solution": "When Andrea started, the rope passed through each notch at the top of the piece of wood. When the wood is rotated through $180^{\\circ}$, the rope must now pass through each notch at the bottom of the piece of wood. This means, of the options available, she must see D.  However, there is an alternative view that she could see after the rotation. Consider the initial piece of wood and label the notches along the top 1,2,3,4 and the notches along the bottom $P, Q, R, S$ as shown in the diagram. The reverse of the piece of wood could also show $P$ to 3 , then $S$ to 2 and finally $R$ to 4 .  1234  ![](https://cdn.mathpix.com/cropped/2023_12_27_0f4ed2787981bb911326g-114.jpg?height=270&width=342&top_left_y=280&top_left_x=1505)  $P Q R S$",
+    "level": 3,
+    "subject": "transformation geometry"
+  },
+  "source_package": "MathVision_redrawn_transformation_geometry_160_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:02.513020+00:00",
+    "complete": true,
+    "category": "transformation_geometry",
+    "source_questions": 168,
+    "retained": 160,
+    "excluded": 8,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "inventory": [
+      "Rounded wood blank with four paired notches along both long edges",
+      "Given front rope: top1-bottom1,top2-bottom3,top3-bottom4; two free ends at top1/top4",
+      "180-degree long-axis rotation arrow and axis symbol",
+      "All5 options retain each displayed rope segment, free-end orientation, unused notch and crossing"
+    ],
+    "explicit_conditions": "Andrea has wound some rope around a piece of wood, as shown in the diagram on the right. She rotates the wood $180^{\\circ}$ as shown by the arrow in the diagram. What does she see after the rotation?\n<image1>\n<image2>",
+    "answer_review": {
+      "status": "verified_with_recorded_hidden_route_ambiguity",
+      "source_answer": "D",
+      "computed_answer": "D",
+      "reasoning": "A half-turn about the long axis sends the original top edge to the new bottom edge. Treat each offered new-front segment as an original back-face segment with top/bottom swapped. Combined with the three known front segments and two free ends, the admissible option must form one connected, unbranched rope path with precisely two endpoints. The graph test admits only the keyed option. The initial view itself allows two unseen back routes; this does not create two correct listed choices.",
+      "option_graph_compatibility": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": true,
+        "E": false
+      },
+      "two_admissible_back_routes_new_top_to_bottom_indices_0based": [
+        [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            3
+          ]
+        ],
+        [
+          [
+            0,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            1
+          ]
+        ]
+      ],
+      "known_original_front_graph": [
+        [
+          "T0",
+          "B0"
+        ],
+        [
+          "T1",
+          "B2"
+        ],
+        [
+          "T2",
+          "B3"
+        ],
+        [
+          "E0",
+          "T0"
+        ],
+        [
+          "E1",
+          "T3"
+        ]
+      ]
+    },
+    "display_conditions": "Native3D extruded blank with explicit front/back outlines, hidden rear boundary omitted, rope coordinates on visible face, exact180-degree rotation matrix. Curves are native analytic sampled ellipses and cubic rope-end curves. No decorative shading.",
+    "source_viewed": true,
+    "source_artifact_exclusions": [
+      "Blue imageN headers and separator rules are dataset packaging, not the question figure."
+    ],
+    "native_model": "3D coordinates, rigid folded paper / wood model, explicit projection and boundary visibility. Native analytic vector objects only."
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

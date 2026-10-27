@@ -1,0 +1,70 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:1779",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "combinatorial geometry",
+  "original_record": {
+    "id": "1779",
+    "question": "Using only pieces like the one shown in the diagram, Zara wants to make a complete square without gaps or overlaps.\n<image1>\nWhat is the smallest number of pieces she can use?",
+    "options": [],
+    "image": "images/1779.jpg",
+    "decoded_image": {
+      "path": "images/1779.jpg",
+      "original_path": "1779.jpg"
+    },
+    "answer": "20",
+    "solution": "Since the total area of a square created with $N$ of the pieces shown will be $5 N$, we need $5 N$ to be a square number. Therefore $N$ is of the form $5 m^{2}$ for some integer $m$ and, of the options given, only 5 and 20 are of that form.  Consider first whether it is possible to create a square with 5 pieces. Such a square would be a $5 \\times 5$ square and, as shown in the diagrams below, it is then only possible to cover the central cell in one of two ways (rotations and reflections of the arrangements shown being essentially the same). ![](https://cdn.mathpix.com/cropped/2023_12_27_c3e6d35f61c1d1a9baefg-11.jpg?height=178&width=442&top_left_y=1096&top_left_x=812)  Whichever of these two arrangements is used to cover the central cell, it is easy to see that the remaining cells cannot be covered with four more of the pieces and hence it is impossible to build a square with 5 of the pieces shown.  However, since two of the pieces can be placed next to each other to form a $5 \\times 2$ rectangle as shown,  ![](https://cdn.mathpix.com/cropped/2023_12_27_c3e6d35f61c1d1a9baefg-11.jpg?height=91&width=194&top_left_y=1639&top_left_x=931)  and 10 of these rectangles can easily be combined to create a $10 \\times 10$ square, a square can be built using 20 pieces.",
+    "level": 2,
+    "subject": "combinatorial geometry"
+  },
+  "source_package": "MathVision_redrawn_combinatorial_geometry_296_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:05.052366+00:00",
+    "complete": true,
+    "category": "combinatorial_geometry",
+    "source_questions": 308,
+    "retained": 296,
+    "excluded": 12,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "source_viewed": true,
+    "inventory": {
+      "panels": 1,
+      "cells": 5,
+      "shape": "fourcellhorizontalbarwithoneaboveleft",
+      "labels": []
+    },
+    "explicit_conditions": [
+      "identicalLpentominoes tileasquare"
+    ],
+    "layout_only": "Frozen uniform scale and placement; source orientation retained.",
+    "answer_verification": {
+      "status": "verified",
+      "answer": "20",
+      "reason": "Squarearea5NrequiresN=5m². Exactcoverenumerationrulesout5x5(5pieces). TwoLpiecesform5x2rectangle;10suchrectanglestile10x10with20pieces.",
+      "conditions": [
+        "identicalLpentominoes tileasquare"
+      ]
+    },
+    "self_review": {
+      "status": "actually_viewed",
+      "facts": "Five-cellLshape withfourbottomcells andupperleftcell preserved."
+    }
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

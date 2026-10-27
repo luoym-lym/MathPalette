@@ -1,0 +1,64 @@
+{
+  "inventory": [
+    "Initial solid-gray square",
+    "Rightward fold arrow",
+    "Native partially folded four-quarter paper stack, reverse face banded",
+    "Second rightward arrow",
+    "Closed four-layer quarter with open stacked edges at top/left and folds at bottom/right; dashed cut joining bottom midpoint to right midpoint",
+    "Five complete options in source3+2 arrangement: four boundary V cuts, two boundary V cuts, square central hole, triangular central hole, diamond central hole"
+  ],
+  "explicit_conditions": "A square piece of paper is folded twice into four equal quarters, as shown below, then cut along the dashed line. When unfolded, the paper will match which of the following figures?\n<image1>\n<image2>",
+  "answer_review": {
+    "status": "verified",
+    "source_answer": "E",
+    "computed_answer": "E",
+    "reasoning": "The common folded corner is lower-right: the right and bottom boundaries are the two crease edges, while the source top/left heavy boundaries are the stacked open edges. In quarter coordinates0<=x,y<=1, the dashed segment joins(.5,0) to(1,.5). Reflect the removed triangle across x=1 and y=0; the four triangles form one central diamond with vertices(.5,0),(1,.5),(1.5,0),(1,-.5) in the original square[0,2]×[-1,1]. That is E, not a boundary notch or axis-aligned square.",
+    "fold_axes": [
+      "x=1",
+      "y=0"
+    ],
+    "unfolded_hole_vertices": [
+      [
+        0.5,
+        0
+      ],
+      [
+        1,
+        0.5
+      ],
+      [
+        1.5,
+        0
+      ],
+      [
+        1,
+        -0.5
+      ]
+    ],
+    "normalized_hole_vertices": [
+      [
+        0.25,
+        0.5
+      ],
+      [
+        0.5,
+        0.75
+      ],
+      [
+        0.75,
+        0.5
+      ],
+      [
+        0.5,
+        0.25
+      ]
+    ],
+    "removed_area_fraction": 0.125
+  },
+  "display_conditions": "Actual3D rigid square faces and hinge model, separately frozen projection/occlusion. Native reverse-side material bands retain source meaning. Four offset display layers explain source heavy stack edges without changing1pt line protocol or adding mathematical conditions.",
+  "source_viewed": true,
+  "source_artifact_exclusions": [
+    "Blue imageN headers and separator rules are dataset packaging, not the question figure."
+  ],
+  "native_model": "3D coordinates, rigid folded paper / wood model, explicit projection and boundary visibility. Native analytic vector objects only."
+}

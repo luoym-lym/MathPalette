@@ -1,0 +1,131 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:1065",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "transformation geometry",
+  "original_record": {
+    "id": "1065",
+    "question": "Andrea wraps a band around a piece of wood. She then turns the wood around as pictured. What does the wood now look like?\n<image1>\n<image2>",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "image": "images/1065.jpg",
+    "decoded_image": {
+      "path": "images/1065.jpg",
+      "original_path": "1065.jpg"
+    },
+    "answer": "B",
+    "solution": null,
+    "level": 3,
+    "subject": "transformation geometry"
+  },
+  "source_package": "MathVision_redrawn_transformation_geometry_160_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:02.513020+00:00",
+    "complete": true,
+    "category": "transformation_geometry",
+    "source_questions": 168,
+    "retained": 160,
+    "excluded": 8,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "inventory": [
+      "Rounded wood blank with four paired notches along both long edges",
+      "Given front rope: top1-bottom1,top2-bottom3,top3-bottom4; two free ends at top1/top4",
+      "180-degree long-axis rotation arrow and axis symbol",
+      "All5 options retain each displayed rope segment, free-end orientation, unused notch and crossing"
+    ],
+    "explicit_conditions": "Andrea wraps a band around a piece of wood. She then turns the wood around as pictured. What does the wood now look like?\n<image1>\n<image2>",
+    "answer_review": {
+      "status": "verified_with_recorded_hidden_route_ambiguity",
+      "source_answer": "B",
+      "computed_answer": "B",
+      "reasoning": "A half-turn about the long axis sends the original top edge to the new bottom edge. Treat each offered new-front segment as an original back-face segment with top/bottom swapped. Combined with the three known front segments and two free ends, the admissible option must form one connected, unbranched rope path with precisely two endpoints. The graph test admits only the keyed option. The initial view itself allows two unseen back routes; this does not create two correct listed choices.",
+      "option_graph_compatibility": {
+        "A": false,
+        "B": true,
+        "C": false,
+        "D": false,
+        "E": false
+      },
+      "two_admissible_back_routes_new_top_to_bottom_indices_0based": [
+        [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            3
+          ]
+        ],
+        [
+          [
+            0,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            1
+          ]
+        ]
+      ],
+      "known_original_front_graph": [
+        [
+          "T0",
+          "B0"
+        ],
+        [
+          "T1",
+          "B2"
+        ],
+        [
+          "T2",
+          "B3"
+        ],
+        [
+          "E0",
+          "T0"
+        ],
+        [
+          "E1",
+          "T3"
+        ]
+      ]
+    },
+    "display_conditions": "Native3D extruded blank with explicit front/back outlines, hidden rear boundary omitted, rope coordinates on visible face, exact180-degree rotation matrix. Curves are native analytic sampled ellipses and cubic rope-end curves. No decorative shading.",
+    "source_viewed": true,
+    "source_artifact_exclusions": [
+      "Blue imageN headers and separator rules are dataset packaging, not the question figure."
+    ],
+    "native_model": "3D coordinates, rigid folded paper / wood model, explicit projection and boundary visibility. Native analytic vector objects only."
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

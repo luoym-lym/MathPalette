@@ -17,6 +17,10 @@ from review_workbench.transactions import Transaction, RecoveryRequired, recover
 
 PACKAGE = Path('review_candidates/mathverse')
 ID_PATTERN = re.compile(r'MV[0-9]{4,8}\Z')
+SOURCES = {
+    'MathVerse': ('mathverse', ID_PATTERN),
+    'MathVision': ('mathvision', re.compile(r'MVI[0-9]{4,8}\Z')),
+}
 REQUEST_PATTERN = re.compile(r'[A-Za-z0-9][A-Za-z0-9._:-]{7,127}\Z')
 PATH_FIELDS = ('image', 'original_image', 'scene', 'script', 'svg', 'original_script', 'provenance', 'verification', 'candidate_path')
 PREFIXES = {'Analytics': 'Ana', 'PlaneGeometry': 'Plane', 'SolidGeometry': 'Solid'}
@@ -38,11 +42,16 @@ def json_lines(rows):
 
 
 class ReviewService:
-    def __init__(self, root, *, fault=None):
+    def __init__(self, root, *, fault=None, source_dataset='MathVerse'):
+        if source_dataset not in SOURCES:
+            raise ValueError('Unsupported candidate source')
+        self.source_dataset = source_dataset
+        package_name, self.id_pattern = SOURCES[source_dataset]
+        self.package_relative = Path('review_candidates') / package_name
         self.root = Path(root).resolve()
-        self.package = safe_path(self.root, PACKAGE)
-        self.index_path = safe_path(self.root, PACKAGE / 'index.jsonl')
-        self.state_path = safe_path(self.root, PACKAGE / 'review_state.json')
+        self.package = safe_path(self.root, self.package_relative)
+        self.index_path = safe_path(self.root, self.package_relative / 'index.jsonl')
+        self.state_path = safe_path(self.root, self.package_relative / 'review_state.json')
         self.fault = fault
         # Recovery does not approve anything and is serialized against all writers.
         with catalog.catalog_write_lock(self.root, timeout=CATALOG_LOCK_TIMEOUT_SECONDS):
@@ -52,8 +61,10 @@ class ReviewService:
     def _index(self):
         rows = catalog.rows(self.index_path)
         ids = [row.get('id') for row in rows]
-        if any(not isinstance(qid, str) or not ID_PATTERN.fullmatch(qid) for qid in ids) or len(ids) != len(set(ids)):
+        if any(not isinstance(qid, str) or not self.id_pattern.fullmatch(qid) for qid in ids) or len(ids) != len(set(ids)):
             raise ReviewError('Candidate index has invalid or duplicate IDs', code='invalid_package')
+        if any(row.get('source_dataset') != self.source_dataset for row in rows):
+            raise ReviewError('Candidate index has an unexpected source', code='invalid_package')
         if any(row.get('subject') not in catalog.BRANCHES for row in rows):
             raise ReviewError('Candidate index has an unknown branch', code='invalid_package')
         return rows
@@ -73,28 +84,34 @@ class ReviewService:
                 'passed': sum(x['status'] == 'passed' for x in decisions),
                 'deleted': sum(x['status'] == 'deleted' for x in decisions)}
 
+    def _list_candidates_unlocked(self):
+        rows, state = self._index(), self._state()
+        return {'candidates': [{'id': row['id'], 'branch': row['subject'], 'status': 'pending',
+                                'title': row['question'][:160], 'source_key': row.get('source_key'),
+                                'source_dataset': self.source_dataset,
+                                'source_category': row.get('source_category'),
+                                'answer_type': row.get('answer_type')} for row in rows] +
+                              [{**decision, 'title': decision.get('title', decision['id']), 'history': True,
+                                'source_dataset': self.source_dataset}
+                               for decision in state['decisions'].values()],
+                'summary': self._summary(rows, state)}
+
     def list_candidates(self):
         with catalog.catalog_write_lock(self.root, timeout=CATALOG_LOCK_TIMEOUT_SECONDS):
             recover(self.root)
-            rows, state = self._index(), self._state()
-            return {'candidates': [{'id': row['id'], 'branch': row['subject'], 'status': 'pending',
-                                    'title': row['question'][:160], 'source_key': row.get('source_key'),
-                                    'answer_type': row.get('answer_type')} for row in rows] +
-                                  [{**decision, 'title': decision.get('title', decision['id']), 'history': True}
-                                   for decision in state['decisions'].values()],
-                    'summary': self._summary(rows, state)}
+            return self._list_candidates_unlocked()
 
     def _load(self, qid, rows=None):
-        if not ID_PATTERN.fullmatch(qid):
+        if not self.id_pattern.fullmatch(qid):
             raise ReviewError('Unknown candidate', status=404, code='not_found')
         row = next((r for r in (rows if rows is not None else self._index()) if r['id'] == qid), None)
         if row is None:
             raise ReviewError('Candidate is no longer pending', status=404, code='not_pending')
-        item = safe_path(self.root, PACKAGE / 'items' / qid)
-        path = safe_path(self.root, PACKAGE / 'items' / qid / 'candidate.json')
+        item = safe_path(self.root, self.package_relative / 'items' / qid)
+        path = safe_path(self.root, self.package_relative / 'items' / qid / 'candidate.json')
         if catalog.read(path) != row:
             raise ReviewError('Candidate metadata differs from its index. Reload a repaired package before reviewing.', status=409, code='candidate_changed')
-        if row.get('source_dataset') != 'MathVerse' or not row.get('source_key'):
+        if row.get('source_dataset') != self.source_dataset or not row.get('source_key'):
             raise ReviewError('Candidate source identity is missing', code='invalid_package')
         for field in PATH_FIELDS:
             if not row.get(field):
@@ -108,7 +125,7 @@ class ReviewService:
         family = row.get('renderer_family', '')
         if not re.fullmatch('[a-z_]+', family):
             raise ReviewError('Invalid renderer family', code='invalid_package')
-        shared = safe_path(self.root, PACKAGE / 'shared' / family)
+        shared = safe_path(self.root, self.package_relative / 'shared' / family)
         if not shared.is_dir():
             raise ReviewError('Renderer family is missing', code='invalid_package')
         return row, item, shared
@@ -122,7 +139,7 @@ class ReviewService:
                 path = safe_path(self.root, relative)
                 if path.is_file() and '__pycache__' not in path.parts and path.suffix != '.pyc':
                     files[relative.as_posix()] = sha(path.read_bytes())
-        for relative in (PACKAGE / 'shared/runtime.py', PACKAGE / 'promotion.py'):
+        for relative in (self.package_relative / 'shared/runtime.py', self.package_relative / 'promotion.py'):
             files[relative.as_posix()] = sha(safe_path(self.root, relative).read_bytes())
         if row['subject'] == 'SolidGeometry' and row['renderer_family'] == 'solid':
             for name in ('common_renderer.py', 'protocol.json'):
@@ -135,7 +152,7 @@ class ReviewService:
             recover(self.root)
             decision = self._state()['decisions'].get(qid)
             if decision:
-                return {**decision, 'history': True, 'images': {}}
+                return {**decision, 'source_dataset': self.source_dataset, 'history': True, 'images': {}}
             row, item, shared = self._load(qid)
             fingerprint, files = self._fingerprint(row, item, shared)
             provenance = catalog.read(safe_path(self.root, row['provenance']))
@@ -158,12 +175,12 @@ class ReviewService:
             return data, path.suffix.lower()
 
     def _prepare(self, row, qid):
-        path = safe_path(self.root, PACKAGE / 'promotion.py')
-        spec = importlib.util.spec_from_file_location('_mathverse_promotion', path)
+        path = safe_path(self.root, self.package_relative / 'promotion.py')
+        spec = importlib.util.spec_from_file_location('_' + self.source_dataset.lower() + '_promotion', path)
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)
         formal, writes, notes = module.prepare(self.root, row, qid)
-        if formal.get('id') != qid or formal.get('source_key') != row['source_key']:
+        if formal.get('id') != qid or any(formal.get(key) != row.get(key) for key in ('source_dataset', 'source_key', 'question', 'answer', 'answer_type', 'choices')):
             raise ReviewError('Promotion changed candidate identity', code='invalid_package')
         validate_answer(formal)
         for relative in writes:
@@ -187,20 +204,22 @@ class ReviewService:
         environment.update(PYTHONDONTWRITEBYTECODE='1', MPLBACKEND='Agg', MPLCONFIGDIR=str(directory / 'matplotlib'))
         script = staged / branch / formal['script']
         try:
-            result = subprocess.run([sys.executable, '-B', str(script), str(output)], cwd=staged,
+            result = subprocess.run([os.environ.get('MATHPALETTE_' + self.source_dataset.upper() + '_PYTHON', sys.executable), '-B', str(script), str(output)], cwd=staged,
                                     capture_output=True, text=True, encoding='utf-8', errors='replace',
                                     timeout=60, env=environment)
+        except OSError as error:
+            raise ReviewError(f'Cannot launch the {self.source_dataset} redraw interpreter. Set MATHPALETTE_{self.source_dataset.upper()}_PYTHON to a matching Python executable; no review was saved. ({error})', status=422, code='redraw_environment') from error
         except subprocess.TimeoutExpired as error:
             raise ReviewError('This candidate redraw exceeded 60 seconds; no review was saved.', status=422, code='redraw_failed') from error
         if result.returncode or not output.exists():
             raise ReviewError('Candidate cannot be independently redrawn: ' + result.stderr[-1200:], status=422, code='redraw_failed')
         with Image.open(staged / branch / formal['image']) as expected, Image.open(output) as actual:
             if expected.size != (768, 768) or actual.size != expected.size or expected.convert('RGBA').tobytes() != actual.convert('RGBA').tobytes():
-                raise ReviewError('Formal redraw pixels differ from the reviewed image. Check the pinned Python/rendering dependencies in review_candidates/mathverse/requirements.txt; no review was saved.', status=422, code='redraw_mismatch')
+                raise ReviewError(f'Formal redraw pixels differ from the reviewed image. Check the pinned dependencies in {self.package_relative}/requirements.txt and MATHPALETTE_{self.source_dataset.upper()}_PYTHON; no review was saved.', status=422, code='redraw_mismatch')
         catalog.validate_formal_row(staged, branch, formal)
 
     def decide(self, qid, action, fingerprint, request_id):
-        if action not in ('pass', 'delete') or not ID_PATTERN.fullmatch(qid):
+        if action not in ('pass', 'delete') or not self.id_pattern.fullmatch(qid):
             raise ReviewError('Unknown review action')
         if not isinstance(fingerprint, str) or not re.fullmatch('[0-9a-f]{64}', fingerprint):
             raise ReviewError('A current candidate fingerprint is required')
@@ -241,9 +260,12 @@ class ReviewService:
                     prefix = PREFIXES[branch]
                     numbers = [int(r['id'][len(prefix):]) for r in datasets[branch] if re.fullmatch(prefix + r'[0-9]+', r['id'])]
                     # Deleted formal questions still reserve their assigned IDs.
-                    numbers += [int(d['formal_id'][len(prefix):]) for d in state['decisions'].values()
-                                if d.get('branch') == branch and
-                                re.fullmatch(prefix + r'[0-9]+', d.get('formal_id', ''))]
+                    for package_name, _ in SOURCES.values():
+                        history_path = self.root / 'review_candidates' / package_name / 'review_state.json'
+                        history = catalog.read(history_path).get('decisions', {}) if history_path.exists() else {}
+                        numbers += [int(d['formal_id'][len(prefix):]) for d in history.values()
+                                    if d.get('branch') == branch and
+                                    re.fullmatch(prefix + r'[0-9]+', d.get('formal_id', ''))]
                     formal_id = f'{prefix}{max(numbers, default=0) + 1:02d}'
                     formal, writes, notes = self._prepare(row, formal_id)
                     self._verify_redraw(branch, formal, writes, transaction.directory)
@@ -257,6 +279,7 @@ class ReviewService:
                     for relative, data in writes.items():
                         path = safe_path(self.root, relative)
                         dependency = (relative.startswith(branch + '/dataset_generator/mathverse_renderers/') or
+                                      relative.startswith(branch + '/dataset_generator/mathvision_renderers/') or
                                       relative in {branch + '/dataset_generator/common_renderer.py',
                                                    branch + '/dataset_generator/protocol.json'})
                         if path.exists() and dependency:
@@ -278,6 +301,7 @@ class ReviewService:
                 publish(self.index_path, json_lines(remaining))
                 status = 'passed' if action == 'pass' else 'deleted'
                 decision = {'id': qid, 'status': status, 'branch': row['subject'], 'source_key': row['source_key'],
+                            'source_dataset': self.source_dataset, 'source_category': row.get('source_category'),
                             'fingerprint': fingerprint, 'request_id': request_id, 'title': row['question'][:160],
                             'decided_at_utc': datetime.now(timezone.utc).isoformat()}
                 if formal_id:
@@ -294,3 +318,46 @@ class ReviewService:
             except BaseException:
                 transaction.rollback()
                 raise
+
+
+class MultiSourceReviewService:
+    """One queue, isolated per-source indexes/history and shared atomic formal writes."""
+
+    def __init__(self, root, *, fault=None):
+        self.root = Path(root).resolve()
+        self.services = {
+            source: ReviewService(self.root, source_dataset=source, fault=fault)
+            for source, (package, _) in SOURCES.items()
+            if (self.root / 'review_candidates' / package / 'index.jsonl').is_file()
+        }
+        if not self.services:
+            raise ReviewError('No candidate package was found', code='invalid_package')
+
+    def _service(self, qid):
+        if isinstance(qid, str):
+            for service in self.services.values():
+                if service.id_pattern.fullmatch(qid):
+                    return service
+        raise ReviewError('Unknown candidate', status=404, code='not_found')
+
+    def list_candidates(self):
+        with catalog.catalog_write_lock(self.root, timeout=CATALOG_LOCK_TIMEOUT_SECONDS):
+            recover(self.root)
+            batches = {source: service._list_candidates_unlocked() for source, service in self.services.items()}
+            return {
+                'candidates': [row for batch in batches.values() for row in batch['candidates']],
+                'summary': {key: sum(batch['summary'][key] for batch in batches.values())
+                            for key in ('total', 'pending', 'passed', 'deleted')},
+                'datasets': {source: batch['summary'] for source, batch in batches.items()},
+            }
+
+    def detail(self, qid):
+        return self._service(qid).detail(qid)
+
+    def image(self, qid, kind, expected_hash):
+        return self._service(qid).image(qid, kind, expected_hash)
+
+    def decide(self, qid, action, fingerprint, request_id):
+        result = self._service(qid).decide(qid, action, fingerprint, request_id)
+        # The facade reports the current combined progress, including on idempotent retries.
+        return {**result, 'summary': self.list_candidates()['summary']}

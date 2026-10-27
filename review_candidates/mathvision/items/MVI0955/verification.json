@@ -1,0 +1,76 @@
+{
+  "reviewer": "independent /root/review_transformation_batch",
+  "source_id": "955",
+  "category": "transformation_geometry",
+  "reviewed_utc": "2026-10-27T03:54:49.696398+00:00",
+  "verdict": "agent_verified",
+  "user_approval": false,
+  "hashes": {
+    "original.jpg": "bfecaf632622f6c8bce6d5d65b610bd875b3c8bfb7f9fcd1e2763633dfd43d4f",
+    "source.json": "dcbee1f440288952963540d09ce0c4ae7a52adef42a08e34a6802339b2eea30e",
+    "scene.json": "8662460e5e49282c298a680886399f63898f7af1e61136445534c4403c5afeba",
+    "render.py": "b736aa62f7d1ac458b86d13b1ba02a1dc0da987533272e68f10cf82083e588f0",
+    "image.png": "3e2ce7c7a387f84c133bfed776b093d0af078c82bf1b02b643b97e84da8480a0",
+    "audit.json": "687a819ba830aa46abb5aa2bdc8bf7dabffa74d56575bffe76a098c750d429a6",
+    "redraw_report.json": "eb14d6d19691e41a0858f8ea025bebbfb479b5a2f6df276ef5d2250836de81b3"
+  },
+  "explicit_inspected_facts": [
+    "Re-viewed repaired image: options no longer have invented arrows; prompt clockwise arrow preserved. Pink10, purple12, cyan12 teeth and three-panel contact arrangement agree with original. All five option black phases individually compared."
+  ],
+  "checks": {
+    "source_record_and_bytes_match": true,
+    "two_independent_renders_equal_candidate": true,
+    "opaque768": true,
+    "bbox": [
+      53,
+      247,
+      713,
+      521
+    ],
+    "occupancy": 0.8606770833333334,
+    "independent_numeric_checks": {
+      "answer": "A",
+      "rotation": "PinkCW360; purpleCCW300:120\u219260; cyanCW300:180\u2192240. Pink returns282."
+    },
+    "renderer_checks": [],
+    "report_hashes_valid": true,
+    "isolated_standalone_render_identical": true
+  },
+  "required_changes": [],
+  "previous_revisions": [
+    {
+      "reviewer": "independent /root/review_transformation_batch",
+      "source_id": "955",
+      "category": "transformation_geometry",
+      "reviewed_utc": "2026-10-27T03:24:37.514006+00:00",
+      "verdict": "needs_revision",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "bfecaf632622f6c8bce6d5d65b610bd875b3c8bfb7f9fcd1e2763633dfd43d4f",
+        "source.json": "dcbee1f440288952963540d09ce0c4ae7a52adef42a08e34a6802339b2eea30e",
+        "scene.json": "0cc7707580099905dd6f7e1bf87e4e5b3b0fecdeed34bd8d3db92d815a164f7f",
+        "render.py": "b736aa62f7d1ac458b86d13b1ba02a1dc0da987533272e68f10cf82083e588f0",
+        "image.png": "cf17502795bf33189a05ed85fa1e57ce6184941f3565dc09a009577b7216d813",
+        "audit.json": "a9d8b0e718212b534e4af4f1720e3aefa4bffbc2e401a977c6fdc78f4b0c6e31",
+        "redraw_report.json": "5dc0b640fb2999b69b754cf6897b658f987cb6372dbcdf21cb504fd72f110dc4"
+      },
+      "explicit_inspected_facts": [
+        "Actually viewed source and candidate individually: source has clockwise arrow solely above top prompt small pink gear; candidate adds this arrow to every option A-E. All three gear colors/order and black teeth otherwise visually agree."
+      ],
+      "checks": {
+        "independent_numeric_checks": {
+          "answer": "A",
+          "proof": "Small10-tooth CW360 drives middle12-tooth CCW300 and final12-tooth CW300. Black phases purple120\u219260 and cyan180\u2192240; pink returns282, uniquelyA."
+        }
+      },
+      "required_changes": [
+        "Remove added clockwise arrows from options A-E; retain original prompt arrow only."
+      ],
+      "previous_revisions": []
+    }
+  ],
+  "dependency_hashes": {
+    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  }
+}

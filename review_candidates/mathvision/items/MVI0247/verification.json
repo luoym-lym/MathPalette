@@ -1,0 +1,62 @@
+{
+  "reviewer": "independent /root",
+  "source_id": "247",
+  "category": "transformation_geometry",
+  "reviewed_utc": "2026-10-27T00:47:27.274462+00:00",
+  "verdict": "agent_verified",
+  "user_approval": false,
+  "hashes": {
+    "original.jpg": "3e328fb1e9c9ff241209c8d294ab9f8f710e824dbd0580f5e9c2f8f9ad1d85d6",
+    "source.json": "bc4cf979500432ee035e0528784bceebf4704dc264e268d0012e042b637b3e26",
+    "scene.json": "29bd2cdd1e8af159e7344755f0a6c45d8b6218a4e51766efe0b5f7c9998bf13a",
+    "render.py": "a784f4e368c340b05917dfffd243fe98a33a0a48434910fce5b5ce2b227315a1",
+    "image.png": "42f1b06e67946228797d76e2545af31034979def8b503ad9193b800e236141c2",
+    "audit.json": "09d679ebc5861982bfe6a04a202c83954e6d884eb1a0cfb0cb322684c7f719f0",
+    "redraw_report.json": "59e2f81d26be79d81308116f79e76541fefedfda843dabcd94dbb6d4ac2cd579"
+  },
+  "explicit_inspected_facts": [
+    "Independently viewed original and candidate:ABCD rectangle, dashed MD/DC/CN original edges, foldMN, solidAN/AM, grey ANMDprime, curved D-to-Dprime arrow, all7labels preserved; no dimensions added as labels."
+  ],
+  "checks": {
+    "source_metadata_fields_equal": true,
+    "source_bytes_equal": true,
+    "render_twice_equal": true,
+    "candidate_pixels_match_independent_render": true,
+    "opaque768": true,
+    "layout_bbox": [
+      54,
+      200,
+      714,
+      568
+    ],
+    "occupancy": 0.8606770833333334,
+    "numeric_checks": [
+      {
+        "check": "reflection_C_to_A_D_to_Dprime",
+        "passed": true
+      },
+      {
+        "check": "shoelace_area_ANMDprime",
+        "value": 32.0,
+        "answer": "C"
+      }
+    ],
+    "renderer_constraints": [
+      {
+        "id": "width",
+        "type": "distance",
+        "measured": 4.0,
+        "passed": true
+      },
+      {
+        "id": "length",
+        "type": "distance",
+        "measured": 16.0,
+        "passed": true
+      }
+    ],
+    "report_hashes_valid": true
+  },
+  "required_changes": [],
+  "independent_check_script_sha256": "f86a7a5429a834f284d2bc393e81cd085597977c2ad5ec3dceaa3cc05ca70a17"
+}

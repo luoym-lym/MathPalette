@@ -1,0 +1,69 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:1907",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "solid geometry",
+  "original_record": {
+    "id": "1907",
+    "question": "The picture shows the same die in three different positions. When the die is rolled, what is the probability of rolling a 'YES'?\n<image1>",
+    "options": [
+      "$\\frac{1}{3}$",
+      "$\\frac{1}{2}$",
+      "$\\frac{5}{9}$",
+      "$\\frac{2}{3}$",
+      "$\\frac{5}{6}$"
+    ],
+    "image": "images/1907.jpg",
+    "decoded_image": {
+      "path": "images/1907.jpg",
+      "original_path": "1907.jpg"
+    },
+    "answer": "B",
+    "solution": "We will show that the word \"YES\" appears exactly three times, giving the probability $3 / 6$ or $1 / 2$. Firstly note that \"YES\" appears twice on the second die. The third die also shows \"YES\" and this cannot be the same as either \"YES\" on the second die: Under the first \"YES\" is \"MAYBE\", but on the third die the word \"NO\" appears below it; to the left of the second \"YES\" is \"MAYBE\", but to the left of the \"YES\" on the third die is \"NO\". Hence \"YES\" appears at least three times. However, it appears at most three times because there are two occurrences of \"NO\" shown in the third die, and one \"MAYBE\" in the second die. The first die has not been used in the above argument, but is consistent with the faces showing \"YES\" three times, \"NO\" twice, and “MAYBE\" once.",
+    "level": 2,
+    "subject": "solid geometry"
+  },
+  "source_package": "MathVision_redrawn_solid_geometry_240_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:00.302878+00:00",
+    "complete": true,
+    "category": "solid_geometry",
+    "source_questions": 244,
+    "retained": 240,
+    "excluded": 4,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "inventory": [
+      "Three dieviews; first topno,leftYESdiagonal,rightYESvertical; secondtopYESrotated,leftYESvertical,rightmaybeon45°in-face diagonalbaseline; thirdtopno,leftYESupsidedown,rightno. Allnineprinted word orientations preserved, allcubeedges visible solid."
+    ],
+    "explicit_conditions": [
+      "Same six-face die shown in3orientations; probabilityYES."
+    ],
+    "layout_choices": [
+      "Exact cube faces; native DejaVuSans16pt glyph paths embedded in orthonormal3Dface bases and projected; no rastertext copying."
+    ],
+    "answer_check": {
+      "reasoning": "Enumerate24propercube rotations for each ofviews2and3 relative toview1, requiring matching word and oriented baseline on eachsharedface. Of576pairs exactly1consistentfull6-faceassignment remains, with3YES,2no,1maybe. Probability3/6=1/2,optionB.",
+      "answer": "B",
+      "matches_source": true
+    },
+    "source_image_sha256": "df8bc37e078c9e2b540327a699173548b79b9c2010a0be75c3904b209b487a42",
+    "source_viewed": true
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

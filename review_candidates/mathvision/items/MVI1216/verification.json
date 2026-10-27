@@ -1,0 +1,123 @@
+{
+  "reviewer": "independent /root/review_transformation_batch",
+  "source_id": "1216",
+  "category": "transformation_geometry",
+  "reviewed_utc": "2026-10-27T01:53:02.174741+00:00",
+  "verdict": "agent_verified",
+  "user_approval": false,
+  "hashes": {
+    "original.jpg": "68191511d928b594b4358e914b2482a3ec8f515584fa94c52b1b8b0c4ace4f5c",
+    "source.json": "818a8587c2b3f3b7dab1a1754ddbce4ee2002a6bcecec779a663881a5b06414d",
+    "scene.json": "37f185192c007ba892fd674b372b50ab6f382e5a1270890d2a6866455470e457",
+    "render.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
+    "image.png": "07a251d0093dd5161121073b63c6c6516eae0c9a189bbe0760e023e995dd69d8",
+    "audit.json": "87d56ffae68ca87a42dad4edc91f09d93a444bace244ee97089e8d2c44270000",
+    "redraw_report.json": "9623a02b5d77e4193b4a815c843debd47f4c0a5a8284dfab6d0445113fcda07a"
+  },
+  "explicit_inspected_facts": [
+    "Individually viewed source/output: P rectangle lower-left, Q upper-right, diagonal 45-degree crease, dashed missing-corner edges and replacement parallel-dashed x dimension visually correct. However scene does not bind x or dimension objects to measured LF.",
+    "Actually viewed revised candidate: visual geometry unchanged, dimension registration now correctly binds t3 and o6/o7/o8 to LF with translated dimL/dimF."
+  ],
+  "checks": {
+    "source_record_and_bytes_match": true,
+    "two_independent_renders_equal_candidate": true,
+    "opaque768": true,
+    "bbox": [
+      53,
+      111,
+      713,
+      656
+    ],
+    "occupancy": 0.8606770833333334,
+    "independent_numeric_checks": {
+      "answer": "C",
+      "proof": "Let upper Q height h. Strip length is x+4+h=13 and equal width 4 gives P=4x=2Q=8h, hence x=2h=6. Frozen display uses x=6,h=3,width4 and 45-degree fold.",
+      "dimension_semantics_fixed": true
+    },
+    "renderer_checks": [
+      {
+        "id": "foldangle",
+        "type": "angle",
+        "measured": 45.00000000000001,
+        "passed": true
+      },
+      {
+        "id": "arc_binding_angle45",
+        "type": "angle_annotation",
+        "label_id": "angle45",
+        "arc_id": "o5",
+        "measured": 1,
+        "passed": true
+      }
+    ],
+    "report_hashes_valid": true
+  },
+  "required_changes": [],
+  "previous_revisions": [
+    {
+      "reviewer": "independent /root/review_transformation_batch",
+      "source_id": "1216",
+      "category": "transformation_geometry",
+      "reviewed_utc": "2026-10-27T01:45:44.218277+00:00",
+      "verdict": "needs_revision",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "68191511d928b594b4358e914b2482a3ec8f515584fa94c52b1b8b0c4ace4f5c",
+        "source.json": "818a8587c2b3f3b7dab1a1754ddbce4ee2002a6bcecec779a663881a5b06414d",
+        "scene.json": "5fd81d2966beff184045267441f988e1e129817050d93b011819c31fc1a8a34d",
+        "render.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
+        "image.png": "07a251d0093dd5161121073b63c6c6516eae0c9a189bbe0760e023e995dd69d8",
+        "audit.json": "87d56ffae68ca87a42dad4edc91f09d93a444bace244ee97089e8d2c44270000",
+        "redraw_report.json": "0b4dde5cdc21de7f873b01d719af1a674950f5943abb1c8612840a7b3e718f22"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed source/output: P rectangle lower-left, Q upper-right, diagonal 45-degree crease, dashed missing-corner edges and replacement parallel-dashed x dimension visually correct. However scene does not bind x or dimension objects to measured LF."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          53,
+          111,
+          713,
+          656
+        ],
+        "occupancy": 0.8606770833333334,
+        "independent_numeric_checks": {
+          "answer": "C",
+          "proof": "Let upper Q height h. Strip length is x+4+h=13 and equal width 4 gives P=4x=2Q=8h, hence x=2h=6. Frozen display uses x=6,h=3,width4 and 45-degree fold."
+        },
+        "renderer_checks": [
+          {
+            "id": "foldangle",
+            "type": "angle",
+            "measured": 45.00000000000001,
+            "passed": true
+          },
+          {
+            "id": "arc_binding_angle45",
+            "type": "angle_annotation",
+            "label_id": "angle45",
+            "arc_id": "o5",
+            "measured": 1,
+            "passed": true
+          }
+        ],
+        "report_hashes_valid": true
+      },
+      "required_changes": [
+        "Bind t3 x using segment_points [L,F]; register distance_markers entry with measured endpoints, translated dimension endpoints, dashed o6, connectors o7/o8 and label t3; mark these three objects role=dimension. Current distance_markers=[] violates explicit protocol despite visually correct dimension. Rerender/rebind report hashes."
+      ],
+      "previous_revisions": [],
+      "dependency_hashes": {
+        "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+        "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+      }
+    }
+  ],
+  "dependency_hashes": {
+    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  }
+}

@@ -1,0 +1,249 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MV387",
+  "status": "staged",
+  "subject": "SolidGeometry",
+  "source_dataset": "MathVision",
+  "source_image": "original.jpg",
+  "source_note": "Original immutable source record retained in source.json; no formal approval",
+  "world_unit": "unit",
+  "points": {
+    "A": [
+      0,
+      0,
+      0
+    ],
+    "B": [
+      2,
+      0,
+      0
+    ],
+    "C": [
+      3.25,
+      3.799671038392666,
+      0.0
+    ],
+    "D": [
+      4.25,
+      4.918188919824273,
+      2.5978679236862194
+    ]
+  },
+  "projection": {
+    "kind": "oblique",
+    "matrix": [
+      [
+        1.0,
+        -0.11843130509275848,
+        -0.949829837396501
+      ],
+      [
+        0.0,
+        0.6842697627581598,
+        0.09031715295945672
+      ]
+    ],
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "toward_viewer": [
+      0.6392434591986744,
+      -0.09031715295945672,
+      0.6842697627581598
+    ],
+    "name": "cabinet-like source aligned projection",
+    "reason": "Oblique source layout from true tetrahedron lengths; no screen lengths treated as true lengths"
+  },
+  "visibility": {
+    "mode": "frozen_intervals",
+    "projection_sha256": "e9bced97f5264410d39b36dccaf56c5251b18c87312598d03618e5875d12a86b",
+    "notes": "Explicit source line visibility; no automatic completion of omitted hidden edges"
+  },
+  "view": {
+    "xlim": [
+      -0.5759653562378628,
+      3.3759653562378626
+    ],
+    "ylim": [
+      -0.24981629910070186,
+      3.7021144133750234
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86
+    }
+  },
+  "objects": [
+    {
+      "id": "AB",
+      "type": "segment",
+      "role": "edge",
+      "points": [
+        "A",
+        "B"
+      ],
+      "visibility": "visible"
+    },
+    {
+      "id": "AD",
+      "type": "segment",
+      "role": "edge",
+      "points": [
+        "A",
+        "D"
+      ],
+      "visibility": "visible"
+    },
+    {
+      "id": "DC",
+      "type": "segment",
+      "role": "edge",
+      "points": [
+        "D",
+        "C"
+      ],
+      "visibility": "visible"
+    },
+    {
+      "id": "CB",
+      "type": "segment",
+      "role": "edge",
+      "points": [
+        "C",
+        "B"
+      ],
+      "visibility": "visible"
+    },
+    {
+      "id": "DB",
+      "type": "segment",
+      "role": "edge",
+      "points": [
+        "D",
+        "B"
+      ],
+      "visibility": "visible"
+    },
+    {
+      "id": "AC",
+      "type": "segment",
+      "role": "edge",
+      "points": [
+        "A",
+        "C"
+      ],
+      "visibility": "hidden"
+    }
+  ],
+  "dimensions": [],
+  "labels": [
+    {
+      "id": "labelAB",
+      "type": "text",
+      "text": "2",
+      "anchor": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "offset_pt": [
+        0,
+        -15
+      ]
+    },
+    {
+      "id": "labelAD",
+      "type": "text",
+      "text": "7",
+      "anchor": [
+        2.125,
+        2.4590944599121367,
+        1.2989339618431097
+      ],
+      "offset_pt": [
+        -20,
+        0
+      ]
+    },
+    {
+      "id": "labelDC",
+      "type": "text",
+      "text": "3",
+      "anchor": [
+        3.75,
+        4.35892997910847,
+        1.2989339618431097
+      ],
+      "offset_pt": [
+        10,
+        17
+      ]
+    },
+    {
+      "id": "labelBC",
+      "type": "text",
+      "text": "4",
+      "anchor": [
+        2.625,
+        1.899835519196333,
+        0.0
+      ],
+      "offset_pt": [
+        22,
+        0
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "lengthAB",
+      "type": "distance",
+      "points": [
+        "A",
+        "B"
+      ],
+      "value": 2,
+      "basis": "explicit source edge label"
+    },
+    {
+      "id": "lengthAD",
+      "type": "distance",
+      "points": [
+        "A",
+        "D"
+      ],
+      "value": 7,
+      "basis": "explicit source edge label"
+    },
+    {
+      "id": "lengthDC",
+      "type": "distance",
+      "points": [
+        "D",
+        "C"
+      ],
+      "value": 3,
+      "basis": "explicit source edge label"
+    },
+    {
+      "id": "lengthBC",
+      "type": "distance",
+      "points": [
+        "B",
+        "C"
+      ],
+      "value": 4,
+      "basis": "explicit source edge label"
+    }
+  ],
+  "ambiguities": [
+    "Four stated lengths determine the two integer unknowns. Chosen true tetrahedron realizes all6 edges, but solved lengths6,5 are not drawn."
+  ]
+}

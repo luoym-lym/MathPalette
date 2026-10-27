@@ -1,0 +1,21 @@
+{
+  "source_id": "195",
+  "source_image_viewed": true,
+  "source_image_sha256": "bcffeb87e7ce412d0ccd734a7482d9f5a71b15cf88521b902516da2a34d0fc9a",
+  "inventory": [
+    "Twelve-square closed rectangular groundpath:perimeter of4×4grid with2×2centralhole",
+    "Die on backleftsquare,top2/front3/right1",
+    "Rightward arrow above firstrow of path; no labels or extra arrows"
+  ],
+  "conditions": "A die is in the position shown in the picture. It can be rolled along the path of 12 squares as shown. How many times must the die go around the path in order for it to return to its initial position with all faces in the initial positions?\n<image1>",
+  "panel_option_mapping": "single diagram; textual choices preserved in source.json",
+  "ambiguities": [
+    "Path contains12cells, including the cell underneath die. Blank center is not filled with squares. No numerical annotation or answer added."
+  ],
+  "answer_verification": {
+    "reasoning": "One circuit consists3east,3south,3west,3north rolls. Integer90degree rotation matrices give a nonidentity circuit rotation L with L² also nonidentity and L³=identity. Thus after3 circuits all six oriented faces return, and no earlier circuit does. Positional return alone occurs every circuit but not orientation.",
+    "result": "3",
+    "verified": true
+  },
+  "stage": "source_audit_complete"
+}

@@ -1,0 +1,63 @@
+{
+  "reviewer": "independent /root/review_transformation_batch",
+  "source_id": "1890",
+  "category": "transformation_geometry",
+  "reviewed_utc": "2026-10-27T02:12:46.089289+00:00",
+  "verdict": "agent_verified",
+  "user_approval": false,
+  "hashes": {
+    "original.jpg": "c80c7cba9450434e316f83ddc1a518d3b717e9e35ab414c556357c4daf620815",
+    "source.json": "2fc95cdaa859304b07a9b28ac0c01df1cc1555b1c73be7e1e3ce59689bd3d83a",
+    "scene.json": "b75777c6a29201696fa7f7995f66b1c904a8b94eb57a1173affdbe043450af95",
+    "render.py": "f18e36ddafda8e3e25aa6b17a247bd274b259217b19a058ed3a77568e6bcc4d1",
+    "image.png": "1ac60dbe22089bd941d70863a980bb6f999b099d2695e7baa1a0c90d0747ae34",
+    "audit.json": "3e6b712d2b7ea08a6d5dd81fb3d4a8f42b514a59dbf617c2dafbd1a042ff3946",
+    "redraw_report.json": "0cd0297ce51905b9efc11227ffcc884d1ac05ce606066c08931890a0f7f1e3c0"
+  },
+  "explicit_inspected_facts": [
+    "Individually viewed original and candidate: gray equilateral RST left, TUV right, shared T; dotted SV; 70-degree arc between TR and TV and query arc at S. All five italic vertex labels correctly bound.",
+    "ST=TV and angle STV=60+70=130 degrees. Base angle TSV=25, so RSV=60-25=35 degrees, option D."
+  ],
+  "checks": {
+    "source_record_and_bytes_match": true,
+    "two_independent_renders_equal_candidate": true,
+    "opaque768": true,
+    "bbox": [
+      54,
+      191,
+      714,
+      576
+    ],
+    "occupancy": 0.8606770833333334,
+    "independent_numeric_checks": {
+      "angles_RTV_RSV": [
+        70.0,
+        34.99999999999999
+      ],
+      "answer": "D:35"
+    },
+    "renderer_checks": [
+      {
+        "id": "angle70",
+        "type": "angle",
+        "measured": 70.0,
+        "passed": true
+      },
+      {
+        "id": "arc_binding_a70",
+        "type": "angle_annotation",
+        "label_id": "a70",
+        "arc_id": "o3",
+        "measured": 1,
+        "passed": true
+      }
+    ],
+    "report_hashes_valid": true
+  },
+  "required_changes": [],
+  "previous_revisions": [],
+  "dependency_hashes": {
+    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  }
+}

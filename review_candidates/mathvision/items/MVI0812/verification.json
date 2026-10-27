@@ -1,0 +1,61 @@
+{
+  "reviewer": "independent /root/review_transformation_batch",
+  "source_id": "812",
+  "category": "transformation_geometry",
+  "reviewed_utc": "2026-10-27T01:40:49.044624+00:00",
+  "verdict": "agent_verified",
+  "user_approval": false,
+  "hashes": {
+    "original.jpg": "c8adb67cfe561d7ea54ed35be06f82abba42159aa05cd465d3f6d3692a0a6192",
+    "source.json": "f25b55f1e3616e5ec22633f8259e2471be5074eeeaf0c18e6624659729f984e1",
+    "scene.json": "1d94d21406842e8a6d70f8bde643a334d877e4b1a9ab456682e0511b8ac7294e",
+    "render.py": "f9732f2acaa0bede016cf487f76a96121d8ba56370bac5227e1bdcb3985d50d8",
+    "image.png": "10e0c276e1566d77193ef5c2fc2b19594d3212a8c660f298fbcaa66d852c6047",
+    "audit.json": "63e2771b9686daa0a7a31d32411f1e46ac48f027746374404230d28d113e8c95",
+    "redraw_report.json": "570418c183d8fc86c6f98307f045602ec435af80269be97af4605307d9ab7784"
+  },
+  "explicit_inspected_facts": [
+    "Individually viewed source and candidate: four toothed gears remain connected in a single chain; first upper-left, second lower-right of first, largest third at right, fourth small above-right. Centers, concentric hub rings and gray/black material distinction retained. No additional mesh or arrow."
+  ],
+  "checks": {
+    "source_record_and_bytes_match": true,
+    "two_independent_renders_equal_candidate": true,
+    "opaque768": true,
+    "bbox": [
+      54,
+      173,
+      713,
+      595
+    ],
+    "occupancy": 0.859375,
+    "independent_numeric_checks": {
+      "teeth": [
+        30,
+        15,
+        60,
+        10
+      ],
+      "pitch_center_distances": [
+        4.5,
+        7.499999999999994,
+        7.000000000000005
+      ],
+      "signed_turns": [
+        1,
+        -2,
+        0.5,
+        -3
+      ],
+      "answer": "3",
+      "proof": "Every adjacent mesh reverses direction and multiplies rotations by driving/driven tooth ratio; product (30/15)(15/60)(60/10)=3."
+    },
+    "renderer_checks": [],
+    "report_hashes_valid": true
+  },
+  "required_changes": [],
+  "previous_revisions": [],
+  "dependency_hashes": {
+    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  }
+}

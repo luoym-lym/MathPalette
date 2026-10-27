@@ -1,0 +1,324 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "MV1348",
+  "status": "staged",
+  "subject": "SolidGeometry",
+  "source_dataset": "MathVision",
+  "source_image": "original.jpg",
+  "source_note": "Original immutable source record retained in source.json; no formal approval",
+  "world_unit": "unit",
+  "points": {
+    "rimcenter": [
+      0,
+      0,
+      45
+    ],
+    "apex": [
+      0,
+      0,
+      0
+    ],
+    "spherecenter": [
+      0,
+      0,
+      30
+    ],
+    "tangent0": [
+      24.494897427831777,
+      -8.660254037844384,
+      45
+    ],
+    "tangent1": [
+      -24.49489742783178,
+      -8.660254037844378,
+      45
+    ]
+  },
+  "projection": {
+    "kind": "orthographic",
+    "matrix": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0.49999999999999994,
+        0.8660254037844387
+      ]
+    ],
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "toward_viewer": [
+      0,
+      -0.8660254037844387,
+      0.49999999999999994
+    ],
+    "reason": "Source circularsphere contour andellipticalhorizontalrim; exactorthographic projection"
+  },
+  "visibility": {
+    "mode": "frozen_intervals",
+    "projection_sha256": "3a530f730f21e9888df571053b66aa038c745277c923369b761ab1edcbc0fbeb",
+    "notes": "Explicit source line visibility; no automatic completion of omitted hidden edges"
+  },
+  "view": {
+    "xlim": [
+      -27.29030773674396,
+      31.639245307742218
+    ],
+    "ylim": [
+      -3.5266428469654882,
+      55.40291019752068
+    ],
+    "layout": {
+      "method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86
+    }
+  },
+  "objects": [
+    {
+      "id": "rim",
+      "type": "circular_arc",
+      "role": "edge",
+      "center": "rimcenter",
+      "u": [
+        1,
+        0,
+        0
+      ],
+      "v": [
+        0,
+        1,
+        0
+      ],
+      "radius": 25.980762113533157,
+      "domain_deg": [
+        0,
+        360
+      ],
+      "intervals": [
+        {
+          "start_deg": 0,
+          "end_deg": 180,
+          "samples": 181,
+          "visibility": "visible"
+        },
+        {
+          "start_deg": 180,
+          "end_deg": 360,
+          "samples": 181,
+          "visibility": "visible"
+        }
+      ]
+    },
+    {
+      "id": "silhouette0",
+      "type": "segment",
+      "role": "silhouette",
+      "points": [
+        "apex",
+        "tangent0"
+      ],
+      "visibility": "visible"
+    },
+    {
+      "id": "silhouette1",
+      "type": "segment",
+      "role": "silhouette",
+      "points": [
+        "apex",
+        "tangent1"
+      ],
+      "visibility": "visible"
+    },
+    {
+      "id": "sphereoutline",
+      "type": "circular_arc",
+      "role": "silhouette",
+      "center": "spherecenter",
+      "u": [
+        1,
+        0,
+        0
+      ],
+      "v": [
+        0,
+        0.49999999999999994,
+        0.8660254037844387
+      ],
+      "radius": 15,
+      "domain_deg": [
+        0,
+        360
+      ],
+      "intervals": [
+        {
+          "start_deg": 0,
+          "end_deg": 180,
+          "samples": 181,
+          "visibility": "visible"
+        },
+        {
+          "start_deg": 180,
+          "end_deg": 360,
+          "samples": 181,
+          "visibility": "visible"
+        }
+      ]
+    },
+    {
+      "id": "sphereequator",
+      "type": "circular_arc",
+      "role": "auxiliary",
+      "center": "spherecenter",
+      "u": [
+        1,
+        0,
+        0
+      ],
+      "v": [
+        0,
+        1,
+        0
+      ],
+      "radius": 15,
+      "domain_deg": [
+        0,
+        360
+      ],
+      "intervals": [
+        {
+          "start_deg": 0,
+          "end_deg": 180,
+          "samples": 181,
+          "visibility": "hidden"
+        },
+        {
+          "start_deg": 180,
+          "end_deg": 360,
+          "samples": 181,
+          "visibility": "visible"
+        }
+      ]
+    },
+    {
+      "id": "openingdiameter",
+      "type": "segment",
+      "role": "auxiliary",
+      "points": [
+        [
+          -25.980762113533157,
+          0,
+          45
+        ],
+        [
+          25.980762113533157,
+          0,
+          45
+        ]
+      ],
+      "visibility": "visible"
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "heightx",
+      "type": "distance",
+      "points": [
+        [
+          25.980762113533157,
+          0,
+          0
+        ],
+        [
+          25.980762113533157,
+          0,
+          45
+        ]
+      ],
+      "value": 45,
+      "unit": "unit",
+      "decimals": 0,
+      "text": "x",
+      "offset_pt": [
+        20,
+        0
+      ],
+      "label_offset_pt": [
+        12,
+        0
+      ],
+      "basis": "source unknown fullcone depth"
+    }
+  ],
+  "labels": [],
+  "constraints": [
+    {
+      "id": "tangentcheck0",
+      "type": "projected_tangent",
+      "circle": "rim",
+      "point": "tangent0",
+      "segment": [
+        "apex",
+        "tangent0"
+      ],
+      "basis": "construction exactcone silhouette"
+    },
+    {
+      "id": "tangentcheck1",
+      "type": "projected_tangent",
+      "circle": "rim",
+      "point": "tangent1",
+      "segment": [
+        "apex",
+        "tangent1"
+      ],
+      "basis": "construction exactcone silhouette"
+    }
+  ],
+  "ambiguities": [
+    "Sourcecone/sphereprojection schematic; exacttrue3D tangency andorthographic silhouettes takeprecedence over approximatepixel tangency. Spherevisible outline isview-dependent contour, not addedphysicaledge."
+  ],
+  "solid_models": {
+    "cone": {
+      "axis": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          45
+        ]
+      ],
+      "radius": 25.980762113533157,
+      "height": 45,
+      "apex_z": 0,
+      "slant": 51.96152422706631
+    },
+    "sphere": {
+      "center": [
+        0,
+        0,
+        30
+      ],
+      "radius": 15
+    },
+    "checks": {
+      "slant_equals_diameter": true,
+      "sphere_plane_tangency": true,
+      "sphere_cone_tangency": "axialsection line distance15"
+    }
+  }
+}

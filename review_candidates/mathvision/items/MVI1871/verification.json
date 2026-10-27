@@ -1,0 +1,54 @@
+{
+  "reviewer": "independent /root/review_transformation_batch",
+  "source_id": "1871",
+  "category": "transformation_geometry",
+  "reviewed_utc": "2026-10-27T01:49:07.369851+00:00",
+  "verdict": "agent_verified",
+  "user_approval": false,
+  "hashes": {
+    "original.jpg": "0fbb3fecac1db29d4c55623a54fc05dca0b77a1828516bef274ff3958c1be70e",
+    "source.json": "562d03e39a5226b34f09dbff989ecc41b66c7e27cd0b6033927e98e1161cf0d6",
+    "scene.json": "7ae64446f793b71d2266ca03a30af99791ef370f261ea92dbb7995ea0a218dc5",
+    "render.py": "ca4e8cfb4e1c8b138be2aa5db3c43084d886561764b89f245734d22cd93495e3",
+    "image.png": "c4ea93850ff13d0555f827b175186a0c755ef68baa203c6d275a9322134ca6b3",
+    "audit.json": "326583de3b0eb485be835a9a45db3b9496af052f29efab976169ede93bed0d83",
+    "redraw_report.json": "0e7cf5b5caacc2445092544313401a5e1f55234de84603030dd1a63adcc24b66"
+  },
+  "explicit_inspected_facts": [
+    "Individually viewed source/output: three vertical and four horizontal gray grid lines; strong vertical segment at left from row2 to row4, horizontal right segment row2 from col3 to col5. Marked T bottom-left, U bottom-middle, V above U, W top-right, labels bound correctly despite internal point IDs."
+  ],
+  "checks": {
+    "source_record_and_bytes_match": true,
+    "two_independent_renders_equal_candidate": true,
+    "opaque768": true,
+    "bbox": [
+      54,
+      147,
+      714,
+      620
+    ],
+    "occupancy": 0.8606770833333334,
+    "independent_numeric_checks": {
+      "answer": "C",
+      "rotation_hits": [
+        [
+          "U",
+          90
+        ],
+        [
+          "W",
+          270
+        ]
+      ],
+      "proof": "A horizontal segment can become vertical only by 90 or 270 degrees. Testing both endpoint correspondences about all four marked centers leaves U and W only."
+    },
+    "renderer_checks": [],
+    "report_hashes_valid": true
+  },
+  "required_changes": [],
+  "previous_revisions": [],
+  "dependency_hashes": {
+    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  }
+}

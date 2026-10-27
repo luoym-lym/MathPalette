@@ -1,0 +1,55 @@
+{
+  "reviewer": "independent /root/review_transformation_batch",
+  "source_id": "1063",
+  "category": "transformation_geometry",
+  "reviewed_utc": "2026-10-27T01:44:21.952081+00:00",
+  "verdict": "agent_verified",
+  "user_approval": false,
+  "hashes": {
+    "original.jpg": "f2713760ce826f4474c291ad0e7134d1c6dd6a9519a09fae615834a0d307b1e6",
+    "source.json": "718ec227078af52b09ff7d10e8abe97649ae03a6b2cb00c3de7f60d446984bc3",
+    "scene.json": "7272159d0ffb68f759aaa962943f7a0b54a40045a297ae47491e7ced0d4d522c",
+    "render.py": "f9732f2acaa0bede016cf487f76a96121d8ba56370bac5227e1bdcb3985d50d8",
+    "image.png": "68a42657c66b37724e54e30483c3b7cb47b0e015ffe8d7b32fbdeec1c58ea461",
+    "audit.json": "c27e2753ca224cca7b01cfd3cb585fc43420b4a6509b0e1e19e8054271faa381",
+    "redraw_report.json": "4deec78032b0c4190ad03ba37d021b9671e43fe68f9e1fa0d3d1e63cd7a1d741"
+  },
+  "explicit_inspected_facts": [
+    "Individually viewed source/output: square box with seven light-gray 1\u00d73 blocks; left and right upper verticals, two upper horizontal blocks, one lower vertical, two lower-right horizontals. Dark empty spaces remain lower-left 1\u00d72 and middle 2\u00d71. Every block boundary and adjacency preserved."
+  ],
+  "checks": {
+    "source_record_and_bytes_match": true,
+    "two_independent_renders_equal_candidate": true,
+    "opaque768": true,
+    "bbox": [
+      54,
+      54,
+      713,
+      713
+    ],
+    "occupancy": 0.859375,
+    "independent_numeric_checks": {
+      "answer": "3",
+      "independent_grid_search_states_for_limits_1_2": [
+        4,
+        13
+      ],
+      "no_solution_with_at_most_two_distinct_blocks": true,
+      "witness": "Move left vertical block down two cells; move top horizontal and second horizontal each left one cell. Vacant column x=3,y=2..5 fits added 1\u00d73 block.",
+      "lower_bound": "Only left vertical block initially slides. Moving it alone leaves gaps too narrow/short. Moving one further horizontal block cannot clear three consecutive cells; both upper horizontals must shift. Other initially locked blocks remain blocked by fixed neighbors.",
+      "grid_size": [
+        5,
+        5
+      ],
+      "block_sizes": "seven 1\u00d73 rectangles"
+    },
+    "renderer_checks": [],
+    "report_hashes_valid": true
+  },
+  "required_changes": [],
+  "previous_revisions": [],
+  "dependency_hashes": {
+    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  }
+}

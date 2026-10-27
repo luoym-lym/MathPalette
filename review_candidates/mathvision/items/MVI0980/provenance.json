@@ -1,0 +1,66 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:980",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "solid geometry",
+  "original_record": {
+    "id": "980",
+    "question": "Nine steps of a staircase arranged in a cylindrical order starting at the bottom and leading all the way to the top can be seen. All steps are equally high. How many steps cannot be seen? <image1>",
+    "options": [],
+    "image": "images/980.jpg",
+    "decoded_image": {
+      "path": "images/980.jpg",
+      "original_path": "980.jpg"
+    },
+    "answer": "12",
+    "solution": null,
+    "level": 5,
+    "subject": "solid geometry"
+  },
+  "source_package": "MathVision_redrawn_solid_geometry_240_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:00.302878+00:00",
+    "complete": true,
+    "category": "solid_geometry",
+    "source_questions": 244,
+    "retained": 240,
+    "excluded": 4,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "source_id": "980",
+    "source_image_viewed": true,
+    "source_image_sha256": "442f1c0b11b5048432a020400c8069da90acf47f957761826ea3a328d2f71da2",
+    "inventory": [
+      "Cylinder with21 equally high grid rows and24 equally spaced circumferential columns (12 on front half)",
+      "One helical stair tread per row, each spanning2 grid columns; visible black steps2 at bottom-right,6 across middle,1 at upper-left",
+      "Top unmarked ellipse, front grid only; no labels or hidden back grid"
+    ],
+    "conditions": "Nine steps of a staircase arranged in a cylindrical order starting at the bottom and leading all the way to the top can be seen. All steps are equally high. How many steps cannot be seen? <image1>",
+    "panel_option_mapping": "single diagram; textual choices preserved in source.json",
+    "ambiguities": [
+      "Source black tread material normalized distinct semantic dark gray, blank cylinder white. Source cylinder grid retained exactly; no hidden rear grid or hidden steps added. Curved material patches tessellated natively into coplanar3D quads; only their fill antialiasing disabled to prevent artificial seams, while all boundary lines/fonts/layout checks remain unchanged."
+    ],
+    "answer_verification": {
+      "reasoning": "There are21 equal-height rows between bottom and top, and the staircase rises one row per step. Thus21 steps total. Exactly9 are visible (row indices0,1,8,9,10,11,12,13,20); the remaining12 lie on rear half. Explicit frozen21-step model verifies the visible pattern and answer12.",
+      "result": "12",
+      "verified": true
+    },
+    "stage": "source_audit_complete"
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

@@ -1,0 +1,72 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:270",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "solid geometry",
+  "original_record": {
+    "id": "270",
+    "question": "In the diagram a closed polygon can be seen whose vertices are the midpoints of the edges of the die. The interior angles are as usual defined as the angle that two sides of the polygon describe in a common vertex. How big is the sum of all interior angles of the polygon?\n<image1>",
+    "options": [
+      "$720^{\\circ}$",
+      "$1080^{\\circ}$",
+      "$1200^{\\circ}$",
+      "$1440^{\\circ}$",
+      "$1800^{\\circ}$"
+    ],
+    "image": "images/270.jpg",
+    "decoded_image": {
+      "path": "images/270.jpg",
+      "original_path": "270.jpg"
+    },
+    "answer": "B",
+    "solution": null,
+    "level": 3,
+    "subject": "solid geometry"
+  },
+  "source_package": "MathVision_redrawn_solid_geometry_240_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:00.302878+00:00",
+    "complete": true,
+    "category": "solid_geometry",
+    "source_questions": 244,
+    "retained": 240,
+    "excluded": 4,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "source_id": "270",
+    "source_image_viewed": true,
+    "source_image_sha256": "8fa87f9ed717b6a357442b587abb82a942b0305b7d808cce1ea1f154ed69bdea",
+    "inventory": [
+      "Transparent cube wireframe with all twelve edges shown solid",
+      "Closed nonplanar twelve-edge polygon through all twelve edge midpoints; every polygon vertex marked with an open circle",
+      "No labels, arrows, shading or other points"
+    ],
+    "conditions": "In the diagram a closed polygon can be seen whose vertices are the midpoints of the edges of the die. The interior angles are as usual defined as the angle that two sides of the polygon describe in a common vertex. How big is the sum of all interior angles of the polygon?\n<image1>",
+    "panel_option_mapping": "single diagram; textual choices preserved in source.json",
+    "ambiguities": [
+      "Source wireframe is explicitly transparent: rear structural edges stay visible solid, not falsely converted to hidden lines. All strokes normalize to protocol width; polygon identity remains explicit through its twelve marked midpoint vertices. Source open-circle vertices normalize filled black."
+    ],
+    "answer_verification": {
+      "reasoning": "Freeze the twelve edge-midpoint coordinates and exact source cycle. Consecutive edge vectors give alternating internal angles 60 and 120 degrees, six each. Their sum is 1080 degrees, choice B. The planar polygon angle formula does not apply to this spatial polygon.",
+      "result": "B",
+      "verified": true
+    },
+    "stage": "source_audit_complete"
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

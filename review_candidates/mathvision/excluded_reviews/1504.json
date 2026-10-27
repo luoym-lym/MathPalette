@@ -1,0 +1,47 @@
+{
+  "reviewer": "independent /root/review_transformation_batch",
+  "source_id": "1504",
+  "category": "transformation_geometry",
+  "reviewed_utc": "2026-10-27T03:01:26.735735+00:00",
+  "verdict": "excluded",
+  "user_approval": false,
+  "hashes": {
+    "original.jpg": "1ece02e25e5e8c20f0f60268d780bab4455df9f649a62bb406779dd5070046de",
+    "source.json": "ebce9319853fa20aeab2239ce693a8844636f31371286ef663521aeafa19f9b4",
+    "scene.json": "7734f73175f2d0d021b366455cbedf5235e558ab535d05faa242b345c8463ed5",
+    "render.py": "f9732f2acaa0bede016cf487f76a96121d8ba56370bac5227e1bdcb3985d50d8",
+    "image.png": "353497a07a471b54fffcb1e34136462a3ec5361835bb0e8993c5b4b4e41c4908",
+    "audit.json": "ddebbcd4a4b44374e5cd7118a66cd51a53dd9cde477b8a0b15318c0a880dde64",
+    "redraw_report.json": "e21cd9bcb9b97d6be0c6af9e5d9be9ae7774678413fc376c5a496655915b8166"
+  },
+  "explicit_inspected_facts": [
+    "Individually viewed original and candidate: all five options are hooked lowercase-y silhouettes; source.json question expressly specifies uppercase bold Y. Unlike1000, which expressly specifies lowercase y,1504 does not supply a hooked starting glyph.",
+    "A rigid rotation/reflection cannot bend the straight stem of uppercaseY into a hooked lowercase-y descender. Candidate faithfully preserves hooked options but cannot repair source mismatch without changing the question or glyphs."
+  ],
+  "checks": {
+    "independent_numeric_checks": {
+      "composition_matrix": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "conditional_lowercase_answer": "A",
+      "uppercase_Y_result": "sideways straight-stem Y; no pictured hooked option is exact"
+    }
+  },
+  "exclusion_reason": "Starting uppercase Y contradicts every hooked lowercase-y option; ambiguity affects chirality-based choice A versus D.",
+  "exclusion_authority": "Latest user permits discarding problematic reviewed items; parent confirmed no contrary source evidence.",
+  "blocker": {
+    "action": "Independently compare source text and all glyphs",
+    "target": "1504/source.json and original.jpg",
+    "reason": "Starting glyph and option family differ",
+    "completed": true,
+    "outcome": "Excluded from final selection, all original artifacts preserved."
+  },
+  "required_changes": []
+}

@@ -1,0 +1,109 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:2818",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "combinatorial geometry",
+  "original_record": {
+    "id": "2818",
+    "question": "Consider the $5\\times 5$ grid $Z^2_5 = \\{(a, b) : 0 \\le a, b \\le 4\\}$.\\nSay that two points $(a, b)$,$(x, y)$ are adjacent if $a - x  \\equiv  -1, 0, 1$ (mod $5$) and $b - y \\equiv -1, 0, 1$ (mod $5$) .\\nFor example, in the diagram, all of the squares marked with $\\cdot$ are adjacent to the square marked with $\\times$.\\n\\nWhat is the largest number of $\\times$ that can be placed on the grid such that no two are adjacent?\\n<image1>",
+    "options": [],
+    "image": "images/2818.jpg",
+    "decoded_image": {
+      "path": "images/2818.jpg",
+      "original_path": "2818.jpg"
+    },
+    "answer": "5",
+    "solution": "First, see that we can place $5 \\times$ on the grid. Start with one $\\times$ in any location. Fix a direction, make one knight's move away in that direction and place another $\\times$. Repeat three times. The result looks like this:\\n\\begin{tabular}{|c|c|c|c|c|}\\n\\hline$\\times$ & $\\cdot$ & & & $\\cdot$ \\\\n\\hline$\\cdot$ & $\\cdot$ & $\\times$ & & $\\cdot$ \\\\n\\hline & & & & $\\times$ \\\\n\\hline & $\\times$ & & & \\\\n\\hline$\\cdot$ & $\\cdot$ & & $\\times$ & $\\cdot$ \\\\n\\hline\\n\\end{tabular}\\n\\nNext, we see that we can't have more than 5 . Suppose we did. Then by pigeonhole, at least one column has at least two $\\times$ in it. In the remainder, we show that if some column has two $\\times$, then there are at most $4 \\times$ in the whole grid.\\n\\nNotice that a column may not have more than two $\\times$ in it. Furthermore, if one column has two $\\times$, then the adjacent columns must be empty. Then there are two columns not adjacent to the column which has two $\\times$ in it. If either column has two $\\times$, then the other is empty. Therefore, there are at most two $\\times$ among them.",
+    "level": 5,
+    "subject": "combinatorial geometry"
+  },
+  "source_package": "MathVision_redrawn_combinatorial_geometry_296_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:05.052366+00:00",
+    "complete": true,
+    "category": "combinatorial_geometry",
+    "source_questions": 308,
+    "retained": 296,
+    "excluded": 12,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "source_viewed": true,
+    "inventory": {
+      "panels": 1,
+      "grid": "5x5",
+      "cross_cell": [
+        0,
+        4
+      ],
+      "dot_cells": [
+        [
+          1,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          4,
+          0
+        ]
+      ],
+      "labels": [
+        "×"
+      ]
+    },
+    "explicit_conditions": [
+      "toroidal kingadjacency mod5"
+    ],
+    "layout_only": "Frozen uniform scale and placement; source orientation retained.",
+    "answer_verification": {
+      "status": "verified",
+      "answer": "5",
+      "reason": "Witness(i,2i mod5),i0..4. Ifacolumnhas2 thenneighborcolumns emptyandremainingtwoadjacentcolumnshaveatmost2combined, total<=4; otherwise<=5.",
+      "conditions": [
+        "toroidal kingadjacency mod5"
+      ]
+    },
+    "self_review": {
+      "status": "actually_viewed",
+      "facts": "Viewed5x5crossupperleft,8toroidalneighborsdots; noincorrectadjacentdot."
+    }
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

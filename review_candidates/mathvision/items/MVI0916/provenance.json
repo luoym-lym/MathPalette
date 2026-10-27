@@ -1,0 +1,109 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:916",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "combinatorial geometry",
+  "original_record": {
+    "id": "916",
+    "question": "Which tile below completes the wall next to it?\n<image1>\n<image2>",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "image": "images/916.jpg",
+    "decoded_image": {
+      "path": "images/916.jpg",
+      "original_path": "916.jpg"
+    },
+    "answer": "E",
+    "solution": null,
+    "level": 2,
+    "subject": "combinatorial geometry"
+  },
+  "source_package": "MathVision_redrawn_combinatorial_geometry_296_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:05.052366+00:00",
+    "complete": true,
+    "category": "combinatorial_geometry",
+    "source_questions": 308,
+    "retained": 296,
+    "excluded": 12,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "source_viewed": true,
+    "inventory": [
+      "Five-column three-row wall, each tile classified by TL/TR/BR/BL corner motif.",
+      {
+        "wall_corner_codes": [
+          [
+            "MOGO",
+            "OGOG",
+            "GOMO",
+            "OGOM",
+            "GOGO"
+          ],
+          [
+            "OGOG",
+            "GOMO",
+            "OMGM",
+            "MOMG",
+            "OGMM"
+          ],
+          [
+            "GOMO",
+            "OMGM",
+            "MGMG",
+            "GMOM",
+            "MMMO"
+          ]
+        ],
+        "code_legend": {
+          "M": "thin gray spike",
+          "O": "gray quarterdisk",
+          "G": "concave corner region"
+        },
+        "candidate_codes_A_to_E": [
+          "OMMM",
+          "MOGO",
+          "MGMG",
+          "GOGG",
+          "OMGM"
+        ],
+        "missing_cell_zero_based": [
+          3,
+          1
+        ]
+      },
+      "Explicit option labels A–E; native smooth sampled analytic contours; task-relevant colors retained."
+    ],
+    "explicit_conditions": "Complete missing wall tile; all corner motif identities and adjacency across grid boundaries are task content.",
+    "display_conditions": "Composite packaging headings/separators removed; uniform panel scaling and placement normalized. No solution marks added.",
+    "answer_review": {
+      "status": "verified",
+      "answer": "E",
+      "reason": "The blank row2 column4 needs corner types [spike,circle,spike,concave] in TL,TR,BR,BL order. E has [circle,spike,concave,spike]; one clockwise quarter-turn gives exactly the required sequence. Other pieces have incompatible counts of corner types."
+    },
+    "source_artifact_exclusions": [
+      "Blue <imageN> composite headings and separators are dataset packaging, not question content."
+    ]
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

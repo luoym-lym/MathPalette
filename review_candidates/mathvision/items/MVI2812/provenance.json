@@ -1,0 +1,79 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:2812",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "combinatorial geometry",
+  "original_record": {
+    "id": "2812",
+    "question": "A $101\\times 101$ square grid is given with rows and columns numbered in order from $1$ to $101$. Each square that is contained in both an even-numbered row and an even-numbered column is cut out. A small section of the grid is shown below, with the cut-out squares in black. Compute the maximum number of $L$-triominoes (pictured below) that can be placed in the grid so that each $L$-triomino lies entirely inside the grid and no two overlap. Each $L$-triomino may be placed in the orientation pictured below, or rotated by $90^\\circ$, $180^\\circ$, or $270^\\circ$.\\n<image1>",
+    "options": [],
+    "image": "images/2812.jpg",
+    "decoded_image": {
+      "path": "images/2812.jpg",
+      "original_path": "2812.jpg"
+    },
+    "answer": "2550",
+    "solution": "",
+    "level": 5,
+    "subject": "combinatorial geometry"
+  },
+  "source_package": "MathVision_redrawn_combinatorial_geometry_296_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:05.052366+00:00",
+    "complete": true,
+    "category": "combinatorial_geometry",
+    "source_questions": 308,
+    "retained": 296,
+    "excluded": 12,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "source_viewed": true,
+    "inventory": {
+      "panels": 2,
+      "left": "5x5labeledpartialgrid withright/top continuationhalfcells",
+      "black_cells": "evenrowandevencol",
+      "right": "Lthreeunits orientationtwoverticalleftonebottomright",
+      "labels": [
+        "1..5eachaxis",
+        "an L-triomino"
+      ],
+      "continuation": "Open top/right continuation; no invented closingouterframe"
+    },
+    "explicit_conditions": [
+      "101x101",
+      "evenevencellsremoved",
+      "rotationsallowed"
+    ],
+    "layout_only": "Frozen uniform scale and placement; source orientation retained.",
+    "answer_verification": {
+      "status": "verified",
+      "answer": "2550",
+      "reason": "EachLrequires2mixed-paritycells;5100mixedcells upperbound2550. Construct onoddoddnodesindexed i,j0..50: skipi=j. Fori<j use(2i,2j),(2i,2j-1),(2i+1,2j); fori>j use(2i,2j),(2i,2j+1),(2i-1,2j). All2550Ltiles independentlycheckedinside101square, avoidholesandpairwisedisjoint. Witnesssaved.",
+      "conditions": [
+        "101x101",
+        "evenevencellsremoved in1basedcoordinates",
+        "rotationsallowed"
+      ]
+    },
+    "self_review": {
+      "status": "actually_viewed",
+      "facts": "Viewedrevisedopencontinuationtop/right, blackevenevenholes,labelled1..5 axes,andLtile; answerlowerboundstilluncertain."
+    }
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

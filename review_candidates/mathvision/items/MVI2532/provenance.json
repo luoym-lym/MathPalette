@@ -1,0 +1,98 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:2532",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "solid geometry",
+  "original_record": {
+    "id": "2532",
+    "question": "The figure may be folded along the lines shown to form a number cube.  Three number faces come together at each corner of the cube.  What is the largest sum of three numbers whose faces come together at a corner?\n\n<image1>",
+    "options": [],
+    "image": "images/2532.jpg",
+    "decoded_image": {
+      "path": "images/2532.jpg",
+      "original_path": "2532.jpg"
+    },
+    "answer": "14",
+    "solution": null,
+    "level": 4,
+    "subject": "solid geometry"
+  },
+  "source_package": "MathVision_redrawn_solid_geometry_240_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:00.302878+00:00",
+    "complete": true,
+    "category": "solid_geometry",
+    "source_questions": 244,
+    "retained": 240,
+    "excluded": 4,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "inventory": [
+      "One six-square net; labels 6,2,4,5,1,3; all grid segments solid; no additional panels."
+    ],
+    "explicit_conditions": [
+      "Joined congruent squares with exactly the source adjacency and labels."
+    ],
+    "layout_choices": [
+      "Planar net is native 3D geometry on z=0 under orthographic XY projection; no bitmap tracing."
+    ],
+    "answer_check": {
+      "reasoning": "Opposite pairs are(1,3),(2,5),(4,6); largest corner sum chooses3+5+6=14.",
+      "answer": "14",
+      "matches_source": true,
+      "fold_evidence": {
+        "valid": true,
+        "folded_normals": {
+          "6": [
+            0,
+            0,
+            1
+          ],
+          "2": [
+            1,
+            0,
+            0
+          ],
+          "4": [
+            0,
+            0,
+            -1
+          ],
+          "1": [
+            0,
+            1,
+            0
+          ],
+          "3": [
+            0,
+            -1,
+            0
+          ],
+          "5": [
+            -1,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "source_image_sha256": "06b66f3c80ba8df3e8b9e46d534f6bb4ba1a2f2df890fc732f8b4e067ea66e20",
+    "source_viewed": true
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

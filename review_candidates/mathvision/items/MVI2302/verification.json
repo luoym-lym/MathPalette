@@ -1,0 +1,56 @@
+{
+  "reviewer": "independent /root/review_transformation_batch",
+  "source_id": "2302",
+  "category": "transformation_geometry",
+  "reviewed_utc": "2026-10-27T01:51:36.329495+00:00",
+  "verdict": "agent_verified",
+  "user_approval": false,
+  "hashes": {
+    "original.jpg": "619eb19a92e117b593ab163c2893eb50b6779c58f398a2cea2bb485de95e8fb5",
+    "source.json": "cb8ca7beba9003e8cab1e2f34b358614a4b4f0f52bc02e682ddaeb89c1da520f",
+    "scene.json": "f54411f34b16b263c1f100a2ac4b29c82a292017a6db1f65b7451d874657a3fc",
+    "render.py": "72ed6412df7fb4870ef4f96749d436e14ac4e5550032349009fec0a7b6296252",
+    "image.png": "58ebefcf294e89797387486fa10cd6e31c7a2dbdb031a21eadc85f6da413d89a",
+    "audit.json": "d110e507669b8fd28978542e8263149ee8c163113d471b60565041ff3b43ce75",
+    "redraw_report.json": "93c9c53020f38e0f920f0fe44203cd98945a58c7fa83fb1c1e910aa5bd6d0ab0"
+  },
+  "explicit_inspected_facts": [
+    "Individually viewed original and revised output: rectangle left/top solid, lower-right/right original edges dotted, folded corner reaches left side, crease L runs lower point to top-right. Theta single arc between crease and downward original right edge; width6-inch dimension now protocol parallel dashed with perpendicular connectors and explicit BL/C bindings."
+  ],
+  "checks": {
+    "source_record_and_bytes_match": true,
+    "two_independent_renders_equal_candidate": true,
+    "opaque768": true,
+    "bbox": [
+      129,
+      54,
+      637,
+      714
+    ],
+    "occupancy": 0.8606770833333334,
+    "independent_numeric_checks": {
+      "answer": "A",
+      "frozen_theta_degrees": 29.999999999999993,
+      "frozen_crease_length": 8.0,
+      "formula_value": 8.000000000000002,
+      "proof": "Let right-edge height H and fold angle theta to vertical. Reflection of lower-right corner about crease displaces x by H sin(2theta)=6; L=H/cos(theta)=3sec\u00b2(theta)csc(theta)."
+    },
+    "renderer_checks": [
+      {
+        "id": "arc_binding_theta",
+        "type": "angle_annotation",
+        "label_id": "theta",
+        "arc_id": "o8",
+        "measured": 1,
+        "passed": true
+      }
+    ],
+    "report_hashes_valid": true
+  },
+  "required_changes": [],
+  "previous_revisions": [],
+  "dependency_hashes": {
+    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  }
+}

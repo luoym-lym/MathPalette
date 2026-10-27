@@ -1,0 +1,21 @@
+{
+  "source_id": "677",
+  "source_image_viewed": true,
+  "source_image_sha256": "01628ca6d9be3395056d6ea19bc83afcec6a307f850af1b2f9b10f25886c3aa4",
+  "inventory": [
+    "Leftlightgray3×3Lpentacube,darkgray1×1×3bar,whiteunitcube; assemblyarrow",
+    "Right3×3×3cube withsourcefront/top/right materialpattern andpieceboundaryseams",
+    "Light/darkgray retain distinct semanticmaterialclasses"
+  ],
+  "conditions": "The big cube is made up of three different kinds of building blocks (see diagram). How many of the little white cubes are needed for this big cube?\n<image1>",
+  "panel_option_mapping": "single diagram; textual choices preserved in source.json",
+  "ambiguities": [
+    "Root clarified that source-semantic distinctgrays must be supported by scopednative renderer rather thanmerged/excluded. Per-item frozenrenderer extends only semanticfacepalette; originalgeometry/visibility/style/layoutchecks retained."
+  ],
+  "answer_verification": {
+    "reasoning": "Front-rightLcells(2,y,2)plus(2,0,z<2); rear-leftLcells(0,2,z)plus(x>0,2,0). Darkbars are(0,0,z)and(1,y,1). These two5cellLs andtwo3cellbars occupy16distinctcells;remaining27-16=11white. Sourcevisiblepattern forces theseorientations, and noadditionalL/bar canhide insoleinteriorunitcell.",
+    "result": "11",
+    "verified": true
+  },
+  "stage": "source_audit_complete"
+}

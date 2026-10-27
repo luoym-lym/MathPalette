@@ -1,0 +1,63 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:2995",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "solid geometry",
+  "original_record": {
+    "id": "2995",
+    "question": "$ABCDEFGH$ shown below is a right rectangular prism.  If the volume of pyramid $ABCH$ is 20, then what is the volume of $ABCDEFGH$?\n\n<image1>",
+    "options": [],
+    "image": "images/2995.jpg",
+    "decoded_image": {
+      "path": "images/2995.jpg",
+      "original_path": "2995.jpg"
+    },
+    "answer": "120",
+    "solution": "We add the edges of the pyramid to our diagram below.\n\n[asy]\nimport three;\ntriple A,B,C,D,EE,F,G,H;\nA = (0,0,0);\nB = (5,0,0);\nC = (5,6,0);\nD= (0,6,0);\nEE = (0,0,4);\nF = B+EE;\nG = C + EE;\nH = D + EE;\ndraw(B--C--D);\ndraw(B--A--D,dashed);\ndraw(EE--F--G--H--EE);\ndraw(B--H--A--EE,dashed);\ndraw(A--C,dashed);\ndraw(B--F);\ndraw(C--G);\ndraw(D--H--C);\nlabel(\"$A$\",A,SSW);\nlabel(\"$B$\",B,W);\nlabel(\"$C$\",C,S);\nlabel(\"$D$\",D,E);\nlabel(\"$E$\",EE,N);\nlabel(\"$F$\",F,W);\nlabel(\"$G$\",G,SW);\nlabel(\"$H$\",H,E);\n[/asy]\n\nTaking $ABC$ to be the base of pyramid $ABCH$, the height is $HD$.  Therefore, the volume of pyramid $ABCH$ is $$\\frac{[ABC](HD)}{3}.$$We are given that this volume equals 20, so we have \\[{[ABC]\\cdot HD}=60.\\]The volume of prism $ABCDEFGH$ is the product of area of $ABCD$ and the height of the prism, which equals $HD$.   The area of $ABC$ is half the area of rectangle $ABCD$, so we have  \\begin{align*}\n\\text{Volume of }ABCDEFGH &= ([ABCD])(HD) \\\\\n&= 2([ABC])(HD) \\\\\n&= \\boxed{120}.\\end{align*}",
+    "level": 2,
+    "subject": "solid geometry"
+  },
+  "source_package": "MathVision_redrawn_solid_geometry_240_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:00.302878+00:00",
+    "complete": true,
+    "category": "solid_geometry",
+    "source_questions": 244,
+    "retained": 240,
+    "excluded": 4,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "inventory": [
+      "Rectangular prism labeled A through H; hidden AB, AD, AE dashed; remaining nine edges solid; no pyramid diagonal drawn."
+    ],
+    "explicit_conditions": [
+      "Volume of tetrahedron ABCH=20 in a right rectangular prism."
+    ],
+    "layout_choices": [
+      "Unspecified cuboid dimensions chosen for layout only, not displayed."
+    ],
+    "answer_check": {
+      "reasoning": "Triangle ABC is half bottom rectangle and H is at full prism height, so pyramid volume is one sixth prism; prism=120.",
+      "answer": "120",
+      "matches_source": true
+    },
+    "source_image_sha256": "6177d83af5dee91fdfa4eb807af87d61be2489d525ac1c3f552c9976eb72b68a",
+    "source_viewed": true
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

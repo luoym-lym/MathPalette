@@ -1,0 +1,68 @@
+{
+  "checks": [
+    {
+      "id": "projection_and_visibility",
+      "type": "projection",
+      "passed": true,
+      "projection_sha256": "3a511aaeea0019daf2d65f7083b59b7f6a7854726acc6ed424fd04495d2323ae",
+      "automatic_occlusion": false
+    },
+    {
+      "id": "layout",
+      "type": "layout",
+      "outer_margin_fraction": 0.05,
+      "label_line_overlap": false,
+      "label_label_overlap": false,
+      "passed": true
+    }
+  ],
+  "two_runs_pixel_identical": true,
+  "two_runs_svg_identical": true,
+  "visual_review": {
+    "status": "self_checked",
+    "notes": "Actually viewed original and final. Every source top/front/left color cell in both views matches, including shared-edge corners. Exact24-rotation test finds unique alignment with18forced-white,5forced-black and4unseen cubes, giving maximum9black. No omitted grid or invented rear colors.",
+    "actual_visible_bbox_px": [
+      52,
+      237,
+      715,
+      530
+    ],
+    "long_side_fraction": 0.8645833333333334,
+    "center_px": [
+      383.5,
+      383.5
+    ],
+    "independent_review": "pending"
+  },
+  "hashes": {
+    ".runtime/mathvision_redraw_720/solid_geometry/1384/source.json": "9fc8f0b60758670590d55800d699989a471229a26f1f9098a3d9b82eb86db89f",
+    ".runtime/mathvision_redraw_720/solid_geometry/1384/original.jpg": "26f3d40d6a15b29c9da6d14190ff2f2eef2ed14de63db1edb096b099a78f1be1",
+    ".runtime/mathvision_redraw_720/solid_geometry/1384/scene.json": "30c88d8cae539639a89243d9461a5194a3c125c862da3fed13354ba7c2ca8446",
+    ".runtime/mathvision_redraw_720/solid_geometry/1384/render.py": "504abfb71f17442fda0a0c52c0b3a39d3e2e95e51377ae6a89399efb61f50115",
+    ".runtime/mathvision_redraw_720/solid_geometry/1384/image.png": "6a24123d126e069a9957a7aaf0cb859deecbdc99db1eb6aa67a68369f718d74a",
+    ".runtime/mathvision_redraw_720/solid_geometry/1384/image.svg": "52d546c6f403ddc7482b3036babe9ce80d7715dab670c8d2d7621aee91aac0f3",
+    ".runtime/mathvision_redraw_720/solid_geometry/1384/renderer_semantic.py": "780a818adc08f145e3361d2c608c0a66eed32e280277f02e36aba23da36b8d16",
+    "SolidGeometry/dataset_generator/protocol.json": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+    "SolidGeometry/REDRAW_PROTOCOL.md": "206719278a674ee238af811def681a8fd12b93f6d20e34aeea7ace16e0eeb2bd",
+    "SolidGeometry/dataset_generator/common_renderer.py": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+    ".runtime/mathvision_redraw_720/solid_geometry/1384/verify_views.py": "3e8cb2ca3f2066c744de1b041caaa6ecfa2709ef15992572aee3262cf68c0ff0"
+  },
+  "dependencies": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "matplotlib": "3.10.8",
+    "Pillow": "12.3.0"
+  },
+  "semantic_extension": {
+    "scope": "Source-semantic grayscale face classes only; copied native renderer with palette lookup and original protocol path. All other renderer behavior unchanged.",
+    "source_renderer_sha256": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+    "item_snapshot_sha256": "780a818adc08f145e3361d2c608c0a66eed32e280277f02e36aba23da36b8d16",
+    "default_behavior_pixel_identical_to_shared_renderer": true,
+    "non_grayscale_rejected": true,
+    "unknown_material_rejected": true,
+    "palette": {
+      "black_cube": "#555555"
+    },
+    "authority": "Root2026-10-27: preserve distinct semantic material fills with item-local native support, not merge classes or modify sharedrenderer."
+  }
+}

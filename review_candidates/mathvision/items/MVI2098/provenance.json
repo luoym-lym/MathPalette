@@ -1,0 +1,63 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:2098",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "solid geometry",
+  "original_record": {
+    "id": "2098",
+    "question": "Two spheres with radii $36$ and one sphere with radius $13$ are each externally tangent to the other two spheres and to two different planes $\\mathcal{P}$ and $\\mathcal{Q}$. The intersection of planes $\\mathcal{P}$ and $\\mathcal{Q}$ is the line $\\ell$. The distance from line $\\ell$ to the point where the sphere with radius $13$ is tangent to plane $\\mathcal{P}$ is $\\frac{m}{n}$, where $m$ and $n$ are relatively prime positive integers. Find $m + n$.\n\n<image1>",
+    "options": [],
+    "image": "images/2098.jpg",
+    "decoded_image": {
+      "path": "images/2098.jpg",
+      "original_path": "2098.jpg"
+    },
+    "answer": "335",
+    "solution": null,
+    "level": 3,
+    "subject": "solid geometry"
+  },
+  "source_package": "MathVision_redrawn_solid_geometry_240_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:00.302878+00:00",
+    "complete": true,
+    "category": "solid_geometry",
+    "source_questions": 244,
+    "retained": 240,
+    "excluded": 4,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "inventory": [
+      "TwooutlinedplanesP,Q intersectingalonglabeledℓ; twoequalbig spheresandone smallsphere nestlednearintersection; eachvisible spherecontour/equator clippedbyforegroundspheres; no numericaldimensionlabels orcontactdots."
+    ],
+    "explicit_conditions": [
+      "Bigsphereradii36,small13; everypair externallytangent andallspherestangenttobothplanes."
+    ],
+    "layout_choices": [
+      "Exactwedgehalf-angleatan(23/24), orthonormalcamera; spherecontour and planeoutline visibility frozen by actualraydepth, no invented hiddenarcs."
+    ],
+    "answer_check": {
+      "reasoning": "Centers lie onwedgeanglebisector. Bigcenters separated72alongintersectionline, so smallcenter midwayalongthatline. Withhalf-angleα, center-to-line distancesr/sinα; tangentdistance49 gives36²+(23/sinα)²=49² =>sinα=23/√1105,cotα24/23. Small-spherePcontact distancefromline=r cotα=312/23; m+n335.",
+      "answer": "335",
+      "matches_source": true
+    },
+    "source_image_sha256": "6c752d3037ac7cffe063a068986f965e8e77e8789fb71cad07bf6118402a0812",
+    "source_viewed": true
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

@@ -1,0 +1,66 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:219",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "solid geometry",
+  "original_record": {
+    "id": "219",
+    "question": "In the diagram to the right a $2 \\times 2 \\times 2$ cube is made up of four transparent $1 \\times 1 \\times 1$ cubes and four non-transparent black $1 \\times 1 \\times 1$ cubes. They are placed in a way so that the entire big cube is nontransparent; i.e. looking at it from the front to the back, the right to the left, the top to the bottom, at no point you can look through the cube. What is the minimum number of black $1 \\times 1 \\times 1$ cubes needed to make a $3 \\times 3 \\times 3$ cube non-transparent in the same way?\n<image1>",
+    "options": [],
+    "image": "images/219.jpg",
+    "decoded_image": {
+      "path": "images/219.jpg",
+      "original_path": "219.jpg"
+    },
+    "answer": "9",
+    "solution": null,
+    "level": 3,
+    "subject": "solid geometry"
+  },
+  "source_package": "MathVision_redrawn_solid_geometry_240_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:00.302878+00:00",
+    "complete": true,
+    "category": "solid_geometry",
+    "source_questions": 244,
+    "retained": 240,
+    "excluded": 4,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "source_id": "219",
+    "source_image_viewed": true,
+    "source_image_sha256": "81e2ad9fc01e8239c9154aac70f8d348520267456bb9b7ad61afc7665d93de02",
+    "inventory": [
+      "Transparent2×2×2cubegrid withfour opaque checkerboard cubes",
+      "Opaque cubes frontlowerleft,frontupperright,rearupperleft,rearlowerright",
+      "Opaque cube front/top/right faces shaded; transparent cell interiors white; rear gridedges visible only where not occluded"
+    ],
+    "conditions": "In the diagram to the right a $2 \\times 2 \\times 2$ cube is made up of four transparent $1 \\times 1 \\times 1$ cubes and four non-transparent black $1 \\times 1 \\times 1$ cubes. They are placed in a way so that the entire big cube is nontransparent; i.e. looking at it from the front to the back, the right to the left, the top to the bottom, at no point you can look through the cube. What is the minimum number of black $1 \\times 1 \\times 1$ cubes needed to make a $3 \\times 3 \\times 3$ cube non-transparent in the same way?\n<image1>",
+    "panel_option_mapping": "single diagram; textual choices preserved in source.json",
+    "ambiguities": [
+      "Source dark/lightgray shading differentiates orientation of identical opaque black cubes, not different material classes; normalized all opaque faces to protocolgray, transparent faces unfilled. No answer3cube diagram substituted."
+    ],
+    "answer_verification": {
+      "reasoning": "Looking along one axis gives9disjoint rows of3cells, each must contain an opaque cube, so at least9blackcubes. Nine suffice: choose all(x,y,z)in{0,1,2}³ with z=(x+y)mod3. Each axisparallel row contains exactlyone selected cube because any two coordinates determine the third modulo3. Thusminimum9. The supplied2cube illustration uses parityx+y+z even to blockeachlength2row.",
+      "result": "9",
+      "verified": true
+    },
+    "stage": "source_audit_complete"
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

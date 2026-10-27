@@ -1,0 +1,56 @@
+{
+  "reviewer": "independent /root/review_transformation_batch",
+  "source_id": "2236",
+  "category": "transformation_geometry",
+  "reviewed_utc": "2026-10-27T01:56:02.369463+00:00",
+  "verdict": "excluded",
+  "user_approval": false,
+  "hashes": {
+    "original.jpg": "bfb183d31022c846c01c38e862f91f4bcfe2f234b5739ecadf3a9ed7576e5021",
+    "source.json": "cbed36dcae31f0911ad84cff6b00af780743a16016bc74a13ff685f719ceeb57",
+    "scene.json": "1025723977a29c2a1f56323839eca2ea0e48ea6f2c77c97a2e606b740bba1793",
+    "render.py": "1cd0864ccfda7aad8e6377fc7c7ae448eedbcb91ade58c376a2ac824a55c6492",
+    "image.png": "66b9df0e1d2c0fd6715ddd533b61275157a285ca32063edf64b63b26510f5b66",
+    "audit.json": "59a0b96f6e7c1811266a1cf2b2b9e71e09a2c673673bc7daf45d8a3f44b60cd0",
+    "redraw_report.json": "99dbd47d016ddbb527b292e803a8d7e4dc7c06b5ad3d3cceca5d986c1b8e5909"
+  },
+  "explicit_inspected_facts": [
+    "Actually viewed original and candidate individually: source topmost sheet has top edge descending right, clockwise30-degree square. Candidate topmost sheet top edge rises right, clockwise60-degree square. Upper-left versus upper-right front peak and occlusion are reversed."
+  ],
+  "checks": {
+    "source_record_and_bytes_match": true,
+    "two_independent_renders_equal_candidate": true,
+    "opaque768": true,
+    "bbox": [
+      54,
+      54,
+      713,
+      713
+    ],
+    "occupancy": 0.859375,
+    "independent_numeric_checks": {
+      "source_answer": "147",
+      "independent_union_area": "108-36sqrt3",
+      "a_plus_b_plus_c": 147,
+      "conflict": "Source visible top sheet30degrees conflicts with text top60degrees; union area unaffected.",
+      "independent_radial_integral_area": 45.64617092761755
+    },
+    "renderer_checks": [],
+    "report_hashes_valid": true
+  },
+  "required_changes": [],
+  "previous_revisions": [],
+  "blocker": {
+    "action": "Resolve source contradiction",
+    "target": "2236",
+    "reason": "Adjudicate whether text-defined stacking or source-visible stacking governs. Preserve source data; do not silently reorder sheets.",
+    "completed": "Individual views and independent mathematics plus reproducibility checks completed",
+    "outcome": "Excluded from final delivery under latest user authorization; source/audit retained unchanged, no adjudication required."
+  },
+  "dependency_hashes": {
+    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  },
+  "exclusion_reason": "Adjudicate whether text-defined stacking or source-visible stacking governs. Preserve source data; do not silently reorder sheets.",
+  "exclusion_authority": "User: \u590d\u6838\u4e2d\u6709\u95ee\u9898\u7684\u9898\u76ee\u53ef\u4ee5\u76f4\u63a5\u4e22\u5f03\u3002\u6211\u9700\u8981\u4fdd\u8bc1\u4f60\u6700\u540e\u7ed9\u6211\u7684\u9898\u76ee\u7684\u8d28\u91cf\u3002"
+}

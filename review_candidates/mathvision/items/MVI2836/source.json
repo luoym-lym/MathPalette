@@ -1,0 +1,14 @@
+{
+  "id": "2836",
+  "question": "Suppose Annie the Ant is walking on a regular icosahedron (as shown). She starts on point $A$ and will randomly create a path to go to point $Z$ which is the point directly opposite to $A$. Every move she makes never moves further from Z, and she has equal probability to go down every valid move. What is the expected number of moves she can make?\\n<image1>",
+  "options": [],
+  "image": "images/2836.jpg",
+  "decoded_image": {
+    "path": "images/2836.jpg",
+    "original_path": "2836.jpg"
+  },
+  "answer": "6",
+  "solution": "Lets categorize the vertices into 4 levels, defined by distance to $A$. Due to the condition that she never moves further from Z, she can never go to a higher level, so she must stay on her level or progress to a lower level. At the first level, she can only make a move to level two, which is 1 move. At level two, she always has 4 moves she can make, 2 of them move down. At level three, she always has 3 moves she can make, 1 of which moves down.\\nLet $E_n$ be the expected number of moves to move from level $n$ to $n+1$. We have $E_n=1$,\\n$$\\nE_2=\\frac{1}{2} \\cdot 1+\\frac{1}{2} \\cdot\\left(E_2+1\\right) \\text { and } E_3=\\frac{1}{3} \\cdot 1+\\frac{2}{3} \\cdot\\left(E_3\\n1\\right)\\n$$\\n\\nThis solves to $E_2=2, E_3=3$. The final expected value is, by linearity of expected value, 6 .",
+  "level": 3,
+  "subject": "solid geometry"
+}

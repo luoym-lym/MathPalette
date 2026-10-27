@@ -1,0 +1,71 @@
+{
+  "reviewer": "independent /root/review_transformation_batch",
+  "source_id": "2065",
+  "category": "transformation_geometry",
+  "reviewed_utc": "2026-10-27T02:15:04.119915+00:00",
+  "verdict": "agent_verified",
+  "user_approval": false,
+  "hashes": {
+    "original.jpg": "e6efa8ac1242d4d877fea3305cf72d778f3e314f1f99e679026872e701d86480",
+    "source.json": "ab0a9e8e1cd4759e7ea002d74236ba159a2a64bea149d7927a2dc756363f939a",
+    "scene.json": "1ea69d456dc1cd4b803a9678c4d0bdcd63eaa1e724a2e69dd6dd3011fe2485fd",
+    "render.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
+    "image.png": "96c9f882212215cdcab82e4b45255f094ea33c95c565afe5926b8f8aa7419913",
+    "audit.json": "d87ebb6ed8c958734782b5c58127b946a147c67499b635c2158a73b20da8bd1f",
+    "redraw_report.json": "c306cfe975c2ba260af025e0ed1c0fdd5918d9c2732210b1c57b79f23a35e7fe"
+  },
+  "explicit_inspected_facts": [
+    "Individually viewed original and candidate: solid A-D-visible top boundary, fold E-F, reflected B-prime on AD and C-prime above top; former EB/BC/CF dashed, correctly occluded top segment hidden under fold. All eight labels correctly bound.",
+    "AB=8+17=25. E fixed by fold implies AB-prime=sqrt(17\u00b2-8\u00b2)=15. Set F=(22,h): FB\u00b2=9+h\u00b2 equals FB-prime\u00b2=22\u00b2+(h-15)\u00b2. Hence h=70/3 and perimeter=2(25+70/3)=290/3; sum293."
+  ],
+  "checks": {
+    "source_record_and_bytes_match": true,
+    "two_independent_renders_equal_candidate": true,
+    "opaque768": true,
+    "bbox": [
+      64,
+      54,
+      703,
+      713
+    ],
+    "occupancy": 0.859375,
+    "independent_numeric_checks": {
+      "height": 23.333333333333332,
+      "reflection_B_and_C_verified": true,
+      "answer": 293
+    },
+    "renderer_checks": [
+      {
+        "id": "AE",
+        "type": "distance",
+        "measured": 8.0,
+        "passed": true
+      },
+      {
+        "id": "BE",
+        "type": "distance",
+        "measured": 17.0,
+        "passed": true
+      },
+      {
+        "id": "CF",
+        "type": "distance",
+        "measured": 3.0,
+        "passed": true
+      },
+      {
+        "id": "reflectiondistance",
+        "type": "distance",
+        "measured": 17.0,
+        "passed": true
+      }
+    ],
+    "report_hashes_valid": true
+  },
+  "required_changes": [],
+  "previous_revisions": [],
+  "dependency_hashes": {
+    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  }
+}

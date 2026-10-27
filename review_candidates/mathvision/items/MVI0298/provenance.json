@@ -1,0 +1,204 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:298",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "combinatorial geometry",
+  "original_record": {
+    "id": "298",
+    "question": "A $4 \\times 1 \\times 1$ cuboid is made up of 2 white and 2 grey cubes as shown. Which of the following cuboids can be build entirely out of such $4 \\times 1 \\times 1$ cuboids?\n<image1>\n<image2>",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "image": "images/298.jpg",
+    "decoded_image": {
+      "path": "images/298.jpg",
+      "original_path": "298.jpg"
+    },
+    "answer": "A",
+    "solution": null,
+    "level": 5,
+    "subject": "combinatorial geometry"
+  },
+  "source_package": "MathVision_redrawn_combinatorial_geometry_296_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:05.052366+00:00",
+    "complete": true,
+    "category": "combinatorial_geometry",
+    "source_questions": 308,
+    "retained": 296,
+    "excluded": 12,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "inventory": {
+      "image1": "4x1x1 bar with white,white,gray,gray cubes",
+      "image2": "five4x2x2 cuboids A-E with native unit grids and exact visible color patterns",
+      "visible_models": {
+        "given": {
+          "origin": [
+            13,
+            0,
+            6
+          ],
+          "dimensions": [
+            4,
+            1,
+            1
+          ],
+          "top_rows_front_to_back": [
+            "WWGG"
+          ],
+          "front_rows_bottom_to_top": [
+            "WWGG"
+          ],
+          "back_bottom_right_cube": "G"
+        },
+        "A": {
+          "origin": [
+            0,
+            0,
+            0
+          ],
+          "dimensions": [
+            4,
+            2,
+            2
+          ],
+          "top_rows_front_to_back": [
+            "GGWW",
+            "WWGG"
+          ],
+          "front_rows_bottom_to_top": [
+            "WWGG",
+            "GGWW"
+          ],
+          "back_bottom_right_cube": "G"
+        },
+        "B": {
+          "origin": [
+            7,
+            0,
+            0
+          ],
+          "dimensions": [
+            4,
+            2,
+            2
+          ],
+          "top_rows_front_to_back": [
+            "GGWW",
+            "WWWW"
+          ],
+          "front_rows_bottom_to_top": [
+            "WWGG",
+            "GGWW"
+          ],
+          "back_bottom_right_cube": "G"
+        },
+        "C": {
+          "origin": [
+            14,
+            0,
+            0
+          ],
+          "dimensions": [
+            4,
+            2,
+            2
+          ],
+          "top_rows_front_to_back": [
+            "GGWW",
+            "WWWW"
+          ],
+          "front_rows_bottom_to_top": [
+            "GGWW",
+            "GGWW"
+          ],
+          "back_bottom_right_cube": "G"
+        },
+        "D": {
+          "origin": [
+            21,
+            0,
+            0
+          ],
+          "dimensions": [
+            4,
+            2,
+            2
+          ],
+          "top_rows_front_to_back": [
+            "GGWW",
+            "GGGG"
+          ],
+          "front_rows_bottom_to_top": [
+            "GGWW",
+            "GGWW"
+          ],
+          "back_bottom_right_cube": "G"
+        },
+        "E": {
+          "origin": [
+            28,
+            0,
+            0
+          ],
+          "dimensions": [
+            4,
+            2,
+            2
+          ],
+          "top_rows_front_to_back": [
+            "GGWW",
+            "WWGG"
+          ],
+          "front_rows_bottom_to_top": [
+            "GGGG",
+            "GGWW"
+          ],
+          "back_bottom_right_cube": "W"
+        }
+      }
+    },
+    "answer_verification": {
+      "method": "Every4x1x1 bar must lie along the sole length4 axis of a4x2x2 box; therefore every x-directed row is WWGG or GGWW. A visible rows satisfy this and hidden back-bottom row WWGG supplies a witness. B,C have all-white top-back rows; D all-gray top-back; E all-gray front-bottom.",
+      "candidate_valid": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "A_complete_rows_frontbottom_fronttop_backbottom_backtop": [
+        "WWGG",
+        "GGWW",
+        "WWGG",
+        "WWGG"
+      ],
+      "verified_answer": "A"
+    },
+    "source_actually_viewed": true,
+    "source_inventory_complete": true,
+    "explicit_conditions_vs_layout": "Geometry and option identity preserved. Locations and panel spacing are display layout only.",
+    "user_approval": false
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

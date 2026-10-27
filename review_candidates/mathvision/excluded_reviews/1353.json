@@ -1,0 +1,53 @@
+{
+  "reviewer": "independent /root/review_transformation_batch",
+  "source_id": "1353",
+  "category": "transformation_geometry",
+  "reviewed_utc": "2026-10-27T03:17:41.757827+00:00",
+  "verdict": "excluded",
+  "user_approval": false,
+  "hashes": {
+    "original.jpg": "812adc3f7d7a7ef3064ef5a749679c3e8eae3fcfe8d98759c2cbf231ec9a80f7",
+    "source.json": "8eda961a2607f906e9527bf514a24f86dbb68ba33f04dda272c0c75bdbdd8723",
+    "scene.json": "dc90ad7f42d09885b88406c5057cf5fca28ac3e8c6fa6e7dc757ef034b1e6a7a",
+    "render.py": "0fab1d5fcf4b32769764456ae5229aff20a00c820b983d3304e473924726d19f",
+    "image.png": "a8ba5865218e2dff1a8b6f84ba80aea09a2caeab709bfe8abf0a52b38f98bf8d",
+    "audit.json": "ffa909776c84c2de8aa02df6e00b207c9a8c9a807a7f7f9ce8daca8bf33118ba",
+    "redraw_report.json": "fbbd2f10bfe6315daf7d551510f021398fb1ee7aaa1a3634265a28c81b58fe15"
+  },
+  "explicit_inspected_facts": [
+    "Individually viewed original and candidate: first pivot example oldP left of new sidewaysP has lower shared vertex and consistent clockwise90. Second old uprightP lies immediately below newP with pivot at old upper-right/new lower-right; new glyph has stem horizontal bottom, i.e. counterclockwise90.",
+    "Take pivot origin. Old center(-0.5,-0.5) reaches above-left(-0.5,+0.5) under clockwise90; counterclockwise90 would instead reach(+0.5,-0.5). Source positions therefore require opposite rotation from pictured P orientation. Candidate preserves contradiction rather than silently correcting it."
+  ],
+  "checks": {
+    "independent_numeric_checks": {
+      "old_center": [
+        -0.5,
+        -0.5
+      ],
+      "required_new_center": [
+        -0.5,
+        0.5
+      ],
+      "clockwise90_result": [
+        -0.5,
+        0.5
+      ],
+      "counterclockwise90_result": [
+        0.5,
+        -0.5
+      ],
+      "source_answer": "B"
+    }
+  },
+  "required_changes": [],
+  "previous_revisions": [],
+  "exclusion_reason": "Second instructional pivot example has geometrically incompatible box placement and glyph rotation; source cannot be faithfully and consistently interpreted without changing it.",
+  "exclusion_authority": "Latest user permits discarding problematic reviewed items, quality first.",
+  "blocker": {
+    "action": "Independently inspect source and mathematical semantics",
+    "target": "1353",
+    "reason": "Second instructional pivot example has geometrically incompatible box placement and glyph rotation; source cannot be faithfully and consistently interpreted without changing it.",
+    "completed": true,
+    "outcome": "Excluded, original source and audit artifacts retained."
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:1038",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "combinatorial geometry",
+  "original_record": {
+    "id": "1038",
+    "question": "In the picture there is a square tile with two fourths of a circle. The radius of every fourth is half the side of the tile and its length equals $5 \\mathrm{dm}$. We form a large square from 16 such tiles and try to get the longest unbroken curve consisting of the fourths. How long can this continuous curve be at most?\n<image1>",
+    "options": [
+      "$75 \\mathrm{dm}$",
+      "$100 \\mathrm{dm}$",
+      "$105 \\mathrm{dm}$",
+      "$110 \\mathrm{dm}$",
+      "$80 \\mathrm{dm}$"
+    ],
+    "image": "images/1038.jpg",
+    "decoded_image": {
+      "path": "images/1038.jpg",
+      "original_path": "1038.jpg"
+    },
+    "answer": "D",
+    "solution": null,
+    "level": 4,
+    "subject": "combinatorial geometry"
+  },
+  "source_package": "MathVision_redrawn_combinatorial_geometry_296_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:05.052366+00:00",
+    "complete": true,
+    "category": "combinatorial_geometry",
+    "source_questions": 308,
+    "retained": 296,
+    "excluded": 12,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "inventory": {
+      "panels": 1,
+      "objects": "square tile and two opposite-corner quarter circles, radius half tile side",
+      "labels": []
+    },
+    "answer_verification": {
+      "method": "Enumerate all2^16 rotation pairings in4x4 tiling. Connect arcs at shared side midpoints; every connected path/cycle component has degree at most2. Largest connected component has22 arcs; each length5dm, so110dm.",
+      "maximum_arcs": 22,
+      "orientation_mask_witness": 7226,
+      "verified_answer": "D"
+    },
+    "source_actually_viewed": true,
+    "source_inventory_complete": true,
+    "explicit_conditions_vs_layout": "Geometry and option identity preserved. Locations and panel spacing are display layout only.",
+    "user_approval": false
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

@@ -1,0 +1,78 @@
+{
+  "reviewer": "independent /root/review_transformation_batch",
+  "source_id": "2406",
+  "category": "transformation_geometry",
+  "reviewed_utc": "2026-10-27T01:58:25.110225+00:00",
+  "verdict": "agent_verified",
+  "user_approval": false,
+  "hashes": {
+    "original.jpg": "a3b752820f68ff002c341671402d2758fa40b707a74b357920711981c875981b",
+    "source.json": "cf6d5c3eee9dd16dec43b8386f92ee2799388dd9fe253a91fcb11fb1fed873b5",
+    "scene.json": "9471db80658cfd54d34a2f7d73fa70b6b1f89aa2adc7585c93f0c3d342ce4b89",
+    "render.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
+    "image.png": "1b0fd12d017c58109e356626185ef57153beca96f668cab7e6acb368c5d108ab",
+    "audit.json": "ac08e4c2e01860cc13ecdea527900a1caca8608d07474dc01fea224b76075b66",
+    "redraw_report.json": "9252d460eaf5e4497ee94429480fb7cb1b10319a814581a3cd648c8b2832e575"
+  },
+  "explicit_inspected_facts": [
+    "Individually viewed source/output:6\u20138\u201310 triangle A bottom-left/B bottom-right/C top-right, unit circle tangent to AB with marked P, clockwise arrow above/right. Original center/vertex marks and side labels retained; no center-path solution added."
+  ],
+  "checks": {
+    "source_record_and_bytes_match": true,
+    "two_independent_renders_equal_candidate": true,
+    "opaque768": true,
+    "bbox": [
+      54,
+      130,
+      713,
+      637
+    ],
+    "occupancy": 0.859375,
+    "independent_numeric_checks": {
+      "answer": "12",
+      "offset_triangle_vertices": [
+        [
+          3,
+          1
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          7,
+          4
+        ]
+      ],
+      "path_perimeter": 12.0,
+      "proof": "Inradius=area/semiperimeter24/12=2. Inward parallel offset1 produces similar triangle at scale(2\u22121)/2=1/2, so center path perimeter24/2=12. Offset lines y1,x7,3x\u22124y5 confirm vertices."
+    },
+    "renderer_checks": [
+      {
+        "id": "AB",
+        "type": "distance",
+        "measured": 8.0,
+        "passed": true
+      },
+      {
+        "id": "BC",
+        "type": "distance",
+        "measured": 6.0,
+        "passed": true
+      },
+      {
+        "id": "AC",
+        "type": "distance",
+        "measured": 10.0,
+        "passed": true
+      }
+    ],
+    "report_hashes_valid": true
+  },
+  "required_changes": [],
+  "previous_revisions": [],
+  "dependency_hashes": {
+    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "source_id": "1144",
+  "source_image_viewed": true,
+  "source_image_sha256": "c688dbc73d541676dd91f3411c1c66cb108422703cc0efe85151a23bca0db00a",
+  "inventory": [
+    "Toprow five3\u00d73 black/white facepatterns without labels",
+    "Bottomrow five3\u00d73 candidatefaces labeled(A)through(E)",
+    "Everycell and allgrid boundaries retained; wrappers omitted"
+  ],
+  "conditions": "A cube of side length 3 consists of 15 black and 12 white unit cubes. In the diagram five of the six faces of the big cube can be seen. Which of the regions shown below is the 6th face of the big cube?\n<image1>\n<image2>",
+  "panel_option_mapping": {
+    "given_left_to_right": [
+      "BBW/WBB/BBB",
+      "BBB/WBB/BWW",
+      "BWB/WWW/BWB",
+      "BBB/WBW/WWB",
+      "WWB/BBW/BBW"
+    ],
+    "options_A_to_E": [
+      "BWB/BWB/WWB",
+      "BWB/WBB/BWB",
+      "BWB/WBW/BWB",
+      "WBB/WWW/BBW",
+      "BWB/BBB/WWB"
+    ]
+  },
+  "ambiguities": [
+    "Face patterns are planar diagrams, not a fabricated3D arrangement. Blackcells normalize to protocolgray whilewhitecells remainwhite. Five sourcefaces retain originalleft-to-right order; alloptions remainoriginalorder."
+  ],
+  "answer_verification": {
+    "reasoning": "Knownfivefaces contain15blackcorner occurrences,8blackedgemiddle occurrences and4blackfacecenters. Each cube corner is counted3times and eachedgemiddle2times acrossall6faces. CandidateB/C give19corner occurrences andD17, impossible. A/E bothgive18corners and10edgemiddles, requiring6blackcornercubes+5blackedgemiddlecubes. Ahaswhitecenter,giving4blackfacecenters,total15outerblackcubes; center cube white. Ehasblackcenter,total16outerblackcubes, exceeding15. ThusonlyA.",
+    "result": "A",
+    "verified": true,
+    "constructive_witness": {
+      "black_cells": [
+        [
+          0,
+          0,
+          2
+        ],
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          2
+        ],
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          1,
+          2,
+          1
+        ],
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          1,
+          1
+        ],
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      "interior_cell": "white",
+      "face_pattern_rotations": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          3,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ],
+        [
+          3,
+          4,
+          0
+        ],
+        [
+          4,
+          1,
+          0
+        ],
+        [
+          5,
+          5,
+          1
+        ]
+      ],
+      "algorithm": "Assign allsix source/candidateAfaces with outward-oriented local bases, four rotations each, matching shared cells. Exact15black boundarycells found."
+    }
+  },
+  "stage": "source_audit_complete"
+}

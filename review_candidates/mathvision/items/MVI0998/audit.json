@@ -1,0 +1,50 @@
+{
+  "inventory": [
+    "Twice-folded square paper/napkin with two triangular cuts, one on each perpendicular folded edge",
+    "Four physical quarter layers grouped into two partly opened rigid 3D packets",
+    "Five square option panels retaining four/five holes and their horizontal/vertical rhombus orientation"
+  ],
+  "explicit_conditions": "A folded napkin was cut through (see picture). What does it look like when unfolded?\n<image1>\n<image2>",
+  "answer_review": {
+    "status": "verified",
+    "source_answer": "C",
+    "computed_answer": "C",
+    "reasoning": "Use quarter coordinates x in[0,1],y in[0,1], with fold edges x=0 and y=1. Reflect each triangular notch across its fold edge, then across the other crease. The left-edge notch produces two wide horizontal rhombi at the top/bottom of the unfolded square; the top-edge notch produces two tall vertical rhombi at left/right. No cut reaches the intersection of folds, so no central hole occurs. Only C has this arrangement.",
+    "reflection_maps": [
+      "(x,y)",
+      "(-x,y)",
+      "(x,2-y)",
+      "(-x,2-y)"
+    ],
+    "result_hole_centers_unfolded": [
+      [
+        -0.5,
+        1
+      ],
+      [
+        0.5,
+        1
+      ],
+      [
+        0,
+        0.5
+      ],
+      [
+        0,
+        1.5
+      ]
+    ],
+    "result_orientation": [
+      "vertical",
+      "vertical",
+      "horizontal",
+      "horizontal"
+    ]
+  },
+  "display_conditions": "Semantic paper fill gray, cutouts white; outlines black1pt. Options preserve orientation distinctions, not merely hole counts. Projection, hinge angle and exact edge-occlusion subdivision frozen independently.",
+  "source_viewed": true,
+  "source_artifact_exclusions": [
+    "Blue imageN headers and separator rules are dataset packaging, not the question figure."
+  ],
+  "native_model": "3D coordinates, rigid folded paper / wood model, explicit projection and boundary visibility. Native analytic vector objects only."
+}

@@ -1,0 +1,78 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:59",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "solid geometry",
+  "original_record": {
+    "id": "59",
+    "question": "<image1>\nIn the picture above we see a cube in two different positions.\nThe six sides of the cube look like this:\n<image2>\nWhich side is opposite to <image3>?\n<image4>",
+    "options": [],
+    "image": "images/59.jpg",
+    "decoded_image": {
+      "path": "images/59.jpg",
+      "original_path": "59.jpg"
+    },
+    "answer": "C",
+    "solution": null,
+    "level": 1,
+    "subject": "solid geometry"
+  },
+  "source_package": "MathVision_redrawn_solid_geometry_240_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:00.302878+00:00",
+    "complete": true,
+    "category": "solid_geometry",
+    "source_questions": 244,
+    "retained": 240,
+    "excluded": 4,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "source_id": "59",
+    "source_image_viewed": true,
+    "source_image_sha256": "9d38f0ab352002844f0f2a13ec7f0f0a6913012f82469e842d23a1297041dc1f",
+    "inventory": [
+      "panel image1:two cube orientations; lefttopinner-square/frontbisector/rightsmall-diamond; righttopfourquadrants/frontinner-square/rightX",
+      "panel image2:all6 faces in source order:inscribeddiamond,smalldiamond,bisector,innersquare,fourquadrants,X",
+      "panel image3:targetinscribeddiamond",
+      "panel image4:optionsA small-diamond,B bisector,C inner-square,D quadrants,E X"
+    ],
+    "conditions": "<image1>\nIn the picture above we see a cube in two different positions.\nThe six sides of the cube look like this:\n<image2>\nWhich side is opposite to <image3>?\n<image4>",
+    "panel_option_mapping": {
+      "image1": "top row two cubes",
+      "image2": "secondrow six symbols left-right",
+      "image3": "thirdrow target symbol centered",
+      "image4": {
+        "A": "smalldiamond",
+        "B": "line",
+        "C": "square",
+        "D": "plus",
+        "E": "X"
+      }
+    },
+    "ambiguities": [
+      "Source options field empty but all five image options explicitly preserved and mapped. Blue extraction headings/separators omitted as non-mathematical wrappers; four panel order/layout retained."
+    ],
+    "answer_verification": {
+      "reasoning": "The inner-square face is adjacent to bisector and small-diamond in first orientation and quadrants andX in second. Thus it is adjacent to4 other faces, so opposite the sixth face(inscribed diamond). Asked opposite inscribeddiamond is inner-square, optionC.",
+      "result": "C",
+      "verified": true
+    },
+    "stage": "source_audit_complete"
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

@@ -1,0 +1,77 @@
+{
+  "reviewer": "independent /root",
+  "source_id": "198",
+  "category": "transformation_geometry",
+  "reviewed_utc": "2026-10-27T00:47:27.109544+00:00",
+  "verdict": "agent_verified",
+  "user_approval": false,
+  "hashes": {
+    "original.jpg": "d3860f6fa63eaef97b1baaaa7f7070781007a3bb610680542ee55d021b289126",
+    "source.json": "cb5f35338d486e21efabc94df35897cd2f1997591bdaecdb01e78078261ca08b",
+    "scene.json": "20a77de4fe9f1820e54c65c80c12d8d09ce94497e25852fc21231563722f68d8",
+    "render.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
+    "image.png": "8ee1f6798a65d31829bd135c547c87d58e4e8bcbfca1826ebb1469d664c0a068",
+    "audit.json": "6e2d46909d60098a9f013046b446330cfdacb635a6568ff74ddd2d8aea147746",
+    "redraw_report.json": "84200168bf033119564babcbbc917ef8df66875a4197b647ed69118e4df0d52e"
+  },
+  "explicit_inspected_facts": [
+    "Independently viewed original and candidate:8x6 rectangular grid, corners clockwiseC B A D, incoming ball ray and NE outgoing arrow at left-wall y2,45degree label with single arc; no full solution trajectory added. Pocket circle stylization keeps all four identities."
+  ],
+  "checks": {
+    "source_metadata_fields_equal": true,
+    "source_bytes_equal": true,
+    "render_twice_equal": true,
+    "candidate_pixels_match_independent_render": true,
+    "opaque768": true,
+    "layout_bbox": [
+      54,
+      134,
+      714,
+      633
+    ],
+    "occupancy": 0.8606770833333334,
+    "numeric_checks": [
+      {
+        "check": "specular_bounce_simulation",
+        "path": [
+          [
+            4.0,
+            6.0
+          ],
+          [
+            8.0,
+            2.0
+          ],
+          [
+            6.0,
+            0.0
+          ],
+          [
+            0.0,
+            6.0
+          ]
+        ],
+        "answer": "C"
+      }
+    ],
+    "renderer_constraints": [
+      {
+        "id": "incidence",
+        "type": "angle",
+        "measured": 45.00000000000001,
+        "passed": true
+      },
+      {
+        "id": "arc_binding_angle45",
+        "type": "angle_annotation",
+        "label_id": "angle45",
+        "arc_id": "o24",
+        "measured": 1,
+        "passed": true
+      }
+    ],
+    "report_hashes_valid": true
+  },
+  "required_changes": [],
+  "independent_check_script_sha256": "f86a7a5429a834f284d2bc393e81cd085597977c2ad5ec3dceaa3cc05ca70a17"
+}

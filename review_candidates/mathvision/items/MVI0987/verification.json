@@ -1,0 +1,53 @@
+{
+  "reviewer": "independent /root/review_transformation_batch",
+  "source_id": "987",
+  "category": "transformation_geometry",
+  "reviewed_utc": "2026-10-27T01:42:39.688972+00:00",
+  "verdict": "agent_verified",
+  "user_approval": false,
+  "hashes": {
+    "original.jpg": "2d40d0ca8b7ecbb9d0cb9f7605449ce80dfce3d4adbf49363768041bb3023e46",
+    "source.json": "e5fe4fb6fe86c861cba701c2c7f6b043911bd1ec8707b018d01f860ba509ca37",
+    "scene.json": "e239bf78086d176e3df799e4d372e4040de856f19842ac9eb6d54b51d6911aa4",
+    "render.py": "01afffb77802e9c0cffa696c26d253f6a52ed87687f3b1c511214291599e22c2",
+    "image.png": "8e9d9199412d2e702e55abd92641f67730ab721b740ec8b3f3f1a6cd3a576796",
+    "audit.json": "4376e6e78b5378de474ac7e6c78969c392d1c24f7a1a31d44a9b6f6023323d6f",
+    "redraw_report.json": "543c27daf430ce0096b626e07bd81ca51226d1cb7fc99dc52537dda99caaaf6c"
+  },
+  "explicit_inspected_facts": [
+    "Individually viewed source/output: rectangular digital bezel, faint outlines of all unlit segments, black lit segments, two colon dots. Display order is mirrored-one, 2, mirrored-one, 5; mirrored ones retain left vertical bars, not ordinary right bars."
+  ],
+  "checks": {
+    "source_record_and_bytes_match": true,
+    "two_independent_renders_equal_candidate": true,
+    "opaque768": true,
+    "bbox": [
+      54,
+      253,
+      714,
+      514
+    ],
+    "occupancy": 0.8606770833333334,
+    "independent_numeric_checks": {
+      "lit_segment_counts": [
+        2,
+        5,
+        2,
+        5
+      ],
+      "actual_initial_time": "21:51",
+      "actual_plus30_minutes": "22:21",
+      "mirrored_result": "15:55",
+      "answer": "D",
+      "proof": "Horizontal reflection reverses digit order and swaps 2 with 5; left-side double-segment mirrored ones become normal ones. The actual 21:51 becomes 22:21, whose mirror is 15:55."
+    },
+    "renderer_checks": [],
+    "report_hashes_valid": true
+  },
+  "required_changes": [],
+  "previous_revisions": [],
+  "dependency_hashes": {
+    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  }
+}

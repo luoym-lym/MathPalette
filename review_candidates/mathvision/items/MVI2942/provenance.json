@@ -1,0 +1,64 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:2942",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "solid geometry",
+  "original_record": {
+    "id": "2942",
+    "question": "The length of the diameter of this spherical ball is equal to the height of the box in which it is placed. The box is a cube and has an edge length of 30 cm. How many cubic centimeters of the box are not occupied by the solid sphere? Express your answer in terms of $\\pi$. <image1>",
+    "options": [],
+    "image": "images/2942.jpg",
+    "decoded_image": {
+      "path": "images/2942.jpg",
+      "original_path": "2942.jpg"
+    },
+    "answer": "27000-4500\\pi",
+    "solution": "The box has volume $30^3=27000$ cubic cm.\n\nThe sphere has radius $30/2=15$ and volume $\\frac{4}{3}\\pi (15^3) = 2\\cdot 15 \\cdot 2\\cdot 15\\cdot 5\\pi = 30^2\\cdot 5\\pi = 4500\\pi$ cubic cm.\n\nThus, the volume of the space in the box not occupied by the sphere is $\\boxed{27000-4500\\pi}$ cubic cm.",
+    "level": 1,
+    "subject": "solid geometry"
+  },
+  "source_package": "MathVision_redrawn_solid_geometry_240_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:00.302878+00:00",
+    "complete": true,
+    "category": "solid_geometry",
+    "source_questions": 244,
+    "retained": 240,
+    "excluded": 4,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "inventory": [
+      "Transparent cube wireframe containing sphere; three rear cube edges dashed; sphere outline, front-solid/rear-dashed equator, center dot; no labels."
+    ],
+    "explicit_conditions": [
+      "Cube side30 cm, sphere diameter equals cube height."
+    ],
+    "layout_choices": [
+      "Orthographic sphere contour, exact radius15; no arbitrary ellipse or bitmap trace.",
+      "Equator frozen at analytic radial-dot-viewer zero crossings, which bind its dash endpoints to sphere silhouette tangencies."
+    ],
+    "answer_check": {
+      "reasoning": "Cube volume27000; sphere volume4π15³/3=4500π; empty volume27000−4500π.",
+      "answer": "27000−4500π",
+      "matches_source": true
+    },
+    "source_image_sha256": "f1bc738db56a3e8851af7a5db05891b7c35205bb1740e8a7ecc6dff3d48489d5",
+    "source_viewed": true
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

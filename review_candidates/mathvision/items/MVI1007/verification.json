@@ -1,0 +1,54 @@
+{
+  "reviewer": "independent /root/review_transformation_batch",
+  "source_id": "1007",
+  "category": "transformation_geometry",
+  "reviewed_utc": "2026-10-27T03:07:17.845507+00:00",
+  "verdict": "agent_verified",
+  "user_approval": false,
+  "hashes": {
+    "original.jpg": "ee38bbc3c85907c46fc9f4c724190a3ecdc62179d066504e0b2633a9ada48690",
+    "source.json": "fe217ac8a098154b17d268d4ec86978a59f5f8835540c48b3af6f036b6e692b4",
+    "scene.json": "10e7e30056c17c78bb2e9566c007ff6a3703ac34abbbe04a410c4d4c3b161eac",
+    "render.py": "f9732f2acaa0bede016cf487f76a96121d8ba56370bac5227e1bdcb3985d50d8",
+    "image.png": "d6734131780879f9ad36d0bd3d5b1170d7d3c04bd9953e665f229eb7564c8c09",
+    "audit.json": "bdbce1cddceb7d6ac736a700d4e3072f9b8d40e948a1d4c972d6b7c1998b8f91",
+    "redraw_report.json": "20fbba1850ac3854f83d0780071b2335143bb885a6f67beccd92205e6a981c51"
+  },
+  "explicit_inspected_facts": [
+    "Individually viewed original and candidate: four consecutive equal-radius isosceles triangles around common vertex, gray triangle0 right,1 above,2 left,3 below overlapping0 partially; all crossing edges remain visible. A at common vertex,B upper-right,C lower-right correctly bound.",
+    "Each new triangle advances100degrees around fixed common vertex, preserving equal radial sides. Exact coverage requires100n multiple360, leastn=18 since gcd(100,360)=20. Scene ray lengths all3 and consecutive unwrapped angle differences exactly100degrees; labels0-3 in corresponding sectors."
+  ],
+  "checks": {
+    "source_record_and_bytes_match": true,
+    "two_independent_renders_equal_candidate": true,
+    "opaque768": true,
+    "bbox": [
+      54,
+      63,
+      713,
+      703
+    ],
+    "occupancy": 0.859375,
+    "independent_numeric_checks": {
+      "ray_angles": [
+        -59.99999999999999,
+        40.0,
+        140.0,
+        239.99999999999994,
+        340.0
+      ],
+      "common_side": 3,
+      "first_return": 18,
+      "answer": 18
+    },
+    "renderer_checks": [],
+    "report_hashes_valid": true,
+    "isolated_standalone_render_identical": true
+  },
+  "required_changes": [],
+  "previous_revisions": [],
+  "dependency_hashes": {
+    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:391",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "solid geometry",
+  "original_record": {
+    "id": "391",
+    "question": "A game marker in the shape of a regular tetrahedron has one marked area. That side is placed on the triangle marked START. The marker is then moved within the diagram always to the next adjacent triangle by rolling it around an edge. On which triangle is the marker when it is on the marked side again for the first time? <image1>",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "image": "images/391.jpg",
+    "decoded_image": {
+      "path": "images/391.jpg",
+      "original_path": "391.jpg"
+    },
+    "answer": "E",
+    "solution": null,
+    "level": 3,
+    "subject": "solid geometry"
+  },
+  "source_package": "MathVision_redrawn_solid_geometry_240_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:00.302878+00:00",
+    "complete": true,
+    "category": "solid_geometry",
+    "source_questions": 244,
+    "retained": 240,
+    "excluded": 4,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "source_id": "391",
+    "source_image_viewed": true,
+    "source_image_sha256": "18fdf0a4b7edd9f24b23ae68199113f7e28f50215800b45f8a7227b0161ab0ad",
+    "inventory": [
+      "Left tetrahedron with one marked lower triangular face; that face uses crosshatch and its far edge dashed",
+      "Right continuous seven-triangle path: START, unlabelled triangle, A, B, C, D, E; no arrows"
+    ],
+    "conditions": "A game marker in the shape of a regular tetrahedron has one marked area. That side is placed on the triangle marked START. The marker is then moved within the diagram always to the next adjacent triangle by rolling it around an edge. On which triangle is the marker when it is on the marked side again for the first time? <image1>",
+    "panel_option_mapping": "single diagram; textual choices preserved in source.json",
+    "ambiguities": [
+      "Crosshatching is a single marked-face identity, normalized to uniform protocol gray. The marked face remains exactly the same triangle; no extra marking is added."
+    ],
+    "answer_verification": {
+      "reasoning": "Track the four tetrahedron vertex identities across each shared triangle edge. The new ground triangle retains both common edge vertices and receives the missing fourth vertex at its new corner. The contact face returns to the original START face for the first time after six rolls, on E. Exact contact-face sets are stored in scene.",
+      "result": "E",
+      "verified": true
+    },
+    "stage": "source_audit_complete"
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false
+}

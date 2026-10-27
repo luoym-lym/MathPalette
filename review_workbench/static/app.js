@@ -5,7 +5,7 @@
   const PAGE_SIZE = 40;
   const ATTEMPT_KEY = 'mathpalette.mathverse.review.attempts.v1';
   const SYNC_KEY = 'mathpalette.mathverse.review.changed.v1';
-  const state = {rows:[],summary:{},selected:null,detail:null,detailReady:false,images:{source:false,redraw:false},filter:{status:'pending',branch:'all',query:''},page:0,generation:0,listGeneration:0,detailController:null,operation:null,attempts:{},noticeCallback:null,deleteTarget:null,zoom:1};
+  const state = {rows:[],summary:{},selected:null,detail:null,detailReady:false,images:{source:false,redraw:false},filter:{status:'pending',branch:'all',dataset:'all',category:'all',query:''},page:0,generation:0,listGeneration:0,detailController:null,operation:null,attempts:{},noticeCallback:null,deleteTarget:null,zoom:1};
   try { state.attempts = JSON.parse(sessionStorage.getItem(ATTEMPT_KEY) || '{}'); } catch (_) { /* Optional persistence only. */ }
   const saveAttempts = () => { try { sessionStorage.setItem(ATTEMPT_KEY,JSON.stringify(state.attempts)); } catch (_) {} };
   const filtered = () => C.filter(state.rows,state.filter);
@@ -58,10 +58,10 @@
     const fragment = document.createDocumentFragment();
     rows.slice(state.page*PAGE_SIZE,(state.page+1)*PAGE_SIZE).forEach(row => {
       const button=document.createElement('button');button.type='button';button.className='candidate-row';button.dataset.id=row.id;
-      button.setAttribute('aria-current',String(row.id===state.selected));button.setAttribute('aria-label',`${row.id} ${C.branchLabel(C.branch(row))} ${statusLabel(row.status)}`);
+      button.setAttribute('aria-current',String(row.id===state.selected));button.setAttribute('aria-label',`${row.id} ${C.sourceLabel(row)} ${statusLabel(row.status)}`);
       const dot=document.createElement('span');dot.className=`row-dot ${C.status(row.status)}`;dot.setAttribute('aria-hidden','true');
       const copy=document.createElement('span');copy.className='row-copy';const title=document.createElement('span');title.className='row-title';title.textContent=row.id;
-      const subtitle=document.createElement('span');subtitle.className='row-subtitle';subtitle.textContent=C.branchLabel(C.branch(row));
+      const subtitle=document.createElement('span');subtitle.className='row-subtitle';subtitle.textContent=C.sourceLabel(row);
       const status=document.createElement('span');status.className='row-status';status.textContent=statusLabel(row.status);
       copy.append(title,subtitle);button.append(dot,copy,status);button.addEventListener('click',()=>select(row.id));fragment.append(button);
     });
@@ -77,6 +77,8 @@
     const params=new URLSearchParams();if(state.selected)params.set('id',state.selected);
     if(state.filter.status!=='pending')params.set('status',state.filter.status);
     if(state.filter.branch!=='all')params.set('branch',state.filter.branch);
+    if(state.filter.dataset!=='all')params.set('dataset',state.filter.dataset);
+    if(state.filter.category!=='all')params.set('category',state.filter.category);
     if(state.filter.query)params.set('q',state.filter.query);
     const url=`${location.pathname}${params.size?'?'+params.toString():''}`;
     if(url!==location.pathname+location.search)history[replace?'replaceState':'pushState']({},'',url);
@@ -85,8 +87,11 @@
     const params=new URLSearchParams(location.search);
     state.filter.status=['pending','passed','deleted','all'].includes(params.get('status'))?params.get('status'):'pending';
     state.filter.branch=['PlaneGeometry','SolidGeometry','Analytics','all'].includes(params.get('branch'))?params.get('branch'):'all';
+    state.filter.dataset=['MathVerse','MathVision','all'].includes(params.get('dataset'))?params.get('dataset'):'all';
+    state.filter.category=['solid geometry','transformation geometry','combinatorial geometry','all'].includes(params.get('category'))?params.get('category'):'all';
+    if(state.filter.dataset==='MathVerse')state.filter.category='all';
     state.filter.query=params.get('q')||'';
-    $('status-filter').value=state.filter.status;$('branch-filter').value=state.filter.branch;$('search').value=state.filter.query;
+    syncFilterControls();
     return params.get('id');
   }
   async function loadList({initial=false,keep=true}={}) {
@@ -118,8 +123,8 @@
     if($('zoom-dialog').open)$('zoom-dialog').close();
     clearImages();$('history-panel').hidden=true;$('detail-content').hidden=true;$('detail-error').hidden=true;$('loading-panel').hidden=!id;$('candidate-view').hidden=!id;$('empty-state').hidden=!!id;$('candidate-view').setAttribute('aria-busy',String(!!id));
     renderList(true);if(changeHistory||replace)writeLocation(replace);
-    if(!id){setText('empty-title',state.filter.query||state.filter.branch!=='all'||state.filter.status!=='pending'?'没有符合条件的题目':'当前列表已审核完成');renderActions();return;}
-    const row=state.rows.find(row=>row.id===id);setText('candidate-id',id);setText('candidate-meta',`MATHVERSE · ${C.branchLabel(C.branch(row||{}))}`);setBadge(row?.status);renderActions();
+    if(!id){setText('empty-title',state.filter.query||state.filter.branch!=='all'||state.filter.dataset!=='all'||state.filter.category!=='all'||state.filter.status!=='pending'?'没有符合条件的题目':'当前列表已审核完成');renderActions();return;}
+    const row=state.rows.find(row=>row.id===id);setText('candidate-id',id);setText('candidate-meta',C.sourceLabel(row||{}));setBadge(row?.status);renderActions();
     if(focus)$('candidate-id').focus({preventScroll:true});
     try {
       const result=await request(`/api/candidates/${encodeURIComponent(id)}`,{signal:state.detailController.signal});
@@ -140,13 +145,14 @@
   }
   function setBadge(value) {const normalized=C.status(value);setText('candidate-status',statusLabel(normalized));$('candidate-status').className=`badge ${normalized}`;}
   function renderDetail(detail,generation) {
+    setText('candidate-meta',`${C.sourceLabel(detail)}${detail.source_key?' · '+detail.source_key:''}`);
     if(detail.history || (!detail.question && C.status(detail.status)!=='pending')) {
       $('detail-content').hidden=true;$('history-panel').hidden=false;setBadge(detail.status);
       setText('history-title',detail.status==='passed'?`已通过${detail.formal_id?' · '+detail.formal_id:''}`:'候选题已删除');
       setText('history-copy',detail.status==='passed'?'题目已正式收录。审核记录已保存，刷新页面不会重复收录。':'这道候选的原图、重绘图及专属材料已删除。这里仅展示审核操作记录。');
       setText('history-time',detail.decided_at_utc?`审核时间：${new Date(detail.decided_at_utc).toLocaleString()}`:'');return;
     }
-    const e=C.evidence(detail);setBadge(detail.status);setText('candidate-meta',`MATHVERSE · ${C.branchLabel(C.branch(detail))}${detail.source_key?' · '+detail.source_key:''}`);
+    const e=C.evidence(detail);setBadge(detail.status);
     const choices=detail.choices&&typeof detail.choices==='object'?detail.choices:{};
     const question=C.string(detail.question);
     // Keep the source verbatim below; separate candidate options only when the standard Choices block is present.
@@ -155,6 +161,8 @@
     for(const [key,value] of Object.entries(choices)) {const li=document.createElement('li');if(C.string(detail.answer).trim()===key)li.className='answer-choice';const label=document.createElement('span');label.className='choice-key';label.textContent=key;const content=document.createElement('span');mathText(content,value,true);li.append(label,content);$('choices').append(li);}
     $('choices').hidden=!Object.keys(choices).length;mathText($('answer'),e.candidateAnswer,true);setText('answer-type',({choice:'单项选择',number:'数值',expression:'表达式',text:'文本'}[detail.answer_type]||detail.answer_type||'答案'));
     mathText($('original-question'),e.originalQuestion||'未提供原始题干');setText('question-change-label',detail.differences?.question_changed?'题干有调整':'来源记录');
+    $('original-choices').replaceChildren();$('original-choices').hidden=!e.originalOptions.length;
+    e.originalOptions.forEach((value,index)=>{const li=document.createElement('li');const label=document.createElement('span');label.className='choice-key';label.textContent=String.fromCharCode(65+index);const content=document.createElement('span');mathText(content,value,true);li.append(label,content);$('original-choices').append(li);});
     mathText($('original-answer'),e.originalAnswer,true);mathText($('verified-answer'),e.derived,true);
     const labels={consistent:'原答案与候选一致',corrected:'已修正来源答案',needs_manual_confirmation:'请重点核对',unknown:'核验信息待确认'};
     setText('consistency-badge',labels[e.consistency]||'请重点核对');$('consistency-badge').className=`small-badge ${e.consistency==='consistent'?'good':'warning'}`;
@@ -190,7 +198,7 @@
   }
   function openDelete() {
     if($('delete').disabled)return;state.deleteTarget={id:state.selected,fingerprint:state.detail.fingerprint,generation:state.generation};
-    setText('delete-copy',`${state.selected} · ${C.branchLabel(C.branch(state.detail))}`);$('delete-dialog').showModal();$('cancel-delete').focus();
+    setText('delete-copy',`${state.selected} · ${C.sourceLabel(state.detail)}`);$('delete-dialog').showModal();$('cancel-delete').focus();
   }
   function retryAttempt() {
     const attempt=state.attempts[state.selected];
@@ -240,15 +248,18 @@
   }
   function updateZoom() {const image=$('zoom-image'),viewport=$('zoom-viewport');viewport.classList.toggle('is-zoomed',state.zoom>1);image.style.width=state.zoom>1?`${state.zoom*100}%`:'';setText('zoom-fit',state.zoom===1?'适应窗口':`${Math.round(state.zoom*100)}% · 复位`);$('zoom-out').disabled=state.zoom<=1;$('zoom-in').disabled=state.zoom>=4;}
   function move(step) {const rows=filtered(),index=rows.findIndex(row=>row.id===state.selected);if(index>=0&&rows[index+step])select(rows[index+step].id,{focus:true});}
-  function applyFilters() {state.filter={status:$('status-filter').value,branch:$('branch-filter').value,query:$('search').value};state.page=0;const rows=filtered();select(rows.some(row=>row.id===state.selected)?state.selected:rows[0]?.id||null);}
+  function syncFilterControls() {
+    $('status-filter').value=state.filter.status;$('branch-filter').value=state.filter.branch;$('dataset-filter').value=state.filter.dataset;$('category-filter').value=state.filter.category;$('category-filter').disabled=state.filter.dataset==='MathVerse';$('search').value=state.filter.query;
+  }
+  function applyFilters() {state.filter={status:$('status-filter').value,branch:$('branch-filter').value,dataset:$('dataset-filter').value,category:$('category-filter').value,query:$('search').value};if(state.filter.dataset==='MathVerse')state.filter.category='all';syncFilterControls();state.page=0;const rows=filtered();select(rows.some(row=>row.id===state.selected)?state.selected:rows[0]?.id||null);}
   $('refresh').addEventListener('click',()=>{if(!state.operation)loadList();});
   $('notice-dismiss').addEventListener('click',()=>{$('notice').hidden=true;});$('notice-action').addEventListener('click',()=>state.noticeCallback?.());
   $('previous').addEventListener('click',()=>move(-1));$('next').addEventListener('click',()=>move(1));
   $('page-prev').addEventListener('click',()=>{state.page--;renderList();});$('page-next').addEventListener('click',()=>{state.page++;renderList();});
-  $('status-filter').addEventListener('change',applyFilters);$('branch-filter').addEventListener('change',applyFilters);
+  for(const id of ['status-filter','branch-filter','dataset-filter','category-filter'])$(id).addEventListener('change',applyFilters);
   let searchTimer; $('search').addEventListener('input',()=>{clearTimeout(searchTimer);searchTimer=setTimeout(applyFilters,180);});
-  $('jump-form').addEventListener('submit',event=>{event.preventDefault();const raw=$('jump-id').value.trim();const number=raw.match(/^(?:MV)?0*(\d+)$/i);const id=number?`MV${number[1].padStart(4,'0')}`:raw.toUpperCase();const row=state.rows.find(row=>row.id.toUpperCase()===id);if(!row){showNotice(`未找到题号 ${raw||'（空）'}，请输入候选题号，例如 MV0001。`,'error');return;}if(!filtered().some(item=>item.id===row.id)){state.filter={status:'all',branch:'all',query:''};$('status-filter').value='all';$('branch-filter').value='all';$('search').value='';}select(row.id,{focus:true});});
-  $('clear-filters').addEventListener('click',()=>{$('status-filter').value='all';$('branch-filter').value='all';$('search').value='';applyFilters();});
+  $('jump-form').addEventListener('submit',event=>{event.preventDefault();const raw=$('jump-id').value.trim();const {row,ambiguous}=C.resolveJump(raw,state.rows,state.filter.dataset);if(!row){showNotice(ambiguous?`题号 ${raw} 同时属于 MathVerse 和 MathVision，请输入完整编号 MV… / MVI…，或先选择题目来源。`:`未找到题号 ${raw||'（空）'}，请输入完整候选题号，例如 MV0001 或 MVI0011。`,'error');return;}if(!filtered().some(item=>item.id===row.id)){state.filter={status:'all',branch:'all',dataset:C.dataset(row)||'all',category:'all',query:''};syncFilterControls();}select(row.id,{focus:true});});
+  $('clear-filters').addEventListener('click',()=>{state.filter={status:'all',branch:'all',dataset:'all',category:'all',query:''};syncFilterControls();applyFilters();});
   $('retry-detail').addEventListener('click',()=>select(state.selected,{history:false}));
   $('pass').addEventListener('click',()=>{if(!$('pass').disabled)decide('pass');});$('delete').addEventListener('click',openDelete);$('retry-action').addEventListener('click',retryAttempt);
   $('cancel-delete').addEventListener('click',()=>{$('delete-dialog').close();state.deleteTarget=null;});

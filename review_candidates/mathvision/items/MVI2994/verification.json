@@ -1,0 +1,83 @@
+{
+  "reviewer": "independent /root/review_transformation_batch",
+  "source_id": "2994",
+  "category": "transformation_geometry",
+  "reviewed_utc": "2026-10-27T02:13:23.729727+00:00",
+  "verdict": "agent_verified",
+  "user_approval": false,
+  "hashes": {
+    "original.jpg": "ecf4132cdd80f48a269409733c3e7d630592af9fe9995afc8d70797d12f9ddad",
+    "source.json": "5d844ab58d92983e66659e15a64522c4e1553784be0e538c0ba72360027ffbc6",
+    "scene.json": "37be37cb4cb3176da0ae500b92b1083388bddc7e26afd709230436570217c4a4",
+    "render.py": "9696e36473c7c8a7e2ae42849f596f6ef102bce32659bdf88f4f762ea8465267",
+    "image.png": "6f63c8711fc55ac4bb32c612793df57e2f79a31a45145eeb2c261ebf3250c709",
+    "audit.json": "0bdd1fb2310b28e03ccd2ca6183cef66c92837624838067afe522addf80be975",
+    "redraw_report.json": "fc8c9a9f46b506da76b284becd4d7a57cab8f3ee792e4360e8161b2128858f30"
+  },
+  "explicit_inspected_facts": [
+    "Individually viewed source/output: darker left arrow and lighter right arrow share boundary through markedC, all seven corresponding vertices are negatives about C. Shape chirality, thickness distinction and label preserved.",
+    "Re-viewed original and revised candidate: full arrow stroke bounds refitted; center marker C and halfturn geometry unchanged. Previous vertical-centering issue resolved."
+  ],
+  "checks": {
+    "source_record_and_bytes_match": true,
+    "two_independent_renders_equal_candidate": true,
+    "opaque768": true,
+    "bbox": [
+      54,
+      162,
+      713,
+      605
+    ],
+    "occupancy": 0.859375,
+    "independent_numeric_checks": {
+      "answer": "180",
+      "exact_seven_vertex_halfturn": true
+    },
+    "renderer_checks": [],
+    "report_hashes_valid": true
+  },
+  "required_changes": [],
+  "previous_revisions": [
+    {
+      "reviewer": "independent /root/review_transformation_batch",
+      "source_id": "2994",
+      "category": "transformation_geometry",
+      "reviewed_utc": "2026-10-27T02:06:13.245372+00:00",
+      "verdict": "needs_revision",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "ecf4132cdd80f48a269409733c3e7d630592af9fe9995afc8d70797d12f9ddad",
+        "source.json": "5d844ab58d92983e66659e15a64522c4e1553784be0e538c0ba72360027ffbc6",
+        "scene.json": "37be37cb4cb3176da0ae500b92b1083388bddc7e26afd709230436570217c4a4",
+        "render.py": "9696e36473c7c8a7e2ae42849f596f6ef102bce32659bdf88f4f762ea8465267",
+        "image.png": "6f63c8711fc55ac4bb32c612793df57e2f79a31a45145eeb2c261ebf3250c709",
+        "audit.json": "0bdd1fb2310b28e03ccd2ca6183cef66c92837624838067afe522addf80be975",
+        "redraw_report.json": "b456fff28ea3f7d6e9a47241bd3aeee51372016099603eb23b62caf10b943d14"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed source/output: darker left arrow and lighter right arrow share boundary through markedC, all seven corresponding vertices are negatives about C. Shape chirality, thickness distinction and label preserved."
+      ],
+      "checks": {
+        "two_renders_equal_candidate": true,
+        "independent_numeric_checks": {
+          "answer": "180",
+          "exact_seven_vertex_halfturn": true
+        },
+        "bbox": [
+          52,
+          164,
+          714,
+          608
+        ],
+        "center_offset_y_px": 2.5
+      },
+      "required_changes": [
+        "Refit view so full bbox center within2px. Currenty386 differs383.5 by2.5px; shift content upward ~2.5px. Preserve geometry, rerender and rebind hashes."
+      ]
+    }
+  ],
+  "dependency_hashes": {
+    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  }
+}

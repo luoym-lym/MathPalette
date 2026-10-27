@@ -1,0 +1,63 @@
+{
+  "reviewer": "independent /root/review_transformation_batch",
+  "source_id": "2060",
+  "category": "transformation_geometry",
+  "reviewed_utc": "2026-10-27T02:14:16.859498+00:00",
+  "verdict": "agent_verified",
+  "user_approval": false,
+  "hashes": {
+    "original.jpg": "7222a372f1970649eb6dd488bc4130d2d8762f5f812408a7e735c77a6a7ff9a3",
+    "source.json": "04d339ee273b1e70e3f572e46083325ceb02d100d278a1ea913fc442a81ce955",
+    "scene.json": "d50e1a7ea252cd3b2f33d3516db6f05f0d786e4ef4010b67be1702ada633ed30",
+    "render.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
+    "image.png": "48db379427d99c63bc8608a4ee37b436f9b5c2d4879182cf535ee467c39a2a2e",
+    "audit.json": "781f11aef2e2cd13b57ddb7bb29ec1febbb494b5ffcfb007fbd44fa635e5648d",
+    "redraw_report.json": "736b58dd28766e71a296490c4cb22550583beff81d051690a693f3d863a38a00"
+  },
+  "explicit_inspected_facts": [
+    "Individually viewed original and candidate: two concentric unit squares, one counterclockwise tilted, eight perimeter intersections A through H clockwise from upper-left top crossing; O black center dot. Outlines unfilled and label positions preserve source topology.",
+    "Symmetry of two equal concentric squares makes all octagon sides a=43/99. At each axis-square corner, removed right triangle has legs p,q with p+q=1-a and p\u00b2+q\u00b2=a\u00b2. Thus 2pq=1-2a and octagon area1-4(pq/2)=2a=86/99; coprime numerator+denominator=185."
+  ],
+  "checks": {
+    "source_record_and_bytes_match": true,
+    "two_independent_renders_equal_candidate": true,
+    "opaque768": true,
+    "bbox": [
+      54,
+      54,
+      713,
+      713
+    ],
+    "occupancy": 0.859375,
+    "independent_numeric_checks": {
+      "all_octagon_sides": [
+        0.43434343434343436,
+        0.4343434343434343,
+        0.43434343434343436,
+        0.4343434343434343,
+        0.43434343434343436,
+        0.4343434343434343,
+        0.43434343434343436,
+        0.4343434343434343
+      ],
+      "area_exact": "86/99",
+      "answer": 185,
+      "shoelace_area": 0.8686868686868686
+    },
+    "renderer_checks": [
+      {
+        "id": "AB",
+        "type": "distance",
+        "measured": 0.4343434343434343,
+        "passed": true
+      }
+    ],
+    "report_hashes_valid": true
+  },
+  "required_changes": [],
+  "previous_revisions": [],
+  "dependency_hashes": {
+    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  }
+}

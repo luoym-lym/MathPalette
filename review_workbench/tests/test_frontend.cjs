@@ -26,7 +26,7 @@ const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 async function fixture(options={}){
   const context=await browser.newContext({viewport:options.viewport||{width:1440,height:1040}});
   const page=await context.newPage();const posts=[],errors=[];let failures=options.failures||0;
-  const rows=Array.from({length:options.count??731},(_,i)=>({id:`MV${String(i+1).padStart(4,'0')}`,branch:i%3===0?'PlaneGeometry':i%3===1?'SolidGeometry':'Analytics',status:'pending',title:`Triangle question ${i+1}`}));
+  const rows=options.rows?.map(row=>({...row}))||Array.from({length:options.count??731},(_,i)=>({id:`MV${String(i+1).padStart(4,'0')}`,branch:i%3===0?'PlaneGeometry':i%3===1?'SolidGeometry':'Analytics',status:'pending',title:`Triangle question ${i+1}`}));
   const summary=()=>({total:rows.length,pending:rows.filter(r=>r.status==='pending').length,passed:rows.filter(r=>r.status==='passed').length,deleted:rows.filter(r=>r.status==='deleted').length});
   page.on('pageerror',error=>errors.push(error.message));
   await context.route('**/api/**',async route=>{
@@ -49,7 +49,7 @@ async function fixture(options={}){
     if(row.status!=='pending'){await reply({...row,history:true,decided_at_utc:'2026-10-11T12:00:00Z',images:{}});return;}
     await reply({...row,fingerprint:`fp-${id}`,question:options.injection||'As shown in the figure, DE is parallel to BC. Find angle CED.\nChoices:\nA:40°\nB:60°\nC:120°\nD:140°',answer:'D',choices:{A:'40°',B:'60°',C:'120°',D:'140°'},answer_type:'choice',original_question:'As shown in the figure, DE is parallel to BC. Find angle CED.',original_answer:'D',candidate_answer_value:'140°',source_answer_value:'140°',answer_consistency:{status:'consistent',reason:'The original and candidate answer values agree.'},provenance_data:{audit:{independently_computed_result:140,independent_solution:'Angle C = 180 − 80 − 60 = 40°. Angle CED = 180 − 40 = 140°.',answer_verification:'independently_derived'}},images:{source:`/api/candidates/${id}/image/source`,redraw:`/api/candidates/${id}/image/redraw`}});
   });
-  await page.goto(base);await page.locator('#candidate-id').filter({hasText:'MV0001'}).waitFor();
+  await page.goto(base);await page.locator('#candidate-id').filter({hasText:options.initialId||'MV0001'}).waitFor();
   return {page,context,posts,errors,rows,close:()=>context.close()};
 }
 async function ready(page,id='MV0001'){await page.waitForFunction(id=>document.querySelector('#candidate-id').textContent===id&&!document.querySelector('#pass').disabled,id);}
@@ -96,4 +96,44 @@ test('external text cannot create executable markup, and failed image blocks app
 });
 test('mobile stays within viewport and keeps both full images and decision controls available',async()=>{
   const f=await fixture({count:3,viewport:{width:390,height:844}});try{await ready(f.page);assert.equal(await f.page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth),true);assert.equal(await f.page.locator('#pass').isVisible(),true);assert.equal(await f.page.locator('#source-image').evaluate(el=>getComputedStyle(el).objectFit),'contain');await f.page.screenshot({path:path.join(screenshotRoot,'frontend-mobile.png'),fullPage:true});assert.deepEqual(f.errors,[]);}finally{await f.close();}
+});
+
+const mixedRows=()=>[
+  {id:'MV0001',branch:'PlaneGeometry',source_dataset:'MathVerse',status:'pending',title:'Legacy source'},
+  {id:'MVI0001',branch:'SolidGeometry',source_dataset:'MathVision',source_category:'solid geometry',status:'pending',title:'Cubes'},
+  {id:'MVI0002',branch:'PlaneGeometry',source_dataset:'MathVision',source_category:'transformation geometry',status:'pending',title:'Reflection'},
+  {id:'MVI0003',branch:'PlaneGeometry',source_dataset:'MathVision',source_category:'combinatorial geometry',status:'pending',title:'Tiling'},
+];
+test('dataset/topic filters survive Back, Forward and reload and never issue decisions',async()=>{
+  const f=await fixture({rows:mixedRows()});try{
+    await ready(f.page);await f.page.locator('#dataset-filter').selectOption('MathVision');await ready(f.page,'MVI0001');
+    assert.equal(await f.page.locator('#list-count').innerText(),'3 道题');assert.match(await f.page.locator('#candidate-meta').innerText(),/MathVision · 立体几何/);
+    await f.page.locator('#category-filter').selectOption('transformation geometry');await ready(f.page,'MVI0002');
+    assert.equal(await f.page.locator('#list-count').innerText(),'1 道题');
+    await f.page.goBack();await ready(f.page,'MVI0001');assert.equal(await f.page.locator('#category-filter').inputValue(),'all');
+    await f.page.goForward();await ready(f.page,'MVI0002');await f.page.reload();await ready(f.page,'MVI0002');
+    assert.equal(await f.page.locator('#dataset-filter').inputValue(),'MathVision');assert.equal(await f.page.locator('#category-filter').inputValue(),'transformation geometry');
+    await f.page.locator('#dataset-filter').selectOption('MathVerse');await ready(f.page,'MV0001');
+    assert.equal(await f.page.locator('#category-filter').isDisabled(),true);assert.equal(await f.page.locator('#category-filter').inputValue(),'all');
+    assert.equal(f.posts.length,0);assert.deepEqual(f.errors,[]);
+  }finally{await f.close();}
+});
+test('bare duplicate source ID is ambiguous until a dataset is chosen; explicit jump resets incompatible filters',async()=>{
+  const f=await fixture({rows:mixedRows()});try{
+    await ready(f.page);await f.page.locator('#jump-id').fill('1');await f.page.locator('#jump-form button').click();
+    await f.page.locator('#notice.error').waitFor();assert.match(await f.page.locator('#notice-text').innerText(),/同时属于 MathVerse 和 MathVision/);assert.equal(await f.page.locator('#candidate-id').innerText(),'MV0001');
+    await f.page.locator('#dataset-filter').selectOption('MathVision');await ready(f.page,'MVI0001');
+    await f.page.locator('#jump-id').fill('2');await f.page.locator('#jump-form button').click();await ready(f.page,'MVI0002');
+    await f.page.locator('#jump-id').fill('MV1');await f.page.locator('#jump-form button').click();await ready(f.page,'MV0001');
+    assert.equal(await f.page.locator('#dataset-filter').inputValue(),'MathVerse');assert.equal(f.posts.length,0);assert.deepEqual(f.errors,[]);
+  }finally{await f.close();}
+});
+test('MathVision decision uses MVI identity without changing same-number MathVerse row',async()=>{
+  const f=await fixture({rows:mixedRows()});try{
+    await ready(f.page);await f.page.locator('#dataset-filter').selectOption('MathVision');await ready(f.page,'MVI0001');
+    await f.page.locator('#delete').click();await f.page.locator('#cancel-delete').click();assert.equal(f.posts.length,0);
+    await f.page.locator('#pass').click();await ready(f.page,'MVI0002');
+    assert.equal(f.posts.length,1);assert.equal(f.posts[0].id,'MVI0001');assert.equal(f.rows.find(row=>row.id==='MV0001').status,'pending');
+    assert.equal(await f.page.locator('#passed-count').innerText(),'1');assert.deepEqual(f.errors,[]);
+  }finally{await f.close();}
 });
