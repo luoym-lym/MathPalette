@@ -1,6 +1,6 @@
 # MathPalette 原题审核工作台（MathVerse + MathVision）
 
-这是独立的本地原题审核页面。MathVision 新增 696 道待人工审核候选，保存在 `review_candidates/mathvision/`；24 道已排除题只保留排除台账和现有证据，不进入审核队列，也不凭空补充已不在成品包里的原图。页面可按数据源及原始类别筛选；MathVerse 使用 `MV####`，MathVision 使用 `MVI####`。两者候选索引和审核历史独立保存，正式编号与事务锁共用。
+这是独立的本地原题审核页面。MathVision 初始导入 696 道候选；2026-10-28 按用户要求进行一阶段筛选，删除 173 道，当前保留 523 道，逐题依据见 [审核记录](../review_candidates/mathvision/stage1_review_20261028.json)。候选保存在 `review_candidates/mathvision/`；导入前的24 道排除题只保留排除台账和现有证据，不进入审核队列，也不凭空补充已不在成品包里的原图。页面可按数据源及原始类别筛选；MathVerse 使用 `MV####`，MathVision 使用 `MVI####`。两者候选索引和审核历史独立保存，正式编号与事务锁共用。
 
 既有 MathVerse 待审核候选保存在 `review_candidates/mathverse/`，两个来源的数量分别以各自当前 `index.jsonl` 为准。首次启动、浏览、筛选和预取图片不会批准或删除题目。正式数据、审核协议和三个 Special 工作台以本地 `master` 为准。
 
@@ -47,7 +47,7 @@ set MATHPALETTE_MATHVISION_PYTHON=%MATHPALETTE_PYTHON%
 start_review.cmd
 ```
 
-页面的数据源选 **MathVision** 即可看到本次696题。安装依赖是你在本地明确运行的命令，启动器本身不安装或覆盖环境。
+页面的数据源选 **MathVision** 即可查看当前待审题及删除历史；本轮筛选后有523道待审题，最新数量以工作台队列为准。安装依赖是你在本地明确运行的命令，启动器本身不安装或覆盖环境。
 
 **两套绘图依赖不能装进同一个 Python 环境。** 同时审核两个来源时，可分别指定解释器（不需要合并依赖版本）：
 
@@ -60,7 +60,7 @@ start_review.cmd
 
 `MATHPALETTE_PYTHON` 只选择服务进程；两项来源专用变量选择 Pass 时执行重绘的解释器。未设置来源专用变量时使用服务进程解释器。`--check` 报告当前解释器匹配哪个来源，**不表示两个来源都能严格重绘**。若另一来源环境未准备好，仍可浏览它，但其 Pass 在重绘失败或像素不一致时安全停止，绝不保存半个批准或放宽像素检查。
 
-MathVision 的三个原始类别分别为组合几何 296 题、变换几何 160 题、立体几何 240 题。正式目标分支依据冻结场景采用的平面/三维协议确定，和来源主题不是同一个字段；例如组合几何也有立体场景。成品包里的历史制作状态及 `agent_verified` 均不是用户批准，全部新候选从 `prepared_for_user_review` / `user_approved=false` 开始。
+MathVision 初始导入的三个来源类别分别为组合几何 296 题、变换几何 160 题、立体几何 240 题；当前保留数量以各自队列为准。正式目标分支依据冻结场景采用的平面/三维协议确定，和来源主题不是同一个字段；例如组合几何也有立体场景。成品包里的历史制作状态及 `agent_verified` 均不是用户批准，全部新候选从 `prepared_for_user_review` / `user_approved=false` 开始。
 
 ## 审核内容与按钮
 
