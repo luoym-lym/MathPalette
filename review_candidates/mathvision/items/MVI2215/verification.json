@@ -1,79 +1,160 @@
 {
-  "reviewer": "independent /root/review_transformation_batch",
-  "source_id": "2215",
-  "category": "transformation_geometry",
-  "reviewed_utc": "2026-10-27T01:50:17.492245+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "redraw_part4",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "3da1580282640ea74d4f85fd088854795df71eb8d03ad95239fc2a899a4560d6",
+    "image.png": "bb595c10ec6c6fc2436612ce7f78cecdd3ab0b0cb73a2d4bc7fcd94c26de48f6",
+    "image.svg": "706302c27b32e567792149d7d8246d22dc655af4bf212420c42fc714d240b9db",
+    "redraw_report.json": "5333b3d43166562e1f308ee2058a15fe751b113421861590ac9f3e76bb6b6516",
+    "protocol_review.json": "bd45c47fee6f73215c0652e844fe50a3ca6498377925fafe97ef8d207baa6b2b",
+    "source_redraw.py": "f9732f2acaa0bede016cf487f76a96121d8ba56370bac5227e1bdcb3985d50d8",
+    "execution.json": "6fd10e2a280a85d6e94ee82270837de8eae29147a1682fcc0c22ce4476889e1d",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "41d9346fd1970b173ea68161c73d4d7a813183d3ac7ac7c061f263e33a5ea212",
     "source.json": "dfee811194acaa744061b4c6151bb56bcf62039e6d9e024b54d5d1090d4f2f70",
-    "scene.json": "724b5275bb44cc2355851f52507547a26629dd981776d413fd501f9e7e777a45",
-    "render.py": "f9732f2acaa0bede016cf487f76a96121d8ba56370bac5227e1bdcb3985d50d8",
-    "image.png": "837a18fd111449660d1de3df51e8e970493153741242c68fd2d7c7fc54466602",
-    "audit.json": "c97ffafc93724b20cefd5cd4484c606297d677f296e4f42399c535dfd0b0c49a",
-    "redraw_report.json": "3d6d72e3df80300a78c904a6984b0b5159f2e32904265377c9a916ac0af5d9b0"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Individually viewed source/output: shaded 3\u20134\u20135 right triangle A lower-left, B upper-right, C lower-right; length5 above hypotenuse,3 beside BC,4 below AC. No crease or extra right-angle marker added."
+    "Compared source and final vector redraw: source connections, region identities, point order, displayed labels and layout retained; no new solving construction introduced.",
+    "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      53,
-      124,
-      713,
-      642
-    ],
-    "occupancy": 0.8606770833333334,
-    "independent_numeric_checks": {
-      "answer": "D",
-      "triangle_sides": [
-        5.0,
-        3.0,
-        4.0
-      ],
-      "crease_endpoints_in_A_origin_coordinates": [
-        [
-          2.0,
-          1.5
-        ],
-        [
-          3.125,
-          0.0
-        ]
-      ],
-      "crease_length": 1.875,
-      "proof": "With A=(0,0),B=(4,3), perpendicular bisector is 4x+3y=25/2. Inside triangle it runs from AB midpoint(2,1.5) to AC point(25/8,0), length15/8."
+  "agent_visual_review": {
+    "status": "agent_viewed",
+    "reviewer": "redraw_part4",
+    "source_inspection": {
+      "status": "viewed",
+      "sheet": ".runtime/protocol_redraw/part4/source_04.jpg",
+      "complete_question_read": true
     },
-    "renderer_checks": [
-      {
-        "id": "AB",
-        "type": "distance",
-        "measured": 5.0,
-        "passed": true
-      },
-      {
-        "id": "AC",
-        "type": "distance",
-        "measured": 4.0,
-        "passed": true
-      },
-      {
-        "id": "BC",
-        "type": "distance",
-        "measured": 3.0,
-        "passed": true
-      }
+    "new_render_viewed": true,
+    "final_png_view": {
+      "method": "final render contact sheet",
+      "path": ".runtime/protocol_redraw/part4/new_04.jpg",
+      "cell": 3,
+      "individual_zoom": false
+    },
+    "source_sha256": "41d9346fd1970b173ea68161c73d4d7a813183d3ac7ac7c061f263e33a5ea212",
+    "scene_sha256": "3da1580282640ea74d4f85fd088854795df71eb8d03ad95239fc2a899a4560d6",
+    "png_sha256": "bb595c10ec6c6fc2436612ce7f78cecdd3ab0b0cb73a2d4bc7fcd94c26de48f6",
+    "svg_sha256": "706302c27b32e567792149d7d8246d22dc655af4bf212420c42fc714d240b9db",
+    "findings": [
+      "Compared source and final vector redraw: source connections, region identities, point order, displayed labels and layout retained; no new solving construction introduced.",
+      "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
     ],
-    "report_hashes_valid": true
+    "user_approved": false
   },
-  "required_changes": [],
-  "previous_revisions": [],
-  "dependency_hashes": {
-    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
-    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        124,
+        713,
+        642
+      ],
+      "content_center_px": [
+        383.5,
+        383.0
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 3,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root/review_transformation_batch",
+      "source_id": "2215",
+      "category": "transformation_geometry",
+      "reviewed_utc": "2026-10-27T01:50:17.492245+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "41d9346fd1970b173ea68161c73d4d7a813183d3ac7ac7c061f263e33a5ea212",
+        "source.json": "dfee811194acaa744061b4c6151bb56bcf62039e6d9e024b54d5d1090d4f2f70",
+        "scene.json": "724b5275bb44cc2355851f52507547a26629dd981776d413fd501f9e7e777a45",
+        "render.py": "f9732f2acaa0bede016cf487f76a96121d8ba56370bac5227e1bdcb3985d50d8",
+        "image.png": "837a18fd111449660d1de3df51e8e970493153741242c68fd2d7c7fc54466602",
+        "audit.json": "c97ffafc93724b20cefd5cd4484c606297d677f296e4f42399c535dfd0b0c49a",
+        "redraw_report.json": "3d6d72e3df80300a78c904a6984b0b5159f2e32904265377c9a916ac0af5d9b0"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed source/output: shaded 3–4–5 right triangle A lower-left, B upper-right, C lower-right; length5 above hypotenuse,3 beside BC,4 below AC. No crease or extra right-angle marker added."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          53,
+          124,
+          713,
+          642
+        ],
+        "occupancy": 0.8606770833333334,
+        "independent_numeric_checks": {
+          "answer": "D",
+          "triangle_sides": [
+            5.0,
+            3.0,
+            4.0
+          ],
+          "crease_endpoints_in_A_origin_coordinates": [
+            [
+              2.0,
+              1.5
+            ],
+            [
+              3.125,
+              0.0
+            ]
+          ],
+          "crease_length": 1.875,
+          "proof": "With A=(0,0),B=(4,3), perpendicular bisector is 4x+3y=25/2. Inside triangle it runs from AB midpoint(2,1.5) to AC point(25/8,0), length15/8."
+        },
+        "renderer_checks": [
+          {
+            "id": "AB",
+            "type": "distance",
+            "measured": 5.0,
+            "passed": true
+          },
+          {
+            "id": "AC",
+            "type": "distance",
+            "measured": 4.0,
+            "passed": true
+          },
+          {
+            "id": "BC",
+            "type": "distance",
+            "measured": 3.0,
+            "passed": true
+          }
+        ],
+        "report_hashes_valid": true
+      },
+      "required_changes": [],
+      "previous_revisions": [],
+      "dependency_hashes": {
+        "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+        "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+      }
+    }
   }
 }

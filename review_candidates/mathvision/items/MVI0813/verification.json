@@ -1,51 +1,126 @@
 {
-  "reviewer": "independent /root/review_transformation_batch",
-  "source_id": "813",
-  "category": "transformation_geometry",
-  "reviewed_utc": "2026-10-27T03:02:24.862438+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "curator part2",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "41955532b84c04413ec308e388a92a6505133547bd3ea3fd3b7adce813b558e9",
+    "image.png": "1e943b9e56a19a6eeda1b481025561cb456bc6cd15f0d05ad1ad0e3612f9b6c9",
+    "image.svg": "191eef6a663beebe99c7279fec6d4dd87950485e583df4afd229213b823e493c",
+    "redraw_report.json": "b24bb679d68ee9f3a52dd293ed7d45f20afb39f3d3c884fc96c4308596ded42d",
+    "protocol_review.json": "fecec5fae8cec6177ceffce1fb85c436568d0647a87143b842b97a41e4da99f0",
+    "source_redraw.py": "7d71cedd7752a0212d63762c2738bea36729f0004959e70c1fbfafcc36bfbad5",
+    "execution.json": "67c4ad53061291c934546dc2e3ab743c0d33d50edb5210832cf89fad2e5e7a95",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "281ed27e8fdb4bd54768c1a464dfdfa05486883419e4dd11603fa999340c5a32",
     "source.json": "419d75f241ac5c6b7989c6204b1936ca6ab5616a42ac49879d1183814c708785",
-    "scene.json": "c747a6118d56cc266f6ba3606cd9e6f777e247a1fe9adcc9bb95bfcf358ced9c",
-    "render.py": "7d71cedd7752a0212d63762c2738bea36729f0004959e70c1fbfafcc36bfbad5",
-    "image.png": "eeaf0908a84b3b28ea3bf2d887be91109dd84c5a0457a4dcbc63a34469c06874",
-    "audit.json": "53a9a241a9ff23c89b8dcecf89ed31a45a736b5a92675b8d5ec855ce71292675",
-    "redraw_report.json": "7b16df2221bca31f8c116182d34026a76b0617afd206bbd1583abcaa94a5a507"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Individually viewed original and candidate: octagon vertex-up, vertical then horizontal then diagonal folds, resulting wedge right-angle at center and horizontal cut toward scissors at right. Options preserve tilted-square holeA, pointed-up octagonB, axis-aligned squareC, four-point starD, flat-top octagonE; outer octagons unchanged.",
-    "Unfold horizontal cut across diagonal fold gives perpendicular vertical cut. Further horizontal/vertical-axis unfolding closes four sides x=\u00b1c,y=\u00b1c around original center. Thus central axis-aligned square hole with outer octagon untouched: C. Candidate C coordinates have equal absolute values0.72."
+    "Three fold stages and corner cut retain their direction; five unfolded central holes remain white."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      54,
-      248,
-      713,
-      519
+  "agent_visual_review": {
+    "status": "viewed",
+    "reviewer": "curator part2",
+    "review_kind": "Agent source-to-vector visual comparison; not user approval",
+    "source_and_complete_question_reviewed": true,
+    "new_png_actually_viewed": true,
+    "inspection_method": "paired source/final contact sheet",
+    "evidence": ".runtime/protocol_redraw/part2/final_06.jpg",
+    "findings": [
+      "Three fold stages and corner cut retain their direction; five unfolded central holes remain white."
     ],
-    "occupancy": 0.859375,
-    "independent_numeric_checks": {
-      "hole_coordinate_abs": 0.72,
-      "fold_reflections": [
-        "vertical",
-        "horizontal",
-        "diagonal"
-      ],
-      "answer": "C"
-    },
-    "renderer_checks": [],
-    "report_hashes_valid": true,
-    "isolated_standalone_render_identical": true
+    "geometry_labels_and_topology": "Source point order, connections, region identity and visible labels compared; no solving hints added.",
+    "source_image_sha256": "281ed27e8fdb4bd54768c1a464dfdfa05486883419e4dd11603fa999340c5a32",
+    "scene_sha256": "41955532b84c04413ec308e388a92a6505133547bd3ea3fd3b7adce813b558e9",
+    "png_sha256": "1e943b9e56a19a6eeda1b481025561cb456bc6cd15f0d05ad1ad0e3612f9b6c9",
+    "svg_sha256": "191eef6a663beebe99c7279fec6d4dd87950485e583df4afd229213b823e493c",
+    "source_redraw_sha256": "7d71cedd7752a0212d63762c2738bea36729f0004959e70c1fbfafcc36bfbad5",
+    "renderer_sha256": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "reviewed_at_utc": "2026-10-28T13:08:11.617634+00:00"
   },
-  "required_changes": [],
-  "previous_revisions": [],
-  "dependency_hashes": {
-    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
-    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        53,
+        249,
+        713,
+        521
+      ],
+      "content_center_px": [
+        383.0,
+        385.0
+      ],
+      "longest_side_occupancy": 0.8606770833333334,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 0,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root/review_transformation_batch",
+      "source_id": "813",
+      "category": "transformation_geometry",
+      "reviewed_utc": "2026-10-27T03:02:24.862438+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "281ed27e8fdb4bd54768c1a464dfdfa05486883419e4dd11603fa999340c5a32",
+        "source.json": "419d75f241ac5c6b7989c6204b1936ca6ab5616a42ac49879d1183814c708785",
+        "scene.json": "c747a6118d56cc266f6ba3606cd9e6f777e247a1fe9adcc9bb95bfcf358ced9c",
+        "render.py": "7d71cedd7752a0212d63762c2738bea36729f0004959e70c1fbfafcc36bfbad5",
+        "image.png": "eeaf0908a84b3b28ea3bf2d887be91109dd84c5a0457a4dcbc63a34469c06874",
+        "audit.json": "53a9a241a9ff23c89b8dcecf89ed31a45a736b5a92675b8d5ec855ce71292675",
+        "redraw_report.json": "7b16df2221bca31f8c116182d34026a76b0617afd206bbd1583abcaa94a5a507"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed original and candidate: octagon vertex-up, vertical then horizontal then diagonal folds, resulting wedge right-angle at center and horizontal cut toward scissors at right. Options preserve tilted-square holeA, pointed-up octagonB, axis-aligned squareC, four-point starD, flat-top octagonE; outer octagons unchanged.",
+        "Unfold horizontal cut across diagonal fold gives perpendicular vertical cut. Further horizontal/vertical-axis unfolding closes four sides x=±c,y=±c around original center. Thus central axis-aligned square hole with outer octagon untouched: C. Candidate C coordinates have equal absolute values0.72."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          54,
+          248,
+          713,
+          519
+        ],
+        "occupancy": 0.859375,
+        "independent_numeric_checks": {
+          "hole_coordinate_abs": 0.72,
+          "fold_reflections": [
+            "vertical",
+            "horizontal",
+            "diagonal"
+          ],
+          "answer": "C"
+        },
+        "renderer_checks": [],
+        "report_hashes_valid": true,
+        "isolated_standalone_render_identical": true
+      },
+      "required_changes": [],
+      "previous_revisions": [],
+      "dependency_hashes": {
+        "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+        "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+      }
+    }
   }
 }

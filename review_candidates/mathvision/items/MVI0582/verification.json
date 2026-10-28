@@ -1,53 +1,124 @@
 {
-  "reviewer": "independent /root/review_transformation_batch",
-  "source_id": "582",
-  "category": "transformation_geometry",
-  "reviewed_utc": "2026-10-27T03:14:45.445237+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "Agent curator part1",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "3e2620ce82e4bf400abdfd20640a2b1f4b00f19f343d3c50e0349996097a95c4",
+    "image.png": "654c4ab9ed98b1f9466eac37505b3ba1e24f3dbb3b36970b9ecd392c4fab87b0",
+    "image.svg": "49d14bbe6af5c0a49f37541284ff239efe1981b83eb7bd4ce40a2cc52995c3ae",
+    "redraw_report.json": "a1dbdadd451dd833f0a0f54c30f0f9778286ee5e8cb1c1045fc4898b550e18ee",
+    "protocol_review.json": "64cbd390e9de2d00b7a75337d9738a31b3ec276fc5b4f14ca31bd588b0873240",
+    "source_redraw.py": "e26e013d631c571df72f2157a6828857145cb6689529298d260a27bcec4414d9",
+    "execution.json": "3d005bc6352e6ef6eba401f9fd9002a09797eb90cbd20f821566a6e4db4026ec",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "f26c0092aba08d0b57658dd8500093e13c5565ba6be55884c615ea620d3737ea",
     "source.json": "1ea91b7f5d2814b89d2a0e0952775ed27362996bb19e5199055ebb685dff97b7",
-    "scene.json": "9ba92b5ca7d365012eebd4341ffcc9aebfb913e79ec932eb11ee3899563e34fe",
-    "render.py": "e26e013d631c571df72f2157a6828857145cb6689529298d260a27bcec4414d9",
-    "image.png": "6a27a98680225d522cec813b4319a6da42f30e9ffc049055c461d1f441232f43",
-    "audit.json": "12330cfe3d7cb02c5feb9ad288ac194911e614bad9f422877701d129aca9d3be",
-    "redraw_report.json": "de9e7f3e1aed5997085b9c01ace497f7c7ff142d8780d9afcafaaaf2b5ec9773"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Individually viewed source and candidate: ladybird has black head, six legs plus two antennae, two white wing panels and seven spots split3/4. A headupper-right,B lower-left,C right,D/E lower-right. D retains3/4 in wrong relative wing positions while E correctly swaps visible sides after halfturn; all source spot counts and head orientations preserved.",
-    "Rotations preserve intrinsic coordinates relative to head and body axis. Independently normalized all seven spot centers into head-up frames for each picture: A/B/C/E equal source; D is left-right reflection, reversing chirality. Therefore onlyD is not Sophie."
+    "White wing layers, black head and asymmetric black spots must remain visible over the black ladybird body in all orientations."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      53,
-      235,
-      714,
-      533
+  "agent_visual_review": {
+    "status": "inspected",
+    "reviewer": "Agent curator part1",
+    "user_approval": false,
+    "reviewed_at_utc": "2026-10-28T12:56:24.269171+00:00",
+    "method": "Source and final PNG comparison; 12-item contact sheet plus individual 768px inspection for dense, ambiguous or repaired outputs.",
+    "contact_sheet": ".runtime/protocol_redraw/part1/final_10.jpg",
+    "individual_final_png_viewed": true,
+    "findings": [
+      "White wing layers, black head and asymmetric black spots must remain visible over the black ladybird body in all orientations."
     ],
-    "occupancy": 0.8619791666666666,
-    "independent_numeric_checks": {
-      "seven_spot_rotation_matches_A_to_E": [
-        true,
-        true,
-        true,
-        false,
-        true
-      ],
-      "D_is_reflection": true,
-      "answer": "D"
-    },
-    "renderer_checks": [],
-    "report_hashes_valid": true,
-    "isolated_standalone_render_identical": true
+    "source_sha256": "f26c0092aba08d0b57658dd8500093e13c5565ba6be55884c615ea620d3737ea",
+    "scene_sha256": "3e2620ce82e4bf400abdfd20640a2b1f4b00f19f343d3c50e0349996097a95c4",
+    "png_sha256": "654c4ab9ed98b1f9466eac37505b3ba1e24f3dbb3b36970b9ecd392c4fab87b0",
+    "svg_sha256": "49d14bbe6af5c0a49f37541284ff239efe1981b83eb7bd4ce40a2cc52995c3ae"
   },
-  "required_changes": [],
-  "previous_revisions": [],
-  "dependency_hashes": {
-    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
-    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        235,
+        713,
+        533
+      ],
+      "content_center_px": [
+        383.5,
+        384.0
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 0,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root/review_transformation_batch",
+      "source_id": "582",
+      "category": "transformation_geometry",
+      "reviewed_utc": "2026-10-27T03:14:45.445237+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "f26c0092aba08d0b57658dd8500093e13c5565ba6be55884c615ea620d3737ea",
+        "source.json": "1ea91b7f5d2814b89d2a0e0952775ed27362996bb19e5199055ebb685dff97b7",
+        "scene.json": "9ba92b5ca7d365012eebd4341ffcc9aebfb913e79ec932eb11ee3899563e34fe",
+        "render.py": "e26e013d631c571df72f2157a6828857145cb6689529298d260a27bcec4414d9",
+        "image.png": "6a27a98680225d522cec813b4319a6da42f30e9ffc049055c461d1f441232f43",
+        "audit.json": "12330cfe3d7cb02c5feb9ad288ac194911e614bad9f422877701d129aca9d3be",
+        "redraw_report.json": "de9e7f3e1aed5997085b9c01ace497f7c7ff142d8780d9afcafaaaf2b5ec9773"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed source and candidate: ladybird has black head, six legs plus two antennae, two white wing panels and seven spots split3/4. A headupper-right,B lower-left,C right,D/E lower-right. D retains3/4 in wrong relative wing positions while E correctly swaps visible sides after halfturn; all source spot counts and head orientations preserved.",
+        "Rotations preserve intrinsic coordinates relative to head and body axis. Independently normalized all seven spot centers into head-up frames for each picture: A/B/C/E equal source; D is left-right reflection, reversing chirality. Therefore onlyD is not Sophie."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          53,
+          235,
+          714,
+          533
+        ],
+        "occupancy": 0.8619791666666666,
+        "independent_numeric_checks": {
+          "seven_spot_rotation_matches_A_to_E": [
+            true,
+            true,
+            true,
+            false,
+            true
+          ],
+          "D_is_reflection": true,
+          "answer": "D"
+        },
+        "renderer_checks": [],
+        "report_hashes_valid": true,
+        "isolated_standalone_render_identical": true
+      },
+      "required_changes": [],
+      "previous_revisions": [],
+      "dependency_hashes": {
+        "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+        "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+      }
+    }
   }
 }

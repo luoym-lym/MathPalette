@@ -1,48 +1,123 @@
 {
-  "reviewer": "independent /root/review_transformation_batch",
-  "source_id": "1612",
-  "category": "transformation_geometry",
-  "reviewed_utc": "2026-10-27T03:06:42.103528+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "protocol_redraw_part3",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "fccd0a326781899e1be4248ea9276daea69672d24fd6d960b299f82449dc1ac6",
+    "image.png": "cfb7b184efd48243c9c8d4400cf13b9d034b3c18bf31f670aa768412e87ff928",
+    "image.svg": "06464397dcf32d91cc4900bd0c7140784efcfa50f7d19f3f3b3eefd781cc57f9",
+    "redraw_report.json": "6f80b57194f1144e32f910a240e89aa3a3b78d53084504cc046a87aa83e75e5e",
+    "protocol_review.json": "ccac116fcc8ecda977c2141f3ad3de5dd7135b92b9b33ec2e45a65da30681f66",
+    "source_redraw.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
+    "execution.json": "0064fc921413ae9cd5ecd897b45c7a46bc79dffefcf3f1b64d447ab5f84aaea2",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "1add324df492b2952be8a67a07d000c1ac7b836c706d1a2de28c4bc1a4f1ad0f",
     "source.json": "895e6b0fe09765e316cca31ab42c13a197f070fdd78a2f86f60ad507859080b5",
-    "scene.json": "6954d9cbf7701b3339c41288282596ccf5a3820cc46b80ca5cea26ab417b3c3a",
-    "render.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
-    "image.png": "432e00103bca8558f1b6deb58ecb3121c9b0390ca2cff0ddfc229f01b2459155",
-    "audit.json": "6d94df03f5e81c0bb3819151329912bfad88b1872bbc7e5ebfe30f1506f2c4f5",
-    "redraw_report.json": "c95662aa592a20428b53aed6c8b3a6e5362c9ead5d3dfc0be5cdcecac2c27cf1"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Individually viewed original and candidate: seven-sided figure divided into seven center-to-vertex triangular sectors; black heart in upper-left lateral sector, black leftward arrow in lower-right sector. Symbols distinct and no sector boundary crosses them.",
-    "Clockwise steps+3 and anticlockwise steps-4 are congruent modulo7. Therefore initial nonzero sector separation is invariant after every routine; they can never coincide. Enumerating a full seven-routine cycle also keeps separation unchanged."
+    "Seven-sector polygon retains heart and left-pointing arrow in their starting sectors; no intermediate motion states drawn."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      53,
-      62,
-      714,
-      705
-    ],
-    "occupancy": 0.8619791666666666,
-    "independent_numeric_checks": {
-      "modulus": 7,
-      "relative_step": 0,
-      "initial_sectors_different": true,
-      "answer": "E:never"
-    },
-    "renderer_checks": [],
-    "report_hashes_valid": true,
-    "isolated_standalone_render_identical": true
+  "agent_visual_review": {
+    "status": "agent_reviewed",
+    "reviewer": "protocol_redraw_part3",
+    "reviewed_at_utc": "2026-10-28T12:58:04.414491+00:00",
+    "source_compared": true,
+    "method": "Viewed final source/redraw comparison contact sheet",
+    "contact_sheet": ".runtime/protocol_redraw/part3/new_09.jpg",
+    "contact_sheet_sha256": "c06a4b650809893e801dc86951e1d1a032d8444713f8005f8b853197acdcc517",
+    "png_sha256": "cfb7b184efd48243c9c8d4400cf13b9d034b3c18bf31f670aa768412e87ff928",
+    "svg_sha256": "06464397dcf32d91cc4900bd0c7140784efcfa50f7d19f3f3b3eefd781cc57f9",
+    "scene_sha256": "fccd0a326781899e1be4248ea9276daea69672d24fd6d960b299f82449dc1ac6",
+    "source_sha256": "1add324df492b2952be8a67a07d000c1ac7b836c706d1a2de28c4bc1a4f1ad0f",
+    "final_png_sha256": "cfb7b184efd48243c9c8d4400cf13b9d034b3c18bf31f670aa768412e87ff928",
+    "final_scene_sha256": "fccd0a326781899e1be4248ea9276daea69672d24fd6d960b299f82449dc1ac6",
+    "findings": "Seven-sector polygon retains heart and left-pointing arrow in their starting sectors; no intermediate motion states drawn.",
+    "unresolved_source_issues": [],
+    "user_approved": false,
+    "scope": "Agent visual review only. All candidates remain pending user review.",
+    "svg_binding_basis": "Current deterministic vector export from the unchanged scene; serialization hash rebound mechanically. Original PNG visual inspection evidence and timestamp are preserved."
   },
-  "required_changes": [],
-  "previous_revisions": [],
-  "dependency_hashes": {
-    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
-    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        62,
+        713,
+        705
+      ],
+      "content_center_px": [
+        383.5,
+        383.5
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 0,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root/review_transformation_batch",
+      "source_id": "1612",
+      "category": "transformation_geometry",
+      "reviewed_utc": "2026-10-27T03:06:42.103528+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "1add324df492b2952be8a67a07d000c1ac7b836c706d1a2de28c4bc1a4f1ad0f",
+        "source.json": "895e6b0fe09765e316cca31ab42c13a197f070fdd78a2f86f60ad507859080b5",
+        "scene.json": "6954d9cbf7701b3339c41288282596ccf5a3820cc46b80ca5cea26ab417b3c3a",
+        "render.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
+        "image.png": "432e00103bca8558f1b6deb58ecb3121c9b0390ca2cff0ddfc229f01b2459155",
+        "audit.json": "6d94df03f5e81c0bb3819151329912bfad88b1872bbc7e5ebfe30f1506f2c4f5",
+        "redraw_report.json": "c95662aa592a20428b53aed6c8b3a6e5362c9ead5d3dfc0be5cdcecac2c27cf1"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed original and candidate: seven-sided figure divided into seven center-to-vertex triangular sectors; black heart in upper-left lateral sector, black leftward arrow in lower-right sector. Symbols distinct and no sector boundary crosses them.",
+        "Clockwise steps+3 and anticlockwise steps-4 are congruent modulo7. Therefore initial nonzero sector separation is invariant after every routine; they can never coincide. Enumerating a full seven-routine cycle also keeps separation unchanged."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          53,
+          62,
+          714,
+          705
+        ],
+        "occupancy": 0.8619791666666666,
+        "independent_numeric_checks": {
+          "modulus": 7,
+          "relative_step": 0,
+          "initial_sectors_different": true,
+          "answer": "E:never"
+        },
+        "renderer_checks": [],
+        "report_hashes_valid": true,
+        "isolated_standalone_render_identical": true
+      },
+      "required_changes": [],
+      "previous_revisions": [],
+      "dependency_hashes": {
+        "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+        "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+      }
+    }
   }
 }

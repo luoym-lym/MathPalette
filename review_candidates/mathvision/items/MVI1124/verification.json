@@ -1,43 +1,118 @@
 {
-  "reviewer": "independent /root",
-  "source_id": "1124",
-  "category": "combinatorial_geometry",
-  "reviewed_utc": "2026-10-27T00:55:39.838672+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "protocol_redraw_part3",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "ccee0599770b0e1cb0ba981d53c2be5d4f9ab770d2f48578ee4b8464718d7478",
+    "image.png": "5a7e02fc8d417c6963b6446113db2c442cf07dd74b4a3c8301e88b9dc85c5ea9",
+    "image.svg": "1e0639400d94ca6d9c15866cd6b95af967918d51ac4c13a9b8a0e4e2f1c95de4",
+    "redraw_report.json": "bdba54bcd912617042fb0debc93556a4bbd8c35db3bbcafe3da1bfa050d338ee",
+    "protocol_review.json": "b24f905048fdb0c8f98a1e0a810b05bb6a9c27ded138e85a10f9ce0859e9ac9d",
+    "source_redraw.py": "73a62487e0127a40ad87b4e755ede1e4cfc34e5ab1626ed3e364ae3a553499c7",
+    "execution.json": "daf6e9d52b5a5c47c7444efa4cf7024cc5343b06590d295aad560b2149baaba5",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "4725cd42d3e5cff5d37625c70af4de8b2428fe05ba186a7700e900723a54f0e2",
     "source.json": "c646930d84202167aa2baa80625a45ac141ff9e2f0130bde9de5ca4a067e2807",
-    "scene.json": "93da32606f4a6908de80ede472b3afa2dc3141945f58aef96a2a5af3c809ae55",
-    "render.py": "73a62487e0127a40ad87b4e755ede1e4cfc34e5ab1626ed3e364ae3a553499c7",
-    "image.png": "a5c7d6d27176f030fa616afc09f6e97a11fea5fd64235f21541939b1f5d3512c",
-    "audit.json": "127df7396ee0925b33b6b8fff26dbb801df88ca801f4c2415a2f5706169942e7",
-    "redraw_report.json": "1d0522786897c93d0733c3170e7a08d17b06401c8e5ba711c33fc54d47407cc0"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Viewed original and redraw independently:threeunit squares,twoatbase,upper shiftedhalfunit, one diagonal upper-left tobasefar-right, grey onrightsideofdiagonal inbothupperandrightbase square, no labels/extraedges."
+    "The upper unit square remains centered over the common vertical edge of the lower two squares; oblique line and two shaded regions retained."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      54,
-      54,
-      713,
-      714
-    ],
-    "occupancy": 0.8606770833333334,
-    "independent_numeric_checks": {
-      "shaded_polygon_areas": [
-        0.625,
-        0.375
-      ],
-      "sum": 1.0,
-      "answer": 1
-    },
-    "renderer_checks": []
+  "agent_visual_review": {
+    "status": "agent_reviewed",
+    "reviewer": "protocol_redraw_part3",
+    "reviewed_at_utc": "2026-10-28T12:58:04.315178+00:00",
+    "source_compared": true,
+    "method": "Viewed final source/redraw comparison contact sheet",
+    "contact_sheet": ".runtime/protocol_redraw/part3/new_00.jpg",
+    "contact_sheet_sha256": "c8fd4b7c7776a878f97a389432003babb15787c3fd253b0f68a72e65f6d2f744",
+    "png_sha256": "5a7e02fc8d417c6963b6446113db2c442cf07dd74b4a3c8301e88b9dc85c5ea9",
+    "svg_sha256": "1e0639400d94ca6d9c15866cd6b95af967918d51ac4c13a9b8a0e4e2f1c95de4",
+    "scene_sha256": "ccee0599770b0e1cb0ba981d53c2be5d4f9ab770d2f48578ee4b8464718d7478",
+    "source_sha256": "4725cd42d3e5cff5d37625c70af4de8b2428fe05ba186a7700e900723a54f0e2",
+    "final_png_sha256": "5a7e02fc8d417c6963b6446113db2c442cf07dd74b4a3c8301e88b9dc85c5ea9",
+    "final_scene_sha256": "ccee0599770b0e1cb0ba981d53c2be5d4f9ab770d2f48578ee4b8464718d7478",
+    "findings": "The upper unit square remains centered over the common vertical edge of the lower two squares; oblique line and two shaded regions retained.",
+    "unresolved_source_issues": [],
+    "user_approved": false,
+    "scope": "Agent visual review only. All candidates remain pending user review.",
+    "svg_binding_basis": "Current deterministic vector export from the unchanged scene; serialization hash rebound mechanically. Original PNG visual inspection evidence and timestamp are preserved."
   },
-  "required_changes": [],
-  "previous_revisions": []
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        54,
+        713,
+        713
+      ],
+      "content_center_px": [
+        383.5,
+        383.5
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 0,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root",
+      "source_id": "1124",
+      "category": "combinatorial_geometry",
+      "reviewed_utc": "2026-10-27T00:55:39.838672+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "4725cd42d3e5cff5d37625c70af4de8b2428fe05ba186a7700e900723a54f0e2",
+        "source.json": "c646930d84202167aa2baa80625a45ac141ff9e2f0130bde9de5ca4a067e2807",
+        "scene.json": "93da32606f4a6908de80ede472b3afa2dc3141945f58aef96a2a5af3c809ae55",
+        "render.py": "73a62487e0127a40ad87b4e755ede1e4cfc34e5ab1626ed3e364ae3a553499c7",
+        "image.png": "a5c7d6d27176f030fa616afc09f6e97a11fea5fd64235f21541939b1f5d3512c",
+        "audit.json": "127df7396ee0925b33b6b8fff26dbb801df88ca801f4c2415a2f5706169942e7",
+        "redraw_report.json": "1d0522786897c93d0733c3170e7a08d17b06401c8e5ba711c33fc54d47407cc0"
+      },
+      "explicit_inspected_facts": [
+        "Viewed original and redraw independently:threeunit squares,twoatbase,upper shiftedhalfunit, one diagonal upper-left tobasefar-right, grey onrightsideofdiagonal inbothupperandrightbase square, no labels/extraedges."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          54,
+          54,
+          713,
+          714
+        ],
+        "occupancy": 0.8606770833333334,
+        "independent_numeric_checks": {
+          "shaded_polygon_areas": [
+            0.625,
+            0.375
+          ],
+          "sum": 1.0,
+          "answer": 1
+        },
+        "renderer_checks": []
+      },
+      "required_changes": [],
+      "previous_revisions": []
+    }
+  }
 }

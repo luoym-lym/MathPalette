@@ -1,50 +1,132 @@
 {
-  "reviewer": "independent /root/review_transformation_batch",
-  "source_id": "1806",
-  "category": "transformation_geometry",
-  "reviewed_utc": "2026-10-27T02:12:45.522287+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "redraw_part4",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "33ce3b02fe0a505170da2882f88502c8606a49339000631672895ad37afe87d9",
+    "image.png": "1df3dd52362fdbadc09bed95995f210c66240e7dca56e2334da18b027cc4696c",
+    "image.svg": "8c1184ab1cfd298cecb63546be8e7354c398cca3bd5cf212465f2d2825b3c624",
+    "redraw_report.json": "bc65815169bef7171f1c419fd8e2f3327e6f57086d9c1504357272e1ebc6bcf3",
+    "protocol_review.json": "9018a13db0f5ff06f0446edf6a0d695e55198c7d0aee0ea11a71e90871d5fe21",
+    "source_redraw.py": "f9732f2acaa0bede016cf487f76a96121d8ba56370bac5227e1bdcb3985d50d8",
+    "execution.json": "90aac959f59100314cecf65d0ece3f1a6cd0566000842a6bbf21f79c743b8e79",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "a4859971ee02c59de73c267f11ef452edc5165bd36d113f4c1a3ddf30f9953bf",
     "source.json": "d8ae2a572bcdbb00b88703020181dc85266e58e063d51d231701ea3da6b4257d",
-    "scene.json": "1141a0579cd3869dddfae9353aed74c3cf3476c80d2108f0d8518cbb4ad4b6a8",
-    "render.py": "f9732f2acaa0bede016cf487f76a96121d8ba56370bac5227e1bdcb3985d50d8",
-    "image.png": "a93fa51384550ed7efe6db5d3dbc1949ad5c4dcd35409f7f015984b87855544a",
-    "audit.json": "cf764ceb344d0991548c21b8447348609d94b3e7b7534cede85f46918029abaa",
-    "redraw_report.json": "b5be92bfef3545a94adbff678cf6b715996317310510f4307ea25e59f3c3e5f2"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Individually viewed original and candidate: three panels A/B/C left-to-right; A lower triangle dark gray, B two exterior cut-off triangles gray, C unfilled right-leaning rhombus. Captions and incidences preserved.",
-    "Independent fold: reflecting (12,0) over diagonal (0,0)-(12,6) gives (7.2,9.6); its ray meets y=6 at x=4.5. Rhombus side solves x\u00b2=6\u00b2+(12-x)\u00b2, x=7.5, option C."
+    "Three panels preserve folded paper, cut-off gray regions and unfolded rhombus; no rectangle dimensions added beyond the unchanged question.",
+    "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      54,
-      306,
-      713,
-      461
-    ],
-    "occupancy": 0.859375,
-    "independent_numeric_checks": {
-      "rhombus_sides": [
-        7.5,
-        7.5,
-        7.5,
-        7.5
-      ],
-      "answer": "C:7.5"
+  "agent_visual_review": {
+    "status": "agent_viewed",
+    "reviewer": "redraw_part4",
+    "source_inspection": {
+      "status": "viewed",
+      "sheet": ".runtime/protocol_redraw/part4/source_00.jpg",
+      "complete_question_read": true
     },
-    "renderer_checks": [],
-    "report_hashes_valid": true
+    "new_render_viewed": true,
+    "final_png_view": {
+      "method": "final render contact sheet",
+      "path": ".runtime/protocol_redraw/part4/new_00.jpg",
+      "cell": 1,
+      "individual_zoom": false
+    },
+    "source_sha256": "a4859971ee02c59de73c267f11ef452edc5165bd36d113f4c1a3ddf30f9953bf",
+    "scene_sha256": "33ce3b02fe0a505170da2882f88502c8606a49339000631672895ad37afe87d9",
+    "png_sha256": "1df3dd52362fdbadc09bed95995f210c66240e7dca56e2334da18b027cc4696c",
+    "svg_sha256": "8c1184ab1cfd298cecb63546be8e7354c398cca3bd5cf212465f2d2825b3c624",
+    "findings": [
+      "Three panels preserve folded paper, cut-off gray regions and unfolded rhombus; no rectangle dimensions added beyond the unchanged question.",
+      "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
+    ],
+    "user_approved": false,
+    "svg_rebinding_note": "Central final renderer regenerated vector SVG from the same Figure. PNG and scene hashes are unchanged from the actual visual inspection; this updates SVG serialization evidence without claiming another raster viewing."
   },
-  "required_changes": [],
-  "previous_revisions": [],
-  "dependency_hashes": {
-    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
-    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        53,
+        305,
+        714,
+        461
+      ],
+      "content_center_px": [
+        383.5,
+        383.0
+      ],
+      "longest_side_occupancy": 0.8619791666666666,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 0,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root/review_transformation_batch",
+      "source_id": "1806",
+      "category": "transformation_geometry",
+      "reviewed_utc": "2026-10-27T02:12:45.522287+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "a4859971ee02c59de73c267f11ef452edc5165bd36d113f4c1a3ddf30f9953bf",
+        "source.json": "d8ae2a572bcdbb00b88703020181dc85266e58e063d51d231701ea3da6b4257d",
+        "scene.json": "1141a0579cd3869dddfae9353aed74c3cf3476c80d2108f0d8518cbb4ad4b6a8",
+        "render.py": "f9732f2acaa0bede016cf487f76a96121d8ba56370bac5227e1bdcb3985d50d8",
+        "image.png": "a93fa51384550ed7efe6db5d3dbc1949ad5c4dcd35409f7f015984b87855544a",
+        "audit.json": "cf764ceb344d0991548c21b8447348609d94b3e7b7534cede85f46918029abaa",
+        "redraw_report.json": "b5be92bfef3545a94adbff678cf6b715996317310510f4307ea25e59f3c3e5f2"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed original and candidate: three panels A/B/C left-to-right; A lower triangle dark gray, B two exterior cut-off triangles gray, C unfilled right-leaning rhombus. Captions and incidences preserved.",
+        "Independent fold: reflecting (12,0) over diagonal (0,0)-(12,6) gives (7.2,9.6); its ray meets y=6 at x=4.5. Rhombus side solves x²=6²+(12-x)², x=7.5, option C."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          54,
+          306,
+          713,
+          461
+        ],
+        "occupancy": 0.859375,
+        "independent_numeric_checks": {
+          "rhombus_sides": [
+            7.5,
+            7.5,
+            7.5,
+            7.5
+          ],
+          "answer": "C:7.5"
+        },
+        "renderer_checks": [],
+        "report_hashes_valid": true
+      },
+      "required_changes": [],
+      "previous_revisions": [],
+      "dependency_hashes": {
+        "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+        "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+      }
+    }
   }
 }

@@ -1,52 +1,133 @@
 {
-  "reviewer": "independent /root/review_transformation_batch",
-  "source_id": "2080",
-  "category": "transformation_geometry",
-  "reviewed_utc": "2026-10-27T01:49:07.703896+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "redraw_part4",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "5776bf746796c39df73155112f7a447e3578a8536f66f04c1270bbb1512be935",
+    "image.png": "1aa27af2a203b010737399c03827da3defda0fec8e12bd9815e14ba50f2ad1ca",
+    "image.svg": "dd2270775fc12a09392872aa0b61b138b628e058d4113f192db37388df5401bc",
+    "redraw_report.json": "5bbfcc20206e66e461a74f143a4b1c230ffc3ee7545e87f52c2e51e28073b4d3",
+    "protocol_review.json": "dc3bfe361a8c3d000d358076c541f0019e8b3b5df8c289faeb033dbd0b25b353",
+    "source_redraw.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
+    "execution.json": "65947b6bbb0f182b46e58add4fdf0083de27dcc5d879faa6bf42eee2b938175f",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "3612eae3f79977e107471611b642827af1934b2a46a19e073a121ecd1d58c871",
     "source.json": "d0ec3a9087b795dd6e7cf9521ff94a87c72b23f8239ff4e94d0787479afda688",
-    "scene.json": "cffe192b2504070e396acae1661585e710f14b4c654764dd64727e91d48ff8e4",
-    "render.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
-    "image.png": "7de86078e0a761acf91a0c8e336018b8c06884d39d596a9a0b88d4d0e8df14a2",
-    "audit.json": "f684161c21e40e519a8e284d8b6cf73f1c46acbaec398e22b7978bc4e8ff4fee",
-    "redraw_report.json": "63781fc08b502ef6bf4b9086b6f1793a7f5fca0d42e48e543e2f44cf8a293625"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Individually viewed source/output: 13 equal unfilled squares, central isolated square and four separated L-triomino arms with consistent clockwise chirality. No red/blue colors invented; topology and gap positions preserved."
+    "The source diagram is uncolored although the question discusses random red/blue colorings. No arbitrary example coloring was invented.",
+    "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      53,
-      53,
-      714,
-      714
-    ],
-    "occupancy": 0.8619791666666666,
-    "independent_numeric_checks": {
-      "answer": "429",
-      "rotation_orbit_sizes": [
-        1,
-        4,
-        4,
-        4
-      ],
-      "total_colorings": 1287,
-      "invariant_colorings": 3,
-      "proof": "Center must be blue because red count8 is divisible by4. Choose two of three size4 orbits red:3 choices among C(13,8)=1287; reciprocal probability1287/3=429."
+  "agent_visual_review": {
+    "status": "agent_viewed",
+    "reviewer": "redraw_part4",
+    "source_inspection": {
+      "status": "viewed",
+      "sheet": ".runtime/protocol_redraw/part4/source_03.jpg",
+      "complete_question_read": true
     },
-    "renderer_checks": [],
-    "report_hashes_valid": true
+    "new_render_viewed": true,
+    "final_png_view": {
+      "method": "final render contact sheet",
+      "path": ".runtime/protocol_redraw/part4/new_03.jpg",
+      "cell": 3,
+      "individual_zoom": false
+    },
+    "source_sha256": "3612eae3f79977e107471611b642827af1934b2a46a19e073a121ecd1d58c871",
+    "scene_sha256": "5776bf746796c39df73155112f7a447e3578a8536f66f04c1270bbb1512be935",
+    "png_sha256": "1aa27af2a203b010737399c03827da3defda0fec8e12bd9815e14ba50f2ad1ca",
+    "svg_sha256": "dd2270775fc12a09392872aa0b61b138b628e058d4113f192db37388df5401bc",
+    "findings": [
+      "The source diagram is uncolored although the question discusses random red/blue colorings. No arbitrary example coloring was invented.",
+      "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
+    ],
+    "user_approved": false
   },
-  "required_changes": [],
-  "previous_revisions": [],
-  "dependency_hashes": {
-    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
-    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        54,
+        713,
+        713
+      ],
+      "content_center_px": [
+        383.5,
+        383.5
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 0,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root/review_transformation_batch",
+      "source_id": "2080",
+      "category": "transformation_geometry",
+      "reviewed_utc": "2026-10-27T01:49:07.703896+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "3612eae3f79977e107471611b642827af1934b2a46a19e073a121ecd1d58c871",
+        "source.json": "d0ec3a9087b795dd6e7cf9521ff94a87c72b23f8239ff4e94d0787479afda688",
+        "scene.json": "cffe192b2504070e396acae1661585e710f14b4c654764dd64727e91d48ff8e4",
+        "render.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
+        "image.png": "7de86078e0a761acf91a0c8e336018b8c06884d39d596a9a0b88d4d0e8df14a2",
+        "audit.json": "f684161c21e40e519a8e284d8b6cf73f1c46acbaec398e22b7978bc4e8ff4fee",
+        "redraw_report.json": "63781fc08b502ef6bf4b9086b6f1793a7f5fca0d42e48e543e2f44cf8a293625"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed source/output: 13 equal unfilled squares, central isolated square and four separated L-triomino arms with consistent clockwise chirality. No red/blue colors invented; topology and gap positions preserved."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          53,
+          53,
+          714,
+          714
+        ],
+        "occupancy": 0.8619791666666666,
+        "independent_numeric_checks": {
+          "answer": "429",
+          "rotation_orbit_sizes": [
+            1,
+            4,
+            4,
+            4
+          ],
+          "total_colorings": 1287,
+          "invariant_colorings": 3,
+          "proof": "Center must be blue because red count8 is divisible by4. Choose two of three size4 orbits red:3 choices among C(13,8)=1287; reciprocal probability1287/3=429."
+        },
+        "renderer_checks": [],
+        "report_hashes_valid": true
+      },
+      "required_changes": [],
+      "previous_revisions": [],
+      "dependency_hashes": {
+        "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+        "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+      }
+    }
   }
 }

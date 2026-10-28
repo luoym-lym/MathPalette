@@ -1,75 +1,152 @@
 {
-  "reviewer": "independent /root",
-  "source_id": "479",
-  "category": "transformation_geometry",
-  "reviewed_utc": "2026-10-27T01:07:04.728282+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "Agent curator part1",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "45ce56f327a29ec4c3c88106c424e6fb33b158572f021a5d1203cfd0a0e0e3c7",
+    "image.png": "2005aadf512d934f94bb9903f55b2620bf3d13b04501ad586bffcf7a41c3e3f9",
+    "image.svg": "17587e2949b9f86b3c9a36c83af2e4c59b15e77772bffc25cb59fe1f57e7247a",
+    "redraw_report.json": "e83b448b1417250b916a2604c08789225af8de6636b9e1d4286fc495179235ea",
+    "protocol_review.json": "8f2a37661fd560390716e93b7a875e274fa7d203136b7336833476ffb4434299",
+    "source_redraw.py": "ed99fc0a82d5f74da999d5a87fdb15899a5ea8f5c006a172d54bc1cfff660c8b",
+    "execution.json": "33fe74974410819a33aaf999f1fa7911df0b3e84b3792253ab6aba7850de4f96",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "ea19d6b2a09de970ce69d8614ecaa2964e60187601fd4993c0011fda3571a9f1",
     "source.json": "10a3ed6966fbd1b596fb537640cdc0ca0566d2ad728be074cc1dfd63e4478b85",
-    "scene.json": "aeba2cdae1b2544346047982c17257e04f31887b2aaeac814541ba59ae5a0a3b",
-    "render.py": "ed99fc0a82d5f74da999d5a87fdb15899a5ea8f5c006a172d54bc1cfff660c8b",
-    "image.png": "9636edf365720b925767964673077f53f523cd13d35da92e64747e6ca6c5b65a",
-    "audit.json": "9a57273649b04a560f76e90a77c11db89c68a7298b1ea6dd240dbd0f292f2cd4",
-    "redraw_report.json": "de96eba550cda5c0099390b4be60656e813d91ddd151edbd555f5f7ca5451049"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Viewed originalandinitialthinredraw and correctedredraw:explicitthickfold now visiblydistinguishedat2.5pt,grid1pt; onlyonecenterline retained, extendsabove/below. All6greycellpositions and5labels unchanged. Sourcecondition-specificstrokeoverride documented instead oferasing referent."
+    "Six gray cells and A-E positions retain their source cells; black fold line distinguished from gray reference grid."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      75,
-      53,
-      693,
-      714
+  "agent_visual_review": {
+    "status": "inspected",
+    "reviewer": "Agent curator part1",
+    "user_approval": false,
+    "reviewed_at_utc": "2026-10-28T12:56:24.227880+00:00",
+    "method": "Source and final PNG comparison on 12-item contact sheets.",
+    "contact_sheet": ".runtime/protocol_redraw/part1/final_08.jpg",
+    "individual_final_png_viewed": false,
+    "findings": [
+      "Six gray cells and A-E positions retain their source cells; black fold line distinguished from gray reference grid."
     ],
-    "occupancy": 0.8619791666666666,
-    "independent_numeric_checks": {
-      "covered_labels_by_exact_reflection": [
-        "A",
-        "B",
-        "D",
-        "C"
-      ],
-      "uncovered": "E",
-      "semantic_fold_width_pt": 2.5,
-      "duplicate_center_grid_removed": true
-    },
-    "renderer_checks": []
+    "source_sha256": "ea19d6b2a09de970ce69d8614ecaa2964e60187601fd4993c0011fda3571a9f1",
+    "scene_sha256": "45ce56f327a29ec4c3c88106c424e6fb33b158572f021a5d1203cfd0a0e0e3c7",
+    "png_sha256": "2005aadf512d934f94bb9903f55b2620bf3d13b04501ad586bffcf7a41c3e3f9",
+    "svg_sha256": "17587e2949b9f86b3c9a36c83af2e4c59b15e77772bffc25cb59fe1f57e7247a",
+    "serialization_transition": {
+      "reason": "Renderer isolates fill alpha from opaque black edges; SVG regenerated from the final vector figure. Raster is identical to the previously viewed PNG.",
+      "previous_svg_sha256": "837a9f3d7520a2dd74e18914e40b814882a8b41998440406ef5452d71e0301bd",
+      "final_svg_sha256": "17587e2949b9f86b3c9a36c83af2e4c59b15e77772bffc25cb59fe1f57e7247a",
+      "raster_unchanged": true
+    }
   },
-  "required_changes": [],
-  "previous_revisions": [
-    {
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        75,
+        54,
+        693,
+        714
+      ],
+      "content_center_px": [
+        384.0,
+        384.0
+      ],
+      "longest_side_occupancy": 0.8606770833333334,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 0,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
       "reviewer": "independent /root",
       "source_id": "479",
       "category": "transformation_geometry",
-      "reviewed_utc": "2026-10-27T01:04:28.029030+00:00",
-      "verdict": "needs_revision",
+      "reviewed_utc": "2026-10-27T01:07:04.728282+00:00",
+      "verdict": "agent_verified",
       "user_approval": false,
       "hashes": {
         "original.jpg": "ea19d6b2a09de970ce69d8614ecaa2964e60187601fd4993c0011fda3571a9f1",
         "source.json": "10a3ed6966fbd1b596fb537640cdc0ca0566d2ad728be074cc1dfd63e4478b85",
-        "scene.json": "bf17f313583ef2f01552d9b88d4dfc3de4e4ad1cca68a0810a5eca73447d1e27",
-        "render.py": "f9732f2acaa0bede016cf487f76a96121d8ba56370bac5227e1bdcb3985d50d8",
-        "image.png": "13e9188fd264d76bc1d90224fb9a5cb30167bbfc88b63acb0da45590c1690427",
+        "scene.json": "aeba2cdae1b2544346047982c17257e04f31887b2aaeac814541ba59ae5a0a3b",
+        "render.py": "ed99fc0a82d5f74da999d5a87fdb15899a5ea8f5c006a172d54bc1cfff660c8b",
+        "image.png": "9636edf365720b925767964673077f53f523cd13d35da92e64747e6ca6c5b65a",
         "audit.json": "9a57273649b04a560f76e90a77c11db89c68a7298b1ea6dd240dbd0f292f2cd4",
-        "redraw_report.json": "891af3878a7ad86925165eac10fcbd5b7edafc3ee72df3e41264ed6a8dad5dab"
+        "redraw_report.json": "de96eba550cda5c0099390b4be60656e813d91ddd151edbd555f5f7ca5451049"
       },
       "explicit_inspected_facts": [
-        "Actually viewed source and candidate at full resolution.",
-        "Question explicitly refers to thickfoldline, candidatefoldsame1ptasgrid. Preserve meaningfulthickness via scoped documented sourcecondition override; do not silentlyerase referentialstyle."
+        "Viewed originalandinitialthinredraw and correctedredraw:explicitthickfold now visiblydistinguishedat2.5pt,grid1pt; onlyonecenterline retained, extendsabove/below. All6greycellpositions and5labels unchanged. Sourcecondition-specificstrokeoverride documented instead oferasing referent."
       ],
       "checks": {
-        "source_and_redraw_viewed": true,
-        "semantic_fidelity": false
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          75,
+          53,
+          693,
+          714
+        ],
+        "occupancy": 0.8619791666666666,
+        "independent_numeric_checks": {
+          "covered_labels_by_exact_reflection": [
+            "A",
+            "B",
+            "D",
+            "C"
+          ],
+          "uncovered": "E",
+          "semantic_fold_width_pt": 2.5,
+          "duplicate_center_grid_removed": true
+        },
+        "renderer_checks": []
       },
-      "required_changes": [
-        "Question explicitly refers to thickfoldline, candidatefoldsame1ptasgrid. Preserve meaningfulthickness via scoped documented sourcecondition override; do not silentlyerase referentialstyle."
+      "required_changes": [],
+      "previous_revisions": [
+        {
+          "reviewer": "independent /root",
+          "source_id": "479",
+          "category": "transformation_geometry",
+          "reviewed_utc": "2026-10-27T01:04:28.029030+00:00",
+          "verdict": "needs_revision",
+          "user_approval": false,
+          "hashes": {
+            "original.jpg": "ea19d6b2a09de970ce69d8614ecaa2964e60187601fd4993c0011fda3571a9f1",
+            "source.json": "10a3ed6966fbd1b596fb537640cdc0ca0566d2ad728be074cc1dfd63e4478b85",
+            "scene.json": "bf17f313583ef2f01552d9b88d4dfc3de4e4ad1cca68a0810a5eca73447d1e27",
+            "render.py": "f9732f2acaa0bede016cf487f76a96121d8ba56370bac5227e1bdcb3985d50d8",
+            "image.png": "13e9188fd264d76bc1d90224fb9a5cb30167bbfc88b63acb0da45590c1690427",
+            "audit.json": "9a57273649b04a560f76e90a77c11db89c68a7298b1ea6dd240dbd0f292f2cd4",
+            "redraw_report.json": "891af3878a7ad86925165eac10fcbd5b7edafc3ee72df3e41264ed6a8dad5dab"
+          },
+          "explicit_inspected_facts": [
+            "Actually viewed source and candidate at full resolution.",
+            "Question explicitly refers to thickfoldline, candidatefoldsame1ptasgrid. Preserve meaningfulthickness via scoped documented sourcecondition override; do not silentlyerase referentialstyle."
+          ],
+          "checks": {
+            "source_and_redraw_viewed": true,
+            "semantic_fidelity": false
+          },
+          "required_changes": [
+            "Question explicitly refers to thickfoldline, candidatefoldsame1ptasgrid. Preserve meaningfulthickness via scoped documented sourcecondition override; do not silentlyerase referentialstyle."
+          ]
+        }
       ]
     }
-  ]
+  }
 }

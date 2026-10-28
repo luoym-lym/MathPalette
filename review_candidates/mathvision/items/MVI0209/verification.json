@@ -1,100 +1,78 @@
 {
-  "reviewer": "independent /root/review_geometry_redraws",
-  "category": "solid_geometry",
-  "source_id": "209",
-  "reviewed_utc": "2026-10-27T00:52:33.663355+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "Agent curator part1",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
-    "source.json": "6a58f2a199d2d21a2f7d3f0ddaa59915cc94cca66b04717cdb6ed43a1d648c2a",
+    "scene.json": "8788f6f0b89b2e497142bd66ce2ffcbf53efd2f81a71983089cda4b7064fbdc7",
+    "image.png": "9dd8542d120f8ccaf9af1ee116c368031135f4614d1593e6bf2a48d4c78bde2e",
+    "image.svg": "88973d8f4f33763b077864ea4b126cfdac9d6e6c41afafa1ecd18fd93347edb0",
+    "redraw_report.json": "372bd0b01863acae9d0d8868807e2af124f0620d2b59c31dbb74a6aaf55e71b7",
+    "protocol_review.json": "6463239c15a7c09ff24e3e1a6c7d6caa79ff57f87cb3acd7ce45caa7ba024176",
+    "source_redraw.py": "854fffeddd6220bb2986f53708d7d8058a3048946d2fefcb72c7e8f724c1eb44",
+    "execution.json": "28d027257fc73c6760fe175b6ba5770259a060766089de503b751ea3ac2992e2",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "f4dd9658ad166fb8c3d44b14e02f2ea781e3f72085ab9bc7ae31eb6f84d1b24e",
-    "scene.json": "20d202a75472ae4b1d41ca827d574b9cac8fc3578e1fb3f292f0eb6de635a62f",
-    "image.png": "fb008aa664d395d65e2a7e857ac3a1ab8b5f155aaf9daaf28b76c60384885812",
-    "image.svg": "d3524e6120afa9d10d7623ff9a065a375868d3a559b8406b574282f9e66ebae7",
-    "render.py": "854fffeddd6220bb2986f53708d7d8058a3048946d2fefcb72c7e8f724c1eb44",
-    "redraw_report.json": "1ca3a9409bdb5e91e6f318e9e9be3dc40ba41c48ab74865d452c850f4d57d40b",
-    "audit.json": "ab26a1ab1b69849a885e4aefb4a6ba985113bd9c8f299079d1d8d6f0836daeca"
+    "source.json": "6a58f2a199d2d21a2f7d3f0ddaa59915cc94cca66b04717cdb6ed43a1d648c2a",
+    "machine_protocol": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Independently viewed original/candidate: three unit cubes in horizontal front base and upper cube shifted back by one full unit. Upper front-bottom coincides with base rear-top edge (not base front-top); B upper back-right-top, A base front-left-bottom. Source dashed rear cube edges, solid AB crossing and both labels preserved; no support cube invented. Coordinates A0,0,0 B3,2,2 give norm\u00b217, source option A=sqrt17.",
-    "Corrected builder setup209 now agrees with shifted cube B=(3,2,2), norm\u00b217. All report input/output/build hashes checked against current files; source,scene,output hashes unchanged from actual visual/rerender inspection."
+    "Upper unit cube retains the full backward shift and AB endpoints; the source diagonal crosses the step without a fabricated support cube."
   ],
-  "checks": {
-    "source_record_matches_export": true,
-    "source_image_matches_export": true,
-    "report_hashes_match": true,
-    "independent_twice_render_identical": true,
-    "reproduction_matches_pixels": true,
-    "size": [
-      768,
-      768
+  "agent_visual_review": {
+    "status": "inspected",
+    "reviewer": "Agent curator part1",
+    "user_approval": false,
+    "reviewed_at_utc": "2026-10-28T12:56:24.151069+00:00",
+    "method": "Source and final PNG comparison on 12-item contact sheets.",
+    "contact_sheet": ".runtime/protocol_redraw/part1/final_04.jpg",
+    "individual_final_png_viewed": false,
+    "findings": [
+      "Upper unit cube retains the full backward shift and AB endpoints; the source diagonal crosses the step without a fabricated support cube."
     ],
-    "opaque": true,
-    "content_bbox": [
-      52,
-      132,
-      713,
-      631
-    ],
-    "center_offset_px": [
-      -1.0,
-      -2.0
-    ],
-    "occupancy": 0.8619791666666666,
-    "margins_px": [
-      52,
-      132,
-      54,
-      136
-    ],
-    "layout_pass": true,
-    "constraints": [
-      {
-        "id": "projection_and_visibility",
-        "type": "projection",
-        "passed": true,
-        "projection_sha256": "255202fe2645ae399cad3ef9a986cdd2684257ffb2df2050c9ff2b7777c07dc1",
-        "automatic_occlusion": false
-      },
-      {
-        "id": "unit_edge",
-        "type": "distance",
-        "basis": "question each cube unit edge",
-        "measured": 1.0,
-        "passed": true
-      },
-      {
-        "id": "layout",
-        "type": "layout",
-        "outer_margin_fraction": 0.05,
-        "label_line_overlap": false,
-        "label_label_overlap": false,
-        "passed": true
-      }
-    ],
-    "AB_squared_distance": 17.0,
-    "independent_voxel_counts": {
-      "steps": {
-        "count": 4,
-        "shared_faces": 2,
-        "surface_area": 20,
-        "connected": false
-      }
-    },
-    "independent_ray_interior_visibility": {
-      "samples": 117,
-      "mismatches": [],
-      "method": "Independent strict ray/open-box slab interval intersection at20/50/80percent of each drawn edge; compares frozen visibility, no author visibility helper used."
-    }
+    "source_sha256": "f4dd9658ad166fb8c3d44b14e02f2ea781e3f72085ab9bc7ae31eb6f84d1b24e",
+    "scene_sha256": "8788f6f0b89b2e497142bd66ce2ffcbf53efd2f81a71983089cda4b7064fbdc7",
+    "png_sha256": "9dd8542d120f8ccaf9af1ee116c368031135f4614d1593e6bf2a48d4c78bde2e",
+    "svg_sha256": "88973d8f4f33763b077864ea4b126cfdac9d6e6c41afafa1ecd18fd93347edb0"
   },
-  "required_changes": [],
-  "previous_revisions": [
-    {
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        134,
+        713,
+        633
+      ],
+      "content_center_px": [
+        383.5,
+        383.5
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 2,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
       "reviewer": "independent /root/review_geometry_redraws",
       "category": "solid_geometry",
       "source_id": "209",
-      "reviewed_utc": "2026-10-27T00:49:06.460405+00:00",
-      "verdict": "needs_revision",
+      "reviewed_utc": "2026-10-27T00:52:33.663355+00:00",
+      "verdict": "agent_verified",
       "user_approval": false,
       "hashes": {
         "source.json": "6a58f2a199d2d21a2f7d3f0ddaa59915cc94cca66b04717cdb6ed43a1d648c2a",
@@ -103,12 +81,12 @@
         "image.png": "fb008aa664d395d65e2a7e857ac3a1ab8b5f155aaf9daaf28b76c60384885812",
         "image.svg": "d3524e6120afa9d10d7623ff9a065a375868d3a559b8406b574282f9e66ebae7",
         "render.py": "854fffeddd6220bb2986f53708d7d8058a3048946d2fefcb72c7e8f724c1eb44",
-        "redraw_report.json": "e893399b732f97a7b44c3cf8a1af2f21bb91c5bc8be65742609b40001df295c0",
+        "redraw_report.json": "1ca3a9409bdb5e91e6f318e9e9be3dc40ba41c48ab74865d452c850f4d57d40b",
         "audit.json": "ab26a1ab1b69849a885e4aefb4a6ba985113bd9c8f299079d1d8d6f0836daeca"
       },
       "explicit_inspected_facts": [
-        "Independently viewed original/candidate: three unit cubes in horizontal front base and upper cube shifted back by one full unit. Upper front-bottom coincides with base rear-top edge (not base front-top); B upper back-right-top, A base front-left-bottom. Source dashed rear cube edges, solid AB crossing and both labels preserved; no support cube invented. Coordinates A0,0,0 B3,2,2 give norm\u00b217, source option A=sqrt17.",
-        "Provenance issue: build_next.py setup209 still contains obsolete sqrt14/source-conflict explanation although model and current audit corrected. Must update builder audit text and its bound report hashes."
+        "Independently viewed original/candidate: three unit cubes in horizontal front base and upper cube shifted back by one full unit. Upper front-bottom coincides with base rear-top edge (not base front-top); B upper back-right-top, A base front-left-bottom. Source dashed rear cube edges, solid AB crossing and both labels preserved; no support cube invented. Coordinates A0,0,0 B3,2,2 give norm²17, source option A=sqrt17.",
+        "Corrected builder setup209 now agrees with shifted cube B=(3,2,2), norm²17. All report input/output/build hashes checked against current files; source,scene,output hashes unchanged from actual visual/rerender inspection."
       ],
       "checks": {
         "source_record_matches_export": true,
@@ -178,10 +156,103 @@
           "method": "Independent strict ray/open-box slab interval intersection at20/50/80percent of each drawn edge; compares frozen visibility, no author visibility helper used."
         }
       },
-      "required_changes": [
-        "Correct stale209 builder setup reasoning/ambiguity, refresh builder hash binding in affected reports; current image/math pass."
-      ],
-      "previous_revisions": []
+      "required_changes": [],
+      "previous_revisions": [
+        {
+          "reviewer": "independent /root/review_geometry_redraws",
+          "category": "solid_geometry",
+          "source_id": "209",
+          "reviewed_utc": "2026-10-27T00:49:06.460405+00:00",
+          "verdict": "needs_revision",
+          "user_approval": false,
+          "hashes": {
+            "source.json": "6a58f2a199d2d21a2f7d3f0ddaa59915cc94cca66b04717cdb6ed43a1d648c2a",
+            "original.jpg": "f4dd9658ad166fb8c3d44b14e02f2ea781e3f72085ab9bc7ae31eb6f84d1b24e",
+            "scene.json": "20d202a75472ae4b1d41ca827d574b9cac8fc3578e1fb3f292f0eb6de635a62f",
+            "image.png": "fb008aa664d395d65e2a7e857ac3a1ab8b5f155aaf9daaf28b76c60384885812",
+            "image.svg": "d3524e6120afa9d10d7623ff9a065a375868d3a559b8406b574282f9e66ebae7",
+            "render.py": "854fffeddd6220bb2986f53708d7d8058a3048946d2fefcb72c7e8f724c1eb44",
+            "redraw_report.json": "e893399b732f97a7b44c3cf8a1af2f21bb91c5bc8be65742609b40001df295c0",
+            "audit.json": "ab26a1ab1b69849a885e4aefb4a6ba985113bd9c8f299079d1d8d6f0836daeca"
+          },
+          "explicit_inspected_facts": [
+            "Independently viewed original/candidate: three unit cubes in horizontal front base and upper cube shifted back by one full unit. Upper front-bottom coincides with base rear-top edge (not base front-top); B upper back-right-top, A base front-left-bottom. Source dashed rear cube edges, solid AB crossing and both labels preserved; no support cube invented. Coordinates A0,0,0 B3,2,2 give norm²17, source option A=sqrt17.",
+            "Provenance issue: build_next.py setup209 still contains obsolete sqrt14/source-conflict explanation although model and current audit corrected. Must update builder audit text and its bound report hashes."
+          ],
+          "checks": {
+            "source_record_matches_export": true,
+            "source_image_matches_export": true,
+            "report_hashes_match": true,
+            "independent_twice_render_identical": true,
+            "reproduction_matches_pixels": true,
+            "size": [
+              768,
+              768
+            ],
+            "opaque": true,
+            "content_bbox": [
+              52,
+              132,
+              713,
+              631
+            ],
+            "center_offset_px": [
+              -1.0,
+              -2.0
+            ],
+            "occupancy": 0.8619791666666666,
+            "margins_px": [
+              52,
+              132,
+              54,
+              136
+            ],
+            "layout_pass": true,
+            "constraints": [
+              {
+                "id": "projection_and_visibility",
+                "type": "projection",
+                "passed": true,
+                "projection_sha256": "255202fe2645ae399cad3ef9a986cdd2684257ffb2df2050c9ff2b7777c07dc1",
+                "automatic_occlusion": false
+              },
+              {
+                "id": "unit_edge",
+                "type": "distance",
+                "basis": "question each cube unit edge",
+                "measured": 1.0,
+                "passed": true
+              },
+              {
+                "id": "layout",
+                "type": "layout",
+                "outer_margin_fraction": 0.05,
+                "label_line_overlap": false,
+                "label_label_overlap": false,
+                "passed": true
+              }
+            ],
+            "AB_squared_distance": 17.0,
+            "independent_voxel_counts": {
+              "steps": {
+                "count": 4,
+                "shared_faces": 2,
+                "surface_area": 20,
+                "connected": false
+              }
+            },
+            "independent_ray_interior_visibility": {
+              "samples": 117,
+              "mismatches": [],
+              "method": "Independent strict ray/open-box slab interval intersection at20/50/80percent of each drawn edge; compares frozen visibility, no author visibility helper used."
+            }
+          },
+          "required_changes": [
+            "Correct stale209 builder setup reasoning/ambiguity, refresh builder hash binding in affected reports; current image/math pass."
+          ],
+          "previous_revisions": []
+        }
+      ]
     }
-  ]
+  }
 }

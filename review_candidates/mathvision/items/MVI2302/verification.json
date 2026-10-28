@@ -1,56 +1,137 @@
 {
-  "reviewer": "independent /root/review_transformation_batch",
-  "source_id": "2302",
-  "category": "transformation_geometry",
-  "reviewed_utc": "2026-10-27T01:51:36.329495+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "redraw_part4",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "9dfc6a81de18606bd837c1fb1969c2be1ee14278d46b17773db1a3c8358dbe11",
+    "image.png": "46f5140324c37fd93d991ab5ec95884f778950225d8367b4cc48ca2a7848becc",
+    "image.svg": "36f7b2a06283c59e20b59c63e935d3d15db33f3a1e531e5c76b04119288e1ee0",
+    "redraw_report.json": "3cf9f40389df3da8aa0d021657a32b65a0c173d35a1bb379e48cdbd4e273eb60",
+    "protocol_review.json": "68e57162af9aad8ad18d18faf1e5472078274290392868b329c125a0e143d06b",
+    "source_redraw.py": "72ed6412df7fb4870ef4f96749d436e14ac4e5550032349009fec0a7b6296252",
+    "execution.json": "03ebe91b1f6580bfa897c584644210da1565ce8eaca4a2525ef4b171c4d92fe5",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "619eb19a92e117b593ab163c2893eb50b6779c58f398a2cea2bb485de95e8fb5",
     "source.json": "cb8ca7beba9003e8cab1e2f34b358614a4b4f0f52bc02e682ddaeb89c1da520f",
-    "scene.json": "f54411f34b16b263c1f100a2ac4b29c82a292017a6db1f65b7451d874657a3fc",
-    "render.py": "72ed6412df7fb4870ef4f96749d436e14ac4e5550032349009fec0a7b6296252",
-    "image.png": "58ebefcf294e89797387486fa10cd6e31c7a2dbdb031a21eadc85f6da413d89a",
-    "audit.json": "d110e507669b8fd28978542e8263149ee8c163113d471b60565041ff3b43ce75",
-    "redraw_report.json": "93c9c53020f38e0f920f0fe44203cd98945a58c7fa83fb1c1e910aa5bd6d0ab0"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Individually viewed original and revised output: rectangle left/top solid, lower-right/right original edges dotted, folded corner reaches left side, crease L runs lower point to top-right. Theta single arc between crease and downward original right edge; width6-inch dimension now protocol parallel dashed with perpendicular connectors and explicit BL/C bindings."
+    "Individually viewed angle theta binding at top-right between the crease and vertical dotted edge, with the full6-inch dimension span below.",
+    "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      129,
-      54,
-      637,
-      714
-    ],
-    "occupancy": 0.8606770833333334,
-    "independent_numeric_checks": {
-      "answer": "A",
-      "frozen_theta_degrees": 29.999999999999993,
-      "frozen_crease_length": 8.0,
-      "formula_value": 8.000000000000002,
-      "proof": "Let right-edge height H and fold angle theta to vertical. Reflection of lower-right corner about crease displaces x by H sin(2theta)=6; L=H/cos(theta)=3sec\u00b2(theta)csc(theta)."
+  "agent_visual_review": {
+    "status": "agent_viewed",
+    "reviewer": "redraw_part4",
+    "source_inspection": {
+      "status": "viewed",
+      "sheet": ".runtime/protocol_redraw/part4/source_04.jpg",
+      "complete_question_read": true
     },
-    "renderer_checks": [
-      {
-        "id": "arc_binding_theta",
-        "type": "angle_annotation",
-        "label_id": "theta",
-        "arc_id": "o8",
-        "measured": 1,
-        "passed": true
-      }
+    "new_render_viewed": true,
+    "final_png_view": {
+      "method": "final render contact sheet",
+      "path": ".runtime/protocol_redraw/part4/new_04.jpg",
+      "cell": 6,
+      "individual_zoom": true
+    },
+    "source_sha256": "619eb19a92e117b593ab163c2893eb50b6779c58f398a2cea2bb485de95e8fb5",
+    "scene_sha256": "9dfc6a81de18606bd837c1fb1969c2be1ee14278d46b17773db1a3c8358dbe11",
+    "png_sha256": "46f5140324c37fd93d991ab5ec95884f778950225d8367b4cc48ca2a7848becc",
+    "svg_sha256": "36f7b2a06283c59e20b59c63e935d3d15db33f3a1e531e5c76b04119288e1ee0",
+    "findings": [
+      "Individually viewed angle theta binding at top-right between the crease and vertical dotted edge, with the full6-inch dimension span below.",
+      "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
     ],
-    "report_hashes_valid": true
+    "user_approved": false
   },
-  "required_changes": [],
-  "previous_revisions": [],
-  "dependency_hashes": {
-    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
-    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        130,
+        54,
+        637,
+        713
+      ],
+      "content_center_px": [
+        383.5,
+        383.5
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 1,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root/review_transformation_batch",
+      "source_id": "2302",
+      "category": "transformation_geometry",
+      "reviewed_utc": "2026-10-27T01:51:36.329495+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "619eb19a92e117b593ab163c2893eb50b6779c58f398a2cea2bb485de95e8fb5",
+        "source.json": "cb8ca7beba9003e8cab1e2f34b358614a4b4f0f52bc02e682ddaeb89c1da520f",
+        "scene.json": "f54411f34b16b263c1f100a2ac4b29c82a292017a6db1f65b7451d874657a3fc",
+        "render.py": "72ed6412df7fb4870ef4f96749d436e14ac4e5550032349009fec0a7b6296252",
+        "image.png": "58ebefcf294e89797387486fa10cd6e31c7a2dbdb031a21eadc85f6da413d89a",
+        "audit.json": "d110e507669b8fd28978542e8263149ee8c163113d471b60565041ff3b43ce75",
+        "redraw_report.json": "93c9c53020f38e0f920f0fe44203cd98945a58c7fa83fb1c1e910aa5bd6d0ab0"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed original and revised output: rectangle left/top solid, lower-right/right original edges dotted, folded corner reaches left side, crease L runs lower point to top-right. Theta single arc between crease and downward original right edge; width6-inch dimension now protocol parallel dashed with perpendicular connectors and explicit BL/C bindings."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          129,
+          54,
+          637,
+          714
+        ],
+        "occupancy": 0.8606770833333334,
+        "independent_numeric_checks": {
+          "answer": "A",
+          "frozen_theta_degrees": 29.999999999999993,
+          "frozen_crease_length": 8.0,
+          "formula_value": 8.000000000000002,
+          "proof": "Let right-edge height H and fold angle theta to vertical. Reflection of lower-right corner about crease displaces x by H sin(2theta)=6; L=H/cos(theta)=3sec²(theta)csc(theta)."
+        },
+        "renderer_checks": [
+          {
+            "id": "arc_binding_theta",
+            "type": "angle_annotation",
+            "label_id": "theta",
+            "arc_id": "o8",
+            "measured": 1,
+            "passed": true
+          }
+        ],
+        "report_hashes_valid": true
+      },
+      "required_changes": [],
+      "previous_revisions": [],
+      "dependency_hashes": {
+        "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+        "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+      }
+    }
   }
 }

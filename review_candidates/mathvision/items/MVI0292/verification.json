@@ -1,50 +1,121 @@
 {
-  "reviewer": "independent /root/review_transformation_batch",
-  "source_id": "292",
-  "category": "transformation_geometry",
-  "reviewed_utc": "2026-10-27T03:04:38.592926+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "Agent curator part1",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "fde34255823b7c27a6ef2d3df98dfae33db063aabc5e369342e666afcacda239",
+    "image.png": "eb1c944f7a3b0436f7309c3137e528e834001cdb0be4248e5ab227ebd4653e85",
+    "image.svg": "bff9fd5c43ead08209371a2023a437f7e5072845df39f3a561db045eef83773f",
+    "redraw_report.json": "ba08213e4becf09f5efc01d129065648be06d28fe7ab0ab5883cbe856c7f329e",
+    "protocol_review.json": "6aff81f35d6b2927e55faaa4742444cc8e91ecfd84957db1f1c53dbbbee180e5",
+    "source_redraw.py": "f9732f2acaa0bede016cf487f76a96121d8ba56370bac5227e1bdcb3985d50d8",
+    "execution.json": "98bbe7a4db224085b941e8ec2135661e2c81a4e6cec204c308d83d3d24287848",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "8f88ac514042ba14e241817ec59f3e227a752cfedf66a85de580575956743005",
     "source.json": "3e605ffa08cbe5af036b90ed2d46916bcc90811a8aa78a1ea166030df16f901b",
-    "scene.json": "af26de501e19982416d06d0bc21d999cf399b9814e5eac0ead2551b9d955fdea",
-    "render.py": "f9732f2acaa0bede016cf487f76a96121d8ba56370bac5227e1bdcb3985d50d8",
-    "image.png": "94d4793cbd71cb13677300fed40aaf02fdd228b2602302a5561e1e517743be51",
-    "audit.json": "5932574cfe17642d2aae5db4eb543a5113fc17c5860fbcdd6915bedc678dec69",
-    "redraw_report.json": "63e739ed2ba3745345b1749f9e8646fcd7c6ad78785f34684df0c48b8762a7a7"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Individually viewed original and candidate: three vertically stacked stages preserve white front/gray back; B\u2192M arrow and first crease, D\u2192N arrow and second crease, final two opposite gray folded flaps around central white parallelogram. Primed labels correspond to reflected vertices and do not touch edges.",
-    "Coordinates A=(0,5),B=(50,5),C=(50,0),D=(0,0). B\u2192M=(25,0) crease5x+y=190; D\u2192N=(25,5) crease5x+y=65. Their intersections with horizontal boundaries and flap boundaries leave white vertices(13,0),(25,0),(37,5),(25,5). Base12 height5 yields60, optionB; candidate shoelace independently60."
+    "Three folded-strip panels retain white front versus gray reverse, dashed creases and the full named-point sequence."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      71,
-      54,
-      696,
-      713
+  "agent_visual_review": {
+    "status": "inspected",
+    "reviewer": "Agent curator part1",
+    "user_approval": false,
+    "reviewed_at_utc": "2026-10-28T12:56:24.170087+00:00",
+    "method": "Source and final PNG comparison on 12-item contact sheets.",
+    "contact_sheet": ".runtime/protocol_redraw/part1/final_05.jpg",
+    "individual_final_png_viewed": false,
+    "findings": [
+      "Three folded-strip panels retain white front versus gray reverse, dashed creases and the full named-point sequence."
     ],
-    "occupancy": 0.859375,
-    "independent_numeric_checks": {
-      "crease_equations": [
-        "5x+y=190",
-        "5x+y=65"
-      ],
-      "visible_white_area": 60.0,
-      "answer": "B:60"
-    },
-    "renderer_checks": [],
-    "report_hashes_valid": true,
-    "isolated_standalone_render_identical": true
+    "source_sha256": "8f88ac514042ba14e241817ec59f3e227a752cfedf66a85de580575956743005",
+    "scene_sha256": "fde34255823b7c27a6ef2d3df98dfae33db063aabc5e369342e666afcacda239",
+    "png_sha256": "eb1c944f7a3b0436f7309c3137e528e834001cdb0be4248e5ab227ebd4653e85",
+    "svg_sha256": "bff9fd5c43ead08209371a2023a437f7e5072845df39f3a561db045eef83773f"
   },
-  "required_changes": [],
-  "previous_revisions": [],
-  "dependency_hashes": {
-    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
-    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        71,
+        54,
+        696,
+        713
+      ],
+      "content_center_px": [
+        383.5,
+        383.5
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 0,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root/review_transformation_batch",
+      "source_id": "292",
+      "category": "transformation_geometry",
+      "reviewed_utc": "2026-10-27T03:04:38.592926+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "8f88ac514042ba14e241817ec59f3e227a752cfedf66a85de580575956743005",
+        "source.json": "3e605ffa08cbe5af036b90ed2d46916bcc90811a8aa78a1ea166030df16f901b",
+        "scene.json": "af26de501e19982416d06d0bc21d999cf399b9814e5eac0ead2551b9d955fdea",
+        "render.py": "f9732f2acaa0bede016cf487f76a96121d8ba56370bac5227e1bdcb3985d50d8",
+        "image.png": "94d4793cbd71cb13677300fed40aaf02fdd228b2602302a5561e1e517743be51",
+        "audit.json": "5932574cfe17642d2aae5db4eb543a5113fc17c5860fbcdd6915bedc678dec69",
+        "redraw_report.json": "63e739ed2ba3745345b1749f9e8646fcd7c6ad78785f34684df0c48b8762a7a7"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed original and candidate: three vertically stacked stages preserve white front/gray back; B→M arrow and first crease, D→N arrow and second crease, final two opposite gray folded flaps around central white parallelogram. Primed labels correspond to reflected vertices and do not touch edges.",
+        "Coordinates A=(0,5),B=(50,5),C=(50,0),D=(0,0). B→M=(25,0) crease5x+y=190; D→N=(25,5) crease5x+y=65. Their intersections with horizontal boundaries and flap boundaries leave white vertices(13,0),(25,0),(37,5),(25,5). Base12 height5 yields60, optionB; candidate shoelace independently60."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          71,
+          54,
+          696,
+          713
+        ],
+        "occupancy": 0.859375,
+        "independent_numeric_checks": {
+          "crease_equations": [
+            "5x+y=190",
+            "5x+y=65"
+          ],
+          "visible_white_area": 60.0,
+          "answer": "B:60"
+        },
+        "renderer_checks": [],
+        "report_hashes_valid": true,
+        "isolated_standalone_render_identical": true
+      },
+      "required_changes": [],
+      "previous_revisions": [],
+      "dependency_hashes": {
+        "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+        "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+      }
+    }
   }
 }

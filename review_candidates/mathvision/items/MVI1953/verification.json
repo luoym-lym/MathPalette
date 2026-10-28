@@ -1,50 +1,132 @@
 {
-  "reviewer": "independent /root/review_transformation_batch",
-  "source_id": "1953",
-  "category": "transformation_geometry",
-  "reviewed_utc": "2026-10-27T02:14:16.673744+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "redraw_part4",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "917b85ec09b563d472788dec9dcd23f4fec727b5aad8edc44b5076183bb8341c",
+    "image.png": "54bc49a602a405c8e85ef5ce80dc26e5de77efaf0ef56f754432885624fcd708",
+    "image.svg": "fd6b69e9748b8be35545b28815da9e8db22be69305daa1d094441685f919bedd",
+    "redraw_report.json": "6e619c995ff4b115cc524c15c44302733f21e9907e65edf9a1d5a67a39df7314",
+    "protocol_review.json": "086ce3927b1256167699efef0c134f26d6fc44c563e549538a0d79ad4be4c95a",
+    "source_redraw.py": "f9732f2acaa0bede016cf487f76a96121d8ba56370bac5227e1bdcb3985d50d8",
+    "execution.json": "cbdc3f06b1c0d97e1dfa6dd81ff2e1ed647114c8a68374777aa8c79a5ae37a52",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "39a2ec1460e9df9fa2053d0071ee11646d9f8e3c747ed1890ddcaf80b954e786",
     "source.json": "91552e86dea274995724f36f6ed8ef4778d615a0c4b9a2b5acea735d320bb8a4",
-    "scene.json": "dc70c050186d8224ceefb60648efa1f1e40a10df735c874ea188ac3e2d494c0b",
-    "render.py": "f9732f2acaa0bede016cf487f76a96121d8ba56370bac5227e1bdcb3985d50d8",
-    "image.png": "5063733192493877f3b0a990a05c20865842f23182710912c3534f9d2e56783a",
-    "audit.json": "caa5ee8d4b1c835f61eec1e69e4d2aba34d6ca02667f859682bb08b57669d530",
-    "redraw_report.json": "39c02ca282ad29830b7e06f245e03a08e75790a4bcd3a671617153023f6055ca"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Individually viewed original and candidate: horizontal 3\u00d79 rectangle crossed by upward-right congruent rectangle, shared opposite corners, central gray parallelogram and four unfilled triangular tips. No labels invented.",
-    "The congruent exterior right triangles have short leg3, long leg x, hypotenuse y, with x+y=9. Hence (y-x)9=9 giving x=4,y=5. Rectangle area27 minus two triangles of area6 gives15, option D."
+    "Compared source and final vector redraw: source connections, region identities, point order, displayed labels and layout retained; no new solving construction introduced.",
+    "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      54,
-      98,
-      714,
-      669
-    ],
-    "occupancy": 0.8606770833333334,
-    "independent_numeric_checks": {
-      "overlap_area": 15,
-      "exterior_triangle_legs": [
-        3,
-        4
-      ],
-      "answer": "D:15",
-      "shoelace_area": 15.0
+  "agent_visual_review": {
+    "status": "agent_viewed",
+    "reviewer": "redraw_part4",
+    "source_inspection": {
+      "status": "viewed",
+      "sheet": ".runtime/protocol_redraw/part4/source_02.jpg",
+      "complete_question_read": true
     },
-    "renderer_checks": [],
-    "report_hashes_valid": true
+    "new_render_viewed": true,
+    "final_png_view": {
+      "method": "final render contact sheet",
+      "path": ".runtime/protocol_redraw/part4/new_02.jpg",
+      "cell": 5,
+      "individual_zoom": false
+    },
+    "source_sha256": "39a2ec1460e9df9fa2053d0071ee11646d9f8e3c747ed1890ddcaf80b954e786",
+    "scene_sha256": "917b85ec09b563d472788dec9dcd23f4fec727b5aad8edc44b5076183bb8341c",
+    "png_sha256": "54bc49a602a405c8e85ef5ce80dc26e5de77efaf0ef56f754432885624fcd708",
+    "svg_sha256": "fd6b69e9748b8be35545b28815da9e8db22be69305daa1d094441685f919bedd",
+    "findings": [
+      "Compared source and final vector redraw: source connections, region identities, point order, displayed labels and layout retained; no new solving construction introduced.",
+      "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
+    ],
+    "user_approved": false,
+    "svg_rebinding_note": "Central final renderer regenerated vector SVG from the same Figure. PNG and scene hashes are unchanged from the actual visual inspection; this updates SVG serialization evidence without claiming another raster viewing."
   },
-  "required_changes": [],
-  "previous_revisions": [],
-  "dependency_hashes": {
-    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
-    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        98,
+        713,
+        669
+      ],
+      "content_center_px": [
+        383.5,
+        383.5
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 0,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root/review_transformation_batch",
+      "source_id": "1953",
+      "category": "transformation_geometry",
+      "reviewed_utc": "2026-10-27T02:14:16.673744+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "39a2ec1460e9df9fa2053d0071ee11646d9f8e3c747ed1890ddcaf80b954e786",
+        "source.json": "91552e86dea274995724f36f6ed8ef4778d615a0c4b9a2b5acea735d320bb8a4",
+        "scene.json": "dc70c050186d8224ceefb60648efa1f1e40a10df735c874ea188ac3e2d494c0b",
+        "render.py": "f9732f2acaa0bede016cf487f76a96121d8ba56370bac5227e1bdcb3985d50d8",
+        "image.png": "5063733192493877f3b0a990a05c20865842f23182710912c3534f9d2e56783a",
+        "audit.json": "caa5ee8d4b1c835f61eec1e69e4d2aba34d6ca02667f859682bb08b57669d530",
+        "redraw_report.json": "39c02ca282ad29830b7e06f245e03a08e75790a4bcd3a671617153023f6055ca"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed original and candidate: horizontal 3×9 rectangle crossed by upward-right congruent rectangle, shared opposite corners, central gray parallelogram and four unfilled triangular tips. No labels invented.",
+        "The congruent exterior right triangles have short leg3, long leg x, hypotenuse y, with x+y=9. Hence (y-x)9=9 giving x=4,y=5. Rectangle area27 minus two triangles of area6 gives15, option D."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          54,
+          98,
+          714,
+          669
+        ],
+        "occupancy": 0.8606770833333334,
+        "independent_numeric_checks": {
+          "overlap_area": 15,
+          "exterior_triangle_legs": [
+            3,
+            4
+          ],
+          "answer": "D:15",
+          "shoelace_area": 15.0
+        },
+        "renderer_checks": [],
+        "report_hashes_valid": true
+      },
+      "required_changes": [],
+      "previous_revisions": [],
+      "dependency_hashes": {
+        "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+        "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+      }
+    }
   }
 }

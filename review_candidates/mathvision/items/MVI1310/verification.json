@@ -1,46 +1,121 @@
 {
-  "reviewer": "independent /root/review_transformation_batch",
-  "source_id": "1310",
-  "category": "transformation_geometry",
-  "reviewed_utc": "2026-10-27T02:57:21.094750+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "protocol_redraw_part3",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "ee670b65b253487fda36ddb0f7b86819e871068a570d310b6015bbbb49e69fdd",
+    "image.png": "4a27d60099b8108254b0c0c694b5a0860498ccd8d318bd7debe0b982ccd99dc9",
+    "image.svg": "5d1af7478b3296a348a09ce9c7360b18095347bcff29c532f3032f7aa70b152c",
+    "redraw_report.json": "301355fc2da1168371ddbcb2114a4415a8c7819f791c674d12298385d017ab83",
+    "protocol_review.json": "599f075ff99e5c04ffb8ae3f893a3032e8114b0f51ab6397e701c1da7e8725a7",
+    "source_redraw.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
+    "execution.json": "79109cce57ca62c7d88a4bbc8f6f59551b7af04a4b164525a81833fe36daf165",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "566135bc355bac1fbe91d2a7290b4b7b0c644ce100d59683dce4f2576e913faf",
     "source.json": "35659bf01305120da40397dd9f4cf6754bc9c139c6f47fe68e119ea77479bc62",
-    "scene.json": "212a4223522dc80b1a2c27df5b5c037340d0e9f61467756d5c9be64b5ba128f8",
-    "render.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
-    "image.png": "b34efcdaecfec6e19be9b22fa10e15cef48bf1267a4ddd7a8be6cfad8da55e17",
-    "audit.json": "45e6b48478baaea95e4a36494bbe1d0b1fadefc197b4f2a6b4ff57957a1e68b9",
-    "redraw_report.json": "2d5288d55c0c0516e534d5f3237ae4ae28ff99c42aad71c7a821578f002c3d4d"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Individually viewed source and candidate: seven-segment-like outlined2008, choices A2008 B5008 C8002 D8005 E2005 preserve all digit strokes. Labels A-E unambiguous after reflow.",
-    "Handstand halfturn followed by left-right mirror gives top-bottom reflection, preserving digit order. Digit2 becomes5 and 0/8 stay invariant, giving5008 (B). All24 source segments reflected vertically and compared as unordered edges with optionB exactly."
+    "Seven-segment2008 glyph arrangement and all five transformed numeral alternatives retained without turning them into ordinary font digits."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      53,
-      194,
-      713,
-      573
-    ],
-    "occupancy": 0.8606770833333334,
-    "independent_numeric_checks": {
-      "reflected_segments_checked": 24,
-      "answer": "B:5008"
-    },
-    "renderer_checks": [],
-    "report_hashes_valid": true,
-    "isolated_standalone_render_identical": true
+  "agent_visual_review": {
+    "status": "agent_reviewed",
+    "reviewer": "protocol_redraw_part3",
+    "reviewed_at_utc": "2026-10-28T12:58:04.357891+00:00",
+    "source_compared": true,
+    "method": "Viewed final source/redraw comparison contact sheet",
+    "contact_sheet": ".runtime/protocol_redraw/part3/new_04.jpg",
+    "contact_sheet_sha256": "6cda550c729de588317b77d57b6fc7e200c5da5f292f264d2f52459a419c7770",
+    "png_sha256": "4a27d60099b8108254b0c0c694b5a0860498ccd8d318bd7debe0b982ccd99dc9",
+    "svg_sha256": "5d1af7478b3296a348a09ce9c7360b18095347bcff29c532f3032f7aa70b152c",
+    "scene_sha256": "ee670b65b253487fda36ddb0f7b86819e871068a570d310b6015bbbb49e69fdd",
+    "source_sha256": "566135bc355bac1fbe91d2a7290b4b7b0c644ce100d59683dce4f2576e913faf",
+    "final_png_sha256": "4a27d60099b8108254b0c0c694b5a0860498ccd8d318bd7debe0b982ccd99dc9",
+    "final_scene_sha256": "ee670b65b253487fda36ddb0f7b86819e871068a570d310b6015bbbb49e69fdd",
+    "findings": "Seven-segment2008 glyph arrangement and all five transformed numeral alternatives retained without turning them into ordinary font digits.",
+    "unresolved_source_issues": [],
+    "user_approved": false,
+    "scope": "Agent visual review only. All candidates remain pending user review.",
+    "svg_binding_basis": "Current deterministic vector export from the unchanged scene; serialization hash rebound mechanically. Original PNG visual inspection evidence and timestamp are preserved."
   },
-  "required_changes": [],
-  "previous_revisions": [],
-  "dependency_hashes": {
-    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
-    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        194,
+        714,
+        573
+      ],
+      "content_center_px": [
+        384.0,
+        383.5
+      ],
+      "longest_side_occupancy": 0.8606770833333334,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 0,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root/review_transformation_batch",
+      "source_id": "1310",
+      "category": "transformation_geometry",
+      "reviewed_utc": "2026-10-27T02:57:21.094750+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "566135bc355bac1fbe91d2a7290b4b7b0c644ce100d59683dce4f2576e913faf",
+        "source.json": "35659bf01305120da40397dd9f4cf6754bc9c139c6f47fe68e119ea77479bc62",
+        "scene.json": "212a4223522dc80b1a2c27df5b5c037340d0e9f61467756d5c9be64b5ba128f8",
+        "render.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
+        "image.png": "b34efcdaecfec6e19be9b22fa10e15cef48bf1267a4ddd7a8be6cfad8da55e17",
+        "audit.json": "45e6b48478baaea95e4a36494bbe1d0b1fadefc197b4f2a6b4ff57957a1e68b9",
+        "redraw_report.json": "2d5288d55c0c0516e534d5f3237ae4ae28ff99c42aad71c7a821578f002c3d4d"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed source and candidate: seven-segment-like outlined2008, choices A2008 B5008 C8002 D8005 E2005 preserve all digit strokes. Labels A-E unambiguous after reflow.",
+        "Handstand halfturn followed by left-right mirror gives top-bottom reflection, preserving digit order. Digit2 becomes5 and 0/8 stay invariant, giving5008 (B). All24 source segments reflected vertically and compared as unordered edges with optionB exactly."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          53,
+          194,
+          713,
+          573
+        ],
+        "occupancy": 0.8606770833333334,
+        "independent_numeric_checks": {
+          "reflected_segments_checked": 24,
+          "answer": "B:5008"
+        },
+        "renderer_checks": [],
+        "report_hashes_valid": true,
+        "isolated_standalone_render_identical": true
+      },
+      "required_changes": [],
+      "previous_revisions": [],
+      "dependency_hashes": {
+        "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+        "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+      }
+    }
   }
 }

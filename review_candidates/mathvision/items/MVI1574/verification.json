@@ -1,258 +1,339 @@
 {
-  "reviewer": "independent /root/review_transformation_batch",
-  "source_id": "1574",
-  "category": "transformation_geometry",
-  "reviewed_utc": "2026-10-27T03:57:37.220040+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "protocol_redraw_part3",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "11b48f3aa08724fd04c1bd261522a6f7dc7fca2abe4cad744b81e287a802a54f",
+    "image.png": "35917adb82391e0d5673b6557b4e5cfc4866b1f459eaadbfc048620eced369af",
+    "image.svg": "0bbbb03cb6f377fa9935f792b95761a4ca69213ebe3b0cfb97a348525f59fc7a",
+    "redraw_report.json": "37211d37c5fac152ece10f9d499b80a89addb7ca8c0f09562740f6b871b6bc6b",
+    "protocol_review.json": "75001bb9b72736160d4e5185fbfd5d3dc55693cfa4fc0ce52df50065ed3a01aa",
+    "source_redraw.py": "6953ee978d3b318bf2dd3be73e44607e1c5880b85e60e3ede0db867a44dbc86f",
+    "execution.json": "c8a7f3efda3434beba73e1080acd1ed09f77d08f2a08a4e4f07248d723cbbfc0",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "90bdbb5c8059756a6e6df8ae91c5cf20082a9cc39f1cb2498044a781248be849",
     "source.json": "a016be6c628cc49d882c24de6d4459a000928eeaa1d4fc09ecef886b6974451e",
-    "scene.json": "fee39c4d922f8f546fcb60ac11a210173fc49e51da14d0df0cbcb7ea201806db",
-    "render.py": "6953ee978d3b318bf2dd3be73e44607e1c5880b85e60e3ede0db867a44dbc86f",
-    "image.png": "17c7a52326a3f5e6b58b51bf10198dfd3ac6107b354d86add2bfa2d9491e0453",
-    "audit.json": "32ace7fc2bdb9551bf82d0576d6c2c89925e20558c0fb0aae6809a83fdd2894f",
-    "redraw_report.json": "387aa349f5b335847bc90d04e1591eed945df5ca2fe71d330254ec8d8ba7f16e"
+    "machine_protocol": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Individually viewed original and candidate. Prompt rounded notched wood has four top/four bottom notches, upper tails at1 and4, visible ropes1\u21921,2\u21923,3\u21924. Exact source-specific option ordering retained;1065 arrowhead below axis whereas1574 above, matching respective originals. Rear edges/ropes intentionally hidden by opaque wood, no invented dashed lines; full extruded3D front/back geometry exists."
+    "Given rope/wood outline and five rotated options retain all visible strands, ends and grooves; unseen rear routing remains ambiguous."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      54,
-      206,
-      713,
-      561
+  "agent_visual_review": {
+    "status": "agent_reviewed",
+    "reviewer": "protocol_redraw_part3",
+    "reviewed_at_utc": "2026-10-28T12:58:04.405107+00:00",
+    "source_compared": true,
+    "method": "Viewed final source/redraw comparison contact sheet; also viewed final PNG individually at full size",
+    "contact_sheet": ".runtime/protocol_redraw/part3/new_08.jpg",
+    "contact_sheet_sha256": "c7c9c8898f2b1738b8a7d8ac0fb8c60d719d32d7404d84651507f881c62c8dec",
+    "png_sha256": "35917adb82391e0d5673b6557b4e5cfc4866b1f459eaadbfc048620eced369af",
+    "svg_sha256": "0bbbb03cb6f377fa9935f792b95761a4ca69213ebe3b0cfb97a348525f59fc7a",
+    "scene_sha256": "11b48f3aa08724fd04c1bd261522a6f7dc7fca2abe4cad744b81e287a802a54f",
+    "source_sha256": "90bdbb5c8059756a6e6df8ae91c5cf20082a9cc39f1cb2498044a781248be849",
+    "final_png_sha256": "35917adb82391e0d5673b6557b4e5cfc4866b1f459eaadbfc048620eced369af",
+    "final_scene_sha256": "11b48f3aa08724fd04c1bd261522a6f7dc7fca2abe4cad744b81e287a802a54f",
+    "findings": "Given rope/wood outline and five rotated options retain all visible strands, ends and grooves; unseen rear routing remains ambiguous.",
+    "unresolved_source_issues": [
+      "Source does not show the rear rope route; preserve visible strands/options and do not invent a unique unseen route."
     ],
-    "occupancy": 0.859375,
-    "independent_numeric_checks": {
-      "answer": "D",
-      "proof": "180\u00b0 rotation about length swaps top/bottom and reveals rear without reversing left/right. Original upper notch1 and4 tails become lower tails. Each original upper notch has rope, so all four new lower notches must be occupied. Only selected option has tails at1/4 plus internal connections covering2/3/4 once. Other downward-tail choices omit notch or double-use it; upward-tail choices impossible.",
-      "independently_enumerated_single_rope_rear_connections": [
-        [
-          [
-            0,
-            1
-          ],
-          [
-            2,
-            2
-          ],
-          [
-            3,
-            3
-          ]
-        ],
-        [
-          [
-            0,
-            2
-          ],
-          [
-            2,
-            3
-          ],
-          [
-            3,
-            1
-          ]
-        ]
-      ],
-      "qualification": "Two hidden connections can form one continuous rope; unique among offered options, not uniquely determined arbitrary backside.",
-      "native_extrusion_thicknesses": [
-        0.23199999999999998,
-        0.14400000000000002,
-        0.14400000000000002,
-        0.14400000000000002,
-        0.14400000000000002,
-        0.14400000000000002
-      ]
-    },
-    "renderer_checks": [
-      {
-        "check": "projection_and_visibility_binding",
-        "passed": true
-      },
-      {
-        "id": "check0",
-        "type": "distance",
-        "basis": "uniform modeled wood thickness, invisible in face-on source",
-        "actual": 0.23199999999999998,
-        "passed": true
-      },
-      {
-        "id": "check1",
-        "type": "distance",
-        "basis": "uniform modeled wood thickness, invisible in face-on source",
-        "actual": 0.23199999999999998,
-        "passed": true
-      },
-      {
-        "id": "check2",
-        "type": "distance",
-        "basis": "uniform modeled wood thickness, invisible in face-on source",
-        "actual": 0.23199999999999998,
-        "passed": true
-      },
-      {
-        "id": "check3",
-        "type": "distance",
-        "basis": "uniform modeled wood thickness, invisible in face-on source",
-        "actual": 0.23199999999999998,
-        "passed": true
-      },
-      {
-        "id": "check4",
-        "type": "distance",
-        "basis": "uniform modeled wood thickness, invisible in face-on source",
-        "actual": 0.14400000000000002,
-        "passed": true
-      },
-      {
-        "id": "check5",
-        "type": "distance",
-        "basis": "uniform modeled wood thickness, invisible in face-on source",
-        "actual": 0.14400000000000002,
-        "passed": true
-      },
-      {
-        "id": "check6",
-        "type": "distance",
-        "basis": "uniform modeled wood thickness, invisible in face-on source",
-        "actual": 0.14400000000000002,
-        "passed": true
-      },
-      {
-        "id": "check7",
-        "type": "distance",
-        "basis": "uniform modeled wood thickness, invisible in face-on source",
-        "actual": 0.14400000000000002,
-        "passed": true
-      },
-      {
-        "id": "check8",
-        "type": "distance",
-        "basis": "uniform modeled wood thickness, invisible in face-on source",
-        "actual": 0.14400000000000002,
-        "passed": true
-      },
-      {
-        "id": "check9",
-        "type": "distance",
-        "basis": "uniform modeled wood thickness, invisible in face-on source",
-        "actual": 0.14400000000000002,
-        "passed": true
-      },
-      {
-        "id": "check10",
-        "type": "distance",
-        "basis": "uniform modeled wood thickness, invisible in face-on source",
-        "actual": 0.14400000000000002,
-        "passed": true
-      },
-      {
-        "id": "check11",
-        "type": "distance",
-        "basis": "uniform modeled wood thickness, invisible in face-on source",
-        "actual": 0.14400000000000002,
-        "passed": true
-      },
-      {
-        "id": "check12",
-        "type": "distance",
-        "basis": "uniform modeled wood thickness, invisible in face-on source",
-        "actual": 0.14400000000000002,
-        "passed": true
-      },
-      {
-        "id": "check13",
-        "type": "distance",
-        "basis": "uniform modeled wood thickness, invisible in face-on source",
-        "actual": 0.14400000000000002,
-        "passed": true
-      },
-      {
-        "id": "check14",
-        "type": "distance",
-        "basis": "uniform modeled wood thickness, invisible in face-on source",
-        "actual": 0.14400000000000002,
-        "passed": true
-      },
-      {
-        "id": "check15",
-        "type": "distance",
-        "basis": "uniform modeled wood thickness, invisible in face-on source",
-        "actual": 0.14400000000000002,
-        "passed": true
-      },
-      {
-        "id": "check16",
-        "type": "distance",
-        "basis": "uniform modeled wood thickness, invisible in face-on source",
-        "actual": 0.14400000000000002,
-        "passed": true
-      },
-      {
-        "id": "check17",
-        "type": "distance",
-        "basis": "uniform modeled wood thickness, invisible in face-on source",
-        "actual": 0.14400000000000002,
-        "passed": true
-      },
-      {
-        "id": "check18",
-        "type": "distance",
-        "basis": "uniform modeled wood thickness, invisible in face-on source",
-        "actual": 0.14400000000000002,
-        "passed": true
-      },
-      {
-        "id": "check19",
-        "type": "distance",
-        "basis": "uniform modeled wood thickness, invisible in face-on source",
-        "actual": 0.14400000000000002,
-        "passed": true
-      },
-      {
-        "id": "check20",
-        "type": "distance",
-        "basis": "uniform modeled wood thickness, invisible in face-on source",
-        "actual": 0.14400000000000002,
-        "passed": true
-      },
-      {
-        "id": "check21",
-        "type": "distance",
-        "basis": "uniform modeled wood thickness, invisible in face-on source",
-        "actual": 0.14400000000000002,
-        "passed": true
-      },
-      {
-        "id": "check22",
-        "type": "distance",
-        "basis": "uniform modeled wood thickness, invisible in face-on source",
-        "actual": 0.14400000000000002,
-        "passed": true
-      },
-      {
-        "id": "check23",
-        "type": "distance",
-        "basis": "uniform modeled wood thickness, invisible in face-on source",
-        "actual": 0.14400000000000002,
-        "passed": true
-      }
-    ],
-    "twice_isolated_standalone_identical": true,
-    "report_hashes_valid": true,
-    "protocol_dependencies_current": true
+    "user_approved": false,
+    "scope": "Agent visual review only. All candidates remain pending user review.",
+    "needs_manual_confirmation": false,
+    "svg_binding_basis": "Current deterministic vector export from the unchanged scene; serialization hash rebound mechanically. Original PNG visual inspection evidence and timestamp are preserved."
   },
-  "required_changes": [],
-  "previous_revisions": [],
-  "dependency_hashes": {
-    "PlaneGeometry/dataset_generator/protocol.json": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
-    "SolidGeometry/dataset_generator/protocol.json": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f"
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        205,
+        713,
+        561
+      ],
+      "content_center_px": [
+        383.5,
+        383.0
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 25,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [
+    "The original does not show the back-face rope path; two nonbranching rear routes are possible. Do not infer or draw a unique hidden route. Exactly one offered option is compatible with a continuous rope and the180-degree axial rotation.",
+    "The wood is modeled as a thin extrusion of its given notched rounded outline, not assumed to be a circular cylinder. Thickness is a display construction and invisible in this face-on projection."
+  ],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root/review_transformation_batch",
+      "source_id": "1574",
+      "category": "transformation_geometry",
+      "reviewed_utc": "2026-10-27T03:57:37.220040+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "90bdbb5c8059756a6e6df8ae91c5cf20082a9cc39f1cb2498044a781248be849",
+        "source.json": "a016be6c628cc49d882c24de6d4459a000928eeaa1d4fc09ecef886b6974451e",
+        "scene.json": "fee39c4d922f8f546fcb60ac11a210173fc49e51da14d0df0cbcb7ea201806db",
+        "render.py": "6953ee978d3b318bf2dd3be73e44607e1c5880b85e60e3ede0db867a44dbc86f",
+        "image.png": "17c7a52326a3f5e6b58b51bf10198dfd3ac6107b354d86add2bfa2d9491e0453",
+        "audit.json": "32ace7fc2bdb9551bf82d0576d6c2c89925e20558c0fb0aae6809a83fdd2894f",
+        "redraw_report.json": "387aa349f5b335847bc90d04e1591eed945df5ca2fe71d330254ec8d8ba7f16e"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed original and candidate. Prompt rounded notched wood has four top/four bottom notches, upper tails at1 and4, visible ropes1→1,2→3,3→4. Exact source-specific option ordering retained;1065 arrowhead below axis whereas1574 above, matching respective originals. Rear edges/ropes intentionally hidden by opaque wood, no invented dashed lines; full extruded3D front/back geometry exists."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          54,
+          206,
+          713,
+          561
+        ],
+        "occupancy": 0.859375,
+        "independent_numeric_checks": {
+          "answer": "D",
+          "proof": "180° rotation about length swaps top/bottom and reveals rear without reversing left/right. Original upper notch1 and4 tails become lower tails. Each original upper notch has rope, so all four new lower notches must be occupied. Only selected option has tails at1/4 plus internal connections covering2/3/4 once. Other downward-tail choices omit notch or double-use it; upward-tail choices impossible.",
+          "independently_enumerated_single_rope_rear_connections": [
+            [
+              [
+                0,
+                1
+              ],
+              [
+                2,
+                2
+              ],
+              [
+                3,
+                3
+              ]
+            ],
+            [
+              [
+                0,
+                2
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                3,
+                1
+              ]
+            ]
+          ],
+          "qualification": "Two hidden connections can form one continuous rope; unique among offered options, not uniquely determined arbitrary backside.",
+          "native_extrusion_thicknesses": [
+            0.23199999999999998,
+            0.14400000000000002,
+            0.14400000000000002,
+            0.14400000000000002,
+            0.14400000000000002,
+            0.14400000000000002
+          ]
+        },
+        "renderer_checks": [
+          {
+            "check": "projection_and_visibility_binding",
+            "passed": true
+          },
+          {
+            "id": "check0",
+            "type": "distance",
+            "basis": "uniform modeled wood thickness, invisible in face-on source",
+            "actual": 0.23199999999999998,
+            "passed": true
+          },
+          {
+            "id": "check1",
+            "type": "distance",
+            "basis": "uniform modeled wood thickness, invisible in face-on source",
+            "actual": 0.23199999999999998,
+            "passed": true
+          },
+          {
+            "id": "check2",
+            "type": "distance",
+            "basis": "uniform modeled wood thickness, invisible in face-on source",
+            "actual": 0.23199999999999998,
+            "passed": true
+          },
+          {
+            "id": "check3",
+            "type": "distance",
+            "basis": "uniform modeled wood thickness, invisible in face-on source",
+            "actual": 0.23199999999999998,
+            "passed": true
+          },
+          {
+            "id": "check4",
+            "type": "distance",
+            "basis": "uniform modeled wood thickness, invisible in face-on source",
+            "actual": 0.14400000000000002,
+            "passed": true
+          },
+          {
+            "id": "check5",
+            "type": "distance",
+            "basis": "uniform modeled wood thickness, invisible in face-on source",
+            "actual": 0.14400000000000002,
+            "passed": true
+          },
+          {
+            "id": "check6",
+            "type": "distance",
+            "basis": "uniform modeled wood thickness, invisible in face-on source",
+            "actual": 0.14400000000000002,
+            "passed": true
+          },
+          {
+            "id": "check7",
+            "type": "distance",
+            "basis": "uniform modeled wood thickness, invisible in face-on source",
+            "actual": 0.14400000000000002,
+            "passed": true
+          },
+          {
+            "id": "check8",
+            "type": "distance",
+            "basis": "uniform modeled wood thickness, invisible in face-on source",
+            "actual": 0.14400000000000002,
+            "passed": true
+          },
+          {
+            "id": "check9",
+            "type": "distance",
+            "basis": "uniform modeled wood thickness, invisible in face-on source",
+            "actual": 0.14400000000000002,
+            "passed": true
+          },
+          {
+            "id": "check10",
+            "type": "distance",
+            "basis": "uniform modeled wood thickness, invisible in face-on source",
+            "actual": 0.14400000000000002,
+            "passed": true
+          },
+          {
+            "id": "check11",
+            "type": "distance",
+            "basis": "uniform modeled wood thickness, invisible in face-on source",
+            "actual": 0.14400000000000002,
+            "passed": true
+          },
+          {
+            "id": "check12",
+            "type": "distance",
+            "basis": "uniform modeled wood thickness, invisible in face-on source",
+            "actual": 0.14400000000000002,
+            "passed": true
+          },
+          {
+            "id": "check13",
+            "type": "distance",
+            "basis": "uniform modeled wood thickness, invisible in face-on source",
+            "actual": 0.14400000000000002,
+            "passed": true
+          },
+          {
+            "id": "check14",
+            "type": "distance",
+            "basis": "uniform modeled wood thickness, invisible in face-on source",
+            "actual": 0.14400000000000002,
+            "passed": true
+          },
+          {
+            "id": "check15",
+            "type": "distance",
+            "basis": "uniform modeled wood thickness, invisible in face-on source",
+            "actual": 0.14400000000000002,
+            "passed": true
+          },
+          {
+            "id": "check16",
+            "type": "distance",
+            "basis": "uniform modeled wood thickness, invisible in face-on source",
+            "actual": 0.14400000000000002,
+            "passed": true
+          },
+          {
+            "id": "check17",
+            "type": "distance",
+            "basis": "uniform modeled wood thickness, invisible in face-on source",
+            "actual": 0.14400000000000002,
+            "passed": true
+          },
+          {
+            "id": "check18",
+            "type": "distance",
+            "basis": "uniform modeled wood thickness, invisible in face-on source",
+            "actual": 0.14400000000000002,
+            "passed": true
+          },
+          {
+            "id": "check19",
+            "type": "distance",
+            "basis": "uniform modeled wood thickness, invisible in face-on source",
+            "actual": 0.14400000000000002,
+            "passed": true
+          },
+          {
+            "id": "check20",
+            "type": "distance",
+            "basis": "uniform modeled wood thickness, invisible in face-on source",
+            "actual": 0.14400000000000002,
+            "passed": true
+          },
+          {
+            "id": "check21",
+            "type": "distance",
+            "basis": "uniform modeled wood thickness, invisible in face-on source",
+            "actual": 0.14400000000000002,
+            "passed": true
+          },
+          {
+            "id": "check22",
+            "type": "distance",
+            "basis": "uniform modeled wood thickness, invisible in face-on source",
+            "actual": 0.14400000000000002,
+            "passed": true
+          },
+          {
+            "id": "check23",
+            "type": "distance",
+            "basis": "uniform modeled wood thickness, invisible in face-on source",
+            "actual": 0.14400000000000002,
+            "passed": true
+          }
+        ],
+        "twice_isolated_standalone_identical": true,
+        "report_hashes_valid": true,
+        "protocol_dependencies_current": true
+      },
+      "required_changes": [],
+      "previous_revisions": [],
+      "dependency_hashes": {
+        "PlaneGeometry/dataset_generator/protocol.json": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+        "SolidGeometry/dataset_generator/protocol.json": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f"
+      }
+    }
   }
 }

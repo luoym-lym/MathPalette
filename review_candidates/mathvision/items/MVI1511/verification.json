@@ -1,54 +1,129 @@
 {
-  "reviewer": "independent /root/review_transformation_batch",
-  "source_id": "1511",
-  "category": "transformation_geometry",
-  "reviewed_utc": "2026-10-27T03:07:18.825345+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "protocol_redraw_part3",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "7afbcd7368db7127e793d4e0e2d13d9bcbaf6d6ccd7024d371349abfc88d2d58",
+    "image.png": "f12209f41e14758b933ecdc796ac4dfc4b87aa4b82f2cef69175d9dbafa0c94b",
+    "image.svg": "f5d19076c58bdad499dadebb799972bee210c477a9ced2c2dc4f6311bd41407e",
+    "redraw_report.json": "8dd6ec4fbd67945c5c338299f2c1cde454a20ea468c68bbc856340fc9df994e5",
+    "protocol_review.json": "a896ec99c241c3a04e0d7da5776d16672b8166698d7187fc2592f99081ec31bd",
+    "source_redraw.py": "f9732f2acaa0bede016cf487f76a96121d8ba56370bac5227e1bdcb3985d50d8",
+    "execution.json": "a30b97afbcdf86ca4240a223cb342fca1ef5674f33e528f8864645ca6c80be0a",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "3e0010c23533feffe03588bcc78a1a2743f42c82bf10e817529076c7bb467483",
     "source.json": "71b8d9fa4001d25de1538a694f971927ab24784569ef16da126224bda5393bf2",
-    "scene.json": "399d7b8919876d6b159e9954498cfa82e049a2666754726a5ed1a4a19c42eefe",
-    "render.py": "f9732f2acaa0bede016cf487f76a96121d8ba56370bac5227e1bdcb3985d50d8",
-    "image.png": "192d2dd17d6c4c4d7b160ca1c990efcc78b0b8c27b8fd34e8327204eeba56cab",
-    "audit.json": "76292763945a9ec4eab255c4e60ff7d7159b472c9deddb7471779a43ed4dcebc",
-    "redraw_report.json": "cfce3eef6bc89cfd77ef64dd7a3829f13fa6c0820b688ba163282a632c0325db"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Individually viewed original and candidate: four consecutive equal-radius isosceles triangles around common vertex, gray triangle0 right,1 above,2 left,3 below overlapping0 partially; all crossing edges remain visible. Source has no vertex labels; none added.",
-    "Each new triangle advances100degrees around fixed common vertex, preserving equal radial sides. Exact coverage requires100n multiple360, leastn=18 since gcd(100,360)=20. Scene ray lengths all3 and consecutive unwrapped angle differences exactly100degrees; labels0-3 in corresponding sectors."
+    "Spiral retains the shared-edge sequence0,1,2,3 and partial overlap of3 on0; only triangle0 is semantically shaded."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      80,
-      54,
-      687,
-      713
-    ],
-    "occupancy": 0.859375,
-    "independent_numeric_checks": {
-      "ray_angles": [
-        -80.0,
-        20.0,
-        119.99999999999999,
-        219.99999999999997,
-        320.0
-      ],
-      "common_side": 3,
-      "first_return": 18,
-      "answer": 18
-    },
-    "renderer_checks": [],
-    "report_hashes_valid": true,
-    "isolated_standalone_render_identical": true
+  "agent_visual_review": {
+    "status": "agent_reviewed",
+    "reviewer": "protocol_redraw_part3",
+    "reviewed_at_utc": "2026-10-28T12:58:04.394075+00:00",
+    "source_compared": true,
+    "method": "Viewed final source/redraw comparison contact sheet",
+    "contact_sheet": ".runtime/protocol_redraw/part3/new_07.jpg",
+    "contact_sheet_sha256": "822182f32fa8b4c23255e0ef121fcfd14d55efb185aec6add9881a4929c038f6",
+    "png_sha256": "f12209f41e14758b933ecdc796ac4dfc4b87aa4b82f2cef69175d9dbafa0c94b",
+    "svg_sha256": "f5d19076c58bdad499dadebb799972bee210c477a9ced2c2dc4f6311bd41407e",
+    "scene_sha256": "7afbcd7368db7127e793d4e0e2d13d9bcbaf6d6ccd7024d371349abfc88d2d58",
+    "source_sha256": "3e0010c23533feffe03588bcc78a1a2743f42c82bf10e817529076c7bb467483",
+    "final_png_sha256": "f12209f41e14758b933ecdc796ac4dfc4b87aa4b82f2cef69175d9dbafa0c94b",
+    "final_scene_sha256": "7afbcd7368db7127e793d4e0e2d13d9bcbaf6d6ccd7024d371349abfc88d2d58",
+    "findings": "Spiral retains the shared-edge sequence0,1,2,3 and partial overlap of3 on0; only triangle0 is semantically shaded.",
+    "unresolved_source_issues": [],
+    "user_approved": false,
+    "scope": "Agent visual review only. All candidates remain pending user review.",
+    "svg_binding_basis": "Current deterministic vector export from the unchanged scene; serialization hash rebound mechanically. Original PNG visual inspection evidence and timestamp are preserved."
   },
-  "required_changes": [],
-  "previous_revisions": [],
-  "dependency_hashes": {
-    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
-    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        79,
+        54,
+        688,
+        714
+      ],
+      "content_center_px": [
+        383.5,
+        384.0
+      ],
+      "longest_side_occupancy": 0.8606770833333334,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 0,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root/review_transformation_batch",
+      "source_id": "1511",
+      "category": "transformation_geometry",
+      "reviewed_utc": "2026-10-27T03:07:18.825345+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "3e0010c23533feffe03588bcc78a1a2743f42c82bf10e817529076c7bb467483",
+        "source.json": "71b8d9fa4001d25de1538a694f971927ab24784569ef16da126224bda5393bf2",
+        "scene.json": "399d7b8919876d6b159e9954498cfa82e049a2666754726a5ed1a4a19c42eefe",
+        "render.py": "f9732f2acaa0bede016cf487f76a96121d8ba56370bac5227e1bdcb3985d50d8",
+        "image.png": "192d2dd17d6c4c4d7b160ca1c990efcc78b0b8c27b8fd34e8327204eeba56cab",
+        "audit.json": "76292763945a9ec4eab255c4e60ff7d7159b472c9deddb7471779a43ed4dcebc",
+        "redraw_report.json": "cfce3eef6bc89cfd77ef64dd7a3829f13fa6c0820b688ba163282a632c0325db"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed original and candidate: four consecutive equal-radius isosceles triangles around common vertex, gray triangle0 right,1 above,2 left,3 below overlapping0 partially; all crossing edges remain visible. Source has no vertex labels; none added.",
+        "Each new triangle advances100degrees around fixed common vertex, preserving equal radial sides. Exact coverage requires100n multiple360, leastn=18 since gcd(100,360)=20. Scene ray lengths all3 and consecutive unwrapped angle differences exactly100degrees; labels0-3 in corresponding sectors."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          80,
+          54,
+          687,
+          713
+        ],
+        "occupancy": 0.859375,
+        "independent_numeric_checks": {
+          "ray_angles": [
+            -80.0,
+            20.0,
+            119.99999999999999,
+            219.99999999999997,
+            320.0
+          ],
+          "common_side": 3,
+          "first_return": 18,
+          "answer": 18
+        },
+        "renderer_checks": [],
+        "report_hashes_valid": true,
+        "isolated_standalone_render_identical": true
+      },
+      "required_changes": [],
+      "previous_revisions": [],
+      "dependency_hashes": {
+        "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+        "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+      }
+    }
   }
 }

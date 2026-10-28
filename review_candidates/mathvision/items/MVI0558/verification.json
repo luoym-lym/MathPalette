@@ -1,45 +1,116 @@
 {
-  "reviewer": "independent /root/review_transformation_batch",
-  "source_id": "558",
-  "category": "transformation_geometry",
-  "reviewed_utc": "2026-10-27T02:18:43.729986+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "Agent curator part1",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "34bb7fb4f57449619c457eea641517a7673a67c04ddcd46c3f2c1e512bb56777",
+    "image.png": "244617e203d6faf78d2993e5a109c63f42e47e3a3ffd874676ad04c5e03d4e74",
+    "image.svg": "04187240355de5cb5479f50eda55f1f8d403b9a064c97aeb1f20dadf46e5e2fa",
+    "redraw_report.json": "420a0108e1dd53f928bc544cc4a4f4c2a590caa7deb32e46ec0c1d9209efedf3",
+    "protocol_review.json": "fb8359d6cee643ff99a82b72568676703cfda8aa0858242b5147cbbae6a5434e",
+    "source_redraw.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
+    "execution.json": "8ee497d685d53f6651ad7d6f75cf6815ffa87c0bdd72616b8c4606b7e9c73820",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "f6f1c760865eac7fce67280dbbc81d755abcb4d3e0d35df23e139fe429437577",
     "source.json": "cb3847fe5edeb1c12bfa5e706fc4655671895a5202a5ae47ad471b06afb28ad0",
-    "scene.json": "e8791bdd0311f3468039836b90f9e9420ad1ed14f8716fdf924a50cd052ed817",
-    "render.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
-    "image.png": "fd8bf2b0b3af2ab3f3b7555c1a59f36328408bbf1b894ab1fbf49001a5d1744b",
-    "audit.json": "c0a25618c268ccce7c3591a81320cebdbf93ae010ecef91d875ca7b5bfb3369f",
-    "redraw_report.json": "be96e2650b5dd450caf238764084a1f1b0b8ceafdb8bb2f6fb75d78bfcfdd49d"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Individually viewed original and candidate: starting lower semicircle black left, white right; card flips left then up via paired dashed arrows, middle back blank, upper target dashed with question mark. Options A-E preserve upper-right black / left-lower black / lower-right black / upper-left black / right-upper black patterns and semicircle orientation.",
-    "Left flip negates horizontal coordinate; upward flip negates vertical coordinate. Composition is halfturn, taking lower semicircle to upper semicircle and black lower-left quadrant to upper-right. Only A matches. Normalized black sector vertices equal exact negations."
+    "Asymmetric black/white card emblem and two flip arrows retain source positions and candidate orientations."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      54,
-      209,
-      714,
-      557
+  "agent_visual_review": {
+    "status": "inspected",
+    "reviewer": "Agent curator part1",
+    "user_approval": false,
+    "reviewed_at_utc": "2026-10-28T12:56:24.247978+00:00",
+    "method": "Source and final PNG comparison on 12-item contact sheets.",
+    "contact_sheet": ".runtime/protocol_redraw/part1/final_09.jpg",
+    "individual_final_png_viewed": false,
+    "findings": [
+      "Asymmetric black/white card emblem and two flip arrows retain source positions and candidate orientations."
     ],
-    "occupancy": 0.8606770833333334,
-    "independent_numeric_checks": {
-      "normalized_black_sector_halfturn": true,
-      "answer": "A"
-    },
-    "renderer_checks": [],
-    "report_hashes_valid": true
+    "source_sha256": "f6f1c760865eac7fce67280dbbc81d755abcb4d3e0d35df23e139fe429437577",
+    "scene_sha256": "34bb7fb4f57449619c457eea641517a7673a67c04ddcd46c3f2c1e512bb56777",
+    "png_sha256": "244617e203d6faf78d2993e5a109c63f42e47e3a3ffd874676ad04c5e03d4e74",
+    "svg_sha256": "04187240355de5cb5479f50eda55f1f8d403b9a064c97aeb1f20dadf46e5e2fa"
   },
-  "required_changes": [],
-  "previous_revisions": [],
-  "dependency_hashes": {
-    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
-    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        53,
+        209,
+        713,
+        557
+      ],
+      "content_center_px": [
+        383.0,
+        383.0
+      ],
+      "longest_side_occupancy": 0.8606770833333334,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 0,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root/review_transformation_batch",
+      "source_id": "558",
+      "category": "transformation_geometry",
+      "reviewed_utc": "2026-10-27T02:18:43.729986+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "f6f1c760865eac7fce67280dbbc81d755abcb4d3e0d35df23e139fe429437577",
+        "source.json": "cb3847fe5edeb1c12bfa5e706fc4655671895a5202a5ae47ad471b06afb28ad0",
+        "scene.json": "e8791bdd0311f3468039836b90f9e9420ad1ed14f8716fdf924a50cd052ed817",
+        "render.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
+        "image.png": "fd8bf2b0b3af2ab3f3b7555c1a59f36328408bbf1b894ab1fbf49001a5d1744b",
+        "audit.json": "c0a25618c268ccce7c3591a81320cebdbf93ae010ecef91d875ca7b5bfb3369f",
+        "redraw_report.json": "be96e2650b5dd450caf238764084a1f1b0b8ceafdb8bb2f6fb75d78bfcfdd49d"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed original and candidate: starting lower semicircle black left, white right; card flips left then up via paired dashed arrows, middle back blank, upper target dashed with question mark. Options A-E preserve upper-right black / left-lower black / lower-right black / upper-left black / right-upper black patterns and semicircle orientation.",
+        "Left flip negates horizontal coordinate; upward flip negates vertical coordinate. Composition is halfturn, taking lower semicircle to upper semicircle and black lower-left quadrant to upper-right. Only A matches. Normalized black sector vertices equal exact negations."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          54,
+          209,
+          714,
+          557
+        ],
+        "occupancy": 0.8606770833333334,
+        "independent_numeric_checks": {
+          "normalized_black_sector_halfturn": true,
+          "answer": "A"
+        },
+        "renderer_checks": [],
+        "report_hashes_valid": true
+      },
+      "required_changes": [],
+      "previous_revisions": [],
+      "dependency_hashes": {
+        "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+        "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+      }
+    }
   }
 }

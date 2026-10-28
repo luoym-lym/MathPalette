@@ -1,232 +1,309 @@
 {
-  "reviewer": "independent /root/review_transformation_batch",
-  "source_id": "1500",
-  "category": "transformation_geometry",
-  "reviewed_utc": "2026-10-27T03:58:23.706398+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "protocol_redraw_part3",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "d76f5a7ff74dea80925cbb62a8d72e557d1beb0218cc3c629bc85fadc263f976",
+    "image.png": "f4a736e1da8e9be17cf48546c4f782c28c4dda5873383a13d043886e81406c68",
+    "image.svg": "1d55fd0dd9b4a2238bc7cff83667fd204d7852530cf94ad5177e835a20111de6",
+    "redraw_report.json": "9127d63c7ff3f25de2ca21d81e3e7984dcbd8e186d21947c6a3de44ab1315570",
+    "protocol_review.json": "e09812bf6cf51f3e2bb3d2d4b398b5c91d9b2ead86441b0f5345915974638176",
+    "source_redraw.py": "6953ee978d3b318bf2dd3be73e44607e1c5880b85e60e3ede0db867a44dbc86f",
+    "execution.json": "bc7421e0ba848eff7c85d704b81347eb5f3c3c26e69299b7700fb7766b0fcddf",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "c99264565d19fd19d1b853b5ac5717136f4ba41c389e411ef520b7d7c0672931",
     "source.json": "8b100dcea51a7a44857ede876c49831271aedc5ead47a7b1a8fb0936411974c0",
-    "scene.json": "bce57cc5a39caf4fea4af5d68bfed52fddbb479c4ee0e7f1ca992d73cd0deb17",
-    "render.py": "6953ee978d3b318bf2dd3be73e44607e1c5880b85e60e3ede0db867a44dbc86f",
-    "image.png": "1246062cbdb46585a3a1105eb5e3af2ecc51406cd5ff721c21b6fdfee064b1c4",
-    "audit.json": "f38c5236346ee25f57f3728e511e791c05e27094612a43e3f91303a0b917cf4d",
-    "redraw_report.json": "cf96f42f2fab7281e2c1bb8c37e212afddf3de875d6116e5dde1e99bf72bfe0d"
+    "machine_protocol": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Individually viewed original and final: twice folded graypaper with firstfold left and secondfold top labels/guide lines; upper opaque packet opens towardright above lower packet, with triangularnotches on top/left creases. Options retain all hole counts and horizontal/vertical distinctions; C only mixedfour withoutcentral hole."
+    "Source folded packet, two triangular cuts and all five hole-pattern options retain front/back layer and white-opening distinctions."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      53,
-      153,
-      713,
-      614
-    ],
-    "occupancy": 0.8606770833333334,
-    "independent_numeric_checks": {
-      "answer": "C",
-      "proof": "Each equilateralcut reflects into60\u00b0/120\u00b0 rhombus across its crease. Top-edgecut yields tall left/right rhombi; left-edgecut yields wide top/bottom rhombi after otherfold reflection. No centralcut, so exactlyfour.",
-      "equilateral_triangle_side_lengths": [
-        [
-          0.17000000000000004,
-          0.17000000000000004,
-          0.16999999999999998
-        ],
-        [
-          0.16999999999999998,
-          0.17,
-          0.16999999999999998
-        ]
-      ],
-      "native3d_packet_hinge_degrees": 23
-    },
-    "renderer_checks": [
-      {
-        "check": "projection_and_visibility_binding",
-        "passed": true
-      },
-      {
-        "id": "check0",
-        "type": "distance",
-        "basis": "a rigid square quarter of the original paper",
-        "actual": 2.1000000000000005,
-        "passed": true
-      },
-      {
-        "id": "check1",
-        "type": "distance",
-        "basis": "a rigid square quarter of the original paper",
-        "actual": 2.1000000000000005,
-        "passed": true
-      },
-      {
-        "id": "check2",
-        "type": "distance",
-        "basis": "a rigid square quarter of the original paper",
-        "actual": 2.1000000000000005,
-        "passed": true
-      },
-      {
-        "id": "check3",
-        "type": "distance",
-        "basis": "a rigid square quarter of the original paper",
-        "actual": 2.1000000000000005,
-        "passed": true
-      },
-      {
-        "id": "check4",
-        "type": "coplanar",
-        "basis": "flat rigid paper quarter",
-        "actual": 0.0,
-        "passed": true
-      },
-      {
-        "id": "check5",
-        "type": "perpendicular",
-        "basis": "square quarter edges",
-        "actual": 0.0,
-        "passed": true
-      },
-      {
-        "id": "check6",
-        "type": "distance",
-        "basis": "equilateral cut triangle",
-        "actual": 0.35700000000000015,
-        "passed": true
-      },
-      {
-        "id": "check7",
-        "type": "distance",
-        "basis": "equilateral cut triangle",
-        "actual": 0.35700000000000015,
-        "passed": true
-      },
-      {
-        "id": "check8",
-        "type": "distance",
-        "basis": "equilateral cut triangle",
-        "actual": 0.3569999999999993,
-        "passed": true
-      },
-      {
-        "id": "check9",
-        "type": "distance",
-        "basis": "equilateral cut triangle",
-        "actual": 0.35700000000000015,
-        "passed": true
-      },
-      {
-        "id": "check10",
-        "type": "distance",
-        "basis": "equilateral cut triangle",
-        "actual": 0.35700000000000015,
-        "passed": true
-      },
-      {
-        "id": "check11",
-        "type": "distance",
-        "basis": "equilateral cut triangle",
-        "actual": 0.3569999999999993,
-        "passed": true
-      },
-      {
-        "id": "check12",
-        "type": "distance",
-        "basis": "a rigid square quarter of the original paper",
-        "actual": 2.1000000000000005,
-        "passed": true
-      },
-      {
-        "id": "check13",
-        "type": "distance",
-        "basis": "a rigid square quarter of the original paper",
-        "actual": 2.1000000000000005,
-        "passed": true
-      },
-      {
-        "id": "check14",
-        "type": "distance",
-        "basis": "a rigid square quarter of the original paper",
-        "actual": 2.1000000000000005,
-        "passed": true
-      },
-      {
-        "id": "check15",
-        "type": "distance",
-        "basis": "a rigid square quarter of the original paper",
-        "actual": 2.1000000000000005,
-        "passed": true
-      },
-      {
-        "id": "check16",
-        "type": "coplanar",
-        "basis": "flat rigid paper quarter",
-        "actual": 0.0,
-        "passed": true
-      },
-      {
-        "id": "check17",
-        "type": "perpendicular",
-        "basis": "square quarter edges",
-        "actual": 0.0,
-        "passed": true
-      },
-      {
-        "id": "check18",
-        "type": "distance",
-        "basis": "equilateral cut triangle",
-        "actual": 0.35700000000000026,
-        "passed": true
-      },
-      {
-        "id": "check19",
-        "type": "distance",
-        "basis": "equilateral cut triangle",
-        "actual": 0.35700000000000026,
-        "passed": true
-      },
-      {
-        "id": "check20",
-        "type": "distance",
-        "basis": "equilateral cut triangle",
-        "actual": 0.3569999999999993,
-        "passed": true
-      },
-      {
-        "id": "check21",
-        "type": "distance",
-        "basis": "equilateral cut triangle",
-        "actual": 0.35700000000000026,
-        "passed": true
-      },
-      {
-        "id": "check22",
-        "type": "distance",
-        "basis": "equilateral cut triangle",
-        "actual": 0.3570000000000003,
-        "passed": true
-      },
-      {
-        "id": "check23",
-        "type": "distance",
-        "basis": "equilateral cut triangle",
-        "actual": 0.35699999999999993,
-        "passed": true
-      }
-    ],
-    "twice_isolated_standalone_identical": true,
-    "report_hashes_valid": true,
-    "protocol_dependencies_current": true
+  "agent_visual_review": {
+    "status": "agent_reviewed",
+    "reviewer": "protocol_redraw_part3",
+    "reviewed_at_utc": "2026-10-28T12:58:04.390659+00:00",
+    "source_compared": true,
+    "method": "Viewed final source/redraw comparison contact sheet",
+    "contact_sheet": ".runtime/protocol_redraw/part3/new_06.jpg",
+    "contact_sheet_sha256": "46f92695dbc58a1bebd66d3f35f6723c5b55962d73b4753ef028688f3285676e",
+    "png_sha256": "f4a736e1da8e9be17cf48546c4f782c28c4dda5873383a13d043886e81406c68",
+    "svg_sha256": "1d55fd0dd9b4a2238bc7cff83667fd204d7852530cf94ad5177e835a20111de6",
+    "scene_sha256": "d76f5a7ff74dea80925cbb62a8d72e557d1beb0218cc3c629bc85fadc263f976",
+    "source_sha256": "c99264565d19fd19d1b853b5ac5717136f4ba41c389e411ef520b7d7c0672931",
+    "final_png_sha256": "f4a736e1da8e9be17cf48546c4f782c28c4dda5873383a13d043886e81406c68",
+    "final_scene_sha256": "d76f5a7ff74dea80925cbb62a8d72e557d1beb0218cc3c629bc85fadc263f976",
+    "findings": "Source folded packet, two triangular cuts and all five hole-pattern options retain front/back layer and white-opening distinctions.",
+    "unresolved_source_issues": [],
+    "user_approved": false,
+    "scope": "Agent visual review only. All candidates remain pending user review.",
+    "svg_binding_basis": "Current deterministic vector export from the unchanged scene; serialization hash rebound mechanically. Original PNG visual inspection evidence and timestamp are preserved."
   },
-  "required_changes": [],
-  "previous_revisions": [],
-  "dependency_hashes": {
-    "PlaneGeometry/dataset_generator/protocol.json": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
-    "SolidGeometry/dataset_generator/protocol.json": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f"
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        153,
+        713,
+        613
+      ],
+      "content_center_px": [
+        383.5,
+        383.0
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 25,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [
+    "Source uses a schematic partly opened stack to show four paper layers. Two coincident zero-thickness layers are stored in each visible packet; no artificial thickness or unseen hidden edges are drawn."
+  ],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root/review_transformation_batch",
+      "source_id": "1500",
+      "category": "transformation_geometry",
+      "reviewed_utc": "2026-10-27T03:58:23.706398+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "c99264565d19fd19d1b853b5ac5717136f4ba41c389e411ef520b7d7c0672931",
+        "source.json": "8b100dcea51a7a44857ede876c49831271aedc5ead47a7b1a8fb0936411974c0",
+        "scene.json": "bce57cc5a39caf4fea4af5d68bfed52fddbb479c4ee0e7f1ca992d73cd0deb17",
+        "render.py": "6953ee978d3b318bf2dd3be73e44607e1c5880b85e60e3ede0db867a44dbc86f",
+        "image.png": "1246062cbdb46585a3a1105eb5e3af2ecc51406cd5ff721c21b6fdfee064b1c4",
+        "audit.json": "f38c5236346ee25f57f3728e511e791c05e27094612a43e3f91303a0b917cf4d",
+        "redraw_report.json": "cf96f42f2fab7281e2c1bb8c37e212afddf3de875d6116e5dde1e99bf72bfe0d"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed original and final: twice folded graypaper with firstfold left and secondfold top labels/guide lines; upper opaque packet opens towardright above lower packet, with triangularnotches on top/left creases. Options retain all hole counts and horizontal/vertical distinctions; C only mixedfour withoutcentral hole."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          53,
+          153,
+          713,
+          614
+        ],
+        "occupancy": 0.8606770833333334,
+        "independent_numeric_checks": {
+          "answer": "C",
+          "proof": "Each equilateralcut reflects into60°/120° rhombus across its crease. Top-edgecut yields tall left/right rhombi; left-edgecut yields wide top/bottom rhombi after otherfold reflection. No centralcut, so exactlyfour.",
+          "equilateral_triangle_side_lengths": [
+            [
+              0.17000000000000004,
+              0.17000000000000004,
+              0.16999999999999998
+            ],
+            [
+              0.16999999999999998,
+              0.17,
+              0.16999999999999998
+            ]
+          ],
+          "native3d_packet_hinge_degrees": 23
+        },
+        "renderer_checks": [
+          {
+            "check": "projection_and_visibility_binding",
+            "passed": true
+          },
+          {
+            "id": "check0",
+            "type": "distance",
+            "basis": "a rigid square quarter of the original paper",
+            "actual": 2.1000000000000005,
+            "passed": true
+          },
+          {
+            "id": "check1",
+            "type": "distance",
+            "basis": "a rigid square quarter of the original paper",
+            "actual": 2.1000000000000005,
+            "passed": true
+          },
+          {
+            "id": "check2",
+            "type": "distance",
+            "basis": "a rigid square quarter of the original paper",
+            "actual": 2.1000000000000005,
+            "passed": true
+          },
+          {
+            "id": "check3",
+            "type": "distance",
+            "basis": "a rigid square quarter of the original paper",
+            "actual": 2.1000000000000005,
+            "passed": true
+          },
+          {
+            "id": "check4",
+            "type": "coplanar",
+            "basis": "flat rigid paper quarter",
+            "actual": 0.0,
+            "passed": true
+          },
+          {
+            "id": "check5",
+            "type": "perpendicular",
+            "basis": "square quarter edges",
+            "actual": 0.0,
+            "passed": true
+          },
+          {
+            "id": "check6",
+            "type": "distance",
+            "basis": "equilateral cut triangle",
+            "actual": 0.35700000000000015,
+            "passed": true
+          },
+          {
+            "id": "check7",
+            "type": "distance",
+            "basis": "equilateral cut triangle",
+            "actual": 0.35700000000000015,
+            "passed": true
+          },
+          {
+            "id": "check8",
+            "type": "distance",
+            "basis": "equilateral cut triangle",
+            "actual": 0.3569999999999993,
+            "passed": true
+          },
+          {
+            "id": "check9",
+            "type": "distance",
+            "basis": "equilateral cut triangle",
+            "actual": 0.35700000000000015,
+            "passed": true
+          },
+          {
+            "id": "check10",
+            "type": "distance",
+            "basis": "equilateral cut triangle",
+            "actual": 0.35700000000000015,
+            "passed": true
+          },
+          {
+            "id": "check11",
+            "type": "distance",
+            "basis": "equilateral cut triangle",
+            "actual": 0.3569999999999993,
+            "passed": true
+          },
+          {
+            "id": "check12",
+            "type": "distance",
+            "basis": "a rigid square quarter of the original paper",
+            "actual": 2.1000000000000005,
+            "passed": true
+          },
+          {
+            "id": "check13",
+            "type": "distance",
+            "basis": "a rigid square quarter of the original paper",
+            "actual": 2.1000000000000005,
+            "passed": true
+          },
+          {
+            "id": "check14",
+            "type": "distance",
+            "basis": "a rigid square quarter of the original paper",
+            "actual": 2.1000000000000005,
+            "passed": true
+          },
+          {
+            "id": "check15",
+            "type": "distance",
+            "basis": "a rigid square quarter of the original paper",
+            "actual": 2.1000000000000005,
+            "passed": true
+          },
+          {
+            "id": "check16",
+            "type": "coplanar",
+            "basis": "flat rigid paper quarter",
+            "actual": 0.0,
+            "passed": true
+          },
+          {
+            "id": "check17",
+            "type": "perpendicular",
+            "basis": "square quarter edges",
+            "actual": 0.0,
+            "passed": true
+          },
+          {
+            "id": "check18",
+            "type": "distance",
+            "basis": "equilateral cut triangle",
+            "actual": 0.35700000000000026,
+            "passed": true
+          },
+          {
+            "id": "check19",
+            "type": "distance",
+            "basis": "equilateral cut triangle",
+            "actual": 0.35700000000000026,
+            "passed": true
+          },
+          {
+            "id": "check20",
+            "type": "distance",
+            "basis": "equilateral cut triangle",
+            "actual": 0.3569999999999993,
+            "passed": true
+          },
+          {
+            "id": "check21",
+            "type": "distance",
+            "basis": "equilateral cut triangle",
+            "actual": 0.35700000000000026,
+            "passed": true
+          },
+          {
+            "id": "check22",
+            "type": "distance",
+            "basis": "equilateral cut triangle",
+            "actual": 0.3570000000000003,
+            "passed": true
+          },
+          {
+            "id": "check23",
+            "type": "distance",
+            "basis": "equilateral cut triangle",
+            "actual": 0.35699999999999993,
+            "passed": true
+          }
+        ],
+        "twice_isolated_standalone_identical": true,
+        "report_hashes_valid": true,
+        "protocol_dependencies_current": true
+      },
+      "required_changes": [],
+      "previous_revisions": [],
+      "dependency_hashes": {
+        "PlaneGeometry/dataset_generator/protocol.json": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+        "SolidGeometry/dataset_generator/protocol.json": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f"
+      }
+    }
   }
 }

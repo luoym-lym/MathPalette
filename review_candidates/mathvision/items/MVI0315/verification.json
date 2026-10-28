@@ -1,56 +1,127 @@
 {
-  "reviewer": "independent /root/review_transformation_batch",
-  "source_id": "315",
-  "category": "transformation_geometry",
-  "reviewed_utc": "2026-10-27T03:04:37.281320+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "Agent curator part1",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "50d6ede426d71a77b0fcf64d6a26391b7ab2f244fc8f89661c1e3fd543745eae",
+    "image.png": "6b54af9ff9786a910e4a59e2580855848686a75cd4fa8eb48f1cad8b3728dd2b",
+    "image.svg": "63f0d1a574b93e6ce46106655150cbf53f2b612b28a86fa502c898199735805e",
+    "redraw_report.json": "eb34ef2bbf574e090b21b078d61b77476ae772cf5f9f456a8b11dcf578507cf2",
+    "protocol_review.json": "9e1496183052b798816e75b2b1065db836b5df30255389086b18f4ff0b96b37f",
+    "source_redraw.py": "a25521210834ad40b85d55a53d53507734208277e7d75438ee749baf384b452d",
+    "execution.json": "e0115ae691416a7ab000fd599dc0cc7b5ebe6d7fb634a074d0eded24e3210526",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "952941d31cc4cfd073df6bf979d298384e7369b4ebb3b007d16680cf56539a87",
     "source.json": "f7ca552213b2a2ab295daec253da1d3f0a21fb3f72c4c6ac899bd87a3ba56ae0",
-    "scene.json": "907b8597cb3544b8eee307890d7a76a7492878c6f5ff9e70dec1044fa400ba09",
-    "render.py": "a25521210834ad40b85d55a53d53507734208277e7d75438ee749baf384b452d",
-    "image.png": "3294431463792c7a4492727df2b7471644b71c97096c572baea42ff4b5a39055",
-    "audit.json": "371bef453d49f0e9a54e20397a03170d4845a19bfccdbf62432abe2decd8e58c",
-    "redraw_report.json": "60829ddf7ece4a5b5f34e608974bc19d8e916064cdfa63a699ded1798c32d83e"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Individually viewed source and candidate: first panel pentagon tilted21 degrees counterclockwise exposes five black hole slivers against horizontal ruling; candidateA steep upward ruling,B downward36degrees,C upward36degrees,D downward72degrees,E horizontal, all pentagons fill upright holes. Labels separated.",
-    "Fit requires21n divisible by72. Least n=72/gcd(21,72)=24; total turn504degrees=144degrees modulo360. Ruling orientation modulo180 is144degrees (downward36degrees), matchingB. Checked every B interior ruling segment has144degree orientation."
+    "Pentagon rotations retain lined-paper background and internal line orientation, with opaque paper surfaces preventing false superposition."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      54,
-      229,
-      714,
-      538
+  "agent_visual_review": {
+    "status": "inspected",
+    "reviewer": "Agent curator part1",
+    "user_approval": false,
+    "reviewed_at_utc": "2026-10-28T12:56:24.177559+00:00",
+    "method": "Source and final PNG comparison; 12-item contact sheet plus individual 768px inspection for dense, ambiguous or repaired outputs.",
+    "contact_sheet": ".runtime/protocol_redraw/part1/final_05.jpg",
+    "individual_final_png_viewed": true,
+    "findings": [
+      "Pentagon rotations retain lined-paper background and internal line orientation, with opaque paper surfaces preventing false superposition."
     ],
-    "occupancy": 0.8606770833333334,
-    "independent_numeric_checks": {
-      "first_fit_step": 24,
-      "total_rotation": 504,
-      "B_line_angles_mod180": [
-        143.99999999999997,
-        144.0,
-        144.0,
-        144.0,
-        144.0,
-        144.0,
-        144.0
-      ],
-      "answer": "B"
-    },
-    "renderer_checks": [],
-    "report_hashes_valid": true,
-    "isolated_standalone_render_identical": true
+    "source_sha256": "952941d31cc4cfd073df6bf979d298384e7369b4ebb3b007d16680cf56539a87",
+    "scene_sha256": "50d6ede426d71a77b0fcf64d6a26391b7ab2f244fc8f89661c1e3fd543745eae",
+    "png_sha256": "6b54af9ff9786a910e4a59e2580855848686a75cd4fa8eb48f1cad8b3728dd2b",
+    "svg_sha256": "63f0d1a574b93e6ce46106655150cbf53f2b612b28a86fa502c898199735805e"
   },
-  "required_changes": [],
-  "previous_revisions": [],
-  "dependency_hashes": {
-    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
-    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        53,
+        229,
+        713,
+        538
+      ],
+      "content_center_px": [
+        383.0,
+        383.5
+      ],
+      "longest_side_occupancy": 0.8606770833333334,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 0,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root/review_transformation_batch",
+      "source_id": "315",
+      "category": "transformation_geometry",
+      "reviewed_utc": "2026-10-27T03:04:37.281320+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "952941d31cc4cfd073df6bf979d298384e7369b4ebb3b007d16680cf56539a87",
+        "source.json": "f7ca552213b2a2ab295daec253da1d3f0a21fb3f72c4c6ac899bd87a3ba56ae0",
+        "scene.json": "907b8597cb3544b8eee307890d7a76a7492878c6f5ff9e70dec1044fa400ba09",
+        "render.py": "a25521210834ad40b85d55a53d53507734208277e7d75438ee749baf384b452d",
+        "image.png": "3294431463792c7a4492727df2b7471644b71c97096c572baea42ff4b5a39055",
+        "audit.json": "371bef453d49f0e9a54e20397a03170d4845a19bfccdbf62432abe2decd8e58c",
+        "redraw_report.json": "60829ddf7ece4a5b5f34e608974bc19d8e916064cdfa63a699ded1798c32d83e"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed source and candidate: first panel pentagon tilted21 degrees counterclockwise exposes five black hole slivers against horizontal ruling; candidateA steep upward ruling,B downward36degrees,C upward36degrees,D downward72degrees,E horizontal, all pentagons fill upright holes. Labels separated.",
+        "Fit requires21n divisible by72. Least n=72/gcd(21,72)=24; total turn504degrees=144degrees modulo360. Ruling orientation modulo180 is144degrees (downward36degrees), matchingB. Checked every B interior ruling segment has144degree orientation."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          54,
+          229,
+          714,
+          538
+        ],
+        "occupancy": 0.8606770833333334,
+        "independent_numeric_checks": {
+          "first_fit_step": 24,
+          "total_rotation": 504,
+          "B_line_angles_mod180": [
+            143.99999999999997,
+            144.0,
+            144.0,
+            144.0,
+            144.0,
+            144.0,
+            144.0
+          ],
+          "answer": "B"
+        },
+        "renderer_checks": [],
+        "report_hashes_valid": true,
+        "isolated_standalone_render_identical": true
+      },
+      "required_changes": [],
+      "previous_revisions": [],
+      "dependency_hashes": {
+        "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+        "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+      }
+    }
   }
 }

@@ -1,45 +1,127 @@
 {
-  "reviewer": "independent /root",
-  "source_id": "2643",
-  "category": "combinatorial_geometry",
-  "reviewed_utc": "2026-10-27T03:06:38.434376+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "redraw_part4",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "754337d69b2c31f9ff63e93dcd2d8628dd1e34f0abcd8e6e3d168372f0dda13f",
+    "image.png": "cefdfcea9cded637c1a3a106da80b9683e0a0b80b6917e377f96c7f0ee6e96fc",
+    "image.svg": "6e901902dd8a49536ca12e019acb6171e8a7d61ede3fc74e2765c88ed8944cf2",
+    "redraw_report.json": "98079b8282228dbec5339a690b27c3ffe74fa29d5aeb9624f04e36684745fcfe",
+    "protocol_review.json": "19ae85d470f22fe7413fc89f01010505b7693ef9d2f59fd5b3107f53d22fb20e",
+    "source_redraw.py": "ddfc35d9b4fe8fe1ea77d77df9df3eb3f1e2308a1503b542c753317dc691b1ab",
+    "execution.json": "d4127f3de6717e6448a73982cbf7f9cabe4c3004141e3b2b776f6af6cfa183c7",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "708807392760313724cc3311c217c9860507a9cbe5cd15567d879d375f0c93fa",
     "source.json": "3069747523a5d702ffa005995acc1fce9129e48cbcf61329d11433764e12e4ff",
-    "scene.json": "68afeacb16135173da4764ca62f7be288b9b9151f2918054bc3425cc544510bc",
-    "render.py": "ddfc35d9b4fe8fe1ea77d77df9df3eb3f1e2308a1503b542c753317dc691b1ab",
-    "image.png": "eb54f80cc2144190e7c49875e12bf23c3087078e2157a4dab493ae3129e8f61a",
-    "audit.json": "6e6a2e8ed6e3dc3244a1f00c280f250966fcaacb822b04393b34c461bb0958c7",
-    "redraw_report.json": "69f656e1c64aa35a3954c2f0d58bb76de378295290d0ea8d8bd2be6ef22e4df8",
-    "../upper_comb_renderer_fillonly.py": "0d0b200ad11ef8a4dc1642ab57168dafd65e70ae2d14a5f24ab0810f3dad2212"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Individually viewed original/candidate: same periodic four-arm dark tile motifs, dashedunitgrid, solid upper/left floorcorner and partial irregular lower-rightcrop; no artificial outlines around fill. Independent intact6by6period graypolygon shoelace16, fraction4/9. Source fourcorners match condition permits complete aligned periods, not treating cropped illustration itself as wholefloor."
+    "Compared source and final vector redraw: source connections, region identities, point order, displayed labels and layout retained; no new solving construction introduced.",
+    "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      54,
-      54,
-      714,
-      714
-    ],
-    "occupancy": 0.8606770833333334,
-    "independent_numeric_checks": {
-      "period_dimensions": [
-        6,
-        6
-      ],
-      "gray_area_per_period": 16,
-      "period_area": 36,
-      "answer": "B=4/9"
+  "agent_visual_review": {
+    "status": "agent_viewed",
+    "reviewer": "redraw_part4",
+    "source_inspection": {
+      "status": "viewed",
+      "sheet": ".runtime/protocol_redraw/part4/source_07.jpg",
+      "complete_question_read": true
     },
-    "renderer_checks": []
+    "new_render_viewed": true,
+    "final_png_view": {
+      "method": "final render contact sheet",
+      "path": ".runtime/protocol_redraw/part4/new_07.jpg",
+      "cell": 4,
+      "individual_zoom": false
+    },
+    "source_sha256": "708807392760313724cc3311c217c9860507a9cbe5cd15567d879d375f0c93fa",
+    "scene_sha256": "754337d69b2c31f9ff63e93dcd2d8628dd1e34f0abcd8e6e3d168372f0dda13f",
+    "png_sha256": "cefdfcea9cded637c1a3a106da80b9683e0a0b80b6917e377f96c7f0ee6e96fc",
+    "svg_sha256": "6e901902dd8a49536ca12e019acb6171e8a7d61ede3fc74e2765c88ed8944cf2",
+    "findings": [
+      "Compared source and final vector redraw: source connections, region identities, point order, displayed labels and layout retained; no new solving construction introduced.",
+      "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
+    ],
+    "user_approved": false,
+    "svg_rebinding_note": "Central final renderer regenerated vector SVG from the same Figure. PNG and scene hashes are unchanged from the actual visual inspection; this updates SVG serialization evidence without claiming another raster viewing."
   },
-  "required_changes": [],
-  "previous_revisions": []
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        54,
+        713,
+        713
+      ],
+      "content_center_px": [
+        383.5,
+        383.5
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 0,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root",
+      "source_id": "2643",
+      "category": "combinatorial_geometry",
+      "reviewed_utc": "2026-10-27T03:06:38.434376+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "708807392760313724cc3311c217c9860507a9cbe5cd15567d879d375f0c93fa",
+        "source.json": "3069747523a5d702ffa005995acc1fce9129e48cbcf61329d11433764e12e4ff",
+        "scene.json": "68afeacb16135173da4764ca62f7be288b9b9151f2918054bc3425cc544510bc",
+        "render.py": "ddfc35d9b4fe8fe1ea77d77df9df3eb3f1e2308a1503b542c753317dc691b1ab",
+        "image.png": "eb54f80cc2144190e7c49875e12bf23c3087078e2157a4dab493ae3129e8f61a",
+        "audit.json": "6e6a2e8ed6e3dc3244a1f00c280f250966fcaacb822b04393b34c461bb0958c7",
+        "redraw_report.json": "69f656e1c64aa35a3954c2f0d58bb76de378295290d0ea8d8bd2be6ef22e4df8",
+        "../upper_comb_renderer_fillonly.py": "0d0b200ad11ef8a4dc1642ab57168dafd65e70ae2d14a5f24ab0810f3dad2212"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed original/candidate: same periodic four-arm dark tile motifs, dashedunitgrid, solid upper/left floorcorner and partial irregular lower-rightcrop; no artificial outlines around fill. Independent intact6by6period graypolygon shoelace16, fraction4/9. Source fourcorners match condition permits complete aligned periods, not treating cropped illustration itself as wholefloor."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          54,
+          54,
+          714,
+          714
+        ],
+        "occupancy": 0.8606770833333334,
+        "independent_numeric_checks": {
+          "period_dimensions": [
+            6,
+            6
+          ],
+          "gray_area_per_period": 16,
+          "period_area": 36,
+          "answer": "B=4/9"
+        },
+        "renderer_checks": []
+      },
+      "required_changes": [],
+      "previous_revisions": []
+    }
+  }
 }

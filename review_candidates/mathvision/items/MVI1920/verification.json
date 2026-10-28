@@ -1,54 +1,135 @@
 {
-  "reviewer": "independent /root/review_transformation_batch",
-  "source_id": "1920",
-  "category": "transformation_geometry",
-  "reviewed_utc": "2026-10-27T03:15:59.920939+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "redraw_part4",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "de05736914cd87638f22aea20071a4497b1ca0fd0c9e6c2187906054691facf0",
+    "image.png": "173a8a2a4d477c18d94499f15826c72d30f0ff958180f804c29f6241a7ada147",
+    "image.svg": "65b93c46afb37b2343c57ed934ce007ff4c6afeb5abf0e158439b154967d51ec",
+    "redraw_report.json": "501b228d17efe84d8c60beb1dd8d36443a47518ca9eb897400523332f8e40263",
+    "protocol_review.json": "363a3bc1569954d1bf556934f5a060064164673a698688b45ca588b470d30112",
+    "source_redraw.py": "f9732f2acaa0bede016cf487f76a96121d8ba56370bac5227e1bdcb3985d50d8",
+    "execution.json": "96643605300bc867406f9ecc6486cd0a1aebc45b5a94be51c4c906b933543ad0",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "da5bb7844924f1c9747fc70fb68a96c64e60c3333cdd58058d09c809cf32bd39",
     "source.json": "c79e7c695a544b099640b130ad0f95c40c7612e9384386292c50ca6a5fd4a932",
-    "scene.json": "09c0a028987674fe33a51b4d2b10f713c0940aad634932f01638f52b6177dfda",
-    "render.py": "f9732f2acaa0bede016cf487f76a96121d8ba56370bac5227e1bdcb3985d50d8",
-    "image.png": "1f7e62188e8e4b0811f848154007651e734f81b74bec47eb38d81c076204f2e9",
-    "audit.json": "5f71dc91e1ed7dfb44818aec9ac1bb5d42d06083dd69d6119f78f9602a8be6a7",
-    "redraw_report.json": "445af9a7f8c664e6cbc5fec70a1f175d421f38bb40cd681b6ef798900b625cde"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Individually viewed original and candidate: five gray zigzag tracks with wheel and forward rolling arrow, candidate paths and terminal arrows. Peak/trough types in A-E order are ['round/round', 'sharp/round', 'flat/flat', 'sharp/sharp', 'round/sharp']. Source-specific order preserved.",
-    "Wheel center remains perpendicular distance r from each straight slope. At convex peak, contact stays at apex and center follows radius-r circular arc; at concave trough, two offset straight lines meet sharply as contact switches. Therefore rounded peaks/sharp troughs E. Numerically checked finalE arc samples radius0.3 equal wheel radius."
+    "Compared source and final vector redraw: source connections, region identities, point order, displayed labels and layout retained; no new solving construction introduced.",
+    "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      53,
-      275,
-      713,
-      493
-    ],
-    "occupancy": 0.8606770833333334,
-    "independent_numeric_checks": {
-      "candidate_peak_trough_order": [
-        "round/round",
-        "sharp/round",
-        "flat/flat",
-        "sharp/sharp",
-        "round/sharp"
-      ],
-      "E_peak_radius": 0.3,
-      "radius_error": 6.661338147750939e-16,
-      "answer": "E"
+  "agent_visual_review": {
+    "status": "agent_viewed",
+    "reviewer": "redraw_part4",
+    "source_inspection": {
+      "status": "viewed",
+      "sheet": ".runtime/protocol_redraw/part4/source_02.jpg",
+      "complete_question_read": true
     },
-    "renderer_checks": [],
-    "report_hashes_valid": true,
-    "isolated_standalone_render_identical": true
+    "new_render_viewed": true,
+    "final_png_view": {
+      "method": "final render contact sheet",
+      "path": ".runtime/protocol_redraw/part4/new_02.jpg",
+      "cell": 1,
+      "individual_zoom": false
+    },
+    "source_sha256": "da5bb7844924f1c9747fc70fb68a96c64e60c3333cdd58058d09c809cf32bd39",
+    "scene_sha256": "de05736914cd87638f22aea20071a4497b1ca0fd0c9e6c2187906054691facf0",
+    "png_sha256": "173a8a2a4d477c18d94499f15826c72d30f0ff958180f804c29f6241a7ada147",
+    "svg_sha256": "65b93c46afb37b2343c57ed934ce007ff4c6afeb5abf0e158439b154967d51ec",
+    "findings": [
+      "Compared source and final vector redraw: source connections, region identities, point order, displayed labels and layout retained; no new solving construction introduced.",
+      "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
+    ],
+    "user_approved": false
   },
-  "required_changes": [],
-  "previous_revisions": [],
-  "dependency_hashes": {
-    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
-    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        275,
+        713,
+        493
+      ],
+      "content_center_px": [
+        383.5,
+        384.0
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 0,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root/review_transformation_batch",
+      "source_id": "1920",
+      "category": "transformation_geometry",
+      "reviewed_utc": "2026-10-27T03:15:59.920939+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "da5bb7844924f1c9747fc70fb68a96c64e60c3333cdd58058d09c809cf32bd39",
+        "source.json": "c79e7c695a544b099640b130ad0f95c40c7612e9384386292c50ca6a5fd4a932",
+        "scene.json": "09c0a028987674fe33a51b4d2b10f713c0940aad634932f01638f52b6177dfda",
+        "render.py": "f9732f2acaa0bede016cf487f76a96121d8ba56370bac5227e1bdcb3985d50d8",
+        "image.png": "1f7e62188e8e4b0811f848154007651e734f81b74bec47eb38d81c076204f2e9",
+        "audit.json": "5f71dc91e1ed7dfb44818aec9ac1bb5d42d06083dd69d6119f78f9602a8be6a7",
+        "redraw_report.json": "445af9a7f8c664e6cbc5fec70a1f175d421f38bb40cd681b6ef798900b625cde"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed original and candidate: five gray zigzag tracks with wheel and forward rolling arrow, candidate paths and terminal arrows. Peak/trough types in A-E order are ['round/round', 'sharp/round', 'flat/flat', 'sharp/sharp', 'round/sharp']. Source-specific order preserved.",
+        "Wheel center remains perpendicular distance r from each straight slope. At convex peak, contact stays at apex and center follows radius-r circular arc; at concave trough, two offset straight lines meet sharply as contact switches. Therefore rounded peaks/sharp troughs E. Numerically checked finalE arc samples radius0.3 equal wheel radius."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          53,
+          275,
+          713,
+          493
+        ],
+        "occupancy": 0.8606770833333334,
+        "independent_numeric_checks": {
+          "candidate_peak_trough_order": [
+            "round/round",
+            "sharp/round",
+            "flat/flat",
+            "sharp/sharp",
+            "round/sharp"
+          ],
+          "E_peak_radius": 0.3,
+          "radius_error": 6.661338147750939e-16,
+          "answer": "E"
+        },
+        "renderer_checks": [],
+        "report_hashes_valid": true,
+        "isolated_standalone_render_identical": true
+      },
+      "required_changes": [],
+      "previous_revisions": [],
+      "dependency_hashes": {
+        "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+        "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+      }
+    }
   }
 }

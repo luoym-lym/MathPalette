@@ -1,46 +1,121 @@
 {
-  "reviewer": "independent /root",
-  "source_id": "1667",
-  "category": "combinatorial_geometry",
-  "reviewed_utc": "2026-10-27T02:39:06.868977+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "protocol_redraw_part3",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "7d19f968f66240353f9569b9291bff439b69ab40aa51a11f9f172cd0a9538432",
+    "image.png": "8737e8b72031e80f481983a0792a76b84f4caa2c2b620ae78d8ee8d07539054b",
+    "image.svg": "cacfe2ff42745d648aaeea172900e78b7ca151429925e07defe52002fa65235b",
+    "redraw_report.json": "2a17a9c0e7422cbc935106ec2fbac08aadc4e40861f22d08ca650f09877a580a",
+    "protocol_review.json": "c58e0fb53b573af1509127e549a13130ba897d4bae311c4b43dfac69811166f6",
+    "source_redraw.py": "e5733287dc63eb9d4c4febb53b278f7e2e9e0b0e46f472ba42112b3a3bcc29df",
+    "execution.json": "8799ae19d3e307ad301b312875f1f2400367c61df41a98c65cc9774f1ab69296",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "6d52212687b6666f94de1d6a27241b9ce23ae9ad4e81bd440f400cbe39d890b9",
     "source.json": "37d480b1b0505f28276247528073b229586f647c8974d61dce8241baf7167f72",
-    "scene.json": "c05e4f0255c56db4aa38a440610cc8bcea29af737cc479c7839296668cf56419",
-    "render.py": "e5733287dc63eb9d4c4febb53b278f7e2e9e0b0e46f472ba42112b3a3bcc29df",
-    "image.png": "70989270e03ab7d8004bfe7188596c304c1fa4a12f6f187359c362bb8ef862b3",
-    "audit.json": "8e8f131158dbde3494531df95d6aed9a742104e218aa88a8a83ebb8af6561eea",
-    "redraw_report.json": "10de381d1eec9199810cad8ae8837792f5be0d6edb49ad138c2dad93abde71f0",
-    "../upper_comb_renderer.py": "f8b46c832ae8ff8e16730970bd31d1d549035f4e230f49acb6b88141efda0d84"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Individually viewed original and final: upper left seven-cell L, lower right 3x3 piece, all five 4x4 black-white option patterns preserved including E. Independently enumerated rotations and translations of both colored pieces; only E impossible."
+    "Both pieces and all five4-by-4 candidate tiles retain source black/white cell patterns and ordering."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      54,
-      230,
-      714,
-      537
-    ],
-    "occupancy": 0.8606770833333334,
-    "independent_numeric_checks": {
-      "rotation_only_tiling_counts": {
-        "A": 1,
-        "B": 1,
-        "C": 1,
-        "D": 1,
-        "E": 0
-      },
-      "answer": "E"
-    },
-    "renderer_checks": []
+  "agent_visual_review": {
+    "status": "agent_reviewed",
+    "reviewer": "protocol_redraw_part3",
+    "reviewed_at_utc": "2026-10-28T12:58:04.425321+00:00",
+    "source_compared": true,
+    "method": "Viewed final source/redraw comparison contact sheet",
+    "contact_sheet": ".runtime/protocol_redraw/part3/new_10.jpg",
+    "contact_sheet_sha256": "bcdfb378e8e66e686e8d028df7f0a7ac48b08b89c0d29d4f36cf1217d4aa002d",
+    "png_sha256": "8737e8b72031e80f481983a0792a76b84f4caa2c2b620ae78d8ee8d07539054b",
+    "svg_sha256": "cacfe2ff42745d648aaeea172900e78b7ca151429925e07defe52002fa65235b",
+    "scene_sha256": "7d19f968f66240353f9569b9291bff439b69ab40aa51a11f9f172cd0a9538432",
+    "source_sha256": "6d52212687b6666f94de1d6a27241b9ce23ae9ad4e81bd440f400cbe39d890b9",
+    "final_png_sha256": "8737e8b72031e80f481983a0792a76b84f4caa2c2b620ae78d8ee8d07539054b",
+    "final_scene_sha256": "7d19f968f66240353f9569b9291bff439b69ab40aa51a11f9f172cd0a9538432",
+    "findings": "Both pieces and all five4-by-4 candidate tiles retain source black/white cell patterns and ordering.",
+    "unresolved_source_issues": [],
+    "user_approved": false,
+    "scope": "Agent visual review only. All candidates remain pending user review.",
+    "svg_binding_basis": "Current deterministic vector export from the unchanged scene; serialization hash rebound mechanically. Original PNG visual inspection evidence and timestamp are preserved."
   },
-  "required_changes": [],
-  "previous_revisions": []
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        230,
+        713,
+        537
+      ],
+      "content_center_px": [
+        383.5,
+        383.5
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 0,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root",
+      "source_id": "1667",
+      "category": "combinatorial_geometry",
+      "reviewed_utc": "2026-10-27T02:39:06.868977+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "6d52212687b6666f94de1d6a27241b9ce23ae9ad4e81bd440f400cbe39d890b9",
+        "source.json": "37d480b1b0505f28276247528073b229586f647c8974d61dce8241baf7167f72",
+        "scene.json": "c05e4f0255c56db4aa38a440610cc8bcea29af737cc479c7839296668cf56419",
+        "render.py": "e5733287dc63eb9d4c4febb53b278f7e2e9e0b0e46f472ba42112b3a3bcc29df",
+        "image.png": "70989270e03ab7d8004bfe7188596c304c1fa4a12f6f187359c362bb8ef862b3",
+        "audit.json": "8e8f131158dbde3494531df95d6aed9a742104e218aa88a8a83ebb8af6561eea",
+        "redraw_report.json": "10de381d1eec9199810cad8ae8837792f5be0d6edb49ad138c2dad93abde71f0",
+        "../upper_comb_renderer.py": "f8b46c832ae8ff8e16730970bd31d1d549035f4e230f49acb6b88141efda0d84"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed original and final: upper left seven-cell L, lower right 3x3 piece, all five 4x4 black-white option patterns preserved including E. Independently enumerated rotations and translations of both colored pieces; only E impossible."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          54,
+          230,
+          714,
+          537
+        ],
+        "occupancy": 0.8606770833333334,
+        "independent_numeric_checks": {
+          "rotation_only_tiling_counts": {
+            "A": 1,
+            "B": 1,
+            "C": 1,
+            "D": 1,
+            "E": 0
+          },
+          "answer": "E"
+        },
+        "renderer_checks": []
+      },
+      "required_changes": [],
+      "previous_revisions": []
+    }
+  }
 }

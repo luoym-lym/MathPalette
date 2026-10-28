@@ -1,58 +1,82 @@
 {
-  "reviewer": "independent /root",
-  "source_id": "1047",
-  "category": "combinatorial_geometry",
-  "reviewed_utc": "2026-10-27T00:45:46.708498+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "curator part2",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "b266ecf9df3f8f459ac7fedc64bb95e02b496981be22ea55c64358e97ec8af8c",
+    "image.png": "32a4f7a281964861459831bb738ce23cd426c04ac4627147412bad7a5673eaf5",
+    "image.svg": "6941c5dd4b022441854bba61bc5ddc979c1c8f1639a2986669a5421519dfff6f",
+    "redraw_report.json": "b9739cd810661105b169f6caf329d1fda154d1295d6edd825ed6d5b1f970fe4b",
+    "protocol_review.json": "4db312c23b3ae37b440d5ace8d56b280bc8eae7dcc6e71f6448a21b886a21a56",
+    "source_redraw.py": "73a62487e0127a40ad87b4e755ede1e4cfc34e5ab1626ed3e364ae3a553499c7",
+    "execution.json": "af2c3269a9c6eb869d88d5d85d104e07c73efaf57d420909f037951161f3a5d8",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "8e8c7aa5fabaf206ce04cd466e96e8c8f4d8dd7b7afe60380a8919a5800c20c4",
     "source.json": "5d85bca73b7fb0907eea4449b8db0f5d2d2c93809db5fc7b91ded228f96c9e4c",
-    "scene.json": "0f0740848a3ab38fe82c882fac2cfefcae787d9a01a9367761e21242b8454737",
-    "render.py": "73a62487e0127a40ad87b4e755ede1e4cfc34e5ab1626ed3e364ae3a553499c7",
-    "image.png": "9655ada858cd9832e2a68252de5f7ad33452a90ce1f732526b1bd193ddecff29",
-    "audit.json": "a4d225aaa87574f746fcfd0527d1293379d6258a5f2bcd72d521a53c44c596c1",
-    "redraw_report.json": "ad70bf4215d81cf9177c8884bb033b53a02def59055c2aa916d356c031fc79db"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Original and redraw visually inspected: upright six-point star, twelve congruent triangular regions, six grey central triangles and six white outer triangles, six spokes, no labels. Perimeter ratio6/12 implies18cm optionC. Native coordinates must now be numerically checked."
+    "Six-point star retains twelve triangular cells and gray central hexagon."
   ],
-  "checks": {
-    "source_and_redraw_actually_viewed": true,
-    "visual_semantics_match": true,
-    "required_numeric_checks_recorded": true,
-    "source_record_equals_export": true,
-    "original_bytes_match_export": true,
-    "two_independent_renders_pixel_identical": true,
-    "independent_render_matches_candidate_pixels": true,
-    "independent_numeric_checks": [
-      {
-        "check": "all36sides_of12_triangles",
-        "max_error": 4.440892098500626e-16,
-        "answer": "C=18cm"
-      }
+  "agent_visual_review": {
+    "status": "viewed",
+    "reviewer": "curator part2",
+    "review_kind": "Agent source-to-vector visual comparison; not user approval",
+    "source_and_complete_question_reviewed": true,
+    "new_png_actually_viewed": true,
+    "inspection_method": "paired source/final contact sheet",
+    "evidence": ".runtime/protocol_redraw/part2/final_15.jpg",
+    "findings": [
+      "Six-point star retains twelve triangular cells and gray central hexagon."
     ],
-    "content_bbox": [
-      97,
-      54,
-      670,
-      713
-    ],
-    "occupancy": 0.859375,
-    "opaque": true,
-    "pixel_size": [
-      768,
-      768
-    ]
+    "geometry_labels_and_topology": "Source point order, connections, region identity and visible labels compared; no solving hints added.",
+    "source_image_sha256": "8e8c7aa5fabaf206ce04cd466e96e8c8f4d8dd7b7afe60380a8919a5800c20c4",
+    "scene_sha256": "b266ecf9df3f8f459ac7fedc64bb95e02b496981be22ea55c64358e97ec8af8c",
+    "png_sha256": "32a4f7a281964861459831bb738ce23cd426c04ac4627147412bad7a5673eaf5",
+    "svg_sha256": "6941c5dd4b022441854bba61bc5ddc979c1c8f1639a2986669a5421519dfff6f",
+    "source_redraw_sha256": "73a62487e0127a40ad87b4e755ede1e4cfc34e5ab1626ed3e364ae3a553499c7",
+    "renderer_sha256": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "reviewed_at_utc": "2026-10-28T13:08:11.739491+00:00"
   },
-  "required_changes": [],
-  "previous_revisions": [
-    {
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        98,
+        54,
+        669,
+        713
+      ],
+      "content_center_px": [
+        383.5,
+        383.5
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 0,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
       "reviewer": "independent /root",
       "source_id": "1047",
       "category": "combinatorial_geometry",
-      "reviewed_utc": "2026-10-27T00:44:11.347265+00:00",
-      "verdict": "needs_revision",
+      "reviewed_utc": "2026-10-27T00:45:46.708498+00:00",
+      "verdict": "agent_verified",
       "user_approval": false,
       "hashes": {
         "original.jpg": "8e8c7aa5fabaf206ce04cd466e96e8c8f4d8dd7b7afe60380a8919a5800c20c4",
@@ -61,7 +85,7 @@
         "render.py": "73a62487e0127a40ad87b4e755ede1e4cfc34e5ab1626ed3e364ae3a553499c7",
         "image.png": "9655ada858cd9832e2a68252de5f7ad33452a90ce1f732526b1bd193ddecff29",
         "audit.json": "a4d225aaa87574f746fcfd0527d1293379d6258a5f2bcd72d521a53c44c596c1",
-        "redraw_report.json": "77ba72de2473b2ab35bca696b42a2bebc357b4e20ada5142602f9fa58233abbb"
+        "redraw_report.json": "ad70bf4215d81cf9177c8884bb033b53a02def59055c2aa916d356c031fc79db"
       },
       "explicit_inspected_facts": [
         "Original and redraw visually inspected: upright six-point star, twelve congruent triangular regions, six grey central triangles and six white outer triangles, six spokes, no labels. Perimeter ratio6/12 implies18cm optionC. Native coordinates must now be numerically checked."
@@ -94,10 +118,61 @@
           768
         ]
       },
-      "required_changes": [
-        "Record explicit numeric geometric checks for the conditions, not empty geometry_checks; root has sent per-item required checks."
-      ]
+      "required_changes": [],
+      "previous_revisions": [
+        {
+          "reviewer": "independent /root",
+          "source_id": "1047",
+          "category": "combinatorial_geometry",
+          "reviewed_utc": "2026-10-27T00:44:11.347265+00:00",
+          "verdict": "needs_revision",
+          "user_approval": false,
+          "hashes": {
+            "original.jpg": "8e8c7aa5fabaf206ce04cd466e96e8c8f4d8dd7b7afe60380a8919a5800c20c4",
+            "source.json": "5d85bca73b7fb0907eea4449b8db0f5d2d2c93809db5fc7b91ded228f96c9e4c",
+            "scene.json": "0f0740848a3ab38fe82c882fac2cfefcae787d9a01a9367761e21242b8454737",
+            "render.py": "73a62487e0127a40ad87b4e755ede1e4cfc34e5ab1626ed3e364ae3a553499c7",
+            "image.png": "9655ada858cd9832e2a68252de5f7ad33452a90ce1f732526b1bd193ddecff29",
+            "audit.json": "a4d225aaa87574f746fcfd0527d1293379d6258a5f2bcd72d521a53c44c596c1",
+            "redraw_report.json": "77ba72de2473b2ab35bca696b42a2bebc357b4e20ada5142602f9fa58233abbb"
+          },
+          "explicit_inspected_facts": [
+            "Original and redraw visually inspected: upright six-point star, twelve congruent triangular regions, six grey central triangles and six white outer triangles, six spokes, no labels. Perimeter ratio6/12 implies18cm optionC. Native coordinates must now be numerically checked."
+          ],
+          "checks": {
+            "source_and_redraw_actually_viewed": true,
+            "visual_semantics_match": true,
+            "required_numeric_checks_recorded": true,
+            "source_record_equals_export": true,
+            "original_bytes_match_export": true,
+            "two_independent_renders_pixel_identical": true,
+            "independent_render_matches_candidate_pixels": true,
+            "independent_numeric_checks": [
+              {
+                "check": "all36sides_of12_triangles",
+                "max_error": 4.440892098500626e-16,
+                "answer": "C=18cm"
+              }
+            ],
+            "content_bbox": [
+              97,
+              54,
+              670,
+              713
+            ],
+            "occupancy": 0.859375,
+            "opaque": true,
+            "pixel_size": [
+              768,
+              768
+            ]
+          },
+          "required_changes": [
+            "Record explicit numeric geometric checks for the conditions, not empty geometry_checks; root has sent per-item required checks."
+          ]
+        }
+      ],
+      "independent_check_script_sha256": "8ea1edad012489727aa020e505db2ab15da0c01710d96d0b064c8d54cb07b7d0"
     }
-  ],
-  "independent_check_script_sha256": "8ea1edad012489727aa020e505db2ab15da0c01710d96d0b064c8d54cb07b7d0"
+  }
 }

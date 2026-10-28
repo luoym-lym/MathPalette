@@ -1,53 +1,128 @@
 {
-  "reviewer": "independent /root/review_transformation_batch",
-  "source_id": "987",
-  "category": "transformation_geometry",
-  "reviewed_utc": "2026-10-27T01:42:39.688972+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "curator part2",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "bf360dc9138918e28486e027666c5d4caa51f70da030406ab6892f523f233f21",
+    "image.png": "8649f34fee1d6e6bfbfa6dc05d5e13958193c2db611ad35685f55985633fc3a4",
+    "image.svg": "0a6ee2609ffc6fd0a3487bb679dc03997359b040b6dd347cce25c5fe6b2bded5",
+    "redraw_report.json": "778fbe4d287151eda7c0487f51f0359aa14897e95de910af9b921de349edabe6",
+    "protocol_review.json": "aa55f2c9a2d935d94b5aea3331ff67c7f1760a1953aedeb0a2a5af27b5c337c8",
+    "source_redraw.py": "01afffb77802e9c0cffa696c26d253f6a52ed87687f3b1c511214291599e22c2",
+    "execution.json": "4b5ea01a10f01cbaa6ac63d767981637683aafeb7d461f1a8b912ce1428b19fb",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "2d40d0ca8b7ecbb9d0cb9f7605449ce80dfce3d4adbf49363768041bb3023e46",
     "source.json": "e5fe4fb6fe86c861cba701c2c7f6b043911bd1ec8707b018d01f860ba509ca37",
-    "scene.json": "e239bf78086d176e3df799e4d372e4040de856f19842ac9eb6d54b51d6911aa4",
-    "render.py": "01afffb77802e9c0cffa696c26d253f6a52ed87687f3b1c511214291599e22c2",
-    "image.png": "8e9d9199412d2e702e55abd92641f67730ab721b740ec8b3f3f1a6cd3a576796",
-    "audit.json": "4376e6e78b5378de474ac7e6c78969c392d1c24f7a1a31d44a9b6f6023323d6f",
-    "redraw_report.json": "543c27daf430ce0096b626e07bd81ca51226d1cb7fc99dc52537dda99caaaf6c"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Individually viewed source/output: rectangular digital bezel, faint outlines of all unlit segments, black lit segments, two colon dots. Display order is mirrored-one, 2, mirrored-one, 5; mirrored ones retain left vertical bars, not ordinary right bars."
+    "Mirrored seven-segment clock retains lit 12:15 bars and colon; unlit bars remain outlined rather than filled."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      54,
-      253,
-      714,
-      514
+  "agent_visual_review": {
+    "status": "viewed",
+    "reviewer": "curator part2",
+    "review_kind": "Agent source-to-vector visual comparison; not user approval",
+    "source_and_complete_question_reviewed": true,
+    "new_png_actually_viewed": true,
+    "inspection_method": "paired source/final contact sheet",
+    "evidence": ".runtime/protocol_redraw/part2/final_13.jpg",
+    "findings": [
+      "Mirrored seven-segment clock retains lit 12:15 bars and colon; unlit bars remain outlined rather than filled."
     ],
-    "occupancy": 0.8606770833333334,
-    "independent_numeric_checks": {
-      "lit_segment_counts": [
-        2,
-        5,
-        2,
-        5
-      ],
-      "actual_initial_time": "21:51",
-      "actual_plus30_minutes": "22:21",
-      "mirrored_result": "15:55",
-      "answer": "D",
-      "proof": "Horizontal reflection reverses digit order and swaps 2 with 5; left-side double-segment mirrored ones become normal ones. The actual 21:51 becomes 22:21, whose mirror is 15:55."
-    },
-    "renderer_checks": [],
-    "report_hashes_valid": true
+    "geometry_labels_and_topology": "Source point order, connections, region identity and visible labels compared; no solving hints added.",
+    "source_image_sha256": "2d40d0ca8b7ecbb9d0cb9f7605449ce80dfce3d4adbf49363768041bb3023e46",
+    "scene_sha256": "bf360dc9138918e28486e027666c5d4caa51f70da030406ab6892f523f233f21",
+    "png_sha256": "8649f34fee1d6e6bfbfa6dc05d5e13958193c2db611ad35685f55985633fc3a4",
+    "svg_sha256": "0a6ee2609ffc6fd0a3487bb679dc03997359b040b6dd347cce25c5fe6b2bded5",
+    "source_redraw_sha256": "01afffb77802e9c0cffa696c26d253f6a52ed87687f3b1c511214291599e22c2",
+    "renderer_sha256": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "reviewed_at_utc": "2026-10-28T13:08:11.723679+00:00"
   },
-  "required_changes": [],
-  "previous_revisions": [],
-  "dependency_hashes": {
-    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
-    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        53,
+        253,
+        713,
+        514
+      ],
+      "content_center_px": [
+        383.0,
+        383.5
+      ],
+      "longest_side_occupancy": 0.8606770833333334,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 0,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root/review_transformation_batch",
+      "source_id": "987",
+      "category": "transformation_geometry",
+      "reviewed_utc": "2026-10-27T01:42:39.688972+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "2d40d0ca8b7ecbb9d0cb9f7605449ce80dfce3d4adbf49363768041bb3023e46",
+        "source.json": "e5fe4fb6fe86c861cba701c2c7f6b043911bd1ec8707b018d01f860ba509ca37",
+        "scene.json": "e239bf78086d176e3df799e4d372e4040de856f19842ac9eb6d54b51d6911aa4",
+        "render.py": "01afffb77802e9c0cffa696c26d253f6a52ed87687f3b1c511214291599e22c2",
+        "image.png": "8e9d9199412d2e702e55abd92641f67730ab721b740ec8b3f3f1a6cd3a576796",
+        "audit.json": "4376e6e78b5378de474ac7e6c78969c392d1c24f7a1a31d44a9b6f6023323d6f",
+        "redraw_report.json": "543c27daf430ce0096b626e07bd81ca51226d1cb7fc99dc52537dda99caaaf6c"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed source/output: rectangular digital bezel, faint outlines of all unlit segments, black lit segments, two colon dots. Display order is mirrored-one, 2, mirrored-one, 5; mirrored ones retain left vertical bars, not ordinary right bars."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          54,
+          253,
+          714,
+          514
+        ],
+        "occupancy": 0.8606770833333334,
+        "independent_numeric_checks": {
+          "lit_segment_counts": [
+            2,
+            5,
+            2,
+            5
+          ],
+          "actual_initial_time": "21:51",
+          "actual_plus30_minutes": "22:21",
+          "mirrored_result": "15:55",
+          "answer": "D",
+          "proof": "Horizontal reflection reverses digit order and swaps 2 with 5; left-side double-segment mirrored ones become normal ones. The actual 21:51 becomes 22:21, whose mirror is 15:55."
+        },
+        "renderer_checks": [],
+        "report_hashes_valid": true
+      },
+      "required_changes": [],
+      "previous_revisions": [],
+      "dependency_hashes": {
+        "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+        "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+      }
+    }
   }
 }

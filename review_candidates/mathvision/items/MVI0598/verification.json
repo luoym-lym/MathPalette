@@ -1,131 +1,94 @@
 {
-  "reviewer": "independent /root/review_transformation_batch",
-  "source_id": "598",
-  "category": "transformation_geometry",
-  "reviewed_utc": "2026-10-27T04:43:58.061403+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "Agent curator part1",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "db2ceaebb1d755051af74c6b8c5d3d9ef3bc66db000fdc605a7b85fe7138547c",
+    "image.png": "d1de43958f306d21db7f97110fc8120ab2846a7e91526cc292a651427a35bd75",
+    "image.svg": "d834830427795361544672c2ce30669e03158b8db55e1e6c1f1e4160f150f12e",
+    "redraw_report.json": "05ef23be3ff1afda3aeb30a937312b80dc79cfdaa81b0b40a79e2a544b90e61b",
+    "protocol_review.json": "60cb6b38ab089e4d142539e45d5fc18506cdbceb68151ef61a0bf36418d21d3a",
+    "source_redraw.py": "faf67f2750dfae6780d1aee8ff6d7b3dfc641045851a983dbd1ce16ae605c767",
+    "execution.json": "f2b05aab4af3bb2feff324985dcbbd8a3b7c75961751a31fcb9445309c140bf3",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "5bcf27a06ebc1de13787fefd037060db818d2e97531a1ef785e398212bdbaf3d",
     "source.json": "ab22e7467dbeeb938ba10bb3e6bcdb578283aa0bb1ddd27145b18ef935727536",
-    "scene.json": "882fa5b748b25fc79bfd29e316c6ef9b5258386bdf3b756d37432a2aa260aede",
-    "render.py": "faf67f2750dfae6780d1aee8ff6d7b3dfc641045851a983dbd1ce16ae605c767",
-    "image.png": "3e7fcf19335b8e606ba54cc21609165a34e3a439cad107ba092984c8aabc15e0",
-    "audit.json": "152842414076db0208ccfb7192f6f61483aab6bca0eab6e2270236b776af01f4",
-    "redraw_report.json": "194fd3eb5dd07cf04aca5b93adf9f66b330a1ad8db6d7d123f6bc74a474bee47",
-    "protocol_repair.json": "40f69e552ed4b2b3a92b1767ac2366c88f49da39dd442e33824e448ef6aa2c27"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Individually viewed original and final six-animal tiles and all five choices. Animals remain distinguishable anatomical native art: brown floppy-eared dog, green/blue butterfly with antennae/wingpatterns, brown three-part ant with sixlegs, gray dolphin with dorsalfin/flippers/tail, tan pointed-ear curled-tail cat, red spotted ladybird with head/legs. Firsttwo tiles populated, lasttwo blank; three bold sharededges and spiegeln curvedarrow retained. All options compared per sector and orientation: Ainitial,Bhorizontalflip,Cfirstreflection,Drotatedfirstreflection,Everticalflip. InB top dolphin inverted, bottomdog upright, upperleftant inverted, lowerleftbutterfly rotated, upperrightcat inverted, lowerrightladybird headupperright.",
-    "Post-style-repair actually viewed full final PNG and independently enlarged prompt animal pair plus ALL five optiontiles. 1pt strokes leave dog ears/eye/paws, ant6legs/antennae/3bodysegments, dolphin fins/tail, cat ears/tail, butterfly coloredwingpatterns and ladybird spots/legs readable; no option becomes ambiguous. Exact three bold mirrors remain distinct at2.5pt. Enumerated every native layer and geometricedge: no unauthorizedthin strokes."
+    "Six native animal identities, poses, handedness and successive mirror geometry retain source arrangement; gray grid distinguishes black mirror edges."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      53,
-      205,
-      715,
-      561
+  "agent_visual_review": {
+    "status": "inspected",
+    "reviewer": "Agent curator part1",
+    "user_approval": false,
+    "reviewed_at_utc": "2026-10-28T12:56:24.281434+00:00",
+    "method": "Source and final PNG comparison; 12-item contact sheet plus individual 768px inspection for dense, ambiguous or repaired outputs.",
+    "contact_sheet": ".runtime/protocol_redraw/part1/final_10.jpg",
+    "individual_final_png_viewed": true,
+    "findings": [
+      "Six native animal identities, poses, handedness and successive mirror geometry retain source arrangement; gray grid distinguishes black mirror edges."
     ],
-    "occupancy": 0.86328125,
-    "independent_numeric_checks": {
-      "answer": "B",
-      "independent_reflection_product": [
-        [
-          0.9999999999999999,
-          6.215113103450816e-16
-        ],
-        [
-          6.363854784884189e-16,
-          -0.9999999999999998
-        ]
-      ],
-      "proof": "Three edge axes\u221260,+60,\u221260 compose diag(1,\u22121), a top-bottom reflection of initialtile (translation ignored). Initial topdog thereforebottom, bottomdolphintop; upperleftbutterfly\u2192lowerleft, lowerleftant\u2192upperleft; right ladybird/cat swap vertically with glyphs reflected too. ExactlyB.",
-      "postrepair_actual_stroked_animal_layers": 65,
-      "all_actual_animal_strokes_pt": 1,
-      "no_outline_layers": 27,
-      "semantic_fold_edges_2_5pt": 3,
-      "ordinary_geometry_edges_1pt": 63
-    },
-    "renderer_checks": [
-      {
-        "id": "regular_hexagons",
-        "passed": true,
-        "max_equal_side_radius_error": 1.1368683772161603e-13
-      },
-      {
-        "id": "successive_mirror_geometry",
-        "passed": true,
-        "max_reflection_error": 2.842170943040401e-14,
-        "axes_degrees": [
-          120,
-          60,
-          120
-        ],
-        "final_relative_to_canonical": [
-          [
-            -0.4999999999999997,
-            -0.8660254037844387
-          ],
-          [
-            0.8660254037844387,
-            -0.49999999999999967
-          ]
-        ]
-      },
-      {
-        "id": "options_distinct",
-        "passed": true,
-        "unique_matching_option": "B",
-        "determinants": {
-          "A": -1.0,
-          "B": 1.0,
-          "C": 1.0,
-          "D": 1.0,
-          "E": 1.0
-        }
-      },
-      {
-        "id": "native_artwork_reuse",
-        "passed": true,
-        "definitions": 6,
-        "instances": 42,
-        "blank_later_tiles": true
-      },
-      {
-        "id": "protocol_stroke_widths",
-        "passed": true,
-        "stroked_animal_layers": 65,
-        "animal_stroke_pt": 1,
-        "semantic_bold_fold_edges": 3,
-        "semantic_bold_fold_stroke_pt": 2.5
-      }
-    ],
-    "twice_isolated_standalone_identical": true,
-    "report_hashes_valid": true
+    "source_sha256": "5bcf27a06ebc1de13787fefd037060db818d2e97531a1ef785e398212bdbaf3d",
+    "scene_sha256": "db2ceaebb1d755051af74c6b8c5d3d9ef3bc66db000fdc605a7b85fe7138547c",
+    "png_sha256": "d1de43958f306d21db7f97110fc8120ab2846a7e91526cc292a651427a35bd75",
+    "svg_sha256": "d834830427795361544672c2ce30669e03158b8db55e1e6c1f1e4160f150f12e"
   },
-  "required_changes": [],
-  "previous_revisions": [
-    {
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        207,
+        713,
+        560
+      ],
+      "content_center_px": [
+        383.5,
+        383.5
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 5,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [
+    "Animal artwork is a native vector reconstruction of a small source illustration. Species, pose and handedness were compared visually; fine source drawing texture is approximate. Hues are removed because anatomy distinguishes the six animal identities."
+  ],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
       "reviewer": "independent /root/review_transformation_batch",
       "source_id": "598",
       "category": "transformation_geometry",
-      "reviewed_utc": "2026-10-27T04:42:14.644607+00:00",
-      "verdict": "needs_revision",
+      "reviewed_utc": "2026-10-27T04:43:58.061403+00:00",
+      "verdict": "agent_verified",
       "user_approval": false,
       "hashes": {
         "original.jpg": "5bcf27a06ebc1de13787fefd037060db818d2e97531a1ef785e398212bdbaf3d",
         "source.json": "ab22e7467dbeeb938ba10bb3e6bcdb578283aa0bb1ddd27145b18ef935727536",
-        "scene.json": "e41c1ff224595ad4d44579e34c5a4f320bcc0e96088b23eccfcccebe35d4fe52",
-        "render.py": "ebe2ab8fad20171e65ca605b7c6cf703f2f8107ee078c7270727d8944b8ffc54",
-        "image.png": "158555ef4a41cd418f07a7ace5ac5b240a380dd87add22d26be48e6eb4bd272d",
-        "audit.json": "6725167868d7af009ce01a65367d0c48b528480235663e7f91439cc9a0c5ffbf",
-        "redraw_report.json": "6e389615c82ca5362509429ccf3a5735172593267f81adf12f59528eb5796978"
+        "scene.json": "882fa5b748b25fc79bfd29e316c6ef9b5258386bdf3b756d37432a2aa260aede",
+        "render.py": "faf67f2750dfae6780d1aee8ff6d7b3dfc641045851a983dbd1ce16ae605c767",
+        "image.png": "3e7fcf19335b8e606ba54cc21609165a34e3a439cad107ba092984c8aabc15e0",
+        "audit.json": "152842414076db0208ccfb7192f6f61483aab6bca0eab6e2270236b776af01f4",
+        "redraw_report.json": "194fd3eb5dd07cf04aca5b93adf9f66b330a1ad8db6d7d123f6bc74a474bee47",
+        "protocol_repair.json": "40f69e552ed4b2b3a92b1767ac2366c88f49da39dd442e33824e448ef6aa2c27"
       },
       "explicit_inspected_facts": [
-        "Individually viewed original and final six-animal tiles and all five choices. Animals remain distinguishable anatomical native art: brown floppy-eared dog, green/blue butterfly with antennae/wingpatterns, brown three-part ant with sixlegs, gray dolphin with dorsalfin/flippers/tail, tan pointed-ear curled-tail cat, red spotted ladybird with head/legs. Firsttwo tiles populated, lasttwo blank; three bold sharededges and spiegeln curvedarrow retained. All options compared per sector and orientation: Ainitial,Bhorizontalflip,Cfirstreflection,Drotatedfirstreflection,Everticalflip. InB top dolphin inverted, bottomdog upright, upperleftant inverted, lowerleftbutterfly rotated, upperrightcat inverted, lowerrightladybird headupperright."
+        "Individually viewed original and final six-animal tiles and all five choices. Animals remain distinguishable anatomical native art: brown floppy-eared dog, green/blue butterfly with antennae/wingpatterns, brown three-part ant with sixlegs, gray dolphin with dorsalfin/flippers/tail, tan pointed-ear curled-tail cat, red spotted ladybird with head/legs. Firsttwo tiles populated, lasttwo blank; three bold sharededges and spiegeln curvedarrow retained. All options compared per sector and orientation: Ainitial,Bhorizontalflip,Cfirstreflection,Drotatedfirstreflection,Everticalflip. InB top dolphin inverted, bottomdog upright, upperleftant inverted, lowerleftbutterfly rotated, upperrightcat inverted, lowerrightladybird headupperright.",
+        "Post-style-repair actually viewed full final PNG and independently enlarged prompt animal pair plus ALL five optiontiles. 1pt strokes leave dog ears/eye/paws, ant6legs/antennae/3bodysegments, dolphin fins/tail, cat ears/tail, butterfly coloredwingpatterns and ladybird spots/legs readable; no option becomes ambiguous. Exact three bold mirrors remain distinct at2.5pt. Enumerated every native layer and geometricedge: no unauthorizedthin strokes."
       ],
       "checks": {
         "source_record_and_bytes_match": true,
@@ -150,7 +113,12 @@
               -0.9999999999999998
             ]
           ],
-          "proof": "Three edge axes\u221260,+60,\u221260 compose diag(1,\u22121), a top-bottom reflection of initialtile (translation ignored). Initial topdog thereforebottom, bottomdolphintop; upperleftbutterfly\u2192lowerleft, lowerleftant\u2192upperleft; right ladybird/cat swap vertically with glyphs reflected too. ExactlyB."
+          "proof": "Three edge axes−60,+60,−60 compose diag(1,−1), a top-bottom reflection of initialtile (translation ignored). Initial topdog thereforebottom, bottomdolphintop; upperleftbutterfly→lowerleft, lowerleftant→upperleft; right ladybird/cat swap vertically with glyphs reflected too. ExactlyB.",
+          "postrepair_actual_stroked_animal_layers": 65,
+          "all_actual_animal_strokes_pt": 1,
+          "no_outline_layers": 27,
+          "semantic_fold_edges_2_5pt": 3,
+          "ordinary_geometry_edges_1pt": 63
         },
         "renderer_checks": [
           {
@@ -196,22 +164,27 @@
             "definitions": 6,
             "instances": 42,
             "blank_later_tiles": true
+          },
+          {
+            "id": "protocol_stroke_widths",
+            "passed": true,
+            "stroked_animal_layers": 65,
+            "animal_stroke_pt": 1,
+            "semantic_bold_fold_edges": 3,
+            "semantic_bold_fold_stroke_pt": 2.5
           }
         ],
         "twice_isolated_standalone_identical": true,
-        "report_hashes_valid": true,
-        "protocol_dependencies_current": true
+        "report_hashes_valid": true
       },
-      "required_changes": [
-        "Normalize every actual nonzero stroked detail to1pt, preserve native geometry/colors/poses, actual-view readability and repeat reproduction before independent reapproval."
-      ],
+      "required_changes": [],
       "previous_revisions": [
         {
           "reviewer": "independent /root/review_transformation_batch",
           "source_id": "598",
           "category": "transformation_geometry",
-          "reviewed_utc": "2026-10-27T04:03:29.998481+00:00",
-          "verdict": "agent_verified",
+          "reviewed_utc": "2026-10-27T04:42:14.644607+00:00",
+          "verdict": "needs_revision",
           "user_approval": false,
           "hashes": {
             "original.jpg": "5bcf27a06ebc1de13787fefd037060db818d2e97531a1ef785e398212bdbaf3d",
@@ -248,7 +221,7 @@
                   -0.9999999999999998
                 ]
               ],
-              "proof": "Three edge axes\u221260,+60,\u221260 compose diag(1,\u22121), a top-bottom reflection of initialtile (translation ignored). Initial topdog thereforebottom, bottomdolphintop; upperleftbutterfly\u2192lowerleft, lowerleftant\u2192upperleft; right ladybird/cat swap vertically with glyphs reflected too. ExactlyB."
+              "proof": "Three edge axes−60,+60,−60 compose diag(1,−1), a top-bottom reflection of initialtile (translation ignored). Initial topdog thereforebottom, bottomdolphintop; upperleftbutterfly→lowerleft, lowerleftant→upperleft; right ladybird/cat swap vertically with glyphs reflected too. ExactlyB."
             },
             "renderer_checks": [
               {
@@ -300,24 +273,124 @@
             "report_hashes_valid": true,
             "protocol_dependencies_current": true
           },
-          "required_changes": [],
-          "previous_revisions": [],
+          "required_changes": [
+            "Normalize every actual nonzero stroked detail to1pt, preserve native geometry/colors/poses, actual-view readability and repeat reproduction before independent reapproval."
+          ],
+          "previous_revisions": [
+            {
+              "reviewer": "independent /root/review_transformation_batch",
+              "source_id": "598",
+              "category": "transformation_geometry",
+              "reviewed_utc": "2026-10-27T04:03:29.998481+00:00",
+              "verdict": "agent_verified",
+              "user_approval": false,
+              "hashes": {
+                "original.jpg": "5bcf27a06ebc1de13787fefd037060db818d2e97531a1ef785e398212bdbaf3d",
+                "source.json": "ab22e7467dbeeb938ba10bb3e6bcdb578283aa0bb1ddd27145b18ef935727536",
+                "scene.json": "e41c1ff224595ad4d44579e34c5a4f320bcc0e96088b23eccfcccebe35d4fe52",
+                "render.py": "ebe2ab8fad20171e65ca605b7c6cf703f2f8107ee078c7270727d8944b8ffc54",
+                "image.png": "158555ef4a41cd418f07a7ace5ac5b240a380dd87add22d26be48e6eb4bd272d",
+                "audit.json": "6725167868d7af009ce01a65367d0c48b528480235663e7f91439cc9a0c5ffbf",
+                "redraw_report.json": "6e389615c82ca5362509429ccf3a5735172593267f81adf12f59528eb5796978"
+              },
+              "explicit_inspected_facts": [
+                "Individually viewed original and final six-animal tiles and all five choices. Animals remain distinguishable anatomical native art: brown floppy-eared dog, green/blue butterfly with antennae/wingpatterns, brown three-part ant with sixlegs, gray dolphin with dorsalfin/flippers/tail, tan pointed-ear curled-tail cat, red spotted ladybird with head/legs. Firsttwo tiles populated, lasttwo blank; three bold sharededges and spiegeln curvedarrow retained. All options compared per sector and orientation: Ainitial,Bhorizontalflip,Cfirstreflection,Drotatedfirstreflection,Everticalflip. InB top dolphin inverted, bottomdog upright, upperleftant inverted, lowerleftbutterfly rotated, upperrightcat inverted, lowerrightladybird headupperright."
+              ],
+              "checks": {
+                "source_record_and_bytes_match": true,
+                "two_independent_renders_equal_candidate": true,
+                "opaque768": true,
+                "bbox": [
+                  53,
+                  205,
+                  715,
+                  561
+                ],
+                "occupancy": 0.86328125,
+                "independent_numeric_checks": {
+                  "answer": "B",
+                  "independent_reflection_product": [
+                    [
+                      0.9999999999999999,
+                      6.215113103450816e-16
+                    ],
+                    [
+                      6.363854784884189e-16,
+                      -0.9999999999999998
+                    ]
+                  ],
+                  "proof": "Three edge axes−60,+60,−60 compose diag(1,−1), a top-bottom reflection of initialtile (translation ignored). Initial topdog thereforebottom, bottomdolphintop; upperleftbutterfly→lowerleft, lowerleftant→upperleft; right ladybird/cat swap vertically with glyphs reflected too. ExactlyB."
+                },
+                "renderer_checks": [
+                  {
+                    "id": "regular_hexagons",
+                    "passed": true,
+                    "max_equal_side_radius_error": 1.1368683772161603e-13
+                  },
+                  {
+                    "id": "successive_mirror_geometry",
+                    "passed": true,
+                    "max_reflection_error": 2.842170943040401e-14,
+                    "axes_degrees": [
+                      120,
+                      60,
+                      120
+                    ],
+                    "final_relative_to_canonical": [
+                      [
+                        -0.4999999999999997,
+                        -0.8660254037844387
+                      ],
+                      [
+                        0.8660254037844387,
+                        -0.49999999999999967
+                      ]
+                    ]
+                  },
+                  {
+                    "id": "options_distinct",
+                    "passed": true,
+                    "unique_matching_option": "B",
+                    "determinants": {
+                      "A": -1.0,
+                      "B": 1.0,
+                      "C": 1.0,
+                      "D": 1.0,
+                      "E": 1.0
+                    }
+                  },
+                  {
+                    "id": "native_artwork_reuse",
+                    "passed": true,
+                    "definitions": 6,
+                    "instances": 42,
+                    "blank_later_tiles": true
+                  }
+                ],
+                "twice_isolated_standalone_identical": true,
+                "report_hashes_valid": true,
+                "protocol_dependencies_current": true
+              },
+              "required_changes": [],
+              "previous_revisions": [],
+              "dependency_hashes": {
+                "PlaneGeometry/dataset_generator/protocol.json": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+              }
+            }
+          ],
           "dependency_hashes": {
             "PlaneGeometry/dataset_generator/protocol.json": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+          },
+          "protocol_style_followup": {
+            "reviewer": "independent /root plus structural auditor",
+            "finding": "Actual native illustration strokes below1pt; producer-declared detail exception is not authorized by repository protocol. Geometry and source math remain previously reviewed.",
+            "required_changes": "Normalize every actual nonzero stroked detail to1pt, preserve native geometry/colors/poses, actual-view readability and repeat reproduction before independent reapproval."
           }
         }
       ],
       "dependency_hashes": {
         "PlaneGeometry/dataset_generator/protocol.json": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
-      },
-      "protocol_style_followup": {
-        "reviewer": "independent /root plus structural auditor",
-        "finding": "Actual native illustration strokes below1pt; producer-declared detail exception is not authorized by repository protocol. Geometry and source math remain previously reviewed.",
-        "required_changes": "Normalize every actual nonzero stroked detail to1pt, preserve native geometry/colors/poses, actual-view readability and repeat reproduction before independent reapproval."
       }
     }
-  ],
-  "dependency_hashes": {
-    "PlaneGeometry/dataset_generator/protocol.json": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
   }
 }

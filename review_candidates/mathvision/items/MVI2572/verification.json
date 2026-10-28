@@ -1,47 +1,129 @@
 {
-  "reviewer": "independent /root",
-  "source_id": "2572",
-  "category": "combinatorial_geometry",
-  "reviewed_utc": "2026-10-27T03:03:49.857028+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "redraw_part4",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "fbebfdec8ef9cf9e0ace2ece618244f55431e90c227173c5ed7a2cd8936be208",
+    "image.png": "936cbeefa4bf42f6d7a8c9c65ab9541c2909c64f502b08ab84be6358161feb31",
+    "image.svg": "5a9c9becea58f4c99065b7e585c8d91fa7e6130f691fa26562e1ca1c414564f6",
+    "redraw_report.json": "44ac04068ca32b2b5555bcf575c53c64f2fc31f442bbb279237ca442697730c0",
+    "protocol_review.json": "5c0eb187523e35aecd84ffc6bbcb760229c0950a60732b09bf74a0ce8e3c9d23",
+    "source_redraw.py": "e5733287dc63eb9d4c4febb53b278f7e2e9e0b0e46f472ba42112b3a3bcc29df",
+    "execution.json": "2db817f6ed09401dd4fbf1b9955ccc62f8bdb6f435ab6bb77f14331443285125",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "d546acd7f66d6ba1e3119392b678da980f0b2c45fd5d66977243319d24a796c1",
     "source.json": "4b74601c089ca207be45591eca9a0d8be7a705392e2325a1fdc3d4101ae39d30",
-    "scene.json": "7944b78fac3fbc0f0a0350c70b2a52906e935b5cf230aa5b52a5ea990a03eb41",
-    "render.py": "e5733287dc63eb9d4c4febb53b278f7e2e9e0b0e46f472ba42112b3a3bcc29df",
-    "image.png": "edcc4d01840ebf6cb6a2f523b72295150bff7e5241ddeb3ce04e4ed392844470",
-    "audit.json": "4f95113c5ac0a7d7238d074c3eb70127750033b03a77c5a5f24a5dcc8546d252",
-    "redraw_report.json": "f32c053ec60f50e79832d1129e09124433c5b1ae48263dda47488c2ea5e8e14a",
-    "../upper_comb_renderer.py": "f8b46c832ae8ff8e16730970bd31d1d549035f4e230f49acb6b88141efda0d84"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Individually viewed original/candidate: I two gray halfquadrant triangles, II upperleftgrayquadrant, III left/rightgraydiamonds, same I/II/III labels and every diagonal/midpointline. Independent shoelace verifies each shadedtotal1 of outersquare4."
+    "Compared source and final vector redraw: source connections, region identities, point order, displayed labels and layout retained; no new solving construction introduced.",
+    "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      54,
-      286,
-      714,
-      482
-    ],
-    "occupancy": 0.8606770833333334,
-    "independent_numeric_checks": {
-      "gray_component_areas": [
-        0.5,
-        0.5,
-        1.0,
-        0.5,
-        0.5
-      ],
-      "shaded_fraction_each": 0.25,
-      "answer": "A"
+  "agent_visual_review": {
+    "status": "agent_viewed",
+    "reviewer": "redraw_part4",
+    "source_inspection": {
+      "status": "viewed",
+      "sheet": ".runtime/protocol_redraw/part4/source_06.jpg",
+      "complete_question_read": true
     },
-    "renderer_checks": []
+    "new_render_viewed": true,
+    "final_png_view": {
+      "method": "final render contact sheet",
+      "path": ".runtime/protocol_redraw/part4/new_06.jpg",
+      "cell": 4,
+      "individual_zoom": false
+    },
+    "source_sha256": "d546acd7f66d6ba1e3119392b678da980f0b2c45fd5d66977243319d24a796c1",
+    "scene_sha256": "fbebfdec8ef9cf9e0ace2ece618244f55431e90c227173c5ed7a2cd8936be208",
+    "png_sha256": "936cbeefa4bf42f6d7a8c9c65ab9541c2909c64f502b08ab84be6358161feb31",
+    "svg_sha256": "5a9c9becea58f4c99065b7e585c8d91fa7e6130f691fa26562e1ca1c414564f6",
+    "findings": [
+      "Compared source and final vector redraw: source connections, region identities, point order, displayed labels and layout retained; no new solving construction introduced.",
+      "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
+    ],
+    "user_approved": false,
+    "svg_rebinding_note": "Central final renderer regenerated vector SVG from the same Figure. PNG and scene hashes are unchanged from the actual visual inspection; this updates SVG serialization evidence without claiming another raster viewing."
   },
-  "required_changes": [],
-  "previous_revisions": []
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        286,
+        713,
+        482
+      ],
+      "content_center_px": [
+        383.5,
+        384.0
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 0,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root",
+      "source_id": "2572",
+      "category": "combinatorial_geometry",
+      "reviewed_utc": "2026-10-27T03:03:49.857028+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "d546acd7f66d6ba1e3119392b678da980f0b2c45fd5d66977243319d24a796c1",
+        "source.json": "4b74601c089ca207be45591eca9a0d8be7a705392e2325a1fdc3d4101ae39d30",
+        "scene.json": "7944b78fac3fbc0f0a0350c70b2a52906e935b5cf230aa5b52a5ea990a03eb41",
+        "render.py": "e5733287dc63eb9d4c4febb53b278f7e2e9e0b0e46f472ba42112b3a3bcc29df",
+        "image.png": "edcc4d01840ebf6cb6a2f523b72295150bff7e5241ddeb3ce04e4ed392844470",
+        "audit.json": "4f95113c5ac0a7d7238d074c3eb70127750033b03a77c5a5f24a5dcc8546d252",
+        "redraw_report.json": "f32c053ec60f50e79832d1129e09124433c5b1ae48263dda47488c2ea5e8e14a",
+        "../upper_comb_renderer.py": "f8b46c832ae8ff8e16730970bd31d1d549035f4e230f49acb6b88141efda0d84"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed original/candidate: I two gray halfquadrant triangles, II upperleftgrayquadrant, III left/rightgraydiamonds, same I/II/III labels and every diagonal/midpointline. Independent shoelace verifies each shadedtotal1 of outersquare4."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          54,
+          286,
+          714,
+          482
+        ],
+        "occupancy": 0.8606770833333334,
+        "independent_numeric_checks": {
+          "gray_component_areas": [
+            0.5,
+            0.5,
+            1.0,
+            0.5,
+            0.5
+          ],
+          "shaded_fraction_each": 0.25,
+          "answer": "A"
+        },
+        "renderer_checks": []
+      },
+      "required_changes": [],
+      "previous_revisions": []
+    }
+  }
 }

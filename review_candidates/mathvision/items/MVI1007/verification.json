@@ -1,54 +1,129 @@
 {
-  "reviewer": "independent /root/review_transformation_batch",
-  "source_id": "1007",
-  "category": "transformation_geometry",
-  "reviewed_utc": "2026-10-27T03:07:17.845507+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "curator part2",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "3c765ee143b656e18a813e7801a4a6ebee799b69543650e98b15290693591d7f",
+    "image.png": "be196009b0bfccfc7d650b16ca1ae12494586479864e6ebb9d06bb2f69a1a79b",
+    "image.svg": "8b61f2a42c439efba36b84e2d550598d6f324befb30af9c3b1f5f0c1644dbad1",
+    "redraw_report.json": "fb4f0feee817307da2df790982c20d7ba2902c5890c49588409a4ceab143ef74",
+    "protocol_review.json": "8fd7daa708ba9c8d210c541730325e123a4c4dd9935505c3bca36af0722f5cb9",
+    "source_redraw.py": "f9732f2acaa0bede016cf487f76a96121d8ba56370bac5227e1bdcb3985d50d8",
+    "execution.json": "f2e8417dd1e7376a73020ac58d2660acddd05938abbaffeec5043d07d6fc7159",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "ee38bbc3c85907c46fc9f4c724190a3ecdc62179d066504e0b2633a9ada48690",
     "source.json": "fe217ac8a098154b17d268d4ec86978a59f5f8835540c48b3af6f036b6e692b4",
-    "scene.json": "10e7e30056c17c78bb2e9566c007ff6a3703ac34abbbe04a410c4d4c3b161eac",
-    "render.py": "f9732f2acaa0bede016cf487f76a96121d8ba56370bac5227e1bdcb3985d50d8",
-    "image.png": "d6734131780879f9ad36d0bd3d5b1170d7d3c04bd9953e665f229eb7564c8c09",
-    "audit.json": "bdbce1cddceb7d6ac736a700d4e3072f9b8d40e948a1d4c972d6b7c1998b8f91",
-    "redraw_report.json": "20fbba1850ac3854f83d0780071b2335143bb885a6f67beccd92205e6a981c51"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Individually viewed original and candidate: four consecutive equal-radius isosceles triangles around common vertex, gray triangle0 right,1 above,2 left,3 below overlapping0 partially; all crossing edges remain visible. A at common vertex,B upper-right,C lower-right correctly bound.",
-    "Each new triangle advances100degrees around fixed common vertex, preserving equal radial sides. Exact coverage requires100n multiple360, leastn=18 since gcd(100,360)=20. Scene ray lengths all3 and consecutive unwrapped angle differences exactly100degrees; labels0-3 in corresponding sectors."
+    "Gray triangle 0 retains A/B/C binding and exact 100-degree isosceles construction; triangle numbers are region labels, not angles."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      54,
-      63,
-      713,
-      703
+  "agent_visual_review": {
+    "status": "viewed",
+    "reviewer": "curator part2",
+    "review_kind": "Agent source-to-vector visual comparison; not user approval",
+    "source_and_complete_question_reviewed": true,
+    "new_png_actually_viewed": true,
+    "inspection_method": "paired source/final contact sheet",
+    "evidence": ".runtime/protocol_redraw/part2/final_14.jpg",
+    "findings": [
+      "Gray triangle 0 retains A/B/C binding and exact 100-degree isosceles construction; triangle numbers are region labels, not angles."
     ],
-    "occupancy": 0.859375,
-    "independent_numeric_checks": {
-      "ray_angles": [
-        -59.99999999999999,
-        40.0,
-        140.0,
-        239.99999999999994,
-        340.0
-      ],
-      "common_side": 3,
-      "first_return": 18,
-      "answer": 18
-    },
-    "renderer_checks": [],
-    "report_hashes_valid": true,
-    "isolated_standalone_render_identical": true
+    "geometry_labels_and_topology": "Source point order, connections, region identity and visible labels compared; no solving hints added.",
+    "source_image_sha256": "ee38bbc3c85907c46fc9f4c724190a3ecdc62179d066504e0b2633a9ada48690",
+    "scene_sha256": "3c765ee143b656e18a813e7801a4a6ebee799b69543650e98b15290693591d7f",
+    "png_sha256": "be196009b0bfccfc7d650b16ca1ae12494586479864e6ebb9d06bb2f69a1a79b",
+    "svg_sha256": "8b61f2a42c439efba36b84e2d550598d6f324befb30af9c3b1f5f0c1644dbad1",
+    "source_redraw_sha256": "f9732f2acaa0bede016cf487f76a96121d8ba56370bac5227e1bdcb3985d50d8",
+    "renderer_sha256": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "reviewed_at_utc": "2026-10-28T13:08:11.729861+00:00"
   },
-  "required_changes": [],
-  "previous_revisions": [],
-  "dependency_hashes": {
-    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
-    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        64,
+        713,
+        702
+      ],
+      "content_center_px": [
+        383.5,
+        383.0
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 2,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root/review_transformation_batch",
+      "source_id": "1007",
+      "category": "transformation_geometry",
+      "reviewed_utc": "2026-10-27T03:07:17.845507+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "ee38bbc3c85907c46fc9f4c724190a3ecdc62179d066504e0b2633a9ada48690",
+        "source.json": "fe217ac8a098154b17d268d4ec86978a59f5f8835540c48b3af6f036b6e692b4",
+        "scene.json": "10e7e30056c17c78bb2e9566c007ff6a3703ac34abbbe04a410c4d4c3b161eac",
+        "render.py": "f9732f2acaa0bede016cf487f76a96121d8ba56370bac5227e1bdcb3985d50d8",
+        "image.png": "d6734131780879f9ad36d0bd3d5b1170d7d3c04bd9953e665f229eb7564c8c09",
+        "audit.json": "bdbce1cddceb7d6ac736a700d4e3072f9b8d40e948a1d4c972d6b7c1998b8f91",
+        "redraw_report.json": "20fbba1850ac3854f83d0780071b2335143bb885a6f67beccd92205e6a981c51"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed original and candidate: four consecutive equal-radius isosceles triangles around common vertex, gray triangle0 right,1 above,2 left,3 below overlapping0 partially; all crossing edges remain visible. A at common vertex,B upper-right,C lower-right correctly bound.",
+        "Each new triangle advances100degrees around fixed common vertex, preserving equal radial sides. Exact coverage requires100n multiple360, leastn=18 since gcd(100,360)=20. Scene ray lengths all3 and consecutive unwrapped angle differences exactly100degrees; labels0-3 in corresponding sectors."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          54,
+          63,
+          713,
+          703
+        ],
+        "occupancy": 0.859375,
+        "independent_numeric_checks": {
+          "ray_angles": [
+            -59.99999999999999,
+            40.0,
+            140.0,
+            239.99999999999994,
+            340.0
+          ],
+          "common_side": 3,
+          "first_return": 18,
+          "answer": 18
+        },
+        "renderer_checks": [],
+        "report_hashes_valid": true,
+        "isolated_standalone_render_identical": true
+      },
+      "required_changes": [],
+      "previous_revisions": [],
+      "dependency_hashes": {
+        "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+        "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+      }
+    }
   }
 }

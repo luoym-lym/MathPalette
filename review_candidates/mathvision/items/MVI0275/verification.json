@@ -1,50 +1,121 @@
 {
-  "reviewer": "independent /root",
-  "source_id": "275",
-  "category": "transformation_geometry",
-  "reviewed_utc": "2026-10-27T00:47:27.388286+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "Agent curator part1",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "1ca0c5db90fc0563864ebdf3af739e5a45ad4590164708e318e3942d4b495543",
+    "image.png": "3e03f45601db1e79897e32f0cecc0f7ee97dd828ade30d644f4f9f8cb25e1e4d",
+    "image.svg": "5e8f59666796d45c6ff98b47ac120913bbb569bf83a43db779c0b0d656c3ddd6",
+    "redraw_report.json": "430529181aef15c9089cb112087cde26b8d030fb9172ff2029bd53ce8bb26c2d",
+    "protocol_review.json": "33118f0b8f65ee4c15eea0ef1f83c6abf84c8b194a023753200833dd2adedda3",
+    "source_redraw.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
+    "execution.json": "e8ad5b99a32d44ab6cf21f6a13f6d9439d627d4c4cdedfef7c5e8a2442f66c8c",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "00dc79b63f054005c66f32a07553d8d7c852b0232eff19e65fbe47a106ab5a88",
     "source.json": "05bb37b49cbd25fee90c2a51229f00b27ebef3a0ef754603ddda9399ce5ec69b",
-    "scene.json": "330b531fcd81bc37b75a6f207cf5117e5f2f2cfc4b418c9187957725608b0993",
-    "render.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
-    "image.png": "783965eea03df9f9e4bdc243a664b585a2b60d025bfe17895ef3755e49bd733e",
-    "audit.json": "767f904d4031e4c404a68761e7b22ecc5f523c328de9000ad74e1bdf4be225cc",
-    "redraw_report.json": "654f2184b2de70446f895c098818b05e0bae8d84e91ba616bb2ebbf9215bc3cc"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Independently viewed original and candidate:3x3 square divided by4dashed folds, right arrow, one-unit square, rightarrow, top-right clipped square; panel order and relative square scales preserved."
+    "Square crease pattern, folded square and clipped corner retain the source sequence and cut orientation."
   ],
-  "checks": {
-    "source_metadata_fields_equal": true,
-    "source_bytes_equal": true,
-    "render_twice_equal": true,
-    "candidate_pixels_match_independent_render": true,
-    "opaque768": true,
-    "layout_bbox": [
-      54,
-      266,
-      713,
-      501
+  "agent_visual_review": {
+    "status": "inspected",
+    "reviewer": "Agent curator part1",
+    "user_approval": false,
+    "reviewed_at_utc": "2026-10-28T12:56:24.167793+00:00",
+    "method": "Source and final PNG comparison on 12-item contact sheets.",
+    "contact_sheet": ".runtime/protocol_redraw/part1/final_05.jpg",
+    "individual_final_png_viewed": false,
+    "findings": [
+      "Square crease pattern, folded square and clipped corner retain the source sequence and cut orientation."
     ],
-    "occupancy": 0.859375,
-    "numeric_checks": [
-      {
-        "check": "all4_folded_corner_preimages_on_3x3",
-        "interior_holes": [
-          1,
-          1,
-          1,
-          1
-        ],
-        "answer": "1"
-      }
-    ],
-    "renderer_constraints": [],
-    "report_hashes_valid": true
+    "source_sha256": "00dc79b63f054005c66f32a07553d8d7c852b0232eff19e65fbe47a106ab5a88",
+    "scene_sha256": "1ca0c5db90fc0563864ebdf3af739e5a45ad4590164708e318e3942d4b495543",
+    "png_sha256": "3e03f45601db1e79897e32f0cecc0f7ee97dd828ade30d644f4f9f8cb25e1e4d",
+    "svg_sha256": "5e8f59666796d45c6ff98b47ac120913bbb569bf83a43db779c0b0d656c3ddd6"
   },
-  "required_changes": [],
-  "independent_check_script_sha256": "f86a7a5429a834f284d2bc393e81cd085597977c2ad5ec3dceaa3cc05ca70a17"
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        267,
+        713,
+        501
+      ],
+      "content_center_px": [
+        383.5,
+        384.0
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 0,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root",
+      "source_id": "275",
+      "category": "transformation_geometry",
+      "reviewed_utc": "2026-10-27T00:47:27.388286+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "00dc79b63f054005c66f32a07553d8d7c852b0232eff19e65fbe47a106ab5a88",
+        "source.json": "05bb37b49cbd25fee90c2a51229f00b27ebef3a0ef754603ddda9399ce5ec69b",
+        "scene.json": "330b531fcd81bc37b75a6f207cf5117e5f2f2cfc4b418c9187957725608b0993",
+        "render.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
+        "image.png": "783965eea03df9f9e4bdc243a664b585a2b60d025bfe17895ef3755e49bd733e",
+        "audit.json": "767f904d4031e4c404a68761e7b22ecc5f523c328de9000ad74e1bdf4be225cc",
+        "redraw_report.json": "654f2184b2de70446f895c098818b05e0bae8d84e91ba616bb2ebbf9215bc3cc"
+      },
+      "explicit_inspected_facts": [
+        "Independently viewed original and candidate:3x3 square divided by4dashed folds, right arrow, one-unit square, rightarrow, top-right clipped square; panel order and relative square scales preserved."
+      ],
+      "checks": {
+        "source_metadata_fields_equal": true,
+        "source_bytes_equal": true,
+        "render_twice_equal": true,
+        "candidate_pixels_match_independent_render": true,
+        "opaque768": true,
+        "layout_bbox": [
+          54,
+          266,
+          713,
+          501
+        ],
+        "occupancy": 0.859375,
+        "numeric_checks": [
+          {
+            "check": "all4_folded_corner_preimages_on_3x3",
+            "interior_holes": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "answer": "1"
+          }
+        ],
+        "renderer_constraints": [],
+        "report_hashes_valid": true
+      },
+      "required_changes": [],
+      "independent_check_script_sha256": "f86a7a5429a834f284d2bc393e81cd085597977c2ad5ec3dceaa3cc05ca70a17"
+    }
+  }
 }

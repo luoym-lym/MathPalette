@@ -80,7 +80,7 @@ def draw_art(ax,art,linear,offset,mode,z=4):
   ax.add_patch(PathPatch(MPath(lay['vertices'],lay['codes']),facecolor=fill,edgecolor=stroke,linewidth=lay['linewidth_pt'],transform=trans,antialiased=True,joinstyle='round',capstyle='round',zorder=z+k*.001))
 
 def render(vector=False):
- s=json.loads((B/'scene.json').read_text());check_scene(s);P=np.array(s['projection']['matrix'])
+ s=json.loads((B/'scene.json').read_text());checks = check_scene(s);P=np.array(s['projection']['matrix'])
  with matplotlib.rc_context({'font.family':'DejaVu Sans','svg.fonttype':'path','svg.hashsalt':'MathVision927native','path.simplify':False}):
   fig=plt.figure(figsize=(7.68,7.68),dpi=100,facecolor='white');ax=fig.add_axes(s['view']['layout']['axes_position']);ax.set_xlim(s['view']['xlim']);ax.set_ylim(s['view']['ylim']);ax.set_aspect('equal');ax.set_axis_off();ax.set_autoscale_on(False)
   for cube in s['cubes']:

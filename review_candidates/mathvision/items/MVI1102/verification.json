@@ -1,41 +1,116 @@
 {
-  "reviewer": "independent /root",
-  "source_id": "1102",
-  "category": "combinatorial_geometry",
-  "reviewed_utc": "2026-10-27T00:58:33.092542+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "protocol_redraw_part3",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "9cf29b6b372dae0c6abf3bac7471b1d85f3c4274a70d8175b87a9675039289ae",
+    "image.png": "d9296101aa2bef06a3d0b0ac2bc5afa54247ae78646d68e1735c4bc5286a90f7",
+    "image.svg": "cf226662e87f59b07dfc3f9852047f0ac7401be915fc61e12a67d428ca0c47ed",
+    "redraw_report.json": "d65268bfe165dae661903281dbc6b3a1c345ba5ee8dbfec6861eb74a534140f4",
+    "protocol_review.json": "fcd25c16dd91ee919d046b71717d775d1eec5d9bb56cb949173f946a9a6420d5",
+    "source_redraw.py": "e5733287dc63eb9d4c4febb53b278f7e2e9e0b0e46f472ba42112b3a3bcc29df",
+    "execution.json": "03f0e57b6fa5e2e8f5c39e5e4cad6e069913a8588e257adcbab96dac45def1f6",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "016d4522d6e08328b362b14630c30b53c682c103d98a2df0d17f19700ef080bc",
     "source.json": "e68616f39b2c874f42896da15f3b54263f1c9c62310c9169709b1cbddfcb9ef0",
-    "scene.json": "4008f13c0151783b1ba11d1fd6b8d9fde43bb683883218ee86be682a2646986c",
-    "render.py": "e5733287dc63eb9d4c4febb53b278f7e2e9e0b0e46f472ba42112b3a3bcc29df",
-    "image.png": "52bb9bc12fccc9d288a03ce0570e2a71581b04c06839ddea73b99af001463d34",
-    "audit.json": "e137b6acdf88fc547663fe8fa28d42d1407743f0fe6fcd2a35afae0c570e90e9",
-    "redraw_report.json": "4e1df048c31b71cd8595a646c9bd72bb1bf246b325cddfde16cce7fa6b933054"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Viewed original, initialcandidate and revisedcandidate:grey quadrilateralABCD at sourcegridvertices; sourceopenright horizontalends nowpreserved after removing addedrightvertical. Labels correctly bound and unoccluded."
+    "Quadrilateral vertices remain on the same source grid intersections; A lower left, B lower middle, C upper right, D upper left."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      54,
-      127,
-      714,
-      640
-    ],
-    "occupancy": 0.8606770833333334,
-    "independent_numeric_checks": {
-      "shoelace_grid_area": 21.0,
-      "cell_area_cm2": 4,
-      "answer": "B=84",
-      "source_open_right_grid_end_preserved": true
-    },
-    "renderer_checks": []
+  "agent_visual_review": {
+    "status": "agent_reviewed",
+    "reviewer": "protocol_redraw_part3",
+    "reviewed_at_utc": "2026-10-28T12:58:04.313409+00:00",
+    "source_compared": true,
+    "method": "Viewed final source/redraw comparison contact sheet",
+    "contact_sheet": ".runtime/protocol_redraw/part3/new_00.jpg",
+    "contact_sheet_sha256": "c8fd4b7c7776a878f97a389432003babb15787c3fd253b0f68a72e65f6d2f744",
+    "png_sha256": "d9296101aa2bef06a3d0b0ac2bc5afa54247ae78646d68e1735c4bc5286a90f7",
+    "svg_sha256": "cf226662e87f59b07dfc3f9852047f0ac7401be915fc61e12a67d428ca0c47ed",
+    "scene_sha256": "9cf29b6b372dae0c6abf3bac7471b1d85f3c4274a70d8175b87a9675039289ae",
+    "source_sha256": "016d4522d6e08328b362b14630c30b53c682c103d98a2df0d17f19700ef080bc",
+    "final_png_sha256": "d9296101aa2bef06a3d0b0ac2bc5afa54247ae78646d68e1735c4bc5286a90f7",
+    "final_scene_sha256": "9cf29b6b372dae0c6abf3bac7471b1d85f3c4274a70d8175b87a9675039289ae",
+    "findings": "Quadrilateral vertices remain on the same source grid intersections; A lower left, B lower middle, C upper right, D upper left.",
+    "unresolved_source_issues": [],
+    "user_approved": false,
+    "scope": "Agent visual review only. All candidates remain pending user review.",
+    "svg_binding_basis": "Current deterministic vector export from the unchanged scene; serialization hash rebound mechanically. Original PNG visual inspection evidence and timestamp are preserved."
   },
-  "required_changes": [],
-  "previous_revisions": []
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        127,
+        713,
+        640
+      ],
+      "content_center_px": [
+        383.5,
+        383.5
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 0,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root",
+      "source_id": "1102",
+      "category": "combinatorial_geometry",
+      "reviewed_utc": "2026-10-27T00:58:33.092542+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "016d4522d6e08328b362b14630c30b53c682c103d98a2df0d17f19700ef080bc",
+        "source.json": "e68616f39b2c874f42896da15f3b54263f1c9c62310c9169709b1cbddfcb9ef0",
+        "scene.json": "4008f13c0151783b1ba11d1fd6b8d9fde43bb683883218ee86be682a2646986c",
+        "render.py": "e5733287dc63eb9d4c4febb53b278f7e2e9e0b0e46f472ba42112b3a3bcc29df",
+        "image.png": "52bb9bc12fccc9d288a03ce0570e2a71581b04c06839ddea73b99af001463d34",
+        "audit.json": "e137b6acdf88fc547663fe8fa28d42d1407743f0fe6fcd2a35afae0c570e90e9",
+        "redraw_report.json": "4e1df048c31b71cd8595a646c9bd72bb1bf246b325cddfde16cce7fa6b933054"
+      },
+      "explicit_inspected_facts": [
+        "Viewed original, initialcandidate and revisedcandidate:grey quadrilateralABCD at sourcegridvertices; sourceopenright horizontalends nowpreserved after removing addedrightvertical. Labels correctly bound and unoccluded."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          54,
+          127,
+          714,
+          640
+        ],
+        "occupancy": 0.8606770833333334,
+        "independent_numeric_checks": {
+          "shoelace_grid_area": 21.0,
+          "cell_area_cm2": 4,
+          "answer": "B=84",
+          "source_open_right_grid_end_preserved": true
+        },
+        "renderer_checks": []
+      },
+      "required_changes": [],
+      "previous_revisions": []
+    }
+  }
 }

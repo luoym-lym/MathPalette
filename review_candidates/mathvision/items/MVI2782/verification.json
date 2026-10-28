@@ -1,332 +1,417 @@
 {
-  "reviewer": "independent /root/review_transformation_batch",
-  "source_id": "2782",
-  "category": "transformation_geometry",
-  "reviewed_utc": "2026-10-27T03:58:59.721159+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "redraw_part4",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "99ee9a52bdd9cb3b0ca8d8e52a9f243ac9dd65bda359b57e3da11d198bb739a5",
+    "image.png": "7faace394c9562134751841eb6e6757950eb6185a437720a78813fe058237585",
+    "image.svg": "1632f81f55df109061775e1e359a4135536476a0b093d89dfcb1830b808ada12",
+    "redraw_report.json": "e00e351823c194d97db3cc0a15a7932b8bd6321729c48319fba9a8dec86adf5e",
+    "protocol_review.json": "cc293d3867b95cddc3e07e658d90697a292e6e1ff0cb1df735fda499cedf0893",
+    "source_redraw.py": "6953ee978d3b318bf2dd3be73e44607e1c5880b85e60e3ede0db867a44dbc86f",
+    "execution.json": "9d1bf33c8c97fecf3e4514af9e59f1f34be51550ad8f46e9f6c13e01aba52c8a",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "f44ec63245e08fe904edda9c664963a894e18602cf6dec9b956c073dcdfada63",
     "source.json": "86f5d1133b29504d0620b247972764bc66b8a5402f134d4777c645b23d784891",
-    "scene.json": "690227f36b56fef450070279f90e69f3f9d6fa3121e5e470978912abe074deae",
-    "render.py": "6953ee978d3b318bf2dd3be73e44607e1c5880b85e60e3ede0db867a44dbc86f",
-    "image.png": "40b458a19c1df616cde6dd5e189d3c786ff69a76f2c51dd9e9dc2b307bca5767",
-    "audit.json": "7706e6bff12dcadc26ea4ebe904243477f7ccf831493b9c5dd0d6315c094c5b2",
-    "redraw_report.json": "4bbf06977bc78a19886b4df45e18743b4a7580ba3e3926b5f575787502a7b6bd"
+    "machine_protocol": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Individually viewed original and final: gray square, actual four-layer partlyfolded packet with striped reverse, closed stripedquarter with open stack visible top/left and creases right/bottom, dashed diagonal cut lower-right corner. Five options preserve X/notchedsquare,top-bottomnotches,centralsquare,triangle,diamond. Two source motion arrows and A-E two-row panel layout retained."
+    "Gray front/white reverse paper and stripes disclose paper sides/layers in the source fold sequence. White option holes are actual cutouts; no lighting or decorative background added.",
+    "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      53,
-      95,
-      713,
-      673
-    ],
-    "occupancy": 0.8606770833333334,
-    "independent_numeric_checks": {
-      "answer": "E",
-      "proof": "The lower-right corner is intersection of both creases, not open boundary. Cut from(.5,0) to(1,.5) removes triangularcorner at(1,0). Reflect x\u21922\u2212x and y\u2192\u2212y: four triangles unite into diamond vertices(.5,0),(1,.5),(1.5,0),(1,\u2212.5). Thus onecentraldiamondhole, outer square intact.",
-      "eight_native3d_square_max_edge_spread": 1.7763568394002505e-15
+  "agent_visual_review": {
+    "status": "agent_viewed",
+    "reviewer": "redraw_part4",
+    "source_inspection": {
+      "status": "viewed",
+      "sheet": ".runtime/protocol_redraw/part4/source_09.jpg",
+      "complete_question_read": true
     },
-    "renderer_checks": [
-      {
-        "check": "projection_and_visibility_binding",
-        "passed": true
-      },
-      {
-        "id": "check0",
-        "type": "distance",
-        "basis": "each folded quarter remains a rigid square",
-        "actual": 1.4500000000000002,
-        "passed": true
-      },
-      {
-        "id": "check1",
-        "type": "distance",
-        "basis": "each folded quarter remains a rigid square",
-        "actual": 1.4500000000000002,
-        "passed": true
-      },
-      {
-        "id": "check2",
-        "type": "distance",
-        "basis": "each folded quarter remains a rigid square",
-        "actual": 1.4500000000000002,
-        "passed": true
-      },
-      {
-        "id": "check3",
-        "type": "distance",
-        "basis": "each folded quarter remains a rigid square",
-        "actual": 1.4500000000000002,
-        "passed": true
-      },
-      {
-        "id": "check4",
-        "type": "coplanar",
-        "basis": "flat paper quarter",
-        "actual": 0.0,
-        "passed": true
-      },
-      {
-        "id": "check5",
-        "type": "distance",
-        "basis": "each folded quarter remains a rigid square",
-        "actual": 1.4500000000000002,
-        "passed": true
-      },
-      {
-        "id": "check6",
-        "type": "distance",
-        "basis": "each folded quarter remains a rigid square",
-        "actual": 1.4499999999999993,
-        "passed": true
-      },
-      {
-        "id": "check7",
-        "type": "distance",
-        "basis": "each folded quarter remains a rigid square",
-        "actual": 1.4500000000000002,
-        "passed": true
-      },
-      {
-        "id": "check8",
-        "type": "distance",
-        "basis": "each folded quarter remains a rigid square",
-        "actual": 1.4499999999999993,
-        "passed": true
-      },
-      {
-        "id": "check9",
-        "type": "coplanar",
-        "basis": "flat paper quarter",
-        "actual": 0.0,
-        "passed": true
-      },
-      {
-        "id": "check10",
-        "type": "distance",
-        "basis": "each folded quarter remains a rigid square",
-        "actual": 1.4500000000000002,
-        "passed": true
-      },
-      {
-        "id": "check11",
-        "type": "distance",
-        "basis": "each folded quarter remains a rigid square",
-        "actual": 1.4500000000000002,
-        "passed": true
-      },
-      {
-        "id": "check12",
-        "type": "distance",
-        "basis": "each folded quarter remains a rigid square",
-        "actual": 1.4500000000000002,
-        "passed": true
-      },
-      {
-        "id": "check13",
-        "type": "distance",
-        "basis": "each folded quarter remains a rigid square",
-        "actual": 1.4500000000000002,
-        "passed": true
-      },
-      {
-        "id": "check14",
-        "type": "coplanar",
-        "basis": "flat paper quarter",
-        "actual": 0.0,
-        "passed": true
-      },
-      {
-        "id": "check15",
-        "type": "distance",
-        "basis": "each folded quarter remains a rigid square",
-        "actual": 1.4500000000000002,
-        "passed": true
-      },
-      {
-        "id": "check16",
-        "type": "distance",
-        "basis": "each folded quarter remains a rigid square",
-        "actual": 1.4499999999999993,
-        "passed": true
-      },
-      {
-        "id": "check17",
-        "type": "distance",
-        "basis": "each folded quarter remains a rigid square",
-        "actual": 1.4500000000000002,
-        "passed": true
-      },
-      {
-        "id": "check18",
-        "type": "distance",
-        "basis": "each folded quarter remains a rigid square",
-        "actual": 1.4499999999999993,
-        "passed": true
-      },
-      {
-        "id": "check19",
-        "type": "coplanar",
-        "basis": "flat paper quarter",
-        "actual": 0.0,
-        "passed": true
-      },
-      {
-        "id": "check20",
-        "type": "distance",
-        "basis": "each folded quarter remains a rigid square",
-        "actual": 1.6499999999999986,
-        "passed": true
-      },
-      {
-        "id": "check21",
-        "type": "distance",
-        "basis": "each folded quarter remains a rigid square",
-        "actual": 1.6500000000000004,
-        "passed": true
-      },
-      {
-        "id": "check22",
-        "type": "distance",
-        "basis": "each folded quarter remains a rigid square",
-        "actual": 1.6499999999999986,
-        "passed": true
-      },
-      {
-        "id": "check23",
-        "type": "distance",
-        "basis": "each folded quarter remains a rigid square",
-        "actual": 1.6500000000000004,
-        "passed": true
-      },
-      {
-        "id": "check24",
-        "type": "coplanar",
-        "basis": "flat paper quarter",
-        "actual": 0.0,
-        "passed": true
-      },
-      {
-        "id": "check25",
-        "type": "distance",
-        "basis": "each folded quarter remains a rigid square",
-        "actual": 1.6500000000000004,
-        "passed": true
-      },
-      {
-        "id": "check26",
-        "type": "distance",
-        "basis": "each folded quarter remains a rigid square",
-        "actual": 1.6500000000000004,
-        "passed": true
-      },
-      {
-        "id": "check27",
-        "type": "distance",
-        "basis": "each folded quarter remains a rigid square",
-        "actual": 1.6500000000000004,
-        "passed": true
-      },
-      {
-        "id": "check28",
-        "type": "distance",
-        "basis": "each folded quarter remains a rigid square",
-        "actual": 1.6500000000000004,
-        "passed": true
-      },
-      {
-        "id": "check29",
-        "type": "coplanar",
-        "basis": "flat paper quarter",
-        "actual": 0.0,
-        "passed": true
-      },
-      {
-        "id": "check30",
-        "type": "distance",
-        "basis": "each folded quarter remains a rigid square",
-        "actual": 1.6499999999999986,
-        "passed": true
-      },
-      {
-        "id": "check31",
-        "type": "distance",
-        "basis": "each folded quarter remains a rigid square",
-        "actual": 1.6500000000000004,
-        "passed": true
-      },
-      {
-        "id": "check32",
-        "type": "distance",
-        "basis": "each folded quarter remains a rigid square",
-        "actual": 1.6499999999999986,
-        "passed": true
-      },
-      {
-        "id": "check33",
-        "type": "distance",
-        "basis": "each folded quarter remains a rigid square",
-        "actual": 1.6500000000000004,
-        "passed": true
-      },
-      {
-        "id": "check34",
-        "type": "coplanar",
-        "basis": "flat paper quarter",
-        "actual": 0.0,
-        "passed": true
-      },
-      {
-        "id": "check35",
-        "type": "distance",
-        "basis": "each folded quarter remains a rigid square",
-        "actual": 1.6500000000000004,
-        "passed": true
-      },
-      {
-        "id": "check36",
-        "type": "distance",
-        "basis": "each folded quarter remains a rigid square",
-        "actual": 1.6500000000000004,
-        "passed": true
-      },
-      {
-        "id": "check37",
-        "type": "distance",
-        "basis": "each folded quarter remains a rigid square",
-        "actual": 1.6500000000000004,
-        "passed": true
-      },
-      {
-        "id": "check38",
-        "type": "distance",
-        "basis": "each folded quarter remains a rigid square",
-        "actual": 1.6500000000000004,
-        "passed": true
-      },
-      {
-        "id": "check39",
-        "type": "coplanar",
-        "basis": "flat paper quarter",
-        "actual": 0.0,
-        "passed": true
-      }
+    "new_render_viewed": true,
+    "final_png_view": {
+      "method": "final render contact sheet",
+      "path": ".runtime/protocol_redraw/part4/new_09.jpg",
+      "cell": 4,
+      "individual_zoom": false
+    },
+    "source_sha256": "f44ec63245e08fe904edda9c664963a894e18602cf6dec9b956c073dcdfada63",
+    "scene_sha256": "99ee9a52bdd9cb3b0ca8d8e52a9f243ac9dd65bda359b57e3da11d198bb739a5",
+    "png_sha256": "7faace394c9562134751841eb6e6757950eb6185a437720a78813fe058237585",
+    "svg_sha256": "1632f81f55df109061775e1e359a4135536476a0b093d89dfcb1830b808ada12",
+    "findings": [
+      "Gray front/white reverse paper and stripes disclose paper sides/layers in the source fold sequence. White option holes are actual cutouts; no lighting or decorative background added.",
+      "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
     ],
-    "twice_isolated_standalone_identical": true,
-    "report_hashes_valid": true,
-    "protocol_dependencies_current": true
+    "user_approved": false
   },
-  "required_changes": [],
-  "previous_revisions": [],
-  "dependency_hashes": {
-    "PlaneGeometry/dataset_generator/protocol.json": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
-    "SolidGeometry/dataset_generator/protocol.json": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f"
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        95,
+        713,
+        673
+      ],
+      "content_center_px": [
+        383.5,
+        384.0
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 41,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [
+    "The source thickens the top and left edges of the closed packet to indicate layered open edges. These are rendered as distinct1pt native layer outlines with tiny rigid display offsets; bottom/right remain the fold edges.",
+    "Reverse-side bands are retained as semantic material-side coding, not decorative lighting. All bands are native coplanar geometry and do not introduce mathematical lines.",
+    "Tiny layer-disclosure translations do not alter the square paper, exact creases or cut construction; the answer audit uses the coincident closed stack."
+  ],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root/review_transformation_batch",
+      "source_id": "2782",
+      "category": "transformation_geometry",
+      "reviewed_utc": "2026-10-27T03:58:59.721159+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "f44ec63245e08fe904edda9c664963a894e18602cf6dec9b956c073dcdfada63",
+        "source.json": "86f5d1133b29504d0620b247972764bc66b8a5402f134d4777c645b23d784891",
+        "scene.json": "690227f36b56fef450070279f90e69f3f9d6fa3121e5e470978912abe074deae",
+        "render.py": "6953ee978d3b318bf2dd3be73e44607e1c5880b85e60e3ede0db867a44dbc86f",
+        "image.png": "40b458a19c1df616cde6dd5e189d3c786ff69a76f2c51dd9e9dc2b307bca5767",
+        "audit.json": "7706e6bff12dcadc26ea4ebe904243477f7ccf831493b9c5dd0d6315c094c5b2",
+        "redraw_report.json": "4bbf06977bc78a19886b4df45e18743b4a7580ba3e3926b5f575787502a7b6bd"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed original and final: gray square, actual four-layer partlyfolded packet with striped reverse, closed stripedquarter with open stack visible top/left and creases right/bottom, dashed diagonal cut lower-right corner. Five options preserve X/notchedsquare,top-bottomnotches,centralsquare,triangle,diamond. Two source motion arrows and A-E two-row panel layout retained."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          53,
+          95,
+          713,
+          673
+        ],
+        "occupancy": 0.8606770833333334,
+        "independent_numeric_checks": {
+          "answer": "E",
+          "proof": "The lower-right corner is intersection of both creases, not open boundary. Cut from(.5,0) to(1,.5) removes triangularcorner at(1,0). Reflect x→2−x and y→−y: four triangles unite into diamond vertices(.5,0),(1,.5),(1.5,0),(1,−.5). Thus onecentraldiamondhole, outer square intact.",
+          "eight_native3d_square_max_edge_spread": 1.7763568394002505e-15
+        },
+        "renderer_checks": [
+          {
+            "check": "projection_and_visibility_binding",
+            "passed": true
+          },
+          {
+            "id": "check0",
+            "type": "distance",
+            "basis": "each folded quarter remains a rigid square",
+            "actual": 1.4500000000000002,
+            "passed": true
+          },
+          {
+            "id": "check1",
+            "type": "distance",
+            "basis": "each folded quarter remains a rigid square",
+            "actual": 1.4500000000000002,
+            "passed": true
+          },
+          {
+            "id": "check2",
+            "type": "distance",
+            "basis": "each folded quarter remains a rigid square",
+            "actual": 1.4500000000000002,
+            "passed": true
+          },
+          {
+            "id": "check3",
+            "type": "distance",
+            "basis": "each folded quarter remains a rigid square",
+            "actual": 1.4500000000000002,
+            "passed": true
+          },
+          {
+            "id": "check4",
+            "type": "coplanar",
+            "basis": "flat paper quarter",
+            "actual": 0.0,
+            "passed": true
+          },
+          {
+            "id": "check5",
+            "type": "distance",
+            "basis": "each folded quarter remains a rigid square",
+            "actual": 1.4500000000000002,
+            "passed": true
+          },
+          {
+            "id": "check6",
+            "type": "distance",
+            "basis": "each folded quarter remains a rigid square",
+            "actual": 1.4499999999999993,
+            "passed": true
+          },
+          {
+            "id": "check7",
+            "type": "distance",
+            "basis": "each folded quarter remains a rigid square",
+            "actual": 1.4500000000000002,
+            "passed": true
+          },
+          {
+            "id": "check8",
+            "type": "distance",
+            "basis": "each folded quarter remains a rigid square",
+            "actual": 1.4499999999999993,
+            "passed": true
+          },
+          {
+            "id": "check9",
+            "type": "coplanar",
+            "basis": "flat paper quarter",
+            "actual": 0.0,
+            "passed": true
+          },
+          {
+            "id": "check10",
+            "type": "distance",
+            "basis": "each folded quarter remains a rigid square",
+            "actual": 1.4500000000000002,
+            "passed": true
+          },
+          {
+            "id": "check11",
+            "type": "distance",
+            "basis": "each folded quarter remains a rigid square",
+            "actual": 1.4500000000000002,
+            "passed": true
+          },
+          {
+            "id": "check12",
+            "type": "distance",
+            "basis": "each folded quarter remains a rigid square",
+            "actual": 1.4500000000000002,
+            "passed": true
+          },
+          {
+            "id": "check13",
+            "type": "distance",
+            "basis": "each folded quarter remains a rigid square",
+            "actual": 1.4500000000000002,
+            "passed": true
+          },
+          {
+            "id": "check14",
+            "type": "coplanar",
+            "basis": "flat paper quarter",
+            "actual": 0.0,
+            "passed": true
+          },
+          {
+            "id": "check15",
+            "type": "distance",
+            "basis": "each folded quarter remains a rigid square",
+            "actual": 1.4500000000000002,
+            "passed": true
+          },
+          {
+            "id": "check16",
+            "type": "distance",
+            "basis": "each folded quarter remains a rigid square",
+            "actual": 1.4499999999999993,
+            "passed": true
+          },
+          {
+            "id": "check17",
+            "type": "distance",
+            "basis": "each folded quarter remains a rigid square",
+            "actual": 1.4500000000000002,
+            "passed": true
+          },
+          {
+            "id": "check18",
+            "type": "distance",
+            "basis": "each folded quarter remains a rigid square",
+            "actual": 1.4499999999999993,
+            "passed": true
+          },
+          {
+            "id": "check19",
+            "type": "coplanar",
+            "basis": "flat paper quarter",
+            "actual": 0.0,
+            "passed": true
+          },
+          {
+            "id": "check20",
+            "type": "distance",
+            "basis": "each folded quarter remains a rigid square",
+            "actual": 1.6499999999999986,
+            "passed": true
+          },
+          {
+            "id": "check21",
+            "type": "distance",
+            "basis": "each folded quarter remains a rigid square",
+            "actual": 1.6500000000000004,
+            "passed": true
+          },
+          {
+            "id": "check22",
+            "type": "distance",
+            "basis": "each folded quarter remains a rigid square",
+            "actual": 1.6499999999999986,
+            "passed": true
+          },
+          {
+            "id": "check23",
+            "type": "distance",
+            "basis": "each folded quarter remains a rigid square",
+            "actual": 1.6500000000000004,
+            "passed": true
+          },
+          {
+            "id": "check24",
+            "type": "coplanar",
+            "basis": "flat paper quarter",
+            "actual": 0.0,
+            "passed": true
+          },
+          {
+            "id": "check25",
+            "type": "distance",
+            "basis": "each folded quarter remains a rigid square",
+            "actual": 1.6500000000000004,
+            "passed": true
+          },
+          {
+            "id": "check26",
+            "type": "distance",
+            "basis": "each folded quarter remains a rigid square",
+            "actual": 1.6500000000000004,
+            "passed": true
+          },
+          {
+            "id": "check27",
+            "type": "distance",
+            "basis": "each folded quarter remains a rigid square",
+            "actual": 1.6500000000000004,
+            "passed": true
+          },
+          {
+            "id": "check28",
+            "type": "distance",
+            "basis": "each folded quarter remains a rigid square",
+            "actual": 1.6500000000000004,
+            "passed": true
+          },
+          {
+            "id": "check29",
+            "type": "coplanar",
+            "basis": "flat paper quarter",
+            "actual": 0.0,
+            "passed": true
+          },
+          {
+            "id": "check30",
+            "type": "distance",
+            "basis": "each folded quarter remains a rigid square",
+            "actual": 1.6499999999999986,
+            "passed": true
+          },
+          {
+            "id": "check31",
+            "type": "distance",
+            "basis": "each folded quarter remains a rigid square",
+            "actual": 1.6500000000000004,
+            "passed": true
+          },
+          {
+            "id": "check32",
+            "type": "distance",
+            "basis": "each folded quarter remains a rigid square",
+            "actual": 1.6499999999999986,
+            "passed": true
+          },
+          {
+            "id": "check33",
+            "type": "distance",
+            "basis": "each folded quarter remains a rigid square",
+            "actual": 1.6500000000000004,
+            "passed": true
+          },
+          {
+            "id": "check34",
+            "type": "coplanar",
+            "basis": "flat paper quarter",
+            "actual": 0.0,
+            "passed": true
+          },
+          {
+            "id": "check35",
+            "type": "distance",
+            "basis": "each folded quarter remains a rigid square",
+            "actual": 1.6500000000000004,
+            "passed": true
+          },
+          {
+            "id": "check36",
+            "type": "distance",
+            "basis": "each folded quarter remains a rigid square",
+            "actual": 1.6500000000000004,
+            "passed": true
+          },
+          {
+            "id": "check37",
+            "type": "distance",
+            "basis": "each folded quarter remains a rigid square",
+            "actual": 1.6500000000000004,
+            "passed": true
+          },
+          {
+            "id": "check38",
+            "type": "distance",
+            "basis": "each folded quarter remains a rigid square",
+            "actual": 1.6500000000000004,
+            "passed": true
+          },
+          {
+            "id": "check39",
+            "type": "coplanar",
+            "basis": "flat paper quarter",
+            "actual": 0.0,
+            "passed": true
+          }
+        ],
+        "twice_isolated_standalone_identical": true,
+        "report_hashes_valid": true,
+        "protocol_dependencies_current": true
+      },
+      "required_changes": [],
+      "previous_revisions": [],
+      "dependency_hashes": {
+        "PlaneGeometry/dataset_generator/protocol.json": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+        "SolidGeometry/dataset_generator/protocol.json": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f"
+      }
+    }
   }
 }

@@ -1,73 +1,156 @@
 {
-  "reviewer": "independent /root/review_transformation_batch",
-  "source_id": "2835",
-  "category": "transformation_geometry",
-  "reviewed_utc": "2026-10-27T02:04:06.123616+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "redraw_part4",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "c0d8788525cac98ea34a8383397f5f58614eb38191803d898d54f99e6e627e04",
+    "image.png": "7a6714763070d79e05bd68e98cb05c57aad87fd4f247de25c41c1b37efc54d83",
+    "image.svg": "abbce415bb188c70264d199b0ef9296210f839df69e2ba5c7de479f7d1c3fc54",
+    "redraw_report.json": "e57d0933af40b7a6159116d4efd63d47ddf617f493cb5b54913000b38f2feb03",
+    "protocol_review.json": "ffb1bbffb76f66283401047f3ac8631b59e54fbfca317821aaa4bbfc5cc353e6",
+    "source_redraw.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
+    "execution.json": "4ae91308cda383ee4e5eff5282ab13006339d096d525b6732b7ba7d1aa6cf63d",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "a15c85a761fccf07cdcd3b089b56215672177dc1e3844fe7c7d098081dc14171",
     "source.json": "9743e36f3cf75df7a6c73d56acd7fe2188d1d78735adfed3b6e27c18ada91948",
-    "scene.json": "968312a17a0c512f2d8b7e0a0aa8ddbcfb658adcfdfe60b016220d0949b4a31a",
-    "render.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
-    "image.png": "091e0c8fa4f8eda918ca5372536f8f488c699a46bdf1aab1bd114890b5fe775d",
-    "audit.json": "e5e7cdbe1e7afda84fdf8790b1fb1e5dc367505276c28bf378c05748810b3dad",
-    "redraw_report.json": "9692880d725968e3227548ca4b6609b6005e980981954fe3ae33496c75ca0b24"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Individually viewed original/output: two rightward rays from A0, alternating A1 upper/A2 lower/A3 upper/A4 lower, solid first links then dashed continuation. Explicit1degree opening replaces exaggerated source angle; labels remain distinct, very shallow geometry is honest to stated constraint."
+    "Frozen rays retain the actual1-degree opening from the complete question. Source raster schematic exaggerates this opening; labels A0-A4 and unit-edge zigzag sequence retained.",
+    "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      54,
-      349,
-      713,
-      418
-    ],
-    "occupancy": 0.859375,
-    "independent_numeric_checks": {
-      "answer": "90",
-      "r_k": "sin(k degrees)/sin(1 degree)",
-      "r89": 57.28996163075943,
-      "r90": 57.298688498550185,
-      "r91": 57.28996163075943,
-      "proof": "For alternating points on the two diagram rays, unit-step cosine rule gives r_k=2cos1\u00b0 r_(k\u22121)\u2212r_(k\u22122), hence sine formula. It strictly increases through90 and decreases at91; alternate quadratic root is previous same-ray point, also not farther."
+  "agent_visual_review": {
+    "status": "agent_viewed",
+    "reviewer": "redraw_part4",
+    "source_inspection": {
+      "status": "viewed",
+      "sheet": ".runtime/protocol_redraw/part4/source_09.jpg",
+      "complete_question_read": true
     },
-    "renderer_checks": [
-      {
-        "id": "unit1",
-        "type": "distance",
-        "measured": 1.0,
-        "passed": true
-      },
-      {
-        "id": "unit2",
-        "type": "distance",
-        "measured": 0.9999999999999999,
-        "passed": true
-      },
-      {
-        "id": "unit3",
-        "type": "distance",
-        "measured": 1.0000000000000004,
-        "passed": true
-      },
-      {
-        "id": "unit4",
-        "type": "distance",
-        "measured": 0.9999999999999997,
-        "passed": true
-      }
+    "new_render_viewed": true,
+    "final_png_view": {
+      "method": "final render contact sheet",
+      "path": ".runtime/protocol_redraw/part4/new_09.jpg",
+      "cell": 8,
+      "individual_zoom": false
+    },
+    "source_sha256": "a15c85a761fccf07cdcd3b089b56215672177dc1e3844fe7c7d098081dc14171",
+    "scene_sha256": "c0d8788525cac98ea34a8383397f5f58614eb38191803d898d54f99e6e627e04",
+    "png_sha256": "7a6714763070d79e05bd68e98cb05c57aad87fd4f247de25c41c1b37efc54d83",
+    "svg_sha256": "abbce415bb188c70264d199b0ef9296210f839df69e2ba5c7de479f7d1c3fc54",
+    "findings": [
+      "Frozen rays retain the actual1-degree opening from the complete question. Source raster schematic exaggerates this opening; labels A0-A4 and unit-edge zigzag sequence retained.",
+      "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
     ],
-    "report_hashes_valid": true
+    "user_approved": false
   },
-  "required_changes": [],
-  "previous_revisions": [],
-  "dependency_hashes": {
-    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
-    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        349,
+        714,
+        418
+      ],
+      "content_center_px": [
+        384.0,
+        383.5
+      ],
+      "longest_side_occupancy": 0.8606770833333334,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 4,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [
+    "Explicit1°opening retained; sourceopening isvisuallyexaggerated."
+  ],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root/review_transformation_batch",
+      "source_id": "2835",
+      "category": "transformation_geometry",
+      "reviewed_utc": "2026-10-27T02:04:06.123616+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "a15c85a761fccf07cdcd3b089b56215672177dc1e3844fe7c7d098081dc14171",
+        "source.json": "9743e36f3cf75df7a6c73d56acd7fe2188d1d78735adfed3b6e27c18ada91948",
+        "scene.json": "968312a17a0c512f2d8b7e0a0aa8ddbcfb658adcfdfe60b016220d0949b4a31a",
+        "render.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
+        "image.png": "091e0c8fa4f8eda918ca5372536f8f488c699a46bdf1aab1bd114890b5fe775d",
+        "audit.json": "e5e7cdbe1e7afda84fdf8790b1fb1e5dc367505276c28bf378c05748810b3dad",
+        "redraw_report.json": "9692880d725968e3227548ca4b6609b6005e980981954fe3ae33496c75ca0b24"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed original/output: two rightward rays from A0, alternating A1 upper/A2 lower/A3 upper/A4 lower, solid first links then dashed continuation. Explicit1degree opening replaces exaggerated source angle; labels remain distinct, very shallow geometry is honest to stated constraint."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          54,
+          349,
+          713,
+          418
+        ],
+        "occupancy": 0.859375,
+        "independent_numeric_checks": {
+          "answer": "90",
+          "r_k": "sin(k degrees)/sin(1 degree)",
+          "r89": 57.28996163075943,
+          "r90": 57.298688498550185,
+          "r91": 57.28996163075943,
+          "proof": "For alternating points on the two diagram rays, unit-step cosine rule gives r_k=2cos1° r_(k−1)−r_(k−2), hence sine formula. It strictly increases through90 and decreases at91; alternate quadratic root is previous same-ray point, also not farther."
+        },
+        "renderer_checks": [
+          {
+            "id": "unit1",
+            "type": "distance",
+            "measured": 1.0,
+            "passed": true
+          },
+          {
+            "id": "unit2",
+            "type": "distance",
+            "measured": 0.9999999999999999,
+            "passed": true
+          },
+          {
+            "id": "unit3",
+            "type": "distance",
+            "measured": 1.0000000000000004,
+            "passed": true
+          },
+          {
+            "id": "unit4",
+            "type": "distance",
+            "measured": 0.9999999999999997,
+            "passed": true
+          }
+        ],
+        "report_hashes_valid": true
+      },
+      "required_changes": [],
+      "previous_revisions": [],
+      "dependency_hashes": {
+        "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+        "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+      }
+    }
   }
 }

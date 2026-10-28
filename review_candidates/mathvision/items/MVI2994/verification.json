@@ -1,49 +1,88 @@
 {
-  "reviewer": "independent /root/review_transformation_batch",
-  "source_id": "2994",
-  "category": "transformation_geometry",
-  "reviewed_utc": "2026-10-27T02:13:23.729727+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "redraw_part4",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "e032ba1dff090bfa05117d3b78e70167020b04c3b23cc79463c6028222f77fcf",
+    "image.png": "31a04dad070d133e332897964bd4bfc7baa6421037e1ebccad6440cea5b2758e",
+    "image.svg": "64c9e2e0bee2d6edb075cf88d28527b52a923c8c123d90714c85b3d91cb7c441",
+    "redraw_report.json": "4b11063a7ee2a537ed5db94d32069723eb18346d06b9deacbacb7269e4f33080",
+    "protocol_review.json": "93f9df915f53f62923c6f3c4e48e4fcd50781a23cc0ea29fb30cca0d0b5ee6b8",
+    "source_redraw.py": "9696e36473c7c8a7e2ae42849f596f6ef102bce32659bdf88f4f762ea8465267",
+    "execution.json": "7c1f25927c2c740d01d16f78dce5d357097c04eb45aabeeabd7ce8697d2890ba",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "ecf4132cdd80f48a269409733c3e7d630592af9fe9995afc8d70797d12f9ddad",
     "source.json": "5d844ab58d92983e66659e15a64522c4e1553784be0e538c0ba72360027ffbc6",
-    "scene.json": "37be37cb4cb3176da0ae500b92b1083388bddc7e26afd709230436570217c4a4",
-    "render.py": "9696e36473c7c8a7e2ae42849f596f6ef102bce32659bdf88f4f762ea8465267",
-    "image.png": "6f63c8711fc55ac4bb32c612793df57e2f79a31a45145eeb2c261ebf3250c709",
-    "audit.json": "0bdd1fb2310b28e03ccd2ca6183cef66c92837624838067afe522addf80be975",
-    "redraw_report.json": "fc8c9a9f46b506da76b284becd4d7a57cab8f3ee792e4360e8161b2128858f30"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Individually viewed source/output: darker left arrow and lighter right arrow share boundary through markedC, all seven corresponding vertices are negatives about C. Shape chirality, thickness distinction and label preserved.",
-    "Re-viewed original and revised candidate: full arrow stroke bounds refitted; center marker C and halfturn geometry unchanged. Previous vertical-centering issue resolved."
+    "The source dark/thin distinction is represented as black/neutral-gray1 pt outlines, preserving the explicitly queried darker/lighter identity and180-degree layout.",
+    "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      54,
-      162,
-      713,
-      605
-    ],
-    "occupancy": 0.859375,
-    "independent_numeric_checks": {
-      "answer": "180",
-      "exact_seven_vertex_halfturn": true
+  "agent_visual_review": {
+    "status": "agent_viewed",
+    "reviewer": "redraw_part4",
+    "source_inspection": {
+      "status": "viewed",
+      "sheet": ".runtime/protocol_redraw/part4/source_10.jpg",
+      "complete_question_read": true
     },
-    "renderer_checks": [],
-    "report_hashes_valid": true
+    "new_render_viewed": true,
+    "final_png_view": {
+      "method": "final render contact sheet",
+      "path": ".runtime/protocol_redraw/part4/new_10.jpg",
+      "cell": 5,
+      "individual_zoom": false
+    },
+    "source_sha256": "ecf4132cdd80f48a269409733c3e7d630592af9fe9995afc8d70797d12f9ddad",
+    "scene_sha256": "e032ba1dff090bfa05117d3b78e70167020b04c3b23cc79463c6028222f77fcf",
+    "png_sha256": "31a04dad070d133e332897964bd4bfc7baa6421037e1ebccad6440cea5b2758e",
+    "svg_sha256": "64c9e2e0bee2d6edb075cf88d28527b52a923c8c123d90714c85b3d91cb7c441",
+    "findings": [
+      "The source dark/thin distinction is represented as black/neutral-gray1 pt outlines, preserving the explicitly queried darker/lighter identity and180-degree layout.",
+      "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
+    ],
+    "user_approved": false
   },
-  "required_changes": [],
-  "previous_revisions": [
-    {
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        164,
+        713,
+        603
+      ],
+      "content_center_px": [
+        383.5,
+        383.5
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 0,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
       "reviewer": "independent /root/review_transformation_batch",
       "source_id": "2994",
       "category": "transformation_geometry",
-      "reviewed_utc": "2026-10-27T02:06:13.245372+00:00",
-      "verdict": "needs_revision",
+      "reviewed_utc": "2026-10-27T02:13:23.729727+00:00",
+      "verdict": "agent_verified",
       "user_approval": false,
       "hashes": {
         "original.jpg": "ecf4132cdd80f48a269409733c3e7d630592af9fe9995afc8d70797d12f9ddad",
@@ -52,32 +91,74 @@
         "render.py": "9696e36473c7c8a7e2ae42849f596f6ef102bce32659bdf88f4f762ea8465267",
         "image.png": "6f63c8711fc55ac4bb32c612793df57e2f79a31a45145eeb2c261ebf3250c709",
         "audit.json": "0bdd1fb2310b28e03ccd2ca6183cef66c92837624838067afe522addf80be975",
-        "redraw_report.json": "b456fff28ea3f7d6e9a47241bd3aeee51372016099603eb23b62caf10b943d14"
+        "redraw_report.json": "fc8c9a9f46b506da76b284becd4d7a57cab8f3ee792e4360e8161b2128858f30"
       },
       "explicit_inspected_facts": [
-        "Individually viewed source/output: darker left arrow and lighter right arrow share boundary through markedC, all seven corresponding vertices are negatives about C. Shape chirality, thickness distinction and label preserved."
+        "Individually viewed source/output: darker left arrow and lighter right arrow share boundary through markedC, all seven corresponding vertices are negatives about C. Shape chirality, thickness distinction and label preserved.",
+        "Re-viewed original and revised candidate: full arrow stroke bounds refitted; center marker C and halfturn geometry unchanged. Previous vertical-centering issue resolved."
       ],
       "checks": {
-        "two_renders_equal_candidate": true,
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          54,
+          162,
+          713,
+          605
+        ],
+        "occupancy": 0.859375,
         "independent_numeric_checks": {
           "answer": "180",
           "exact_seven_vertex_halfturn": true
         },
-        "bbox": [
-          52,
-          164,
-          714,
-          608
-        ],
-        "center_offset_y_px": 2.5
+        "renderer_checks": [],
+        "report_hashes_valid": true
       },
-      "required_changes": [
-        "Refit view so full bbox center within2px. Currenty386 differs383.5 by2.5px; shift content upward ~2.5px. Preserve geometry, rerender and rebind hashes."
-      ]
+      "required_changes": [],
+      "previous_revisions": [
+        {
+          "reviewer": "independent /root/review_transformation_batch",
+          "source_id": "2994",
+          "category": "transformation_geometry",
+          "reviewed_utc": "2026-10-27T02:06:13.245372+00:00",
+          "verdict": "needs_revision",
+          "user_approval": false,
+          "hashes": {
+            "original.jpg": "ecf4132cdd80f48a269409733c3e7d630592af9fe9995afc8d70797d12f9ddad",
+            "source.json": "5d844ab58d92983e66659e15a64522c4e1553784be0e538c0ba72360027ffbc6",
+            "scene.json": "37be37cb4cb3176da0ae500b92b1083388bddc7e26afd709230436570217c4a4",
+            "render.py": "9696e36473c7c8a7e2ae42849f596f6ef102bce32659bdf88f4f762ea8465267",
+            "image.png": "6f63c8711fc55ac4bb32c612793df57e2f79a31a45145eeb2c261ebf3250c709",
+            "audit.json": "0bdd1fb2310b28e03ccd2ca6183cef66c92837624838067afe522addf80be975",
+            "redraw_report.json": "b456fff28ea3f7d6e9a47241bd3aeee51372016099603eb23b62caf10b943d14"
+          },
+          "explicit_inspected_facts": [
+            "Individually viewed source/output: darker left arrow and lighter right arrow share boundary through markedC, all seven corresponding vertices are negatives about C. Shape chirality, thickness distinction and label preserved."
+          ],
+          "checks": {
+            "two_renders_equal_candidate": true,
+            "independent_numeric_checks": {
+              "answer": "180",
+              "exact_seven_vertex_halfturn": true
+            },
+            "bbox": [
+              52,
+              164,
+              714,
+              608
+            ],
+            "center_offset_y_px": 2.5
+          },
+          "required_changes": [
+            "Refit view so full bbox center within2px. Currenty386 differs383.5 by2.5px; shift content upward ~2.5px. Preserve geometry, rerender and rebind hashes."
+          ]
+        }
+      ],
+      "dependency_hashes": {
+        "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+        "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+      }
     }
-  ],
-  "dependency_hashes": {
-    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
-    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
   }
 }

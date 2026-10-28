@@ -111,6 +111,26 @@ class MultiSourceTests(unittest.TestCase):
             self.service.image(row['id'], 'redraw', '0' * 64)
         self.assertEqual(self.service.detail(row['id'])['status'], 'pending')
 
+    def test_protocol_redraw_dependencies_invalidate_an_open_review(self):
+        row = self.mathvision[0]
+        renderer = self.root / PACKAGE / 'shared/protocol_renderer.py'
+        if not renderer.is_file():
+            self.skipTest('This fixture predates protocol redraw')
+        dependencies = [renderer, self.root / row['subject'] / 'dataset_generator/protocol.json',
+                        (self.root / row['candidate_path']).with_name('protocol_review.json')]
+        for dependency in dependencies:
+            with self.subTest(dependency=dependency.relative_to(self.root)):
+                detail = self.service.detail(row['id'])
+                original = dependency.read_bytes()
+                try:
+                    dependency.write_bytes(original + b'\n')
+                    with self.assertRaisesRegex(ReviewError, 'changed since'):
+                        self.service.decide(row['id'], 'delete', detail['fingerprint'],
+                                            'protocol-stale-' + dependency.name)
+                finally:
+                    dependency.write_bytes(original)
+        self.assertFalse((self.root / PACKAGE / 'review_state.json').exists())
+
     def test_mathvision_pass_preserves_native_pixels_and_formal_contract(self):
         old_index = digest(self.root / 'review_candidates/mathverse/index.jsonl')
         original_count = len(catalog.rows(self.root / 'question_bank.jsonl'))

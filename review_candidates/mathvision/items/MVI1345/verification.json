@@ -1,54 +1,129 @@
 {
-  "reviewer": "independent /root/review_transformation_batch",
-  "source_id": "1345",
-  "category": "transformation_geometry",
-  "reviewed_utc": "2026-10-27T01:53:02.478336+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "protocol_redraw_part3",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "ea7ee8e2cfb1b75f6453f06dd04f6760035d6a85174155bd30ce548eb0105a38",
+    "image.png": "9ab914781927206035ed231407f5c5b10d81be774b2964a6bbb5fa70c4863e02",
+    "image.svg": "c988fb6e17fb9a441c1ec6f9f2ded5e021a4747eb4f1e4b7789a36f0df93d9f4",
+    "redraw_report.json": "10e363b109fc8a3ff5848d572a3d0d6835c6af07013a42ac8190ea05abec7686",
+    "protocol_review.json": "ec1f7b395fc917ca27467cec6339ff28b96a226d2f2ba1e2a238cada30d6be21",
+    "source_redraw.py": "ca4e8cfb4e1c8b138be2aa5db3c43084d886561764b89f245734d22cd93495e3",
+    "execution.json": "c1ddcfe4642bf9246675942529bef8dca25e6b0fde2085224222bd54c1904e57",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "e3f17cbdfc72dfec3dea96c4be0eabace381d42813a6aaaeedcc2d1cf5e90803",
     "source.json": "362368613317fdac3bbfbba7f3823711e154ab974aaf2a253c18962f2447de18",
-    "scene.json": "b5c54832551d614bd0e3e39e7c46441476a60dc1915ecc34be9f866aceb0ce4f",
-    "render.py": "ca4e8cfb4e1c8b138be2aa5db3c43084d886561764b89f245734d22cd93495e3",
-    "image.png": "68cd979ec7e8e3ff36c1f0e58f115551115f8a1324702c2dde696357abf9f017",
-    "audit.json": "c910b5b432f7c164fae87d5b00decfd4e24e0225a1fd593f69b826fe9411b549",
-    "redraw_report.json": "824c37f8d842214bba5307c44e87f45cefdeed6fcef208616c8e37e45c3bbf7b"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Individually viewed source/output:6\u00d75 rectangular grid, vertical bold segment on first interior column and horizontal bold segment from col3 to5 on third row down. Open dots X top-right,Y middle,Z lower-left,T below Y retained with correct labels."
+    "X,Y,Z,T open-circle locations and both rotated black segments retain source grid placements; gray reference grid preserves their distinction at1pt."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      54,
-      108,
-      714,
-      658
-    ],
-    "occupancy": 0.8606770833333334,
-    "independent_numeric_checks": {
-      "answer": "C",
-      "rotation_hits": [
-        [
-          "X",
-          270
-        ],
-        [
-          "T",
-          90
-        ]
-      ],
-      "proof": "Testing necessary quarter-turn/three-quarter-turn with both endpoint correspondences yields only X and T."
-    },
-    "renderer_checks": [],
-    "report_hashes_valid": true
+  "agent_visual_review": {
+    "status": "agent_reviewed",
+    "reviewer": "protocol_redraw_part3",
+    "reviewed_at_utc": "2026-10-28T12:58:04.365619+00:00",
+    "source_compared": true,
+    "method": "Viewed final source/redraw comparison contact sheet",
+    "contact_sheet": ".runtime/protocol_redraw/part3/new_04.jpg",
+    "contact_sheet_sha256": "6cda550c729de588317b77d57b6fc7e200c5da5f292f264d2f52459a419c7770",
+    "png_sha256": "9ab914781927206035ed231407f5c5b10d81be774b2964a6bbb5fa70c4863e02",
+    "svg_sha256": "c988fb6e17fb9a441c1ec6f9f2ded5e021a4747eb4f1e4b7789a36f0df93d9f4",
+    "scene_sha256": "ea7ee8e2cfb1b75f6453f06dd04f6760035d6a85174155bd30ce548eb0105a38",
+    "source_sha256": "e3f17cbdfc72dfec3dea96c4be0eabace381d42813a6aaaeedcc2d1cf5e90803",
+    "final_png_sha256": "9ab914781927206035ed231407f5c5b10d81be774b2964a6bbb5fa70c4863e02",
+    "final_scene_sha256": "ea7ee8e2cfb1b75f6453f06dd04f6760035d6a85174155bd30ce548eb0105a38",
+    "findings": "X,Y,Z,T open-circle locations and both rotated black segments retain source grid placements; gray reference grid preserves their distinction at1pt.",
+    "unresolved_source_issues": [],
+    "user_approved": false,
+    "scope": "Agent visual review only. All candidates remain pending user review.",
+    "svg_binding_basis": "Current deterministic vector export from the unchanged scene; serialization hash rebound mechanically. Original PNG visual inspection evidence and timestamp are preserved."
   },
-  "required_changes": [],
-  "previous_revisions": [],
-  "dependency_hashes": {
-    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
-    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        108,
+        713,
+        658
+      ],
+      "content_center_px": [
+        383.5,
+        383.0
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 0,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root/review_transformation_batch",
+      "source_id": "1345",
+      "category": "transformation_geometry",
+      "reviewed_utc": "2026-10-27T01:53:02.478336+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "e3f17cbdfc72dfec3dea96c4be0eabace381d42813a6aaaeedcc2d1cf5e90803",
+        "source.json": "362368613317fdac3bbfbba7f3823711e154ab974aaf2a253c18962f2447de18",
+        "scene.json": "b5c54832551d614bd0e3e39e7c46441476a60dc1915ecc34be9f866aceb0ce4f",
+        "render.py": "ca4e8cfb4e1c8b138be2aa5db3c43084d886561764b89f245734d22cd93495e3",
+        "image.png": "68cd979ec7e8e3ff36c1f0e58f115551115f8a1324702c2dde696357abf9f017",
+        "audit.json": "c910b5b432f7c164fae87d5b00decfd4e24e0225a1fd593f69b826fe9411b549",
+        "redraw_report.json": "824c37f8d842214bba5307c44e87f45cefdeed6fcef208616c8e37e45c3bbf7b"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed source/output:6×5 rectangular grid, vertical bold segment on first interior column and horizontal bold segment from col3 to5 on third row down. Open dots X top-right,Y middle,Z lower-left,T below Y retained with correct labels."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          54,
+          108,
+          714,
+          658
+        ],
+        "occupancy": 0.8606770833333334,
+        "independent_numeric_checks": {
+          "answer": "C",
+          "rotation_hits": [
+            [
+              "X",
+              270
+            ],
+            [
+              "T",
+              90
+            ]
+          ],
+          "proof": "Testing necessary quarter-turn/three-quarter-turn with both endpoint correspondences yields only X and T."
+        },
+        "renderer_checks": [],
+        "report_hashes_valid": true
+      },
+      "required_changes": [],
+      "previous_revisions": [],
+      "dependency_hashes": {
+        "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+        "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+      }
+    }
   }
 }

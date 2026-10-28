@@ -1,103 +1,77 @@
 {
-  "reviewer": "independent /root/review_geometry_redraws",
-  "category": "solid_geometry",
-  "source_id": "158",
-  "reviewed_utc": "2026-10-27T00:55:10.780411+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "Agent curator part1",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
-    "source.json": "fedac1eec1500326706e1fa94b142fa3352cebebef5eb9289ad359691b34dae5",
+    "scene.json": "b31695dd0e70def105ced200a4d5d906e5e251e90cde01d3179188a0e59e331e",
+    "image.png": "17fb435ee789f6396630d0c1d642353535f9947174eb4d17d65cf6d8b6ecc111",
+    "image.svg": "d13c3cb4d88886141b77cd3a9a26d6e020accd0a9e79f71cd749fd15679ad16f",
+    "redraw_report.json": "9bd8f74999d2c18f2d18efefdebf59173df2740136dcbafedbb899b8cd07c9a1",
+    "protocol_review.json": "0cdcf36d72a13eb4b49e9bf9dc418f69840ac0c867a1fb1f50cc827d9a42e487",
+    "source_redraw.py": "854fffeddd6220bb2986f53708d7d8058a3048946d2fefcb72c7e8f724c1eb44",
+    "execution.json": "2b03175d2777305e8d0a0d97fac8e9770c6d1da04930123b87d9fd77dae73e42",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "3bbf332be398bbe478f8b7e9da78f328f9d0dd8bf2b79eccf27345cff53e66c2",
-    "scene.json": "8fc079087fd6a95145d3891dd554dfd7e78b4cf520f306681f3bd445713cf638",
-    "image.png": "9a23a9c8a7dd09eeb679432da98c62f9f6fe51bd2377c1135c27d33127666a78",
-    "image.svg": "3114b620ee1adab3d3309fa7bf6706d15eb0335f7a40129658b58b5706514994",
-    "render.py": "854fffeddd6220bb2986f53708d7d8058a3048946d2fefcb72c7e8f724c1eb44",
-    "redraw_report.json": "4ae5a2978ae06801759050e4ed0aa071e5937606000add88f213d7f2b15dec2f",
-    "audit.json": "c224f6153e30af545aa89981bcf46924df624caf36139afb00abbe9159829413"
+    "source.json": "fedac1eec1500326706e1fa94b142fa3352cebebef5eb9289ad359691b34dae5",
+    "machine_protocol": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Independently viewed original/candidate: four-wide crossbar, two cubes protruding forward at third column, left arm extending two cells back with2-high terminal, right arm onecell back with3-high terminal. Source skew and all visible top/front/right planes match; decorative yellow removed, no hidden helpers. Independent adjacency graph on12 vertices has11 edges and is connected, hence11 glue contacts."
+    "Twelve-cube construction retains unequal tower heights and central forward arm; yellow lighting removed."
   ],
-  "checks": {
-    "source_record_matches_export": true,
-    "source_image_matches_export": true,
-    "report_hashes_match": true,
-    "independent_twice_render_identical": true,
-    "reproduction_matches_pixels": true,
-    "size": [
-      768,
-      768
+  "agent_visual_review": {
+    "status": "inspected",
+    "reviewer": "Agent curator part1",
+    "user_approval": false,
+    "reviewed_at_utc": "2026-10-28T12:56:24.140548+00:00",
+    "method": "Source and final PNG comparison on 12-item contact sheets.",
+    "contact_sheet": ".runtime/protocol_redraw/part1/final_03.jpg",
+    "individual_final_png_viewed": false,
+    "findings": [
+      "Twelve-cube construction retains unequal tower heights and central forward arm; yellow lighting removed."
     ],
-    "opaque": true,
-    "content_bbox": [
-      53,
-      53,
-      715,
-      715
-    ],
-    "center_offset_px": [
-      0.5,
-      0.5
-    ],
-    "occupancy": 0.86328125,
-    "margins_px": [
-      53,
-      53,
-      52,
-      52
-    ],
-    "layout_pass": true,
-    "constraints": [
-      {
-        "id": "projection_and_visibility",
-        "type": "projection",
-        "passed": true,
-        "projection_sha256": "06f338f9aa4a7bc0b65588a3e30822f9f4d879dbd14ef10f59cf2d7c5edaa14f",
-        "automatic_occlusion": false
-      },
-      {
-        "id": "treeunit",
-        "type": "distance",
-        "basis": "equal unit cubes, construction scale",
-        "measured": 1.0,
-        "passed": true
-      },
-      {
-        "id": "layout",
-        "type": "layout",
-        "outer_margin_fraction": 0.05,
-        "label_line_overlap": false,
-        "label_label_overlap": false,
-        "passed": true
-      }
-    ],
-    "independent_voxel_counts": {
-      "tree": {
-        "count": 12,
-        "shared_faces": 11,
-        "surface_area": 50,
-        "connected": true
-      }
-    },
-    "independent_ray_interior_visibility": {
-      "samples": 189,
-      "mismatches": [],
-      "method": "Independent strict ray/open-box slab interval intersection at20/50/80percent of each drawn edge; compares frozen visibility, no author visibility helper used."
-    },
-    "report_only_rebind": {
-      "all_other_reviewed_files_hash_unchanged": true,
-      "all_current_report_bound_dependencies_hash_verified": true,
-      "standalone_render_uses_only_common_renderer_scene_protocol": true,
-      "optional_construction_helpers_not_imported_by_render_entry": true
-    }
+    "source_sha256": "3bbf332be398bbe478f8b7e9da78f328f9d0dd8bf2b79eccf27345cff53e66c2",
+    "scene_sha256": "b31695dd0e70def105ced200a4d5d906e5e251e90cde01d3179188a0e59e331e",
+    "png_sha256": "17fb435ee789f6396630d0c1d642353535f9947174eb4d17d65cf6d8b6ecc111",
+    "svg_sha256": "d13c3cb4d88886141b77cd3a9a26d6e020accd0a9e79f71cd749fd15679ad16f"
   },
-  "required_changes": [],
-  "previous_revisions": [
-    {
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        54,
+        714,
+        714
+      ],
+      "content_center_px": [
+        384.0,
+        384.0
+      ],
+      "longest_side_occupancy": 0.8606770833333334,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 2,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
       "reviewer": "independent /root/review_geometry_redraws",
       "category": "solid_geometry",
       "source_id": "158",
-      "reviewed_utc": "2026-10-27T00:49:05.919206+00:00",
+      "reviewed_utc": "2026-10-27T00:55:10.780411+00:00",
       "verdict": "agent_verified",
       "user_approval": false,
       "hashes": {
@@ -107,7 +81,7 @@
         "image.png": "9a23a9c8a7dd09eeb679432da98c62f9f6fe51bd2377c1135c27d33127666a78",
         "image.svg": "3114b620ee1adab3d3309fa7bf6706d15eb0335f7a40129658b58b5706514994",
         "render.py": "854fffeddd6220bb2986f53708d7d8058a3048946d2fefcb72c7e8f724c1eb44",
-        "redraw_report.json": "67fa4231df3e55c6652aca2b6ad329258bcd158bb9f693abfb1990a1984da938",
+        "redraw_report.json": "4ae5a2978ae06801759050e4ed0aa071e5937606000add88f213d7f2b15dec2f",
         "audit.json": "c224f6153e30af545aa89981bcf46924df624caf36139afb00abbe9159829413"
       },
       "explicit_inspected_facts": [
@@ -187,7 +161,104 @@
         }
       },
       "required_changes": [],
-      "previous_revisions": []
+      "previous_revisions": [
+        {
+          "reviewer": "independent /root/review_geometry_redraws",
+          "category": "solid_geometry",
+          "source_id": "158",
+          "reviewed_utc": "2026-10-27T00:49:05.919206+00:00",
+          "verdict": "agent_verified",
+          "user_approval": false,
+          "hashes": {
+            "source.json": "fedac1eec1500326706e1fa94b142fa3352cebebef5eb9289ad359691b34dae5",
+            "original.jpg": "3bbf332be398bbe478f8b7e9da78f328f9d0dd8bf2b79eccf27345cff53e66c2",
+            "scene.json": "8fc079087fd6a95145d3891dd554dfd7e78b4cf520f306681f3bd445713cf638",
+            "image.png": "9a23a9c8a7dd09eeb679432da98c62f9f6fe51bd2377c1135c27d33127666a78",
+            "image.svg": "3114b620ee1adab3d3309fa7bf6706d15eb0335f7a40129658b58b5706514994",
+            "render.py": "854fffeddd6220bb2986f53708d7d8058a3048946d2fefcb72c7e8f724c1eb44",
+            "redraw_report.json": "67fa4231df3e55c6652aca2b6ad329258bcd158bb9f693abfb1990a1984da938",
+            "audit.json": "c224f6153e30af545aa89981bcf46924df624caf36139afb00abbe9159829413"
+          },
+          "explicit_inspected_facts": [
+            "Independently viewed original/candidate: four-wide crossbar, two cubes protruding forward at third column, left arm extending two cells back with2-high terminal, right arm onecell back with3-high terminal. Source skew and all visible top/front/right planes match; decorative yellow removed, no hidden helpers. Independent adjacency graph on12 vertices has11 edges and is connected, hence11 glue contacts."
+          ],
+          "checks": {
+            "source_record_matches_export": true,
+            "source_image_matches_export": true,
+            "report_hashes_match": true,
+            "independent_twice_render_identical": true,
+            "reproduction_matches_pixels": true,
+            "size": [
+              768,
+              768
+            ],
+            "opaque": true,
+            "content_bbox": [
+              53,
+              53,
+              715,
+              715
+            ],
+            "center_offset_px": [
+              0.5,
+              0.5
+            ],
+            "occupancy": 0.86328125,
+            "margins_px": [
+              53,
+              53,
+              52,
+              52
+            ],
+            "layout_pass": true,
+            "constraints": [
+              {
+                "id": "projection_and_visibility",
+                "type": "projection",
+                "passed": true,
+                "projection_sha256": "06f338f9aa4a7bc0b65588a3e30822f9f4d879dbd14ef10f59cf2d7c5edaa14f",
+                "automatic_occlusion": false
+              },
+              {
+                "id": "treeunit",
+                "type": "distance",
+                "basis": "equal unit cubes, construction scale",
+                "measured": 1.0,
+                "passed": true
+              },
+              {
+                "id": "layout",
+                "type": "layout",
+                "outer_margin_fraction": 0.05,
+                "label_line_overlap": false,
+                "label_label_overlap": false,
+                "passed": true
+              }
+            ],
+            "independent_voxel_counts": {
+              "tree": {
+                "count": 12,
+                "shared_faces": 11,
+                "surface_area": 50,
+                "connected": true
+              }
+            },
+            "independent_ray_interior_visibility": {
+              "samples": 189,
+              "mismatches": [],
+              "method": "Independent strict ray/open-box slab interval intersection at20/50/80percent of each drawn edge; compares frozen visibility, no author visibility helper used."
+            },
+            "report_only_rebind": {
+              "all_other_reviewed_files_hash_unchanged": true,
+              "all_current_report_bound_dependencies_hash_verified": true,
+              "standalone_render_uses_only_common_renderer_scene_protocol": true,
+              "optional_construction_helpers_not_imported_by_render_entry": true
+            }
+          },
+          "required_changes": [],
+          "previous_revisions": []
+        }
+      ]
     }
-  ]
+  }
 }

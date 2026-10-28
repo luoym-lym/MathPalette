@@ -1,5 +1,74 @@
 {
-  "checks": [
+  "schema_version": 1,
+  "id": "MVI0025",
+  "scene_id": "MV25",
+  "status": "pending_user_review",
+  "source_sha256": "bdfe77bb464607d6e83cdd3245125e432ddf0af41c5cc02c61f835145a078e44",
+  "scene_sha256": "1f810d9128293814d15ac943b1f4beb4e5284002239f153f6ad11e4d212fd738",
+  "decision_sha256": "63ac4eb6e31182962dfacefaf84852c97ba0f28d9f86711240158ec25a0c05e9",
+  "protocol_sha256": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+  "renderer_sha256": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+  "native_dependencies": {
+    ".runtime/mathvision_redraw_720/combinatorial_geometry/upper_comb_renderer_v2.py": {
+      "source_sha256": "c62c2b054bacaf988b2ad5ca1b65cd34e4197552b13f4af8c58edf63e42acb39",
+      "adapted_sha256": "eaeb6ec848c7fc8028e415fe5f04165fa060641edfb031484f1542ba124f0ea9"
+    },
+    ".runtime/mathvision_redraw_720/combinatorial_geometry/upper_comb_renderer.py": {
+      "source_sha256": "f8b46c832ae8ff8e16730970bd31d1d549035f4e230f49acb6b88141efda0d84",
+      "adapted_sha256": "c19665aa33281153ecd3bf6042b15f1b65f8714743ee001571725eaec6afb1fc"
+    },
+    ".runtime/mathvision_redraw_720/combinatorial_geometry/upper_comb_renderer_fillonly.py": {
+      "source_sha256": "0d0b200ad11ef8a4dc1642ab57168dafd65e70ae2d14a5f24ab0810f3dad2212",
+      "adapted_sha256": "5962e9b298fa6fffb79922913308f6241882c487262239ee138d769f3049ce58"
+    },
+    ".runtime/mathvision_redraw_720/combinatorial_geometry/upper_comb_solid_renderer.py": {
+      "source_sha256": "c266e9f96734883b56e3d3a43438128d9c42ce65d9465f6dc83840f410f205ff",
+      "adapted_sha256": "01a1c0a718a170a4cf5acbbf7500c3e4bb108adb2dfb15915363303d527bc479"
+    },
+    ".runtime/mathvision_redraw_720/solid_geometry/upper_solid_face_text_renderer.py": {
+      "source_sha256": "c316a4fc088a318ce35232e46392ef3ab11af1ac24acaeeda36d99b016581d8e",
+      "adapted_sha256": "10ee7040dd14dd6fcd687779d1d039243cd9876ed56879d74e0ac48c8ed6039e"
+    },
+    ".runtime/mathvision_redraw_720/solid_geometry/upper_solid_fill_renderer.py": {
+      "source_sha256": "a5fe3c7a62fce5bc104b5015549a7e6325924d58ea0b9a3d6f3192a459706d52",
+      "adapted_sha256": "bfaa5a0c2d67f13dd41263d9f7a5ba889e7ae27b9d3d5442d28d7e5472fe4865"
+    },
+    ".runtime/mathvision_redraw_720/solid_geometry/25/render.py": {
+      "source_sha256": "854fffeddd6220bb2986f53708d7d8058a3048946d2fefcb72c7e8f724c1eb44",
+      "adapted_sha256": "c9f34997adcd4903c40941a769c5e00e2d1f79088e1d0d823059877345f895b7"
+    },
+    "PlaneGeometry/dataset_generator/common_renderer.py": {
+      "source_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+      "adapted_sha256": "66c3a88409b45be162f04e6cdac459fd0c51f93753ee2abd981f318391fa73af"
+    },
+    "SolidGeometry/dataset_generator/common_renderer.py": {
+      "source_sha256": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+      "adapted_sha256": "3b03c4caa3227b233628bd43da5bfc10be17a9476ddebb50ebe144dd09ef380d"
+    }
+  },
+  "output_sha256": "11c2b065a7478493a9349bd3944568b96a94b8433f33ef9dc6d058c0959bcc99",
+  "svg_sha256": "9abf44f975bfb57978de751f79a7a68fd5266dde6e54a7acfef45faa82354075",
+  "two_render_pixels_equal": true,
+  "two_render_png_bytes_equal": true,
+  "two_render_svg_bytes_equal": true,
+  "layout": {
+    "content_bbox_px": [
+      54,
+      54,
+      714,
+      714
+    ],
+    "content_center_px": [
+      384.0,
+      384.0
+    ],
+    "longest_side_occupancy": 0.8606770833333334,
+    "opaque_768_square": true,
+    "centered_within_2px": true,
+    "occupancy_85_to_87_percent": true,
+    "minimum_5_percent_margin": true
+  },
+  "constraints": [
     {
       "id": "projection_and_visibility",
       "type": "projection",
@@ -13,49 +82,456 @@
       "basis": "construction: planar vertex cut",
       "measured": 1.3141749540046645e-16,
       "passed": true
-    },
-    {
-      "id": "layout",
-      "type": "layout",
-      "outer_margin_fraction": 0.05,
-      "label_line_overlap": false,
-      "label_label_overlap": false,
-      "passed": true
     }
   ],
-  "two_runs_pixel_identical": true,
-  "two_runs_svg_identical": true,
-  "visual_review": {
-    "status": "self_checked",
-    "notes": "Viewed source and native output individually: cut triangular face and three removed-corner dashed stubs retained; no added labels or hidden edges.",
-    "actual_visible_bbox_px": [
-      53,
-      53,
-      715,
-      715
-    ],
-    "long_side_fraction": 0.86328125,
-    "center_px": [
-      384.0,
-      384.0
-    ],
-    "independent_review": "pending"
-  },
-  "hashes": {
-    ".runtime/mathvision_redraw_720/solid_geometry/25/source.json": "35b374e4b38406672f240f4b51576fa453d7a69de8d3e88c357a966e86a15c75",
-    ".runtime/mathvision_redraw_720/solid_geometry/25/original.jpg": "bdfe77bb464607d6e83cdd3245125e432ddf0af41c5cc02c61f835145a078e44",
-    ".runtime/mathvision_redraw_720/solid_geometry/25/scene.json": "756780d6967e34fa5bc2092a526280e1fe067076b4e8c5cdafb6b38b281bb83f",
-    ".runtime/mathvision_redraw_720/solid_geometry/25/render.py": "854fffeddd6220bb2986f53708d7d8058a3048946d2fefcb72c7e8f724c1eb44",
-    ".runtime/mathvision_redraw_720/solid_geometry/25/image.png": "5a79017a6816534cc4f6755398c8cd5b9496ca9b90b2ed99df5628fdd77cab08",
-    ".runtime/mathvision_redraw_720/solid_geometry/25/image.svg": "42cb9fdfa0276fd9bc54e5f1a67bae456e7378529967df57eff7cf5dfea4cb73",
-    "SolidGeometry/dataset_generator/common_renderer.py": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
-    "SolidGeometry/dataset_generator/protocol.json": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
-    "SolidGeometry/REDRAW_PROTOCOL.md": "206719278a674ee238af811def681a8fd12b93f6d20e34aeea7ace16e0eeb2bd"
-  },
+  "geometry_sha256": "46cfb417ed62676bff40e84b0d7b718a05f3b3f71a43fc451c982ebc7459bef7",
+  "projection_sha256": "255202fe2645ae399cad3ef9a986cdd2684257ffb2df2050c9ff2b7777c07dc1",
+  "visibility_sha256": "0ce73aed74cf67b72f29ec00d22183676a59591967eea197c3eae68260ad0930",
+  "object_coverage": [
+    {
+      "id": "edge0",
+      "type": "segment",
+      "emitted_artists": 1,
+      "nonemitting_reason": null
+    },
+    {
+      "id": "edge1",
+      "type": "segment",
+      "emitted_artists": 1,
+      "nonemitting_reason": null
+    },
+    {
+      "id": "edge2",
+      "type": "segment",
+      "emitted_artists": 1,
+      "nonemitting_reason": null
+    },
+    {
+      "id": "edge3",
+      "type": "segment",
+      "emitted_artists": 1,
+      "nonemitting_reason": null
+    },
+    {
+      "id": "edge4",
+      "type": "segment",
+      "emitted_artists": 1,
+      "nonemitting_reason": null
+    },
+    {
+      "id": "edge5",
+      "type": "segment",
+      "emitted_artists": 1,
+      "nonemitting_reason": null
+    },
+    {
+      "id": "edge6",
+      "type": "segment",
+      "emitted_artists": 1,
+      "nonemitting_reason": null
+    },
+    {
+      "id": "edge7",
+      "type": "segment",
+      "emitted_artists": 1,
+      "nonemitting_reason": null
+    },
+    {
+      "id": "edge8",
+      "type": "segment",
+      "emitted_artists": 1,
+      "nonemitting_reason": null
+    },
+    {
+      "id": "edge9",
+      "type": "segment",
+      "emitted_artists": 1,
+      "nonemitting_reason": null
+    },
+    {
+      "id": "edge10",
+      "type": "segment",
+      "emitted_artists": 1,
+      "nonemitting_reason": null
+    },
+    {
+      "id": "edge11",
+      "type": "segment",
+      "emitted_artists": 1,
+      "nonemitting_reason": null
+    },
+    {
+      "id": "removed_U",
+      "type": "segment",
+      "emitted_artists": 1,
+      "nonemitting_reason": null
+    },
+    {
+      "id": "removed_V",
+      "type": "segment",
+      "emitted_artists": 1,
+      "nonemitting_reason": null
+    },
+    {
+      "id": "removed_W",
+      "type": "segment",
+      "emitted_artists": 1,
+      "nonemitting_reason": null
+    }
+  ],
+  "artists": [
+    {
+      "object_id": "edge0",
+      "artist_type": "Line2D",
+      "linewidth_pt": 1.0,
+      "font_size_pt": null,
+      "font_family": null,
+      "font_style": null,
+      "stroke_rgba": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "linestyle": "-",
+      "marker": "None",
+      "marker_size_pt": 6.0,
+      "marker_face_rgba": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "object_id": "edge1",
+      "artist_type": "Line2D",
+      "linewidth_pt": 1.0,
+      "font_size_pt": null,
+      "font_family": null,
+      "font_style": null,
+      "stroke_rgba": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "linestyle": "-",
+      "marker": "None",
+      "marker_size_pt": 6.0,
+      "marker_face_rgba": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "object_id": "edge2",
+      "artist_type": "Line2D",
+      "linewidth_pt": 1.0,
+      "font_size_pt": null,
+      "font_family": null,
+      "font_style": null,
+      "stroke_rgba": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "linestyle": "-",
+      "marker": "None",
+      "marker_size_pt": 6.0,
+      "marker_face_rgba": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "object_id": "edge3",
+      "artist_type": "Line2D",
+      "linewidth_pt": 1.0,
+      "font_size_pt": null,
+      "font_family": null,
+      "font_style": null,
+      "stroke_rgba": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "linestyle": "-",
+      "marker": "None",
+      "marker_size_pt": 6.0,
+      "marker_face_rgba": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "object_id": "edge4",
+      "artist_type": "Line2D",
+      "linewidth_pt": 1.0,
+      "font_size_pt": null,
+      "font_family": null,
+      "font_style": null,
+      "stroke_rgba": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "linestyle": "-",
+      "marker": "None",
+      "marker_size_pt": 6.0,
+      "marker_face_rgba": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "object_id": "edge5",
+      "artist_type": "Line2D",
+      "linewidth_pt": 1.0,
+      "font_size_pt": null,
+      "font_family": null,
+      "font_style": null,
+      "stroke_rgba": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "linestyle": "-",
+      "marker": "None",
+      "marker_size_pt": 6.0,
+      "marker_face_rgba": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "object_id": "edge6",
+      "artist_type": "Line2D",
+      "linewidth_pt": 1.0,
+      "font_size_pt": null,
+      "font_family": null,
+      "font_style": null,
+      "stroke_rgba": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "linestyle": "-",
+      "marker": "None",
+      "marker_size_pt": 6.0,
+      "marker_face_rgba": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "object_id": "edge7",
+      "artist_type": "Line2D",
+      "linewidth_pt": 1.0,
+      "font_size_pt": null,
+      "font_family": null,
+      "font_style": null,
+      "stroke_rgba": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "linestyle": "-",
+      "marker": "None",
+      "marker_size_pt": 6.0,
+      "marker_face_rgba": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "object_id": "edge8",
+      "artist_type": "Line2D",
+      "linewidth_pt": 1.0,
+      "font_size_pt": null,
+      "font_family": null,
+      "font_style": null,
+      "stroke_rgba": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "linestyle": "-",
+      "marker": "None",
+      "marker_size_pt": 6.0,
+      "marker_face_rgba": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "object_id": "edge9",
+      "artist_type": "Line2D",
+      "linewidth_pt": 1.0,
+      "font_size_pt": null,
+      "font_family": null,
+      "font_style": null,
+      "stroke_rgba": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "linestyle": "-",
+      "marker": "None",
+      "marker_size_pt": 6.0,
+      "marker_face_rgba": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "object_id": "edge10",
+      "artist_type": "Line2D",
+      "linewidth_pt": 1.0,
+      "font_size_pt": null,
+      "font_family": null,
+      "font_style": null,
+      "stroke_rgba": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "linestyle": "-",
+      "marker": "None",
+      "marker_size_pt": 6.0,
+      "marker_face_rgba": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "object_id": "edge11",
+      "artist_type": "Line2D",
+      "linewidth_pt": 1.0,
+      "font_size_pt": null,
+      "font_family": null,
+      "font_style": null,
+      "stroke_rgba": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "linestyle": "-",
+      "marker": "None",
+      "marker_size_pt": 6.0,
+      "marker_face_rgba": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "object_id": "removed_U",
+      "artist_type": "Line2D",
+      "linewidth_pt": 1.0,
+      "font_size_pt": null,
+      "font_family": null,
+      "font_style": null,
+      "stroke_rgba": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "linestyle": "--",
+      "marker": "None",
+      "marker_size_pt": 6.0,
+      "marker_face_rgba": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "object_id": "removed_V",
+      "artist_type": "Line2D",
+      "linewidth_pt": 1.0,
+      "font_size_pt": null,
+      "font_family": null,
+      "font_style": null,
+      "stroke_rgba": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "linestyle": "--",
+      "marker": "None",
+      "marker_size_pt": 6.0,
+      "marker_face_rgba": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "object_id": "removed_W",
+      "artist_type": "Line2D",
+      "linewidth_pt": 1.0,
+      "font_size_pt": null,
+      "font_family": null,
+      "font_style": null,
+      "stroke_rgba": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "linestyle": "--",
+      "marker": "None",
+      "marker_size_pt": 6.0,
+      "marker_face_rgba": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    }
+  ],
   "dependencies": {
     "python": "3.12.14",
-    "numpy": "2.3.5",
     "matplotlib": "3.10.8",
+    "numpy": "2.3.5",
     "Pillow": "12.3.0"
-  }
+  },
+  "agent_visual_review": "pending",
+  "native_vector_geometry": true
 }

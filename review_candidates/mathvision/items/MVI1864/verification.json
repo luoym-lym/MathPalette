@@ -1,49 +1,131 @@
 {
-  "reviewer": "independent /root/review_transformation_batch",
-  "source_id": "1864",
-  "category": "transformation_geometry",
-  "reviewed_utc": "2026-10-27T02:15:46.390686+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "redraw_part4",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "db7c5a6d65a15d8b08f97253472948f5896c176ec141475cf772a2e018353e4a",
+    "image.png": "fc3c04a90fdad42189eded1b8e52f45fe91743a5478f993ec570f3a102e631ef",
+    "image.svg": "3aa67d42cffc31ca244aad9e4b2a76fd5417ac310a160c999b1f46920db11e7d",
+    "redraw_report.json": "92bb38cc2559fb8168cc8d947cb505bf04aef5961153f64def69003a12703ae0",
+    "protocol_review.json": "6c123252c1411a0bd64c28e6ddf525d09d32ca20401fdeb11453854fc56ca7db",
+    "source_redraw.py": "0aa23fef7b3c29ef0e04bc5589f199b753a18a00206698309aa5d8e7826be981",
+    "execution.json": "77142201a79e2ae5ed15e121fd61d9087cb1a15182d403533b97c12054288be1",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "cb4ad47e4427a6ffd6a9cc742ca2fdb08846eafbc8c1489f7db4f8bb91e220a7",
     "source.json": "ec5c69f3dff76e3861c5e541ab2bbb455c9b4e373c5bcf2303860e17e9554c54",
-    "scene.json": "d7a1dab84e5177fcdb3d2eae3d1bbfcbae01db06e3d4540083ccfdeb600a9a90",
-    "render.py": "0aa23fef7b3c29ef0e04bc5589f199b753a18a00206698309aa5d8e7826be981",
-    "image.png": "6eaa349aa6e8fceacedb0a918db07205abd0b2ee79d53b8924c216aa9642f39a",
-    "audit.json": "e1f73373aed5127305127c632b3ffa83944f2a516bb45edde35fabcd74482de9",
-    "redraw_report.json": "6e5879c9699f67af6c0d88b82315e3037ac6f8db98ff87b7697e8d9f7a25042b"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Individually viewed original and candidate: left triangular sheet with oblique dashed crease; right reflected left corner protrudes to right, original left edges dashed; three gray non-overlap triangles surround white overlap quadrilateral. Folded top edge slopes down toward right. Two-panel order preserved.",
-    "Candidate proportions differ from schematic source to satisfy stated area relation, without changing topology or gray/white classes. Source caption diagram not to scale retained.",
-    "Let white overlap area be w. Original sheet area counts overlap twice and gray once:2w+1; visible union w+1. Equation2w+1=1.5(w+1) givesw=1 and starting area3. Independently checked reflected vertex, shoelace overlap1, gray total1 and original3."
+    "Individually viewed the corrected output: the white upper overlap masks gray paper so that the exposed gray parts match the source; fold directions and dashed triangle remain visible.",
+    "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      54,
-      285,
-      714,
-      482
-    ],
-    "occupancy": 0.8606770833333334,
-    "independent_numeric_checks": {
-      "original_area": 3.0,
-      "overlap_area": 1.0,
-      "gray_area": 1.0,
-      "reflection_verified": true,
-      "answer": 3
+  "agent_visual_review": {
+    "status": "agent_viewed",
+    "reviewer": "redraw_part4",
+    "source_inspection": {
+      "status": "viewed",
+      "sheet": ".runtime/protocol_redraw/part4/source_00.jpg",
+      "complete_question_read": true
     },
-    "renderer_checks": [],
-    "report_hashes_valid": true
+    "new_render_viewed": true,
+    "final_png_view": {
+      "method": "final render contact sheet",
+      "path": ".runtime/protocol_redraw/part4/new_00.jpg",
+      "cell": 12,
+      "individual_zoom": true
+    },
+    "source_sha256": "cb4ad47e4427a6ffd6a9cc742ca2fdb08846eafbc8c1489f7db4f8bb91e220a7",
+    "scene_sha256": "db7c5a6d65a15d8b08f97253472948f5896c176ec141475cf772a2e018353e4a",
+    "png_sha256": "fc3c04a90fdad42189eded1b8e52f45fe91743a5478f993ec570f3a102e631ef",
+    "svg_sha256": "3aa67d42cffc31ca244aad9e4b2a76fd5417ac310a160c999b1f46920db11e7d",
+    "findings": [
+      "Individually viewed the corrected output: the white upper overlap masks gray paper so that the exposed gray parts match the source; fold directions and dashed triangle remain visible.",
+      "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
+    ],
+    "user_approved": false,
+    "svg_rebinding_note": "Central final renderer regenerated vector SVG from the same Figure. PNG and scene hashes are unchanged from the actual visual inspection; this updates SVG serialization evidence without claiming another raster viewing."
   },
-  "required_changes": [],
-  "previous_revisions": [],
-  "dependency_hashes": {
-    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
-    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        285,
+        714,
+        482
+      ],
+      "content_center_px": [
+        384.0,
+        383.5
+      ],
+      "longest_side_occupancy": 0.8606770833333334,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 0,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root/review_transformation_batch",
+      "source_id": "1864",
+      "category": "transformation_geometry",
+      "reviewed_utc": "2026-10-27T02:15:46.390686+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "cb4ad47e4427a6ffd6a9cc742ca2fdb08846eafbc8c1489f7db4f8bb91e220a7",
+        "source.json": "ec5c69f3dff76e3861c5e541ab2bbb455c9b4e373c5bcf2303860e17e9554c54",
+        "scene.json": "d7a1dab84e5177fcdb3d2eae3d1bbfcbae01db06e3d4540083ccfdeb600a9a90",
+        "render.py": "0aa23fef7b3c29ef0e04bc5589f199b753a18a00206698309aa5d8e7826be981",
+        "image.png": "6eaa349aa6e8fceacedb0a918db07205abd0b2ee79d53b8924c216aa9642f39a",
+        "audit.json": "e1f73373aed5127305127c632b3ffa83944f2a516bb45edde35fabcd74482de9",
+        "redraw_report.json": "6e5879c9699f67af6c0d88b82315e3037ac6f8db98ff87b7697e8d9f7a25042b"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed original and candidate: left triangular sheet with oblique dashed crease; right reflected left corner protrudes to right, original left edges dashed; three gray non-overlap triangles surround white overlap quadrilateral. Folded top edge slopes down toward right. Two-panel order preserved.",
+        "Candidate proportions differ from schematic source to satisfy stated area relation, without changing topology or gray/white classes. Source caption diagram not to scale retained.",
+        "Let white overlap area be w. Original sheet area counts overlap twice and gray once:2w+1; visible union w+1. Equation2w+1=1.5(w+1) givesw=1 and starting area3. Independently checked reflected vertex, shoelace overlap1, gray total1 and original3."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          54,
+          285,
+          714,
+          482
+        ],
+        "occupancy": 0.8606770833333334,
+        "independent_numeric_checks": {
+          "original_area": 3.0,
+          "overlap_area": 1.0,
+          "gray_area": 1.0,
+          "reflection_verified": true,
+          "answer": 3
+        },
+        "renderer_checks": [],
+        "report_hashes_valid": true
+      },
+      "required_changes": [],
+      "previous_revisions": [],
+      "dependency_hashes": {
+        "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+        "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+      }
+    }
   }
 }

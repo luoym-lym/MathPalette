@@ -1,55 +1,130 @@
 {
-  "reviewer": "independent /root/review_transformation_batch",
-  "source_id": "1000",
-  "category": "transformation_geometry",
-  "reviewed_utc": "2026-10-27T02:59:57.555388+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "curator part2",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "02b4b6449ef10172c602002d1bed728bc1e6cb54096193a572d743a308693ec9",
+    "image.png": "4f4f5511b95b4e6422ad4f84d4403af43943a5a53a2c6984c0e77f315d0b98ec",
+    "image.svg": "60293530f3cc1814bbad821eaf9995ccc91c2ae41996169e2448f86993465b94",
+    "redraw_report.json": "8ab0621ec809fec5e9db877a2db3ebe9a837d84b8d749f2d650fa9ac8a55bf5c",
+    "protocol_review.json": "ad13a2a893fba7f72295f40ce9911b14c33a3c7b00a44830475e222f5abd2a10",
+    "source_redraw.py": "f9732f2acaa0bede016cf487f76a96121d8ba56370bac5227e1bdcb3985d50d8",
+    "execution.json": "ad973990168cd3bc2f7924bfc6156b6019b585132cb028a50754eaebb757b168",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "b3363d1a17257c2a84e2acbc9e28e7a86e9c22a473a125876025d360aa1becaf",
     "source.json": "b1485a669dc61960cab36f9633620c4e7c3733a77f2eb5b65d2851c27bf7d447",
-    "scene.json": "200a031a1f3301c27382f67ec6bd3b3471fe1c1e7e5b80ca5ba759c71ced1bba",
-    "render.py": "f9732f2acaa0bede016cf487f76a96121d8ba56370bac5227e1bdcb3985d50d8",
-    "image.png": "353497a07a471b54fffcb1e34136462a3ec5361835bb0e8993c5b4b4e41c4908",
-    "audit.json": "ddebbcd4a4b44374e5cd7118a66cd51a53dd9cde477b8a0b15318c0a880dde64",
-    "redraw_report.json": "c861b0151b5d734a60280c47354d33ecc66afa6b5e8c63748aee303cf02c283c"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Individually viewed original and candidate: five hooked y silhouettes. A opens right with lower-left hook; B opens left with lower-right hook; C inverted with top-right hook; D opens right with upper-left hook; E upright mirrored with lower-right hook. Chirality of every option preserved.",
-    "Clockwise90 matrix then vertical-edge reflection then halfturn has matrix[[0,1],[1,0]], reflection in y=x. Normal lowercase y has a descending lower-left tail curving left; coordinate swap produces leftward tail curving down, while its arms point right: A. D would put tail hook upward and is not this composition."
+    "Five filled y glyphs retain transformed chirality and original option order."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      53,
-      356,
-      714,
-      411
+  "agent_visual_review": {
+    "status": "viewed",
+    "reviewer": "curator part2",
+    "review_kind": "Agent source-to-vector visual comparison; not user approval",
+    "source_and_complete_question_reviewed": true,
+    "new_png_actually_viewed": true,
+    "inspection_method": "paired source/final contact sheet",
+    "evidence": ".runtime/protocol_redraw/part2/final_14.jpg",
+    "findings": [
+      "Five filled y glyphs retain transformed chirality and original option order."
     ],
-    "occupancy": 0.8619791666666666,
-    "independent_numeric_checks": {
-      "transformation_matrix": [
-        [
-          0.0,
-          1.0
-        ],
-        [
-          1.0,
-          0.0
-        ]
-      ],
-      "answer": "A"
-    },
-    "renderer_checks": [],
-    "report_hashes_valid": true,
-    "isolated_standalone_render_identical": true
+    "geometry_labels_and_topology": "Source point order, connections, region identity and visible labels compared; no solving hints added.",
+    "source_image_sha256": "b3363d1a17257c2a84e2acbc9e28e7a86e9c22a473a125876025d360aa1becaf",
+    "scene_sha256": "02b4b6449ef10172c602002d1bed728bc1e6cb54096193a572d743a308693ec9",
+    "png_sha256": "4f4f5511b95b4e6422ad4f84d4403af43943a5a53a2c6984c0e77f315d0b98ec",
+    "svg_sha256": "60293530f3cc1814bbad821eaf9995ccc91c2ae41996169e2448f86993465b94",
+    "source_redraw_sha256": "f9732f2acaa0bede016cf487f76a96121d8ba56370bac5227e1bdcb3985d50d8",
+    "renderer_sha256": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "reviewed_at_utc": "2026-10-28T13:08:11.727829+00:00"
   },
-  "required_changes": [],
-  "previous_revisions": [],
-  "dependency_hashes": {
-    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
-    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        356,
+        713,
+        411
+      ],
+      "content_center_px": [
+        383.5,
+        383.5
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 0,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root/review_transformation_batch",
+      "source_id": "1000",
+      "category": "transformation_geometry",
+      "reviewed_utc": "2026-10-27T02:59:57.555388+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "b3363d1a17257c2a84e2acbc9e28e7a86e9c22a473a125876025d360aa1becaf",
+        "source.json": "b1485a669dc61960cab36f9633620c4e7c3733a77f2eb5b65d2851c27bf7d447",
+        "scene.json": "200a031a1f3301c27382f67ec6bd3b3471fe1c1e7e5b80ca5ba759c71ced1bba",
+        "render.py": "f9732f2acaa0bede016cf487f76a96121d8ba56370bac5227e1bdcb3985d50d8",
+        "image.png": "353497a07a471b54fffcb1e34136462a3ec5361835bb0e8993c5b4b4e41c4908",
+        "audit.json": "ddebbcd4a4b44374e5cd7118a66cd51a53dd9cde477b8a0b15318c0a880dde64",
+        "redraw_report.json": "c861b0151b5d734a60280c47354d33ecc66afa6b5e8c63748aee303cf02c283c"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed original and candidate: five hooked y silhouettes. A opens right with lower-left hook; B opens left with lower-right hook; C inverted with top-right hook; D opens right with upper-left hook; E upright mirrored with lower-right hook. Chirality of every option preserved.",
+        "Clockwise90 matrix then vertical-edge reflection then halfturn has matrix[[0,1],[1,0]], reflection in y=x. Normal lowercase y has a descending lower-left tail curving left; coordinate swap produces leftward tail curving down, while its arms point right: A. D would put tail hook upward and is not this composition."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          53,
+          356,
+          714,
+          411
+        ],
+        "occupancy": 0.8619791666666666,
+        "independent_numeric_checks": {
+          "transformation_matrix": [
+            [
+              0.0,
+              1.0
+            ],
+            [
+              1.0,
+              0.0
+            ]
+          ],
+          "answer": "A"
+        },
+        "renderer_checks": [],
+        "report_hashes_valid": true,
+        "isolated_standalone_render_identical": true
+      },
+      "required_changes": [],
+      "previous_revisions": [],
+      "dependency_hashes": {
+        "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+        "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+      }
+    }
   }
 }

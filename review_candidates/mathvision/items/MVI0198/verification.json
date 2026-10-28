@@ -1,77 +1,148 @@
 {
-  "reviewer": "independent /root",
-  "source_id": "198",
-  "category": "transformation_geometry",
-  "reviewed_utc": "2026-10-27T00:47:27.109544+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "Agent curator part1",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "14c642b0d3f3bd380e64ff00b3b18b7255e20a6f06038334b68d95e27fe7d218",
+    "image.png": "d60544d67ab117b8b98a33710b782d7ddb8263319d201592942db1ec0e4cebb2",
+    "image.svg": "549d1cff7f2742002d6fce1486dafeb2aa1f3999ced496f583f86eee4e8e6459",
+    "redraw_report.json": "093a67e4311621ad005eea6ccf421ed537382a4bb7e2c5ada49ef07a7c86e452",
+    "protocol_review.json": "5259ae5bfe6e192a471839b72acb62a82538c079d4692bcd362d20fcdd9cae31",
+    "source_redraw.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
+    "execution.json": "c0b688d0eb8b98e4926bac6b6eb1ef7053a35327482843eee8725958696c3a59",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "d3860f6fa63eaef97b1baaaa7f7070781007a3bb610680542ee55d021b289126",
     "source.json": "cb5f35338d486e21efabc94df35897cd2f1997591bdaecdb01e78078261ca08b",
-    "scene.json": "20a77de4fe9f1820e54c65c80c12d8d09ce94497e25852fc21231563722f68d8",
-    "render.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
-    "image.png": "8ee1f6798a65d31829bd135c547c87d58e4e8bcbfca1826ebb1469d664c0a068",
-    "audit.json": "6e2d46909d60098a9f013046b446330cfdacb635a6568ff74ddd2d8aea147746",
-    "redraw_report.json": "84200168bf033119564babcbbc917ef8df66875a4197b647ed69118e4df0d52e"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Independently viewed original and candidate:8x6 rectangular grid, corners clockwiseC B A D, incoming ball ray and NE outgoing arrow at left-wall y2,45degree label with single arc; no full solution trajectory added. Pocket circle stylization keeps all four identities."
+    "Billiard pockets A-D retain corner assignments; the 45-degree angle has one bound arc at the incidence point."
   ],
-  "checks": {
-    "source_metadata_fields_equal": true,
-    "source_bytes_equal": true,
-    "render_twice_equal": true,
-    "candidate_pixels_match_independent_render": true,
-    "opaque768": true,
-    "layout_bbox": [
-      54,
-      134,
-      714,
-      633
+  "agent_visual_review": {
+    "status": "inspected",
+    "reviewer": "Agent curator part1",
+    "user_approval": false,
+    "reviewed_at_utc": "2026-10-28T12:56:24.149818+00:00",
+    "method": "Source and final PNG comparison on 12-item contact sheets.",
+    "contact_sheet": ".runtime/protocol_redraw/part1/final_04.jpg",
+    "individual_final_png_viewed": false,
+    "findings": [
+      "Billiard pockets A-D retain corner assignments; the 45-degree angle has one bound arc at the incidence point."
     ],
-    "occupancy": 0.8606770833333334,
-    "numeric_checks": [
-      {
-        "check": "specular_bounce_simulation",
-        "path": [
-          [
-            4.0,
-            6.0
-          ],
-          [
-            8.0,
-            2.0
-          ],
-          [
-            6.0,
-            0.0
-          ],
-          [
-            0.0,
-            6.0
-          ]
-        ],
-        "answer": "C"
-      }
-    ],
-    "renderer_constraints": [
-      {
-        "id": "incidence",
-        "type": "angle",
-        "measured": 45.00000000000001,
-        "passed": true
-      },
-      {
-        "id": "arc_binding_angle45",
-        "type": "angle_annotation",
-        "label_id": "angle45",
-        "arc_id": "o24",
-        "measured": 1,
-        "passed": true
-      }
-    ],
-    "report_hashes_valid": true
+    "source_sha256": "d3860f6fa63eaef97b1baaaa7f7070781007a3bb610680542ee55d021b289126",
+    "scene_sha256": "14c642b0d3f3bd380e64ff00b3b18b7255e20a6f06038334b68d95e27fe7d218",
+    "png_sha256": "d60544d67ab117b8b98a33710b782d7ddb8263319d201592942db1ec0e4cebb2",
+    "svg_sha256": "549d1cff7f2742002d6fce1486dafeb2aa1f3999ced496f583f86eee4e8e6459"
   },
-  "required_changes": [],
-  "independent_check_script_sha256": "f86a7a5429a834f284d2bc393e81cd085597977c2ad5ec3dceaa3cc05ca70a17"
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        134,
+        713,
+        633
+      ],
+      "content_center_px": [
+        383.5,
+        383.5
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 2,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root",
+      "source_id": "198",
+      "category": "transformation_geometry",
+      "reviewed_utc": "2026-10-27T00:47:27.109544+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "d3860f6fa63eaef97b1baaaa7f7070781007a3bb610680542ee55d021b289126",
+        "source.json": "cb5f35338d486e21efabc94df35897cd2f1997591bdaecdb01e78078261ca08b",
+        "scene.json": "20a77de4fe9f1820e54c65c80c12d8d09ce94497e25852fc21231563722f68d8",
+        "render.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
+        "image.png": "8ee1f6798a65d31829bd135c547c87d58e4e8bcbfca1826ebb1469d664c0a068",
+        "audit.json": "6e2d46909d60098a9f013046b446330cfdacb635a6568ff74ddd2d8aea147746",
+        "redraw_report.json": "84200168bf033119564babcbbc917ef8df66875a4197b647ed69118e4df0d52e"
+      },
+      "explicit_inspected_facts": [
+        "Independently viewed original and candidate:8x6 rectangular grid, corners clockwiseC B A D, incoming ball ray and NE outgoing arrow at left-wall y2,45degree label with single arc; no full solution trajectory added. Pocket circle stylization keeps all four identities."
+      ],
+      "checks": {
+        "source_metadata_fields_equal": true,
+        "source_bytes_equal": true,
+        "render_twice_equal": true,
+        "candidate_pixels_match_independent_render": true,
+        "opaque768": true,
+        "layout_bbox": [
+          54,
+          134,
+          714,
+          633
+        ],
+        "occupancy": 0.8606770833333334,
+        "numeric_checks": [
+          {
+            "check": "specular_bounce_simulation",
+            "path": [
+              [
+                4.0,
+                6.0
+              ],
+              [
+                8.0,
+                2.0
+              ],
+              [
+                6.0,
+                0.0
+              ],
+              [
+                0.0,
+                6.0
+              ]
+            ],
+            "answer": "C"
+          }
+        ],
+        "renderer_constraints": [
+          {
+            "id": "incidence",
+            "type": "angle",
+            "measured": 45.00000000000001,
+            "passed": true
+          },
+          {
+            "id": "arc_binding_angle45",
+            "type": "angle_annotation",
+            "label_id": "angle45",
+            "arc_id": "o24",
+            "measured": 1,
+            "passed": true
+          }
+        ],
+        "report_hashes_valid": true
+      },
+      "required_changes": [],
+      "independent_check_script_sha256": "f86a7a5429a834f284d2bc393e81cd085597977c2ad5ec3dceaa3cc05ca70a17"
+    }
+  }
 }

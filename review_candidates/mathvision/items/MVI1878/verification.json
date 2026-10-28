@@ -1,50 +1,131 @@
 {
-  "reviewer": "independent /root",
-  "source_id": "1878",
-  "category": "combinatorial_geometry",
-  "reviewed_utc": "2026-10-27T02:50:17.038311+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "redraw_part4",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "70ff7996981be935f222540943453c37dbf6ebe7d627bf8480292e1e7ac754f6",
+    "image.png": "dbc28ca6af455f8cd6426d372ca51e1bb810bada34636f590e1547ba754a0bbf",
+    "image.svg": "6f98806ea8ee50bed77ff5416a5ca749a1fff98158440a7aeea7921cffde6056",
+    "redraw_report.json": "f0630a8bdacb2212cbd748283e60afd4ad83c12ece32f70c0333ac17caf62d33",
+    "protocol_review.json": "c7c767340b032faef16772ddbe212d66f3609d0c79fe5ad37498784f8f2bd0e5",
+    "source_redraw.py": "e5733287dc63eb9d4c4febb53b278f7e2e9e0b0e46f472ba42112b3a3bcc29df",
+    "execution.json": "809df137fb5312cc3ba5ca77ecdfccbdc205c3f83e5c968c359d6112a16b19fa",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "3122c2cf96d98badb14c7838ee8f010f4d41bb62a69155288a71ed965438a03f",
     "source.json": "00708b9dc869557167b3e3e08a44b45e2d64d7f36a53fe60b8b6063e2e650b08",
-    "scene.json": "0486b5566cc407a6e81a08cddf4c3f3f1c527b1c73d6e55322a8ccfa027bc44b",
-    "render.py": "e5733287dc63eb9d4c4febb53b278f7e2e9e0b0e46f472ba42112b3a3bcc29df",
-    "image.png": "f682f1c06578fd71ff62936f8b8b6c8a608a5456ff07210604e920148af210dd",
-    "audit.json": "c5931b334b40e91ec0a29aafafb14a9c1bbb42019ca64385a58da29965761a52",
-    "redraw_report.json": "e6f3dd481ce3fce120a37d2f8f76bbc619751427c88ad8ec0f30adc636674873",
-    "../upper_comb_renderer.py": "f8b46c832ae8ff8e16730970bd31d1d549035f4e230f49acb6b88141efda0d84"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Individually viewed source/candidate: P,Q,R triangle, S onQR,T onPS, nine angle dots with2atP,2Q,1R,2S,2T. Lower-bound chain angleQTS=angleQPT+anglePQT>angleQPT and anglePSR=angleQTS+angleTQS>angleQTS proves3distinct. Achievable assignment uses36,72,108degrees: P split36+36,Qsplit36+36,R36,S108/72,T72/108, satisfying all triangle and straight-angle sums."
+    "Compared source and final vector redraw: source connections, region identities, point order, displayed labels and layout retained; no new solving construction introduced.",
+    "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      54,
-      174,
-      713,
-      593
-    ],
-    "occupancy": 0.859375,
-    "independent_numeric_checks": {
-      "angle_marks": 9,
-      "three_value_witness_degrees": [
-        36,
-        72,
-        108
-      ],
-      "triangle_sums": [
-        180,
-        180,
-        180
-      ],
-      "answer": "3"
+  "agent_visual_review": {
+    "status": "agent_viewed",
+    "reviewer": "redraw_part4",
+    "source_inspection": {
+      "status": "viewed",
+      "sheet": ".runtime/protocol_redraw/part4/source_01.jpg",
+      "complete_question_read": true
     },
-    "renderer_checks": []
+    "new_render_viewed": true,
+    "final_png_view": {
+      "method": "final render contact sheet",
+      "path": ".runtime/protocol_redraw/part4/new_01.jpg",
+      "cell": 3,
+      "individual_zoom": false
+    },
+    "source_sha256": "3122c2cf96d98badb14c7838ee8f010f4d41bb62a69155288a71ed965438a03f",
+    "scene_sha256": "70ff7996981be935f222540943453c37dbf6ebe7d627bf8480292e1e7ac754f6",
+    "png_sha256": "dbc28ca6af455f8cd6426d372ca51e1bb810bada34636f590e1547ba754a0bbf",
+    "svg_sha256": "6f98806ea8ee50bed77ff5416a5ca749a1fff98158440a7aeea7921cffde6056",
+    "findings": [
+      "Compared source and final vector redraw: source connections, region identities, point order, displayed labels and layout retained; no new solving construction introduced.",
+      "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
+    ],
+    "user_approved": false
   },
-  "required_changes": [],
-  "previous_revisions": []
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        175,
+        713,
+        592
+      ],
+      "content_center_px": [
+        383.5,
+        383.5
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 0,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root",
+      "source_id": "1878",
+      "category": "combinatorial_geometry",
+      "reviewed_utc": "2026-10-27T02:50:17.038311+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "3122c2cf96d98badb14c7838ee8f010f4d41bb62a69155288a71ed965438a03f",
+        "source.json": "00708b9dc869557167b3e3e08a44b45e2d64d7f36a53fe60b8b6063e2e650b08",
+        "scene.json": "0486b5566cc407a6e81a08cddf4c3f3f1c527b1c73d6e55322a8ccfa027bc44b",
+        "render.py": "e5733287dc63eb9d4c4febb53b278f7e2e9e0b0e46f472ba42112b3a3bcc29df",
+        "image.png": "f682f1c06578fd71ff62936f8b8b6c8a608a5456ff07210604e920148af210dd",
+        "audit.json": "c5931b334b40e91ec0a29aafafb14a9c1bbb42019ca64385a58da29965761a52",
+        "redraw_report.json": "e6f3dd481ce3fce120a37d2f8f76bbc619751427c88ad8ec0f30adc636674873",
+        "../upper_comb_renderer.py": "f8b46c832ae8ff8e16730970bd31d1d549035f4e230f49acb6b88141efda0d84"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed source/candidate: P,Q,R triangle, S onQR,T onPS, nine angle dots with2atP,2Q,1R,2S,2T. Lower-bound chain angleQTS=angleQPT+anglePQT>angleQPT and anglePSR=angleQTS+angleTQS>angleQTS proves3distinct. Achievable assignment uses36,72,108degrees: P split36+36,Qsplit36+36,R36,S108/72,T72/108, satisfying all triangle and straight-angle sums."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          54,
+          174,
+          713,
+          593
+        ],
+        "occupancy": 0.859375,
+        "independent_numeric_checks": {
+          "angle_marks": 9,
+          "three_value_witness_degrees": [
+            36,
+            72,
+            108
+          ],
+          "triangle_sums": [
+            180,
+            180,
+            180
+          ],
+          "answer": "3"
+        },
+        "renderer_checks": []
+      },
+      "required_changes": [],
+      "previous_revisions": []
+    }
+  }
 }

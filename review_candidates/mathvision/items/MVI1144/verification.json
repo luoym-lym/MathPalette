@@ -1,113 +1,188 @@
 {
-  "reviewer": "independent /root/review_geometry_redraws",
-  "category": "solid_geometry",
-  "source_id": "1144",
-  "reviewed_utc": "2026-10-27T02:45:23.554508+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "protocol_redraw_part3",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
-    "source.json": "0f4934426d2db20ff9aaecee13efd9dcb9bc3f57ba717ed88b7387916e1410a0",
+    "scene.json": "44da24261e28421a6df8e6560c7e2aa79d914a084e5eeee5d25015e941f3c2e6",
+    "image.png": "2b1ba95c62d4469ecda15a432f0eb41e598fa3c4d08c14b9c5307632ff5a5c2a",
+    "image.svg": "0a947bd4dd1f8a4c9303346678ea48733a737ac7848832cd45af56e3e59947c4",
+    "redraw_report.json": "01be2b9d62ebf82812e187b6dad62d480546c042a55424a2205a89bb5b51fd43",
+    "protocol_review.json": "e809660873da407d40a3a9ee029525a9903f454daacb170906da77a694e8aed1",
+    "source_redraw.py": "854fffeddd6220bb2986f53708d7d8058a3048946d2fefcb72c7e8f724c1eb44",
+    "execution.json": "39487aba0ff86fbb13b5c252cb4cba0f56090b418279ac8e00151f490d4b8c46",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "c688dbc73d541676dd91f3411c1c66cb108422703cc0efe85151a23bca0db00a",
-    "scene.json": "c79ac30bf1ca36de3c36e7d0d4515b5388cec7da1f2b446d1673ceb7f4491952",
-    "image.png": "e691473bbce2ba6045d1e40aad379fa48c262b5a77e693e4287722dbe73c0fea",
-    "image.svg": "b8435b720e3b5c40e79093f27fee876dcf64b9d3177b748a99071a2ac63589a2",
-    "render.py": "854fffeddd6220bb2986f53708d7d8058a3048946d2fefcb72c7e8f724c1eb44",
-    "redraw_report.json": "45ee87fddc0c73fe2b7ece4e5a95f3dd561ca0439dd4f2a3b88f6d2b3092a056",
-    "audit.json": "f59042ac27a2738b8e293888219d298b18a10cc57aa56b1d4f567e33692ebed0"
+    "source.json": "0f4934426d2db20ff9aaecee13efd9dcb9bc3f57ba717ed88b7387916e1410a0",
+    "machine_protocol": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Actually viewed both images cell by cell: all five given patterns and five options A\u2013E match original row/column colors; two rows preserved, no given labels added, source wrappers removed.",
-    "Corner appearances must be divisible by3, edge-middle appearances by2. B/C/D fail divisibility; E needs16 exterior black cubes, exceeding15. A needs15 and permits white center. Independently checked supplied15-cell witness produces all six face patterns up to orientation, and fill polygon count matches matrices."
+    "Five given 3-by-3 face patterns and five options retain every binary cell; source black restored to opaque black."
   ],
-  "checks": {
-    "source_record_matches_export": true,
-    "source_image_matches_export": true,
-    "report_hashes_match": true,
-    "independent_twice_render_identical": true,
-    "reproduction_matches_pixels": true,
-    "size": [
-      768,
-      768
-    ],
-    "opaque": true,
-    "bbox": [
-      52,
-      244,
-      715,
-      523
-    ],
-    "occupancy": 0.8645833333333334,
-    "center_offset_px": [
-      0.0,
-      0.0
-    ],
-    "layout_pass": true,
-    "constraints": [
-      {
-        "id": "projection_and_visibility",
-        "type": "projection",
-        "passed": true,
-        "projection_sha256": "8d0d0ed61e5d8a466c5ecc2e8116e186277a327a0214f77cc1622633ca64116a",
-        "automatic_occlusion": false
-      },
-      {
-        "id": "layout",
-        "type": "layout",
-        "outer_margin_fraction": 0.05,
-        "label_line_overlap": false,
-        "label_label_overlap": false,
-        "passed": true
-      }
-    ],
-    "independent_corner_edge_center_counts": [
-      {
-        "option": "A",
-        "occurrences": [
-          18,
-          10,
-          4
-        ],
-        "viable": true
-      },
-      {
-        "option": "B",
-        "occurrences": [
-          19,
-          9,
-          5
-        ],
-        "viable": false
-      },
-      {
-        "option": "C",
-        "occurrences": [
-          19,
-          8,
-          5
-        ],
-        "viable": false
-      },
-      {
-        "option": "D",
-        "occurrences": [
-          17,
-          10,
-          4
-        ],
-        "viable": false
-      },
-      {
-        "option": "E",
-        "occurrences": [
-          18,
-          10,
-          5
-        ],
-        "viable": false
-      }
-    ],
-    "15_black_cube_constructive_witness_checked": true
+  "agent_visual_review": {
+    "status": "agent_reviewed",
+    "reviewer": "protocol_redraw_part3",
+    "reviewed_at_utc": "2026-10-28T12:58:04.323655+00:00",
+    "source_compared": true,
+    "method": "Viewed final source/redraw comparison contact sheet",
+    "contact_sheet": ".runtime/protocol_redraw/part3/new_01.jpg",
+    "contact_sheet_sha256": "7607787b05712377de761a6d09c711e212b7ac47b028aab9b56d61f0915a3aa6",
+    "png_sha256": "2b1ba95c62d4469ecda15a432f0eb41e598fa3c4d08c14b9c5307632ff5a5c2a",
+    "svg_sha256": "0a947bd4dd1f8a4c9303346678ea48733a737ac7848832cd45af56e3e59947c4",
+    "scene_sha256": "44da24261e28421a6df8e6560c7e2aa79d914a084e5eeee5d25015e941f3c2e6",
+    "source_sha256": "c688dbc73d541676dd91f3411c1c66cb108422703cc0efe85151a23bca0db00a",
+    "final_png_sha256": "2b1ba95c62d4469ecda15a432f0eb41e598fa3c4d08c14b9c5307632ff5a5c2a",
+    "final_scene_sha256": "44da24261e28421a6df8e6560c7e2aa79d914a084e5eeee5d25015e941f3c2e6",
+    "findings": "Five given 3-by-3 face patterns and five options retain every binary cell; source black restored to opaque black.",
+    "unresolved_source_issues": [],
+    "user_approved": false,
+    "scope": "Agent visual review only. All candidates remain pending user review.",
+    "svg_binding_basis": "Current deterministic vector export from the unchanged scene; serialization hash rebound mechanically. Original PNG visual inspection evidence and timestamp are preserved."
   },
-  "required_changes": [],
-  "previous_revisions": []
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        244,
+        713,
+        523
+      ],
+      "content_center_px": [
+        383.5,
+        383.5
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 1,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root/review_geometry_redraws",
+      "category": "solid_geometry",
+      "source_id": "1144",
+      "reviewed_utc": "2026-10-27T02:45:23.554508+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "source.json": "0f4934426d2db20ff9aaecee13efd9dcb9bc3f57ba717ed88b7387916e1410a0",
+        "original.jpg": "c688dbc73d541676dd91f3411c1c66cb108422703cc0efe85151a23bca0db00a",
+        "scene.json": "c79ac30bf1ca36de3c36e7d0d4515b5388cec7da1f2b446d1673ceb7f4491952",
+        "image.png": "e691473bbce2ba6045d1e40aad379fa48c262b5a77e693e4287722dbe73c0fea",
+        "image.svg": "b8435b720e3b5c40e79093f27fee876dcf64b9d3177b748a99071a2ac63589a2",
+        "render.py": "854fffeddd6220bb2986f53708d7d8058a3048946d2fefcb72c7e8f724c1eb44",
+        "redraw_report.json": "45ee87fddc0c73fe2b7ece4e5a95f3dd561ca0439dd4f2a3b88f6d2b3092a056",
+        "audit.json": "f59042ac27a2738b8e293888219d298b18a10cc57aa56b1d4f567e33692ebed0"
+      },
+      "explicit_inspected_facts": [
+        "Actually viewed both images cell by cell: all five given patterns and five options A–E match original row/column colors; two rows preserved, no given labels added, source wrappers removed.",
+        "Corner appearances must be divisible by3, edge-middle appearances by2. B/C/D fail divisibility; E needs16 exterior black cubes, exceeding15. A needs15 and permits white center. Independently checked supplied15-cell witness produces all six face patterns up to orientation, and fill polygon count matches matrices."
+      ],
+      "checks": {
+        "source_record_matches_export": true,
+        "source_image_matches_export": true,
+        "report_hashes_match": true,
+        "independent_twice_render_identical": true,
+        "reproduction_matches_pixels": true,
+        "size": [
+          768,
+          768
+        ],
+        "opaque": true,
+        "bbox": [
+          52,
+          244,
+          715,
+          523
+        ],
+        "occupancy": 0.8645833333333334,
+        "center_offset_px": [
+          0.0,
+          0.0
+        ],
+        "layout_pass": true,
+        "constraints": [
+          {
+            "id": "projection_and_visibility",
+            "type": "projection",
+            "passed": true,
+            "projection_sha256": "8d0d0ed61e5d8a466c5ecc2e8116e186277a327a0214f77cc1622633ca64116a",
+            "automatic_occlusion": false
+          },
+          {
+            "id": "layout",
+            "type": "layout",
+            "outer_margin_fraction": 0.05,
+            "label_line_overlap": false,
+            "label_label_overlap": false,
+            "passed": true
+          }
+        ],
+        "independent_corner_edge_center_counts": [
+          {
+            "option": "A",
+            "occurrences": [
+              18,
+              10,
+              4
+            ],
+            "viable": true
+          },
+          {
+            "option": "B",
+            "occurrences": [
+              19,
+              9,
+              5
+            ],
+            "viable": false
+          },
+          {
+            "option": "C",
+            "occurrences": [
+              19,
+              8,
+              5
+            ],
+            "viable": false
+          },
+          {
+            "option": "D",
+            "occurrences": [
+              17,
+              10,
+              4
+            ],
+            "viable": false
+          },
+          {
+            "option": "E",
+            "occurrences": [
+              18,
+              10,
+              5
+            ],
+            "viable": false
+          }
+        ],
+        "15_black_cube_constructive_witness_checked": true
+      },
+      "required_changes": [],
+      "previous_revisions": []
+    }
+  }
 }

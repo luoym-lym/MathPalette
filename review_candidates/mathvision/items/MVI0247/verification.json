@@ -1,62 +1,139 @@
 {
-  "reviewer": "independent /root",
-  "source_id": "247",
-  "category": "transformation_geometry",
-  "reviewed_utc": "2026-10-27T00:47:27.274462+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "Agent curator part1",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "e63dd0a50bccfe549639769645aaf227ac601b285a435ac59c9f9853e0880485",
+    "image.png": "a72721d9771f516ef45e808b1012f5885a54936ec8a52089a4f62b3f346fc82c",
+    "image.svg": "6e38fe0a075e9a3b20d83c0f1b4a045a6aed8906a075deb6efb47914587b0e73",
+    "redraw_report.json": "eb6bbf695585c11bbefe6b1cb7c0c068ed56c70678d4111ed6833dd9211077cf",
+    "protocol_review.json": "67d880d82c68ef440d79614f6b057f114a437d40e6cc8513f19def6fe18cac15",
+    "source_redraw.py": "a784f4e368c340b05917dfffd243fe98a33a0a48434910fce5b5ce2b227315a1",
+    "execution.json": "529acd4c609c03fdfc9c885f7c97b0589f6593d9759bc2fba8f452cbfb8d5f9d",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "3e328fb1e9c9ff241209c8d294ab9f8f710e824dbd0580f5e9c2f8f9ad1d85d6",
     "source.json": "bc4cf979500432ee035e0528784bceebf4704dc264e268d0012e042b637b3e26",
-    "scene.json": "29bd2cdd1e8af159e7344755f0a6c45d8b6218a4e51766efe0b5f7c9998bf13a",
-    "render.py": "a784f4e368c340b05917dfffd243fe98a33a0a48434910fce5b5ce2b227315a1",
-    "image.png": "42f1b06e67946228797d76e2545af31034979def8b503ad9193b800e236141c2",
-    "audit.json": "09d679ebc5861982bfe6a04a202c83954e6d884eb1a0cfb0cb322684c7f719f0",
-    "redraw_report.json": "59e2f81d26be79d81308116f79e76541fefedfda843dabcd94dbb6d4ac2cd579"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Independently viewed original and candidate:ABCD rectangle, dashed MD/DC/CN original edges, foldMN, solidAN/AM, grey ANMDprime, curved D-to-Dprime arrow, all7labels preserved; no dimensions added as labels."
+    "Original dashed rectangle, fold MN, A/B/C/D/M/N/D-prime labels and shaded folded quadrilateral retain source incidence."
   ],
-  "checks": {
-    "source_metadata_fields_equal": true,
-    "source_bytes_equal": true,
-    "render_twice_equal": true,
-    "candidate_pixels_match_independent_render": true,
-    "opaque768": true,
-    "layout_bbox": [
-      54,
-      200,
-      714,
-      568
+  "agent_visual_review": {
+    "status": "inspected",
+    "reviewer": "Agent curator part1",
+    "user_approval": false,
+    "reviewed_at_utc": "2026-10-28T12:56:24.155110+00:00",
+    "method": "Source and final PNG comparison on 12-item contact sheets.",
+    "contact_sheet": ".runtime/protocol_redraw/part1/final_04.jpg",
+    "individual_final_png_viewed": false,
+    "findings": [
+      "Original dashed rectangle, fold MN, A/B/C/D/M/N/D-prime labels and shaded folded quadrilateral retain source incidence."
     ],
-    "occupancy": 0.8606770833333334,
-    "numeric_checks": [
-      {
-        "check": "reflection_C_to_A_D_to_Dprime",
-        "passed": true
-      },
-      {
-        "check": "shoelace_area_ANMDprime",
-        "value": 32.0,
-        "answer": "C"
-      }
-    ],
-    "renderer_constraints": [
-      {
-        "id": "width",
-        "type": "distance",
-        "measured": 4.0,
-        "passed": true
-      },
-      {
-        "id": "length",
-        "type": "distance",
-        "measured": 16.0,
-        "passed": true
-      }
-    ],
-    "report_hashes_valid": true
+    "source_sha256": "3e328fb1e9c9ff241209c8d294ab9f8f710e824dbd0580f5e9c2f8f9ad1d85d6",
+    "scene_sha256": "e63dd0a50bccfe549639769645aaf227ac601b285a435ac59c9f9853e0880485",
+    "png_sha256": "a72721d9771f516ef45e808b1012f5885a54936ec8a52089a4f62b3f346fc82c",
+    "svg_sha256": "6e38fe0a075e9a3b20d83c0f1b4a045a6aed8906a075deb6efb47914587b0e73",
+    "serialization_transition": {
+      "reason": "Renderer isolates fill alpha from opaque black edges; SVG regenerated from the final vector figure. Raster is identical to the previously viewed PNG.",
+      "previous_svg_sha256": "ec1d405e2688713eee01362878a8756bc0e6797347a08363369c5171bad101ed",
+      "final_svg_sha256": "6e38fe0a075e9a3b20d83c0f1b4a045a6aed8906a075deb6efb47914587b0e73",
+      "raster_unchanged": true
+    }
   },
-  "required_changes": [],
-  "independent_check_script_sha256": "f86a7a5429a834f284d2bc393e81cd085597977c2ad5ec3dceaa3cc05ca70a17"
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        200,
+        713,
+        567
+      ],
+      "content_center_px": [
+        383.5,
+        383.5
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 2,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root",
+      "source_id": "247",
+      "category": "transformation_geometry",
+      "reviewed_utc": "2026-10-27T00:47:27.274462+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "3e328fb1e9c9ff241209c8d294ab9f8f710e824dbd0580f5e9c2f8f9ad1d85d6",
+        "source.json": "bc4cf979500432ee035e0528784bceebf4704dc264e268d0012e042b637b3e26",
+        "scene.json": "29bd2cdd1e8af159e7344755f0a6c45d8b6218a4e51766efe0b5f7c9998bf13a",
+        "render.py": "a784f4e368c340b05917dfffd243fe98a33a0a48434910fce5b5ce2b227315a1",
+        "image.png": "42f1b06e67946228797d76e2545af31034979def8b503ad9193b800e236141c2",
+        "audit.json": "09d679ebc5861982bfe6a04a202c83954e6d884eb1a0cfb0cb322684c7f719f0",
+        "redraw_report.json": "59e2f81d26be79d81308116f79e76541fefedfda843dabcd94dbb6d4ac2cd579"
+      },
+      "explicit_inspected_facts": [
+        "Independently viewed original and candidate:ABCD rectangle, dashed MD/DC/CN original edges, foldMN, solidAN/AM, grey ANMDprime, curved D-to-Dprime arrow, all7labels preserved; no dimensions added as labels."
+      ],
+      "checks": {
+        "source_metadata_fields_equal": true,
+        "source_bytes_equal": true,
+        "render_twice_equal": true,
+        "candidate_pixels_match_independent_render": true,
+        "opaque768": true,
+        "layout_bbox": [
+          54,
+          200,
+          714,
+          568
+        ],
+        "occupancy": 0.8606770833333334,
+        "numeric_checks": [
+          {
+            "check": "reflection_C_to_A_D_to_Dprime",
+            "passed": true
+          },
+          {
+            "check": "shoelace_area_ANMDprime",
+            "value": 32.0,
+            "answer": "C"
+          }
+        ],
+        "renderer_constraints": [
+          {
+            "id": "width",
+            "type": "distance",
+            "measured": 4.0,
+            "passed": true
+          },
+          {
+            "id": "length",
+            "type": "distance",
+            "measured": 16.0,
+            "passed": true
+          }
+        ],
+        "report_hashes_valid": true
+      },
+      "required_changes": [],
+      "independent_check_script_sha256": "f86a7a5429a834f284d2bc393e81cd085597977c2ad5ec3dceaa3cc05ca70a17"
+    }
+  }
 }

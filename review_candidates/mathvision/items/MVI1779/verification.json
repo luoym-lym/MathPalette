@@ -1,45 +1,120 @@
 {
-  "reviewer": "independent /root",
-  "source_id": "1779",
-  "category": "combinatorial_geometry",
-  "reviewed_utc": "2026-10-27T02:43:56.360636+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "protocol_redraw_part3",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "685f28d27dc21bb455d0b08772070013c97acd99fd4f19ed51080ce37ef9075c",
+    "image.png": "492095999ce7789137b51cbbe331fde2b4843b49a0336d3453292015df6cecab",
+    "image.svg": "bec9a8e44852c59e70ebd8f6ad55474c28ddf036664d6058d5da1c7b1f533676",
+    "redraw_report.json": "5f97b86924d9a4e369056ef823aa39c1280728a310bc9206d080ed30d28cdc0e",
+    "protocol_review.json": "bbc28d65dfc0e20de49e00df18799042c4204e788ec65ede6bd123a17ceb17ce",
+    "source_redraw.py": "e5733287dc63eb9d4c4febb53b278f7e2e9e0b0e46f472ba42112b3a3bcc29df",
+    "execution.json": "210f1efcf47fe5bed07ec966cd05d8edd361cf7a721ecc93e1210a62a54d8326",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "503ca1c504812d654698a09a3fd3d5959ea28086343e0761772776b5a2c56f36",
     "source.json": "c088772b37da52a33be29517249ef50aa0d5e2ec5f17b437c51e761afe580ce3",
-    "scene.json": "b99c78048d7da4c15ad41b15565d29855732868f111f73904557efac50c61611",
-    "render.py": "e5733287dc63eb9d4c4febb53b278f7e2e9e0b0e46f472ba42112b3a3bcc29df",
-    "image.png": "89b4a1933079296104d5398a19e9f0d8683d12916c9cdb299ea835ed2f8f4dc8",
-    "audit.json": "ce58759ea36cbf600328e0c1b540c9385b8a3e1ec04dc51193a95fbe1009e5ad",
-    "redraw_report.json": "4ee4c0073c9f4e75a33f17532dbe97d48d42089536f85225e3e1a5b5439d187b",
-    "../upper_comb_renderer.py": "f8b46c832ae8ff8e16730970bd31d1d549035f4e230f49acb6b88141efda0d84"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Individually viewed source/candidate: L pentomino four cells along bottom and extra above left. Independently enumerated all8orientations and exact covers:5x5 impossible,5x2 feasible with2pieces, so ten such rectangles tile10x10 with20pieces. Area condition gives smallest possible counts5,20; hence20 minimal."
+    "Five-cell L-pentomino retains source seam layout and upright orientation; no tiling or completed square added."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      54,
-      218,
-      714,
-      549
-    ],
-    "occupancy": 0.8606770833333334,
-    "independent_numeric_checks": {
-      "5x5_search_states": 55,
-      "5x5_tiling": false,
-      "5x2_witness_bitmasks": [
-        47,
-        976
-      ],
-      "answer": "20"
-    },
-    "renderer_checks": []
+  "agent_visual_review": {
+    "status": "agent_reviewed",
+    "reviewer": "protocol_redraw_part3",
+    "reviewed_at_utc": "2026-10-28T12:58:04.455933+00:00",
+    "source_compared": true,
+    "method": "Viewed final source/redraw comparison contact sheet",
+    "contact_sheet": ".runtime/protocol_redraw/part3/new_12.jpg",
+    "contact_sheet_sha256": "2f029100fa90f232b1ac1605c3a1598aca57a4c83f1fb3e884902d6b6f12b5a3",
+    "png_sha256": "492095999ce7789137b51cbbe331fde2b4843b49a0336d3453292015df6cecab",
+    "svg_sha256": "bec9a8e44852c59e70ebd8f6ad55474c28ddf036664d6058d5da1c7b1f533676",
+    "scene_sha256": "685f28d27dc21bb455d0b08772070013c97acd99fd4f19ed51080ce37ef9075c",
+    "source_sha256": "503ca1c504812d654698a09a3fd3d5959ea28086343e0761772776b5a2c56f36",
+    "final_png_sha256": "492095999ce7789137b51cbbe331fde2b4843b49a0336d3453292015df6cecab",
+    "final_scene_sha256": "685f28d27dc21bb455d0b08772070013c97acd99fd4f19ed51080ce37ef9075c",
+    "findings": "Five-cell L-pentomino retains source seam layout and upright orientation; no tiling or completed square added.",
+    "unresolved_source_issues": [],
+    "user_approved": false,
+    "scope": "Agent visual review only. All candidates remain pending user review.",
+    "svg_binding_basis": "Current deterministic vector export from the unchanged scene; serialization hash rebound mechanically. Original PNG visual inspection evidence and timestamp are preserved."
   },
-  "required_changes": [],
-  "previous_revisions": []
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        218,
+        713,
+        549
+      ],
+      "content_center_px": [
+        383.5,
+        383.5
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 0,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root",
+      "source_id": "1779",
+      "category": "combinatorial_geometry",
+      "reviewed_utc": "2026-10-27T02:43:56.360636+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "503ca1c504812d654698a09a3fd3d5959ea28086343e0761772776b5a2c56f36",
+        "source.json": "c088772b37da52a33be29517249ef50aa0d5e2ec5f17b437c51e761afe580ce3",
+        "scene.json": "b99c78048d7da4c15ad41b15565d29855732868f111f73904557efac50c61611",
+        "render.py": "e5733287dc63eb9d4c4febb53b278f7e2e9e0b0e46f472ba42112b3a3bcc29df",
+        "image.png": "89b4a1933079296104d5398a19e9f0d8683d12916c9cdb299ea835ed2f8f4dc8",
+        "audit.json": "ce58759ea36cbf600328e0c1b540c9385b8a3e1ec04dc51193a95fbe1009e5ad",
+        "redraw_report.json": "4ee4c0073c9f4e75a33f17532dbe97d48d42089536f85225e3e1a5b5439d187b",
+        "../upper_comb_renderer.py": "f8b46c832ae8ff8e16730970bd31d1d549035f4e230f49acb6b88141efda0d84"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed source/candidate: L pentomino four cells along bottom and extra above left. Independently enumerated all8orientations and exact covers:5x5 impossible,5x2 feasible with2pieces, so ten such rectangles tile10x10 with20pieces. Area condition gives smallest possible counts5,20; hence20 minimal."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          54,
+          218,
+          714,
+          549
+        ],
+        "occupancy": 0.8606770833333334,
+        "independent_numeric_checks": {
+          "5x5_search_states": 55,
+          "5x5_tiling": false,
+          "5x2_witness_bitmasks": [
+            47,
+            976
+          ],
+          "answer": "20"
+        },
+        "renderer_checks": []
+      },
+      "required_changes": [],
+      "previous_revisions": []
+    }
+  }
 }

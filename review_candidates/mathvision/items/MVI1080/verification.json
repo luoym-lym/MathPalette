@@ -1,60 +1,135 @@
 {
-  "reviewer": "independent /root/review_transformation_batch",
-  "source_id": "1080",
-  "category": "transformation_geometry",
-  "reviewed_utc": "2026-10-27T02:17:20.840258+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "curator part2",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "9efb547c64033cfeae6583e7f8c49afed6a0a7643cbe769adb77ba97180aa3e9",
+    "image.png": "f41ac4c92b4599f17e2d8d03d774d48857489c032a47fbe6c7ea1083bc5d8bd7",
+    "image.svg": "ca7bdcc3a04b7ce938e2f31ccda1eae3d6527b052c0efa4dd8512122216403c1",
+    "redraw_report.json": "ef164906471bff18043d05f7ae6245de414d2612d56304be3c37a008bb75621a",
+    "protocol_review.json": "d9449663ae967b65d37c0a16abb3fdce800f9b7f2868a44ce40d2dc691e969bd",
+    "source_redraw.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
+    "execution.json": "18b225fcb78d198137c1811d88622b032b493a71db2cb050e7bf8c16d203d5e2",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "10a6334a4d411bbb553fa393040a3ef5a1e785f65809483e56af65d7a8803564",
     "source.json": "d595254e219962ce28ff8b51cf54c7895013b690416ddcebdbdd3ce882362202",
-    "scene.json": "cf5f0d45681801ba84cbd3a21b2bf10caab3c5d658acd96f43f2bc393cb531bb",
-    "render.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
-    "image.png": "a7d391ba3e9d5e3b2f41a3244548ed3fdc76cc2f7256730d3aa1e39544d68351",
-    "audit.json": "4cb941b506739384091cc6dcbfbc549d727cbbea3bdb41b1039610f24d240d16",
-    "redraw_report.json": "29c65ff8a091d0ec32ed12628a759e90df7619ef5ef2be20cfe72b22ceddcaf2"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Individually viewed original and candidate: L-shaped union of rectangles at left, horizontal widths11 and13, left heightx, two diagonal cuts from lower-left; clockwise top pivot arrow and counterclockwise lower pivot arrow retained. Right reassembled triangle retains both pivot dots and internal horizontal/vertical edges.",
-    "Total width=11+13=24. Rotate top-left cut triangle clockwise90 about top pivot: its original bottom-left reaches x-coordinate11+x. Rotate bottom-right triangle180 about lower-right pivot: its original bottom-left reaches x-coordinate48. These vertices meet at right tip of reassembled triangle, so11+x=48 and x=37. Vertical coordinates require midpoint13 and top stepheight26, matching candidate."
+    "Two-rectangle source outline, cuts, hinge dots and rearranged triangle retain labels 11,13,x and arrow directions."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      54,
-      226,
-      713,
-      542
+  "agent_visual_review": {
+    "status": "viewed",
+    "reviewer": "curator part2",
+    "review_kind": "Agent source-to-vector visual comparison; not user approval",
+    "source_and_complete_question_reviewed": true,
+    "new_png_actually_viewed": true,
+    "inspection_method": "paired source/final contact sheet",
+    "evidence": ".runtime/protocol_redraw/part2/final_16.jpg",
+    "findings": [
+      "Two-rectangle source outline, cuts, hinge dots and rearranged triangle retain labels 11,13,x and arrow directions."
     ],
-    "occupancy": 0.859375,
-    "independent_numeric_checks": {
-      "assembled_triangle": [
-        [
-          0,
-          0
-        ],
-        [
-          11,
-          37
-        ],
-        [
-          48,
-          26
-        ]
-      ],
-      "tip_x_from_top_rotation": 48,
-      "tip_x_from_bottom_rotation": 48,
-      "answer": 37
-    },
-    "renderer_checks": [],
-    "report_hashes_valid": true
+    "geometry_labels_and_topology": "Source point order, connections, region identity and visible labels compared; no solving hints added.",
+    "source_image_sha256": "10a6334a4d411bbb553fa393040a3ef5a1e785f65809483e56af65d7a8803564",
+    "scene_sha256": "9efb547c64033cfeae6583e7f8c49afed6a0a7643cbe769adb77ba97180aa3e9",
+    "png_sha256": "f41ac4c92b4599f17e2d8d03d774d48857489c032a47fbe6c7ea1083bc5d8bd7",
+    "svg_sha256": "ca7bdcc3a04b7ce938e2f31ccda1eae3d6527b052c0efa4dd8512122216403c1",
+    "source_redraw_sha256": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
+    "renderer_sha256": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "reviewed_at_utc": "2026-10-28T13:08:11.765759+00:00"
   },
-  "required_changes": [],
-  "previous_revisions": [],
-  "dependency_hashes": {
-    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
-    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        226,
+        713,
+        542
+      ],
+      "content_center_px": [
+        383.5,
+        384.0
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 0,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root/review_transformation_batch",
+      "source_id": "1080",
+      "category": "transformation_geometry",
+      "reviewed_utc": "2026-10-27T02:17:20.840258+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "10a6334a4d411bbb553fa393040a3ef5a1e785f65809483e56af65d7a8803564",
+        "source.json": "d595254e219962ce28ff8b51cf54c7895013b690416ddcebdbdd3ce882362202",
+        "scene.json": "cf5f0d45681801ba84cbd3a21b2bf10caab3c5d658acd96f43f2bc393cb531bb",
+        "render.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
+        "image.png": "a7d391ba3e9d5e3b2f41a3244548ed3fdc76cc2f7256730d3aa1e39544d68351",
+        "audit.json": "4cb941b506739384091cc6dcbfbc549d727cbbea3bdb41b1039610f24d240d16",
+        "redraw_report.json": "29c65ff8a091d0ec32ed12628a759e90df7619ef5ef2be20cfe72b22ceddcaf2"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed original and candidate: L-shaped union of rectangles at left, horizontal widths11 and13, left heightx, two diagonal cuts from lower-left; clockwise top pivot arrow and counterclockwise lower pivot arrow retained. Right reassembled triangle retains both pivot dots and internal horizontal/vertical edges.",
+        "Total width=11+13=24. Rotate top-left cut triangle clockwise90 about top pivot: its original bottom-left reaches x-coordinate11+x. Rotate bottom-right triangle180 about lower-right pivot: its original bottom-left reaches x-coordinate48. These vertices meet at right tip of reassembled triangle, so11+x=48 and x=37. Vertical coordinates require midpoint13 and top stepheight26, matching candidate."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          54,
+          226,
+          713,
+          542
+        ],
+        "occupancy": 0.859375,
+        "independent_numeric_checks": {
+          "assembled_triangle": [
+            [
+              0,
+              0
+            ],
+            [
+              11,
+              37
+            ],
+            [
+              48,
+              26
+            ]
+          ],
+          "tip_x_from_top_rotation": 48,
+          "tip_x_from_bottom_rotation": 48,
+          "answer": 37
+        },
+        "renderer_checks": [],
+        "report_hashes_valid": true
+      },
+      "required_changes": [],
+      "previous_revisions": [],
+      "dependency_hashes": {
+        "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+        "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+      }
+    }
   }
 }

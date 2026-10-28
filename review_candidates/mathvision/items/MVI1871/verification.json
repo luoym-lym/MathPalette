@@ -1,54 +1,135 @@
 {
-  "reviewer": "independent /root/review_transformation_batch",
-  "source_id": "1871",
-  "category": "transformation_geometry",
-  "reviewed_utc": "2026-10-27T01:49:07.369851+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "redraw_part4",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "cb6ba46c7616bde9467cea3e182a880d0d4cf2ee380c23b8cecd38a10985db5c",
+    "image.png": "78755fbe4bc189d2a44ff1c1a4c2b9f7c7a009177971be01b8c3ff7689ac63a3",
+    "image.svg": "700a27a202fc67a6b3119de1560b501ae420f28f3598aeb9bbfd087c54c68925",
+    "redraw_report.json": "6aeb540417a909205cf389ea4ffa40fec858852e3cb17601b3e7465922073ba1",
+    "protocol_review.json": "496668a3e16859f19b7dd37c42661ccb68a0b153a562b84c742264a8ca6f5598",
+    "source_redraw.py": "ca4e8cfb4e1c8b138be2aa5db3c43084d886561764b89f245734d22cd93495e3",
+    "execution.json": "eb8b771803f0946114a41133abc98d4c407e8e5df17d4521714b61f9e4ee2cc9",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "0fbb3fecac1db29d4c55623a54fc05dca0b77a1828516bef274ff3958c1be70e",
     "source.json": "562d03e39a5226b34f09dbff989ecc41b66c7e27cd0b6033927e98e1161cf0d6",
-    "scene.json": "7ae64446f793b71d2266ca03a30af99791ef370f261ea92dbb7995ea0a218dc5",
-    "render.py": "ca4e8cfb4e1c8b138be2aa5db3c43084d886561764b89f245734d22cd93495e3",
-    "image.png": "c4ea93850ff13d0555f827b175186a0c755ef68baa203c6d275a9322134ca6b3",
-    "audit.json": "326583de3b0eb485be835a9a45db3b9496af052f29efab976169ede93bed0d83",
-    "redraw_report.json": "0e7cf5b5caacc2445092544313401a5e1f55234de84603030dd1a63adcc24b66"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Individually viewed source/output: three vertical and four horizontal gray grid lines; strong vertical segment at left from row2 to row4, horizontal right segment row2 from col3 to col5. Marked T bottom-left, U bottom-middle, V above U, W top-right, labels bound correctly despite internal point IDs."
+    "Two rotation-comparison segments remain black and the reference grid is neutral gray; source point order W,V,T,U and both segment positions retained.",
+    "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      54,
-      147,
-      714,
-      620
-    ],
-    "occupancy": 0.8606770833333334,
-    "independent_numeric_checks": {
-      "answer": "C",
-      "rotation_hits": [
-        [
-          "U",
-          90
-        ],
-        [
-          "W",
-          270
-        ]
-      ],
-      "proof": "A horizontal segment can become vertical only by 90 or 270 degrees. Testing both endpoint correspondences about all four marked centers leaves U and W only."
+  "agent_visual_review": {
+    "status": "agent_viewed",
+    "reviewer": "redraw_part4",
+    "source_inspection": {
+      "status": "viewed",
+      "sheet": ".runtime/protocol_redraw/part4/source_01.jpg",
+      "complete_question_read": true
     },
-    "renderer_checks": [],
-    "report_hashes_valid": true
+    "new_render_viewed": true,
+    "final_png_view": {
+      "method": "final render contact sheet",
+      "path": ".runtime/protocol_redraw/part4/new_01.jpg",
+      "cell": 1,
+      "individual_zoom": false
+    },
+    "source_sha256": "0fbb3fecac1db29d4c55623a54fc05dca0b77a1828516bef274ff3958c1be70e",
+    "scene_sha256": "cb6ba46c7616bde9467cea3e182a880d0d4cf2ee380c23b8cecd38a10985db5c",
+    "png_sha256": "78755fbe4bc189d2a44ff1c1a4c2b9f7c7a009177971be01b8c3ff7689ac63a3",
+    "svg_sha256": "700a27a202fc67a6b3119de1560b501ae420f28f3598aeb9bbfd087c54c68925",
+    "findings": [
+      "Two rotation-comparison segments remain black and the reference grid is neutral gray; source point order W,V,T,U and both segment positions retained.",
+      "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
+    ],
+    "user_approved": false
   },
-  "required_changes": [],
-  "previous_revisions": [],
-  "dependency_hashes": {
-    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
-    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        148,
+        713,
+        620
+      ],
+      "content_center_px": [
+        383.5,
+        384.0
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 0,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root/review_transformation_batch",
+      "source_id": "1871",
+      "category": "transformation_geometry",
+      "reviewed_utc": "2026-10-27T01:49:07.369851+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "0fbb3fecac1db29d4c55623a54fc05dca0b77a1828516bef274ff3958c1be70e",
+        "source.json": "562d03e39a5226b34f09dbff989ecc41b66c7e27cd0b6033927e98e1161cf0d6",
+        "scene.json": "7ae64446f793b71d2266ca03a30af99791ef370f261ea92dbb7995ea0a218dc5",
+        "render.py": "ca4e8cfb4e1c8b138be2aa5db3c43084d886561764b89f245734d22cd93495e3",
+        "image.png": "c4ea93850ff13d0555f827b175186a0c755ef68baa203c6d275a9322134ca6b3",
+        "audit.json": "326583de3b0eb485be835a9a45db3b9496af052f29efab976169ede93bed0d83",
+        "redraw_report.json": "0e7cf5b5caacc2445092544313401a5e1f55234de84603030dd1a63adcc24b66"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed source/output: three vertical and four horizontal gray grid lines; strong vertical segment at left from row2 to row4, horizontal right segment row2 from col3 to col5. Marked T bottom-left, U bottom-middle, V above U, W top-right, labels bound correctly despite internal point IDs."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          54,
+          147,
+          714,
+          620
+        ],
+        "occupancy": 0.8606770833333334,
+        "independent_numeric_checks": {
+          "answer": "C",
+          "rotation_hits": [
+            [
+              "U",
+              90
+            ],
+            [
+              "W",
+              270
+            ]
+          ],
+          "proof": "A horizontal segment can become vertical only by 90 or 270 degrees. Testing both endpoint correspondences about all four marked centers leaves U and W only."
+        },
+        "renderer_checks": [],
+        "report_hashes_valid": true
+      },
+      "required_changes": [],
+      "previous_revisions": [],
+      "dependency_hashes": {
+        "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+        "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+      }
+    }
   }
 }

@@ -1,63 +1,144 @@
 {
-  "reviewer": "independent /root/review_transformation_batch",
-  "source_id": "1890",
-  "category": "transformation_geometry",
-  "reviewed_utc": "2026-10-27T02:12:46.089289+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "redraw_part4",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "b064fca4f3d7b52a962cd7c31168e9a36e88a8929af78dbcf8197eaa6ac96f56",
+    "image.png": "35a63fba6c7f74457fdd330a53b67681154615a6538d77e900fb4984e693f469",
+    "image.svg": "1206e15ec7b6deab11043aa32c594691ee889f8d0a484002fe8091a72a48ae91",
+    "redraw_report.json": "835e917bd111a3d03f1c05b599351dfb57a574dea6127858a83af18e71bb69a7",
+    "protocol_review.json": "9d022eb69b73247ab6eb95d3694bdcb9feeb7fff5c3af09ad8477ba780f65eb9",
+    "source_redraw.py": "f18e36ddafda8e3e25aa6b17a247bd274b259217b19a058ed3a77568e6bcc4d1",
+    "execution.json": "947e5c9b452200499f75da93f1f968af2154acec064cea09b2369be777a70997",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "c80c7cba9450434e316f83ddc1a518d3b717e9e35ab414c556357c4daf620815",
     "source.json": "2fc95cdaa859304b07a9b28ac0c01df1cc1555b1c73be7e1e3ce59689bd3d83a",
-    "scene.json": "b75777c6a29201696fa7f7995f66b1c904a8b94eb57a1173affdbe043450af95",
-    "render.py": "f18e36ddafda8e3e25aa6b17a247bd274b259217b19a058ed3a77568e6bcc4d1",
-    "image.png": "1ac60dbe22089bd941d70863a980bb6f999b099d2695e7baa1a0c90d0747ae34",
-    "audit.json": "3e6b712d2b7ea08a6d5dd81fb3d4a8f42b514a59dbf617c2dafbd1a042ff3946",
-    "redraw_report.json": "0cd0297ce51905b9efc11227ffcc884d1ac05ce606066c08931890a0f7f1e3c0"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Individually viewed original and candidate: gray equilateral RST left, TUV right, shared T; dotted SV; 70-degree arc between TR and TV and query arc at S. All five italic vertex labels correctly bound.",
-    "ST=TV and angle STV=60+70=130 degrees. Base angle TSV=25, so RSV=60-25=35 degrees, option D."
+    "Compared source and final vector redraw: source connections, region identities, point order, displayed labels and layout retained; no new solving construction introduced.",
+    "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      54,
-      191,
-      714,
-      576
-    ],
-    "occupancy": 0.8606770833333334,
-    "independent_numeric_checks": {
-      "angles_RTV_RSV": [
-        70.0,
-        34.99999999999999
-      ],
-      "answer": "D:35"
+  "agent_visual_review": {
+    "status": "agent_viewed",
+    "reviewer": "redraw_part4",
+    "source_inspection": {
+      "status": "viewed",
+      "sheet": ".runtime/protocol_redraw/part4/source_01.jpg",
+      "complete_question_read": true
     },
-    "renderer_checks": [
-      {
-        "id": "angle70",
-        "type": "angle",
-        "measured": 70.0,
-        "passed": true
-      },
-      {
-        "id": "arc_binding_a70",
-        "type": "angle_annotation",
-        "label_id": "a70",
-        "arc_id": "o3",
-        "measured": 1,
-        "passed": true
-      }
+    "new_render_viewed": true,
+    "final_png_view": {
+      "method": "final render contact sheet",
+      "path": ".runtime/protocol_redraw/part4/new_01.jpg",
+      "cell": 6,
+      "individual_zoom": false
+    },
+    "source_sha256": "c80c7cba9450434e316f83ddc1a518d3b717e9e35ab414c556357c4daf620815",
+    "scene_sha256": "b064fca4f3d7b52a962cd7c31168e9a36e88a8929af78dbcf8197eaa6ac96f56",
+    "png_sha256": "35a63fba6c7f74457fdd330a53b67681154615a6538d77e900fb4984e693f469",
+    "svg_sha256": "1206e15ec7b6deab11043aa32c594691ee889f8d0a484002fe8091a72a48ae91",
+    "findings": [
+      "Compared source and final vector redraw: source connections, region identities, point order, displayed labels and layout retained; no new solving construction introduced.",
+      "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
     ],
-    "report_hashes_valid": true
+    "user_approved": false
   },
-  "required_changes": [],
-  "previous_revisions": [],
-  "dependency_hashes": {
-    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
-    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        191,
+        713,
+        576
+      ],
+      "content_center_px": [
+        383.5,
+        383.5
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 2,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root/review_transformation_batch",
+      "source_id": "1890",
+      "category": "transformation_geometry",
+      "reviewed_utc": "2026-10-27T02:12:46.089289+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "c80c7cba9450434e316f83ddc1a518d3b717e9e35ab414c556357c4daf620815",
+        "source.json": "2fc95cdaa859304b07a9b28ac0c01df1cc1555b1c73be7e1e3ce59689bd3d83a",
+        "scene.json": "b75777c6a29201696fa7f7995f66b1c904a8b94eb57a1173affdbe043450af95",
+        "render.py": "f18e36ddafda8e3e25aa6b17a247bd274b259217b19a058ed3a77568e6bcc4d1",
+        "image.png": "1ac60dbe22089bd941d70863a980bb6f999b099d2695e7baa1a0c90d0747ae34",
+        "audit.json": "3e6b712d2b7ea08a6d5dd81fb3d4a8f42b514a59dbf617c2dafbd1a042ff3946",
+        "redraw_report.json": "0cd0297ce51905b9efc11227ffcc884d1ac05ce606066c08931890a0f7f1e3c0"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed original and candidate: gray equilateral RST left, TUV right, shared T; dotted SV; 70-degree arc between TR and TV and query arc at S. All five italic vertex labels correctly bound.",
+        "ST=TV and angle STV=60+70=130 degrees. Base angle TSV=25, so RSV=60-25=35 degrees, option D."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          54,
+          191,
+          714,
+          576
+        ],
+        "occupancy": 0.8606770833333334,
+        "independent_numeric_checks": {
+          "angles_RTV_RSV": [
+            70.0,
+            34.99999999999999
+          ],
+          "answer": "D:35"
+        },
+        "renderer_checks": [
+          {
+            "id": "angle70",
+            "type": "angle",
+            "measured": 70.0,
+            "passed": true
+          },
+          {
+            "id": "arc_binding_a70",
+            "type": "angle_annotation",
+            "label_id": "a70",
+            "arc_id": "o3",
+            "measured": 1,
+            "passed": true
+          }
+        ],
+        "report_hashes_valid": true
+      },
+      "required_changes": [],
+      "previous_revisions": [],
+      "dependency_hashes": {
+        "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+        "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+      }
+    }
   }
 }

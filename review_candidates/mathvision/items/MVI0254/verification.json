@@ -1,50 +1,121 @@
 {
-  "reviewer": "independent /root/review_transformation_batch",
-  "source_id": "254",
-  "category": "transformation_geometry",
-  "reviewed_utc": "2026-10-27T03:03:38.032467+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "Agent curator part1",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "58d2b33ff2ac0ef9e6d3f77f78808baa00e37f2e5b4d1391482ef3680924fe0f",
+    "image.png": "564a4b8c9eaaa2e74c29cb4658ccc21bf068870bfee1f147d8f4166ccea04eec",
+    "image.svg": "3910d2c7a54e75bd258e702d6dd4844b30f73578d99bf4a82a9e4e512acd290f",
+    "redraw_report.json": "a4c89227b1c5ba9390960a962e290e30c8251d2d7c08a3e9bf92be7caf0dc57e",
+    "protocol_review.json": "2d0f6b537dd3b8f9a51629a3578b1ddb322e8c9ddfb1749a3478706ec37c2d43",
+    "source_redraw.py": "c31ac1a6bb192b69f95976bf4df6d9307a597a8448028ac3c2c66353423f075f",
+    "execution.json": "260fc2ada3027d349fbfc9da740f28ea660eceee1500ebbb0f36b3b6b3cb6cb5",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "c442c72d2489a7420b2595b13e6d4801501889466ff4c1d25bf35ea0307cfbef",
     "source.json": "1fe3045aed047f1a1fc592d2fd8136788cee2693627869336b86b10d74068dce",
-    "scene.json": "d9241af4e1fc3475af71f021eb0ae480044964757377dacbeafe81079e3cc920",
-    "render.py": "c31ac1a6bb192b69f95976bf4df6d9307a597a8448028ac3c2c66353423f075f",
-    "image.png": "b50322a09a003ae280231c4e39ef295126d465f3a25560418af40b0ee01e41a8",
-    "audit.json": "ea4572c0c220f23ad0c207815f37bc1d0bda15ffc848cf604f41d9066c1f939e",
-    "redraw_report.json": "bfccca6e39e9fa93170bc8de101e8e79cf59b2181d9514537480709e18f54a17"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Individually viewed original and candidate: equilateral unit triangle initially on square right edge with marked free vertex; gray intermediate triangles and marked vertex positions show counterclockwise rolling about upper-right corner. Next panel triangle above square with marked point at upper-left pivot, further ghost positions and ellipsis retained.",
-    "Every external corner pivot turns360-90-60=210 degrees. After one circuit four pivots rotate840 degrees, permuting triangle vertices by120 degrees. First return of marked triangle requires three circuits=12 pivots. Marked vertex is pivot4 times and moves on8 unit-radius arcs each210 degrees. Total8\u00d77pi/6=28pi/3, optionB."
+    "Equilateral triangle rolling sequence retains fixed square, marked moving vertex and direction arcs."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      54,
-      285,
-      713,
-      482
+  "agent_visual_review": {
+    "status": "inspected",
+    "reviewer": "Agent curator part1",
+    "user_approval": false,
+    "reviewed_at_utc": "2026-10-28T12:56:24.158613+00:00",
+    "method": "Source and final PNG comparison on 12-item contact sheets.",
+    "contact_sheet": ".runtime/protocol_redraw/part1/final_04.jpg",
+    "individual_final_png_viewed": false,
+    "findings": [
+      "Equilateral triangle rolling sequence retains fixed square, marked moving vertex and direction arcs."
     ],
-    "occupancy": 0.859375,
-    "independent_numeric_checks": {
-      "corner_turn_degrees": 210,
-      "pivots_for_full_return": 12,
-      "moving_arcs": 8,
-      "stationary_pivots": 4,
-      "path": "28pi/3",
-      "answer": "B"
-    },
-    "renderer_checks": [],
-    "report_hashes_valid": true,
-    "isolated_standalone_render_identical": true
+    "source_sha256": "c442c72d2489a7420b2595b13e6d4801501889466ff4c1d25bf35ea0307cfbef",
+    "scene_sha256": "58d2b33ff2ac0ef9e6d3f77f78808baa00e37f2e5b4d1391482ef3680924fe0f",
+    "png_sha256": "564a4b8c9eaaa2e74c29cb4658ccc21bf068870bfee1f147d8f4166ccea04eec",
+    "svg_sha256": "3910d2c7a54e75bd258e702d6dd4844b30f73578d99bf4a82a9e4e512acd290f"
   },
-  "required_changes": [],
-  "previous_revisions": [],
-  "dependency_hashes": {
-    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
-    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        285,
+        713,
+        482
+      ],
+      "content_center_px": [
+        383.5,
+        383.5
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 0,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root/review_transformation_batch",
+      "source_id": "254",
+      "category": "transformation_geometry",
+      "reviewed_utc": "2026-10-27T03:03:38.032467+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "c442c72d2489a7420b2595b13e6d4801501889466ff4c1d25bf35ea0307cfbef",
+        "source.json": "1fe3045aed047f1a1fc592d2fd8136788cee2693627869336b86b10d74068dce",
+        "scene.json": "d9241af4e1fc3475af71f021eb0ae480044964757377dacbeafe81079e3cc920",
+        "render.py": "c31ac1a6bb192b69f95976bf4df6d9307a597a8448028ac3c2c66353423f075f",
+        "image.png": "b50322a09a003ae280231c4e39ef295126d465f3a25560418af40b0ee01e41a8",
+        "audit.json": "ea4572c0c220f23ad0c207815f37bc1d0bda15ffc848cf604f41d9066c1f939e",
+        "redraw_report.json": "bfccca6e39e9fa93170bc8de101e8e79cf59b2181d9514537480709e18f54a17"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed original and candidate: equilateral unit triangle initially on square right edge with marked free vertex; gray intermediate triangles and marked vertex positions show counterclockwise rolling about upper-right corner. Next panel triangle above square with marked point at upper-left pivot, further ghost positions and ellipsis retained.",
+        "Every external corner pivot turns360-90-60=210 degrees. After one circuit four pivots rotate840 degrees, permuting triangle vertices by120 degrees. First return of marked triangle requires three circuits=12 pivots. Marked vertex is pivot4 times and moves on8 unit-radius arcs each210 degrees. Total8×7pi/6=28pi/3, optionB."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          54,
+          285,
+          713,
+          482
+        ],
+        "occupancy": 0.859375,
+        "independent_numeric_checks": {
+          "corner_turn_degrees": 210,
+          "pivots_for_full_return": 12,
+          "moving_arcs": 8,
+          "stationary_pivots": 4,
+          "path": "28pi/3",
+          "answer": "B"
+        },
+        "renderer_checks": [],
+        "report_hashes_valid": true,
+        "isolated_standalone_render_identical": true
+      },
+      "required_changes": [],
+      "previous_revisions": [],
+      "dependency_hashes": {
+        "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+        "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+      }
+    }
   }
 }

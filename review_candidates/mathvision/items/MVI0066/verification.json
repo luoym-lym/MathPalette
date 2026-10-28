@@ -1,42 +1,119 @@
 {
-  "reviewer": "independent /root",
-  "source_id": "66",
-  "category": "transformation_geometry",
-  "reviewed_utc": "2026-10-27T01:01:32.889794+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "Agent curator part1",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "2f5b98145d448e397479dd5814f84ad2e02ceaebedfa58aaab276bde57793c8b",
+    "image.png": "9b49157cb40c6ba7329badbdbe1dbcfd1a00dda0b98928343b9052e86171bfcd",
+    "image.svg": "cccca5813ccd1770c28e60e529c06c181265b6228dd0e286679768dbe8dba531",
+    "redraw_report.json": "5c30c8012f302556c0bf7d627c761a6d714c6d4e1e11ffa96be3b97d713fe622",
+    "protocol_review.json": "605e33c8dc3978bfcdf23d242eccc27557a853b2e9aa823f0a864ef458f9c785",
+    "source_redraw.py": "f9732f2acaa0bede016cf487f76a96121d8ba56370bac5227e1bdcb3985d50d8",
+    "execution.json": "36a4a58c53d1c5cc7a42ee3029e3d2196f0ffb25450b9a5e5f7872deb5fed50e",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "d023457b444d83ec6e10bcb0d17438870530a891c2b32dd5ebb8fb36db9eca88",
     "source.json": "fec070c502096e45aeec56ecb0abedeeeff5b2f0b9e29f9965e10e784cd3a5fb",
-    "scene.json": "af0a80f08ed79625d3a9b77cf4f0af05c1f293bbaf200492728279f7b37dee22",
-    "render.py": "f9732f2acaa0bede016cf487f76a96121d8ba56370bac5227e1bdcb3985d50d8",
-    "image.png": "d0ed9422e9523248457255dc90ac70979bdfedec42644ff6b18f2b95d25f3c7a",
-    "audit.json": "d8451ba2af079592fe26d90701509b174416ca9f468a0c5447f029a8358f6686",
-    "redraw_report.json": "d607977777011a981b673d7520b2ba3f949a05e34ba9e069577c09968e95035b"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Viewed original and redraw independently:4upper gray/white8cell stages, numberedclockwise arrows1-3, all5lowerblue/orange/whiteoptions preserved cellbycell. Source colored outlines replaced uniformprotocolblack, cellcolor identity preserved. Independently matched every staged90degree rotation and uniqueD after10turns."
+    "Successive turns retain the polyomino shape and two tracked cell classes; option blue/orange map to the given dark/light gray classes."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      54,
-      206,
-      713,
-      560
+  "agent_visual_review": {
+    "status": "inspected",
+    "reviewer": "Agent curator part1",
+    "user_approval": false,
+    "reviewed_at_utc": "2026-10-28T12:56:24.078299+00:00",
+    "method": "Source and final PNG comparison; 12-item contact sheet plus individual 768px inspection for dense, ambiguous or repaired outputs.",
+    "contact_sheet": ".runtime/protocol_redraw/part1/final_01.jpg",
+    "individual_final_png_viewed": true,
+    "findings": [
+      "Successive turns retain the polyomino shape and two tracked cell classes; option blue/orange map to the given dark/light gray classes."
     ],
-    "occupancy": 0.859375,
-    "independent_numeric_checks": {
-      "nine8cell_patterns": true,
-      "shown3_clockwise_turns_verified": true,
-      "ten_turn_matching_options": [
-        "D"
-      ]
-    },
-    "renderer_checks": []
+    "source_sha256": "d023457b444d83ec6e10bcb0d17438870530a891c2b32dd5ebb8fb36db9eca88",
+    "scene_sha256": "2f5b98145d448e397479dd5814f84ad2e02ceaebedfa58aaab276bde57793c8b",
+    "png_sha256": "9b49157cb40c6ba7329badbdbe1dbcfd1a00dda0b98928343b9052e86171bfcd",
+    "svg_sha256": "cccca5813ccd1770c28e60e529c06c181265b6228dd0e286679768dbe8dba531",
+    "serialization_transition": {
+      "reason": "Renderer isolates fill alpha from opaque black edges; SVG regenerated from the final vector figure. Raster is identical to the previously viewed PNG.",
+      "previous_svg_sha256": "20eec0fc7bb1d799deb63b47c464679128a9b5bf438c69e4cbd2768faebabad7",
+      "final_svg_sha256": "cccca5813ccd1770c28e60e529c06c181265b6228dd0e286679768dbe8dba531",
+      "raster_unchanged": true
+    }
   },
-  "required_changes": [],
-  "previous_revisions": []
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        207,
+        713,
+        561
+      ],
+      "content_center_px": [
+        383.5,
+        384.0
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 0,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root",
+      "source_id": "66",
+      "category": "transformation_geometry",
+      "reviewed_utc": "2026-10-27T01:01:32.889794+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "d023457b444d83ec6e10bcb0d17438870530a891c2b32dd5ebb8fb36db9eca88",
+        "source.json": "fec070c502096e45aeec56ecb0abedeeeff5b2f0b9e29f9965e10e784cd3a5fb",
+        "scene.json": "af0a80f08ed79625d3a9b77cf4f0af05c1f293bbaf200492728279f7b37dee22",
+        "render.py": "f9732f2acaa0bede016cf487f76a96121d8ba56370bac5227e1bdcb3985d50d8",
+        "image.png": "d0ed9422e9523248457255dc90ac70979bdfedec42644ff6b18f2b95d25f3c7a",
+        "audit.json": "d8451ba2af079592fe26d90701509b174416ca9f468a0c5447f029a8358f6686",
+        "redraw_report.json": "d607977777011a981b673d7520b2ba3f949a05e34ba9e069577c09968e95035b"
+      },
+      "explicit_inspected_facts": [
+        "Viewed original and redraw independently:4upper gray/white8cell stages, numberedclockwise arrows1-3, all5lowerblue/orange/whiteoptions preserved cellbycell. Source colored outlines replaced uniformprotocolblack, cellcolor identity preserved. Independently matched every staged90degree rotation and uniqueD after10turns."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          54,
+          206,
+          713,
+          560
+        ],
+        "occupancy": 0.859375,
+        "independent_numeric_checks": {
+          "nine8cell_patterns": true,
+          "shown3_clockwise_turns_verified": true,
+          "ten_turn_matching_options": [
+            "D"
+          ]
+        },
+        "renderer_checks": []
+      },
+      "required_changes": [],
+      "previous_revisions": []
+    }
+  }
 }

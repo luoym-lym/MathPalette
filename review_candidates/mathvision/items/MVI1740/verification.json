@@ -1,58 +1,133 @@
 {
-  "reviewer": "independent /root/review_transformation_batch",
-  "source_id": "1740",
-  "category": "transformation_geometry",
-  "reviewed_utc": "2026-10-27T01:48:07.800583+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "protocol_redraw_part3",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "674e3473baf62bbd4e06dffde81b5c205da85f2708363f1c73ebd0206a2f7c50",
+    "image.png": "c1821f75b900da8a25855e271b673b8543b7b69da8346140079b7095518389b1",
+    "image.svg": "9e5993a4a082acfd9909441c1751046063041ecf97d253a65676660fcc37df81",
+    "redraw_report.json": "2e17bf876e2b60d07d4874acc080d01e144c10ab572405e4895557118a6e7c69",
+    "protocol_review.json": "9120cd128608205933d910a06f9f1cca1c3cf507d08b6ab04478671171639fd1",
+    "source_redraw.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
+    "execution.json": "25f5b00c5eb84c1e535800c1a095933ac6e05ae4f2668fbdabefece777d65fbf",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "9af26fac21ad5cd03eb3a1237d95ba6819133a7ff347b4112d8cc279f9f2cda5",
     "source.json": "5e222ee04acb15c9b6736685b86cb0a679dbe1561cfae1bd0638e5a7da3db48c",
-    "scene.json": "e08a1df67b8e8384221c3f81b9a14f2f9ce3badd5a46beb0202646a4047f8114",
-    "render.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
-    "image.png": "d307fffb38dd7a3620c21e8734b2af8c495bc3fb9af37936dbe69321144aec82",
-    "audit.json": "28573155d911b348117003b945d695326865904ef45e9ed798af23ec8bf4af33",
-    "redraw_report.json": "9f7d09ea16896794afdaeb93e5f483c53013b1eb599b2dbde42c8dfe51d2d94d"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Individually viewed source/output: long ribbon divided into four unequal rectangles in same narrow/wide/narrowest/widest order; center dots joined only in first pair and last pair. Horizontal lines pass continuously across corresponding separators, with no connection across middle boundary."
+    "Four differently sized adjacent ribbon rectangles retain the two source center-to-center segments and their four filled endpoint markers."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      54,
-      359,
-      713,
-      408
-    ],
-    "occupancy": 0.859375,
-    "independent_numeric_checks": {
-      "answer": "A",
-      "partition_endpoints": [
-        0,
-        5.142857142857143,
-        18.0,
-        20.571428571428573,
-        36
-      ],
-      "center_x_coordinates": [
-        2.5714285714285716,
-        11.571428571428571,
-        19.285714285714285,
-        28.285714285714285
-      ],
-      "sum_cm": 18.000000000000007,
-      "proof": "Pair-center separation is half the sum of each pair of widths, hence total=(a+b+c+d)/2=36/2=18 independently of partition."
-    },
-    "renderer_checks": [],
-    "report_hashes_valid": true
+  "agent_visual_review": {
+    "status": "agent_reviewed",
+    "reviewer": "protocol_redraw_part3",
+    "reviewed_at_utc": "2026-10-28T12:58:04.447912+00:00",
+    "source_compared": true,
+    "method": "Viewed final source/redraw comparison contact sheet",
+    "contact_sheet": ".runtime/protocol_redraw/part3/new_11.jpg",
+    "contact_sheet_sha256": "db61cfa96d9a8f16b3b716a5340ccbaac5ffbee8ee7ed17a80c9aa0d276422ed",
+    "png_sha256": "c1821f75b900da8a25855e271b673b8543b7b69da8346140079b7095518389b1",
+    "svg_sha256": "9e5993a4a082acfd9909441c1751046063041ecf97d253a65676660fcc37df81",
+    "scene_sha256": "674e3473baf62bbd4e06dffde81b5c205da85f2708363f1c73ebd0206a2f7c50",
+    "source_sha256": "9af26fac21ad5cd03eb3a1237d95ba6819133a7ff347b4112d8cc279f9f2cda5",
+    "final_png_sha256": "c1821f75b900da8a25855e271b673b8543b7b69da8346140079b7095518389b1",
+    "final_scene_sha256": "674e3473baf62bbd4e06dffde81b5c205da85f2708363f1c73ebd0206a2f7c50",
+    "findings": "Four differently sized adjacent ribbon rectangles retain the two source center-to-center segments and their four filled endpoint markers.",
+    "unresolved_source_issues": [],
+    "user_approved": false,
+    "scope": "Agent visual review only. All candidates remain pending user review.",
+    "svg_binding_basis": "Current deterministic vector export from the unchanged scene; serialization hash rebound mechanically. Original PNG visual inspection evidence and timestamp are preserved."
   },
-  "required_changes": [],
-  "previous_revisions": [],
-  "dependency_hashes": {
-    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
-    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        359,
+        714,
+        408
+      ],
+      "content_center_px": [
+        384.0,
+        383.5
+      ],
+      "longest_side_occupancy": 0.8606770833333334,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 0,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root/review_transformation_batch",
+      "source_id": "1740",
+      "category": "transformation_geometry",
+      "reviewed_utc": "2026-10-27T01:48:07.800583+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "9af26fac21ad5cd03eb3a1237d95ba6819133a7ff347b4112d8cc279f9f2cda5",
+        "source.json": "5e222ee04acb15c9b6736685b86cb0a679dbe1561cfae1bd0638e5a7da3db48c",
+        "scene.json": "e08a1df67b8e8384221c3f81b9a14f2f9ce3badd5a46beb0202646a4047f8114",
+        "render.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
+        "image.png": "d307fffb38dd7a3620c21e8734b2af8c495bc3fb9af37936dbe69321144aec82",
+        "audit.json": "28573155d911b348117003b945d695326865904ef45e9ed798af23ec8bf4af33",
+        "redraw_report.json": "9f7d09ea16896794afdaeb93e5f483c53013b1eb599b2dbde42c8dfe51d2d94d"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed source/output: long ribbon divided into four unequal rectangles in same narrow/wide/narrowest/widest order; center dots joined only in first pair and last pair. Horizontal lines pass continuously across corresponding separators, with no connection across middle boundary."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          54,
+          359,
+          713,
+          408
+        ],
+        "occupancy": 0.859375,
+        "independent_numeric_checks": {
+          "answer": "A",
+          "partition_endpoints": [
+            0,
+            5.142857142857143,
+            18.0,
+            20.571428571428573,
+            36
+          ],
+          "center_x_coordinates": [
+            2.5714285714285716,
+            11.571428571428571,
+            19.285714285714285,
+            28.285714285714285
+          ],
+          "sum_cm": 18.000000000000007,
+          "proof": "Pair-center separation is half the sum of each pair of widths, hence total=(a+b+c+d)/2=36/2=18 independently of partition."
+        },
+        "renderer_checks": [],
+        "report_hashes_valid": true
+      },
+      "required_changes": [],
+      "previous_revisions": [],
+      "dependency_hashes": {
+        "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+        "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+      }
+    }
   }
 }

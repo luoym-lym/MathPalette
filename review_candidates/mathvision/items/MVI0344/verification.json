@@ -1,96 +1,77 @@
 {
-  "reviewer": "independent /root/review_geometry_redraws",
-  "category": "solid_geometry",
-  "source_id": "344",
-  "reviewed_utc": "2026-10-27T00:55:10.785771+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "Agent curator part1",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
-    "source.json": "708941781e27da01891f4f2dc1aabc90fed68b9e27b90fd21d5dcd138f1c5497",
+    "scene.json": "de2c87f35017ba79111c315dbfb8e88259a3e9648c3f816d8a0ae727d7122102",
+    "image.png": "70151cd3cfcdc48b3bd3f07431a11ea843f40c831b8d4ad5f7b7e7f8c6a3c353",
+    "image.svg": "00430f72743c1f224685235696db9a7c24603579fb191e917391e276153f51cf",
+    "redraw_report.json": "4e937e97214b086562c53cfccb003ec5536f6dd605d8a3b878bfb2bfce87e087",
+    "protocol_review.json": "c7a5eb7dd2f8bbf5a20ad5d9569267298f1cd16976fb4e45f66a57fc63cb3042",
+    "source_redraw.py": "854fffeddd6220bb2986f53708d7d8058a3048946d2fefcb72c7e8f724c1eb44",
+    "execution.json": "7a3ef6afe25e5ab6cb0dc44a884bd4bb433a5a7f321b81df114e6ff624972321",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "b558978c08d5eee585aca563943d7b6ae56cdb04b0e75743e9eff4f8700c905e",
-    "scene.json": "38ebd5aa416afd7d79f90ce8c1facdb7db108266dd1bdd9f9778442d6f524cf0",
-    "image.png": "b83ac3adb1dbe716a2952d729a38297f0a5fb5581905d57594c5c209ccb98fbb",
-    "image.svg": "dd715291aba7c1b6d518ba5e28490c52ae68d9d33eec887ce42df47ea988a70e",
-    "render.py": "854fffeddd6220bb2986f53708d7d8058a3048946d2fefcb72c7e8f724c1eb44",
-    "redraw_report.json": "331f69d4a6ca6504509b27078ab31c8955170ee50955de8d45be7663e0e61d20",
-    "audit.json": "9390ee0f53e6c2d2ec0b00c87b0279ead51d05ebabc8045a0693b7ed9f42ceb2"
+    "source.json": "708941781e27da01891f4f2dc1aabc90fed68b9e27b90fd21d5dcd138f1c5497",
+    "machine_protocol": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Independently viewed original/candidate. Combined cuboid split into rear full-width slab and front-left block/front-right graycube. Question mark remains on rear top, gray semantic cube front/top fill retained, no unshown edges or solved labels added. Source orientation and shared seams preserved.",
-    "Frozen cube side5 ->125; front-left3x5x5=75; combined8x7x5=280; rear top8x2=16, optionA. Commonheight5 justified by picture and cube."
+    "Gray cube remains distinct from adjacent rectangular blocks; question mark stays on the specified top face."
   ],
-  "checks": {
-    "source_record_matches_export": true,
-    "source_image_matches_export": true,
-    "report_hashes_match": true,
-    "independent_twice_render_identical": true,
-    "reproduction_matches_pixels": true,
-    "size": [
-      768,
-      768
+  "agent_visual_review": {
+    "status": "inspected",
+    "reviewer": "Agent curator part1",
+    "user_approval": false,
+    "reviewed_at_utc": "2026-10-28T12:56:24.180557+00:00",
+    "method": "Source and final PNG comparison on 12-item contact sheets.",
+    "contact_sheet": ".runtime/protocol_redraw/part1/final_06.jpg",
+    "individual_final_png_viewed": false,
+    "findings": [
+      "Gray cube remains distinct from adjacent rectangular blocks; question mark stays on the specified top face."
     ],
-    "opaque": true,
-    "content_bbox": [
-      53,
-      123,
-      715,
-      644
-    ],
-    "center_offset_px": [
-      0.5,
-      0.0
-    ],
-    "occupancy": 0.86328125,
-    "layout_pass": true,
-    "constraints": [
-      {
-        "id": "projection_and_visibility",
-        "type": "projection",
-        "passed": true,
-        "projection_sha256": "71002fd591341fe22bd13df9f6e0225e5b22778e71b40c44aef2bdaff9d65f3c",
-        "automatic_occlusion": false
-      },
-      {
-        "id": "cubeedge",
-        "type": "distance",
-        "basis": "derived cube volume125, unlabelled construction",
-        "measured": 5.0,
-        "passed": true
-      },
-      {
-        "id": "layout",
-        "type": "layout",
-        "outer_margin_fraction": 0.05,
-        "label_line_overlap": false,
-        "label_label_overlap": false,
-        "passed": true
-      }
-    ],
-    "independent_cube_extents": [
-      5,
-      5,
-      5
-    ],
-    "derived_volumes_and_target": {
-      "cube": 125.0,
-      "front_left": 75,
-      "whole": 280,
-      "rear_top": 16
-    },
-    "report_only_rebind": {
-      "all_other_reviewed_files_hash_unchanged": true,
-      "all_current_report_bound_dependencies_hash_verified": true,
-      "standalone_render_uses_only_common_renderer_scene_protocol": true,
-      "optional_construction_helpers_not_imported_by_render_entry": true
-    }
+    "source_sha256": "b558978c08d5eee585aca563943d7b6ae56cdb04b0e75743e9eff4f8700c905e",
+    "scene_sha256": "de2c87f35017ba79111c315dbfb8e88259a3e9648c3f816d8a0ae727d7122102",
+    "png_sha256": "70151cd3cfcdc48b3bd3f07431a11ea843f40c831b8d4ad5f7b7e7f8c6a3c353",
+    "svg_sha256": "00430f72743c1f224685235696db9a7c24603579fb191e917391e276153f51cf"
   },
-  "required_changes": [],
-  "previous_revisions": [
-    {
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        125,
+        714,
+        643
+      ],
+      "content_center_px": [
+        384.0,
+        384.0
+      ],
+      "longest_side_occupancy": 0.8606770833333334,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 2,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
       "reviewer": "independent /root/review_geometry_redraws",
       "category": "solid_geometry",
       "source_id": "344",
-      "reviewed_utc": "2026-10-27T00:50:31.228165+00:00",
+      "reviewed_utc": "2026-10-27T00:55:10.785771+00:00",
       "verdict": "agent_verified",
       "user_approval": false,
       "hashes": {
@@ -100,7 +81,7 @@
         "image.png": "b83ac3adb1dbe716a2952d729a38297f0a5fb5581905d57594c5c209ccb98fbb",
         "image.svg": "dd715291aba7c1b6d518ba5e28490c52ae68d9d33eec887ce42df47ea988a70e",
         "render.py": "854fffeddd6220bb2986f53708d7d8058a3048946d2fefcb72c7e8f724c1eb44",
-        "redraw_report.json": "160eeda2771aa242e2c5f51823a4bad1fe7474f0d1233a42935577672f529564",
+        "redraw_report.json": "331f69d4a6ca6504509b27078ab31c8955170ee50955de8d45be7663e0e61d20",
         "audit.json": "9390ee0f53e6c2d2ec0b00c87b0279ead51d05ebabc8045a0693b7ed9f42ceb2"
       },
       "explicit_inspected_facts": [
@@ -173,7 +154,97 @@
         }
       },
       "required_changes": [],
-      "previous_revisions": []
+      "previous_revisions": [
+        {
+          "reviewer": "independent /root/review_geometry_redraws",
+          "category": "solid_geometry",
+          "source_id": "344",
+          "reviewed_utc": "2026-10-27T00:50:31.228165+00:00",
+          "verdict": "agent_verified",
+          "user_approval": false,
+          "hashes": {
+            "source.json": "708941781e27da01891f4f2dc1aabc90fed68b9e27b90fd21d5dcd138f1c5497",
+            "original.jpg": "b558978c08d5eee585aca563943d7b6ae56cdb04b0e75743e9eff4f8700c905e",
+            "scene.json": "38ebd5aa416afd7d79f90ce8c1facdb7db108266dd1bdd9f9778442d6f524cf0",
+            "image.png": "b83ac3adb1dbe716a2952d729a38297f0a5fb5581905d57594c5c209ccb98fbb",
+            "image.svg": "dd715291aba7c1b6d518ba5e28490c52ae68d9d33eec887ce42df47ea988a70e",
+            "render.py": "854fffeddd6220bb2986f53708d7d8058a3048946d2fefcb72c7e8f724c1eb44",
+            "redraw_report.json": "160eeda2771aa242e2c5f51823a4bad1fe7474f0d1233a42935577672f529564",
+            "audit.json": "9390ee0f53e6c2d2ec0b00c87b0279ead51d05ebabc8045a0693b7ed9f42ceb2"
+          },
+          "explicit_inspected_facts": [
+            "Independently viewed original/candidate. Combined cuboid split into rear full-width slab and front-left block/front-right graycube. Question mark remains on rear top, gray semantic cube front/top fill retained, no unshown edges or solved labels added. Source orientation and shared seams preserved.",
+            "Frozen cube side5 ->125; front-left3x5x5=75; combined8x7x5=280; rear top8x2=16, optionA. Commonheight5 justified by picture and cube."
+          ],
+          "checks": {
+            "source_record_matches_export": true,
+            "source_image_matches_export": true,
+            "report_hashes_match": true,
+            "independent_twice_render_identical": true,
+            "reproduction_matches_pixels": true,
+            "size": [
+              768,
+              768
+            ],
+            "opaque": true,
+            "content_bbox": [
+              53,
+              123,
+              715,
+              644
+            ],
+            "center_offset_px": [
+              0.5,
+              0.0
+            ],
+            "occupancy": 0.86328125,
+            "layout_pass": true,
+            "constraints": [
+              {
+                "id": "projection_and_visibility",
+                "type": "projection",
+                "passed": true,
+                "projection_sha256": "71002fd591341fe22bd13df9f6e0225e5b22778e71b40c44aef2bdaff9d65f3c",
+                "automatic_occlusion": false
+              },
+              {
+                "id": "cubeedge",
+                "type": "distance",
+                "basis": "derived cube volume125, unlabelled construction",
+                "measured": 5.0,
+                "passed": true
+              },
+              {
+                "id": "layout",
+                "type": "layout",
+                "outer_margin_fraction": 0.05,
+                "label_line_overlap": false,
+                "label_label_overlap": false,
+                "passed": true
+              }
+            ],
+            "independent_cube_extents": [
+              5,
+              5,
+              5
+            ],
+            "derived_volumes_and_target": {
+              "cube": 125.0,
+              "front_left": 75,
+              "whole": 280,
+              "rear_top": 16
+            },
+            "report_only_rebind": {
+              "all_other_reviewed_files_hash_unchanged": true,
+              "all_current_report_bound_dependencies_hash_verified": true,
+              "standalone_render_uses_only_common_renderer_scene_protocol": true,
+              "optional_construction_helpers_not_imported_by_render_entry": true
+            }
+          },
+          "required_changes": [],
+          "previous_revisions": []
+        }
+      ]
     }
-  ]
+  }
 }

@@ -1,125 +1,202 @@
 {
-  "reviewer": "independent /root/review_geometry_redraws",
-  "category": "solid_geometry",
-  "source_id": "1400",
-  "reviewed_utc": "2026-10-27T01:48:00.132989+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "protocol_redraw_part3",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
-    "source.json": "3ee894e9e0e324153891cd90aafa2cfb78e96e4eff027ce6cc99f1a3d6a5b66e",
+    "scene.json": "b0ffa6d32a9b7b95c8d0f7b3d5f6d890c0c2f809d60fb437d0043c2cb284aa83",
+    "image.png": "26ea0498351c5f56b70cbd7eeb28e648f297b225c1dfd1f4d01d8ec3d6cfedea",
+    "image.svg": "5728c08461620f6c9a99d65e8e87d31e076f5bf39d82ffb34c6b69f1cf00f129",
+    "redraw_report.json": "16f0042a4b96586a225d30a3aac7d0c5d9a9cf199474d549d9bf0608f2da9621",
+    "protocol_review.json": "4d46e6bf4e23c5b01d8797d044d092fe1fdb5b9f1ea9055d1c854c4a85e31612",
+    "source_redraw.py": "854fffeddd6220bb2986f53708d7d8058a3048946d2fefcb72c7e8f724c1eb44",
+    "execution.json": "246e157e09355c0865588977aecb519ae7b8250e6b43d2662b3c9e01d53bff9c",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "676ca162116b1034ef502f570165bd689f4e8604bb3f4027d0d65c487ec61cb7",
-    "scene.json": "7aa8ac77635ce1e8387f33da35667f525fccf976599bc764fe2cf4b829d39104",
-    "image.png": "89570b0a898f6d789270b18e947f76cf86764a82ab8dacbba2dca7f456e99508",
-    "image.svg": "c4da2c87a4454a6c4d07ad7428d0f30d3c393b24dfce4f3b63f02f934072abb7",
-    "render.py": "854fffeddd6220bb2986f53708d7d8058a3048946d2fefcb72c7e8f724c1eb44",
-    "redraw_report.json": "a90f1aa816ce29d7d060ba8c9e833b889d2814b89df2da8631c90c58fb3a2311",
-    "audit.json": "21b85455459cac7a4241ac84792c3f14564a85d9f0994a15a223f09e3e91d6d4"
+    "source.json": "3ee894e9e0e324153891cd90aafa2cfb78e96e4eff027ce6cc99f1a3d6a5b66e",
+    "machine_protocol": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Viewed original/candidate: cube with three rear dashed edges, two additional diagonals and four unnumbered angle arcs. Arc endpoints still unambiguously identify the same quadrilateral after stroke normalization.",
-    "Native angles independently calculated 60,90,90,90; arc endpoints lie on corresponding rays, sum 330 degrees, B."
+    "Cube retains skew quadrilateral source edges and all four unlabeled angle arcs in their actual3D face planes; no guessed angle values added."
   ],
-  "checks": {
-    "source_record_matches_export": true,
-    "source_image_matches_export": true,
-    "report_hashes_match": true,
-    "independent_twice_render_identical": true,
-    "reproduction_matches_pixels": true,
-    "size": [
-      768,
-      768
-    ],
-    "opaque": true,
-    "bbox": [
-      52,
-      52,
-      715,
-      715
-    ],
-    "occupancy": 0.8645833333333334,
-    "center_offset_px": [
-      0.0,
-      0.0
-    ],
-    "layout_pass": true,
-    "constraints": [
-      {
-        "id": "projection_and_visibility",
-        "type": "projection",
-        "passed": true,
-        "projection_sha256": "255202fe2645ae399cad3ef9a986cdd2684257ffb2df2050c9ff2b7777c07dc1",
-        "automatic_occlusion": false
-      },
-      {
-        "id": "angleP",
-        "type": "arc_sampling",
-        "max_chord_error_px": 0.0032746189977670924,
-        "passed": true
-      },
-      {
-        "id": "angleQ",
-        "type": "arc_sampling",
-        "max_chord_error_px": 0.008185002079297059,
-        "passed": true
-      },
-      {
-        "id": "angleR",
-        "type": "arc_sampling",
-        "max_chord_error_px": 0.0073678413750872095,
-        "passed": true
-      },
-      {
-        "id": "angleS",
-        "type": "arc_sampling",
-        "max_chord_error_px": 0.008185002079297059,
-        "passed": true
-      },
-      {
-        "id": "checkangleP",
-        "type": "angle",
-        "basis": "derived verification of source-markedangle,notnewdisplayedcondition",
-        "measured": 60.00000000000001,
-        "passed": true
-      },
-      {
-        "id": "checkangleQ",
-        "type": "angle",
-        "basis": "derived verification of source-markedangle,notnewdisplayedcondition",
-        "measured": 90.0,
-        "passed": true
-      },
-      {
-        "id": "checkangleR",
-        "type": "angle",
-        "basis": "derived verification of source-markedangle,notnewdisplayedcondition",
-        "measured": 90.0,
-        "passed": true
-      },
-      {
-        "id": "checkangleS",
-        "type": "angle",
-        "basis": "derived verification of source-markedangle,notnewdisplayedcondition",
-        "measured": 90.0,
-        "passed": true
-      },
-      {
-        "id": "layout",
-        "type": "layout",
-        "outer_margin_fraction": 0.05,
-        "label_line_overlap": false,
-        "label_label_overlap": false,
-        "passed": true
-      }
-    ],
-    "angles": [
-      60.00000000000001,
-      90.0,
-      90.0,
-      90.0
-    ],
-    "angle_sum": 330.0,
-    "arc_endpoints_match": true
+  "agent_visual_review": {
+    "status": "agent_reviewed",
+    "reviewer": "protocol_redraw_part3",
+    "reviewed_at_utc": "2026-10-28T12:58:04.375248+00:00",
+    "source_compared": true,
+    "method": "Viewed final source/redraw comparison contact sheet",
+    "contact_sheet": ".runtime/protocol_redraw/part3/new_05.jpg",
+    "contact_sheet_sha256": "85930a874347886f68737c839facefa1c6bf9ca3b01d53f2469e45746b8d4aae",
+    "png_sha256": "26ea0498351c5f56b70cbd7eeb28e648f297b225c1dfd1f4d01d8ec3d6cfedea",
+    "svg_sha256": "5728c08461620f6c9a99d65e8e87d31e076f5bf39d82ffb34c6b69f1cf00f129",
+    "scene_sha256": "b0ffa6d32a9b7b95c8d0f7b3d5f6d890c0c2f809d60fb437d0043c2cb284aa83",
+    "source_sha256": "676ca162116b1034ef502f570165bd689f4e8604bb3f4027d0d65c487ec61cb7",
+    "final_png_sha256": "26ea0498351c5f56b70cbd7eeb28e648f297b225c1dfd1f4d01d8ec3d6cfedea",
+    "final_scene_sha256": "b0ffa6d32a9b7b95c8d0f7b3d5f6d890c0c2f809d60fb437d0043c2cb284aa83",
+    "findings": "Cube retains skew quadrilateral source edges and all four unlabeled angle arcs in their actual3D face planes; no guessed angle values added.",
+    "unresolved_source_issues": [],
+    "user_approved": false,
+    "scope": "Agent visual review only. All candidates remain pending user review.",
+    "svg_binding_basis": "Current deterministic vector export from the unchanged scene; serialization hash rebound mechanically. Original PNG visual inspection evidence and timestamp are preserved."
   },
-  "required_changes": [],
-  "previous_revisions": []
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        54,
+        713,
+        713
+      ],
+      "content_center_px": [
+        383.5,
+        383.5
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 9,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [
+    "Do not assume skewquadrilateral angle sum360. Arcgeometry constructed in actual3D planes; sourcearcs retained withoutaddingnumbers orlabels."
+  ],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root/review_geometry_redraws",
+      "category": "solid_geometry",
+      "source_id": "1400",
+      "reviewed_utc": "2026-10-27T01:48:00.132989+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "source.json": "3ee894e9e0e324153891cd90aafa2cfb78e96e4eff027ce6cc99f1a3d6a5b66e",
+        "original.jpg": "676ca162116b1034ef502f570165bd689f4e8604bb3f4027d0d65c487ec61cb7",
+        "scene.json": "7aa8ac77635ce1e8387f33da35667f525fccf976599bc764fe2cf4b829d39104",
+        "image.png": "89570b0a898f6d789270b18e947f76cf86764a82ab8dacbba2dca7f456e99508",
+        "image.svg": "c4da2c87a4454a6c4d07ad7428d0f30d3c393b24dfce4f3b63f02f934072abb7",
+        "render.py": "854fffeddd6220bb2986f53708d7d8058a3048946d2fefcb72c7e8f724c1eb44",
+        "redraw_report.json": "a90f1aa816ce29d7d060ba8c9e833b889d2814b89df2da8631c90c58fb3a2311",
+        "audit.json": "21b85455459cac7a4241ac84792c3f14564a85d9f0994a15a223f09e3e91d6d4"
+      },
+      "explicit_inspected_facts": [
+        "Viewed original/candidate: cube with three rear dashed edges, two additional diagonals and four unnumbered angle arcs. Arc endpoints still unambiguously identify the same quadrilateral after stroke normalization.",
+        "Native angles independently calculated 60,90,90,90; arc endpoints lie on corresponding rays, sum 330 degrees, B."
+      ],
+      "checks": {
+        "source_record_matches_export": true,
+        "source_image_matches_export": true,
+        "report_hashes_match": true,
+        "independent_twice_render_identical": true,
+        "reproduction_matches_pixels": true,
+        "size": [
+          768,
+          768
+        ],
+        "opaque": true,
+        "bbox": [
+          52,
+          52,
+          715,
+          715
+        ],
+        "occupancy": 0.8645833333333334,
+        "center_offset_px": [
+          0.0,
+          0.0
+        ],
+        "layout_pass": true,
+        "constraints": [
+          {
+            "id": "projection_and_visibility",
+            "type": "projection",
+            "passed": true,
+            "projection_sha256": "255202fe2645ae399cad3ef9a986cdd2684257ffb2df2050c9ff2b7777c07dc1",
+            "automatic_occlusion": false
+          },
+          {
+            "id": "angleP",
+            "type": "arc_sampling",
+            "max_chord_error_px": 0.0032746189977670924,
+            "passed": true
+          },
+          {
+            "id": "angleQ",
+            "type": "arc_sampling",
+            "max_chord_error_px": 0.008185002079297059,
+            "passed": true
+          },
+          {
+            "id": "angleR",
+            "type": "arc_sampling",
+            "max_chord_error_px": 0.0073678413750872095,
+            "passed": true
+          },
+          {
+            "id": "angleS",
+            "type": "arc_sampling",
+            "max_chord_error_px": 0.008185002079297059,
+            "passed": true
+          },
+          {
+            "id": "checkangleP",
+            "type": "angle",
+            "basis": "derived verification of source-markedangle,notnewdisplayedcondition",
+            "measured": 60.00000000000001,
+            "passed": true
+          },
+          {
+            "id": "checkangleQ",
+            "type": "angle",
+            "basis": "derived verification of source-markedangle,notnewdisplayedcondition",
+            "measured": 90.0,
+            "passed": true
+          },
+          {
+            "id": "checkangleR",
+            "type": "angle",
+            "basis": "derived verification of source-markedangle,notnewdisplayedcondition",
+            "measured": 90.0,
+            "passed": true
+          },
+          {
+            "id": "checkangleS",
+            "type": "angle",
+            "basis": "derived verification of source-markedangle,notnewdisplayedcondition",
+            "measured": 90.0,
+            "passed": true
+          },
+          {
+            "id": "layout",
+            "type": "layout",
+            "outer_margin_fraction": 0.05,
+            "label_line_overlap": false,
+            "label_label_overlap": false,
+            "passed": true
+          }
+        ],
+        "angles": [
+          60.00000000000001,
+          90.0,
+          90.0,
+          90.0
+        ],
+        "angle_sum": 330.0,
+        "arc_endpoints_match": true
+      },
+      "required_changes": [],
+      "previous_revisions": []
+    }
+  }
 }

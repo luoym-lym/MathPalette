@@ -1,101 +1,172 @@
 {
-  "reviewer": "independent /root/review_geometry_redraws",
-  "category": "solid_geometry",
-  "source_id": "387",
-  "reviewed_utc": "2026-10-27T00:58:51.611085+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "Agent curator part1",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
-    "source.json": "dd7fb1362204809975acb54a232c622463fb754d2d35559553c220af582a1b7c",
+    "scene.json": "fe1c36d5f7c97df78c6aa86471215208cd0d6ae6abd421e607d5ab563c3b6d0d",
+    "image.png": "0ca9ad357367bb47794a0c4f8fc5f55089f9c0406d49eb5d33434da3150795d2",
+    "image.svg": "f5d4c00a85d3d406fa5f6605b161ef95db5988cb0b4ae2bb6b8662b06aa64c7d",
+    "redraw_report.json": "07038e16fa9ab53659d79066cbba8d34f2ad199a04c251ad5aaecf8b3545fae8",
+    "protocol_review.json": "626d1880a194c571cfca973c656320760484e63b894ca9acac83c3ebb9b667b9",
+    "source_redraw.py": "854fffeddd6220bb2986f53708d7d8058a3048946d2fefcb72c7e8f724c1eb44",
+    "execution.json": "8c78f24b6d99c23a247203f0b9e429d4c5daf16d4c7e160a3d335851fed7ba89",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "fc84c3d4e22618dd046439ebe404a752e9e57456b04c9b2e0872ac4ba5c94b64",
-    "scene.json": "86dcf6dd60ab36acf1841f2e8f2829d3c46a70a2eb5f9567c956168469316699",
-    "image.png": "75d5d9810c31ba7c6b5bb305870226a46f0cd805c6da720e18f225dce9bfb9eb",
-    "image.svg": "65a3f27cf6c533bddd207e08a06d445f36cddb9bf754c2c1497beea92d7e30dd",
-    "render.py": "854fffeddd6220bb2986f53708d7d8058a3048946d2fefcb72c7e8f724c1eb44",
-    "redraw_report.json": "11cc0882412a01668c6d206a1f2fca0557fa8d34ec942bcb6f77ef2b26350db1",
-    "audit.json": "d2d5820027a915ed900ae15376da913e8d8628ffc10e91a3940a7e2e9600fdfa"
+    "source.json": "dd7fb1362204809975acb54a232c622463fb754d2d35559553c220af582a1b7c",
+    "machine_protocol": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Individually viewed original and candidate: bottom 2, left 7, upper right 3 and right 4; solid front diagonal and dashed rear diagonal with no vertex labels. All six edges and chirality preserved.",
-    "Triangle inequalities force integer front diagonal 5<x<7 hence6 and rear diagonal4<y<6 hence5, sum11. True tetrahedron lengths independently checked; solved lengths not shown."
+    "Four edge-length labels 2,7,3,4 retain their correct tetrahedron edges; only the source-hidden edge is dashed."
   ],
-  "checks": {
-    "source_record_matches_export": true,
-    "source_image_matches_export": true,
-    "report_hashes_match": true,
-    "independent_twice_render_identical": true,
-    "reproduction_matches_pixels": true,
-    "size": [
-      768,
-      768
+  "agent_visual_review": {
+    "status": "inspected",
+    "reviewer": "Agent curator part1",
+    "user_approval": false,
+    "reviewed_at_utc": "2026-10-28T12:56:24.191612+00:00",
+    "method": "Source and final PNG comparison on 12-item contact sheets.",
+    "contact_sheet": ".runtime/protocol_redraw/part1/final_06.jpg",
+    "individual_final_png_viewed": false,
+    "findings": [
+      "Four edge-length labels 2,7,3,4 retain their correct tetrahedron edges; only the source-hidden edge is dashed."
     ],
-    "opaque": true,
-    "bbox": [
-      138,
-      55,
-      629,
-      712
-    ],
-    "occupancy": 0.8567708333333334,
-    "center_offset_px": [
-      0.0,
-      0.0
-    ],
-    "layout_pass": true,
-    "constraints": [
-      {
-        "id": "projection_and_visibility",
-        "type": "projection",
-        "passed": true,
-        "projection_sha256": "e9bced97f5264410d39b36dccaf56c5251b18c87312598d03618e5875d12a86b",
-        "automatic_occlusion": false
-      },
-      {
-        "id": "lengthAB",
-        "type": "distance",
-        "basis": "explicit source edge label",
-        "measured": 2.0,
-        "passed": true
-      },
-      {
-        "id": "lengthAD",
-        "type": "distance",
-        "basis": "explicit source edge label",
-        "measured": 7.0,
-        "passed": true
-      },
-      {
-        "id": "lengthDC",
-        "type": "distance",
-        "basis": "explicit source edge label",
-        "measured": 3.0,
-        "passed": true
-      },
-      {
-        "id": "lengthBC",
-        "type": "distance",
-        "basis": "explicit source edge label",
-        "measured": 4.0,
-        "passed": true
-      },
-      {
-        "id": "layout",
-        "type": "layout",
-        "outer_margin_fraction": 0.05,
-        "label_line_overlap": false,
-        "label_label_overlap": false,
-        "passed": true
-      }
-    ],
-    "independent_edge_lengths": {
-      "AB": 2.0,
-      "AC": 5.0,
-      "AD": 7.0,
-      "BC": 4.0,
-      "BD": 6.0,
-      "CD": 3.0
-    }
+    "source_sha256": "fc84c3d4e22618dd046439ebe404a752e9e57456b04c9b2e0872ac4ba5c94b64",
+    "scene_sha256": "fe1c36d5f7c97df78c6aa86471215208cd0d6ae6abd421e607d5ab563c3b6d0d",
+    "png_sha256": "0ca9ad357367bb47794a0c4f8fc5f55089f9c0406d49eb5d33434da3150795d2",
+    "svg_sha256": "f5d4c00a85d3d406fa5f6605b161ef95db5988cb0b4ae2bb6b8662b06aa64c7d"
   },
-  "required_changes": [],
-  "previous_revisions": []
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        137,
+        54,
+        630,
+        713
+      ],
+      "content_center_px": [
+        383.5,
+        383.5
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 5,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root/review_geometry_redraws",
+      "category": "solid_geometry",
+      "source_id": "387",
+      "reviewed_utc": "2026-10-27T00:58:51.611085+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "source.json": "dd7fb1362204809975acb54a232c622463fb754d2d35559553c220af582a1b7c",
+        "original.jpg": "fc84c3d4e22618dd046439ebe404a752e9e57456b04c9b2e0872ac4ba5c94b64",
+        "scene.json": "86dcf6dd60ab36acf1841f2e8f2829d3c46a70a2eb5f9567c956168469316699",
+        "image.png": "75d5d9810c31ba7c6b5bb305870226a46f0cd805c6da720e18f225dce9bfb9eb",
+        "image.svg": "65a3f27cf6c533bddd207e08a06d445f36cddb9bf754c2c1497beea92d7e30dd",
+        "render.py": "854fffeddd6220bb2986f53708d7d8058a3048946d2fefcb72c7e8f724c1eb44",
+        "redraw_report.json": "11cc0882412a01668c6d206a1f2fca0557fa8d34ec942bcb6f77ef2b26350db1",
+        "audit.json": "d2d5820027a915ed900ae15376da913e8d8628ffc10e91a3940a7e2e9600fdfa"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed original and candidate: bottom 2, left 7, upper right 3 and right 4; solid front diagonal and dashed rear diagonal with no vertex labels. All six edges and chirality preserved.",
+        "Triangle inequalities force integer front diagonal 5<x<7 hence6 and rear diagonal4<y<6 hence5, sum11. True tetrahedron lengths independently checked; solved lengths not shown."
+      ],
+      "checks": {
+        "source_record_matches_export": true,
+        "source_image_matches_export": true,
+        "report_hashes_match": true,
+        "independent_twice_render_identical": true,
+        "reproduction_matches_pixels": true,
+        "size": [
+          768,
+          768
+        ],
+        "opaque": true,
+        "bbox": [
+          138,
+          55,
+          629,
+          712
+        ],
+        "occupancy": 0.8567708333333334,
+        "center_offset_px": [
+          0.0,
+          0.0
+        ],
+        "layout_pass": true,
+        "constraints": [
+          {
+            "id": "projection_and_visibility",
+            "type": "projection",
+            "passed": true,
+            "projection_sha256": "e9bced97f5264410d39b36dccaf56c5251b18c87312598d03618e5875d12a86b",
+            "automatic_occlusion": false
+          },
+          {
+            "id": "lengthAB",
+            "type": "distance",
+            "basis": "explicit source edge label",
+            "measured": 2.0,
+            "passed": true
+          },
+          {
+            "id": "lengthAD",
+            "type": "distance",
+            "basis": "explicit source edge label",
+            "measured": 7.0,
+            "passed": true
+          },
+          {
+            "id": "lengthDC",
+            "type": "distance",
+            "basis": "explicit source edge label",
+            "measured": 3.0,
+            "passed": true
+          },
+          {
+            "id": "lengthBC",
+            "type": "distance",
+            "basis": "explicit source edge label",
+            "measured": 4.0,
+            "passed": true
+          },
+          {
+            "id": "layout",
+            "type": "layout",
+            "outer_margin_fraction": 0.05,
+            "label_line_overlap": false,
+            "label_label_overlap": false,
+            "passed": true
+          }
+        ],
+        "independent_edge_lengths": {
+          "AB": 2.0,
+          "AC": 5.0,
+          "AD": 7.0,
+          "BC": 4.0,
+          "BD": 6.0,
+          "CD": 3.0
+        }
+      },
+      "required_changes": [],
+      "previous_revisions": []
+    }
+  }
 }

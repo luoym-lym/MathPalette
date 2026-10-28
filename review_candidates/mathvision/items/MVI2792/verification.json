@@ -1,41 +1,123 @@
 {
-  "reviewer": "independent /root",
-  "source_id": "2792",
-  "category": "combinatorial_geometry",
-  "reviewed_utc": "2026-10-27T03:15:59.701363+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "redraw_part4",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "a0cae4bbc9c9b4c9426eafbcc778c5fcbe088c4af11445e7bc70901282444dd5",
+    "image.png": "648accd08a0f5248e84bdc308d7b9e50c1c008b8fd65cc308a0f14251f502a3b",
+    "image.svg": "c3e33f9bd1fd741d78d16f342fd2f888590c241fae50cb34d2872d51c9710ccf",
+    "redraw_report.json": "f6657599e8ca43fe738a96d2ca41aecf25af1cbe9090bfc6c3fa7fe9fc06d9b2",
+    "protocol_review.json": "479b8a06b481c0a74550707d50def24189d186290f4194ffb679bea63679a470",
+    "source_redraw.py": "e5733287dc63eb9d4c4febb53b278f7e2e9e0b0e46f472ba42112b3a3bcc29df",
+    "execution.json": "036ec5ec9a854fdd9128aad8b67703306e522873daf3530e170d39aafc575929",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "ce177600b65f0ccfce1ab2c713780aa5ec4a2083aae7e59d2e8e5eefed5efbd4",
     "source.json": "f1ba0c53c65b18c213a7c06bedc26291200af5cf516a7bb29970369c35b80de8",
-    "scene.json": "43fbcd8ce3ae0adf1f41a4759d1c7136aaf102a77c9cc6cefb883f567099fa20",
-    "render.py": "e5733287dc63eb9d4c4febb53b278f7e2e9e0b0e46f472ba42112b3a3bcc29df",
-    "image.png": "a6056329c29c38e5e4ace21f0344c18cf77d34d50780b3fd0a339da14ecb720f",
-    "audit.json": "3d508406dcfd686d63c726da13e895f4fd4c4925b546bbc0611f0a961da52a77",
-    "redraw_report.json": "a6718414f63ecdafc082a110133ab0cd4d495aeb8a2ad9891ab1271ee6ebef3b",
-    "../upper_comb_renderer.py": "f8b46c832ae8ff8e16730970bd31d1d549035f4e230f49acb6b88141efda0d84"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Individually viewed source/candidate: initial empty3by3grid, four triangular tileorientations and complete9tile example preserve allsourcegraycorner orientations. Independent exhaustive4^9tiling enumeration gives4096successes; fourwindowevents mutuallyexclusive, probability1/64."
+    "Compared source and final vector redraw: source connections, region identities, point order, displayed labels and layout retained; no new solving construction introduced.",
+    "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      54,
-      69,
-      714,
-      698
-    ],
-    "occupancy": 0.8606770833333334,
-    "independent_numeric_checks": {
-      "total_tilings": 262144,
-      "successful_tilings": 4096,
-      "answer": "C=1/64"
+  "agent_visual_review": {
+    "status": "agent_viewed",
+    "reviewer": "redraw_part4",
+    "source_inspection": {
+      "status": "viewed",
+      "sheet": ".runtime/protocol_redraw/part4/source_09.jpg",
+      "complete_question_read": true
     },
-    "renderer_checks": []
+    "new_render_viewed": true,
+    "final_png_view": {
+      "method": "final render contact sheet",
+      "path": ".runtime/protocol_redraw/part4/new_09.jpg",
+      "cell": 6,
+      "individual_zoom": false
+    },
+    "source_sha256": "ce177600b65f0ccfce1ab2c713780aa5ec4a2083aae7e59d2e8e5eefed5efbd4",
+    "scene_sha256": "a0cae4bbc9c9b4c9426eafbcc778c5fcbe088c4af11445e7bc70901282444dd5",
+    "png_sha256": "648accd08a0f5248e84bdc308d7b9e50c1c008b8fd65cc308a0f14251f502a3b",
+    "svg_sha256": "c3e33f9bd1fd741d78d16f342fd2f888590c241fae50cb34d2872d51c9710ccf",
+    "findings": [
+      "Compared source and final vector redraw: source connections, region identities, point order, displayed labels and layout retained; no new solving construction introduced.",
+      "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
+    ],
+    "user_approved": false,
+    "svg_rebinding_note": "Central final renderer regenerated vector SVG from the same Figure. PNG and scene hashes are unchanged from the actual visual inspection; this updates SVG serialization evidence without claiming another raster viewing."
   },
-  "required_changes": [],
-  "previous_revisions": []
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        69,
+        713,
+        698
+      ],
+      "content_center_px": [
+        383.5,
+        383.5
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 0,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root",
+      "source_id": "2792",
+      "category": "combinatorial_geometry",
+      "reviewed_utc": "2026-10-27T03:15:59.701363+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "ce177600b65f0ccfce1ab2c713780aa5ec4a2083aae7e59d2e8e5eefed5efbd4",
+        "source.json": "f1ba0c53c65b18c213a7c06bedc26291200af5cf516a7bb29970369c35b80de8",
+        "scene.json": "43fbcd8ce3ae0adf1f41a4759d1c7136aaf102a77c9cc6cefb883f567099fa20",
+        "render.py": "e5733287dc63eb9d4c4febb53b278f7e2e9e0b0e46f472ba42112b3a3bcc29df",
+        "image.png": "a6056329c29c38e5e4ace21f0344c18cf77d34d50780b3fd0a339da14ecb720f",
+        "audit.json": "3d508406dcfd686d63c726da13e895f4fd4c4925b546bbc0611f0a961da52a77",
+        "redraw_report.json": "a6718414f63ecdafc082a110133ab0cd4d495aeb8a2ad9891ab1271ee6ebef3b",
+        "../upper_comb_renderer.py": "f8b46c832ae8ff8e16730970bd31d1d549035f4e230f49acb6b88141efda0d84"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed source/candidate: initial empty3by3grid, four triangular tileorientations and complete9tile example preserve allsourcegraycorner orientations. Independent exhaustive4^9tiling enumeration gives4096successes; fourwindowevents mutuallyexclusive, probability1/64."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          54,
+          69,
+          714,
+          698
+        ],
+        "occupancy": 0.8606770833333334,
+        "independent_numeric_checks": {
+          "total_tilings": 262144,
+          "successful_tilings": 4096,
+          "answer": "C=1/64"
+        },
+        "renderer_checks": []
+      },
+      "required_changes": [],
+      "previous_revisions": []
+    }
+  }
 }

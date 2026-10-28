@@ -1,140 +1,217 @@
 {
-  "reviewer": "independent /root/review_geometry_redraws",
-  "category": "solid_geometry",
-  "source_id": "1170",
-  "reviewed_utc": "2026-10-27T01:46:06.202333+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "protocol_redraw_part3",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
-    "source.json": "4baac86dbe77d9ea991cbcba947dedc80758e0c8dc60070d647c85405df2ae1b",
+    "scene.json": "1fed4e7656c176d64c5436f7585fb75ab4f801a2aca20151dc05e003c82878a6",
+    "image.png": "3da14f2bf336e863b7c9793b2c069abb43d6624ff521b9f23fd937338d1301fb",
+    "image.svg": "48f82c574d8e3caec37f7a3a92f044bbf358aac2c3ebd4c39e3e07737e84628b",
+    "redraw_report.json": "f36da7eb2781c32f0ed78320f3070a5a3cddd57c21de36764e9806240db4b770",
+    "protocol_review.json": "ead432672fd76bd1f0548fdac1795e2f3be6b23c38fac4be4b04cb80507e8ff4",
+    "source_redraw.py": "854fffeddd6220bb2986f53708d7d8058a3048946d2fefcb72c7e8f724c1eb44",
+    "execution.json": "44a05e2e181dc999fadbf885de7cfc097d2d2c57369daa4f5aa9fb6522e913e9",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "7cee9ae3c1614fc7a558e7ce2c243f79538ad60b0c36340cb402478c86bea16d",
-    "scene.json": "cbe998aed3a1ebd8292cf3151cd0f41942c41db3f7e855da46d104baf61ca753",
-    "image.png": "23137fa44175a4a8cb8383d63662ec801eeeb56770e7ff09abfd7ab22dc44fa5",
-    "image.svg": "1beda57c50531dfbcc1b15ecc330a6feb53f19a626f866cc6fc8549548f49954",
-    "render.py": "854fffeddd6220bb2986f53708d7d8058a3048946d2fefcb72c7e8f724c1eb44",
-    "redraw_report.json": "577340f20480696516278c5a5c8f70ec5a5f28c940d2315d32f0f1de1b688e82",
-    "audit.json": "db698cebcdcc320bcb07f3edee3b43f84b9b80b22458769ccb8095e2b0cd5859"
+    "source.json": "4baac86dbe77d9ea991cbcba947dedc80758e0c8dc60070d647c85405df2ae1b",
+    "machine_protocol": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Viewed original/candidate: gray six-face rectangular net, four strip rectangles and top/bottom attachments; measurement ranges 10 cm, 7 cm, 26 cm retained.",
-    "Native strip 8,5,8,5 by 2, top 5 by 8 and bottom 8 by 5; x+y=13, x+z=10, y+z=7 gives 8,5,2 and volume 80, C."
+    "Box net retains rectangular face arrangement; 10cm and7cm ranges and26cm total range keep source endpoints with protocol dashed dimensions."
   ],
-  "checks": {
-    "source_record_matches_export": true,
-    "source_image_matches_export": true,
-    "report_hashes_match": true,
-    "independent_twice_render_identical": true,
-    "reproduction_matches_pixels": true,
-    "size": [
-      768,
-      768
-    ],
-    "opaque": true,
-    "bbox": [
-      55,
-      209,
-      712,
-      558
-    ],
-    "occupancy": 0.8567708333333334,
-    "center_offset_px": [
-      0.0,
-      0.0
-    ],
-    "layout_pass": true,
-    "constraints": [
-      {
-        "id": "projection_and_visibility",
-        "type": "projection",
-        "passed": true,
-        "projection_sha256": "b7009d2af0e1658e988dfdcfc1a392134a60d6d3d9ddc06e8659c26e160baaf3",
-        "automatic_occlusion": false
-      },
-      {
-        "id": "height10",
-        "type": "dimension",
-        "text": "10 cm",
-        "measured_world_length": 10.0,
-        "unit": "cm",
-        "basis": "source total measurement range",
-        "style": "Plane02_parallel_dashed",
-        "points": [
-          [
-            0,
-            0,
-            0
-          ],
-          [
-            0,
-            10,
-            0
-          ]
-        ],
-        "projected_perpendicular_connections": true,
-        "passed": true
-      },
-      {
-        "id": "height7",
-        "type": "dimension",
-        "text": "7 cm",
-        "measured_world_length": 7.0,
-        "unit": "cm",
-        "basis": "source total measurement range",
-        "style": "Plane02_parallel_dashed",
-        "points": [
-          [
-            26,
-            -5,
-            0
-          ],
-          [
-            26,
-            2,
-            0
-          ]
-        ],
-        "projected_perpendicular_connections": true,
-        "passed": true
-      },
-      {
-        "id": "width26",
-        "type": "dimension",
-        "text": "26 cm",
-        "measured_world_length": 26.0,
-        "unit": "cm",
-        "basis": "source total measurement range",
-        "style": "Plane02_parallel_dashed",
-        "points": [
-          [
-            0,
-            0,
-            0
-          ],
-          [
-            26,
-            0,
-            0
-          ]
-        ],
-        "projected_perpendicular_connections": true,
-        "passed": true
-      },
-      {
-        "id": "layout",
-        "type": "layout",
-        "outer_margin_fraction": 0.05,
-        "label_line_overlap": false,
-        "label_label_overlap": false,
-        "passed": true
-      }
-    ],
-    "solved_box_dimensions": [
-      8,
-      5,
-      2
-    ],
-    "volume": 80
+  "agent_visual_review": {
+    "status": "agent_reviewed",
+    "reviewer": "protocol_redraw_part3",
+    "reviewed_at_utc": "2026-10-28T12:58:04.326346+00:00",
+    "source_compared": true,
+    "method": "Viewed final source/redraw comparison contact sheet",
+    "contact_sheet": ".runtime/protocol_redraw/part3/new_01.jpg",
+    "contact_sheet_sha256": "7607787b05712377de761a6d09c711e212b7ac47b028aab9b56d61f0915a3aa6",
+    "png_sha256": "3da14f2bf336e863b7c9793b2c069abb43d6624ff521b9f23fd937338d1301fb",
+    "svg_sha256": "48f82c574d8e3caec37f7a3a92f044bbf358aac2c3ebd4c39e3e07737e84628b",
+    "scene_sha256": "1fed4e7656c176d64c5436f7585fb75ab4f801a2aca20151dc05e003c82878a6",
+    "source_sha256": "7cee9ae3c1614fc7a558e7ce2c243f79538ad60b0c36340cb402478c86bea16d",
+    "final_png_sha256": "3da14f2bf336e863b7c9793b2c069abb43d6624ff521b9f23fd937338d1301fb",
+    "final_scene_sha256": "1fed4e7656c176d64c5436f7585fb75ab4f801a2aca20151dc05e003c82878a6",
+    "findings": "Box net retains rectangular face arrangement; 10cm and7cm ranges and26cm total range keep source endpoints with protocol dashed dimensions.",
+    "unresolved_source_issues": [],
+    "user_approved": false,
+    "scope": "Agent visual review only. All candidates remain pending user review.",
+    "svg_binding_basis": "Current deterministic vector export from the unchanged scene; serialization hash rebound mechanically. Original PNG visual inspection evidence and timestamp are preserved."
   },
-  "required_changes": [],
-  "previous_revisions": []
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        208,
+        713,
+        559
+      ],
+      "content_center_px": [
+        383.5,
+        383.5
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 4,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [
+    "Sourceuniformgray shows the net region and is retained. Source arrows replaced by required parallel dashed measurementranges."
+  ],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root/review_geometry_redraws",
+      "category": "solid_geometry",
+      "source_id": "1170",
+      "reviewed_utc": "2026-10-27T01:46:06.202333+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "source.json": "4baac86dbe77d9ea991cbcba947dedc80758e0c8dc60070d647c85405df2ae1b",
+        "original.jpg": "7cee9ae3c1614fc7a558e7ce2c243f79538ad60b0c36340cb402478c86bea16d",
+        "scene.json": "cbe998aed3a1ebd8292cf3151cd0f41942c41db3f7e855da46d104baf61ca753",
+        "image.png": "23137fa44175a4a8cb8383d63662ec801eeeb56770e7ff09abfd7ab22dc44fa5",
+        "image.svg": "1beda57c50531dfbcc1b15ecc330a6feb53f19a626f866cc6fc8549548f49954",
+        "render.py": "854fffeddd6220bb2986f53708d7d8058a3048946d2fefcb72c7e8f724c1eb44",
+        "redraw_report.json": "577340f20480696516278c5a5c8f70ec5a5f28c940d2315d32f0f1de1b688e82",
+        "audit.json": "db698cebcdcc320bcb07f3edee3b43f84b9b80b22458769ccb8095e2b0cd5859"
+      },
+      "explicit_inspected_facts": [
+        "Viewed original/candidate: gray six-face rectangular net, four strip rectangles and top/bottom attachments; measurement ranges 10 cm, 7 cm, 26 cm retained.",
+        "Native strip 8,5,8,5 by 2, top 5 by 8 and bottom 8 by 5; x+y=13, x+z=10, y+z=7 gives 8,5,2 and volume 80, C."
+      ],
+      "checks": {
+        "source_record_matches_export": true,
+        "source_image_matches_export": true,
+        "report_hashes_match": true,
+        "independent_twice_render_identical": true,
+        "reproduction_matches_pixels": true,
+        "size": [
+          768,
+          768
+        ],
+        "opaque": true,
+        "bbox": [
+          55,
+          209,
+          712,
+          558
+        ],
+        "occupancy": 0.8567708333333334,
+        "center_offset_px": [
+          0.0,
+          0.0
+        ],
+        "layout_pass": true,
+        "constraints": [
+          {
+            "id": "projection_and_visibility",
+            "type": "projection",
+            "passed": true,
+            "projection_sha256": "b7009d2af0e1658e988dfdcfc1a392134a60d6d3d9ddc06e8659c26e160baaf3",
+            "automatic_occlusion": false
+          },
+          {
+            "id": "height10",
+            "type": "dimension",
+            "text": "10 cm",
+            "measured_world_length": 10.0,
+            "unit": "cm",
+            "basis": "source total measurement range",
+            "style": "Plane02_parallel_dashed",
+            "points": [
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                10,
+                0
+              ]
+            ],
+            "projected_perpendicular_connections": true,
+            "passed": true
+          },
+          {
+            "id": "height7",
+            "type": "dimension",
+            "text": "7 cm",
+            "measured_world_length": 7.0,
+            "unit": "cm",
+            "basis": "source total measurement range",
+            "style": "Plane02_parallel_dashed",
+            "points": [
+              [
+                26,
+                -5,
+                0
+              ],
+              [
+                26,
+                2,
+                0
+              ]
+            ],
+            "projected_perpendicular_connections": true,
+            "passed": true
+          },
+          {
+            "id": "width26",
+            "type": "dimension",
+            "text": "26 cm",
+            "measured_world_length": 26.0,
+            "unit": "cm",
+            "basis": "source total measurement range",
+            "style": "Plane02_parallel_dashed",
+            "points": [
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                26,
+                0,
+                0
+              ]
+            ],
+            "projected_perpendicular_connections": true,
+            "passed": true
+          },
+          {
+            "id": "layout",
+            "type": "layout",
+            "outer_margin_fraction": 0.05,
+            "label_line_overlap": false,
+            "label_label_overlap": false,
+            "passed": true
+          }
+        ],
+        "solved_box_dimensions": [
+          8,
+          5,
+          2
+        ],
+        "volume": 80
+      },
+      "required_changes": [],
+      "previous_revisions": []
+    }
+  }
 }

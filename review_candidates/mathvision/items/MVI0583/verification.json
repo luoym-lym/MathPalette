@@ -1,47 +1,118 @@
 {
-  "reviewer": "independent /root/review_transformation_batch",
-  "source_id": "583",
-  "category": "transformation_geometry",
-  "reviewed_utc": "2026-10-27T03:08:05.798669+00:00",
-  "verdict": "agent_verified",
+  "reviewer": "Agent curator part1",
+  "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+  "verdict": "agent_protocol_reviewed",
   "user_approval": false,
+  "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
   "hashes": {
+    "scene.json": "505f97ebe9b6615fd562cf8e2fd8fc18205824a77f4e4d0666d16a69c3e026c5",
+    "image.png": "21a249a71ef498990de196933055654fccb32f41d73d19416be065f8a18e1433",
+    "image.svg": "d2607dde5dd691c64073fc27b36476f8e2baca3ca40e03c2edc287388b98eb9f",
+    "redraw_report.json": "b37ab4210b069fbe1548933fa76189dba7b6b575bf4b1b9bca921c6cd305892b",
+    "protocol_review.json": "876f220b8e33a74f2280e08853099345ee548420c8cb07a5175403914d4cd3a8",
+    "source_redraw.py": "72ed6412df7fb4870ef4f96749d436e14ac4e5550032349009fec0a7b6296252",
+    "execution.json": "edb4c4d98c4d94e9bfc42bca2d3135ab9483fc2d0891ca94c858d39060f64f5b",
+    "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
     "original.jpg": "823bcb943c725dfa52c2752ffa04df9ae7e33b2bc09d8cc398dacbf170a2ade2",
     "source.json": "709c933a6d5b65469e72b49d3873df1a0a39e39b85b2f872898624bbcaf850a3",
-    "scene.json": "9511e5a18da46de24cebf8dbbe2c743a64434b37db912bf6e5765938b546ec78",
-    "render.py": "72ed6412df7fb4870ef4f96749d436e14ac4e5550032349009fec0a7b6296252",
-    "image.png": "9abdd895472a53998dcdf2573c9dc14b867a21b9c0b145aefea3fb5833375d5e",
-    "audit.json": "493dde86ae0f1fb487d2667c5d193eb6110aebdcd2c4eaa2ce7017da67e09071",
-    "redraw_report.json": "677d7e0dcf99d2a2201bdabf39642f7cb3a63aa2b3c8f87f6859a118a4f4fb8e"
+    "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+    "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
   },
   "explicit_inspected_facts": [
-    "Individually viewed original and candidate: folded half-sheet has curved notch from left fold edge, ending in three rightward spikes; A has two circles with inward spikes,B two circles touching with outer spikes,C one oval and right spikes,D centered round body with two outer spiked ends,E two bodies each with bilateral spikes. All connectivity/contact distinctions retained.",
-    "The cut meets folded edge, so unfolding reflects a single half-outline into one connected centrally rounded opening with equal spikes on both ends, not two separate or tangential openings. OnlyD. CandidateD contour has exact vertical reflection symmetry (nearest-vertex maximum error below1e-9)."
+    "Folded paper cutout and five unfolded silhouettes retain their curved/pointed contours and orientation."
   ],
-  "checks": {
-    "source_record_and_bytes_match": true,
-    "two_independent_renders_equal_candidate": true,
-    "opaque768": true,
-    "bbox": [
-      54,
-      290,
-      714,
-      477
+  "agent_visual_review": {
+    "status": "inspected",
+    "reviewer": "Agent curator part1",
+    "user_approval": false,
+    "reviewed_at_utc": "2026-10-28T12:56:24.271329+00:00",
+    "method": "Source and final PNG comparison on 12-item contact sheets.",
+    "contact_sheet": ".runtime/protocol_redraw/part1/final_10.jpg",
+    "individual_final_png_viewed": false,
+    "findings": [
+      "Folded paper cutout and five unfolded silhouettes retain their curved/pointed contours and orientation."
     ],
-    "occupancy": 0.8606770833333334,
-    "independent_numeric_checks": {
-      "D_reflection_error": 2.7755575615628914e-16,
-      "connected_openings": 1,
-      "answer": "D"
-    },
-    "renderer_checks": [],
-    "report_hashes_valid": true,
-    "isolated_standalone_render_identical": true
+    "source_sha256": "823bcb943c725dfa52c2752ffa04df9ae7e33b2bc09d8cc398dacbf170a2ade2",
+    "scene_sha256": "505f97ebe9b6615fd562cf8e2fd8fc18205824a77f4e4d0666d16a69c3e026c5",
+    "png_sha256": "21a249a71ef498990de196933055654fccb32f41d73d19416be065f8a18e1433",
+    "svg_sha256": "d2607dde5dd691c64073fc27b36476f8e2baca3ca40e03c2edc287388b98eb9f"
   },
-  "required_changes": [],
-  "previous_revisions": [],
-  "dependency_hashes": {
-    "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
-    "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+  "checks": {
+    "two_clean_render_pixels_equal": true,
+    "two_clean_render_svg_bytes_equal": true,
+    "native_vector_geometry": true,
+    "layout": {
+      "content_bbox_px": [
+        54,
+        290,
+        713,
+        477
+      ],
+      "content_center_px": [
+        383.5,
+        383.5
+      ],
+      "longest_side_occupancy": 0.859375,
+      "opaque_768_square": true,
+      "centered_within_2px": true,
+      "occupancy_85_to_87_percent": true,
+      "minimum_5_percent_margin": true
+    },
+    "declared_native_checks_count": 0,
+    "failed_declared_checks": []
+  },
+  "ambiguities": [],
+  "needs_manual_confirmation": false,
+  "historical_evidence": {
+    "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+    "previous_verification": {
+      "reviewer": "independent /root/review_transformation_batch",
+      "source_id": "583",
+      "category": "transformation_geometry",
+      "reviewed_utc": "2026-10-27T03:08:05.798669+00:00",
+      "verdict": "agent_verified",
+      "user_approval": false,
+      "hashes": {
+        "original.jpg": "823bcb943c725dfa52c2752ffa04df9ae7e33b2bc09d8cc398dacbf170a2ade2",
+        "source.json": "709c933a6d5b65469e72b49d3873df1a0a39e39b85b2f872898624bbcaf850a3",
+        "scene.json": "9511e5a18da46de24cebf8dbbe2c743a64434b37db912bf6e5765938b546ec78",
+        "render.py": "72ed6412df7fb4870ef4f96749d436e14ac4e5550032349009fec0a7b6296252",
+        "image.png": "9abdd895472a53998dcdf2573c9dc14b867a21b9c0b145aefea3fb5833375d5e",
+        "audit.json": "493dde86ae0f1fb487d2667c5d193eb6110aebdcd2c4eaa2ce7017da67e09071",
+        "redraw_report.json": "677d7e0dcf99d2a2201bdabf39642f7cb3a63aa2b3c8f87f6859a118a4f4fb8e"
+      },
+      "explicit_inspected_facts": [
+        "Individually viewed original and candidate: folded half-sheet has curved notch from left fold edge, ending in three rightward spikes; A has two circles with inward spikes,B two circles touching with outer spikes,C one oval and right spikes,D centered round body with two outer spiked ends,E two bodies each with bilateral spikes. All connectivity/contact distinctions retained.",
+        "The cut meets folded edge, so unfolding reflects a single half-outline into one connected centrally rounded opening with equal spikes on both ends, not two separate or tangential openings. OnlyD. CandidateD contour has exact vertical reflection symmetry (nearest-vertex maximum error below1e-9)."
+      ],
+      "checks": {
+        "source_record_and_bytes_match": true,
+        "two_independent_renders_equal_candidate": true,
+        "opaque768": true,
+        "bbox": [
+          54,
+          290,
+          714,
+          477
+        ],
+        "occupancy": 0.8606770833333334,
+        "independent_numeric_checks": {
+          "D_reflection_error": 2.7755575615628914e-16,
+          "connected_openings": 1,
+          "answer": "D"
+        },
+        "renderer_checks": [],
+        "report_hashes_valid": true,
+        "isolated_standalone_render_identical": true
+      },
+      "required_changes": [],
+      "previous_revisions": [],
+      "dependency_hashes": {
+        "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+        "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+      }
+    }
   }
 }

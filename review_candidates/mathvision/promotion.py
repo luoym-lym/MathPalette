@@ -40,12 +40,16 @@ def prepare(root, row, formal_id):
     writes[f'{branch}/{formal["scene"]}'] = _json(scene)
     helper = f'{branch}/dataset_generator/mathvision_renderers'
     for source in sorted((package / 'shared').rglob('*')):
-        if source.is_file() and '__pycache__' not in source.parts and source.suffix != '.pyc':
+        if source.is_file() and '__pycache__' not in source.parts and source.suffix != '.pyc' and not source.name.startswith('test_'):
             writes[f'{helper}/{source.relative_to(package / "shared").as_posix()}'] = source.read_bytes()
     item_relative = f'{helper}/items/{formal_id}'
     execution = json.loads((item / 'execution.json').read_text(encoding='utf-8'))
     native_files = set(execution['files']) - {execution['original_image_name']}
     native_files.update(('execution.json', 'source_redraw.py'))
+    # Semantic decisions are frozen drawing inputs for the protocol redraw.
+    # Keep them with the native scene when preparing an isolated formal replay.
+    if (item / 'protocol_review.json').is_file():
+        native_files.add('protocol_review.json')
     for name in sorted(native_files):
         writes[f'{item_relative}/{name}'] = (item / name).read_bytes()
     formal['runtime_dependencies'] = sorted(p[len(branch) + 1:] for p in writes if p.startswith(helper + '/'))
@@ -90,4 +94,6 @@ if __name__ == '__main__':
                  verification=json.loads((root / row['verification']).read_text(encoding='utf-8')),
                  geometry_notes={'additional_model_evidence': {k:v for k,v in native.items() if k not in allowed},
                                  'execution': 'Native semantic extras are retained in fingerprinted runtime dependencies; formal scene controls canonical geometry.'})
+    if (item / 'protocol_review.json').is_file():
+        notes['geometry_notes']['protocol_redraw'] = json.loads((item / 'protocol_review.json').read_text(encoding='utf-8'))
     return formal, writes, notes

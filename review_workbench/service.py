@@ -141,6 +141,14 @@ class ReviewService:
                     files[relative.as_posix()] = sha(path.read_bytes())
         for relative in (self.package_relative / 'shared/runtime.py', self.package_relative / 'promotion.py'):
             files[relative.as_posix()] = sha(safe_path(self.root, relative).read_bytes())
+        protocol_renderer = self.package_relative / 'shared/protocol_renderer.py'
+        if safe_path(self.root, protocol_renderer).is_file():
+            files[protocol_renderer.as_posix()] = sha(safe_path(self.root, protocol_renderer).read_bytes())
+            # The strict renderer reads both current branch protocols when it
+            # builds its isolated native layout. They are review inputs too.
+            for branch in ('PlaneGeometry', 'SolidGeometry'):
+                relative = Path(branch) / 'dataset_generator/protocol.json'
+                files[relative.as_posix()] = sha(safe_path(self.root, relative).read_bytes())
         if row['subject'] == 'SolidGeometry' and row['renderer_family'] == 'solid':
             for name in ('common_renderer.py', 'protocol.json'):
                 relative = Path('SolidGeometry/dataset_generator') / name
