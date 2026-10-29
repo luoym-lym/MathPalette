@@ -24,8 +24,9 @@ def approve(branch, question_ids, instruction, root=ROOT, *, catalog_lock_held=F
     path=root/'provenance/approvals.json'
     before=path.read_bytes()
     data=json.loads(before)
+    source_notes, notes_fingerprint = catalog._source_notes_snapshot(root)
     for qid in question_ids:
-        fingerprint=catalog.digest(catalog.content(root,branch,records[qid]))
+        fingerprint=catalog.digest(catalog.content(root,branch,records[qid],source_notes=source_notes))
         previous=data['approvals'].get(qid)
         if previous and previous['content_sha256']==fingerprint:
             continue  # Rechecking identical content must not replace original review times.
@@ -34,6 +35,7 @@ def approve(branch, question_ids, instruction, root=ROOT, *, catalog_lock_held=F
         if previous:
             entry['previous_content_sha256']=previous['content_sha256']
         data['approvals'][qid]=entry
+    catalog._assert_source_notes_unchanged(root, notes_fingerprint)
     temporary=path.with_suffix('.json.tmp')
     temporary.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     os.replace(temporary,path)

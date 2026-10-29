@@ -1,0 +1,274 @@
+{
+  "scene_schema_version": "1.0.0",
+  "protocol_version": "1.2.0",
+  "id": "147",
+  "status": "awaiting_independent_review",
+  "source_dataset": "MathVision",
+  "source_image": "source.jpg",
+  "view": {
+    "xlim": [
+      -0.069706929425708,
+      2.8927513171969377
+    ],
+    "ylim": [
+      -1.4162633319639102,
+      1.5461949146587355
+    ],
+    "layout": {
+      "axes_position": [
+        0.05,
+        0.05,
+        0.9,
+        0.9
+      ],
+      "fit_method": "frozen_content_fit",
+      "target_long_side_fraction": 0.86
+    }
+  },
+  "points": {},
+  "objects": [
+    {
+      "id": "stone",
+      "type": "polygon",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "semantic_fill": true,
+      "semantic_color": "#FB6868"
+    },
+    {
+      "id": "lengthc1",
+      "type": "segment",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          -0.5
+        ]
+      ]
+    },
+    {
+      "id": "lengthc2",
+      "type": "segment",
+      "points": [
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          -0.5
+        ]
+      ]
+    },
+    {
+      "id": "lengthdash",
+      "type": "segment",
+      "points": [
+        [
+          0,
+          -0.5
+        ],
+        [
+          2,
+          -0.5
+        ]
+      ],
+      "linestyle": "dashed"
+    },
+    {
+      "id": "widthc1",
+      "type": "segment",
+      "points": [
+        [
+          2,
+          0
+        ],
+        [
+          2.5,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "widthc2",
+      "type": "segment",
+      "points": [
+        [
+          2,
+          1
+        ],
+        [
+          2.5,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "widthdash",
+      "type": "segment",
+      "points": [
+        [
+          2.5,
+          0
+        ],
+        [
+          2.5,
+          1
+        ]
+      ],
+      "linestyle": "dashed"
+    }
+  ],
+  "labels": [
+    {
+      "id": "label0",
+      "type": "text",
+      "text": "2",
+      "anchor": [
+        1,
+        -0.85
+      ],
+      "segment_points": [
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "label1",
+      "type": "text",
+      "text": "1",
+      "anchor": [
+        2.8,
+        0.5
+      ],
+      "segment_points": [
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ]
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "id": "length2",
+      "type": "distance",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "value": 2
+    },
+    {
+      "id": "width1",
+      "type": "distance",
+      "points": [
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "value": 1
+    }
+  ],
+  "ambiguities": [],
+  "distance_markers": [
+    {
+      "id": "length",
+      "segment_points": [
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "dimension_points": [
+        [
+          0,
+          -0.5
+        ],
+        [
+          2,
+          -0.5
+        ]
+      ],
+      "dashed_id": "lengthdash",
+      "connection_ids": [
+        "lengthc1",
+        "lengthc2"
+      ],
+      "label_id": "label0"
+    },
+    {
+      "id": "width",
+      "segment_points": [
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "dimension_points": [
+        [
+          2.5,
+          0
+        ],
+        [
+          2.5,
+          1
+        ]
+      ],
+      "dashed_id": "widthdash",
+      "connection_ids": [
+        "widthc1",
+        "widthc2"
+      ],
+      "label_id": "label1"
+    }
+  ]
+}

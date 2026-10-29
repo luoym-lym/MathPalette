@@ -1,0 +1,37 @@
+from pathlib import Path
+import sys,json,hashlib,io,platform
+import numpy as np
+from PIL import Image
+import PIL,matplotlib
+p=Path(__file__).resolve().parent; repo=p.parents[3]
+sys.path.insert(0,str(repo/'PlaneGeometry/dataset_generator'))
+import common_renderer as r
+s=json.loads((p/'scene.json').read_text()); protocol=r.read_json(r.PROTOCOL_PATH)
+# Explicit task-semantic black holes/arrowheads, not decorative fill.
+protocol['fill']['semantic_facecolor']='#000000';protocol['fill']['semantic_alpha']=1
+def render(vector=False):
+ fig,checks=r.render_scene(s,protocol); b=io.BytesIO()
+ li=0
+ for ob in s['objects']:
+  if ob['type']=='segment':
+   if ob.get('art_layer'):fig.axes[0].lines[li].set_zorder(ob['art_layer']);fig.axes[0].lines[li].set_color(ob.get('art_color','#000000'))
+   if ob.get('fold_color'):fig.axes[0].lines[li].set_color(ob['fold_color']);fig.axes[0].lines[li].set_linewidth(2.5)
+   li+=1
+ pi=0
+ for ob in s['objects']:
+  if ob['type']=='polygon':
+   if ob.get('semantic_fill'):
+    if ob.get('fill_color'):fig.axes[0].patches[pi].set_facecolor(ob['fill_color'])
+    if ob.get('art_layer'):fig.axes[0].patches[pi].set_zorder(ob['art_layer']);fig.axes[0].patches[pi+1].set_zorder(ob['art_layer'])
+    pi+=2
+   else:pi+=1
+  elif ob['type'] in ('circle','arc','angle_arc'):pi+=1
+ with matplotlib.rc_context({'svg.fonttype':'path','svg.hashsalt':'MathVisionNative'}):fig.savefig(b,format='svg' if vector else 'png',dpi=100,facecolor='white',transparent=False,bbox_inches=None,metadata={'Date':None} if vector else {'Software':'MathVision scoped native renderer'})
+ r.plt.close(fig);return b.getvalue(),checks
+if __name__=='__main__':
+ a,checks=render();b,_=render();ia=np.array(Image.open(io.BytesIO(a)));ib=np.array(Image.open(io.BytesIO(b)));assert np.array_equal(ia,ib);assert ia.shape[:2]==(768,768);assert np.all(ia[:,:,3]==255)
+ (p/'image.png').write_bytes(a);(p/'image.svg').write_bytes(render(True)[0])
+ yy,xx=np.where(np.any(ia[:,:,:3]<245,axis=2));bounds=[int(xx.min()),int(yy.min()),int(xx.max()),int(yy.max())]
+ sha=lambda f:hashlib.sha256(Path(f).read_bytes()).hexdigest()
+ report={'source_sha256':sha(p/'original.jpg'),'scene_sha256':sha(p/'scene.json'),'renderer_sha256':sha(r.__file__),'script_sha256':sha(__file__),'protocol_sha256':sha(r.PROTOCOL_PATH),'output_sha256':sha(p/'image.png'),'two_render_pixels_equal':True,'opaque_768_square':True,'content_bbox_px':bounds,'constraints':checks,'dependencies':{'python':platform.python_version(),'matplotlib':matplotlib.__version__,'numpy':np.__version__,'Pillow':PIL.__version__},'visual_check':'pending','semantic_fill_override':'black solid holes and arrowheads, as source'}
+ (p/'redraw_report.json').write_text(json.dumps(report,indent=2)+'\n')
