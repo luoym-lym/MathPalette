@@ -6,8 +6,9 @@ import unittest
 from unittest.mock import patch
 import numpy as np
 from matplotlib.colors import to_hex
-from renderer_adapter import RendererAdapter, scene_png
-from render_plugins import PluginRenderer
+from mathvision_adapter import RendererAdapter
+from renderer_adapter import scene_png
+from mathvision_plugins import PluginRenderer
 from workbench_io import load_config, pixel_hash
 
 

@@ -13,6 +13,9 @@ from workbench_io import (WorkbenchError, canonical_hash, contained_path, load_c
 def render_special_recipe(recipe, output_path=None, config_path=None):
     config = load_config(config_path)
     adapter = RendererAdapter(config)
+    if adapter.records.get(recipe.get("question_id"), {}).get("source_dataset") == "MathVision":
+        from mathvision_replay import render_special_recipe as render_native
+        return render_native(recipe, output_path, config_path)
     current = adapter.manifest
     recipe = copy.deepcopy(recipe)
     current_renderer = renderer_fingerprint()

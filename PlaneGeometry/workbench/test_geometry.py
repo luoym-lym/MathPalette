@@ -17,8 +17,9 @@ from matplotlib.path import Path as MplPath
 from matplotlib.transforms import Affine2D
 
 from drawing_board import _pixel_paths
-from renderer_adapter import RendererAdapter, scene_png
-from render_plugins import PluginRenderer
+from mathvision_adapter import RendererAdapter
+from renderer_adapter import scene_png
+from mathvision_plugins import PluginRenderer
 from review_store import Workbench
 from replay_archived import render_special_recipe
 from workbench_io import (ROOT, WorkbenchError, canonical_hash, file_hash, load_config,

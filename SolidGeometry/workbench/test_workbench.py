@@ -13,8 +13,8 @@ import numpy as np
 from matplotlib.colors import to_hex
 
 from drawing_board import describe_scene
-from render_plugins import PluginRenderer
-from renderer_adapter import RendererAdapter, scene_png
+from mathvision_plugins import PluginRenderer
+from mathvision_adapter import RendererAdapter, scene_png
 from replay_archived import render_special_recipe
 from review_store import Workbench
 from workbench_io import (WorkbenchError, atomic_json, file_hash, load_config, read_json)
@@ -86,8 +86,19 @@ class GeometryTests(unittest.TestCase):
                             self.assertGreaterEqual(len(path), 2)
                             self.assertTrue(np.isfinite(path).all())
                     for point in board["snap_points"]:
-                        self.assertEqual(point["xy"], self.adapter.renderer.project(
-                            self.adapter.scenes[qid], point["world_xyz"]).tolist())
+                        if point.get("source") == "frozen_native_cube":
+                            row = self.adapter.records[qid]
+                            native_path = next(name for name in row["runtime_dependencies"]
+                                if name.endswith(f"/items/{qid}/scene.json"))
+                            native = read_json(Path(self.config["dataset_file"]).parent / native_path)
+                            cube = next(cube for cube in native["cubes"]
+                                if point["id"].startswith(f"native_cube_{cube['id']}_vertex_"))
+                            matrix = np.asarray(self.adapter.scenes[qid]["projection"]["matrix"])
+                            expected = cube["page_scale"] * (matrix @ (np.asarray(point["world_xyz"]) - cube["world_center"])) + cube["page_origin"]
+                            self.assertTrue(np.allclose(point["xy"], expected, rtol=0, atol=1e-12))
+                        else:
+                            self.assertEqual(point["xy"], self.adapter.renderer.project(
+                                self.adapter.scenes[qid], point["world_xyz"]).tolist())
                         self.assertTrue(np.allclose((np.array(board["pixel_to_data"]) @ [*point["pixel"], 1])[:2], point["xy"]))
                 finally:
                     scene.close()

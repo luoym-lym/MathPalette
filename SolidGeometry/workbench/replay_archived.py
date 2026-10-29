@@ -4,18 +4,27 @@ from __future__ import annotations
 import copy
 from pathlib import Path
 
-from renderer_adapter import RendererAdapter
-from render_plugins import render_special_recipe as _render
+from mathvision_adapter import RendererAdapter
+from renderer_adapter import RendererAdapter as LegacyAdapter
+from mathvision_plugins import render_special_recipe as _render_native
+from render_plugins import render_special_recipe as _render_legacy
 from workbench_io import (WorkbenchError, canonical_hash, contained_path, load_config,
-                          read_json, renderer_fingerprint)
+                          parse_json, read_json)
 
 
 def render_special_recipe(recipe, output_path=None, config_path=None):
     config = load_config(config_path)
-    adapter = RendererAdapter(config)
+    # Select from the formal source record, preserving the old manifest and
+    # executor for legacy rows even when new native runtimes are present.
+    records = (parse_json(line) for line in Path(config["dataset_file"]).read_text(
+        encoding="utf-8-sig").splitlines() if line.strip())
+    record = next((row for row in records if row["id"] == recipe["question_id"]), None)
+    if record is None:
+        raise WorkbenchError("不存在此立体题号。")
+    native = record.get("source_dataset") == "MathVision"
+    adapter = RendererAdapter(config) if native else LegacyAdapter(config)
     current = adapter.manifest
     recipe = copy.deepcopy(recipe)
-    current_renderer = renderer_fingerprint()
     if current["fingerprint"] != recipe["baseline_fingerprint"]:
         archive = contained_path(Path(config["output_dir"]),
                                  f"_baselines/{recipe['baseline_fingerprint']}.json")
@@ -23,7 +32,6 @@ def render_special_recipe(recipe, output_path=None, config_path=None):
             raise WorkbenchError("缺少这份已保存变体的输入基线记录。", 409, "baseline_missing")
         original = read_json(archive)
         qid = recipe["question_id"]
-        source_name = Path(adapter.sources[qid]["source_file"]).name
         dependencies = adapter.question_dependencies(qid)
         if (original.get("fingerprint") != recipe["baseline_fingerprint"] or
                 canonical_hash({"files": original["files"], "environment": original["environment"]}) != original["fingerprint"] or any(
@@ -32,4 +40,6 @@ def render_special_recipe(recipe, output_path=None, config_path=None):
         # The original immutable recipe stays intact. The renderer still verifies
         # schema, environment, parameters and exact saved pixels before writing.
         recipe["baseline_fingerprint"] = current["fingerprint"]
-    return _render(recipe, output_path, config_path)
+    if native:
+        return _render_native(recipe, output_path, config_path)
+    return _render_legacy(recipe, output_path, config_path)

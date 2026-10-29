@@ -7,6 +7,7 @@ import numpy as np
 from matplotlib.collections import LineCollection
 from matplotlib.colors import to_hex
 from matplotlib.path import Path
+from matplotlib.patches import Patch
 
 from renderer_adapter import RENDER_LOCK
 from partial_style import describe_paths
@@ -62,10 +63,24 @@ def describe_scene(adapter, qid):
                 owned = scene.artists[obj["id"]]
                 paths, styles = [], []
                 for artist in owned:
-                    paths.extend(_pixel_paths(artist.get_path(), artist.get_transform(), width, height))
-                    styles.append("dashed" if artist.is_dashed() else "solid")
-                color = to_hex(owned[0].get_color()).upper()
-                linewidth = float(owned[0].get_linewidth())
+                    if isinstance(artist, LineCollection):
+                        for path in artist.get_paths():
+                            paths.extend(_pixel_paths(path, artist.get_transform(), width, height))
+                        fragments = {"dashed" if pattern is not None else "solid"
+                                     for _, pattern in artist.get_linestyles()}
+                        styles.append(next(iter(fragments)) if len(fragments) == 1 else "mixed")
+                    else:
+                        paths.extend(_pixel_paths(artist.get_path(), artist.get_transform(), width, height))
+                        if hasattr(artist, "is_dashed"):
+                            dashed = artist.is_dashed()
+                        else:
+                            style = artist.get_linestyle()
+                            dashed = style[1] is not None if isinstance(style, tuple) else style not in ("-", "solid", "None", "", None)
+                        styles.append("dashed" if dashed else "solid")
+                first = owned[0]
+                color = to_hex(first.get_colors()[0] if isinstance(first, LineCollection) else
+                               first.get_edgecolor() if isinstance(first, Patch) else first.get_color()).upper()
+                linewidth = float(first.get_linewidths()[0] if isinstance(first, LineCollection) else first.get_linewidth())
                 targets.append({"id": obj["id"], "kind": obj["kind"], "paths": paths,
                                 "partial_paths": describe_paths(scene, obj["id"]),
                         "source_call": obj["source_call"], "color": color,

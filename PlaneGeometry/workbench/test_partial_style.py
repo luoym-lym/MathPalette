@@ -18,7 +18,8 @@ from partial_style import apply_partial_styles, describe_paths, evaluate, object
 from workbench_io import (ROOT, WorkbenchError, canonical_hash, environment_versions, file_hash,
                           load_config, read_json, renderer_fingerprint)
 from renderer_adapter import RendererAdapter
-from render_plugins import PluginRenderer, render_special_recipe
+from render_plugins import PluginRenderer
+from replay_archived import render_special_recipe
 from drawing_board import describe_scene
 
 

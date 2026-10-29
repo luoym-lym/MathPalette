@@ -11,9 +11,10 @@ import threading
 import uuid
 from pathlib import Path
 
-from render_plugins import PluginRenderer
+from mathvision_plugins import PluginRenderer
 from workbench_io import compatible_style_renderer
-from renderer_adapter import RENDER_LOCK, RendererAdapter
+from mathvision_adapter import RendererAdapter
+from renderer_adapter import RENDER_LOCK
 from workbench_io import (GENERATOR_VERSION, ROOT, SCHEMA_VERSION, WorkbenchError, atomic_json,
                           atomic_write, canonical_hash, contained_path, environment_versions,
                           file_hash, json_bytes, pixel_hash, protect_output_paths, read_json,
