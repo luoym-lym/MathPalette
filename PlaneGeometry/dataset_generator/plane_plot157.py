@@ -7,7 +7,7 @@ HERE = Path(__file__).resolve().parent
 class Plane157:
 
     def __init__(self):
-        self.__dict__.update({'id': 'Plane157', 'source_dataset': 'MathVision', 'question': 'The floor of a room is covered with equally big rectangular tiles (see picture). How long is the room?\nChoices:\nA:$6 \\mathrm{~m}$\nB:$8 \\mathrm{~m}$\nC:$10 \\mathrm{~m}$\nD:$11 \\mathrm{~m}$\nE:$12 \\mathrm{~m}$', 'answer': 'E', 'answer_type': 'choice', 'subject': 'PlaneGeometry', 'choices': {'A': '$6 \\mathrm{~m}$', 'B': '$8 \\mathrm{~m}$', 'C': '$10 \\mathrm{~m}$', 'D': '$11 \\mathrm{~m}$', 'E': '$12 \\mathrm{~m}$'}, 'source_key': 'test:91', 'source_category': 'combinatorial geometry', 'source_revision': '2837ddb3f13abaf6b3997c12d80753e5470bd46a'})
+        self.__dict__.update({'id': 'Plane157', 'source_dataset': 'MathVision', 'question': 'The floor of a room is covered with equally big rectangular tiles, as shown. The room is ____ m long.', 'answer': 12, 'answer_type': 'number', 'subject': 'PlaneGeometry', 'source_key': 'test:91', 'source_category': 'combinatorial geometry', 'source_revision': '2837ddb3f13abaf6b3997c12d80753e5470bd46a'})
         self.query = self.question
         self.level = None
         self.scene_path = HERE / 'scenes/Plane157.json'
