@@ -4,6 +4,8 @@
 
 当前 MathVision 的「重绘图片」已全部切换为按仓库协议重新制作的 PNG。对应 SVG、冻结场景、语义样式、逐题视觉复核及重绘程序一同更新；Pass 的临时复现与正式独立脚本使用同一套输入。当前保留题继续等待用户审核，没有因机器校验或 Agent 看图自动 Pass。更新本审核分支后重新启动 `start_review.cmd`，数据源选择 MathVision 即可审核。
 
+2026-10-29 又完成了当前 521 题的题干统一：228 题移除无关故事或修正英文表达，293 题保留，全部经独立交叉复核。当前题干、来源原文在详情中分开显示；答案、选项、原图、重绘图和几何输入不变。逐题改写依据见 `review_candidates/mathvision/items/<题号>/stem_revision.json`，全量记录见 `review_candidates/mathvision/stem_standardization_summary.json`。修改前已经打开的题目需重新载入，以取得新内容指纹；此操作没有批准任何候选或改动已有正式数据。
+
 既有 MathVerse 待审核候选保存在 `review_candidates/mathverse/`，两个来源的数量分别以各自当前 `index.jsonl` 为准。首次启动、浏览、筛选和预取图片不会批准或删除题目。正式数据、审核协议和三个 Special 工作台以本地 `master` 为准。
 
 ## Windows 启动
