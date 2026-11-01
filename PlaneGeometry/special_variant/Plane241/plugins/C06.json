@@ -1,0 +1,60 @@
+{
+  "plugin_schema_version": "1.0.0",
+  "question_id": "Plane241",
+  "category": "C",
+  "operation": "C_manual",
+  "description": "第二块底部真宽端点与第一块上下边比较。仅沿可见原路径描色或作普通几何分析标记，保持原粗细、虚实线、填色、文字和全部题设。",
+  "intent": "把1与2的局部标记当作拼接对应条件，虚构两个实际不互补的台阶无缝补成方形，漏检整块面积/外轮廓/不重叠约束，错误选1与2即A；将局部宽度对照误当整体互补",
+  "params": {
+    "actions": [
+      {
+        "type": "add_point",
+        "id": "left_bottom_span",
+        "xy": [
+          6,
+          0
+        ],
+        "color": "#2563EB",
+        "size_pt2": 50,
+        "filled": true,
+        "edge_linewidth_pt": 1.0
+      },
+      {
+        "type": "add_point",
+        "id": "right_bottom_span",
+        "xy": [
+          8,
+          0
+        ],
+        "color": "#2563EB",
+        "size_pt2": 50,
+        "filled": true,
+        "edge_linewidth_pt": 1.0
+      },
+      {
+        "type": "set_object_style",
+        "target": "piece1",
+        "color": "#2563EB",
+        "interval": {
+          "path_id": "p0",
+          "path_sha256": "3773e26421bb818d950eb0c3acc0d918c7e0d8c4baacad0b147f0e088180bfef",
+          "start": 0.75,
+          "end": 0.95,
+          "wrap": false
+        }
+      },
+      {
+        "type": "set_object_style",
+        "target": "piece1",
+        "color": "#EA580C",
+        "interval": {
+          "path_id": "p0",
+          "path_sha256": "3773e26421bb818d950eb0c3acc0d918c7e0d8c4baacad0b147f0e088180bfef",
+          "start": 0.45,
+          "end": 0.55,
+          "wrap": false
+        }
+      }
+    ]
+  }
+}

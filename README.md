@@ -2,13 +2,13 @@
 
 MathPalette 研究统一渲染条件下，视觉标记如何影响视觉语言模型的数学推理。原题经用户确认后收集，Special 从原图独立派生、经用户审核后保存，冻结操作以便重绘。标记方法与后续探索见 [Conclusion.md](Conclusion.md)（2026-10-17 的历史盘点）。[paper.tex](paper.tex) 是研究设计草稿，包含尚未启用的 BaseVar 设计；当前可用数据与功能以本说明和数据协议为准。编译论文还需准备 ICML 2026 模板及其参考文献文件。
 
-截至 2026-10-29，正式数据为 **808 题、335 张 Special**：Analytics 70 题 / 116 张，PlaneGeometry 490 题 / 189 张，SolidGeometry 248 题 / 30 张。Special 覆盖 80 道原题。题源为 DynaMath 20 题、MathVerse 147 题、MathVista 56 题、SOLIDGEO 9 题、Author designed 55 题、MathVision 521 题；最新数量以 `catalog.py check` 为准。
+截至 2026-10-31，正式数据为 **823 题、408 张 Special**：Analytics 70 题 / 116 张，PlaneGeometry 505 题 / 259 张，SolidGeometry 248 题 / 33 张。Special 覆盖 101 道原题。题源为 DynaMath 20 题、MathVerse 147 题、MathVista 56 题、SOLIDGEO 9 题、Author designed 70 题、MathVision 521 题；最新数量以 `catalog.py check` 为准。
 
 | 内容 | 数量 / 入口 |
 | --- | --- |
-| 正式原题 | [question_bank.jsonl](question_bank.jsonl)，808 条 |
+| 正式原题 | [question_bank.jsonl](question_bank.jsonl)，823 条 |
 | Base | 三个分支均未启用，汇总索引中的 `base_plugins` 为空列表 |
-| 已审核 Special | 共 335 张，保留原 Pass / Collect 时间；只有完成标记、没有已通过图片的题不计入变体数 |
+| 已审核 Special | 共 408 张，保留原 Pass / Collect 时间；只有完成标记、没有已通过图片的题不计入变体数 |
 | 来源截图 | MathVerse 147 张、MathVista 56 张、SOLIDGEO 9 张、MathVision 521 张，另有 9 张作者提供的参考图；DynaMath 20 题的来源截图在原库中缺失 |
 | 解析几何 Special 工作台 | 双击 [Analytics/start_special_workbench.cmd](Analytics/start_special_workbench.cmd)，端口 8767 |
 | 平面几何 Special 工作台 | 双击 [PlaneGeometry/start_special_workbench.cmd](PlaneGeometry/start_special_workbench.cmd)，端口 8768 |
@@ -20,7 +20,9 @@ MathPalette 研究统一渲染条件下，视觉标记如何影响视觉语言�
 | MathVista 来源与署名 | [provenance/mathvista/README.md](provenance/mathvista/README.md)，含完整源记录与入库核验 |
 | SOLIDGEO 来源与清理记录 | [来源署名](provenance/SOLIDGEO_ATTRIBUTION.md)、[保留题目与清理核验](provenance/solidgeo_cleanup.json) |
 
-当前题号为 Ana01～Ana51、Ana53～Ana71、Plane01～Plane490、Solid01～Solid248；Ana52 已按用户要求删除，不复用。Ana01～Ana20 来自 DynaMath，Ana21～Ana45、Ana47～Ana51 与 Ana53～Ana71 来自 MathVerse，Ana46 来自 MathVista。Plane01～Plane16、Plane72～Plane93 与 Plane137～Plane139 来自 MathVerse，Plane17～Plane71 来自 MathVista，Plane94～Plane136 为 Author designed；Solid01～Solid16 与 Solid26～Solid66 来自 MathVerse，Solid17～Solid25 来自 SOLIDGEO，Solid67～Solid78 为 Author designed。Plane140～Plane490 与 Solid79～Solid248 来自 MathVision。图片、绘图类、Special 插件和工作台使用相同题号。清理前编号仅保存在 [迁移记录](provenance/cleanup.json) 中。
+当前题号为 Ana01～Ana51、Ana53～Ana71、Plane01～Plane505、Solid01～Solid248；Ana52 已按用户要求删除，不复用。Ana01～Ana20 来自 DynaMath，Ana21～Ana45、Ana47～Ana51 与 Ana53～Ana71 来自 MathVerse，Ana46 来自 MathVista。Plane01～Plane16、Plane72～Plane93 与 Plane137～Plane139 来自 MathVerse，Plane17～Plane71 来自 MathVista，Plane94～Plane136 为 Author designed；Solid01～Solid16 与 Solid26～Solid66 来自 MathVerse，Solid17～Solid25 来自 SOLIDGEO，Solid67～Solid78 为 Author designed。Plane140～Plane490 与 Solid79～Solid248 来自 MathVision。图片、绘图类、Special 插件和工作台使用相同题号。清理前编号仅保存在 [迁移记录](provenance/cleanup.json) 中。
+
+Plane491～Plane505 为用户确认入库的15道原创拓展，来源统一为 `Author designed`。图中已有的选项均与题干核对；拼块题 Plane503 列出四块拼片的全部六种配对，答案仍为 C（2和3）。本次仅收录原题，未加入配套 Special。编号映射、来源关系及选项补全记录见 [入库记录](provenance/authored_extensions_admission_20261031.json)。
 
 Author designed 平面题包括 Plane94～Plane99 曲线追踪、Plane100～Plane102 最短路径、Plane103～Plane108 图形比较、Plane109～Plane114 交点计数、Plane115 直线延长判断，Plane116～Plane118 平行、垂直和等角判断，Plane119 多边形边数判断，Plane120～Plane121 折线转折与平面分区计数，以及 Plane122 轴对称点判断。最短路径三题分别使用等半径双圆、单圆偏置端点、不等半径双圆；正式图保留黑色几何和尺寸标注，精确答案以 `dataset.jsonl` 为准。
 
