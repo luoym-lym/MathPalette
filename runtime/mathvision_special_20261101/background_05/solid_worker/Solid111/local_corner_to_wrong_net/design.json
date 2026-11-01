@@ -1,0 +1,376 @@
+{
+  "question_id": "Solid111",
+  "variant_id": "local_corner_to_wrong_net",
+  "expected_wrong_answer": "D",
+  "formal_correct_answer": "E",
+  "created_at": "2026-11-01T12:47:43.242063+00:00",
+  "mechanism": "Three seam colors bind the source H/W/G corner to D H0/W1/Gbelow1. This local corner really folds correctly, but the remaining opposite faces in D have W/G mismatches; hypothesis is choosing D from necessary local compatibility without checking all three opposite pairs.",
+  "marker_roles": [
+    {
+      "action_index": 0,
+      "target": "givenedge3",
+      "role": "Source H/W seam paired with D local H0/W1 hinge."
+    },
+    {
+      "action_index": 1,
+      "target": "D_netedge5",
+      "role": "Source H/W seam paired with D local H0/W1 hinge."
+    },
+    {
+      "action_index": 2,
+      "target": "givenedge5",
+      "role": "Source H/G seam paired with the two free D edges that close the H0/Gbelow1 seam."
+    },
+    {
+      "action_index": 3,
+      "target": "D_netedge1",
+      "role": "Source H/G seam paired with the two free D edges that close the H0/Gbelow1 seam."
+    },
+    {
+      "action_index": 4,
+      "target": "D_netedge3",
+      "role": "Source H/G seam paired with the two free D edges that close the H0/Gbelow1 seam."
+    },
+    {
+      "action_index": 5,
+      "target": "givenedge7",
+      "role": "Source W/G seam paired with D W1/Gbelow1 hinge."
+    },
+    {
+      "action_index": 6,
+      "target": "D_netedge6",
+      "role": "Source W/G seam paired with D W1/Gbelow1 hinge."
+    }
+  ],
+  "math_proof": "Exhaustively fold each of the six face normals by 90 degrees across net hinges. Only E has H/H, G/G, W/W on its three opposite pairs. D has H/H, W/G, W/G. The matched D corner itself is locally compatible under a rotation, so no false explicit geometric condition is drawn.",
+  "math_evidence": {
+    "A": {
+      "cells": {
+        "(0, 0)": "W",
+        "(1, 0)": "G",
+        "(2, 0)": "W",
+        "(3, 0)": "H",
+        "(1, 1)": "H",
+        "(2, -1)": "G"
+      },
+      "opposite_pairs": [
+        {
+          "cells": [
+            [
+              0,
+              0
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "colors": [
+            "W",
+            "W"
+          ],
+          "equal": true
+        },
+        {
+          "cells": [
+            [
+              1,
+              0
+            ],
+            [
+              3,
+              0
+            ]
+          ],
+          "colors": [
+            "G",
+            "H"
+          ],
+          "equal": false
+        },
+        {
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              -1
+            ]
+          ],
+          "colors": [
+            "H",
+            "G"
+          ],
+          "equal": false
+        }
+      ],
+      "valid": false
+    },
+    "B": {
+      "cells": {
+        "(0, 0)": "G",
+        "(1, 0)": "W",
+        "(2, 0)": "H",
+        "(3, 0)": "W",
+        "(1, 1)": "G",
+        "(1, -1)": "H"
+      },
+      "opposite_pairs": [
+        {
+          "cells": [
+            [
+              0,
+              0
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "colors": [
+            "G",
+            "H"
+          ],
+          "equal": false
+        },
+        {
+          "cells": [
+            [
+              1,
+              0
+            ],
+            [
+              3,
+              0
+            ]
+          ],
+          "colors": [
+            "W",
+            "W"
+          ],
+          "equal": true
+        },
+        {
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              -1
+            ]
+          ],
+          "colors": [
+            "G",
+            "H"
+          ],
+          "equal": false
+        }
+      ],
+      "valid": false
+    },
+    "C": {
+      "cells": {
+        "(0, 0)": "G",
+        "(1, 0)": "W",
+        "(2, 0)": "H",
+        "(3, 0)": "G",
+        "(3, 1)": "W",
+        "(3, -1)": "H"
+      },
+      "opposite_pairs": [
+        {
+          "cells": [
+            [
+              0,
+              0
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "colors": [
+            "G",
+            "H"
+          ],
+          "equal": false
+        },
+        {
+          "cells": [
+            [
+              1,
+              0
+            ],
+            [
+              3,
+              0
+            ]
+          ],
+          "colors": [
+            "W",
+            "G"
+          ],
+          "equal": false
+        },
+        {
+          "cells": [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              -1
+            ]
+          ],
+          "colors": [
+            "W",
+            "H"
+          ],
+          "equal": false
+        }
+      ],
+      "valid": false
+    },
+    "D": {
+      "cells": {
+        "(0, 0)": "H",
+        "(1, 0)": "W",
+        "(2, 0)": "H",
+        "(3, 0)": "G",
+        "(3, 1)": "W",
+        "(1, -1)": "G"
+      },
+      "opposite_pairs": [
+        {
+          "cells": [
+            [
+              0,
+              0
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "colors": [
+            "H",
+            "H"
+          ],
+          "equal": true
+        },
+        {
+          "cells": [
+            [
+              1,
+              0
+            ],
+            [
+              3,
+              0
+            ]
+          ],
+          "colors": [
+            "W",
+            "G"
+          ],
+          "equal": false
+        },
+        {
+          "cells": [
+            [
+              1,
+              -1
+            ],
+            [
+              3,
+              1
+            ]
+          ],
+          "colors": [
+            "G",
+            "W"
+          ],
+          "equal": false
+        }
+      ],
+      "valid": false
+    },
+    "E": {
+      "cells": {
+        "(0, 0)": "G",
+        "(1, 0)": "H",
+        "(2, 0)": "G",
+        "(3, 0)": "H",
+        "(1, 1)": "W",
+        "(3, -1)": "W"
+      },
+      "opposite_pairs": [
+        {
+          "cells": [
+            [
+              0,
+              0
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "colors": [
+            "G",
+            "G"
+          ],
+          "equal": true
+        },
+        {
+          "cells": [
+            [
+              1,
+              0
+            ],
+            [
+              3,
+              0
+            ]
+          ],
+          "colors": [
+            "H",
+            "H"
+          ],
+          "equal": true
+        },
+        {
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              3,
+              -1
+            ]
+          ],
+          "colors": [
+            "W",
+            "W"
+          ],
+          "equal": true
+        }
+      ],
+      "valid": true
+    }
+  },
+  "input_binding_sha256": "31c6db7f071028e28faeb32e9925af63c2fd0cf71694204e4cc5e82f5bd81e7d",
+  "candidate_png_sha256": "bccdccc7e9f3f2f57dd4f2c3dc26bbe30e9c83a2a4401c057ffb04abaf03b293",
+  "limits": [
+    "No model calls yet.",
+    "No original control or per-marker ablation has been run.",
+    "Border colors are optional annotations, not additional face colors.",
+    "This is primary research review only; parent must commission a new independent review before delivery."
+  ]
+}

@@ -28,6 +28,9 @@ def make_handler(workbench, quick_tests=None):
         def _send(self, data, content_type="application/json; charset=utf-8", status=200):
             if isinstance(data, dict) and "review_token" in data and "questions" in data:
                 data = {**data, "quick_test": quick_tests.snapshot(data)}
+            elif isinstance(data, dict) and isinstance(data.get("state"), dict):
+                state = data["state"]
+                data = {**data, "state": {**state, "quick_test": quick_tests.snapshot(state)}}
             if not isinstance(data, bytes):
                 data = json.dumps(data, ensure_ascii=False, allow_nan=False).encode("utf-8")
             self.send_response(status)
@@ -154,8 +157,11 @@ def make_handler(workbench, quick_tests=None):
                     if path == "/api/drawing-submit":
                         return self._send(workbench.drawing_submit(body["plugin"], body["context_token"], body.get("replace"),
                             body["pixel_sha256"], body["parameter_key"]))
-                    return self._send(workbench.review(body["question_id"], body["candidate_id"], body["decision"],
-                        body["context_token"], body["pixel_sha256"], body["parameter_key"], body.get("note", "")))
+                    with workbench.lock:
+                        result = workbench.review(body["question_id"], body["candidate_id"], body["decision"],
+                            body["context_token"], body["pixel_sha256"], body["parameter_key"], body.get("note", ""))
+                        state = workbench.snapshot()
+                    return self._send({**result, "state": state})
                 raise WorkbenchError("路径不存在。", 404)
             except (BrokenPipeError, ConnectionResetError, ConnectionAbortedError):
                 pass

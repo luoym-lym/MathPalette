@@ -1,0 +1,133 @@
+{
+  "question_id": "Plane282",
+  "variant_id": "exposed_step_unit_transfer",
+  "created_at": "2026-11-01T16:02:38.929789+00:00",
+  "expected_wrong_answer": "14",
+  "correct_answer": "12",
+  "mechanism": "Pair the four actual exposed shoulder segments (lengths 3/4,1/4,1/4,3/4) with one full unit bottom side, all red. Targets counting four red shoulder segments as four units rather than their actual total two, yielding vertical6+top1+bottom3+steps4=14. This materially replaces the prior internal-contact classification design (preset18) with an exterior fractional-length correspondence design; prior image and results14/15 remain untouched.",
+  "mathematical_solution": "All six unit squares have total separate perimeter 24. Bottom-row internal vertical contacts total 2, middle-row vertical contact 1, bottom-to-middle contacts total 2 (overlaps 1/4,3/4,1/4,3/4), and middle-to-top contacts total 1 (overlaps 3/4,1/4). Total shared length is 6, so union perimeter is 24-2*6=12. Contact endpoints, offsets and all unit square contours remain unchanged, giving unique numeric answer 12.",
+  "marker_roles": [
+    {
+      "action_index": 0,
+      "id": "Binding_0",
+      "source_object": "square0",
+      "source_edge_index": 2,
+      "role": "One actual exposed horizontal shoulder of the stepped outer perimeter; its same red appearance proposes correspondence with the full unit reference edge, while its shorter physical extent remains visible."
+    },
+    {
+      "action_index": 1,
+      "id": "Binding_1",
+      "source_object": "square2",
+      "source_edge_index": 2,
+      "role": "One actual exposed horizontal shoulder of the stepped outer perimeter; its same red appearance proposes correspondence with the full unit reference edge, while its shorter physical extent remains visible."
+    },
+    {
+      "action_index": 2,
+      "id": "Binding_2",
+      "source_object": "square3",
+      "source_edge_index": 2,
+      "role": "One actual exposed horizontal shoulder of the stepped outer perimeter; its same red appearance proposes correspondence with the full unit reference edge, while its shorter physical extent remains visible."
+    },
+    {
+      "action_index": 3,
+      "id": "Binding_3",
+      "source_object": "square4",
+      "source_edge_index": 2,
+      "role": "One actual exposed horizontal shoulder of the stepped outer perimeter; its same red appearance proposes correspondence with the full unit reference edge, while its shorter physical extent remains visible."
+    },
+    {
+      "action_index": 4,
+      "id": "Binding_4",
+      "source_object": "square0",
+      "source_edge_index": 0,
+      "role": "The full unit bottom edge of the left bottom square is the source length reference for the four shorter exposed horizontal shoulders. It is an existing side, not an equality symbol. This 1pt overlay follows that exact existing edge."
+    }
+  ],
+  "overlay_bindings": [
+    {
+      "id": "Binding_0",
+      "object_id": "square0",
+      "edge_index": 2,
+      "exact_source_endpoints": [
+        [
+          0,
+          1
+        ],
+        [
+          0.75,
+          1
+        ]
+      ],
+      "subedge": true,
+      "endpoints_are_existing_visible_vertices": true
+    },
+    {
+      "id": "Binding_1",
+      "object_id": "square2",
+      "edge_index": 2,
+      "exact_source_endpoints": [
+        [
+          2.75,
+          1
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "subedge": true,
+      "endpoints_are_existing_visible_vertices": true
+    },
+    {
+      "id": "Binding_2",
+      "object_id": "square3",
+      "edge_index": 2,
+      "exact_source_endpoints": [
+        [
+          0.75,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "subedge": true,
+      "endpoints_are_existing_visible_vertices": true
+    },
+    {
+      "id": "Binding_3",
+      "object_id": "square4",
+      "edge_index": 2,
+      "exact_source_endpoints": [
+        [
+          2,
+          2
+        ],
+        [
+          2.75,
+          2
+        ]
+      ],
+      "subedge": true,
+      "endpoints_are_existing_visible_vertices": true
+    },
+    {
+      "id": "Binding_4",
+      "object_id": "square0",
+      "edge_index": 0,
+      "exact_source_endpoints": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    }
+  ],
+  "human_semantics": "Existing contour styles or exact existing-edge 1pt auxiliary overlays only. Frozen geometry, black/gray/white semantic fill, dimensions and all original labels remain. Same colors are appearance cues, not equality symbols. No geometric edge or cut is added at a new location. Actual candidate PNG must still be viewed before testing.",
+  "review_status": "PRIMARY_ONLY_NEW_PARENT_INDEPENDENT_REVIEW_REQUIRED"
+}

@@ -1,0 +1,57 @@
+{
+  "plugin_schema_version": "1.0.0",
+  "question_id": "Plane440",
+  "category": "C",
+  "operation": "C_manual",
+  "description": "只连接旋转单位正方形的上下顶点，以两红点和一蓝色虚线突出竖直对角线sqrt2，诱导把它当B到地面的完整高度，遗漏下顶点距地面的1/2。未改正方形、接触点、地面或B标签。",
+  "intent": "预设诱导错误答案 B",
+  "params": {
+    "actions": [
+      {
+        "type": "add_line",
+        "id": "diagonal_height_lure",
+        "endpoints": [
+          [
+            6.5,
+            0.5
+          ],
+          [
+            6.5,
+            1.9142135623730951
+          ]
+        ],
+        "color": "#2563EB",
+        "linestyle": "dashed",
+        "linewidth_pt": 1.0,
+        "dash_pattern_pt": [
+          3.7,
+          1.6
+        ]
+      },
+      {
+        "type": "add_point",
+        "id": "diagonal_lower_anchor",
+        "xy": [
+          6.5,
+          0.5
+        ],
+        "color": "#DC2626",
+        "filled": true,
+        "size_pt2": 50,
+        "edge_linewidth_pt": 1.0
+      },
+      {
+        "type": "add_point",
+        "id": "diagonal_upper_anchor",
+        "xy": [
+          6.5,
+          1.9142135623730951
+        ],
+        "color": "#DC2626",
+        "filled": true,
+        "size_pt2": 50,
+        "edge_linewidth_pt": 1.0
+      }
+    ]
+  }
+}

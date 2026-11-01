@@ -1,0 +1,9 @@
+from design_tools import *
+q='Solid136';actions=[];roles=[]
+for target,label in [('line16','input grid top-row edge'),('line42','final accordion lower three-panel edge'),('line61','question grid top-row edge')]:
+    for i,color in enumerate([RED,BLUE,GREEN]):
+        actions.append(style(target,color,2,interval(q,target,i/3,(i+1)/3)))
+        roles.append(f'{label}, panel {i+1}. The three colors bind the source top-row cells in left-to-right order to the three final accordion panels; on the query grid the third green cell is a. This is a false one-cell-per-panel reading: each final panel already contains three row layers. It encourages swapping horizontal-first and vertical-first stacking, predicting a=3,b=5,c=7 (D).')
+math={'method':'Unfold the indicated accordion with gray cell topmost. Horizontal-first stacks rows in each column. The second accordion reverses the middle column stack; left and right retain their row order.','final_top_to_bottom_cell_row_col':[[0,0],[1,0],[2,0],[2,1],[1,1],[0,1],[0,2],[1,2],[2,2]],'unfolded_numbers_by_row':[[1,6,7],[2,5,8],[3,4,9]],'a':7,'b':5,'c':3,'unique_option':'C','wrong_transposed_fold_order_numbers_by_row':[[1,2,3],[6,5,4],[7,8,9]],'source_3D_projection_visibility_unchanged':True}
+write(TASK/q/'accordion_order_audit.json',math)
+print(save_candidate(q,'row_to_final_panel_misbinding','D',actions,roles,'Bind the three top-row cells to the three final accordion panels by ordered edge colors, inviting the mistaken one-layer-per-panel count and transposed fold order.','The exact indicated accordion order is column0 top/middle/bottom, column1 bottom/middle/top, then column2 top/middle/bottom. Thus a7,b5,c3, unique C. All row layers, fold arrows and gray origin cell remain readable; colored edges add no fold or number condition.',TASK/q/'accordion_order_audit.json'))

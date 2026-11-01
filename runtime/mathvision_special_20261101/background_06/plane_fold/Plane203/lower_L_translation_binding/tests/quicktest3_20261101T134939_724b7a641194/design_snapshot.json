@@ -1,0 +1,25 @@
+{
+  "question_id": "Plane203",
+  "variant_id": "lower_L_translation_binding",
+  "expected_wrong_answer": "C",
+  "correct_answer": "E",
+  "created_at": "2026-11-01T13:48:35.175875+00:00",
+  "mechanism": "The three original lower grey cells form an L. Red existing borders bind that input L to a copy translated four columns right, instead of reflected in the black fold x=3. This specific false source-to-destination correspondence covers E and leaves C uncovered. The true reflected lower L covers C and leaves E uncovered. All marks are existing cell borders, without new fills or text.",
+  "mathematical_solution": "Use cells (column,row) from the lower-left corner. The grey cells are (1,3),(2,3),(2,2),(0,1),(1,1),(0,0). Reflection in x=3 sends column c to5-c, preserving row, so destinations are (4,3),(3,3),(3,2),(5,1),(4,1),(5,0). Letter positions are A=(3,3), B=(4,3), C=(5,0), D=(4,1), E=(4,0). A/B/C/D are covered; E alone is not. No colored border changes the grey set, the fold, or a letter coordinate, so E remains unique. The false translation targets (4,1),(5,1),(4,0) for the lower L and incorrectly omits C.",
+  "marker_roles": [
+    "Source lower-L upper-left grey cell(0,1): red outline identifies this member of the three-cell translated part.",
+    "Source lower-L upper-right grey cell(1,1): red outline identifies the horizontal arm of the translated part.",
+    "Source lower-L bottom grey cell(0,0): red outline is falsely bound to E cell(4,0), the decisive translation-versus-reflection error.",
+    "Red x=4 grid interval y0..2 is the left boundary of both falsely translated left cells, including E.",
+    "Red x=5 grid interval y0..2 closes E on the right and divides the two upper cells of the falsely translated L.",
+    "Red x=6 grid interval y1..2 closes the falsely translated upper-right cell.",
+    "Red y=0 grid interval x4..5 is the bottom edge of the false E destination for source(0,0).",
+    "Red y=1 grid interval x4..6 closes both upper translated cells and the top of the E destination.",
+    "Red y=2 grid interval x4..6 is the top boundary of the falsely translated horizontal arm."
+  ],
+  "human_gate": "Six grey cells remain distinctly filled. The black thick fold atx=3 is untouched and visibly distinct. Every letter remains black, unobscured in its cell. Red borders use only the existing grid and grey-square outlines; no squarefill or new gridline is added. The three-cell counts, cell adjacency and distances from the fold remain readable.",
+  "review_status": "PRIMARY_ONLY_REQUIRES_NEW_PARENT_INDEPENDENT_SECOND_REVIEW",
+  "limits": [
+    "No original control or statistical marker ablation. Any two wrong calls would establish only this frozen candidate possibility, pending NEW independent second review."
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "question_id": "Plane449",
+  "variant_id": "visible_side_label_role_binding",
+  "expected_wrong_answer": "B",
+  "created_at": "2026-11-01T15:57:57.097076+00:00",
+  "mechanism": "Bind B-right3 to C-left3 in red and C-right5 to D-top5 in blue; repeat red/blue on the I-II-III slot seams. Intended error: infer B,C,D along the top row by matching equal labels while overlooking that D-top5 is not D-left7 and no rotation is permitted.",
+  "primary_mathematical_proof": "Keep orientations fixed. Enumerating all 120 rectangle permutations in slots I,II,III,IV,V with right-left seams I-II,II-III,IV-V and bottom-top seams I-IV,II-V gives exactly (E,D,A,B,C). Thus I=E uniquely. The proposed B,C,D starts with a valid 3-3 seam but its next seam is C-right5 versus D-left7, invalid. All printed integers and slot labels remain black and all original rectangle coordinates stay fixed. Partial edge colors are appearance hints, not replacement numeric equality rules.",
+  "marker_roles": [
+    {
+      "actions": [
+        0,
+        1,
+        4
+      ],
+      "role": "B-right3 and C-left3 red match; single red slot I-II seam binds this pair to the tempting wrong row."
+    },
+    {
+      "actions": [
+        2,
+        3,
+        5
+      ],
+      "role": "C-right5 and D-top5 blue numeric correspondence, plus single blue II-III seam, tempt ignoring side orientation. Source D-left7 remains clear. All six actions have distinct visible roles."
+    }
+  ],
+  "approval_status": "UNREVIEWED; requires NEW independent parent review"
+}

@@ -1,0 +1,104 @@
+{
+  "question_id": "Solid190",
+  "variant_id": "vertical_column_ownership_binding",
+  "expected_wrong_answer": "B",
+  "correct_answer": "C",
+  "created_at": "2026-11-01T15:52:52.277509+00:00",
+  "intent": "Bind a two-cell vertical column in the assembled cuboid to the vertical terminal of B; red is the lower actual dark cube and blue is the crosshatched upper neighbor. Target false piece ownership across the original material boundary, leading to L-shaped B instead of planar T.",
+  "pretest_math_proof": "Cuboid4x2x2 has16cells. Crosshatched4,white4,gray4 visible cells exhaust other blocks. Complement dark={(0,1,0),(1,0,0),(1,1,0),(2,1,0)} forms planarT, uniquelyC under24proper rotations. B is L with degree sequence2,2,1,1 versus darkT3,1,1,1. Crosshatch lines and fills remain intact, so a human can reject the blue ownership correspondence.",
+  "pretest_marker_roles": [
+    {
+      "action": {
+        "type": "set_object_style",
+        "target": "maine13",
+        "color": "#DC2626",
+        "linewidth_pt": 2
+      },
+      "role": "Lower boundary of actual visible dark front unit; binds to lower dark cube of B",
+      "original_world_endpoints": [
+        [
+          11.0,
+          0.0,
+          5.0
+        ],
+        [
+          12.0,
+          0.0,
+          5.0
+        ]
+      ],
+      "partial_paths": []
+    },
+    {
+      "action": {
+        "type": "set_object_style",
+        "target": "maine16",
+        "color": "#2563EB",
+        "linewidth_pt": 2
+      },
+      "role": "Upper boundary of the crosshatched cube immediately above the dark unit; false ownership match to upper dark cube of B",
+      "original_world_endpoints": [
+        [
+          11.0,
+          0.0,
+          7.0
+        ],
+        [
+          12.0,
+          0.0,
+          7.0
+        ]
+      ],
+      "partial_paths": []
+    },
+    {
+      "action": {
+        "type": "set_object_style",
+        "target": "Be0",
+        "color": "#DC2626",
+        "linewidth_pt": 2
+      },
+      "role": "B lower front unit bottom edge matched to actual visible dark cube",
+      "original_world_endpoints": [
+        [
+          5.0,
+          0.0,
+          0.0
+        ],
+        [
+          6.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "partial_paths": []
+    },
+    {
+      "action": {
+        "type": "set_object_style",
+        "target": "Be7",
+        "color": "#2563EB",
+        "linewidth_pt": 2
+      },
+      "role": "B upper front unit top edge matched to crosshatched source cube; targets erroneous vertical rather than planar-T continuation",
+      "original_world_endpoints": [
+        [
+          5.0,
+          0.0,
+          2.0
+        ],
+        [
+          6.0,
+          0.0,
+          2.0
+        ]
+      ],
+      "partial_paths": []
+    }
+  ],
+  "pretest_human_semantics": "Blue source boundary deliberately belongs to crosshatched neighbor, not dark. This is an appearance correspondence and no change of material. Full crosshatch must remain readable; otherwise reject. Only two parallel existing input boundaries and two option boundaries; no added cuts.",
+  "frozen_png_sha256": "e665d80a031499f7ade6e4a5625f73243b1acb86f9f9be2cccf885a267fda668",
+  "frozen_pixel_sha256": "2aaf006a79591d80d2e7a6381295b261bb76bb99bedd08dc0463772bfc7ad341",
+  "formal_context": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_14\\Solid190\\context.json",
+  "approval_status": "Primary exploration only; NEW independent second review required."
+}

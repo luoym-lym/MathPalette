@@ -1,0 +1,156 @@
+{
+  "question_id": "Solid211",
+  "variant_id": "opposite_face_to_same_face_corner_binding",
+  "expected_wrong_answer": "5",
+  "formal_correct_answer": "6",
+  "created_at": "2026-11-01T15:54:02.858423+00:00",
+  "mechanism": "The two-edge red/blue corner of the existing bottom gray square is transferred to position5, inviting a false collision and excluding one valid attachment.",
+  "marker_roles": [
+    {
+      "action_index": 0,
+      "action": {
+        "type": "set_object_style",
+        "target": "line_16",
+        "color": "#DC2626",
+        "linewidth_pt": 2
+      },
+      "role": "Free bottom edge of gray bottom cell(0,0); source in red for the false same-face fold correspondence.",
+      "original_object": {
+        "id": "line_16",
+        "type": "curve",
+        "kind": "segment",
+        "role": "edge",
+        "styleable": true,
+        "source_call": {
+          "scene_object_id": "line_16",
+          "native_object_id": "line_16"
+        },
+        "geometry": {
+          "id": "line_16",
+          "type": "segment",
+          "points": [
+            "p0_0",
+            "p1_0"
+          ],
+          "role": "edge",
+          "visibility": "visible"
+        },
+        "frozen_visibility": "visible",
+        "artist_count": 1
+      }
+    },
+    {
+      "action_index": 1,
+      "action": {
+        "type": "set_object_style",
+        "target": "line_34",
+        "color": "#DC2626",
+        "linewidth_pt": 2
+      },
+      "role": "Free top dashed edge of possible position5 receives red; no new square or actual attachment is drawn.",
+      "original_object": {
+        "id": "line_34",
+        "type": "curve",
+        "kind": "segment",
+        "role": "auxiliary",
+        "styleable": true,
+        "source_call": {
+          "scene_object_id": "line_34",
+          "native_object_id": "line_34"
+        },
+        "geometry": {
+          "id": "line_34",
+          "type": "segment",
+          "points": [
+            "p2_3",
+            "p3_3"
+          ],
+          "role": "auxiliary",
+          "visibility": "visible",
+          "linestyle": "dashed",
+          "semantic_note": "Source semantic dash, not physical occlusion"
+        },
+        "frozen_visibility": "visible",
+        "artist_count": 1
+      }
+    },
+    {
+      "action_index": 2,
+      "action": {
+        "type": "set_object_style",
+        "target": "line_17",
+        "color": "#2563EB",
+        "linewidth_pt": 2
+      },
+      "role": "Gray bottom cell right free edge; second source direction in blue disambiguates the mapped corner.",
+      "original_object": {
+        "id": "line_17",
+        "type": "curve",
+        "kind": "segment",
+        "role": "edge",
+        "styleable": true,
+        "source_call": {
+          "scene_object_id": "line_17",
+          "native_object_id": "line_17"
+        },
+        "geometry": {
+          "id": "line_17",
+          "type": "segment",
+          "points": [
+            "p1_0",
+            "p1_1"
+          ],
+          "role": "edge",
+          "visibility": "visible"
+        },
+        "frozen_visibility": "visible",
+        "artist_count": 1
+      }
+    },
+    {
+      "action_index": 3,
+      "action": {
+        "type": "set_object_style",
+        "target": "line_33",
+        "color": "#2563EB",
+        "linewidth_pt": 2
+      },
+      "role": "Position5 outer right dashed edge receives blue; the two-edge corner template invites confusing opposite cube faces as one overlapping face.",
+      "original_object": {
+        "id": "line_33",
+        "type": "curve",
+        "kind": "segment",
+        "role": "auxiliary",
+        "styleable": true,
+        "source_call": {
+          "scene_object_id": "line_33",
+          "native_object_id": "line_33"
+        },
+        "geometry": {
+          "id": "line_33",
+          "type": "segment",
+          "points": [
+            "p3_2",
+            "p3_3"
+          ],
+          "role": "auxiliary",
+          "visibility": "visible",
+          "linestyle": "dashed",
+          "semantic_note": "Source semantic dash, not physical occlusion"
+        },
+        "frozen_visibility": "visible",
+        "artist_count": 1
+      }
+    }
+  ],
+  "primary_math": "The original gray cells are (0,0),(0,1),(1,1),(2,1). Propagating a perpendicular unit face frame around every shared edge gives the exact normals in folding_audit.json. Positions1 and3 duplicate an existing face normal, so overlap, while2 has an inconsistent four-face vertex cycle. Positions4,5,6,7,8,9 give five distinct signed coordinate normals and form five faces of the cube, no face overlap; connected shared-edge hinge folds realize them. Thus exactly6 valid positions. In particular5 points to the face opposite to gray(0,0), not that same face. All source gray fills, solid polygon edges and dashed possible-position contours remain unchanged except color; no new or solidified attachment boundary is introduced.",
+  "math_audit_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_15\\Solid211\\primary_math_proof.json",
+  "marker_path_bindings_sha256": "1ac0ff843451bfe02178ce058f13c053cfc291c7980821df67e645d7e2b2a726",
+  "context_sha256": "c072c50cc894047e2389354aa54b8ec753d9ba396f2cd094a3741aeec9f4db0f",
+  "candidate_png_sha256": "c897c203717fdeaa5fc090a96a3e851be6bc908b9a59958916f9cee366e5c148",
+  "limits": [
+    "No original control unless later saved separately.",
+    "Primary review only; parent must commission a NEW independent review before delivery.",
+    "No claim about human performance or per-marker statistical causal necessity. Appearance marks do not add mathematical givens."
+  ]
+}

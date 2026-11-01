@@ -1,0 +1,14 @@
+from design_tools import *
+q='Solid126';g=[
+named(q,['ring0e5part0'],RED,'Five-unit remaining lower height directly beside original dimension5; source of false height assignment',2),
+named(q,['ring0e3part0'],RED,'Actual three-unit cut riser; false match to5-unit original lower height',2),
+named(q,['ring1e3part0'],RED,'Rear three-unit cut riser; same false5-unit height used on both removed front/back patches',2)]
+save(q,'remaining_height_to_cut_binding','C',g,'Pair the clearly dimensioned remaining lower height5 with both cut risers using red edges. Target misusing5 instead of8-5=3 as the removed front/back patch height, yielding90/432=20.833%,choiceC.','Original area2(12*6+12*8+6*8)=432. Cut width12-3=9,height8-5=3,depth6. Lost top9*6 is replaced by floor9*6 and lost side3*6 by cut side3*6. Only two front/back9*3 rectangles are lost, total54. Decrease54/432=12.5%,B. Original5,8,3,6,12 labels stay fixed. Red line colors make no equality claim.','Existing cut edges only; no newly drawn cut or closed contour. No line-style override. Original dimension5 still denotes lower remaining height, not cut riser. Human must be able to see that distinction and calculate8-5.')
+q='Solid156';s=AD.scenes[q];M=np.array(s['projection']['matrix']);orig=np.array(s['projection']['origin']);off=np.array(s['projection']['offset']);g=[]
+for j in range(6):
+    w=[0,0,(j+.5)*.5];xy=(M@(np.array(w)-orig)+off).tolist();a={'type':'add_point','id':f'height_unit_{j}','xy':xy,'color':RED}
+    g.append(([a],[{'action':a,'world_anchor':w,'role':f'Center of shortest brick-height interval{j+1} of6; correct interval count on reference axis','coordinate_basis':'Exact affine projection; point appearance only'}]))
+for j in range(4):
+    w=[j,0,3];xy=(M@(np.array(w)-orig)+off).tolist();a={'type':'add_point','id':f'width_boundary_{j}','xy':xy,'color':BLUE}
+    g.append(([a],[{'action':a,'world_anchor':w,'role':f'Width boundary{j+1} of4 (only3 intervals); false correspondence to red interval counting','coordinate_basis':'Existing vertex exact affine projection'}]))
+save(q,'interval_boundary_count_binding','A',g,'Red marks locate six shortest-height intervals; blue marks locate four width boundaries. Target treating four blue boundaries as four width bricks while keeping six red shortest-height intervals: cube edge24, width24/4=6,depth24/2=12,wrong4x6x12,choiceA.','Cube side has6shortestheight intervals,3width intervals,2depth intervals. Shortest4cm makes side24cm. Brickdimensions4x8x12,C. Four blue marks are boundary positions, not four bricks; all three intervening front columns remain visible. Red points lie midway in height intervals, not new cube vertices.','Dots may cover a tiny part of an existing line but original continuous grid and all six height/three width/two depth intervals remain readable. Added dots have no equality/length meaning and no new partitions. No option is marked.')

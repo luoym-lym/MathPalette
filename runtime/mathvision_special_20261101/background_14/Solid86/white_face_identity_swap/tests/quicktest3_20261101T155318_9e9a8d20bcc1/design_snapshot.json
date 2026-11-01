@@ -1,0 +1,87 @@
+{
+  "question_id": "Solid86",
+  "variant_id": "white_face_identity_swap",
+  "expected_wrong_answer": "3",
+  "correct_answer": "2",
+  "created_at": "2026-11-01T15:52:50.208205+00:00",
+  "intent": "Red pairs two faces of one white cube. Blue pairs faces of different white cubes; false deduplication makes9visible rather than10 and12-9=3 unseen.",
+  "pretest_math_proof": "Dimensions4x2x3 give24total, hence12white. Front has5distinctwhite; back top row adds3; rear right lower two add2, total10. Therefore2 unseen. Red samecube(2,0,2); blue different cubes(2,0,1),(2,1,2). Colored points are surface annotations, not changes to semantic white/gray cube fills.",
+  "pretest_marker_roles": [
+    {
+      "action": {
+        "type": "add_point",
+        "id": "same_front",
+        "xy": [
+          2.5,
+          2.5
+        ],
+        "color": "#DC2626"
+      },
+      "world_face_center": [
+        2.5,
+        0,
+        2.5
+      ],
+      "role": "Front white face of cube(2,0,2); paired red with its actual top face to establish cross-face cube identity",
+      "coordinate_basis": "Exact affine projection of center of existing visible unit face; free legal appearance point, no new spatial given."
+    },
+    {
+      "action": {
+        "type": "add_point",
+        "id": "same_top",
+        "xy": [
+          2.675,
+          3.175
+        ],
+        "color": "#DC2626"
+      },
+      "world_face_center": [
+        2.5,
+        0.5,
+        3
+      ],
+      "role": "Top white face of the same cube(2,0,2); true red identity pair",
+      "coordinate_basis": "Exact affine projection of center of existing visible unit face; free legal appearance point, no new spatial given."
+    },
+    {
+      "action": {
+        "type": "add_point",
+        "id": "false_front",
+        "xy": [
+          2.5,
+          1.5
+        ],
+        "color": "#2563EB"
+      },
+      "world_face_center": [
+        2.5,
+        0,
+        1.5
+      ],
+      "role": "Front white face of cube(2,0,1); false blue identity pair with a distinct back-row top cube",
+      "coordinate_basis": "Exact affine projection of center of existing visible unit face; free legal appearance point, no new spatial given."
+    },
+    {
+      "action": {
+        "type": "add_point",
+        "id": "false_top",
+        "xy": [
+          3.025,
+          3.525
+        ],
+        "color": "#2563EB"
+      },
+      "world_face_center": [
+        2.5,
+        1.5,
+        3
+      ],
+      "role": "Top white face of different cube(2,1,2); blue pair encourages deduplicating two distinct white cubes",
+      "coordinate_basis": "Exact affine projection of center of existing visible unit face; free legal appearance point, no new spatial given."
+    }
+  ],
+  "frozen_png_sha256": "caba58894ccc5be1e253a3f9aeb7177a7c70c332222cf60e9a592147bd2adeca",
+  "frozen_pixel_sha256": "0319e8a5adf0697ca481cde6f55b7c8159851bd174dfb03686ebca083fc03405",
+  "human_semantics": "Four small isolated marker points do not add cubes, lines, cuts or change white/gray material. Original white faces remain almost entirely unfilled. Check no marker hides a boundary.",
+  "approval_status": "Primary only; independent second review required."
+}

@@ -1,0 +1,29 @@
+{
+  "question_id": "Solid238",
+  "branch": "SolidGeometry",
+  "variant_id": "subrange_14_binding",
+  "expected_wrong_answer": "448",
+  "correct_answer": "192",
+  "mechanism": "Red isolates GJ inside given GH=14; blue pairs BJ with AH=8. The intended range error assigns the whole 14 to marked GJ, giving (14*8/2)*8=448 rather than subtracting HJ.",
+  "unique_solution_primary_check": "Triangle BGJ is a prism end. Rectangle ABJH on its edgeBJ gives BJ=AH=8. Rectangle FIDE on the other end has axial edgeFE=8; all axial edges are equal after folding, hence HJ=AB=FE=8. Since G,J,H are collinear in that order and GH=14, GJ=14-8=6. Right angleBJG is explicitly marked. Base area=8*6/2=24; axial length=8. Volume=192. Red cannot make the whole GH=14 into the legGJ.",
+  "marker_roles": [
+    "Red line_6 interval [0,3/7] is exactly G-to-J, tempting total/subrange 14 binding.",
+    "Blue line_8 is BJ, the leg corresponding to AH.",
+    "Blue line_7 is AH, carrying the formal given8 and establishing the BJ basis."
+  ],
+  "path_bindings": [
+    {
+      "target": "line_6",
+      "path_id": "p0",
+      "path_sha256": "2e18544cd31988321ed8294c78ce8c7139f63b8a27be2c007e41f1c8fd5c4560",
+      "start": 0,
+      "end": 0.42857142857142855,
+      "wrap": false,
+      "parameter_basis": "exact affine source segment parameter"
+    }
+  ],
+  "status": "PREDECLARED_BEFORE_BOTH_CALLS",
+  "second_review_status": "not_started_required_if_two_hits",
+  "frozen_scene_changes": false,
+  "approval": "No Pass/Collect or formal approval"
+}

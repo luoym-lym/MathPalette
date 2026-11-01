@@ -1,0 +1,57 @@
+{
+  "plugin_schema_version": "1.0.0",
+  "question_id": "Plane434",
+  "category": "C",
+  "operation": "C_manual",
+  "description": "以两红点及蓝色虚线标出水平3x9矩形的对角线，诱导误把灰色交叠区域当对角线切下的半矩形，答27/2=13.5(B)。灰色区域仍跨对角线两侧，实际底5高3面积15(D)，原阴影不变。",
+  "intent": "预设诱导错误答案 B",
+  "params": {
+    "actions": [
+      {
+        "type": "add_line",
+        "id": "half_rectangle_lure",
+        "endpoints": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            9.0,
+            3.0
+          ]
+        ],
+        "color": "#2563EB",
+        "linestyle": "dashed",
+        "linewidth_pt": 1.0,
+        "dash_pattern_pt": [
+          3.7,
+          1.6
+        ]
+      },
+      {
+        "type": "add_point",
+        "id": "rectangle_corner_a",
+        "xy": [
+          0.0,
+          0.0
+        ],
+        "color": "#DC2626",
+        "filled": true,
+        "size_pt2": 50,
+        "edge_linewidth_pt": 1.0
+      },
+      {
+        "type": "add_point",
+        "id": "rectangle_corner_c",
+        "xy": [
+          9.0,
+          3.0
+        ],
+        "color": "#DC2626",
+        "filled": true,
+        "size_pt2": 50,
+        "edge_linewidth_pt": 1.0
+      }
+    ]
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "question_id": "Solid126",
+  "variant_id": "remaining_height_to_cut_binding",
+  "expected_wrong_answer": "C",
+  "correct_answer": "B",
+  "created_at": "2026-11-01T15:55:37.473076+00:00",
+  "intent": "Pair the clearly dimensioned remaining lower height5 with both cut risers using red edges. Target misusing5 instead of8-5=3 as the removed front/back patch height, yielding90/432=20.833%,choiceC.",
+  "pretest_math_proof": "Original area2(12*6+12*8+6*8)=432. Cut width12-3=9,height8-5=3,depth6. Lost top9*6 is replaced by floor9*6 and lost side3*6 by cut side3*6. Only two front/back9*3 rectangles are lost, total54. Decrease54/432=12.5%,B. Original5,8,3,6,12 labels stay fixed. Red line colors make no equality claim.",
+  "pretest_marker_roles": [
+    {
+      "action": {
+        "type": "set_object_style",
+        "target": "ring0e5part0",
+        "color": "#DC2626",
+        "linewidth_pt": 2
+      },
+      "role": "Five-unit remaining lower height directly beside original dimension5; source of false height assignment",
+      "original_world_endpoints": [
+        [
+          0.0,
+          0.0,
+          5.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "partial_paths": []
+    },
+    {
+      "action": {
+        "type": "set_object_style",
+        "target": "ring0e3part0",
+        "color": "#DC2626",
+        "linewidth_pt": 2
+      },
+      "role": "Actual three-unit cut riser; false match to5-unit original lower height",
+      "original_world_endpoints": [
+        [
+          9.0,
+          0.0,
+          8.0
+        ],
+        [
+          9.0,
+          0.0,
+          5.0
+        ]
+      ],
+      "partial_paths": []
+    },
+    {
+      "action": {
+        "type": "set_object_style",
+        "target": "ring1e3part0",
+        "color": "#DC2626",
+        "linewidth_pt": 2
+      },
+      "role": "Rear three-unit cut riser; same false5-unit height used on both removed front/back patches",
+      "original_world_endpoints": [
+        [
+          9.0,
+          6.0,
+          8.0
+        ],
+        [
+          9.0,
+          6.0,
+          5.0
+        ]
+      ],
+      "partial_paths": []
+    }
+  ],
+  "pretest_human_semantics": "Existing cut edges only; no newly drawn cut or closed contour. No line-style override. Original dimension5 still denotes lower remaining height, not cut riser. Human must be able to see that distinction and calculate8-5.",
+  "frozen_png_sha256": "9d3898f57e4c7ff466d45f290aa929a73fc34b903df0c8f809b5c177b9b9a0d8",
+  "frozen_pixel_sha256": "7cf5d61b3fad757f30ab65692853b943009e3cc4f0afff6eff1797165e367c13",
+  "formal_context": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_14\\Solid126\\context.json",
+  "approval_status": "Primary exploration only; NEW independent second review required."
+}

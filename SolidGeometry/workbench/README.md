@@ -1,5 +1,7 @@
 # 立体几何 Special 工作台
 
+日常按钮只处理当前题：Pass 核对本题输入和候选文件，No Pass 不复核原题或解码 PNG，删除只备份与重排受影响的槽位。Pass 和删除只更新根索引中本题的插件列表，不再同步重建全库。画板提交复用已显示且参数、上下文一致的预览；保存响应直接带回最新状态。完整审核检查仍由启动时的输入校验及手动 `dataset_tools/catalog.py check` 执行，用户 Pass / Collect 的含义不变。
+
 在项目根目录双击或运行 `SolidGeometry/start_special_workbench.cmd`，打开 `http://127.0.0.1:8769`。也可运行：
 
 ```powershell

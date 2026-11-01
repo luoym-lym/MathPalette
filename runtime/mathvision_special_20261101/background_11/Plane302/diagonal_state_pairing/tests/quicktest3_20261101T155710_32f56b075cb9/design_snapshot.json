@@ -1,0 +1,54 @@
+{
+  "question_id": "Plane302",
+  "variant_id": "diagonal_state_pairing",
+  "created_at": "2026-11-01T15:55:20.394943+00:00",
+  "expected_wrong_answer": "2",
+  "correct_answer": "4",
+  "mechanism": "Use red and blue opposite-corner pairs to match the before/after circle states. Targets treating a diagonal pair as a local toggle unit and proposing two touches for the two pairs, confusing state correspondence with actual side-touch adjacency. No connecting line is added, and same-color diagonal circles remain visibly separated.",
+  "mathematical_solution": "Let xi be the parity of touches at circle i, and T the parity of all four touches. Since a circle is toggled by itself and its two side neighbors, its final black condition is T+x_opposite=1 mod 2. The four conditions force all xi equal; then T=4xi=0 and xi=1. Hence each circle must be touched an odd positive number of times, at least four in total; touching each exactly once succeeds. Unique minimum=4. Circles on a diagonal do not touch, and color does not add tangency.",
+  "marker_roles": [
+    {
+      "action_index": 0,
+      "target": "circle0_0",
+      "role": "An existing quarter-circle contour associates the same-position member of a diagonal pair across the two before/after panels. Red selects top-left/bottom-right; blue selects top-right/bottom-left. All circle fills and four side tangencies remain visible. The full original circular outline is colored; no circle is added."
+    },
+    {
+      "action_index": 1,
+      "target": "circle0_1",
+      "role": "An existing quarter-circle contour associates the same-position member of a diagonal pair across the two before/after panels. Red selects top-left/bottom-right; blue selects top-right/bottom-left. All circle fills and four side tangencies remain visible. The full original circular outline is colored; no circle is added."
+    },
+    {
+      "action_index": 2,
+      "target": "circle0_2",
+      "role": "An existing quarter-circle contour associates the same-position member of a diagonal pair across the two before/after panels. Red selects top-left/bottom-right; blue selects top-right/bottom-left. All circle fills and four side tangencies remain visible. The full original circular outline is colored; no circle is added."
+    },
+    {
+      "action_index": 3,
+      "target": "circle0_3",
+      "role": "An existing quarter-circle contour associates the same-position member of a diagonal pair across the two before/after panels. Red selects top-left/bottom-right; blue selects top-right/bottom-left. All circle fills and four side tangencies remain visible. The full original circular outline is colored; no circle is added."
+    },
+    {
+      "action_index": 4,
+      "target": "circle1_0",
+      "role": "An existing quarter-circle contour associates the same-position member of a diagonal pair across the two before/after panels. Red selects top-left/bottom-right; blue selects top-right/bottom-left. All circle fills and four side tangencies remain visible. The full original circular outline is colored; no circle is added."
+    },
+    {
+      "action_index": 5,
+      "target": "circle1_1",
+      "role": "An existing quarter-circle contour associates the same-position member of a diagonal pair across the two before/after panels. Red selects top-left/bottom-right; blue selects top-right/bottom-left. All circle fills and four side tangencies remain visible. The full original circular outline is colored; no circle is added."
+    },
+    {
+      "action_index": 6,
+      "target": "circle1_2",
+      "role": "An existing quarter-circle contour associates the same-position member of a diagonal pair across the two before/after panels. Red selects top-left/bottom-right; blue selects top-right/bottom-left. All circle fills and four side tangencies remain visible. The full original circular outline is colored; no circle is added."
+    },
+    {
+      "action_index": 7,
+      "target": "circle1_3",
+      "role": "An existing quarter-circle contour associates the same-position member of a diagonal pair across the two before/after panels. Red selects top-left/bottom-right; blue selects top-right/bottom-left. All circle fills and four side tangencies remain visible. The full original circular outline is colored; no circle is added."
+    }
+  ],
+  "overlay_bindings": [],
+  "human_semantics": "Existing contour styles or exact existing-edge 1pt auxiliary overlays only. Frozen geometry, black/gray/white semantic fill, dimensions and all original labels remain. Same colors are appearance cues, not equality symbols. No geometric edge or cut is added at a new location. Actual candidate PNG must still be viewed before testing.",
+  "review_status": "PRIMARY_ONLY_NEW_PARENT_INDEPENDENT_REVIEW_REQUIRED"
+}

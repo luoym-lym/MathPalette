@@ -1,0 +1,62 @@
+{
+  "question_id": "Plane213",
+  "variant_id": "open_notch_local_global_binding",
+  "created_at": "2026-11-01T16:12:10.621985+00:00",
+  "expected_wrong_answer": "B",
+  "manual_final_answers": [
+    "C",
+    "B"
+  ],
+  "complete_manual_finals": [
+    {
+      "run_index": 1,
+      "manual_final_answer": "C",
+      "complete_final_answer": "The original shape is a $4 \\times 4$ grid missing the bottom-right square, totaling 15 small squares.\nTo divide this shape into three identical pieces, we can use a strategy of rotating the shape by 90 degrees.\n\n1.  **Grid Analysis**: The shape consists of a full $4 \\times 4$ block minus the square at position (row 4, column 4).\n2.  **Dividing Lines**:\n    *   **First Piece (Top-Left)**: A $3 \\times 3$ square block (rows 1-3, columns 1-3). This accounts for 9 squares.\n    *   **Second Piece (Bottom)**: A $1 \\times 4$ strip (row 4, columns 1-4). This accounts for 4 squares. Note that this strip is geometrically identical to the 9-square piece if we rotate the 9-square piece and take a $4 \\times 1$ strip from its side (e.g., the leftmost column). So, this is a \"strip\" piece of length 4 and width 1.\n    *   **Third Piece (Right)**: The remaining squares form a vertical strip in column 4 (rows 1-3), missing the bottom square. This is a vertical strip of length 3 and width 1. Note that the second piece (horizontal $1 \\times 4$ strip) is the same shape rotated 90 degrees.\n3.  **Conclusion**: All three pieces are \"bars\" or strips of $4$ squares ($1 \\times 4$ or $4 \\times 1$).\n    *   Piece 1: A $3 \\times 3$ square contains a $4 \\times 1$ strip.\n    *   Piece 2: Is a $4 \\times 1$ strip.\n    *   Piece 3: Is a vertical $1 \\times 3$ strip plus a gap, which fits the same \"bar\" logic derived from the first two (actually, piece 3 corresponds to the 'tail' of the spiral, which is geometrically a bar of length 4 with one end shifted, or effectively a $4 \\times 1$ strip in the context of the other two pieces being compatible strips).\n\nAmong the choices:\n*   A, B, D, E are complex shapes.\n*   **C** is a simple bar of 4 squares (a $1 \\times 4$ strip).\n\nTherefore, the shape of one of the pieces is a bar of 4 squares.\n\n**C**",
+      "manually_read_in_full": true,
+      "preset_hit": false,
+      "run_path": "runtime/mathvision_special_20261101/background_09/Plane213/open_notch_local_global_binding/tests/quicktest3_20261101T160041_a1e1d2094b6f/run_01.json",
+      "run_sha256": "31daee37f73373fdee7f6d62dc46592496c5ba1e249cc34f06a5bf9973d58db3",
+      "response_path": "runtime/mathvision_special_20261101/background_09/Plane213/open_notch_local_global_binding/tests/quicktest3_20261101T160041_a1e1d2094b6f/run_01_response.json",
+      "response_sha256": "92f3f60cef78a5d7bc4ff7ec12377fef183eef671c05554b03ffca8153dcd5f7",
+      "finish_reason": "stop",
+      "truncated": false
+    },
+    {
+      "run_index": 2,
+      "manual_final_answer": "B",
+      "complete_final_answer": "Based on the analysis of the image:\n\n1.  **Count the squares:** The shape is a 4x4 grid with the bottom-right corner square missing. This results in a total of **15 squares**.\n2.  **Calculate piece size:** Since the shape must be split into three identical pieces, each piece must have $15 / 3 = 5$ squares. This eliminates options A (6 squares), C (4 squares), and D (4 squares).\n3.  **Analyze the geometry:** We are left with Option B (a U-shape) and Option E (a cross).\n    *   **Option E (Cross):** A cross shape cannot tile a rectangular region (like the 4x4 grid) because its convex corner areas do not interlock with the concave corners of another cross to fill the 90-degree corners of the boundary.\n    *   **Option B (U-shape):** A U-shape can tile a 3x5 rectangle perfectly (filling it row by row: one row across the middle, and two rows in the \"U\" orientations). Furthermore, the red lines in the original image visually trace the internal boundaries of the middle U-shaped piece, confirming this is the correct shape.\n\nTherefore, the piece looks like Option B.\n\n**Answer:** B",
+      "manually_read_in_full": true,
+      "preset_hit": true,
+      "run_path": "runtime/mathvision_special_20261101/background_09/Plane213/open_notch_local_global_binding/tests/quicktest3_20261101T160041_a1e1d2094b6f/run_02.json",
+      "run_sha256": "9482bc94a81f58aba8ed2900b792ae00d0fb22330b96935acd93481dbbca4276",
+      "response_path": "runtime/mathvision_special_20261101/background_09/Plane213/open_notch_local_global_binding/tests/quicktest3_20261101T160041_a1e1d2094b6f/run_02_response.json",
+      "response_sha256": "08a810f69a5a8e7cc32f354b1f457c92a22c5bb2fbd0187bab547acbbdb8a6c8",
+      "finish_reason": "stop",
+      "truncated": false
+    }
+  ],
+  "two_preset_hits": false,
+  "same_frozen_PNG_and_preset_both_calls": true,
+  "exactly_two_real_calls": true,
+  "no_retry": true,
+  "solver_request_only_formal_question_and_candidate_PNG": true,
+  "settings_exact_quicktest3": true,
+  "no_profile_max_tokens_timeout_overrides": true,
+  "evidence_dir": "runtime/mathvision_special_20261101/background_09/Plane213/open_notch_local_global_binding/tests/quicktest3_20261101T160041_a1e1d2094b6f",
+  "binding_path": "runtime/mathvision_special_20261101/background_09/Plane213/open_notch_local_global_binding/tests/quicktest3_20261101T160041_a1e1d2094b6f/binding.json",
+  "binding_sha256": "ce780c151827e124fc8c70764b918176f4fbaa6482e20d3e0bd7c270f0297a42",
+  "request_path": "runtime/mathvision_special_20261101/background_09/Plane213/open_notch_local_global_binding/tests/quicktest3_20261101T160041_a1e1d2094b6f/request.json",
+  "request_sha256": "bbff87968eacc3d768a75871ea7762757d389e022bb6266ed4a0250ec06de046",
+  "design_path": "runtime/mathvision_special_20261101/background_09/Plane213/open_notch_local_global_binding/design.json",
+  "design_sha256": "07a54d0aa16f0cf9ea62a193c1d0615a893f7888c6c2e3b1f3eca56bad2e2eeb",
+  "image_path": "runtime/mathvision_special_20261101/background_09/Plane213/open_notch_local_global_binding/candidate.png",
+  "image_sha256": "12657e591ef2409ac0fb02247ed948870615c4843fbcd2bb2bb35b4c3e3953b5",
+  "pixel_sha256": "20871069afb68b70be08c673eb8ec00ccab5fcaa4b2fca91cd42a68f4abdcc08",
+  "notes": "Run1 finalC describes a four-cell bar, inconsistent with the actual5-cell L optionC; flagged as unreliable, never a targetB hit. Run2 explicitly endsB and calls the red source path internal U boundaries. This supports the local-to-global hypothesis but also confirms a residual human-semantics risk; there is no paired hit and no queue entry.",
+  "plugin_path": "runtime/mathvision_special_20261101/background_09/Plane213/open_notch_local_global_binding/plugin.json",
+  "plugin_sha256": "7e46402baf04680e64df3d83ef9d06c4616da1f2c4f833de55f0f51123fbbeaf",
+  "render_check_path": "runtime/mathvision_special_20261101/background_09/Plane213/open_notch_local_global_binding/render_check.json",
+  "primary_review_path": "runtime/mathvision_special_20261101/background_09/Plane213/open_notch_local_global_binding/primary_review.json",
+  "primary_math_path": "runtime/mathvision_special_20261101/background_09/Plane213/primary_math_audit.json",
+  "path_fingerprints_path": "runtime/mathvision_special_20261101/background_09/Plane213/open_notch_local_global_binding/path_fingerprints.json"
+}

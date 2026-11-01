@@ -1,0 +1,24 @@
+{
+  "retained_task_artifacts_root": "runtime/mathvision_special_20261101/",
+  "formal_library_edits": false,
+  "pass_collect_actions": false,
+  "early_transient_path_incident": {
+    "occurred": true,
+    "location": ".runtime/mathvision_workbench/",
+    "cause": "The existing MathVision build_scene implementation hardcodes its temporary scene-copy root. Initial config/TEMP redirection did not override that assignment.",
+    "retained_files": false,
+    "cleanup": "Existing TemporaryDirectory context managers automatically removed those transient copies.",
+    "correction": "Shared runtime_isolation.py redirects only that in-memory temporary path and installs a Python filesystem write guard. No checked-in code was changed."
+  },
+  "subsequent_render_isolation": {
+    "TEMP_TMP_MPLCONFIGDIR_XDG_CACHE_HOME": "Task runtime subdirectories",
+    "write_guard": "Python filesystem writes outside root runtime are denied by an audit hook.",
+    "drawing_code_and_frozen_geometry": "Unchanged; baseline and candidate pixel checks remain mandatory."
+  },
+  "file_audit": {
+    "before": "existing_files_before.json",
+    "after": "existing_files_verification.json",
+    "scope": "Existing files outside the new root runtime folder, excluding .git directories. Formal files are SHA-256 checked; pre-existing .runtime/cache files use size/mtime metadata to avoid blocking on runtime handles.",
+    "latest_recorded_result": "No changed, deleted, or added files outside root runtime."
+  }
+}

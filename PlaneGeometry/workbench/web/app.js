@@ -1,7 +1,7 @@
 "use strict";
 const $ = id => document.getElementById(id);
 let state = null, connected = false, busy = false, polling = false, epoch = 0;
-let displayKey = "", navKey = "", sourceKey = "", loaded = null, originalLoaded = false, actionError = "";
+let displayKey = "", acceptedKey = "", navKey = "", sourceKey = "", loaded = null, originalLoaded = false, actionError = "";
 const statusNames = {waiting: "等待提交", generating: "生成中", pending: "待审核", error: "操作失败", completed: "全部完成"};
 
 async function api(path, body) {
@@ -70,7 +70,7 @@ function updateSourceOptions() {
 
 function listQuestions() {
   updateSourceOptions();
-  const key = JSON.stringify([state.questions, state.completed_questions, state.question_id, busy, connected, $("search").value, $("source-filter").value, $("special-only").checked]);
+  const key = JSON.stringify([state.questions, state.completed_questions, state.question_id, $("search").value, $("source-filter").value, $("special-only").checked]);
   if (key === navKey) return;
   navKey = key;
   $("question-list").replaceChildren();
@@ -143,7 +143,7 @@ function render(next) {
     else $("original-image").removeAttribute("src");
     renderObjects();
   }
-  const key = JSON.stringify([state.question_id, state.candidate?.candidate_id, state.accepted.map(r => r.candidate_id)]);
+  const key = JSON.stringify([state.question_id, state.candidate?.candidate_id, state.candidate?.pixel_sha256, state.candidate?.parameter_key]);
   if (key !== displayKey) {
     displayKey = key;
     loaded = null;
@@ -175,6 +175,10 @@ function render(next) {
       $("candidate-image").removeAttribute("src");
       delete $("candidate-frame").dataset.loadedCandidate;
     }
+  }
+  const nextAcceptedKey = JSON.stringify([state.question_id, state.accepted.map(r => [r.candidate_id, r.slot_id, r.png_sha256])]);
+  if (nextAcceptedKey !== acceptedKey) {
+    acceptedKey = nextAcceptedKey;
     renderAccepted();
   }
   if (state.status === "generating" && !state.candidate) {
@@ -265,7 +269,7 @@ async function review(decision) {
   const body = {question_id: state.question_id, candidate_id: loaded.id, decision, context_token: state.context_token,
     pixel_sha256: loaded.pixel, parameter_key: loaded.parameter, note: decision === "reject" ? $("reject-note").value : ""};
   busy = true; epoch++; actionError = ""; controls();
-  try { await api("/api/review", body); render(await api("/api/state")); }
+  try { const result = await api("/api/review", body); render(result.state); }
   catch (error) { actionError = error.message; errors(); }
   finally { busy = false; controls(); }
 }

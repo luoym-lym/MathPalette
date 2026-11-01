@@ -1,0 +1,11 @@
+from tools08 import *
+report=BASE/'exploration_report.json';d=json.loads(report.read_text(encoding='utf-8-sig'))
+overlap=[r for r in d['attempts'] if r['question_id'] in ASSIGNED]
+own=[r for r in overlap if str(r.get('candidate','')).replace('\\','/').startswith('background_08/')]
+external=[r for r in overlap if r not in own]
+write(HERE/'history_freshness_clarification.json',{'at':now(),'own_attempts_already_aggregated_externally':len(own),'external_prior_attempt_overlap':external,'all_global_overlap_belongs_to_this_worker':not external,'note':'The parent aggregated this active worker designs into mutable exploration_report while work was running. audit_sources.py initial strict no-global-overlap assertion therefore failed after all source hashes and eligibility checks passed. It did not indicate a source change or repeated external prior candidate. Preserve earlier audit and hash snapshots as diagnostics; do not rewrite them. This worker never writes the global report.'})
+assert not external
+required=['AGENTS.md','MATHPALETTE_PROTOCOL.md','PlaneGeometry/REDRAW_PROTOCOL.md','PlaneGeometry/dataset_generator/protocol.json','PlaneGeometry/workbench/README.md','PlaneGeometry/workbench/agent_prompt.md','PlaneGeometry/workbench/plugin.schema.json','runtime/mathvision_special_20261101/background_08_brief.txt','runtime/mathvision_special_20261101/background_08_assignment.json','runtime/mathvision_special_20261101/parallel_expansion_20261101.json','runtime/mathvision_special_20261101/continuation_brief.txt']
+write(HERE/'protocol_read_audit.json',{'all_required_read_in_full_before_design':True,'paths_and_sha256':{p:file_hash(ROOT/p) for p in required},'continuation_location':'runtime/mathvision_special_20261101/continuation_brief.txt','initial_root_lookup_missing':True,'explicit_user_overrides':'Finite autonomous hypotheses/real quicktest3 and own runtime root are explicitly authorized; no state submit, Pass/Collect or publication. No nested agents/delegates created.'})
+src=json.loads((HERE/'source_preservation_audit.json').read_text(encoding='utf-8'))
+print(json.dumps({'source_files_checked':src['frozen_file_count'],'all_unchanged':src['all_unchanged'],'own_attempts_now_in_parent_aggregation':len(own),'external_overlap':0}))

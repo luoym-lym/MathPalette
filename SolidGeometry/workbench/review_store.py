@@ -90,6 +90,7 @@ class Workbench:
         self.state_dir = self.root / "state"
         self.lock, self.submit_lock = threading.RLock(), threading.Lock()
         self.job, self.errors = None, {}
+        self.cached_preview = None
         self.session_id, self.review_token = uuid.uuid4().hex, secrets.token_urlsafe(32)
         self.writer = StoreLock(self.state_dir / "workbench.lock")
         try:
@@ -236,7 +237,8 @@ class Workbench:
             raise WorkbenchError("候选插件快照被改写。", 409, "integrity_error")
         if require_image:
             path = self._package_file(candidate, "image.png")
-            if not path.is_file() or file_hash(path) != candidate["png_sha256"] or pixel_hash(path) != candidate["pixel_sha256"]:
+            # Exact PNG bytes already bind the pixel digest captured at render.
+            if not path.is_file() or file_hash(path) != candidate["png_sha256"]:
                 raise WorkbenchError("候选 PNG 丢失或被改写；无法审核。", 409, "integrity_error")
         return plugin
 
@@ -317,23 +319,28 @@ class Workbench:
     def _apply_deletion(self, transaction):
         # Read from a durable backup: a retry must not read files already renumbered.
         backup = contained_path(self.root, transaction["backup_path"])
-        previous = transaction["before_recipes"]
+        # Older interrupted transactions have backups of every slot.
+        previous = transaction.get("affected_recipes", transaction["before_recipes"])
         sources = {recipe["candidate_id"]: recipe for recipe in previous}
+        payloads = {}
         for recipe in previous:
             for directory, suffix, digest in (("images", ".png", "png_sha256"),
                                                ("plugins", ".json", "plugin_sha256")):
                 source = contained_path(backup, f"{directory}/{recipe['slot_id']}{suffix}")
-                if not source.is_file() or file_hash(source) != recipe[digest]:
+                data = source.read_bytes()
+                if hashlib.sha256(data).hexdigest() != recipe[digest]:
                     raise WorkbenchError("删除前备份丢失或损坏，无法安全恢复事务。", 409, "integrity_error")
+                payloads[directory, recipe["slot_id"]] = data
         remaining = transaction["progress"]["questions"][transaction["question_id"]]["accepted"]
         destinations = set()
         for recipe in remaining:
+            if recipe["candidate_id"] not in sources:
+                continue
             old = sources[recipe["candidate_id"]]
             for directory, suffix, key in (("images", ".png", "image_path"),
                                            ("plugins", ".json", "plugin_path")):
                 target = self._accepted_path(recipe[key])
-                source = contained_path(backup, f"{directory}/{old['slot_id']}{suffix}")
-                atomic_write(target, source.read_bytes())
+                atomic_write(target, payloads[directory, old["slot_id"]])
                 destinations.add(target)
         # Remove only known former C paths, all resolved inside the C output directory.
         for recipe in previous:
@@ -396,9 +403,11 @@ class Workbench:
         atomic_json(self.state_dir / "progress.json", progress)
         self.progress = progress
         if (transaction["kind"] in ("pass", "delete_accepted") and
-                self.dataset_root.resolve() == Path(self.config["dataset_file"]).resolve().parent):
-            from dataset_tools.catalog import build
-            build(Path(self.config["dataset_file"]).resolve().parent.parent)
+                self.dataset_root.resolve() == Path(self.config["dataset_file"]).resolve().parent and
+                self.output.resolve() == self.dataset_root.resolve() / "special_variant"):
+            from dataset_tools.catalog import update_special_plugins
+            dataset = Path(self.config["dataset_file"]).resolve()
+            update_special_plugins(dataset.parent.parent, dataset.parent.name, transaction["question_id"])
         (self.state_dir / "pending_transaction.json").unlink(missing_ok=True)
 
     def _recover(self):
@@ -489,10 +498,14 @@ class Workbench:
             self._commit({"kind": "reopen", "question_id": qid, "progress": progress})
             return self.snapshot()
 
+    def _assert_current_inputs(self, qid):
+        from dataset_tools.workbench_inputs import assert_question_inputs
+        assert_question_inputs(self.adapter, qid, WorkbenchError, file_hash)
+
     def validate(self, plugin_path):
         with self.submit_lock, RENDER_LOCK:
-            self.adapter.assert_baseline()
             plugin = self.renderer.normalize(self._read_draft(plugin_path))
+            self._assert_current_inputs(plugin["question_id"])
             self._check_open_question(plugin["question_id"])
             return {"valid": True, "human_reviewed": False, "normalized_plugin": plugin,
                     "parameter_key": canonical_hash(plugin)}
@@ -508,7 +521,7 @@ class Workbench:
                 raise WorkbenchError("候选已更新，请等待当前图片载入后再测试。", 409, "stale_candidate")
             if self.job and self.job["question_id"] == qid:
                 raise WorkbenchError("正在生成新候选，请稍候再测试。", 409, "generating")
-            self.adapter.assert_baseline()
+            self._assert_current_inputs(qid)
             self._verify_package(candidate)
             image = self._package_file(candidate, "image.png").read_bytes()
             if hashlib.sha256(image).hexdigest() != candidate["png_sha256"]:
@@ -522,17 +535,29 @@ class Workbench:
         from drawing_board import describe_scene
         with RENDER_LOCK:
             self._check_open_question(qid)
-            self.adapter.assert_baseline()
+            self._assert_current_inputs(qid)
             return describe_scene(self.adapter, qid)
+
+    def _render_preview(self, plugin, token, replace):
+        # submit_lock serializes this single in-memory preview. The exact plugin
+        # and context must match, and callers check current inputs before reuse.
+        cached = self.cached_preview
+        if (cached and cached["plugin"] == plugin and cached["context_token"] == token
+                and cached["replace"] == replace):
+            return copy.deepcopy(plugin), cached["data"], cached["pixel_sha256"]
+        plugin, data, digest = self.renderer.render(plugin, frozen=True)
+        self.cached_preview = {"plugin": copy.deepcopy(plugin), "context_token": token,
+                               "replace": replace, "data": data, "pixel_sha256": digest}
+        return plugin, data, digest
 
     def drawing_preview(self, plugin, token, replace=None):
         """Stateless preview: never replaces an agent's candidate or writes C data."""
         with self.submit_lock, RENDER_LOCK:
-            self.adapter.assert_baseline()
             plugin = self.renderer.normalize(plugin)
+            self._assert_current_inputs(plugin["question_id"])
             with self.lock:
                 self._check_context(plugin["question_id"], token, replace)
-            plugin, data, digest = self.renderer.render(plugin, frozen=True)
+            plugin, data, digest = self._render_preview(plugin, token, replace)
             with self.lock:
                 self._check_context(plugin["question_id"], token, replace)
             return {"plugin": plugin, "pixel_sha256": digest, "parameter_key": canonical_hash(plugin),
@@ -563,16 +588,16 @@ class Workbench:
         with self.submit_lock, RENDER_LOCK:
             qid = None
             try:
-                self.adapter.assert_baseline()
                 plugin = self.renderer.normalize(self._read_draft(plugin_path))
                 qid = plugin["question_id"]
+                self._assert_current_inputs(qid)
                 with self.lock:
                     self._recover()
                     self._check_context(qid, token, replace)
                     self.job = {"question_id": qid, "status": "generating"}
                     self.errors.pop(qid, None)
-                plugin, data, digest = self.renderer.render(plugin, frozen=True)
-                self.adapter.assert_baseline()
+                plugin, data, digest = self._render_preview(plugin, token, replace)
+                self._assert_current_inputs(qid)
                 with self.lock:
                     self._check_context(qid, token, replace)
                     cid = uuid.uuid4().hex
@@ -626,19 +651,20 @@ class Workbench:
             if (removed["slot_id"] != slot or removed["pixel_sha256"] != displayed_pixel or
                     removed["parameter_key"] != displayed_parameter):
                 raise WorkbenchError("待删除变体与页面显示不一致，请刷新后重试。", 409, "stale_variant")
-            self.adapter.assert_baseline()
             previous = copy.deepcopy(question["accepted"])
+            affected = previous[previous.index(removed):]
             deletion_id, deleted_at = uuid.uuid4().hex, timestamp()
             backup_relative = f"deleted_variants/{qid}/{deletion_id}"
             backup = contained_path(self.root, backup_relative)
-            for recipe in previous:
+            for recipe in affected:
                 for directory, suffix, key, digest in (
                         ("images", ".png", "image_path", "png_sha256"),
                         ("plugins", ".json", "plugin_path", "plugin_sha256")):
                     source = self._accepted_path(recipe[key])
-                    if not source.is_file() or file_hash(source) != recipe[digest]:
+                    data = source.read_bytes()
+                    if hashlib.sha256(data).hexdigest() != recipe[digest]:
                         raise WorkbenchError("正式图或参数已改变，拒绝删除；请先检查数据。", 409, "integrity_error")
-                    atomic_write(contained_path(backup, f"{directory}/{recipe['slot_id']}{suffix}"), source.read_bytes())
+                    atomic_write(contained_path(backup, f"{directory}/{recipe['slot_id']}{suffix}"), data)
             atomic_json(contained_path(backup, "deletion.json"), {
                 "question_id": qid, "deleted_at": deleted_at, "removed_recipe": removed,
                 "before_recipes": previous})
@@ -666,7 +692,8 @@ class Workbench:
                 "deleted_at": deleted_at, "backup_path": backup_relative})
             try:
                 self._commit({"kind": "delete_accepted", "question_id": qid,
-                    "backup_path": backup_relative, "before_recipes": previous, "progress": progress})
+                    "backup_path": backup_relative, "before_recipes": previous,
+                    "affected_recipes": affected, "progress": progress})
                 self.errors.pop(qid, None)
             except Exception as error:
                 self.errors[qid] = "删除保存未完成，事务将在重试或重启后恢复：" + str(error)
@@ -690,8 +717,11 @@ class Workbench:
                 raise WorkbenchError("候选已替换、已审核或页面已切题；请等待页面更新。", 409, "stale_candidate")
             if self.progress["questions"][qid]["candidate_id"] != cid:
                 raise WorkbenchError("旧候选不能再审核。", 409, "stale_candidate")
-            self.adapter.assert_baseline()
-            plugin = self._verify_package(candidate)
+            if decision == "pass":
+                self._assert_current_inputs(qid)
+            # No Pass must remain usable even when a candidate PNG is missing.
+            # Reject corrupt Pass inputs before creating a recovery transaction.
+            plugin = self._verify_package(candidate, require_image=decision == "pass")
             progress = copy.deepcopy(self.progress)
             reviewed_at = timestamp()
             updated = progress["candidates"][cid]
@@ -805,7 +835,7 @@ class Workbench:
     def highlight(self, qid, oid):
         with RENDER_LOCK:
             self._check_open_question(qid)
-            self.adapter.assert_baseline()
+            self._assert_current_inputs(qid)
             data = self.adapter.highlight(qid, oid)
             filename = f"reference-{qid}-{canonical_hash(oid)[:16]}.png"
             path = contained_path(self.root / "reproduced", filename)

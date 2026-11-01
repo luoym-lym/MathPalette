@@ -1,0 +1,36 @@
+{
+  "question_id": "Plane282",
+  "variant_id": "exposed_step_unit_transfer",
+  "expected_wrong_answer_before_both_calls": "14",
+  "formal_correct_answer": "12",
+  "image_sha256": "6f814fa4b809608e6395faf3e307ab7766f3ecb33fcd18fb10bdc2ca902d9d96",
+  "design_sha256": "d17deac9df67c7ed343c467d09128a431817ac93c1eba001fe4303afa06122cd",
+  "evidence_directory": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_11\\Plane282\\exposed_step_unit_transfer\\tests\\quicktest3_20261101T160449_3d3671db4696",
+  "runs": [
+    {
+      "run_index": 1,
+      "complete_final_answer_manually_read": true,
+      "complete_answer_text": "Based on the image provided, we can calculate the perimeter by counting the exposed side lengths of the 6 squares.\n\nThe shape is arranged in three rows:\n*   **Top row:** 1 square\n*   **Middle row:** 2 squares\n*   **Bottom row:** 3 squares\n\nLet's count the length of each boundary segment:\n\n1.  **Bottom edge:** There are 3 squares in the bottom row, so the bottom edge length is **3**.\n2.  **Vertical sides:** The shape has 3 distinct vertical levels (heights of 1, 1, and 1). This creates a \"staircase\" effect.\n    *   There are 3 vertical segments on the left side (one for each level).\n    *   There are 3 vertical segments on the right side (one for each level).\n    *   Total vertical length = $3 + 3 = \\mathbf{6}$.\n3.  **Horizontal steps:**\n    *   **Top edge:** The single square on top contributes a length of **1**.\n    *   **Left steps:** The middle row sticks out by 1 unit to the left of the top square, and the bottom row sticks out by 1 unit to the left of the middle row. (Total = $1 + 1 = 2$).\n    *   **Right steps:** Similarly, there are 2 steps on the right side, each of length 1. (Total = $1 + 1 = 2$).\n    *   Total horizontal length (excluding the bottom) = $1 + 2 + 2 = \\mathbf{5}$.\n\n**Total Perimeter** = Bottom + Vertical + Horizontal Steps\nTotal Perimeter = $3 + 6 + 5 = 14$\n\n**Answer:**\nThe perimeter of the shape is **14**.",
+      "manually_identified_final": "14",
+      "preset_hit": true,
+      "manual_observation": "Explicit numeric final14 matches this new design preset; it counts four short shoulders as four units.",
+      "raw_response_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_11\\Plane282\\exposed_step_unit_transfer\\tests\\quicktest3_20261101T160449_3d3671db4696\\run_01_response.json",
+      "raw_response_sha256": "86a30ad6aee86413a36c9cff4261f9031ed8faef37418e4ce4c5e49be98529b2"
+    },
+    {
+      "run_index": 2,
+      "complete_final_answer_manually_read": true,
+      "complete_answer_text": "To find the perimeter of the shape, we need to count the number of outer edges, where each edge has a length of 1.\n\n1.  **Top Edge:** 1 unit.\n2.  **Left Side:** 1 (top square) + 1 (middle square) + 1 (bottom square) = 3 units.\n3.  **Bottom Edge:** The base consists of 3 squares, so the width is 3 units.\n4.  **Right Side:** The top of the bottom row is 1 unit (right of the middle row). The middle row is 1 unit high. The top square adds 1 unit.\n    *   Alternatively, counting edge by edge from the top clockwise: Top (1), Right of top square (1), Bottom of top square (right side, 1), Right of middle-right square (1), Bottom of middle-right square (1), Right of bottom-right square (1), Bottom (3), Left (3).\n    *   Let's trace it carefully:\n        *   Top: 1\n        *   Right side of top square: 1\n        *   Horizontal segment (right of top square): 1\n        *   Right side of middle-right square: 1\n        *   Horizontal segment (bottom of middle-right square): 1\n        *   Right side of bottom-right square: 1\n        *   Bottom: 3\n        *   Left: 3\n\nSumming these up: $1 + 1 + 1 + 1 + 1 + 1 + 3 + 3 = 12$.\n\nAnother way to think about it is that there are 6 squares, so there are $6 \\times 4 = 24$ total sides. The shape has 6 squares connected such that there are 6 internal shared edges (lines touching other squares). Each shared edge eliminates 2 sides from the perimeter count (one from each square).\n$24 - (6 \\times 2) = 12$.\n\nThe perimeter is 12.",
+      "manually_identified_final": "12",
+      "preset_hit": false,
+      "manual_observation": "Explicit numeric final12 does not match14. Its first tracing description is inaccurate, but the final shared-length calculation and final value are12.",
+      "raw_response_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_11\\Plane282\\exposed_step_unit_transfer\\tests\\quicktest3_20261101T160449_3d3671db4696\\run_02_response.json",
+      "raw_response_sha256": "c6c8a76f226f3ff0eeb841e992963c4f8e3271af1a87205d322820f169c05480"
+    }
+  ],
+  "two_predeclared_target_hits": false,
+  "status": "not_qualified_preset_pair_missed",
+  "original_controls": [],
+  "control_limitation": "No original control calls; no causal or statistical effect claim. Correct controls are not a hard gate.",
+  "independent_review": "Not performed by this author; no self-approval."
+}

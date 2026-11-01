@@ -282,10 +282,11 @@
         replace: base.candidate?.candidate_id || null, pixel_sha256: shown.pixel_sha256, parameter_key: shown.parameter_key});
       submitted = true;
       if (result.state.candidate?.candidate_id !== result.candidate.candidate_id) throw new Error("候选在提交后发生变化；请返回工作台检查最新候选。");
-      if (collect) await api("/api/review", {question_id: base.question_id, candidate_id: result.candidate.candidate_id,
-        decision: "pass", context_token: result.state.context_token, pixel_sha256: shown.pixel_sha256, parameter_key: shown.parameter_key, note: ""});
+      let nextState = result.state;
+      if (collect) nextState = (await api("/api/review", {question_id: base.question_id, candidate_id: result.candidate.candidate_id,
+        decision: "pass", context_token: result.state.context_token, pixel_sha256: shown.pixel_sha256, parameter_key: shown.parameter_key, note: ""})).state;
       forget(); dialog.close(); opening++; clearTimeout(timer);
-      actionError = ""; render(await api("/api/state"));
+      actionError = ""; render(nextState);
     } catch (error) {
       message(error.message + (submitted ? " 候选已生成；返回工作台可继续审核。" : ""), true);
       if (submitted || ["stale_context", "stale_candidate", "pending_candidate", "invalid_session"].includes(error.code)) conflict = true;

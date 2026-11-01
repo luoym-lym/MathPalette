@@ -1,0 +1,201 @@
+{
+  "decision": "hold",
+  "strict_conclusion": "hold: A/A meets the frozen two-call rule; geometry, uniqueness, readability and compactness pass. The two red lines actually frame Z's top and bottom. Their connection to the intended X/Z adjacent-versus-opposite confusion is too weak for a strong recommendation. This is not an added requirement that controls be correct or both explanations match.",
+  "review_type": "independent_second_review",
+  "reviewed_at_utc": "2026-11-01T11:20:36.454267+00:00",
+  "question_id": "Solid220",
+  "variant_id": "false_face_pair",
+  "candidate_directory": "solid_explore/Solid220/false_face_pair",
+  "reviewer": "independent_review agent; did not design or test these candidates",
+  "formal_source": "MathVision",
+  "formal_answer": "E",
+  "predeclared_wrong_answer": "A",
+  "review_scope": {
+    "read_protocols": [
+      "MATHPALETTE_PROTOCOL.md",
+      "SolidGeometry/REDRAW_PROTOCOL.md",
+      "SolidGeometry/workbench/README.md",
+      "SolidGeometry/workbench/agent_prompt.md",
+      "SolidGeometry/workbench/plugin.schema.json"
+    ],
+    "no_new_api_calls": true,
+    "no_pass_collect": true,
+    "no_existing_files_modified": true,
+    "all_python_B": true,
+    "render_not_reproduced": "Read existing deterministic-render reports; independently inspected actual PNG, geometry and hash chain.",
+    "manual_whitelist_check": "All actions are set_object_style, actual scene targets, allowed colors and 0.5/1/1.5/2/3pt widths; no unsupported properties. jsonschema package unavailable; no full JSON-schema library validation was claimed.",
+    "formal_indices_checked": "No matching question entry found in either accepted_index.jsonl or collected_index.jsonl at review time."
+  },
+  "targeted_information": {
+    "intended_error": "Treat Z, which shares a hinge with X, as the face opposite X.",
+    "specific_geometry": "line_13 is the common X/Z boundary: X's bottom and Z's top. line_16 is Z's bottom. Their geometry is unchanged.",
+    "assessment": "The intervention has a concrete local scope around X/Z, but its most direct visual effect is framing Z. It does not clearly distinguish a false folding correspondence from selecting answer Z.",
+    "salience_only_risk": "moderate_to_high",
+    "evidence_strength": "weak_to_moderate"
+  },
+  "action_necessity": [
+    {
+      "target": "line_13",
+      "location": "Shared horizontal edge of X and Z",
+      "role": "Highlights the actual adjacency hinge.",
+      "necessity": "Relevant if adjacency is the intended cue, but also forms Z's top frame."
+    },
+    {
+      "target": "line_16",
+      "location": "Bottom boundary of Z",
+      "role": "Creates a pair of parallel red boundaries with line_13.",
+      "necessity": "Makes the Z cell stand out. Its independent role in an X-opposite-face misreading is weak; it may mainly complete the framing of Z."
+    }
+  ],
+  "observed_reasoning": [
+    "Run 1 identifies the six-cell net correctly, then wrongly folds Y opposite V and Z opposite X, ending A. This is a concrete folding-direction/adjacency error, but it does not explicitly link that error to the red pair.",
+    "Run 2 hallucinates a seventh unlabeled cell, derives V-Z as opposite, then changes the presumed question to ask about V and ends A. Its final answer satisfies the user rule, but its explanation does not independently confirm the intended X/Z mapping."
+  ],
+  "mathematics": {
+    "unique_answer": "E (Y)",
+    "independent_check": "Independent 90-degree frame propagation from V normal (0,0,1) gives U=(-1,0,0), W=(1,0,0), X=(0,-1,0), Y=(0,1,0), Z=(0,0,-1). Only Y has normal opposite X. X and Z are adjacent.",
+    "geometry_changed": false,
+    "new_conditions": false,
+    "ambiguity_risk": "low: matching colors have no conventional meaning that changes face opposition; ordinary folding still uniquely gives Y."
+  },
+  "visual_review": {
+    "candidate_viewed": true,
+    "formal_redraw_viewed": true,
+    "source_image_viewed": true,
+    "labels_clear": true,
+    "occlusion": false,
+    "clutter": "Only two original edges are red at 2pt. No added line or point; visually compact.",
+    "source_comparison": "Source, formal redraw and candidate preserve all six cells and labels."
+  },
+  "hard_requirements": {
+    "two_frozen_runs_hit_predeclared_wrong": true,
+    "mathematics_unique_and_preserved": true,
+    "human_readable_unambiguous": true,
+    "concise_marks": true,
+    "targeted_information": "partially_supported; stronger geometric correspondence justification needed"
+  },
+  "remaining_issue": "Keep this as a held candidate, outside the recommended delivery set under the user's targeted-information requirement.",
+  "test_evidence": {
+    "profile": "quicktest3",
+    "model": "mimo-v2.6-flash",
+    "thinking": {
+      "type": "disabled"
+    },
+    "binding_path": "runtime/mathvision_special_20261101/solid_explore/Solid220/false_face_pair/tests/quicktest3_20261101T105538_814df7a85de1/binding.json",
+    "binding_created_at": "2026-11-01T10:55:38.720436+00:00",
+    "requested_runs": 2,
+    "all_integrity_checks_passed": true,
+    "checks": {
+      "image_sha256_matches": true,
+      "pixel_sha256_matches": true,
+      "design_sha256_matches": true,
+      "snapshot_equals_current_design": true,
+      "request_body_sha256_matches": true,
+      "embedded_png_equals_current_candidate": true,
+      "formal_question_identical": true,
+      "question_record_sha256_matches": true,
+      "dataset_sha256_matches": true,
+      "model_and_thinking_match_quicktest3": true,
+      "only_two_messages_and_question_image_user_parts": true,
+      "system_prompt_equals_binding": true
+    },
+    "binding_hashes": {
+      "image_sha256": "f5639aebabfde3c879052d36cb724d143bccd982297f689358ea575349237f1e",
+      "pixel_sha256": "5e421eaf90cd3b5de6ecf00a0802469c7ece498a85fd3797e16218c6e5bea9f2",
+      "design_sha256": "ab72763d8ed5e094cbc96eec8b80032f673ed99210872bdcd3df84757046ff6c",
+      "request_body_sha256": "68e8083cbfcf38d7579a648781666beb34a1bf15e364e752cda79029360dc631",
+      "question_record_sha256": "9dbbeeff94add75c2900a255a5335d7733e73255937fe0a6ab2b961e9b4e0701"
+    },
+    "runs": [
+      {
+        "run_index": 1,
+        "manually_read_final_answer": "A",
+        "hits_predeclared_wrong": true,
+        "run_id": "14761d67d30f46bd990bc1d35407e9dc",
+        "provider_response_id": "f5c96b5b-c29f-4365-9241-b580aecb2990_50a19b0c6a3b47a9975fee7fb6e8de7f",
+        "started_at": "2026-11-01T10:55:38.722915+00:00",
+        "finished_at": "2026-11-01T10:55:50.463089+00:00",
+        "completed_http200_no_truncation": true,
+        "raw_response_sha256": "ba831b3b1748140a6b3dc4e90823bae0f32bc4383927865727c005b18d67f5c9",
+        "raw_response_and_saved_answer_match": true,
+        "same_frozen_request_image_design_hashes": true,
+        "binding_created_before_started": true,
+        "run_path": "runtime/mathvision_special_20261101/solid_explore/Solid220/false_face_pair/tests/quicktest3_20261101T105538_814df7a85de1/run_01.json",
+        "raw_response_path": "runtime/mathvision_special_20261101/solid_explore/Solid220/false_face_pair/tests/quicktest3_20261101T105538_814df7a85de1/run_01_response.json"
+      },
+      {
+        "run_index": 2,
+        "manually_read_final_answer": "A",
+        "hits_predeclared_wrong": true,
+        "run_id": "7c1ec53481b04f55b0c66625259f1faf",
+        "provider_response_id": "42465072-69e2-4563-b41d-6b5cdc81164e_22faebd895c740c89f4dd29d16fdd255",
+        "started_at": "2026-11-01T10:55:50.464403+00:00",
+        "finished_at": "2026-11-01T10:56:04.116101+00:00",
+        "completed_http200_no_truncation": true,
+        "raw_response_sha256": "9e63236adda4d8f312f86318cc2b4b4447a0ebc8a80a31b0eca2a5ae8ff2a210",
+        "raw_response_and_saved_answer_match": true,
+        "same_frozen_request_image_design_hashes": true,
+        "binding_created_before_started": true,
+        "run_path": "runtime/mathvision_special_20261101/solid_explore/Solid220/false_face_pair/tests/quicktest3_20261101T105538_814df7a85de1/run_02.json",
+        "raw_response_path": "runtime/mathvision_special_20261101/solid_explore/Solid220/false_face_pair/tests/quicktest3_20261101T105538_814df7a85de1/run_02_response.json"
+      }
+    ],
+    "criterion_scope": "Two final-answer hits are a satisfied user requirement. Matching reasoning in both runs and a correct original-control answer are not added hard requirements. Two calls are not a population reliability estimate."
+  },
+  "original_control": {
+    "directory": "solid_explore/Solid220/false_face_pair/baseline_control",
+    "formal_redraw_png_bytes_confirmed": true,
+    "final_answers": [
+      "E"
+    ],
+    "runs": 1,
+    "limitation": "One formal-redraw control answered E, versus candidate A/A. This supports a possible appearance effect but cannot quantify an increment or prove the particular false correspondence. A correct control answer is not an added hard requirement."
+  },
+  "approval_status": "UNREVIEWED_USER_PASS_NOT_RECORDED",
+  "candidate_path": "runtime/mathvision_special_20261101/solid_explore/Solid220/false_face_pair/candidate.png",
+  "checks": {
+    "image_sha256_matches": true,
+    "pixel_sha256_matches": true,
+    "design_sha256_matches": true,
+    "snapshot_equals_current_design": true,
+    "request_body_sha256_matches": true,
+    "embedded_png_equals_current_candidate": true,
+    "formal_question_identical": true,
+    "question_record_sha256_matches": true,
+    "dataset_sha256_matches": true,
+    "model_and_thinking_match_quicktest3": true,
+    "only_two_messages_and_question_image_user_parts": true,
+    "system_prompt_equals_binding": true,
+    "two_frozen_runs_hit_predeclared_wrong": true,
+    "mathematics_unique_and_preserved": true,
+    "human_readable_unambiguous": true,
+    "concise_marks": true,
+    "targeted_information": "partially_supported; stronger geometric correspondence justification needed",
+    "formal_indices_unpassed_uncollected": true
+  },
+  "issues": [
+    "Marked lines are the top and bottom frame of Z; a specific false X/Z correspondence is not clearly separated from answer salience.",
+    "Run 2 hallucinates a seventh cell and changes the presumed target face, weakening mechanism evidence while retaining its valid final-answer hit."
+  ],
+  "rationale": "hold: A/A meets the frozen two-call rule; geometry, uniqueness, readability and compactness pass. The two red lines actually frame Z's top and bottom. Their connection to the intended X/Z adjacent-versus-opposite confusion is too weak for a strong recommendation. This is not an added requirement that controls be correct or both explanations match.",
+  "marker_necessity": [
+    {
+      "target": "line_13",
+      "location": "Shared horizontal edge of X and Z",
+      "role": "Highlights the actual adjacency hinge.",
+      "necessity": "Relevant if adjacency is the intended cue, but also forms Z's top frame."
+    },
+    {
+      "target": "line_16",
+      "location": "Bottom boundary of Z",
+      "role": "Creates a pair of parallel red boundaries with line_13.",
+      "necessity": "Makes the Z cell stand out. Its independent role in an X-opposite-face misreading is weak; it may mainly complete the framing of Z."
+    }
+  ],
+  "limitations": [
+    "One formal-redraw control answered E, versus candidate A/A. This supports a possible appearance effect but cannot quantify an increment or prove the particular false correspondence. A correct control answer is not an added hard requirement.",
+    "Two final-answer hits are a satisfied user requirement. Matching reasoning in both runs and a correct original-control answer are not added hard requirements. Two calls are not a population reliability estimate.",
+    "No per-action causal ablation was performed; necessity is assessed geometrically.",
+    "Existing deterministic-render reports were read, not rerendered by this independent reviewer."
+  ]
+}

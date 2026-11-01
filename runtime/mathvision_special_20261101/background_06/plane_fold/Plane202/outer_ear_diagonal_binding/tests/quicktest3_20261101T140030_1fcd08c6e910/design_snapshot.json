@@ -1,0 +1,23 @@
+{
+  "question_id": "Plane202",
+  "variant_id": "outer_ear_diagonal_binding",
+  "expected_wrong_answer": "4",
+  "correct_answer": "2",
+  "created_at": "2026-11-01T13:57:15.713457+00:00",
+  "mechanism": "The diagonally opposite outer-ear tips are paired red(TL/BR) and blue(TR/BL). The rising diagonal foldline is red and the falling diagonal is blue, binding those selected approximate ear-tip correspondences to the two invalid reflection axes. The intended misconception is to infer full kangaroo reflection symmetry from four nearly square corner features, and count both colored diagonals in addition to the two genuine horizontal/vertical axes. Exact silhouettes and their orientation remain unchanged.",
+  "mathematical_solution": "The displayed line set contains exactly x=0,y=0,y=x,y=-x. The four kangaroos are produced by reflecting a single upper-left outline in x=0 and y=0, so both horizontal and vertical folds superpose the corresponding figures. A diagonal swaps horizontal and vertical features, and does not preserve even the set of outer ear tips: upper-left(-0.96,0.98) under y=x goes to(0.98,-0.96), whereas the lower-right outer ear tip is(0.96,-0.98). More decisively, reflecting the snout/head outline sends it into an ear/neck configuration; the entire frozen head-segment set fails either diagonal. Only the two orthogonal midlines work. Appearance points lie exactly at four preexisting endpoints and do not define extra lines or modify the target count.",
+  "marker_roles": [
+    "Upper-left original outer-ear tip, red first endpoint of the false rising-diagonal feature correspondence.",
+    "Lower-right original outer-ear tip, red approximate partner falsely used as the full-outline reflection image.",
+    "Existing rising diagonal y=x is red to bind the TL/BR selected-tip pair to the wrong reflection axis.",
+    "Upper-right original outer-ear tip, blue first endpoint of the false falling-diagonal feature correspondence.",
+    "Lower-left original outer-ear tip, blue approximate partner falsely used as the whole kangaroo reflection image.",
+    "Existing falling diagonal y=-x is blue to bind the TR/BL selected-tip pair to the other wrong axis."
+  ],
+  "human_gate": "Only four existing outer-ear endpoints receive fixed50pt2 point overlays, and the two existing diagonal lines receive1.5pt color. The full ears, snouts, eyes, neck curves, squareboundary and both valid midlines remain visible at native768px. The points identify existing tips, without adding another animal or extra candidate foldline. No equality or angle symbol is added.",
+  "review_status": "PRIMARY_ONLY_REQUIRES_NEW_PARENT_INDEPENDENT_SECOND_REVIEW",
+  "limits": [
+    "The selected tip positions only approximately correspond under diagonals; the mismatch is explicitly part of the false partial-feature hypothesis, not an asserted geometric fact.",
+    "No original control or statistical marker ablation."
+  ]
+}

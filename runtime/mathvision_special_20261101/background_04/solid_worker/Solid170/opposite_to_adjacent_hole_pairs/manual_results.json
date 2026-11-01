@@ -1,0 +1,107 @@
+{
+  "question_id": "Solid170",
+  "variant_id": "opposite_to_adjacent_hole_pairs",
+  "expected_wrong_answer": "A",
+  "formal_answer": "C",
+  "runs": [
+    {
+      "run": 1,
+      "full_final_answer_manually_read": true,
+      "manual_final_answer": "D",
+      "target_hit": false,
+      "manual_note": "Run1 explicitly concludes Correct Answer D. Its own option geometry descriptions are wrong, but no final A.",
+      "answer_text": "The problem asks us to identify the correct net for the cube shown in the image.\n\n**Analysis of the Cube:**\n1.  **Features:** The cube has two rectangular \"keyhole\" slots.\n    *   **Red Slot:** Located on the top-left vertex. It runs along the edge where the Top and Left faces meet.\n    *   **Blue Slot:** Located on the bottom-right vertex. It runs along the edge where the Bottom and Right faces meet.\n2.  **Relationship:** The Red and Blue slots are on **opposite parallel edges** of the cube (if the red one is at the top, the blue one is at the bottom). They are never on the same face or adjacent edges of the same face.\n\n**Evaluation of the Options:**\nLet's analyze the nets (labeled A through E, left to right) based on standard folding (folding the flaps towards you).\n\n*   **Option A:** Both slots are on the **Center** square. This would mean both slots are on the same face, which contradicts the cube image.\n*   **Option B:** Both slots are on the **Bottom** square. This means both slots are on the same face, which is incorrect.\n*   **Option C:** Both slots are on the **End** squares (Left and Right). When folded, these two squares become opposite faces (Left and Right of the cube). Since the slots are centered on these faces, this would result in two slots on opposite faces running parallel (e.g., left-to-right). However, the cube image shows the slots running along the edges connecting the top and bottom faces (e.g., front-to-back). Additionally, folding this net creates a \"tube\" of sides, leaving the top and bottom open, and the slots don't match the specific edge-based nature of the cube's features.\n*   **Option E:** One slot is on the Center and one is on the End. This places slots on adjacent faces, not opposite edges.\n*   **Option D:**\n    *   **Blue Slot:** Located on the **Left** square, near the edge connected to the Center square. When folded 90 degrees, this slot runs along the shared vertical edge (Front-Left edge).\n    *   **Red Slot:** Located on the **Right** square (the third square from the left in the strip), near the edge connected to the far-right \"End\" square. When folded, the End square becomes the Back face, and the Right square becomes the Right face. The Red slot is along the shared vertical edge (Back-Right edge).\n    *   **Conclusion:** This configuration places one slot on the Front-Left vertical edge and the other on the Back-Right vertical edge. These are opposite vertical edges on the cube, which matches the geometry of the target cube perfectly.\n\nTherefore, the net in Option D correctly represents the features of the cube.\n\n**Correct Answer: D**",
+      "job_path": "runtime\\mathvision_special_20261101\\background_04\\solid_worker\\Solid170\\opposite_to_adjacent_hole_pairs\\tests\\quicktest3_20261101T121912_b7a2e783c075\\run_01.json",
+      "raw_response_path": "runtime\\mathvision_special_20261101\\background_04\\solid_worker\\Solid170\\opposite_to_adjacent_hole_pairs\\tests\\quicktest3_20261101T121912_b7a2e783c075\\run_01_response.json",
+      "finish_reason": "stop",
+      "elapsed_seconds": 15.123
+    },
+    {
+      "run": 2,
+      "full_final_answer_manually_read": true,
+      "manual_final_answer": "A",
+      "target_hit": true,
+      "manual_note": "Run2 explicitly concludes Option A and ends A; target hit.",
+      "answer_text": "Based on the analysis of the cube and the nets:\n\n1.  **Analyze the Cube**: The cube has two holes. One hole is on the top face (marked with a red line), and the other hole is on a side face (marked with a blue line). Crucially, in the diagram, these two holes are on adjacent faces—they share a common edge. The holes are located near the corner where these two faces meet.\n\n2.  **Analyze the Options**:\n    *   **Option A**: The net shows the two holes on adjacent squares that share a vertical edge. This corresponds to two faces of the cube that share an edge. This arrangement matches the cube diagram.\n    *   **Option B**: The holes are on opposite ends of the strip of four squares. In a standard cube net, the first and last squares of a strip of four fold to become opposite faces (Top and Bottom). Since opposite faces do not touch, this is incorrect.\n    *   **Options C, D, and E**: These nets show the holes on squares that are not adjacent (e.g., separated by one square in the strip), which would fold into opposite or non-touching faces. This contradicts the diagram where the holes are on adjacent faces.\n\nTherefore, **Option A** is the only net that places the holes on adjacent faces.\n\nA",
+      "job_path": "runtime\\mathvision_special_20261101\\background_04\\solid_worker\\Solid170\\opposite_to_adjacent_hole_pairs\\tests\\quicktest3_20261101T121912_b7a2e783c075\\run_02.json",
+      "raw_response_path": "runtime\\mathvision_special_20261101\\background_04\\solid_worker\\Solid170\\opposite_to_adjacent_hole_pairs\\tests\\quicktest3_20261101T121912_b7a2e783c075\\run_02_response.json",
+      "finish_reason": "stop",
+      "elapsed_seconds": 11.612
+    }
+  ],
+  "hits": 1,
+  "two_completed": true,
+  "decision": "reject_target_not_reached",
+  "controls": [],
+  "independent_second_review": "Not requested: candidate failed immutable two-hit gate.",
+  "image_sha256": "1ddc4cc31ee9e9c641f14c7cd1aeaba4b81c82ee43bb4d9062cd8a4440ab22a4",
+  "design_sha256": "1c297de024e56c6b8c070ae67208277fb379480215c2face7ab6e6dd89d8e308",
+  "binding_path": "runtime\\mathvision_special_20261101\\background_04\\solid_worker\\Solid170\\opposite_to_adjacent_hole_pairs\\tests\\quicktest3_20261101T121912_b7a2e783c075\\binding.json",
+  "primary_review_path": "runtime\\mathvision_special_20261101\\background_04\\solid_worker\\Solid170\\opposite_to_adjacent_hole_pairs\\primary_review_before_calls.json",
+  "marker_roles": [
+    {
+      "target": "hole0_1",
+      "color": "#DC2626",
+      "role": "One of the two cross-face endbars belonging to upper actual cube opening; original visibility preserved."
+    },
+    {
+      "target": "hole1_1",
+      "color": "#DC2626",
+      "role": "One of the two cross-face endbars belonging to upper actual cube opening; original visibility preserved."
+    },
+    {
+      "target": "Aboundary9",
+      "color": "#DC2626",
+      "role": "One of the two endbars of the proposed left full seam opening in A; both are required to identify the complete two-face opening rather than just a nearby cube edge."
+    },
+    {
+      "target": "Aboundary28",
+      "color": "#DC2626",
+      "role": "One of the two endbars of the proposed left full seam opening in A; both are required to identify the complete two-face opening rather than just a nearby cube edge."
+    },
+    {
+      "target": "hole2_1",
+      "color": "#2563EB",
+      "role": "One of the two cross-face endbars belonging to lower actual cube opening; original visibility preserved."
+    },
+    {
+      "target": "hole3_1",
+      "color": "#2563EB",
+      "role": "One of the two cross-face endbars belonging to lower actual cube opening; original visibility preserved."
+    },
+    {
+      "target": "Aboundary39",
+      "color": "#2563EB",
+      "role": "One of the two endbars of the proposed right full seam opening in A; both are required to identify the complete two-face opening rather than just a nearby cube edge."
+    },
+    {
+      "target": "Aboundary56",
+      "color": "#2563EB",
+      "role": "One of the two endbars of the proposed right full seam opening in A; both are required to identify the complete two-face opening rather than just a nearby cube edge."
+    }
+  ],
+  "mathematical_proof": "Given holes lie across parallel edges x=15,z=9 and x=18,z=6, so they are diagonally opposite members of the four-edge belt. In net A the complete straddling openings are at belt seams x=1 and x=2, adjacent. D uses x=1 and closing seam0/4, also adjacent. C uses seam2 and closing seam0/4, opposite, and each has both face halves. B has one complete straddling seam1 opening plus two unmatched single-face notches at far top/bottom edges; those do not give the two depicted complete opposite-edge openings. E holes lie within faces, not across creases. Hence C uniquely folds into the shown cube; equal colors are not added mathematical adjacency conditions.",
+  "evidence_paths": [
+    "runtime\\mathvision_special_20261101\\background_04\\solid_worker\\Solid170\\opposite_to_adjacent_hole_pairs\\candidate.png",
+    "runtime\\mathvision_special_20261101\\background_04\\solid_worker\\Solid170\\opposite_to_adjacent_hole_pairs\\context.json",
+    "runtime\\mathvision_special_20261101\\background_04\\solid_worker\\Solid170\\opposite_to_adjacent_hole_pairs\\design.json",
+    "runtime\\mathvision_special_20261101\\background_04\\solid_worker\\Solid170\\opposite_to_adjacent_hole_pairs\\eligibility_before_design.json",
+    "runtime\\mathvision_special_20261101\\background_04\\solid_worker\\Solid170\\opposite_to_adjacent_hole_pairs\\eligibility_immediately_before_calls.json",
+    "runtime\\mathvision_special_20261101\\background_04\\solid_worker\\Solid170\\opposite_to_adjacent_hole_pairs\\normalized_frozen_replay.json",
+    "runtime\\mathvision_special_20261101\\background_04\\solid_worker\\Solid170\\opposite_to_adjacent_hole_pairs\\plugin.json",
+    "runtime\\mathvision_special_20261101\\background_04\\solid_worker\\Solid170\\opposite_to_adjacent_hole_pairs\\primary_review_before_calls.json",
+    "runtime\\mathvision_special_20261101\\background_04\\solid_worker\\Solid170\\opposite_to_adjacent_hole_pairs\\process_completed.json",
+    "runtime\\mathvision_special_20261101\\background_04\\solid_worker\\Solid170\\opposite_to_adjacent_hole_pairs\\process_launch.json",
+    "runtime\\mathvision_special_20261101\\background_04\\solid_worker\\Solid170\\opposite_to_adjacent_hole_pairs\\render_check.json",
+    "runtime\\mathvision_special_20261101\\background_04\\solid_worker\\Solid170\\opposite_to_adjacent_hole_pairs\\tests\\quicktest3_20261101T121912_b7a2e783c075\\binding.json",
+    "runtime\\mathvision_special_20261101\\background_04\\solid_worker\\Solid170\\opposite_to_adjacent_hole_pairs\\tests\\quicktest3_20261101T121912_b7a2e783c075\\design_snapshot.json",
+    "runtime\\mathvision_special_20261101\\background_04\\solid_worker\\Solid170\\opposite_to_adjacent_hole_pairs\\tests\\quicktest3_20261101T121912_b7a2e783c075\\request.json",
+    "runtime\\mathvision_special_20261101\\background_04\\solid_worker\\Solid170\\opposite_to_adjacent_hole_pairs\\tests\\quicktest3_20261101T121912_b7a2e783c075\\run_01.json",
+    "runtime\\mathvision_special_20261101\\background_04\\solid_worker\\Solid170\\opposite_to_adjacent_hole_pairs\\tests\\quicktest3_20261101T121912_b7a2e783c075\\run_01_response.json",
+    "runtime\\mathvision_special_20261101\\background_04\\solid_worker\\Solid170\\opposite_to_adjacent_hole_pairs\\tests\\quicktest3_20261101T121912_b7a2e783c075\\run_01_started.json",
+    "runtime\\mathvision_special_20261101\\background_04\\solid_worker\\Solid170\\opposite_to_adjacent_hole_pairs\\tests\\quicktest3_20261101T121912_b7a2e783c075\\run_02.json",
+    "runtime\\mathvision_special_20261101\\background_04\\solid_worker\\Solid170\\opposite_to_adjacent_hole_pairs\\tests\\quicktest3_20261101T121912_b7a2e783c075\\run_02_response.json",
+    "runtime\\mathvision_special_20261101\\background_04\\solid_worker\\Solid170\\opposite_to_adjacent_hole_pairs\\tests\\quicktest3_20261101T121912_b7a2e783c075\\run_02_started.json",
+    "runtime\\mathvision_special_20261101\\background_04\\solid_worker\\Solid170\\opposite_to_adjacent_hole_pairs\\tests\\quicktest3_20261101T121912_b7a2e783c075\\summary.json"
+  ]
+}

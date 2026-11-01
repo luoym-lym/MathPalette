@@ -193,6 +193,40 @@ def build_locked(root=ROOT):
     """Build while the caller holds catalog_write_lock across a larger transaction."""
     root = Path(root).resolve()
     result = catalog(root)
+    _write_catalog(root, result)
+    return result
+
+
+def update_special_plugins(root, branch, qid):
+    """Update one workbench's derived plugin list without auditing the whole bank.
+
+    Original approval checks belong to startup and explicit build/check commands.
+    Read both recipes and the latest catalog under the shared writer lock so
+    independent workbenches cannot overwrite each other's updates.
+    """
+    root = Path(root).resolve()
+    if branch not in BRANCHES:
+        raise ValueError(f'Unknown branch: {branch}')
+    with catalog_write_lock(root):
+        result = rows(root / 'question_bank.jsonl')
+        matches = [row for row in result if row.get('branch') == branch and row.get('id') == qid]
+        if len(matches) != 1:
+            raise ValueError(f'{qid}: catalog entry missing or duplicated; run catalog.py build')
+        variants = read(contained(root / branch / 'special_variant', f'{qid}/recipes.json'))
+        plugins = []
+        for variant in variants:
+            if variant.get('question_id') != qid or variant.get('status') != 'passed':
+                raise ValueError(f'Unaccepted variant in formal package: {qid}')
+            relative = variant['plugin_path']
+            path = contained(root / branch, relative)
+            if not path.is_relative_to(root / branch / 'special_variant' / qid / 'plugins'):
+                raise ValueError(f'Invalid Special plugin path: {relative}')
+            plugins.append(f'{branch}/{relative}')
+        matches[0]['special_plugins'] = plugins
+        _write_catalog(root, result)
+
+
+def _write_catalog(root, result):
     target = root / 'question_bank.jsonl'
     descriptor, name = tempfile.mkstemp(prefix='.question_bank.', suffix='.tmp', dir=root)
     temporary = Path(name)
@@ -204,7 +238,6 @@ def build_locked(root=ROOT):
         os.replace(temporary, target)
     finally:
         temporary.unlink(missing_ok=True)
-    return result
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)

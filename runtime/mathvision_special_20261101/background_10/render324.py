@@ -1,0 +1,7 @@
+from render_designs import *
+q='Plane324';m=json.loads((HERE/q/'context.json').read_text(encoding='utf-8'));ps=[o['geometry']['center'] for o in m['objects']];acts=[];roles=[]
+for t,c in [((7,8,9),R),((0,1,4),B),((2,3,6),G)]:
+    for i in range(3):
+        a,b=t[i],t[(i+1)%3];acts.append({'type':'add_line','id':'tri_edge'+str(len(acts)),'endpoints':[ps[a],ps[b]],'color':c,'linestyle':'solid'})
+        roles.append(f'Joins original marked dots {a} and {b}, one side of the real corner equilateral triangle {t}. Its color groups one of three disjoint local constraints, encouraging the mistaken one-removal-per-corner total3 while larger/interleaved triangles remain possible. Centers are explicit visible dot locations, not inferred unmarked circle centers.')
+make(q,'three_corner_triangle_groups','3',acts,'Three colors trace three existing disjoint corner equilateral triangles; predicted error removes one per local group and misses interleaving and larger equilateral triples.','The10 original dot centers form the order4 triangular lattice. Exhaustive squared-distance equality over all120 triples gives15 equilateral triples; no removal subset of size0,1,2,3 hits all15, while subsets(0,5,6,8),(1,2,5,9),(3,4,5,7) do. Thus4 removals is necessary and sufficient. Machine certificate at ../equilateral_hitting_set_proof.json lists all triples and all minimum removal sets. Marks add only sides between existing dots and neither remove nor add a dot. No already-removed status is implied by drawing an equilateral example.',roles)

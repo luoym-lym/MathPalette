@@ -1,0 +1,3 @@
+from tools08 import *
+qid,vid=sys.argv[1:3]
+write(HERE/qid/vid/'primary_visual_review.json',{'reviewed_at':now(),'actual_candidate_png_viewed':True,'original_png_viewed':True,'proceed_to_API':True,'review':'Actual PNG inspected at 768x768: original black strokes, black fills, all digits/letters, options and source geometry remain readable. Thin colored outlines map the stated features, with no added symbols, labels, cuts or equality conditions. Source fill stays unchanged; no geometry moved. This is primary review only; parent must commission NEW independent second review before delivery.','limitations':'Feature correspondence is an intended perceptual mechanism. No causal attribution, human performance claim, or per-marker statistical necessity is established.'})

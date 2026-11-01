@@ -1,0 +1,42 @@
+{
+  "plugin_schema_version": "1.0.0",
+  "question_id": "Plane478",
+  "category": "C",
+  "operation": "C_manual",
+  "description": "三个来源矩形同红轮廓，并在三重交叠空白区域加一个蓝色注意点，诱导把三个来源矩形加一个中心交叠计为4，漏掉其他组合。蓝点不在边界或交点、不新增边或矩形。",
+  "intent": "预设诱导错误答案 4",
+  "params": {
+    "actions": [
+      {
+        "type": "set_object_style",
+        "target": "r0",
+        "color": "#DC2626",
+        "linewidth_pt": 2
+      },
+      {
+        "type": "set_object_style",
+        "target": "r1",
+        "color": "#DC2626",
+        "linewidth_pt": 2
+      },
+      {
+        "type": "set_object_style",
+        "target": "r2",
+        "color": "#DC2626",
+        "linewidth_pt": 2
+      },
+      {
+        "type": "add_point",
+        "id": "triple_overlap_focus",
+        "xy": [
+          2.14,
+          2.18
+        ],
+        "color": "#2563EB",
+        "filled": true,
+        "size_pt2": 50,
+        "edge_linewidth_pt": 1.0
+      }
+    ]
+  }
+}

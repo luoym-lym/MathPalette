@@ -1,0 +1,4 @@
+from tools_local import *
+out=HERE/'Plane247/open_stair_rightwall_correspondence';e=next((out/'tests').glob('quicktest3_*'));s=json.loads((e/'summary.json').read_text())
+write(out/'manual_final_review.json',{'reviewed_at':now(),'review_method':'Read complete answer text from both complete run JSONs manually','expected_wrong_answer':'D','actual_manual_finals':[{'run':1,'choice':'A','value':'1 and3','final_quote':'Answer: **A**','hit':False},{'run':2,'choice':'D','value':'1 and4','final_quote':'The correct choice is **D: 1 and 4**.','hit':True}],'paired_target_hit':False,'two_completed':s['two_completed'],'evidence_dir':str(e),'mechanism_evidence':'Run1 privilegespiece1 and invents a neutral secondpiece, endingA. Run2 explicitly binds redpiece1 and bluepiece4 and endsD. Both narratives contain inaccurate geometry; only finalanswers determine the miss.','status':'COMPLETE_PAIR_MISS_DO_NOT_RETEST_IDENTICAL_IMAGE'})
+print('Saved A/D miss.')

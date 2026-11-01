@@ -1,0 +1,64 @@
+{
+  "question_id": "Solid94",
+  "variant_id": "full_cut_vertices_to_shallow_corner",
+  "expected_wrong_answer": "C",
+  "formal_correct_answer": "A",
+  "reviewed_at": "2026-11-01T16:06:07.868653+00:00",
+  "review_type": "PRIMARY manual response reading only, not independent second review",
+  "design_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_15\\Solid94\\full_cut_vertices_to_shallow_corner\\design.json",
+  "design_sha256": "2ac8a7a7aa772cc0167871067f54fdba5549d1af34fabc9f0ffd636dd7c31f47",
+  "candidate_png_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_15\\Solid94\\full_cut_vertices_to_shallow_corner\\candidate.png",
+  "candidate_png_sha256": "7c99f881782a830eafefef586e732bf6f86aab78cf378f331a69094511d2eb2f",
+  "pixel_sha256": "60c0ffaad6c4500853247efa8315359ff1a9af409b970c70edaa358b76cbb69b",
+  "binding_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_15\\Solid94\\full_cut_vertices_to_shallow_corner\\tests\\quicktest3_20261101T155227_abe2e04c9477\\binding.json",
+  "binding_sha256": "dcb9575686683052f5d7645bd54f7a00d309b1c0de42a6033f069fea4aeb2684",
+  "summary_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_15\\Solid94\\full_cut_vertices_to_shallow_corner\\tests\\quicktest3_20261101T155227_abe2e04c9477\\summary.json",
+  "summary_sha256": "8948aa3a5e7cf882b69d9856d713e6bcb43cbd6330776121d0374c745f5d9747",
+  "runs": [
+    {
+      "run_index": 1,
+      "raw_run_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_15\\Solid94\\full_cut_vertices_to_shallow_corner\\tests\\quicktest3_20261101T155227_abe2e04c9477\\run_01.json",
+      "raw_response_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_15\\Solid94\\full_cut_vertices_to_shallow_corner\\tests\\quicktest3_20261101T155227_abe2e04c9477\\run_01_response.json",
+      "run_sha256": "690fa26e7ebcd48108000cd13ee535f9abf242476a6db039e05bc51492a8c27d",
+      "response_sha256": "f1af499f76be676fb7dc10b4257136bef92501bb62b49954645ed1b6215a3957",
+      "complete_final_response_read_manually": true,
+      "complete_answer_text": "**Answer Analysis:**\nThe planes cut off the corners of the cube. Specifically, the plane passing through the three neighbors of vertex $A$ cuts off the corner $A$ in the shape of a tetrahedron. Since this happens for all 8 corners, the central piece is what remains. The shape formed by removing the 8 tetrahedron corners from a cube is a **cuboctahedron**.\n\nA cuboctahedron has 6 square faces (parallel to the original cube's faces) and 8 triangular faces (parallel to the cutting planes). Looking at the choices:\n*   (A) is an octahedron.\n*   (B) is a cube.\n*   (C) is a cuboctahedron (note the colored dots meeting at a vertex, which is characteristic of the vertex configuration of a cuboctahedron).\n*   (D) is a rhombicuboctahedron.\n\nThe correct shape is (C).\n\nC",
+      "final_claim_literal_summary": "C",
+      "interpreted_final_answer": "C",
+      "final_choice_value_consistent": true,
+      "matches_predeclared_preset": true,
+      "review_notes": "Unambiguous C final; narrative misnames C a cuboctahedron. Wrong depth/categorical identification, no numerical value pair.",
+      "finish_reason": "stop",
+      "truncated": false,
+      "elapsed_seconds": 6.773
+    },
+    {
+      "run_index": 2,
+      "raw_run_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_15\\Solid94\\full_cut_vertices_to_shallow_corner\\tests\\quicktest3_20261101T155227_abe2e04c9477\\run_02.json",
+      "raw_response_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_15\\Solid94\\full_cut_vertices_to_shallow_corner\\tests\\quicktest3_20261101T155227_abe2e04c9477\\run_02_response.json",
+      "run_sha256": "8a86207bbe9e04fb7cd0adfa946d13ac6687dc51b479cb274f744019813586d6",
+      "response_sha256": "b05cd87f64dddcb593bfcae8713ef7206d0630f37f65b1a34df18729eb9e97c4",
+      "complete_final_response_read_manually": true,
+      "complete_answer_text": "The problem describes a cube where planes are constructed by passing through the three vertices adjacent to each of the cube's vertices.\n\nLet's analyze this setup. Let the vertices of the cube be represented by coordinates $(\\pm 1, \\pm 1, \\pm 1)$. The center of the cube is at the origin $(0,0,0)$.\n\nConsider the vertex $A = (1, 1, 1)$. Its three adjacent vertices are $D = (-1, 1, 1)$, $E = (1, -1, 1)$, and $B = (1, 1, -1)$.\nThe plane passing through $D, E, B$ has the equation:\n$$ -x + y + z = -1 \\implies x - y - z = 1 $$\n\nFor the vertex $A'$ located at $(-1, -1, -1)$, the adjacent vertices are $(1, -1, -1)$, $(-1, 1, -1)$, and $(-1, -1, 1)$. The corresponding plane is:\n$$ x - y - z = -1 $$\n\nThese two planes are parallel. The region between them is defined by $-1 \\le x - y - z \\le 1$.\nThe center of the cube $(0,0,0)$ satisfies $0 - 0 - 0 = 0$, which is strictly between $-1$ and $1$. Thus, the center is strictly inside this \"slab\" or region bounded by the two planes.\n\nSince this logic applies to all three axes (by symmetry of the vertices), the center is strictly inside the intersection of all such slabs. Specifically, the intersection of these regions forms a convex polyhedron surrounding the center. The center lies in the interior of this single piece.\n\nBased on the visual representations:\n- (A) shows an octahedron, which corresponds to the intersection of the planes $x \\pm y \\pm z = \\pm 1$.\n- (C) shows a truncated cube, which corresponds to the intersection of the planes $x \\pm y \\pm z \\le 1$ (chamfering the corners).\n- The shape described above (intersection of slabs $|x \\pm y \\pm z| \\le 1$) is the octahedron.\n\nTherefore, the piece that contains the center is the octahedron shown in choice A.\n\nAnswer: A",
+      "final_claim_literal_summary": "A",
+      "interpreted_final_answer": "A",
+      "final_choice_value_consistent": true,
+      "matches_predeclared_preset": false,
+      "review_notes": "Unambiguous A final. Intermediate plane algebra incorrect, final octahedron selection is correct.",
+      "finish_reason": "stop",
+      "truncated": false,
+      "elapsed_seconds": 20.875
+    }
+  ],
+  "credible_paired_hit": false,
+  "status": "complete_pair_missed_preset",
+  "controls": {
+    "run": false,
+    "reason": "Optional original controls were not run; no candidate achieved paired hit. No causal advantage claim."
+  },
+  "limitations": [
+    "Independent second review not performed; not approved for publication.",
+    "Narratives may be mathematically incorrect; only unambiguous final answer matching was assessed.",
+    "No original-control, human-performance, causal or per-marker statistical claims."
+  ]
+}

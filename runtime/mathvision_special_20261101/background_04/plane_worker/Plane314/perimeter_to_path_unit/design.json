@@ -1,0 +1,57 @@
+{
+  "question_id": "Plane314",
+  "variant_id": "perimeter_to_path_unit",
+  "expected_wrong_answer": "E",
+  "correct_answer": "C",
+  "formal_record": {
+    "source_dataset": "MathVision",
+    "source_key": "test:986",
+    "question": "The arrangement shown consists of square tiles of different sizes. The smallest tile has a perimeter of $80 \\mathrm{~cm}$. What is the length of the path shown along the edges of the tiles?\nChoices:\nA:$380 \\mathrm{~cm}$\nB:$400 \\mathrm{~cm}$\nC:$420 \\mathrm{~cm}$\nD:$440 \\mathrm{~cm}$\nE:$1680 \\mathrm{~cm}$",
+    "answer": "C",
+    "answer_type": "choice",
+    "id": "Plane314",
+    "choices": {
+      "A": "$380 \\mathrm{~cm}$",
+      "B": "$400 \\mathrm{~cm}$",
+      "C": "$420 \\mathrm{~cm}$",
+      "D": "$440 \\mathrm{~cm}$",
+      "E": "$1680 \\mathrm{~cm}$"
+    },
+    "image": "image/Plane314.png",
+    "original_image": "originals/Plane314.jpg",
+    "scene": "dataset_generator/scenes/Plane314.json",
+    "script": "dataset_generator/plane_plot314.py",
+    "runtime_dependencies": [
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane314/execution.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane314/protocol_review.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane314/renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane314/scene.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane314/source.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane314/source_redraw.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+    ],
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "source_category": "combinatorial geometry"
+  },
+  "created_at": "2026-11-01T12:19:47.087422+00:00",
+  "mechanism": "A complete smallest-square perimeter is paired by red with one unit of the indicated path. The given80cm is the perimeter, so this pair targets misbinding the80cm whole-perimeter measure as the path-unit length, producing21*80=1680cm (E) instead of dividing by4.",
+  "mathematical_solution": "The smallest tile perimeter80 gives side20cm. In smallestsideunits the eleven pathsegments have lengths1,1,2,2,2,2,2,3,4,1,1 summing21. Hence length420cm, optionC unique. A perimeter80 must not be substituted for one side. Originalhead, eye, topology and all tile boundaries remain unchanged.",
+  "marker_roles": [
+    "tile6 redoutline marks exactly the entire perimeter of a smallesttile, the geometric quantity whose80cm is stated.",
+    "thick_snake0 red marks a single smallestside length along the actual path, the location where the whole-perimeter quantity could be wrongly substituted.",
+    "The two overlays together carry a perimeter-to-pathunit binding; no option or irrelevanttile is colored."
+  ],
+  "human_gate": "The connected snake/path and head remain readily identifiable even with one short segment colored. No new path, lengthlabel, equality or other mathematicalcondition is added.",
+  "review_status": "PRIMARY_ONLY_REQUIRES_NEW_PARENT_INDEPENDENT_SECOND_REVIEW"
+}

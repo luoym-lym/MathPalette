@@ -81,8 +81,10 @@ class RendererAdapter:
         self.source_files = sorted(Path(config["question_class_dir"]).glob("function_plot*.py"))
         records = [parse_json(line) for line in Path(config["dataset_file"]).read_text(
             encoding="utf-8-sig").splitlines() if line.strip()]
-        if not records or [r["id"] for r in records] != [f"Ana{i:02d}" for i in range(1, len(records) + 1)]:
-            raise WorkbenchError("正式 dataset.jsonl 须从 Ana01 连续编号并按顺序排列。")
+        last = max((int(r["id"].removeprefix("Ana")) for r in records), default=0)
+        expected = [f"Ana{i:02d}" for i in range(1, last + 1) if i != 52]
+        if not records or [r["id"] for r in records] != expected:
+            raise WorkbenchError("正式 dataset.jsonl 须按 Ana 编号排列，已删除的 Ana52 不复用。")
         self.records = {record["id"]: record for record in records}
         self.original_paths = {qid: Path(config["original_image_dir"]) / f"{qid}.png" for qid in self.records}
         self.input_files = {"dataset.jsonl": Path(config["dataset_file"]),

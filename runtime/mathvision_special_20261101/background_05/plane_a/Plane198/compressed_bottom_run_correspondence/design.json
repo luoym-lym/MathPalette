@@ -1,0 +1,59 @@
+{
+  "question_id": "Plane198",
+  "variant_id": "compressed_bottom_run_correspondence",
+  "expected_wrong_answer": "B",
+  "correct_answer": "E",
+  "formal_record": {
+    "source_dataset": "MathVision",
+    "source_key": "test:462",
+    "question": "Picture $X$ is paired with picture $Y$. Which of the following pictures is paired with picture $G$ ?\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E",
+    "answer": "E",
+    "answer_type": "choice",
+    "id": "Plane198",
+    "choices": {
+      "A": "A",
+      "B": "B",
+      "C": "C",
+      "D": "D",
+      "E": "E"
+    },
+    "image": "image/Plane198.png",
+    "original_image": "originals/Plane198.jpg",
+    "scene": "dataset_generator/scenes/Plane198.json",
+    "script": "dataset_generator/plane_plot198.py",
+    "runtime_dependencies": [
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane198/execution.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane198/protocol_review.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane198/renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane198/scene.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane198/source.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane198/source_redraw.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+    ],
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "source_category": "combinatorial geometry"
+  },
+  "created_at": "2026-11-01T12:49:28.328657+00:00",
+  "mechanism": "The bottom row of G is partitioned into its three-white run(red outlines) and terminal black cell(blue outline). The bottom row of B is partitioned into a two-black run(red) and two-white run(blue). This supplies a compressed3:1-to2:2 run correspondence, preserving the apparent complement order but losing one interior cell. Other rows of B match the true complement. No wholeoption or letter is highlighted.",
+  "mathematical_solution": "At every cell Y is the black/white complement of X, with no geometric rearrangement. Therefore the paired G image must be the cellwise complement of G. For G the four binary rows(black=1) are0010,1100,0110,0001; their complements are1101,0011,1001,1110. Only E has those rows. B instead has bottomrow1100 and differs at row4,col3. The colored outlines do not change any cellfill or position, so E remains unique.",
+  "marker_roles": [
+    "G3_0,G3_1,G3_2 red outlines mark membership in the source three-white bottomrun, each cell contributing one unit of its length.",
+    "B3_0,B3_1 red outlines identify the falsely paired two-black bottomrun, exposing the exact compressed correspondence.",
+    "G3_3 blue marks the remaining source blackcell.",
+    "B3_2,B3_3 blue mark the falsely paired two-white terminalrun.",
+    "Eight celloutline marks encode the erroneous runlength partition while preserving black/white fills and every cell boundary."
+  ],
+  "human_gate": "No fill is changed. All4x4 cellcounts, inputX/Y/G labels and optionletters remain clear. Outlines2pt stay within each existing border; white cells remain visibly white and black cells black.",
+  "review_status": "PRIMARY_ONLY_REQUIRES_NEW_PARENT_INDEPENDENT_SECOND_REVIEW"
+}
