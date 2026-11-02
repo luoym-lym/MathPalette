@@ -1,0 +1,1013 @@
+{
+  "schema_version": "1.0.0",
+  "question_id": "Solid128",
+  "variant_id": "r35_corner_ownership_mixed_rims",
+  "branch": "SolidGeometry",
+  "decision": "recommended",
+  "review_kind": "fresh_independent_second_research_review",
+  "reviewed_at_utc": "2026-11-01T18:23:17.547946+00:00",
+  "decision_reason_zh": "推荐作为研究候选保留：原题由实际单层一格厚墙段及全局 36 块唯一推出 64；同一冻结候选和预设 81 的两次真实完整调用均以 81 结束；两条原棱标记在角块处构成具体的外侧计数/内偏边长对应，正常尺寸可读，无新增固定方形或竞争数学读法。主审的交叉与内边简称两处不精确措辞已独立纠正，不构成设计、证据或答案缺陷。",
+  "approval_status": {
+    "research_recommendation_only": true,
+    "user_approval_recorded": false,
+    "formal_state_approved": false,
+    "Pass": false,
+    "Collect": false,
+    "publication": false
+  },
+  "independence": {
+    "complete_assignment_brief_read": true,
+    "parent_conclusions_not_used_as_proof": true,
+    "actual_source_and_candidate_opened": true,
+    "formal_full_question_and_both_complete_raw_replies_read": true,
+    "proof_and_geometry_recomputed": true,
+    "nested_agents_or_threads_or_worktrees": 0,
+    "new_solver_calls": 0,
+    "retries_or_design_changes": 0
+  },
+  "original_problem": {
+    "formal_question_full": "A wall around a square area is made from 36 identical cubes. A section of the wall is shown. How many cubes are needed to completely fill the square area?",
+    "upstream_question_full": "Nina made a wall around a square area, using 36 identical cubes. A section of the wall is shown in the picture. How many cubes will she now need to completely fill the square area.\n<image1>",
+    "source_dataset": "MathVision",
+    "source_key": "test:798",
+    "answer_type": "number",
+    "unique_correct_answer": "64",
+    "formal_answer_crosscheck": "64",
+    "expected_wrong_answer_frozen": "81",
+    "formal_question_utf8_sha256": "76139bea22cd1e60354f88a7a95915d9b155be1faa6c943f5fb374f37f02b116",
+    "formal_record_canonical_sha256": "b5014e33060683bdc0fa8a5a771f7aca33874103fac913662768d0f2e2706dc1"
+  },
+  "unique_correct_answer": "64",
+  "expected_wrong_answer": "81",
+  "independent_mathematical_proof": {
+    "basis_zh": "题干给定完整方形区域周围共 36 个相同立方体；实际来源图与正式重绘图显示单层、一块宽的直角墙段。图只是 section，未画出完整封闭方墙。",
+    "steps_zh": [
+      "令完整方墙外侧每边含 n 个单位立方体，n>=3。四条含两端角块的完整边各有 n 块，四个角块各被重复计入一次，故墙块总数为 4n-4；也可按四角 4 块加四边各 n-2 块计为 4+4(n-2)。",
+      "4n-4=36 唯一得 n=10。墙厚两侧各占一单位，因此内部空区每边为 n-2=8，而不是 n-1=9。",
+      "填至一块高、与原墙同高的正方形空区需要 (n-2)^2=8^2=64 个新增立方体。验证：10^2-8^2=100-64=36；另以四个内侧条带 4m 加四角 4 得 4m+4=36、m=8。",
+      "若把 36 平均分给四个“只拥有一个角块”的边组，每组 9=n-1；这只是半开分组计数或墙中心线的边长，不是内部空区边长 n-2。把 9 平方得到 81 正是预设错误。若内部真为 9×9，则外边须 11，墙块应为 4×11-4=40，与 36 冲突。"
+    ],
+    "uniqueness_zh": "方形、单层、单块厚的原题解释下，墙块数关于外边长为严格递增的 4n-4，方程只有 n=10，故填充数唯一为 64。无需从存储答案倒推。",
+    "clipped_lengths_not_givens_zh": "冻结坐标里的前段长 5、回边终点 2.7、外回边 2.35 及稀疏续线都是来源示意图的显示截取参数，不是完整边长或有限多立方体的总数；没有以这些显示参数解题。",
+    "primary_count_proof_verdict": "The primary 4n-4 and (n-2)^2 proof is mathematically correct. No answer correction required. Geometric wording corrections are listed separately.",
+    "independent_lattice_crosscheck": {
+      "outer_side": 10,
+      "boundary_cubes": 36,
+      "empty_interior_cubes": 64,
+      "only_integer_outer_side_solution_from_formula": [
+        10
+      ],
+      "target_81_would_require_outer_side": 11,
+      "boundary_for_9_by_9_interior": 40,
+      "scope": "Arithmetic and finite lattice cross-check of the proof, no model or solver request."
+    }
+  },
+  "actual_visual_inspection": {
+    "viewed_files": [
+      {
+        "purpose": "source_original_jpg",
+        "absolute_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\SolidGeometry\\originals\\Solid128.jpg",
+        "sha256": "32a65ee386d9f5bf39badbdd6a4473876e41ba35258ec6312590d0cb3afad121",
+        "size": [
+          349,
+          255
+        ],
+        "mode": "RGB",
+        "actually_opened_with_image_tool": true,
+        "inspection": "Opened independently at original image resolution in this review; source JPG and both full 768px PNGs were visually inspected, not inferred from summaries."
+      },
+      {
+        "purpose": "formal_native_png",
+        "absolute_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\SolidGeometry\\image\\Solid128.png",
+        "sha256": "b4e4ed8a2e988bf67b57830226e5d24a9a55825c19f63c7d728879118a1af25b",
+        "size": [
+          768,
+          768
+        ],
+        "mode": "RGBA",
+        "actually_opened_with_image_tool": true,
+        "inspection": "Opened independently at original image resolution in this review; source JPG and both full 768px PNGs were visually inspected, not inferred from summaries."
+      },
+      {
+        "purpose": "frozen_tested_candidate_native_png",
+        "absolute_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_35\\Solid128\\r35_corner_ownership_mixed_rims\\candidate.png",
+        "sha256": "956035af2187349c2ade4832ad99ed16acf949f40991b63950f2ad35b6814097",
+        "size": [
+          768,
+          768
+        ],
+        "mode": "RGBA",
+        "actually_opened_with_image_tool": true,
+        "inspection": "Opened independently at original image resolution in this review; source JPG and both full 768px PNGs were visually inspected, not inferred from summaries."
+      }
+    ],
+    "native_size_human_judgment_zh": "原图 349×255 可读出前墙单层、顶面一格宽和回墙；两幅 768×768 图保留所有分缝与开放续线。候选仅两条细红边，黑外回边与墙厚仍明显；没有标签遮挡、消失的单位格、答案文字或新尺寸。",
+    "source_gray_shading_zh": "来源 JPG 的灰色前面在正式重绘中已依单色协议移除；这是已冻结原题的渲染规则，候选没有新增或改变填充。",
+    "native_layout_bbox": [
+      54,
+      171,
+      713,
+      596
+    ],
+    "red_stroke_nominal_width_px": 2.0833333333333335,
+    "all_other_original_strokes_unchanged": true
+  },
+  "marker_group_reviews": [
+    {
+      "group_id": "M1_outer_front_corner_including_run",
+      "target": "front_top",
+      "action": {
+        "type": "set_object_style",
+        "target": "front_top",
+        "color": "#DC2626",
+        "linewidth_pt": 1.5
+      },
+      "world_endpoints": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          5,
+          0,
+          1
+        ]
+      ],
+      "projected_endpoints_ideal": [
+        [
+          0,
+          1
+        ],
+        [
+          5,
+          -0.4
+        ]
+      ],
+      "actual_native_path": {
+        "id": "p0",
+        "sha256": "8f38f8cecd9b627aee17f25d3a727fd7749d36a76d83ce6c7b25abb340de29c0",
+        "closed": false,
+        "samples": [
+          [
+            55.120194661479744,
+            280.2544086284564,
+            0.0
+          ],
+          [
+            712.8798053385204,
+            464.4270996180278,
+            1.0
+          ]
+        ]
+      },
+      "targeting": {
+        "judgment": "specific_as_source_member_of_pair",
+        "finding_zh": "取前墙外侧上棱作为分摊墙块的参照，完整保留并突出角块沿 x=0..1 的那一段；第二条红边从本棱的第一处分缝 x=1 出发，形成可见的角块归属对比。不是给整个题图、整片区域或所有边统一着色。"
+      },
+      "validity": {
+        "judgment": "valid",
+        "finding_zh": "该棱在来源图及冻结场景中实际存在且可见；只从原黑色 1pt 改为红色 1.5pt，端点、几何、分缝和实线均未变。它是外侧边，不应被解释为内部空区边长。"
+      },
+      "effectiveness": {
+        "judgment": "useful_component_with_pair_level_two_hit_evidence",
+        "finding_zh": "使包含角块的外边参照可被同色的内偏回边接收；实际两次回答均出现 36/4=9 再平方的预设错误。未做单标记消融，不能把单独这一动作的因果效果视为已证实。"
+      },
+      "concision": {
+        "judgment": "concise",
+        "finding_zh": "仅一个已有连续边的样式动作，无数字、箭头、重复描边对象或额外线。全边着色保留其连续边身份，角色由角块一格与第一分缝确定；不要求它本身显示 9 个单位。"
+      },
+      "human_unambiguity": {
+        "judgment": "unambiguous_for_original_numerical_task",
+        "finding_zh": "正常 768px 尺寸下红边约 2.08px 宽，前墙各竖分缝和底边仍清楚。即使把红色视为墙棱油漆，也不改变立方体数量、边界占据或填充目标；没有把红边作为等长或新墙边界的题设。"
+      }
+    },
+    {
+      "group_id": "M2_inward_offset_return_receiver",
+      "target": "return_inner_top",
+      "action": {
+        "type": "set_object_style",
+        "target": "return_inner_top",
+        "color": "#DC2626",
+        "linewidth_pt": 1.5
+      },
+      "world_endpoints": [
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          2.7,
+          1
+        ]
+      ],
+      "projected_endpoints_ideal": [
+        [
+          1,
+          0.72
+        ],
+        [
+          3.43,
+          1.665
+        ]
+      ],
+      "actual_native_path": {
+        "id": "p0",
+        "sha256": "e1d950d2520a61f8a396212802728755a3695a01c41b44b9f41eee1ac5c4c1ed",
+        "closed": false,
+        "samples": [
+          [
+            186.67211679688785,
+            317.0889468263707,
+            0.0
+          ],
+          [
+            506.3432875859296,
+            192.77238040840996,
+            1.0
+          ]
+        ]
+      },
+      "targeting": {
+        "judgment": "specific_receiver_at_one_cube_offset",
+        "finding_zh": "该回边位于 x=1，而未着色的外回边位于 x=0；两者相距一立方体厚度。它从前墙第一处分缝 (1,0,1) 出发，在 (1,1,1) 越过已有后沿后进入内侧回边，把角块外参照与内偏一格的垂直方向联系起来。"
+      },
+      "validity": {
+        "judgment": "valid_with_precise_segment_role",
+        "finding_zh": "整条是已有可见棱/格缝路径；y=0..1 这一单位先跨过前墙顶面，y>=1 才是回墙面向内部空区的上边。因此不能把整条均称为内部空区边界，也不能把 2.7 当成完整方墙尺寸。样式覆盖未补画隐藏边、延长线或新角点。"
+      },
+      "effectiveness": {
+        "judgment": "useful_receiver_with_pair_level_two_hit_evidence",
+        "finding_zh": "给第一条外侧参照提供了可识别的同色接收对象，具体诱导角块分摊所得 n-1 与内部边长 n-2 混同。两次完整回答都发生了该数值混同，但均未提到红色；已观察到的 81/81 不能证明模型实际注视或使用了本标记。"
+      },
+      "concision": {
+        "judgment": "concise",
+        "finding_zh": "一个已有开放路径的样式动作；没有添加闭合内方形、完整围墙、尺寸或求解文字。它与前红边的 T 形连接直接显示一格错位，角色区别于泛化全轮廓强调。"
+      },
+      "human_unambiguity": {
+        "judgment": "unambiguous_for_original_numerical_task",
+        "finding_zh": "黑色外回边、顶面单位格和内侧竖线片段保持可见，约 343px 的红路径端点可分辨。红色路径开放且与第一条形成 T 形，不是新方形或新的固定分割。共同颜色表达注意力对应，不构成等长、等量、平行或角度标记。"
+      }
+    }
+  ],
+  "joint_marker_semantics": {
+    "targeting_verdict": "specific_corner_ownership_correspondence",
+    "mechanism_zh": "第一红边保留角块 x=0..1；第二红边相对黑外回边 x=0 内偏到 x=1，并从第一分缝起穿过前墙一格顶面。两者同色将外边计数与内侧边长放在同一注意力组，具体诱发把 36/4=9 的角块归属分摊数转用于内部空区。它不声称图中存在 9 个可直接读出的单位。",
+    "new_region_or_cut": "none",
+    "new_square_boundary_or_closing_segment": "none",
+    "new_dimension_or_numeral_or_text": "none",
+    "new_equal_length_or_parallel_or_angle_condition": "none",
+    "new_cube_or_changed_wall_membership": "none",
+    "world_geometry_projection_frozen_visibility_changes": "none",
+    "existing_closed_cube_faces_zh": "原有封闭顶面格并未消失或新增；标记开放不意味着禁止原有格子轮廓。",
+    "paint_vs_annotation_reading_zh": "本题是围墙数值计数。将红线解释为真实棱上的涂漆或事后注意力标注，都不改变几何占据或填充目标，均唯一为 64。不存在必须忽略红墨才可解、或保留红墨就无答案的图案转移问题。",
+    "shared_hue_zh": "共同红色可以合理引导比较和混同，但没有等长刻痕、平行箭头、端帽或尺寸文字，且两条显示段长度不同、均被题干说明为 section；不能把共同颜色提升为新增相等题设。",
+    "human_unambiguity_verdict": "satisfied_by_wording_actual_topology_and_visible_unit_thickness",
+    "concision_verdict": "Both actions have source/receiver roles; no unused mark or artificial numeric mark cap.",
+    "observed_effectiveness_verdict": "Same frozen image produces two complete preset hits, 81 and 81; causal/per-marker attribution remains untested."
+  },
+  "old_objections_rechecked": [
+    {
+      "origin": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_15\\Solid128\\primary_prescreen.json",
+      "old_objection": "Generic inner-versus-outer rim emphasis lacked a second visual receiver or a specific unambiguous partial-feature correspondence.",
+      "new_design_check_zh": "本次实际存在两个不同位置的具体对象：含角块的前外边和偏入一格的回边；它们在第一分缝 (1,0,1) 相接，并在内角 (1,1,1) 与黑后沿相交。以同色将外边计数参照与内侧接收对象绑定，角块差一格的可见特征确实存在。",
+      "disposition": "resolved_for_this_new_design",
+      "limit_zh": "两个回复没有叙述颜色或角块接收过程，故对应机制属于有几何依据的设计解释，不能据此声称已证实因果机制。"
+    },
+    {
+      "origin": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_15\\Solid128\\primary_prescreen.json",
+      "old_objection": "Do not add extension boundaries implying a different fixed square.",
+      "new_design_check_zh": "核对两条原路径、全部 18 个原线对象及真实候选，仅修改两条样式。0 个新点、0 条新线；原图开放端头与不同长度的截取段全部保留；没有远端闭合线、内方形、中心线或尺寸。",
+      "disposition": "resolved"
+    },
+    {
+      "origin": "Assignment brief: prior Plane233 fixed-partition rejection",
+      "old_objection": "New closed source contours implied incompatible fixed partitions.",
+      "new_design_check_zh": "两条着色路径均开放，组合为 T 形，没有产生新的闭合轮廓或切割。原有立方体顶面闭合格子仍是原有格子，不被一概禁止，也不被解释成新区域。全体差异像素均位于原有两条描边范围内。",
+      "disposition": "not_reproduced_in_this_variant"
+    },
+    {
+      "origin": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\annotation_semantics_lessons_20261102.json / Plane295",
+      "old_objection": "Colored ear boundaries could be intrinsic source content and change a drawing-completion answer; a small diagnostic distinction was weakened.",
+      "new_design_check_zh": "本题要求数值填充数量，不要求图案补全。把两条红棱当作真实油漆，单层一格厚方墙和空区均不变；黑外回边与分缝仍清楚，没有抹掉诊断区别。",
+      "disposition": "not_reproduced_in_this_variant"
+    },
+    {
+      "origin": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\annotation_semantics_lessons_20261102.json / Plane342",
+      "old_objection": "A literal physical printed-card transformation transports red ink and changes/no longer matches the answer options.",
+      "new_design_check_zh": "本题无纸卡旋转、印刷图案搬运或需要保持油墨的选项匹配。油漆与批注两种自然读法都得到同一个空区计数 64；没有需要从数学对象中删去红墨才能得到答案的条件。",
+      "disposition": "not_reproduced_in_this_variant"
+    },
+    {
+      "origin": "Assignment brief and annotation semantics rule",
+      "old_objection": "Schema-valid color or whole-choice salience alone is insufficient; each mark needs an informational role.",
+      "new_design_check_zh": "独立检查了一格墙厚、含角块的外边、内偏回边及两处真实交点，证明这里有具体外侧计数到内侧边长的混同对象，而非泛化强调。白名单合规与该语义判断分别记录。",
+      "disposition": "satisfied_by_actual_feature_correspondence"
+    }
+  ],
+  "material_difference_audit": {
+    "old_prescreen_status": "screened_out_without_saved_plugin_candidate_or_calls",
+    "old_prescreen_file": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_15\\Solid128\\primary_prescreen.json",
+    "old_prescreen_sha256": "c9a4b5ffdcd7098dfb3b897015ce79c8237a74c65188f2a90918f4c6deef9975",
+    "old_same_question_independent_reviews": [],
+    "old_file_manifest_checked": [
+      {
+        "path": "runtime\\mathvision_special_20261101\\background_15\\Solid128\\context.json",
+        "sha256": "86815140ef153439f8864dce1f9079a249113361799c3de53d53428dc348c828",
+        "bytes": 23443
+      },
+      {
+        "path": "runtime\\mathvision_special_20261101\\background_15\\Solid128\\eligibility_at_end.json",
+        "sha256": "24b462240ad65d8c1b29f41797dca5198f8f28d401c16d36d88c4c039dd1e3d8",
+        "bytes": 1246
+      },
+      {
+        "path": "runtime\\mathvision_special_20261101\\background_15\\Solid128\\eligibility_at_end_v2.json",
+        "sha256": "6c603cb06997c31e1072841f898a7c7c72f5a070be085a67978ef5f9e497e2bf",
+        "bytes": 1282
+      },
+      {
+        "path": "runtime\\mathvision_special_20261101\\background_15\\Solid128\\eligibility_at_start.json",
+        "sha256": "bde7cd5c4bdd6a1a5f65565cbe29a7ab8fbac4c0a99f5b0f6a138f0fecdc42f2",
+        "bytes": 1246
+      },
+      {
+        "path": "runtime\\mathvision_special_20261101\\background_15\\Solid128\\formal_record.json",
+        "sha256": "23ba1a52d5fe319af2e56a1bf80d5775053483bed94fb6851f04ab6348b83a14",
+        "bytes": 2775
+      },
+      {
+        "path": "runtime\\mathvision_special_20261101\\background_15\\Solid128\\frozen_inputs.json",
+        "sha256": "3edec85fb5c85bcd53311176f7842e9e9cbeda804704a1a23e4ac6993a2f2e04",
+        "bytes": 5580
+      },
+      {
+        "path": "runtime\\mathvision_special_20261101\\background_15\\Solid128\\original.png",
+        "sha256": "b4e4ed8a2e988bf67b57830226e5d24a9a55825c19f63c7d728879118a1af25b",
+        "bytes": 16635
+      },
+      {
+        "path": "runtime\\mathvision_special_20261101\\background_15\\Solid128\\primary_prescreen.json",
+        "sha256": "c9a4b5ffdcd7098dfb3b897015ce79c8237a74c65188f2a90918f4c6deef9975",
+        "bytes": 2421,
+        "full_json_read": true
+      },
+      {
+        "path": "runtime\\mathvision_special_20261101\\background_15\\Solid128\\source_audit_final.json",
+        "sha256": "5f32fcc4727a10ff5f808fae114d9bc024bb081c121475e8dd398dc2320f9a21",
+        "bytes": 1566
+      },
+      {
+        "path": "runtime\\mathvision_special_20261101\\background_15\\Solid128\\source_audit_final_v2.json",
+        "sha256": "969d5cc5e1bc35683767a4d71ec139a32f6c6d70355941a36c0d8dc9e749510f",
+        "bytes": 1604
+      },
+      {
+        "path": "runtime\\mathvision_special_20261101\\background_15\\Solid128\\source_scene_snapshot.json",
+        "sha256": "a4c9e6ed63b8b49b6a69f95ed12f8353f407054b35f0cd5e399524fc553e7247",
+        "bytes": 13158
+      }
+    ],
+    "all_old_files_unchanged": true,
+    "finding_zh": "旧资料仅有泛化内外边着色的预筛设想，没有可供复测或微调的旧候选图、插件或测试。新设计在测试前具体固定两条边、端点与错误角块分摊映射；因此在现存证据范围内是实质新设计，而非旧失败图的配色重试。",
+    "new_difference_audit_sha256": "f5e4b99ae1c8b7097268d1dd5f5e3e17f23b128d2f84986ca43e22064998f0b9"
+  },
+  "primary_claims_independently_corrected": [
+    {
+      "source": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_35\\Solid128\\r35_corner_ownership_mixed_rims\\primary_review.json",
+      "field": "visual_findings",
+      "original_claim": "The red crossing on the wall top is a preexisting projection crossing, no new spatial intersection is introduced.",
+      "independent_correction_zh": "“仅投影交叉”不准确。front_top 与 return_inner_top 在 (1,0,1) 真实相接；return_inner_top 与 front_rear_top 在 (1,1,1) 真实相交，后者投影为 (1.9,1.07)。相关路径全部处在 z=1 顶面，不能用二维投影偶遇解释。",
+      "effect_on_decision": "nonblocking",
+      "reason_zh": "这些真实交点均在原来源/冻结场景中已有，候选没有新增交点或关系；纠正反而使角块一格错位的位置更明确。冻结证据保持原样。"
+    },
+    {
+      "source": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_35\\Solid128\\r35_corner_ownership_mixed_rims\\design.json",
+      "field": "marker_roles / return_inner_top",
+      "original_claim": "Actual inward upper edge of the perpendicular return, anchored one cube inward.",
+      "independent_correction_zh": "作为简称可用，但整条路径不是纯粹的内空区边：x=1、y=0..1 的段先跨前墙顶面；y>=1 才沿回墙内侧上边。起点 (1,0,1) 沿前外边离外角一单位，而实际内角在 (1,1,1)。",
+      "effect_on_decision": "nonblocking",
+      "reason_zh": "路径恰为原有连续特征，精确分段解释支持角块归属机制，不改变唯一答案或任何像素。报告不把它写成完整内方形边长。"
+    }
+  ],
+  "two_hit_evidence_audit": {
+    "all_checks_passed": true,
+    "check_results": {
+      "current_authoritative_eligibility": true,
+      "all_formal_source_protocol_renderer_input_hashes": true,
+      "current_record_matches_frozen_record": true,
+      "formal_record_snapshot_semantic_equal": true,
+      "current_scene_matches_frozen_snapshot": true,
+      "candidate_context_snapshot_byte_equal": true,
+      "current_source_notes_match_snapshot": true,
+      "formal_source_and_png_copies_equal": true,
+      "design_snapshot_byte_equal": true,
+      "same_frozen_preset_81": true,
+      "image_design_plugin_difference_hashes_bound": true,
+      "dataset_binding_matches_current": true,
+      "raw_request_sha256_binding": true,
+      "request_exact_keys_no_overrides": true,
+      "request_mimo_nonstream_thinking_disabled": true,
+      "request_only_standard_system_and_formal_question_png": true,
+      "base64_payload_exact_frozen_candidate_png": true,
+      "reference_quick_test_code_hash_unchanged": true,
+      "system_prompt_matches_reference_code": true,
+      "profile_matches_reference_code": true,
+      "endpoint_matches_config": true,
+      "harness_full_and_core_hash_match": true,
+      "run_01_complete_raw_record_matches": true,
+      "run_01_exact_raw_response_hash": true,
+      "run_01_started_record_unmodified_subset": true,
+      "run_01_request_image_design_bindings": true,
+      "run_01_zero_reasoning_tokens": true,
+      "run_01_provider_created_between_start_finish": true,
+      "run_02_complete_raw_record_matches": true,
+      "run_02_exact_raw_response_hash": true,
+      "run_02_started_record_unmodified_subset": true,
+      "run_02_request_image_design_bindings": true,
+      "run_02_zero_reasoning_tokens": true,
+      "run_02_provider_created_between_start_finish": true,
+      "two_distinct_calls": true,
+      "summary_binds_all_source_and_run_records": true,
+      "exactly_two_run_records_and_two_raw_responses_in_candidate": true,
+      "no_other_Solid128_binding_or_raw_response_in_available_runtime": true,
+      "preset_design_primary_before_calls_and_calls_sequential": true,
+      "preset_design_plugin_image_mtime_before_first_call": true,
+      "old_formal_and_scene_semantics_equal_current": true,
+      "old_prescreen_has_no_saved_plugin_candidate_test": true,
+      "all_historical_Solid128_evidence_hashes_unchanged": true
+    },
+    "profile": "quicktest3",
+    "provider_response_model": "mimo-v2.6-flash",
+    "thinking": {
+      "type": "disabled"
+    },
+    "reasoning_tokens": [
+      0,
+      0
+    ],
+    "exact_request_sha256": "38c232be586f168eb56886a58c6e83e461680f04e81540ed88c880118a2f6959",
+    "request_contents": {
+      "keys": [
+        "messages",
+        "model",
+        "stream",
+        "thinking"
+      ],
+      "model": "mimo-v2.6-flash",
+      "stream": false,
+      "thinking": {
+        "type": "disabled"
+      },
+      "system": "Solve the mathematics question using the provided image. Give a clear final answer at the end. For a multiple-choice question, include the option letter in your final answer.",
+      "user_text": "A wall around a square area is made from 36 identical cubes. A section of the wall is shown. How many cubes are needed to completely fill the square area?",
+      "decoded_png_bytes": 17350,
+      "decoded_png_sha256": "956035af2187349c2ade4832ad99ed16acf949f40991b63950f2ad35b6814097"
+    },
+    "preset_frozen_before_calls": true,
+    "chronology_utc": {
+      "difference_declared": "2026-11-01T17:51:42.567363+00:00",
+      "design_created": "2026-11-01T17:51:44.082636+00:00",
+      "primary_created": "2026-11-01T17:55:17.815444+00:00",
+      "binding_created": "2026-11-01T17:55:56.122623+00:00",
+      "run_1_started": "2026-11-01T17:55:56.125982+00:00",
+      "run_1_finished": "2026-11-01T17:56:02.111637+00:00",
+      "run_2_started": "2026-11-01T17:56:02.116005+00:00",
+      "run_2_finished": "2026-11-01T17:56:09.825183+00:00"
+    },
+    "design_snapshot_byte_identical": true,
+    "base64_image_byte_identical": true,
+    "completed_candidate_calls": 2,
+    "complete_final_values": [
+      "81",
+      "81"
+    ],
+    "both_match_same_preset": true,
+    "no_contradictory_terminal_letter_or_value": true,
+    "both_full_run_records_and_raw_responses_manually_read": true,
+    "complete_responses": [
+      {
+        "run_index": 1,
+        "run_id": "6779aaee8148456ea83577895d1a4283",
+        "provider_response_id": "e287cf07-a38d-4ca3-a6c9-f66883b1edd1_e9c62d2cb1894a56bae3e9c87f98a712",
+        "provider_created": 1793555761,
+        "started_at": "2026-11-01T17:55:56.125982+00:00",
+        "finished_at": "2026-11-01T17:56:02.111637+00:00",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "full_raw_response_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_35\\Solid128\\r35_corner_ownership_mixed_rims\\tests\\quicktest3_20261101T175556_f6c06c573d0c\\run_01_response.json",
+        "full_raw_response_sha256": "4deee2cbb424c888f14a9e2fb601f6d0b41e658b72b1cddd43686928d5941112",
+        "run_record_sha256": "42ecff859be94216a86d5a1b95e1e0931b227149462669d44f8a7b6507324304",
+        "full_assistant_content_exact": "Based on the information provided, here is the solution:\n\n1.  **Analyze the Wall**: The problem states that a wall is built around a square area using 36 identical cubes. The image shows that the wall is 1 cube thick.\n\n2.  **Determine the Square's Dimensions**: Let the side length of the square area be $n$ (in cubes). The perimeter of a square is given by $P = 4 \\times \\text{side length}$.\n    Since the wall is 1 cube thick and wraps around the outside, the total number of cubes used for the wall corresponds to the perimeter.\n    $$36 = 4 \\times n$$\n    $$n = \\frac{36}{4}$$\n    $$n = 9$$\n    So, the side of the square area is 9 cubes long.\n\n3.  **Calculate the Fill**: To find how many cubes are needed to completely fill the square area, calculate the area of the square ($n \\times n$).\n    $$\\text{Total cubes} = 9 \\times 9 = 81$$\n\n**Answer:**\n**81** cubes are needed to completely fill the square area.",
+        "full_content_characters": 913,
+        "actual_newline_count": 15,
+        "literal_backslash_n_count": 0,
+        "manually_read_entire_content": true,
+        "manual_final_value": "81",
+        "manual_terminal_text": "**Answer:**\n**81** cubes are needed to completely fill the square area.",
+        "preset_match": true,
+        "contradictory_final_letter_or_value": false,
+        "usage": {
+          "completion_tokens": 253,
+          "prompt_tokens": 660,
+          "total_tokens": 913,
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "image_tokens": 576
+          }
+        },
+        "narrative_assessment": "Uses 36=4n (or 4s), divides by four to obtain 9, and then squares 9. Treats a corner-allocation/centerline count as the inside side length. This is the predeclared mathematical error. Does not explicitly refer to red ink or assert that color is a given equality."
+      },
+      {
+        "run_index": 2,
+        "run_id": "3adf4f59b5e24d1482b74eeef65e3879",
+        "provider_response_id": "cbfcfdfd-d48b-4a35-9fac-5761daa30afd_cfe29937bd99435d92179a4cb3d71cf3",
+        "provider_created": 1793555769,
+        "started_at": "2026-11-01T17:56:02.116005+00:00",
+        "finished_at": "2026-11-01T17:56:09.825183+00:00",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "full_raw_response_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_35\\Solid128\\r35_corner_ownership_mixed_rims\\tests\\quicktest3_20261101T175556_f6c06c573d0c\\run_02_response.json",
+        "full_raw_response_sha256": "6334f3bcaf2f6cb3db5eab8bc471b0f2133de98a2a9284ee9c35c4862448a1ea",
+        "run_record_sha256": "5bea3d912e2e361df71d43a853a9456ef56759284512666a7a20898f29ba4e4b",
+        "full_assistant_content_exact": "Based on the information provided:\n\n1.  **Identify the shape of the wall:** The problem states the wall is around a **square** area.\n2.  **Analyze the wall composition:** The wall is made of 36 identical cubes. From the image, we can see the wall is a single layer of cubes high and a single layer of cubes wide (it is 1 cube thick).\n3.  **Calculate the perimeter of the square:** Since the wall consists of one continuous loop of cubes forming a square, the number of cubes equals the number of cube-widths along the perimeter.\n    *   Let the side length of the square be $s$ units.\n    *   The perimeter in cubes is $4 \\times s$.\n    *   We know the total cubes = 36.\n    *   So, $4s = 36$.\n    *   Solving for $s$, we get $s = 9$.\n    *   This means the square area has a side length of 9 cubes.\n4.  **Calculate the total cubes to fill the square:** To completely fill the square area with cubes (which we assume are the same size as those used for the wall), we calculate the area of the square.\n    *   $\\text{Total cubes} = \\text{side} \\times \\text{side}$\n    *   $\\text{Total cubes} = 9 \\times 9 = 81$.\n\n**Answer:** 81 cubes are needed to completely fill the square area.",
+        "full_content_characters": 1179,
+        "actual_newline_count": 15,
+        "literal_backslash_n_count": 0,
+        "manually_read_entire_content": true,
+        "manual_final_value": "81",
+        "manual_terminal_text": "**Answer:** 81 cubes are needed to completely fill the square area.",
+        "preset_match": true,
+        "contradictory_final_letter_or_value": false,
+        "usage": {
+          "completion_tokens": 322,
+          "prompt_tokens": 660,
+          "total_tokens": 982,
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 640,
+            "image_tokens": 576
+          }
+        },
+        "narrative_assessment": "Uses 36=4n (or 4s), divides by four to obtain 9, and then squares 9. Treats a corner-allocation/centerline count as the inside side length. This is the predeclared mathematical error. Does not explicitly refer to red ink or assert that color is a given equality."
+      }
+    ],
+    "no_retry_or_selection_found_in_available_evidence": true,
+    "all_available_same_question_bindings": [
+      "runtime\\mathvision_special_20261101\\background_35\\Solid128\\r35_corner_ownership_mixed_rims\\tests\\quicktest3_20261101T175556_f6c06c573d0c\\binding.json"
+    ],
+    "original_control_calls": 0,
+    "parent_binding_check_role": "Supplemental only; all bindings and raw responses independently verified.",
+    "narrative_limits_zh": "两次回复都把 36 块直接当作 4s、得到 s=9，再算 81，符合预设错误；没有提红色、没有把同色作为等长题设、没有矛盾的终值或选项。第一份回复称墙包在外侧但仍漏算角块，第二份把“方墙一圈的块数”等同内部周长，均属错误推理而非新合法答案。第二次缓存了 640 个提示 token；完全相同请求没有包含第一次助手回答。"
+  },
+  "exact_hash_bindings_sha256": {
+    "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\SolidGeometry\\originals\\Solid128.jpg": "32a65ee386d9f5bf39badbdd6a4473876e41ba35258ec6312590d0cb3afad121",
+    "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\SolidGeometry\\image\\Solid128.png": "b4e4ed8a2e988bf67b57830226e5d24a9a55825c19f63c7d728879118a1af25b",
+    "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\SolidGeometry\\dataset_generator\\scenes\\Solid128.json": "539932e38210cbfd435905aeef9087320c5aa7b4cb20afb48a2e888f4101c4bd",
+    "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_35\\Solid128\\r35_corner_ownership_mixed_rims\\candidate.png": "956035af2187349c2ade4832ad99ed16acf949f40991b63950f2ad35b6814097",
+    "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_35\\Solid128\\r35_corner_ownership_mixed_rims\\plugin.json": "3b4cdcbdcb80c786ecef6c4a4164b61f8eb1d97b144536afa22736984c9d396c",
+    "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_35\\Solid128\\r35_corner_ownership_mixed_rims\\design.json": "7c0258881b5b11becbab06f59a8ffbb851b3899c4091a9b9bf0d3e09399f0d44",
+    "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_35\\Solid128\\r35_corner_ownership_mixed_rims\\design_difference_audit.json": "f5e4b99ae1c8b7097268d1dd5f5e3e17f23b128d2f84986ca43e22064998f0b9",
+    "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_35\\Solid128\\r35_corner_ownership_mixed_rims\\primary_review.json": "1cb26da4ae35d4d585b5cce9229a373d1ea13d2207ce7cb18993b66f984f713f",
+    "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_35\\Solid128\\r35_corner_ownership_mixed_rims\\marker_geometry_audit.json": "57081114e4c1157a4816462897aca3aace6b65fda8ce3394686ed94b5647837a",
+    "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_35\\Solid128\\r35_corner_ownership_mixed_rims\\render_check.json": "f8a197ce18cbd3092d500f27ff2fc78b28bfea0638dec41a38490cf929ffc44e",
+    "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_35\\Solid128\\r35_corner_ownership_mixed_rims\\evidence_binding_audit.json": "18d4793366190899faf4f0ba63167fa946bb6d9550a464452ee6e66779567db9",
+    "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_35\\Solid128\\r35_corner_ownership_mixed_rims\\manual_final_review.json": "ca39843253e0fecc67637657e3280259ea6ac38a9f1ba06a1563a14fc7f7a289",
+    "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_35\\Solid128\\r35_corner_ownership_mixed_rims\\context.json": "c2b4a9384e61e2b5e0732b1ad48c4dc2fdbf57caeaeb728c1bff7c38f729a12e",
+    "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_35\\Solid128\\scene_snapshot.json": "539932e38210cbfd435905aeef9087320c5aa7b4cb20afb48a2e888f4101c4bd",
+    "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_35\\Solid128\\input_fingerprints.json": "a5eaf0fe0af798a7ea7311fffd7214160d31ddec90f6f38e70130c9ad490384c",
+    "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_35\\Solid128\\source_notes.json": "155cace6a83da94568a9ef729270bfe509c114427c0b88553dd08e09c944f3ec",
+    "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\Solid128_r35_corner_ownership_mixed_rims_pre_review_evidence_check.json": "e4e180927a137570504ec41fab0743bbac6b691232c7b8880dbe10b3a9be823a",
+    "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_35\\Solid128\\r35_corner_ownership_mixed_rims\\tests\\quicktest3_20261101T175556_f6c06c573d0c\\binding.json": "2d61232e644a8b237f6a6721d8b6d8889fdfc580663c5dcbebccee93bf986f56",
+    "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_35\\Solid128\\r35_corner_ownership_mixed_rims\\tests\\quicktest3_20261101T175556_f6c06c573d0c\\design_snapshot.json": "7c0258881b5b11becbab06f59a8ffbb851b3899c4091a9b9bf0d3e09399f0d44",
+    "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_35\\Solid128\\r35_corner_ownership_mixed_rims\\tests\\quicktest3_20261101T175556_f6c06c573d0c\\request.json": "38c232be586f168eb56886a58c6e83e461680f04e81540ed88c880118a2f6959",
+    "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_35\\Solid128\\r35_corner_ownership_mixed_rims\\tests\\quicktest3_20261101T175556_f6c06c573d0c\\run_01.json": "42ecff859be94216a86d5a1b95e1e0931b227149462669d44f8a7b6507324304",
+    "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_35\\Solid128\\r35_corner_ownership_mixed_rims\\tests\\quicktest3_20261101T175556_f6c06c573d0c\\run_01_response.json": "4deee2cbb424c888f14a9e2fb601f6d0b41e658b72b1cddd43686928d5941112",
+    "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_35\\Solid128\\r35_corner_ownership_mixed_rims\\tests\\quicktest3_20261101T175556_f6c06c573d0c\\run_01_started.json": "4d84ade40bf7e80d798b8c0bd43a378e31b7a68f2408254788d097018cfc6996",
+    "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_35\\Solid128\\r35_corner_ownership_mixed_rims\\tests\\quicktest3_20261101T175556_f6c06c573d0c\\run_02.json": "5bea3d912e2e361df71d43a853a9456ef56759284512666a7a20898f29ba4e4b",
+    "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_35\\Solid128\\r35_corner_ownership_mixed_rims\\tests\\quicktest3_20261101T175556_f6c06c573d0c\\run_02_response.json": "6334f3bcaf2f6cb3db5eab8bc471b0f2133de98a2a9284ee9c35c4862448a1ea",
+    "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_35\\Solid128\\r35_corner_ownership_mixed_rims\\tests\\quicktest3_20261101T175556_f6c06c573d0c\\run_02_started.json": "d4ed4f542f93e18a5f251e98aad5b5318b722d1689a08efc8b71848cfba97109",
+    "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_35\\Solid128\\r35_corner_ownership_mixed_rims\\tests\\quicktest3_20261101T175556_f6c06c573d0c\\summary.json": "39a861a2d23460a4987a44dc61cf574aa6aad172772588c3cefb595988a0c75f",
+    "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\harness\\quicktest3_isolated.py": "70afad0239bfad33227b5e982181d7e1e78e093c3bf053727bfbf2bd12dd9e5f",
+    "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\SolidGeometry\\workbench\\quick_test.py": "c08eef18db2d758c7828cfdfd7a7c087272bc35d5f013113220050d2e7666212",
+    "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_35\\run35.py": "cde55ea687005db733bd4f9a113daef953f716ef24132664537cb4da75ad6e68",
+    "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_35\\tools35.py": "ab38d9a91e34879bca5330c8894d89be79f1d3c06ced4942263fff4aa7e116e5",
+    "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_15\\Solid128\\primary_prescreen.json": "c9a4b5ffdcd7098dfb3b897015ce79c8237a74c65188f2a90918f4c6deef9975"
+  },
+  "image_pixel_hashes": {
+    "formal_native_png": "eefb0ba447e3cec3e855eb10d4aca6f285b7809db4c6300f7264c5a9f2c37eae",
+    "candidate_png": "ad0c36384c32eef6ac644e53f697d7c59ea6da8ed8cf9cfd813345fe04f435d1",
+    "algorithm": "SHA256 of ASCII widthxheight:RGBA: prefix plus RGBA bytes"
+  },
+  "formal_source_protocol_renderer_hash_recheck": {
+    "AGENTS.md": {
+      "recorded": "35edf9c9e2114f8f808d9745f6e22ab9a4b05dea2e86fbcbfe1587388a22fe29",
+      "actual": "35edf9c9e2114f8f808d9745f6e22ab9a4b05dea2e86fbcbfe1587388a22fe29",
+      "equal": true
+    },
+    "dataset_tools\\geometry_dataset.py": {
+      "recorded": "a7cf8bb6662eafaffa2e96b883f49a3e23817e05bdd08cbb5f80f08affe52595",
+      "actual": "a7cf8bb6662eafaffa2e96b883f49a3e23817e05bdd08cbb5f80f08affe52595",
+      "equal": true
+    },
+    "dataset_tools\\mathvision_workbench.py": {
+      "recorded": "90a17218c28b78068cc410887899ae0683e7c6c4b9853e6ffc0de25ec6917e11",
+      "actual": "90a17218c28b78068cc410887899ae0683e7c6c4b9853e6ffc0de25ec6917e11",
+      "equal": true
+    },
+    "MATHPALETTE_PROTOCOL.md": {
+      "recorded": "b6a0a85651b4c317d2db081e4cd9bbbff569017db2471f71a4a21c3e0e24c5af",
+      "actual": "b6a0a85651b4c317d2db081e4cd9bbbff569017db2471f71a4a21c3e0e24c5af",
+      "equal": true
+    },
+    "SolidGeometry\\dataset_generator\\common_renderer.py": {
+      "recorded": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+      "actual": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+      "equal": true
+    },
+    "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\items\\Solid128\\execution.json": {
+      "recorded": "8e89110e3c5f120f697ad3064a6c8edbd6451732928b200c6a5a03e4885a7721",
+      "actual": "8e89110e3c5f120f697ad3064a6c8edbd6451732928b200c6a5a03e4885a7721",
+      "equal": true
+    },
+    "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\items\\Solid128\\protocol_review.json": {
+      "recorded": "81d9d0336242aaca61c185a18f94f6ccd61f89e0e744fc34343f8563826541e8",
+      "actual": "81d9d0336242aaca61c185a18f94f6ccd61f89e0e744fc34343f8563826541e8",
+      "equal": true
+    },
+    "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\items\\Solid128\\renderer.py": {
+      "recorded": "0a3d8778ad4421a0271dc7cff11ce2c45dd1397250d40e9b64010d6bfa7b4f04",
+      "actual": "0a3d8778ad4421a0271dc7cff11ce2c45dd1397250d40e9b64010d6bfa7b4f04",
+      "equal": true
+    },
+    "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\items\\Solid128\\scene.json": {
+      "recorded": "b540ae001a0dc73722891fb0b021f15fcae46eb043a0ed18e7e943af3e28d39e",
+      "actual": "b540ae001a0dc73722891fb0b021f15fcae46eb043a0ed18e7e943af3e28d39e",
+      "equal": true
+    },
+    "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\items\\Solid128\\source.json": {
+      "recorded": "2ff4b4c7386c1e272cbffb0b87474881490f5cf4c1e1afe4b9790976d14b51ed",
+      "actual": "2ff4b4c7386c1e272cbffb0b87474881490f5cf4c1e1afe4b9790976d14b51ed",
+      "equal": true
+    },
+    "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\items\\Solid128\\source_redraw.py": {
+      "recorded": "5d5267babb283e8db47f5c3539ef76d02d334e10becb5974fdd53429e84c6203",
+      "actual": "5d5267babb283e8db47f5c3539ef76d02d334e10becb5974fdd53429e84c6203",
+      "equal": true
+    },
+    "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\geometry\\PlaneGeometry\\dataset_generator\\common_renderer.py": {
+      "recorded": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+      "actual": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+      "equal": true
+    },
+    "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\geometry\\PlaneGeometry\\dataset_generator\\protocol.json": {
+      "recorded": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+      "actual": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+      "equal": true
+    },
+    "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\geometry\\SolidGeometry\\dataset_generator\\common_renderer.py": {
+      "recorded": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+      "actual": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+      "equal": true
+    },
+    "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\geometry\\SolidGeometry\\dataset_generator\\protocol.json": {
+      "recorded": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+      "actual": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+      "equal": true
+    },
+    "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\helpers\\combinatorial_geometry\\upper_comb_renderer.py": {
+      "recorded": "f8b46c832ae8ff8e16730970bd31d1d549035f4e230f49acb6b88141efda0d84",
+      "actual": "f8b46c832ae8ff8e16730970bd31d1d549035f4e230f49acb6b88141efda0d84",
+      "equal": true
+    },
+    "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\helpers\\combinatorial_geometry\\upper_comb_renderer_fillonly.py": {
+      "recorded": "0d0b200ad11ef8a4dc1642ab57168dafd65e70ae2d14a5f24ab0810f3dad2212",
+      "actual": "0d0b200ad11ef8a4dc1642ab57168dafd65e70ae2d14a5f24ab0810f3dad2212",
+      "equal": true
+    },
+    "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\helpers\\combinatorial_geometry\\upper_comb_renderer_v2.py": {
+      "recorded": "c62c2b054bacaf988b2ad5ca1b65cd34e4197552b13f4af8c58edf63e42acb39",
+      "actual": "c62c2b054bacaf988b2ad5ca1b65cd34e4197552b13f4af8c58edf63e42acb39",
+      "equal": true
+    },
+    "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\helpers\\combinatorial_geometry\\upper_comb_solid_renderer.py": {
+      "recorded": "c266e9f96734883b56e3d3a43438128d9c42ce65d9465f6dc83840f410f205ff",
+      "actual": "c266e9f96734883b56e3d3a43438128d9c42ce65d9465f6dc83840f410f205ff",
+      "equal": true
+    },
+    "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\helpers\\solid_geometry\\upper_solid_face_text_renderer.py": {
+      "recorded": "c316a4fc088a318ce35232e46392ef3ab11af1ac24acaeeda36d99b016581d8e",
+      "actual": "c316a4fc088a318ce35232e46392ef3ab11af1ac24acaeeda36d99b016581d8e",
+      "equal": true
+    },
+    "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\helpers\\solid_geometry\\upper_solid_fill_renderer.py": {
+      "recorded": "a5fe3c7a62fce5bc104b5015549a7e6325924d58ea0b9a3d6f3192a459706d52",
+      "actual": "a5fe3c7a62fce5bc104b5015549a7e6325924d58ea0b9a3d6f3192a459706d52",
+      "equal": true
+    },
+    "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\protocol_renderer.py": {
+      "recorded": "26cc0c532042b6f13c4d8504e469cbf285ce3b8591d3c11a8a0f8f3ab0c4721d",
+      "actual": "26cc0c532042b6f13c4d8504e469cbf285ce3b8591d3c11a8a0f8f3ab0c4721d",
+      "equal": true
+    },
+    "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\runtime.py": {
+      "recorded": "4b465c5bb4ea2973e4f3e861ff34c1661c154b747d66f8d6670299bf824953ab",
+      "actual": "4b465c5bb4ea2973e4f3e861ff34c1661c154b747d66f8d6670299bf824953ab",
+      "equal": true
+    },
+    "SolidGeometry\\dataset_generator\\protocol.json": {
+      "recorded": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+      "actual": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+      "equal": true
+    },
+    "SolidGeometry\\dataset_generator\\scenes\\Solid128.json": {
+      "recorded": "539932e38210cbfd435905aeef9087320c5aa7b4cb20afb48a2e888f4101c4bd",
+      "actual": "539932e38210cbfd435905aeef9087320c5aa7b4cb20afb48a2e888f4101c4bd",
+      "equal": true
+    },
+    "SolidGeometry\\dataset_generator\\solid_plot128.py": {
+      "recorded": "0820d79920dc62e273cfbe40e113efe778d221b103851da8b616d8b6a7724812",
+      "actual": "0820d79920dc62e273cfbe40e113efe778d221b103851da8b616d8b6a7724812",
+      "equal": true
+    },
+    "SolidGeometry\\image\\Solid128.png": {
+      "recorded": "b4e4ed8a2e988bf67b57830226e5d24a9a55825c19f63c7d728879118a1af25b",
+      "actual": "b4e4ed8a2e988bf67b57830226e5d24a9a55825c19f63c7d728879118a1af25b",
+      "equal": true
+    },
+    "SolidGeometry\\originals\\Solid128.jpg": {
+      "recorded": "32a65ee386d9f5bf39badbdd6a4473876e41ba35258ec6312590d0cb3afad121",
+      "actual": "32a65ee386d9f5bf39badbdd6a4473876e41ba35258ec6312590d0cb3afad121",
+      "equal": true
+    },
+    "SolidGeometry\\REDRAW_PROTOCOL.md": {
+      "recorded": "206719278a674ee238af811def681a8fd12b93f6d20e34aeea7ace16e0eeb2bd",
+      "actual": "206719278a674ee238af811def681a8fd12b93f6d20e34aeea7ace16e0eeb2bd",
+      "equal": true
+    },
+    "SolidGeometry\\workbench\\config.json": {
+      "recorded": "4d70720703aecee165cfe553c2664405fce55dfad723583c17bb2de5649b2d73",
+      "actual": "4d70720703aecee165cfe553c2664405fce55dfad723583c17bb2de5649b2d73",
+      "equal": true
+    },
+    "SolidGeometry\\workbench\\partial_style.py": {
+      "recorded": "765686102817bbe3a38275aae96bd878ba28bd66b3e56ee9bcf5080e7d72c310",
+      "actual": "765686102817bbe3a38275aae96bd878ba28bd66b3e56ee9bcf5080e7d72c310",
+      "equal": true
+    },
+    "SolidGeometry\\workbench\\plugin.schema.json": {
+      "recorded": "8a17f6acff120406a60d8eae7f0433d7e5df516adca1bab1f46e1a352fbd3b30",
+      "actual": "8a17f6acff120406a60d8eae7f0433d7e5df516adca1bab1f46e1a352fbd3b30",
+      "equal": true
+    },
+    "SolidGeometry\\workbench\\render_plugins.py": {
+      "recorded": "e7638568083a8c1e9c09b74ed821aaefa1c114897d026bcdb22bc5b3c83d14ed",
+      "actual": "e7638568083a8c1e9c09b74ed821aaefa1c114897d026bcdb22bc5b3c83d14ed",
+      "equal": true
+    },
+    "SolidGeometry\\workbench\\renderer_adapter.py": {
+      "recorded": "6b78f06eb4171aba8dc8fa188748cb9777a5ee4e9cc2ba3d0bd372f6601b8f89",
+      "actual": "6b78f06eb4171aba8dc8fa188748cb9777a5ee4e9cc2ba3d0bd372f6601b8f89",
+      "equal": true
+    },
+    "SolidGeometry\\workbench\\workbench_io.py": {
+      "recorded": "dcf4583c2ce2bf6a35b3c90d3f51e57777c48f65db233882dee2e79f3555f318",
+      "actual": "dcf4583c2ce2bf6a35b3c90d3f51e57777c48f65db233882dee2e79f3555f318",
+      "equal": true
+    }
+  },
+  "frozen_render_replay": {
+    "checks_passed": true,
+    "candidate_replay_bytes_identical": true,
+    "baseline_no_op_pixels_equal": true,
+    "all_changed_pixels_in_original_target_strokes": true,
+    "changed_pixel_count": 3402,
+    "maximum_changed_pixel_center_distance_to_target_px": 1.6669493585645665,
+    "appearance_changes": {
+      "world_geometry_changed": false,
+      "projection_changed": false,
+      "frozen_visibility_intervals_changed": false,
+      "rendered_visibility_style_overrides": [],
+      "rendered_line_styles_changed": false
+    },
+    "open_matplotlib_figures_after_close": [],
+    "environment": {
+      "python": "3.13.9",
+      "matplotlib": "3.11.2",
+      "numpy": "2.5.3",
+      "pillow": "12.3.0"
+    },
+    "note": "Read-only rendering and arithmetic verification, not new model/control testing."
+  },
+  "authoritative_current_eligibility": {
+    "checked_at": "2026-11-01T18:23:14.264583+00:00",
+    "eligible": true,
+    "formal_record": {
+      "source_dataset": "MathVision",
+      "source_key": "test:798",
+      "question": "A wall around a square area is made from 36 identical cubes. A section of the wall is shown. How many cubes are needed to completely fill the square area?",
+      "answer": "64",
+      "answer_type": "number",
+      "id": "Solid128",
+      "image": "image/Solid128.png",
+      "original_image": "originals/Solid128.jpg",
+      "scene": "dataset_generator/scenes/Solid128.json",
+      "script": "dataset_generator/solid_plot128.py",
+      "runtime_dependencies": [
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid128/execution.json",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid128/protocol_review.json",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid128/renderer.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid128/scene.json",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid128/source.json",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid128/source_redraw.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+      ],
+      "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+      "source_category": "combinatorial geometry"
+    },
+    "formal_dataset_sha256": "a6ebf7b8be8fc2bf738be007d56cc578272ca6ffad436c696be60fbfe2b6f3b8",
+    "formal_question_record_canonical_sha256": "b5014e33060683bdc0fa8a5a771f7aca33874103fac913662768d0f2e2706dc1",
+    "original_approval": {
+      "id": "Solid128",
+      "branch": "SolidGeometry",
+      "reviewer": "user",
+      "instruction": "你直接帮忙把所有Math-Vision题目都加入正式题库吧（mashpalette-publish），然后如果题目里面有<image1>这种标记要删去。\n记得标记来源。",
+      "approved_at_utc": "2026-10-29T13:36:46.659821+00:00",
+      "content_sha256": "a5064310e3fd5ca093b6f7d17ff31b38e8893082329fc6e3aec215c11877a6c1"
+    },
+    "approvals_file_sha256": "b37d405210604311c76c9adc7e414a98e4b283201e557f32449c56265a059fec",
+    "recomputed_original_content_sha256": "a5064310e3fd5ca093b6f7d17ff31b38e8893082329fc6e3aec215c11877a6c1",
+    "approval_fingerprint_matches": true,
+    "indexes": {
+      "accepted_index.jsonl": {
+        "path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\SolidGeometry\\special_variant\\accepted_index.jsonl",
+        "sha256": "d1818ee801c270cea53e669eee8c9bfa84f9693b04291a49a301c3ab22900e8e",
+        "matching_records": []
+      },
+      "collected_index.jsonl": {
+        "path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\SolidGeometry\\special_variant\\collected_index.jsonl",
+        "sha256": "fd6da663c97a85bb33c280bf8363a19f053ce2671e46ec7b342bc3e6d5e33f4d",
+        "matching_records": []
+      }
+    },
+    "recipes_and_collection_including_special_completion": {
+      "recipes.json": {
+        "path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\SolidGeometry\\special_variant\\Solid128\\recipes.json",
+        "exists": false,
+        "sha256": null,
+        "data": null
+      },
+      "collection.json": {
+        "path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\SolidGeometry\\special_variant\\Solid128\\collection.json",
+        "exists": false,
+        "sha256": null,
+        "data": null
+      }
+    },
+    "published_batch_manifest_matches": [],
+    "authority": "Current formal branch dataset, approval, accepted/collected indexes and per-question recipes/collection; historical inventory is diagnostic only"
+  },
+  "protocols_read_in_full": [
+    {
+      "path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\AGENTS.md",
+      "sha256": "35edf9c9e2114f8f808d9745f6e22ab9a4b05dea2e86fbcbfe1587388a22fe29"
+    },
+    {
+      "path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\MATHPALETTE_PROTOCOL.md",
+      "sha256": "b6a0a85651b4c317d2db081e4cd9bbbff569017db2471f71a4a21c3e0e24c5af"
+    },
+    {
+      "path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\SolidGeometry\\REDRAW_PROTOCOL.md",
+      "sha256": "206719278a674ee238af811def681a8fd12b93f6d20e34aeea7ace16e0eeb2bd"
+    },
+    {
+      "path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\SolidGeometry\\dataset_generator\\protocol.json",
+      "sha256": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f"
+    },
+    {
+      "path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\SolidGeometry\\workbench\\README.md",
+      "sha256": "b6637e41f7242aaba959225b5723cf6f36a0df88ddc1d4c823455b028cc7d578"
+    },
+    {
+      "path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\SolidGeometry\\workbench\\agent_prompt.md",
+      "sha256": "094d00c06d161643ba01c85335d2325eb70055af3ef189d8aa4361dacd7822df"
+    },
+    {
+      "path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\SolidGeometry\\workbench\\plugin.schema.json",
+      "sha256": "8a17f6acff120406a60d8eae7f0433d7e5df516adca1bab1f46e1a352fbd3b30"
+    }
+  ],
+  "objections": {
+    "blocking": [],
+    "nonblocking_factual_corrections": [
+      {
+        "source": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_35\\Solid128\\r35_corner_ownership_mixed_rims\\primary_review.json",
+        "field": "visual_findings",
+        "original_claim": "The red crossing on the wall top is a preexisting projection crossing, no new spatial intersection is introduced.",
+        "independent_correction_zh": "“仅投影交叉”不准确。front_top 与 return_inner_top 在 (1,0,1) 真实相接；return_inner_top 与 front_rear_top 在 (1,1,1) 真实相交，后者投影为 (1.9,1.07)。相关路径全部处在 z=1 顶面，不能用二维投影偶遇解释。",
+        "effect_on_decision": "nonblocking",
+        "reason_zh": "这些真实交点均在原来源/冻结场景中已有，候选没有新增交点或关系；纠正反而使角块一格错位的位置更明确。冻结证据保持原样。"
+      },
+      {
+        "source": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_35\\Solid128\\r35_corner_ownership_mixed_rims\\design.json",
+        "field": "marker_roles / return_inner_top",
+        "original_claim": "Actual inward upper edge of the perpendicular return, anchored one cube inward.",
+        "independent_correction_zh": "作为简称可用，但整条路径不是纯粹的内空区边：x=1、y=0..1 的段先跨前墙顶面；y>=1 才沿回墙内侧上边。起点 (1,0,1) 沿前外边离外角一单位，而实际内角在 (1,1,1)。",
+        "effect_on_decision": "nonblocking",
+        "reason_zh": "路径恰为原有连续特征，精确分段解释支持角块归属机制，不改变唯一答案或任何像素。报告不把它写成完整内方形边长。"
+      }
+    ],
+    "frozen_evidence_repairs_performed": false
+  },
+  "limitations_zh": [
+    "没有原图模型对照；不宣称候选相对原图提高错误率，用户也未要求以原图对照正确作为门槛。",
+    "只有同一冻结图的两次正常完成响应；不外推总体命中率、统计显著性、跨模型稳定性或人类错误率。",
+    "没有人类实验、逐标记消融或因果研究；单个标记的作用依实际几何与语义论证，两次回复不能证明红边导致了错误。",
+    "图为墙段，不是完整方墙。未把截取长度 5 或 2.7、续线位置或可见块数当成完整尺寸；标记没有直接画出 9 个单位。",
+    "审核可核验本地原始请求、响应、模型标识、时间与哈希，不持有提供商服务端传输审计或密码学签名；未发现重试/选样的结论限定于现有冻结证据和同题 runtime 扫描。",
+    "正常尺寸无歧义属于本次独立审阅判断，不是用户审批或人类群体实验。"
+  ],
+  "read_only_preservation": {
+    "checked_files": 83,
+    "all_scoped_inputs_unchanged": true,
+    "manifest_before": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\independent_review\\Solid128_r35_corner_ownership_mixed_rims\\read_only_inputs_before.json",
+    "manifest_before_sha256": "7a7de03104e498149baceda908d1ebdd4d13a50b82f38e31b1b4e38a1da25bb4",
+    "manifest_after": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\independent_review\\Solid128_r35_corner_ownership_mixed_rims\\read_only_inputs_after.json",
+    "manifest_after_sha256": "d4ceb9c16a77298f171b07d7525969f7d2753315d606177af22ddaf66d5c96f8",
+    "entire_shared_workspace_unchanged_claim": false,
+    "unrelated_changes_restored_or_modified": false,
+    "write_scope": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\independent_review\\Solid128_r35_corner_ownership_mixed_rims",
+    "shared_runtime_isolation_installed_before_project_analysis": true,
+    "strict_own_directory_guard_installed_before_project_imports": true,
+    "network_guard_enabled": true,
+    "env_git_dot_runtime_formal_state_modified": false
+  },
+  "process_cleanup": {
+    "background_processes_started": 0,
+    "servers_started": 0,
+    "solver_processes_started": 0,
+    "owned_worker_processes_remaining_at_foreground_check": 0,
+    "process_audit": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\independent_review\\Solid128_r35_corner_ownership_mixed_rims\\process_audit.json",
+    "process_audit_sha256": "05b6e52f2e899d7c7d1f42bd6d57b34a21d0e671e748f3d3243422937bbb35fe",
+    "process_audit_time": "2026-11-01T18:20:18.0123042Z",
+    "matplotlib_figures_remaining": [],
+    "execution_model": "All Python audit commands run synchronously and exit; this report writer is also foreground only. No unrelated process was killed."
+  },
+  "auxiliary_evidence": [
+    {
+      "absolute_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\independent_review\\Solid128_r35_corner_ownership_mixed_rims\\isolation.json",
+      "sha256": "3ff92840df01b8b5c01f84998a767e7e36094bb2ffaaf00687c3a18ea59519f3"
+    },
+    {
+      "absolute_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\independent_review\\Solid128_r35_corner_ownership_mixed_rims\\authoritative_eligibility.json",
+      "sha256": "917503e69d33ad26fbbcde6435f19f96015a57dd160ebddff06ded1ee96ff8af"
+    },
+    {
+      "absolute_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\independent_review\\Solid128_r35_corner_ownership_mixed_rims\\evidence_audit.json",
+      "sha256": "5af08dc30df22e6f0d7d6a5c31f3c869ce55803fe904a7f05d9c35e92ca6a321"
+    },
+    {
+      "absolute_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\independent_review\\Solid128_r35_corner_ownership_mixed_rims\\render_and_geometry_audit.json",
+      "sha256": "9575a5fc5dcf3682921904d462e13d920b6a297845430b5022d0398a6351fa7b"
+    },
+    {
+      "absolute_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\independent_review\\Solid128_r35_corner_ownership_mixed_rims\\read_only_inputs_before.json",
+      "sha256": "7a7de03104e498149baceda908d1ebdd4d13a50b82f38e31b1b4e38a1da25bb4"
+    },
+    {
+      "absolute_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\independent_review\\Solid128_r35_corner_ownership_mixed_rims\\read_only_inputs_after.json",
+      "sha256": "d4ceb9c16a77298f171b07d7525969f7d2753315d606177af22ddaf66d5c96f8"
+    },
+    {
+      "absolute_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\independent_review\\Solid128_r35_corner_ownership_mixed_rims\\process_audit.json",
+      "sha256": "05b6e52f2e899d7c7d1f42bd6d57b34a21d0e671e748f3d3243422937bbb35fe"
+    },
+    {
+      "absolute_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\independent_review\\Solid128_r35_corner_ownership_mixed_rims\\reproduced_original.png",
+      "sha256": "09c655d903d2c86ba95edfb08dcdfda6ecc6504605fa83c525c16ee0d31a92a4"
+    },
+    {
+      "absolute_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\independent_review\\Solid128_r35_corner_ownership_mixed_rims\\reproduced_candidate.png",
+      "sha256": "956035af2187349c2ade4832ad99ed16acf949f40991b63950f2ad35b6814097"
+    }
+  ],
+  "report_absolute_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\independent_review\\Solid128_r35_corner_ownership_mixed_rims\\independent_review.json"
+}

@@ -1,0 +1,60 @@
+{
+  "question_id": "Plane213",
+  "basis": "all_local_exterior_correspondence_profiles.json, complete finite enumeration of true source-boundary overlaps of every valid B/C/D/E local placement",
+  "prepared_hypotheses_not_solver_calls": [
+    {
+      "variant_id": "user233_D_stair_and_opposite_boundary_anchor_v10",
+      "preset": "D",
+      "normalized_local_cells": [[0,1],[1,1],[2,0],[2,1],[3,1]],
+      "map_source_to_option": "(x,y)->(x+7,9-y)",
+      "map_kind": "reflect_y",
+      "map_constants": [7,9],
+      "groups": [
+        {"name":"opposite_left_unit_anchor","color":"#DC2626","source":["given_2"],"target":["D_0"],"role":"A real opposite unit exterior wall fixes the location across the four-cell connector; it is a spatial anchor rather than another piece outline."},
+        {"name":"complete_four_link_step","color":"#2563EB","source":["given_19","given_27","given_29","given_35"],"target":["D_10","D_13","D_14","D_15"],"role":"The complete RURU step profile includes both convex end turns and the middle concavity, with all occupied sides correct under the SAME reflection as the opposite wall."}
+      ],
+      "specific_new_information":"Two separated source boundary components of4 and1 unit edges fit one D placement under a common rigid map. The opposite wall and the4-link missing-corner stair jointly constrain a four-cell connector plus offset branch, whereas the old E stair alone had no opposite boundary anchor.",
+      "difference":"D v4 used a contiguous full4-unit top bar and convex end-side; D v7 used two unrelated invariant maps. This uses a single actual placement with a disconnected4+1 shared boundary profile, not a cap/width/color edit of either. Its stair group and far wall are jointly compatible with D and do not fix any internal source cut.",
+      "concision":"10 unit-edge styles,5 exact exterior correspondences; each of two components carries a different placement constraint."
+    },
+    {
+      "variant_id": "user233_C_separated_foot_and_tip_anchors_v11",
+      "preset": "C",
+      "normalized_local_cells": [[0,0],[0,1],[1,1],[2,1],[3,1]],
+      "map_source_to_option": "(x,y)->(21-y,x-11)",
+      "map_kind":"quarterturn",
+      "map_constants":[21,-11],
+      "groups":[
+        {"name":"foot_anchor_three_links","color":"#DC2626","source":["given_0","given_2","given_1"],"target":["C_10","C_1","C_15"],"role":"Two-unit source wall plus adjacent unit foot are the exact turned image of C short foot end; this is a complete three-link anchor, not the former4-high spine."},
+        {"name":"distant_convex_tip","color":"#2563EB","source":["given_29","given_35"],"target":["C_14","C_8"],"role":"The distant convex unit elbow pins the opposite tip of the same4-cell connector, so the two separated anchors share one exact quarter-turn placement."}
+      ],
+      "specific_new_information":"The source left-bottom foot and right missing-corner convex tip fit one transverse C placement. The shared boundary has two components3+2; it is not the contiguous4+2 L of the current C01 or the independent(4,1) signature.",
+      "difference":"The entire old4-unit source/C spine comparison is removed. A separated opposite tip and a short foot anchor establish a different true boundary-incidence relation under one common rigid map. No imaginary source line connects them.",
+      "concision":"10 unit-edge styles,5 exact exterior correspondences in two separated components."
+    },
+    {
+      "variant_id":"user233_B_separated_two_post_anchors_v12",
+      "preset":"B",
+      "normalized_local_cells":[[0,0],[0,1],[1,1],[2,0],[2,1]],
+      "map_source_to_option":"(x,y)->(20-x,9-y)",
+      "map_kind":"halfturn",
+      "map_constants":[20,9],
+      "groups":[
+        {"name":"first_post_anchor","color":"#DC2626","source":["given_0","given_2","given_1"],"target":["B_15","B_14","B_13"],"role":"One actual two-cell exterior wall and its unit foot pin the first post of an inverted locally fitting U."},
+        {"name":"second_post_anchor","color":"#2563EB","source":["given_19","given_27"],"target":["B_4","B_2"],"role":"The separate opposite exterior unit elbow pins the second post of the SAME U under the same half-turn; the unmarked source middle bottom cell remains present."}
+      ],
+      "specific_new_information":"Two separated post anchors3+2 fit one inverted U. This tests whether a pair of compatible exterior posts is incorrectly promoted to three-copy tileability, while preserving the intervening source cell and not coloring its internal U boundary.",
+      "difference":"B v3 was a contiguous3-wide base/2-high wall of an upward U. The new shared-edge graph is disconnected3+2 and corresponds to the inverted U with its bottom middle cell OUTSIDE the trial piece but still present in the source. It is not an added cap on the old L, a color change, or the old internal U-notch.",
+      "concision":"10 unit-edge styles in two true external anchor components; no source proper closed outline."
+    }
+  ],
+  "rejected_minor_extensions": [
+    "C maximum7-edge profile is the old contiguous4-high/2-foot profile plus one upper tip edge. That alone is an end-cap extension, so it is not tested as a new hypothesis.",
+    "D maximum6-edge straight profile adds the other end-side to the old full-width bar. It supplies no distinct structural comparison beyond that failed bar/anchor and is not tested as a cosmetic extension.",
+    "B6-edge outer profile adds one unit side to the old3-by2 L. That small extension alone is not a new information family.",
+    "A proposed three-link C reflected step only matched the line curve with the occupied side reversed; it is rejected as a false shape-boundary correspondence.",
+    "Lower-edge-count subsets/rotated or relocated copies of an already tested identical profile are not extra hypotheses merely because their PNG changes."
+  ],
+  "all_hypotheses_require_fresh_native_semantics_and_all_render_history_gates_before_own_exact_pair":true,
+  "no_new_API_while_current_pair_pending":true
+}

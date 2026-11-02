@@ -1,0 +1,109 @@
+{
+  "unique_answer": 17,
+  "native_points": {
+    "L": [
+      0,
+      0,
+      0
+    ],
+    "F": [
+      1.66,
+      -1,
+      0
+    ],
+    "R": [
+      2.49,
+      0,
+      0.84
+    ],
+    "T": [
+      1.39,
+      -0.3,
+      1.4
+    ],
+    "B": [
+      1.29,
+      -0.3,
+      -0.84
+    ]
+  },
+  "native_labels": [
+    {
+      "id": "label1",
+      "type": "text",
+      "text": "1",
+      "anchor": "T",
+      "offset_pt": [
+        -12,
+        10
+      ]
+    },
+    {
+      "id": "label5",
+      "type": "text",
+      "text": "5",
+      "anchor": "L",
+      "offset_pt": [
+        -13,
+        0
+      ]
+    }
+  ],
+  "six_actual_faces": [
+    [
+      "T",
+      "L",
+      "F"
+    ],
+    [
+      "T",
+      "F",
+      "R"
+    ],
+    [
+      "T",
+      "R",
+      "L"
+    ],
+    [
+      "B",
+      "L",
+      "F"
+    ],
+    [
+      "B",
+      "F",
+      "R"
+    ],
+    [
+      "B",
+      "R",
+      "L"
+    ]
+  ],
+  "incidence_degrees": {
+    "L": 4,
+    "F": 4,
+    "R": 4,
+    "T": 3,
+    "B": 3
+  },
+  "equal_sum_constraint_rank_with_givens": 5,
+  "unique_vertex_values": {
+    "L": 5,
+    "F": 5,
+    "R": 5,
+    "T": 1,
+    "B": 1
+  },
+  "proof": "Equal totals on TLF,TFR,TRL imply L=F=R=5. Comparing TLF and BLF gives T=B=1. All five values are therefore forced; sum3*5+2*1=17. The hidden LR is a true equatorial edge; the TF/LR screen crossing is not a new vertex.",
+  "semantics": "The problem assigns numbers to graph vertices. Colored edge stubs are comparisons of incidences; neither edge length nor color is a new number equality condition. No material paper/color transport is requested.",
+  "prospective_error": {
+    "rule": "transfer equatorial degree4 to both degree3 apices and divide all six equal face sums by4",
+    "face_sum": 11,
+    "six_face_total": 66,
+    "wrong_total": 16.5,
+    "correct_incidence_identity": "66=4*(5+5+5)+3*(1+1)",
+    "old_error_different": "Old swaps the three-member and two-member value groups and predicts13; new retains vertex values but uses wrong incidence divisor."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "question_id": "Plane226",
+  "variant_id": "r24_adjacent_hearts_pose_decoupling",
+  "created_at": "2026-11-01T16:56:03.631434+00:00",
+  "stage": "material_refinement",
+  "expected_wrong_answer": "E",
+  "correct_answer": "B",
+  "mechanism": "Old design paired two nonadjacent stars with C and tested E/C against preset C. New design selects an actually adjacent vertical heart pair and maps its ordered positions to horizontal E, targeting decoupled position rotation versus symbol orientation. This removes the old false-adjacency premise; neither source star is marked. E appeared historically but is selected from this different rigid-motion hypothesis, not by relabeling an old image.",
+  "primary_math_proof": "A rigid motion rotating an adjacent vertical pair into a horizontal domino must rotate the entire symbols by +90 or -90 degrees. The two downward source hearts then point sideways; E has two downward hearts. The only pair of identical downward hearts in the source is column4 rows1-2. Other heart adjacency has different relative headings; the row4 pair has a club between. B matches row1 columns2-3 upright star and upright club without rotation. C has no adjacent stars. A would require an upright star with an upright spade immediately to its right after whole-domino rotation; neither star neighborhood supports that orientation (lower star is rotated20degrees). D heart+vertical diamond cannot preserve their headings after rotating the bottom-left horizontal neighboring pair. Thus B alone. All24 unordered source adjacencies can be checked with the frozen symbol poses; a new enumeration audit accompanies this design.",
+  "marker_roles": [
+    {
+      "action_index": 0,
+      "target": "board33heartbody",
+      "role": "Upper heart of the genuinely adjacent vertical pair, both hearts pointing down. First source feature."
+    },
+    {
+      "action_index": 1,
+      "target": "board32heartbody",
+      "role": "Lower heart of that adjacent pair. Its different color encodes the pair order, not a new symbol identity."
+    },
+    {
+      "action_index": 2,
+      "target": "option4_0heartbody",
+      "role": "Left downward heart in E proposed as rotated position of the upper source heart, while its actual symbol heading was not rotated."
+    },
+    {
+      "action_index": 3,
+      "target": "option4_1heartbody",
+      "role": "Right downward heart in E proposed as rotated position of the lower source heart; both retain heading incorrectly."
+    }
+  ],
+  "human_semantics": "Only existing contour styles; all original geometry, text and fill unchanged. Colors are correspondence annotations and not extra physical ink constraints. No new cut, region, condition or puzzle part. Actual native PNG primary review required before calls.",
+  "status": "PRIMARY_ONLY_REQUIRES_PARENT_NEW_INDEPENDENT_REVIEW"
+}

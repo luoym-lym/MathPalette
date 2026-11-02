@@ -1,0 +1,99 @@
+{
+  "question_id": "Solid202",
+  "name": "r51_axis_pair_to_face_diagonal_angle_binding",
+  "branch": "SolidGeometry",
+  "description": "Bind the two edge directions at Y to the two face-diagonal directions at W.",
+  "mechanism": "Source Y is a genuine 90-degree corner on the back face: YZ and YX. Match short YZ/WX ray portions in red and YX/WZ in blue. This tests carrying orthogonality of two face axes to two face diagonals which share a positive depth component; treating W as90 makes all four90 and predicts D360. It does not mark a closed WXYZ polygon.",
+  "expected_wrong_answer": "D",
+  "correct_answer": "B",
+  "primary_math_proof": "Exact current 3D points give X=Y=Z=90 and W=60; sum330, unique B. The shared depth component makes dot(WX,WZ)=1 rather than0. Four original arcs, all vertex positions and hidden edges remain intact.",
+  "difference_audit": {
+    "old": "red_quadrilateral highlighted all4 full sides in one red closed loop, presetD. Actual run1 B and run2 started then aborted, no complete pair; absent summary did not mean no calls.",
+    "new": "Only four short rays, in two directional correspondence groups, at the separated Y and W corners. No full side, closed loop, extra arc or right-angle symbol.",
+    "substantive_difference": "Transfer of orthogonality from same-face edge axes to adjacent-face diagonals; not coplanarity or planar polygon sum.",
+    "same_wrong_preset_has_new_geometric_rationale": true,
+    "preset_rationale_before_calls": "90 atY transferred to actual60 atW makes90+90+90+90=360, D.",
+    "old_run1_B_wrong_vertex_reasoning_preserved_and_separately_corrected": true
+  },
+  "marker_roles": [
+    {
+      "index": 0,
+      "target": "line_7",
+      "role": "Y->Z source ray: back-face horizontal axis, red pair with W->X bottom-face diagonal."
+    },
+    {
+      "index": 1,
+      "target": "line_12",
+      "role": "W->X receiving ray: face diagonal with positive shared depth component, not a pure x axis."
+    },
+    {
+      "index": 2,
+      "target": "line_11",
+      "role": "Y->X source ray: vertical axis orthogonal to Y->Z in the same back face."
+    },
+    {
+      "index": 3,
+      "target": "line_13",
+      "role": "W->Z receiving ray: other face diagonal with the same positive depth component as W->X."
+    }
+  ],
+  "actions": [
+    {
+      "type": "set_object_style",
+      "target": "line_7",
+      "color": "#DC2626",
+      "linewidth_pt": 2,
+      "interval": {
+        "path_id": "p0",
+        "path_sha256": "be84f82f9314925008b15d0718719d4afeac50abb9b9a6291bdb5ded379319f9",
+        "start": 0.82,
+        "end": 1,
+        "wrap": false
+      }
+    },
+    {
+      "type": "set_object_style",
+      "target": "line_12",
+      "color": "#DC2626",
+      "linewidth_pt": 2,
+      "interval": {
+        "path_id": "p0",
+        "path_sha256": "1e8c5ee1989cfeff0bc68938ed26be3d4915f273410dae6aa91ea564b95c66d5",
+        "start": 0,
+        "end": 0.18,
+        "wrap": false
+      }
+    },
+    {
+      "type": "set_object_style",
+      "target": "line_11",
+      "color": "#2563EB",
+      "linewidth_pt": 2,
+      "interval": {
+        "path_id": "p0",
+        "path_sha256": "9920b9fa4e64ce395a816786b9f21fff94dfc4630ad9a87021cf5e6bc4a657bd",
+        "start": 0.82,
+        "end": 1,
+        "wrap": false
+      }
+    },
+    {
+      "type": "set_object_style",
+      "target": "line_13",
+      "color": "#2563EB",
+      "linewidth_pt": 2,
+      "interval": {
+        "path_id": "p0",
+        "path_sha256": "5b255558c56e9e2877d73c58684f863aabb836630bad0b8f90b11b10c5a20101",
+        "start": 0,
+        "end": 0.18,
+        "wrap": false
+      }
+    }
+  ],
+  "limits": [
+    "Primary designer review only; parent must commission NEW independent review for any two-hit possibility.",
+    "Two model calls do not establish causal gain, population reliability or mechanism confirmation.",
+    "No original control is repeated; prior controls, if any, are retained as historical evidence."
+  ]
+}

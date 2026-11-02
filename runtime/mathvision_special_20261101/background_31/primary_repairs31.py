@@ -1,0 +1,23 @@
+from bootstrap31 import *
+
+observations={
+ 'Plane294':('r31_inner_width_to_length_transfer_v2','The source remains exactly nine components: four outer4x1 rectangles, four inner2x1 rectangles, and the central1x1 square. Four blue existing long-edge traces are now visible; the lower unit of the left internal blue trace is deliberately overpainted red where it is also an inner short end. I do not claim four uninterrupted all-blue length4 strokes. All four inner short ends and the centre square outline are red. Other sides still show each inner part length2. No new line locus, cut, part, dimension text or equality mark appears; source width remains8cm and conservation of area remains unambiguous.'),
+ 'Plane297':('r31_nested_checker_unit_binding_v2','Both complete red lower-left elbows and blue upper-right elbows are visible, on B full3x3 corners and D central3x3 corners. The D motif is visibly smaller, and its outer5x5 border remains black. These are open corner traces exactly on original grid edges, not a newly closed region. All black and white cell interiors remain readable, including B5 of9 and D13 of25. All five(A)-(E) labels and all grid subdivisions remain clear. Colored1pt edge ink does not recolor the counted black filled regions or indicate new equal area/length conditions.'),
+}
+for q,(n,obs) in observations.items():
+ d=OWN/q/n
+ save(d/'primary_review.json',{'created_at':stamp(),'stage':'material_refinement','question_id':q,'variant_id':n,'reviewer_role':'Primary author only, not independent second reviewer.','actual_native_PNG_viewed':True,'native_dimensions':[768,768],'actual_source_JPG_and_formal_PNG_viewed':True,'all_marker_roles_and_diagnostic_features_actually_inspected':True,'native_visual_observation':obs,'unique_original_math_proof':str(OWN/q/'primary_original_math.json'),'all_marker_roles':str(d/'design.json'),'source_question_fill_text_geometry_preserved':True,'no_extra_counted_dot_line_piece':True,'no_false_cut_region_relation_glyph':True,'single_clear_human_original_problem':True,'schema_legality_separately_from_semantic_judgment':True,'precall_design_frozen_sha256':sha(d/'design.json'),'precall_PNG_frozen_sha256':sha(d/'candidate.png'),'proceed_to_exact_two_calls':True,'limitations':['Primary native inspection is not a human study. No statistical/causal effect or per-marker necessity has been experimentally established.','Two calls provide finite exploratory observations; correct controls and identical narratives are not extra gates.','Parent must initiate a NEW independent review before every eventual delivery.']})
+
+manual={
+ 'Plane232':('r31_complementary_seven_row_binding',['3','3'],['Final says three distinct perimeters, not preset1. Its14x2 feasibility narrative has invalid overlap/gap reasoning, but the selected final is unambiguously3.','Final Answer3, not preset1. It corrects its4x7 row grouping; its14x2 account has missing/miscounted pieces. Narrative errors do not make the final a hit.']),
+ 'Plane302':('r31_toggled_triple_action_unit',['4','4'],['Final4, not preset3. Its intermediate3-touch bookkeeping omits two TL neighbour toggles and some2-touch narration is inconsistent; it still ends with the correct all-four construction.','Final4, not preset3. The shown4-touch sequence correctly reaches all black; the concluding minimality explanation is terse.'])
+}
+for q,(n,finals,notes) in manual.items():
+ d=OWN/q/n; ed=next((d/'tests').glob('quicktest3_*')); summary=read(ed/'summary.json')
+ runs=[]
+ for i,final in enumerate(finals,1):
+    p=ed/f'run_{i:02d}_response.json';raw=read(p);entry=read(ed/f'run_{i:02d}.json')
+    full=raw['choices'][0]['message']['content']
+    assert full==entry['answer'] and raw['choices'][0]['finish_reason']=='stop' and entry['status']=='completed'
+    runs.append({'run_index':i,'full_raw_final_manually_read':True,'full_assistant_content':full,'manual_final':final,'manual_observation':notes[i-1],'preset_hit':final==str(summary['expected_wrong_answer']),'raw_response_path':str(p),'raw_response_sha256':sha(p)})
+ save(d/'manual_finals.json',{'question_id':q,'variant_id':n,'expected_wrong_answer_before_both_calls':summary['expected_wrong_answer'],'formal_correct_answer':summary.get('correct_answer',read(OWN/q/'formal_record.json')['answer']),'same_frozen_image_sha256':summary['image_sha256'],'same_frozen_design_sha256':summary['design_sha256'],'complete_exact_two_calls':summary['two_completed'],'runs':runs,'two_preset_hits':all(r['preset_hit'] for r in runs),'status':'MISSED_PRESET_NO_REVIEW_CANDIDATE','no_posthoc_relabel':True,'controls':[],'effect_limits':'No original controls available for this question; no new controls run. No causal, statistical or human-study claim.'})

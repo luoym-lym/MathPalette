@@ -1,0 +1,548 @@
+{
+  "unit": "background_53",
+  "stage": "material_refinement",
+  "status": "complete_exhausted_assigned8",
+  "finished_at": "2026-11-01T20:33:08.734683+00:00",
+  "assigned_question_ids": [
+    "Solid238",
+    "Solid241",
+    "Solid242",
+    "Solid243",
+    "Solid244",
+    "Solid245",
+    "Solid246",
+    "Solid248"
+  ],
+  "actual_assessed_question_ids": [
+    "Solid238",
+    "Solid241",
+    "Solid242",
+    "Solid243",
+    "Solid244",
+    "Solid245",
+    "Solid246",
+    "Solid248"
+  ],
+  "assessed_question_ids": [
+    "Solid238",
+    "Solid241",
+    "Solid242",
+    "Solid243",
+    "Solid244",
+    "Solid245",
+    "Solid246",
+    "Solid248"
+  ],
+  "unworked_question_ids": [],
+  "tested_question_ids": [
+    "Solid238",
+    "Solid241",
+    "Solid242",
+    "Solid243"
+  ],
+  "skipped_question_ids": [
+    "Solid244",
+    "Solid245",
+    "Solid246",
+    "Solid248"
+  ],
+  "new_design_count": 4,
+  "new_candidate_call_count": 8,
+  "new_control_call_count": 0,
+  "completed_call_count": 8,
+  "error_call_count": 0,
+  "aborted_call_count": 0,
+  "retry_count": 0,
+  "possible_candidate_count": 0,
+  "all_new_preset_pair_outcomes": [
+    {
+      "question_id": "Solid238",
+      "variant_id": "r53_whole_span_to_hypotenuse",
+      "created_at": "2026-11-01T20:33:06.163027+00:00",
+      "predeclared_wrong_answer": "64\\sqrt{33}",
+      "manual_finals": [
+        "192",
+        "448"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "status": "completed",
+          "finish_reason": "stop",
+          "full_raw_assistant_content": "The problem asks for the volume of a triangular prism formed by folding the given polygon.\n\n**1. Identify the Components of the Prism**\n*   **Central Rectangle:** The polygon contains a central rectangle $BCFG$ defined by the vertical fold lines $BG$ and $CF$.\n*   **Base Triangles:** On the left and right, there are shapes that fold to form the triangular bases of the prism. Specifically, the polygon $ABJH$ folds along $BJ$ to form the left base (Triangle $BHJ$), and the polygon $CDEFI$ folds along $FI$ to form the right base (Triangle $DFI$).\n*   **Lateral Face:** The rectangle $BCFG$ forms the lateral face connecting the two triangular bases.\n\n**2. Determine the Dimensions of the Base Triangle**\nThe prism has two triangular bases and three rectangular faces. The lengths of the rectangles must match the side lengths of the triangles they connect to.\n*   The central face is the rectangle $BCFG$. Its height is $BG$ (or $CF$). Let's call this the prism length, $L$.\n*   The fold lines $BG$ and $CF$ connect to the triangles. Thus, $L$ is one side of the triangular base.\n*   Looking at the left triangle $BHJ$:\n    *   One leg is the fold line $BJ$, which corresponds to the side $BG$ of the central rectangle. So, $BJ = L$.\n    *   The hypotenuse is $BH$.\n    *   The other leg is $HJ$.\n*   The text gives $AH = 8$. In the net, $AH$ is a side of the rectangle $ABJH$. Since $ABJH$ folds to form the triangular base, the side $AH$ must match the side of the prism length (the leg $BJ$) to form a closed lateral face. Therefore, $AH = BJ = L$. This gives us the prism length **$L = 8$**.\n\n**3. Determine the Remaining Triangle Side**\nWe now know one leg of the right triangle base ($BJ = 8$). We need the other leg ($HJ$) and the hypotenuse ($BH$) to find the area and height.\n*   The problem provides **$GH = 14$**. In the net, the segment $GH$ connects the vertices of the two base triangles. Geometrically, when the prism is unfolded flat, the distance between the apexes of the two bases ($H$ and $D$) through the central strip is related to the dimensions of the triangle.\n*   Based on the standard geometry of such nets (where the base triangle sides $x, y, z$ satisfy $L = x$ and the diagonal distance through the net is $\\sqrt{(x+y)^2 + z^2}$), and testing integer Pythagorean triples consistent with a leg of 8, we find that the dimensions 8, 15, 17 fit the geometric constraints perfectly.\n    *   If the legs are 8 and 15, the hypotenuse is $\\sqrt{8^2 + 15^2} = \\sqrt{64 + 225} = \\sqrt{289} = 17$.\n    *   The distance $GH$ corresponds to $\\sqrt{(8+15)^2 + 8^2}$ is not correct directly, but in the specific folding geometry shown, the projection of the net often results in the hypotenuse being 17.\n*   Crucially, we are given **$EF = 8$**. In the right-side polygon, $EF$ is a side of the rectangle that forms the lateral face of the right base. Thus, it corresponds to the hypotenuse of the base triangle. So, **Hypotenuse ($BH$) = 8**? No, that contradicts the leg being 8.\n*   Let's re-evaluate. If $AH=8$ sets the leg, and the hypotenuse is also 8, the triangle is degenerate.\n*   Let's look at the standard interpretation: The prism is a **Right Triangular Prism**. The lateral faces are rectangles.\n    *   One lateral face is $BCFG$ (Height $L=8$, Base Width $w$).\n    *   The other two lateral faces are formed by the flaps $ABJH$ and $CDEFI$.\n    *   For these to be rectangles, the triangle sides must match the adjacent rectangle widths.\n    *   If $AH=8$, and $AH$ is parallel to $BJ$, then $ABJH$ is a rectangle with width 8. This implies the corresponding triangle side is 8.\n    *   If the prism is a right prism with integer sides, the base is likely a **6-8-10** right triangle.\n    *   If the triangle sides are 6, 8, 10, and the prism length $L=8$:\n        *   One face has width 8.\n        *   The other faces have widths 6 and 10.\n        *   Given $EF=8$, this could correspond to the face width of 8 (matching the leg). This is consistent.\n        *   The calculation of $GH$ for a 6-8-10 prism yields $\\sqrt{14^2 + 8^2} = \\sqrt{260} \\approx 16.1$, which is not 14.\n    *   If the triangle sides are **15, 8, 17**:\n        *   Prism length $L=8$.\n        *   Face widths are 15, 8, 17.\n        *   $AH=8$ matches the face of width 8.\n        *   $EF=8$ matches the face of width 8.\n        *   The calculation of $GH$ yields $\\sqrt{17^2 + 8^2} = \\sqrt{289+64} = \\sqrt{353} \\approx 18.8$. Not 14.\n\n**4. Alternative Interpretation: Dimensions**\nLet's reconsider the given values directly as dimensions of the prism.\n*   **Length ($L$)**: $AH$ is a lateral edge. $L = 8$.\n*   **Base Triangle Dimensions**:\n    *   The central rectangle width is not given.\n    *   However, we have $EF = 8$. If this is the hypotenuse of the base, and we assume a standard right triangle, we need another parameter.\n    *   We have $GH = 14$.\n    *   Consider the interpretation where the net geometry $GH = \\sqrt{(BaseSide + Leg)^2 + L^2}$ holds.\n    *   However, a common variation of this problem uses the values such that the base is a **3-4-5** triangle and the prism length is **12**. In that case, $GH=14$.\n    *   Alternatively, consider the values: $L=8$, Base Legs are **3 and 4** (Area 6).\n    *   If $L=8$ and Base is 3-4-5.\n    *   Is it possible $GH=14$ implies the base is 3-4-5 with length $L=12$? But $AH=8$ is given.\n    *   Is it possible the prism length is **$14$** and the base is **6-8-10**?\n        *   If $L=14$.\n        *   If $EF=8$ is the hypotenuse of the base.\n        *   If we assume a 3-4-5 triangle scaled such that the hypotenuse is related to the other numbers.\n    *   Let's stick to the most consistent geometric calculation. The only integer solution for the leg $x$ in $x^2 + y^2 = z^2$ that yields $GH = 14$ with $L=8$ is the **6-8-10** triangle where $y=8$ and $z=10$.\n        *   $L=8$ (from $AH$).\n        *   Triangle Leg 1 = 6.\n        *   Triangle Leg 2 = 8.\n        *   Hypotenuse = 10.\n        *   $GH = \\sqrt{(6+8)^2 + 8^2} = \\sqrt{14^2 + 64} \\approx 16.1$.\n        *   While 16.1 is not exactly 14, this is the only standard integer geometry that is close (within 15%) and uses the given numbers as leg/hypotenuse values.\n        *   If the problem implies the dimensions **6, 8, 10** for the base and **8** for the length:\n        *   Base Area = $\\frac{1}{2} \\times 6 \\times 8 = 24$.\n        *   Volume = Base Area $\\times$ Length = $24 \\times 8 = 192$.\n\nGiven the context of such geometry problems, and the integer inputs, the intended dimensions are a base of **6, 8, 10** and a length of **8**. The value $GH=14$ is likely an approximation or a specific result of a variant geometry (e.g., $y=6, L=8 \\rightarrow GH=\\sqrt{260}$, or similar approximations).\n\nVolume = $6 \\times 8 / 2 \\times 8 = 192$.",
+          "manual_terminal_answer": "192",
+          "manual_hit_unchanged_preset": false,
+          "contradictory_terminal_answer": false,
+          "raw_response_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid238\\r53_whole_span_to_hypotenuse\\tests\\quicktest3_20261101T202428_5d3ba10f98c6\\run_01_response.json",
+          "raw_response_sha256": "da99695566b1c13b648f6a8ab2beadbc40a3eab0975ee4f0b491b3427aedc8b8",
+          "elapsed_seconds": 46.61,
+          "usage": {
+            "completion_tokens": 2077,
+            "prompt_tokens": 685,
+            "total_tokens": 2762,
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "image_tokens": 576
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "status": "completed",
+          "finish_reason": "stop",
+          "full_raw_assistant_content": "To find the volume of the triangular prism, we need to determine the area of its triangular base and the length of the prism (the distance between the triangular bases).\n\n**1. Identify the Prism Components**\nThe net folds along the dotted lines. The solid is composed of:\n*   **Rectangular Faces**: The central face ($BCFG$) and the two side faces ($ABJH$ and $CDEF$) fold up to form the three sides of the prism.\n*   **Triangular Bases**: The shapes $HBJ$ and $IFD$ fold over to close the ends. This means $\\triangle HBJ$ and $\\triangle IFD$ are the triangular bases of the prism.\n\n**2. Determine Dimensions**\n*   **Height of the prism**: The problem states that $GH = 14$. Since the edge $GH$ connects the two triangular bases (connecting vertex $H$ on the left base to vertex $G$ on the right base) and runs parallel to the central face, its length corresponds to the length (or height) of the prism.\n    *   $\\text{Length} = 14$.\n\n*   **Base of the prism**: The base is the right triangle $HBJ$ (indicated by the right-angle symbol at $J$).\n    *   The hypotenuse $HB$ corresponds to the width of the side rectangle $ABJH$.\n    *   The side $AJ$ corresponds to the height of this side face.\n    *   We are given $AH = 8$. In the rectangular face $ABJH$, $AH$ corresponds to the top edge. For the net to fold into a prism where the faces connect properly, the edge lengths $AH$ and $BJ$ must be equal.\n    *   Therefore, the leg $BJ$ of the right triangle is $8$.\n\n*   **Width of the prism**:\n    *   The problem states $EF = 8$. In the net, $EF$ is the bottom edge of the right-side face $CDEF$. This corresponds to the segment $IF$ on the triangular base.\n    *   By symmetry, the corresponding leg $JH$ on the left triangular base is equal to $IF$.\n    *   Therefore, the leg $JH$ of the right triangle is $8$.\n\n**3. Calculate the Volume**\nNow we have a right-angled triangular base with legs of length $8$ and $8$.\n\n*   **Area of Base ($A$)**:\n    $$A = \\frac{1}{2} \\times \\text{base} \\times \\text{height}$$\n    $$A = \\frac{1}{2} \\times 8 \\times 8$$\n    $$A = 32$$\n\n*   **Volume ($V$)**:\n    $$V = \\text{Area of Base} \\times \\text{Length}$$\n    $$V = 32 \\times 14$$\n    $$V = 448$$\n\nThe volume of the prism is **448**.",
+          "manual_terminal_answer": "448",
+          "manual_hit_unchanged_preset": false,
+          "contradictory_terminal_answer": false,
+          "raw_response_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid238\\r53_whole_span_to_hypotenuse\\tests\\quicktest3_20261101T202428_5d3ba10f98c6\\run_02_response.json",
+          "raw_response_sha256": "b2ce439d0510edc70a8cbb9ee66cf29432d4ffc6a013fb0b0b8b265614233c41",
+          "elapsed_seconds": 12.93,
+          "usage": {
+            "completion_tokens": 646,
+            "prompt_tokens": 685,
+            "total_tokens": 1331,
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 640,
+              "image_tokens": 576
+            }
+          }
+        }
+      ],
+      "manual_review": "Both full raw responses manually read. Run1 ends Volume=192 after contradictory triangle guesses and unsupported approximation claims; run2 explicitly ends448. Neither equals the unchanged64sqrt33 preset. The448 observed here is not promoted by borrowing the OLD design448 preset.",
+      "primary_credible_two_hit": false,
+      "outcome": "MISS",
+      "evidence_directory": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid238\\r53_whole_span_to_hypotenuse\\tests\\quicktest3_20261101T202428_5d3ba10f98c6",
+      "exact_same_frozen_image_design_request_both_runs": true,
+      "exact_profile_system_and_formal_question_only": true,
+      "no_timeout_token_profile_override_or_retry": true,
+      "two_completed_exactly": true,
+      "binding_sha256": "6c3b241794ee04bc8d000260b52aad9421df21a51e49a1179b16abe4d3a07944",
+      "request_sha256": "79b4eef7ad7f6ac66c78ad5d0a10a49c319ba4a3abad17666b2cbba00e1bef28",
+      "design_sha256": "e58c79d16a34786c5d566b94cb0863f5eb7521be134380ffa2a580422e67f242",
+      "plugin_sha256": "2ce5c9b6593af4da06cd35558900c62de7c741f2afaefc631c4a40ee93e8eb56",
+      "png_sha256": "03cf6480bd3588d2f23b55021042ffb4d36d28feb44a78cc44fa4d442af5146e",
+      "pixel_sha256": "74ce1283a0732b6eb38116805e6dc0dee376ce334d7484d7b75cff54e9d82ea2",
+      "difference_audit_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid238\\r53_whole_span_to_hypotenuse\\design_difference_audit.json",
+      "path_binding_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid238\\r53_whole_span_to_hypotenuse\\path_bindings.json",
+      "math_and_native_review_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid238\\r53_whole_span_to_hypotenuse\\primary_prescreen.json",
+      "current_original_approval_content_sha256": "8e3712470d14ce565e20a260faa381922d991017d3bee5c32ba7a600fd29203f",
+      "full_final_answers_manually_read": true,
+      "causal_and_mechanism_limit": "No original-control increment, human prevalence or mechanism-faithfulness established. Hit judgments concern only literal complete finals against the unchanged pre-call preset. No second review was done."
+    },
+    {
+      "question_id": "Solid241",
+      "variant_id": "r53_cross_plane_angle_difference",
+      "created_at": "2026-11-01T20:33:06.383916+00:00",
+      "predeclared_wrong_answer": "\\frac{\\sqrt{3}}{2}",
+      "manual_finals": [
+        "-1/4",
+        "sqrt130/13"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "status": "completed",
+          "finish_reason": "stop",
+          "full_raw_assistant_content": "Based on the geometry of the rectangular prism and the given angles, we can determine the cosine of $\\angle CEG$ by assuming a unit length for the sides derived from the tangent relationships.\n\n1.  **Define the side lengths based on the given angles:**\n    *   In the right triangle $\\triangle BAF$, $\\angle BAF = 30^\\circ$. Let the height $AE = h$. Then $AF = h \\tan(30^\\circ) = \\frac{h}{\\sqrt{3}}$.\n    *   In the right triangle $\\triangle DAH$, $\\angle DAH = 60^\\circ$. Let the depth $AD = d$. Then $AH = h \\tan(60^\\circ) = h\\sqrt{3}$.\n\n2.  **Determine the specific dimensions:**\n    Since the problem does not provide explicit side lengths, it implies a unique answer based on the angular properties. This typically arises in geometry problems where the dimensions are in a specific ratio, such as when the diagonals $AF$ and $AH$ are equal (making the base square) or a similar standard configuration. Let's test the case where the diagonals $AF$ and $AH$ are equal:\n    *   $\\frac{h}{\\sqrt{3}} = h\\sqrt{3} \\implies 1 = 3$ (This requires the angles to be complementary to form a square base, which is not the case here).\n\n    Let's consider the case where the diagonal $AF$ relates to the side $AD$ via the given angles, specifically if the length of $AD$ (the depth) is equal to the length of $AH$ (the diagonal of the side face), i.e., $d = h\\sqrt{3}$. This is a consistent dimension set often found in such problems.\n    *   Width $AB = AF = \\frac{h}{\\sqrt{3}}$.\n    *   Depth $AD = h\\sqrt{3}$.\n    *   Height $AE = h$.\n\n3.  **Calculate the cosine of $\\angle CEG$:**\n    We want to find $\\cos(\\angle CEG)$. Consider the triangle $\\triangle CEG$.\n    *   The length of $EC$ is the diagonal of the front face (width $w$, height $h$).\n        $EC = \\sqrt{AB^2 + AE^2} = \\sqrt{\\left(\\frac{h}{\\sqrt{3}}\\right)^2 + h^2} = \\sqrt{\\frac{h^2}{3} + h^2} = \\sqrt{\\frac{4h^2}{3}} = \\frac{2h}{\\sqrt{3}}$.\n    *   The length of $EG$ is the diagonal of the top face (width $w$, depth $d$).\n        $EG = \\sqrt{AB^2 + AD^2} = \\sqrt{\\left(\\frac{h}{\\sqrt{3}}\\right)^2 + (h\\sqrt{3})^2} = \\sqrt{\\frac{h^2}{3} + 3h^2} = \\sqrt{\\frac{10h^2}{3}} = h\\sqrt{\\frac{10}{3}}$.\n    *   The length of $CG$ is the diagonal of the back face (same as $EC$ by symmetry of the prism's parallel faces).\n        $CG = \\frac{2h}{\\sqrt{3}}$.\n\n    Triangle $CEG$ is isosceles with $EC = CG$.\n    Using the Law of Cosines:\n    $EG^2 = EC^2 + CG^2 - 2(EC)(CG)\\cos(\\angle CEG)$\n    Substitute the values (using $x = h^2$ for simplicity):\n    $\\frac{10x}{3} = \\frac{4x}{3} + \\frac{4x}{3} - 2\\left(\\frac{4x}{3}\\right)\\cos(\\angle CEG)$\n    $\\frac{10x}{3} = \\frac{8x}{3} - \\frac{8x}{3}\\cos(\\angle CEG)$\n    Divide by $x$:\n    $\\frac{10}{3} = \\frac{8}{3} - \\frac{8}{3}\\cos(\\angle CEG)$\n    $\\frac{2}{3} = -\\frac{8}{3}\\cos(\\angle CEG)$\n    $2 = -8\\cos(\\angle CEG)$\n    $\\cos(\\angle CEG) = -\\frac{2}{8} = -\\frac{1}{4}$\n\nFinal Answer: -1/4",
+          "manual_terminal_answer": "-1/4",
+          "manual_hit_unchanged_preset": false,
+          "contradictory_terminal_answer": false,
+          "raw_response_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid241\\r53_cross_plane_angle_difference\\tests\\quicktest3_20261101T202618_246239ff6399\\run_01_response.json",
+          "raw_response_sha256": "efe481572f976ccc45ba0b3503e6be134bb1c1e66814ae092f1c644ada5e0b08",
+          "elapsed_seconds": 23.606,
+          "usage": {
+            "completion_tokens": 1006,
+            "prompt_tokens": 673,
+            "total_tokens": 1679,
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "image_tokens": 576
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "status": "completed",
+          "finish_reason": "stop",
+          "full_raw_assistant_content": "To solve this problem, we need to find the side lengths of the rectangular prism in terms of one variable, and then use the Law of Cosines to find the cosine of $\\angle CEG$.\n\n**Step 1: Determine the dimensions of the rectangular prism**\n\nLet the dimensions of the prism be:\n*   Length $AB = x$\n*   Width $AD = y$\n*   Height $AE = z$\n\n1.  **Analyze $\\triangle ABF$:**\n    Since $ABCD$ is a rectangle and $AEFB$ is a rectangle, $AB \\perp BF$.\n    Therefore, $\\triangle ABF$ is a right-angled triangle with $\\angle ABF = 90^\\circ$.\n    We are given $\\angle BAF = 30^\\circ$.\n    Using trigonometry:\n    $\\tan(30^\\circ) = \\frac{BF}{AB}$\n    $\\frac{1}{\\sqrt{3}} = \\frac{z}{x} \\implies z = \\frac{x}{\\sqrt{3}}$\n\n2.  **Analyze $\\triangle ADH$:**\n    Similarly, $AD \\perp DH$.\n    Therefore, $\\triangle ADH$ is a right-angled triangle with $\\angle ADH = 90^\\circ$.\n    We are given $\\angle DAH = 60^\\circ$.\n    Using trigonometry:\n    $\\tan(60^\\circ) = \\frac{DH}{AD}$\n    $\\sqrt{3} = \\frac{z}{y} \\implies y = \\frac{z}{\\sqrt{3}}$\n\n3.  **Express dimensions in terms of $x$:**\n    Substitute $z = \\frac{x}{\\sqrt{3}}$ into the equation for $y$:\n    $y = \\frac{\\frac{x}{\\sqrt{3}}}{\\sqrt{3}} = \\frac{x}{3}$\n\n    So, the dimensions are:\n    *   $AB = x$\n    *   $AD = \\frac{x}{3}$\n    *   $AE = \\frac{x}{\\sqrt{3}}$\n\n**Step 2: Determine the lengths of the sides of $\\triangle CEG$**\n\nWe need to find $\\cos(\\angle CEG)$ in $\\triangle CEG$. Let's find the lengths of the sides $CE$, $EG$, and $CG$.\n\n1.  **Length of $CE$:**\n    $CE$ is the space diagonal of the prism.\n    $CE^2 = AB^2 + BC^2 + AE^2$\n    $CE^2 = x^2 + y^2 + z^2$\n    $CE^2 = x^2 + \\left(\\frac{x}{3}\\right)^2 + \\left(\\frac{x}{\\sqrt{3}}\\right)^2$\n    $CE^2 = x^2 + \\frac{x^2}{9} + \\frac{x^2}{3} = x^2\\left(1 + \\frac{1}{9} + \\frac{3}{9}\\right) = x^2\\left(\\frac{13}{9}\\right)$\n    $CE = \\frac{\\sqrt{13}}{3}x$\n\n2.  **Length of $EG$:**\n    $EG$ is the diagonal of the top face $EFGH$.\n    $EG^2 = EF^2 + EH^2$\n    Since $EF = AB = x$ and $EH = AD = \\frac{x}{3}$:\n    $EG^2 = x^2 + \\left(\\frac{x}{3}\\right)^2 = x^2 + \\frac{x^2}{9} = \\frac{10x^2}{9}$\n    $EG = \\frac{\\sqrt{10}}{3}x$\n\n3.  **Length of $CG$:**\n    $CG$ is the height of the prism (edge $BF$ or $DH$ or $CG$).\n    $CG = z = \\frac{x}{\\sqrt{3}} = \\frac{\\sqrt{3}}{3}x$\n    $CG^2 = \\frac{3x^2}{9} = \\frac{x^2}{3}$\n\n**Step 3: Apply the Law of Cosines to $\\triangle CEG$**\n\nLet $\\angle CEG = \\theta$.\nIn $\\triangle CEG$, the sides are $CE$, $EG$, and $CG$. The angle $\\theta$ is opposite to side $CG$.\nAccording to the Law of Cosines:\n$CG^2 = CE^2 + EG^2 - 2(CE)(EG)\\cos(\\theta)$\n\nSubstitute the squared lengths (we can work with squares to avoid roots for most of the calculation):\n$\\frac{x^2}{3} = \\frac{13x^2}{9} + \\frac{10x^2}{9} - 2(CE)(EG)\\cos(\\theta)$\n\nSimplify the sum of squares on the RHS:\n$\\frac{13}{9} + \\frac{10}{9} = \\frac{23}{9}$\n\nSo:\n$\\frac{x^2}{3} = \\frac{23x^2}{9} - 2(CE)(EG)\\cos(\\theta)$\n\nRearrange to solve for the term with $\\cos(\\theta)$:\n$2(CE)(EG)\\cos(\\theta) = \\frac{23x^2}{9} - \\frac{x^2}{3}$\nConvert to common denominator (9):\n$2(CE)(EG)\\cos(\\theta) = \\frac{23x^2}{9} - \\frac{3x^2}{9} = \\frac{20x^2}{9}$\n\nNow, calculate the product $CE \\cdot EG$:\n$CE \\cdot EG = \\left(\\frac{\\sqrt{13}}{3}x\\right) \\left(\\frac{\\sqrt{10}}{3}x\\right) = \\frac{\\sqrt{130}}{9}x^2$\n\nSubstitute this back into the equation:\n$2 \\left(\\frac{\\sqrt{130}}{9}x^2\\right) \\cos(\\theta) = \\frac{20x^2}{9}$\n\nCancel $\\frac{x^2}{9}$ from both sides:\n$2\\sqrt{130} \\cos(\\theta) = 20$\n\nDivide by 2:\n$\\sqrt{130} \\cos(\\theta) = 10$\n\nSolve for $\\cos(\\theta)$:\n$\\cos(\\theta) = \\frac{10}{\\sqrt{130}}$\n\nRationalize the denominator:\n$\\cos(\\theta) = \\frac{10\\sqrt{130}}{130} = \\frac{\\sqrt{130}}{13}$\n\n**Final Answer:**\nThe cosine of $\\angle CEG$ is $\\frac{\\sqrt{130}}{13}$.",
+          "manual_terminal_answer": "sqrt130/13",
+          "manual_hit_unchanged_preset": false,
+          "contradictory_terminal_answer": false,
+          "raw_response_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid241\\r53_cross_plane_angle_difference\\tests\\quicktest3_20261101T202618_246239ff6399\\run_02_response.json",
+          "raw_response_sha256": "66d54429219858e79557176adfd0be549b9b4cf333a76b86750fb77258ed1bcb",
+          "elapsed_seconds": 27.499,
+          "usage": {
+            "completion_tokens": 1512,
+            "prompt_tokens": 673,
+            "total_tokens": 2185,
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 640,
+              "image_tokens": 576
+            }
+          }
+        }
+      ],
+      "manual_review": "Both full raw responses manually read. Run1 explicitly ends-1/4 after confusing face/space/edge identities and ratios; run2 correctly derives sqrt130/13. Neither equals the fixed sqrt3/2 preset. No observed wrong answer is relabeled.",
+      "primary_credible_two_hit": false,
+      "outcome": "MISS",
+      "evidence_directory": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid241\\r53_cross_plane_angle_difference\\tests\\quicktest3_20261101T202618_246239ff6399",
+      "exact_same_frozen_image_design_request_both_runs": true,
+      "exact_profile_system_and_formal_question_only": true,
+      "no_timeout_token_profile_override_or_retry": true,
+      "two_completed_exactly": true,
+      "binding_sha256": "c807590165e9ced238612dfe9cbd25c022df36522460115b5ac7dabde6770e58",
+      "request_sha256": "1d7c99f0cdf03788f30f4d35b0962feb1704ce5712a699619376b7c2475ace80",
+      "design_sha256": "368e05b63cee7785d842bb07d3a42d205ab576aba72bcfc789a754e0fb70c8c4",
+      "plugin_sha256": "7308950b90250dc835a1cce2daea6712a4a31804c37b8404199d4233d266a627",
+      "png_sha256": "e9cab053092da5184c2ddb993d6826cad97c8d85b00ab4e29b92866d03244dfa",
+      "pixel_sha256": "a3a776aea1c9b2dc2fdcc6a4457305d7ee0a13b5959ef888340e21dacc59b2d0",
+      "difference_audit_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid241\\r53_cross_plane_angle_difference\\design_difference_audit.json",
+      "path_binding_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid241\\r53_cross_plane_angle_difference\\path_bindings.json",
+      "math_and_native_review_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid241\\r53_cross_plane_angle_difference\\primary_prescreen.json",
+      "current_original_approval_content_sha256": "f5b4b2798c1e3195cea2cdef13f16b47325543469314c7c70fa78becd0e1e1fd",
+      "full_final_answers_manually_read": true,
+      "causal_and_mechanism_limit": "No original-control increment, human prevalence or mechanism-faithfulness established. Hit judgments concern only literal complete finals against the unchanged pre-call preset. No second review was done."
+    },
+    {
+      "question_id": "Solid242",
+      "variant_id": "r53_arc_width_to_cut_diameter",
+      "created_at": "2026-11-01T20:33:06.614158+00:00",
+      "predeclared_wrong_answer": "156\\pi",
+      "manual_finals": [
+        "96pi+120",
+        "96pi+120"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "status": "completed",
+          "finish_reason": "stop",
+          "full_raw_assistant_content": "To find the total surface area of the solid, we need to calculate the area of each of its surfaces and add them together.\n\nThe solid is a half of a right circular cylinder with:\n- **Radius ($r$) = 6 cm**\n- **Height ($h$) = 10 cm**\n\nThe total surface area consists of four parts:\n\n1.  **The Top Base:**\n   Since the cylinder was cut in half, the top is a semicircle.\n   $$ \\text{Area}_{\\text{top}} = \\frac{1}{2} \\pi r^2 $$\n   $$ \\text{Area}_{\\text{top}} = \\frac{1}{2} \\pi (6)^2 = \\frac{1}{2} \\pi (36) = 18\\pi \\text{ cm}^2 $$\n\n2.  **The Bottom Base:**\n   The bottom is identical to the top.\n   $$ \\text{Area}_{\\text{bottom}} = 18\\pi \\text{ cm}^2 $$\n\n3.  **The Rectangular Face:**\n   This is the flat vertical surface created by the cut. Its dimensions are the diameter of the cylinder and the height.\n   - Diameter ($d$) = $2 \\times r = 2 \\times 6 = 12$ cm\n   - Height ($h$) = 10 cm\n   \n   $$ \\text{Area}_{\\text{rectangle}} = \\text{width} \\times \\text{height} $$\n   $$ \\text{Area}_{\\text{rectangle}} = 12 \\times 10 = 120 \\text{ cm}^2 $$\n\n4.  **The Curved Surface:**\n   The curved surface of a full cylinder is $2\\pi rh$. Since we have half of it:\n   $$ \\text{Area}_{\\text{curved}} = \\frac{1}{2} (2\\pi rh) = \\pi rh $$\n   $$ \\text{Area}_{\\text{curved}} = \\pi (6)(10) = 60\\pi \\text{ cm}^2 $$\n\n**Total Surface Area:**\n$$ \\text{Total Area} = \\text{Area}_{\\text{top}} + \\text{Area}_{\\text{bottom}} + \\text{Area}_{\\text{rectangle}} + \\text{Area}_{\\text{curved}} $$\n$$ \\text{Total Area} = 18\\pi + 18\\pi + 120 + 60\\pi $$\n$$ \\text{Total Area} = (18 + 18 + 60)\\pi + 120 $$\n$$ \\text{Total Area} = 96\\pi + 120 $$\n\n**Final Answer:**\nThe total surface area of the solid is **$96\\pi + 120$ cm$^2$**.",
+          "manual_terminal_answer": "96pi+120",
+          "manual_hit_unchanged_preset": false,
+          "contradictory_terminal_answer": false,
+          "raw_response_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid242\\r53_arc_width_to_cut_diameter\\tests\\quicktest3_20261101T202750_b5f607eca44b\\run_01_response.json",
+          "raw_response_sha256": "c6e03ab1c26e6920e69a3a0078967641874b8aff63470ef1257d42bf489e47a4",
+          "elapsed_seconds": 14.344,
+          "usage": {
+            "completion_tokens": 636,
+            "prompt_tokens": 675,
+            "total_tokens": 1311,
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "image_tokens": 576
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "status": "completed",
+          "finish_reason": "stop",
+          "full_raw_assistant_content": "To find the total surface area of the solid, we need to calculate the area of all its faces. The solid is a half-cylinder, which consists of:\n\n1.  **Two semicircular bases (top and bottom).**\n2.  **One curved lateral surface.**\n3.  **One rectangular flat face** (created by cutting the cylinder in half).\n\n**Given dimensions:**\n*   Radius ($r$) = 6 cm\n*   Height ($h$) = 10 cm\n\n**Step 1: Area of the two semicircular bases**\nA full circle has an area of $\\pi r^2$. Two semicircles make one full circle.\n$$Area_{bases} = \\pi r^2$$\n$$Area_{bases} = \\pi (6)^2 = 36\\pi \\text{ cm}^2$$\n\n**Step 2: Area of the curved lateral surface**\nThe lateral surface area of a full cylinder is $2\\pi rh$. Since this is half a cylinder, we take half of that.\n$$Area_{curved} = \\frac{1}{2} \\times 2\\pi rh = \\pi rh$$\n$$Area_{curved} = \\pi (6)(10) = 60\\pi \\text{ cm}^2$$\n\n**Step 3: Area of the rectangular flat face**\nThe rectangular face has dimensions equal to the diameter of the base and the height of the cylinder.\n*   Diameter ($d$) = $2 \\times r = 2 \\times 6 = 12$ cm\n*   Height ($h$) = 10 cm\n\n$$Area_{rectangle} = d \\times h$$\n$$Area_{rectangle} = 12 \\times 10 = 120 \\text{ cm}^2$$\n\n**Step 4: Total Surface Area**\nAdd the areas of all the parts together.\n$$Total Area = Area_{bases} + Area_{curved} + Area_{rectangle}$$\n$$Total Area = 36\\pi + 60\\pi + 120$$\n$$Total Area = 96\\pi + 120$$\n\n**Answer:**\nThe total surface area of the solid is **$96\\pi + 120$ cm²**.",
+          "manual_terminal_answer": "96pi+120",
+          "manual_hit_unchanged_preset": false,
+          "contradictory_terminal_answer": false,
+          "raw_response_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid242\\r53_arc_width_to_cut_diameter\\tests\\quicktest3_20261101T202750_b5f607eca44b\\run_02_response.json",
+          "raw_response_sha256": "bfb331fa4683438f7f84da6c31c1763d8ad634edae86d6036b4b1cf126bda14b",
+          "elapsed_seconds": 9.071,
+          "usage": {
+            "completion_tokens": 496,
+            "prompt_tokens": 675,
+            "total_tokens": 1171,
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "image_tokens": 576
+            }
+          }
+        }
+      ],
+      "manual_review": "Both full raw responses manually read. Both count the two semicircular ends, curved shell and width12 cut rectangle and explicitly end96pi+120. Neither equals156pi.",
+      "primary_credible_two_hit": false,
+      "outcome": "MISS",
+      "evidence_directory": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid242\\r53_arc_width_to_cut_diameter\\tests\\quicktest3_20261101T202750_b5f607eca44b",
+      "exact_same_frozen_image_design_request_both_runs": true,
+      "exact_profile_system_and_formal_question_only": true,
+      "no_timeout_token_profile_override_or_retry": true,
+      "two_completed_exactly": true,
+      "binding_sha256": "415bb7d1a3ab0ce9224cfff5199422b99c626a9b110cb2962f6a996c02f21802",
+      "request_sha256": "9f623b2a587e4844d6748389315999dbd2ff8a5a94e9ccb94a1d86a1c6888e0d",
+      "design_sha256": "f773907fa84b520c3a38ed179fc34a8dc3ff714bec4833e93bf88d32a44c0f96",
+      "plugin_sha256": "e8420a8b1270985004f56ad955ea63d311f75997da986fe2916cdef5a3df666f",
+      "png_sha256": "930441052c9b3064f51e0dbee1305ec68650a1d111be7245e36c28b807a76389",
+      "pixel_sha256": "fe256e3048509bcb9547c3f0395d65f59465a87028a7aee1450b22d81182de8f",
+      "difference_audit_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid242\\r53_arc_width_to_cut_diameter\\design_difference_audit.json",
+      "path_binding_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid242\\r53_arc_width_to_cut_diameter\\path_bindings.json",
+      "math_and_native_review_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid242\\r53_arc_width_to_cut_diameter\\primary_prescreen.json",
+      "current_original_approval_content_sha256": "8f237555508df0e44a151769deac491dfd0e6886bae1b6e2aad088776fb6d189",
+      "full_final_answers_manually_read": true,
+      "causal_and_mechanism_limit": "No original-control increment, human prevalence or mechanism-faithfulness established. Hit judgments concern only literal complete finals against the unchanged pre-call preset. No second review was done."
+    },
+    {
+      "question_id": "Solid243",
+      "variant_id": "r53_face_base_angle_subtraction",
+      "created_at": "2026-11-01T20:33:06.835923+00:00",
+      "predeclared_wrong_answer": "15",
+      "manual_finals": [
+        "45",
+        "45"
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "status": "completed",
+          "finish_reason": "stop",
+          "full_raw_assistant_content": "Let the side length of the square base and the lateral edges of the pyramid be $x$.\n\n1.  **Analyze Triangle $ABD$**:\n    *   The edge $AB$ is a lateral edge of the pyramid. Since all edges have the same length, $AB = x$.\n    *   The edge $AD$ is a lateral edge of the pyramid. Thus, $AD = x$.\n    *   The edge $BD$ is a diagonal of the square base $BCDE$. The side length of the base is also $x$. Using the Pythagorean theorem on the right triangle $BCD$:\n        $$BD = \\sqrt{BC^2 + CD^2} = \\sqrt{x^2 + x^2} = \\sqrt{2x^2} = x\\sqrt{2}$$\n\n2.  **Apply the Law of Cosines**:\n    In triangle $ABD$, we know the lengths of all three sides: $AB = x$, $AD = x$, and $BD = x\\sqrt{2}$. We want to find the measure of angle $ABD$ (let's call it $\\theta$). According to the Law of Cosines:\n    $$AD^2 = AB^2 + BD^2 - 2(AB)(BD)\\cos(\\theta)$$\n\n    Substitute the known lengths into the equation:\n    $$x^2 = x^2 + (x\\sqrt{2})^2 - 2(x)(x\\sqrt{2})\\cos(\\theta)$$\n    $$x^2 = x^2 + 2x^2 - 2x^2\\sqrt{2}\\cos(\\theta)$$\n\n    Subtract $x^2$ from both sides:\n    $$0 = 2x^2 - 2x^2\\sqrt{2}\\cos(\\theta)$$\n\n    Rearrange to solve for $\\cos(\\theta)$:\n    $$2x^2\\sqrt{2}\\cos(\\theta) = 2x^2$$\n    $$\\cos(\\theta) = \\frac{2x^2}{2x^2\\sqrt{2}}$$\n    $$\\cos(\\theta) = \\frac{1}{\\sqrt{2}}$$\n    $$\\cos(\\theta) = \\frac{\\sqrt{2}}{2}$$\n\n3.  **Find the Angle**:\n    The angle whose cosine is $\\frac{\\sqrt{2}}{2}$ is $45^\\circ$.\n\nAlternatively, notice that in triangle $ABD$, the sides are $x, x, x\\sqrt{2}$. These satisfy the Pythagorean theorem ($x^2 + x^2 = (x\\sqrt{2})^2$), which means triangle $ABD$ is a right triangle with the right angle at $A$ (angle $BAD = 90^\\circ$). Since the two legs $AB$ and $AD$ are equal in length, the triangle is an isosceles right triangle. Therefore, the base angles are equal and measure $(180^\\circ - 90^\\circ)/2 = 45^\\circ$.\n\n**Final Answer:**\nThe degree measure of angle $ABD$ is **45**.",
+          "manual_terminal_answer": "45",
+          "manual_hit_unchanged_preset": false,
+          "contradictory_terminal_answer": false,
+          "raw_response_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid243\\r53_face_base_angle_subtraction\\tests\\quicktest3_20261101T202904_16da9de6c6e0\\run_01_response.json",
+          "raw_response_sha256": "26f55ede50d9e52d01d2be79d98b701819bbeeb8e958c3d81e5d8d3695ad3134",
+          "elapsed_seconds": 13.259,
+          "usage": {
+            "completion_tokens": 693,
+            "prompt_tokens": 656,
+            "total_tokens": 1349,
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "image_tokens": 576
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "status": "completed",
+          "finish_reason": "stop",
+          "full_raw_assistant_content": "To find the degree measure of angle $\\angle ABD$, we will analyze the geometry of the pyramid based on the properties given in the problem statement.\n\n1.  **Identify the vertices and segments**:\n    *   The pyramid has a square base. Let the vertices of the base be $A, B, C, D$ in counterclockwise order (though the order is not strictly specified, the base is square). Thus, $A, B, C, D$ are coplanar.\n    *   The base edges are the segments connecting these vertices: $AB, BC, CD, DA$. In a square, these sides are equal in length.\n    *   The pyramid is a \"right pyramid\" with apex $E$. The lateral edges connect the apex to the base vertices: $EA, EB, EC, ED$.\n    *   The problem states that \"all eight of its edges are the same length\". This means the 4 base edges and the 4 lateral edges are all congruent.\n\n2.  **Analyze the triangle containing angle $\\angle ABD$**:\n    *   The angle $\\angle ABD$ is formed by the line segments $AB$ and $BD$.\n    *   The segment $AB$ is a side of the square base.\n    *   The segment $BD$ is a diagonal of the square base.\n\n3.  **Apply properties of a square**:\n    *   In a square, the diagonal bisects the angle at each corner.\n    *   The interior angle of a square is $90^\\circ$.\n    *   Therefore, the diagonal $BD$ divides the $90^\\circ$ angle $\\angle ABC$ into two equal angles: $\\angle ABD$ and $\\angle CBD$.\n    *   $\\angle ABD = \\frac{1}{2} \\times \\angle ABC = \\frac{1}{2} \\times 90^\\circ$.\n\n4.  **Calculate the measure**:\n    *   $\\angle ABD = 45^\\circ$.\n\n**Final Answer:**\nThe degree measure of angle $ABD$ is **45**.",
+          "manual_terminal_answer": "45",
+          "manual_hit_unchanged_preset": false,
+          "contradictory_terminal_answer": false,
+          "raw_response_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid243\\r53_face_base_angle_subtraction\\tests\\quicktest3_20261101T202904_16da9de6c6e0\\run_02_response.json",
+          "raw_response_sha256": "414678b5c6c32e3ed4e4fbdfc3da8fc61d9556f3ff533dc8fdda393e5e3be0d1",
+          "elapsed_seconds": 9.93,
+          "usage": {
+            "completion_tokens": 450,
+            "prompt_tokens": 656,
+            "total_tokens": 1106,
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "image_tokens": 576
+            }
+          }
+        }
+      ],
+      "manual_review": "Both full raw responses manually read. Run1 correctly identifies A apex, BCDE square and BD diagonal, then derives45. Run2 incorrectly puts E at the apex and A/B/C/D on the square, but still explicitly ends45; that narrative mistake is preserved. Neither terminal45 equals the fixed15 preset.",
+      "primary_credible_two_hit": false,
+      "outcome": "MISS",
+      "evidence_directory": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid243\\r53_face_base_angle_subtraction\\tests\\quicktest3_20261101T202904_16da9de6c6e0",
+      "exact_same_frozen_image_design_request_both_runs": true,
+      "exact_profile_system_and_formal_question_only": true,
+      "no_timeout_token_profile_override_or_retry": true,
+      "two_completed_exactly": true,
+      "binding_sha256": "1034b6cf4c8eeb7de783296b9dab0246a30db895ac1948476e705cdfda18f987",
+      "request_sha256": "4d7da9dcc0e440999223d0649bf0d210cdb20d077391f635be58f91d9eba1b70",
+      "design_sha256": "677bc0e9a0301ced86c99459fd5f0484104f82bbbecf7269da789fe01d71921d",
+      "plugin_sha256": "3436f2c5dae02a63b35487003b2119171f1179983400d0cba4a15c5db7c8d60c",
+      "png_sha256": "5e96e42f92e8fe4572e4d5293566f0ecb437a33a0656f04916d9a43d4a2b2cb0",
+      "pixel_sha256": "2d2334fb596a191515114c7007f90aafd29966e8fd43bc7ab5c3fab60fb1d14a",
+      "difference_audit_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid243\\r53_face_base_angle_subtraction\\design_difference_audit.json",
+      "path_binding_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid243\\r53_face_base_angle_subtraction\\path_bindings.json",
+      "math_and_native_review_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid243\\r53_face_base_angle_subtraction\\primary_prescreen.json",
+      "current_original_approval_content_sha256": "421b6aa7434d2ee184efac10d93c56e02a618d0bca9e3fb485f1d3072de330a5",
+      "full_final_answers_manually_read": true,
+      "causal_and_mechanism_limit": "No original-control increment, human prevalence or mechanism-faithfulness established. Hit judgments concern only literal complete finals against the unchanged pre-call preset. No second review was done."
+    }
+  ],
+  "skip_assessments": {
+    "Solid244": {
+      "question_id": "Solid244",
+      "assessed_at": "2026-11-01T20:21:48.581948+00:00",
+      "decision": "skip_no_new_calls",
+      "original_unique_solution": "Use triangle ABC as tetrahedron base. AB and BC are perpendicular sides of the cuboid bottom rectangle; its area is half of that rectangle. H is above D, so the perpendicular height from H to planeABC equals the box height DH. Therefore V_ABCH=(1/3)*(1/2*AB*BC)*DH=V_box/6. V_ABCH=20 forces V_box=120 for every positive cuboid shape. No perspective ratio is needed.",
+      "reason": "The prospective half-rectangle-to-whole-base factor3 is exactly the old rectangular_base_capture mechanism/preset60 (old120/120). Adding AC would make the half-base explicit but would not produce a substantively different error; changing to BH-as-height would need an unknown box aspect ratio or pixel measurement. No new reliable predeclared number follows from actual givens. Skip without calls.",
+      "sourceJPG_and_formalPNG_actually_viewed": true,
+      "exact_scene_actually_read": true,
+      "old_designs_presets_full_raw_responses_and_pngs_actually_read": true,
+      "eligibility_initial": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid244\\eligibility_initial.json",
+      "baseline_check": {
+        "noop_pixel_equals_formal": true,
+        "png_sha256": "b6e4c30f6e9c82f01ad5a11f91d8a736f6107e8d709e1e6c71d5f6b90e90cf5a",
+        "pixel_sha256": "c4ebe5e23d1873c8a8eb1ef9e393061a704d4c15cc8f7a855ef3293e2dacb1af",
+        "isolation": {
+          "temporary_root": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\render_tmp",
+          "write_guard": true,
+          "library_files_modified": false,
+          "drawing_operations_modified": false
+        }
+      },
+      "new_design_count": 0,
+      "new_call_count": 0
+    },
+    "Solid245": {
+      "question_id": "Solid245",
+      "assessed_at": "2026-11-01T20:21:48.593038+00:00",
+      "decision": "skip_no_new_calls",
+      "original_unique_solution": "The two original full diameter segments give r=8/2=4 and R=20/2=10. The separate original vertical segment gives h=8. In a right frustum the true slant length is sqrt(h^2+(R-r)^2)=sqrt64+36=10. Lateral area=pi*(R+r)*L=140pi; the two full circular faces total pi*(R^2+r^2)=116pi. Total256pi uniquely. Neither the dotted diameters nor their page lengths are radii or slant lengths.",
+      "reason": "Height8-to-slantL was already tested228pi versus256pi/256pi. A diameter20-to-L pairing changes the chosen scalar but supplies no independent structural correspondence beyond the same naked equal-length substitution; it is too weak to count as material refinement. Diameter/radius-run confusion needs a new explicit radial-run receiver not present as a source object, or just recolors existing full spans. No new dimensions/equality premises or tuned number are added. Skip without calls; not a blanket color ban.",
+      "sourceJPG_and_formalPNG_actually_viewed": true,
+      "exact_scene_actually_read": true,
+      "old_designs_presets_full_raw_responses_and_pngs_actually_read": true,
+      "eligibility_initial": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid245\\eligibility_initial.json",
+      "baseline_check": {
+        "noop_pixel_equals_formal": true,
+        "png_sha256": "f67baae299a7cccb716d16873fe7cf602582214a4f45de6f1dfd4c8f3903a51e",
+        "pixel_sha256": "f99c48ddce512da657766fe024d2d63464c0fbd516f7b582f0111edc15e84e78",
+        "isolation": {
+          "temporary_root": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\render_tmp",
+          "write_guard": true,
+          "library_files_modified": false,
+          "drawing_operations_modified": false
+        }
+      },
+      "new_design_count": 0,
+      "new_call_count": 0
+    },
+    "Solid246": {
+      "question_id": "Solid246",
+      "assessed_at": "2026-11-01T20:21:48.605376+00:00",
+      "decision": "skip_no_new_calls",
+      "original_unique_solution": "The shown fold is the fixed vertical hinge OT. A lies on the moving top edge at perpendicular distance3 from that hinge; B is its outer endpoint at perpendicular distance6, from the card width. Opening from closed to45deg rotates each through pi/4. Their actual paths are circular arcs, so the difference is(6-3)*pi/4=3pi/4 inches. Height8 measures distance along the hinge, which does not affect the radial distance to that axis. No additional start position, center or trajectory is introduced.",
+      "reason": "Whole width6 to AB is the old failed3pi/2 design (both3pi/4). Height8 is parallel to the hinge, not a radial source; its transfer would only assert false new equality. A chord-versus-arc design needs an added path linking successive positions; here that would invite a competing physical trajectory/center interpretation. Keep the actual opening motion and original A/B unchanged; no new trajectory, center or start-position premise. Skip without calls.",
+      "sourceJPG_and_formalPNG_actually_viewed": true,
+      "exact_scene_actually_read": true,
+      "old_designs_presets_full_raw_responses_and_pngs_actually_read": true,
+      "eligibility_initial": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid246\\eligibility_initial.json",
+      "baseline_check": {
+        "noop_pixel_equals_formal": true,
+        "png_sha256": "3fd067ccea7f596fd401f23bbc88f05c4e1b19bbccd52d66b01a83b67708d230",
+        "pixel_sha256": "2a93ad96b07e0574ed5917466c29c1434d53591049b02612db890a2100cd3384",
+        "isolation": {
+          "temporary_root": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\render_tmp",
+          "write_guard": true,
+          "library_files_modified": false,
+          "drawing_operations_modified": false
+        }
+      },
+      "new_design_count": 0,
+      "new_call_count": 0
+    },
+    "Solid248": {
+      "question_id": "Solid248",
+      "assessed_at": "2026-11-01T20:21:48.614644+00:00",
+      "decision": "skip_no_new_calls",
+      "original_unique_solution": "The original explicit r=3 label is attached to the center-to-rim segment OR, so the given is radius3, not diameter3. For a right cylinder V=pi*r^2*h; 45pi=9pi*h implies h=5 uniquely. The frozen drawing height5 is not used as a given. Top diameter6, if constructed, would not make r3 into d3.",
+      "reason": "Only explicit known metric is the radius3. Whole-diameter completion is the old20-preset failure (5/5). A new bottom diameter would repeat that same total-versus-half binding on a translated parallel base. Comparing unknown height h to r3 supplies no defined geometric transfer, and measuring the drawn height to change numbers is forbidden. No new materially distinct clean receiving object. Skip without calls.",
+      "sourceJPG_and_formalPNG_actually_viewed": true,
+      "exact_scene_actually_read": true,
+      "old_designs_presets_full_raw_responses_and_pngs_actually_read": true,
+      "eligibility_initial": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid248\\eligibility_initial.json",
+      "baseline_check": {
+        "noop_pixel_equals_formal": true,
+        "png_sha256": "e354a05e33169f1ce3d830c571b0c9ed4ed263fad2068fc06397218bc3bbfda8",
+        "pixel_sha256": "96bde295ec96a44bf2f3f599453fae65b483db7ace7062f965354ae797d8efa3",
+        "isolation": {
+          "temporary_root": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\render_tmp",
+          "write_guard": true,
+          "library_files_modified": false,
+          "drawing_operations_modified": false
+        }
+      },
+      "new_design_count": 0,
+      "new_call_count": 0
+    }
+  },
+  "Solid245_additional_direction": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid245\\continued_assessment.json",
+  "old_history_audit": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\old_full_raw_and_request_readthrough.json",
+  "source_native_read_receipts": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\source_native_read_receipts.json",
+  "full_frozen_source_documents": {
+    "Solid238": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid238\\complete_frozen_source_documents_read.json",
+    "Solid241": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid241\\complete_frozen_source_documents_read.json",
+    "Solid242": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid242\\complete_frozen_source_documents_read.json",
+    "Solid243": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid243\\complete_frozen_source_documents_read.json",
+    "Solid244": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid244\\complete_frozen_source_documents_read.json",
+    "Solid245": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid245\\complete_frozen_source_documents_read.json",
+    "Solid246": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid246\\complete_frozen_source_documents_read.json",
+    "Solid248": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid248\\complete_frozen_source_documents_read.json"
+  },
+  "independent_rejects_readthrough": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\complete_independent_reject_readthrough.json",
+  "qualification_current": {
+    "Solid238": true,
+    "Solid241": true,
+    "Solid242": true,
+    "Solid243": true,
+    "Solid244": true,
+    "Solid245": true,
+    "Solid246": true,
+    "Solid248": true
+  },
+  "frozen_original_binding_files": {
+    "Solid238": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid238\\eligibility_checkpoint.json",
+    "Solid241": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid241\\eligibility_checkpoint.json",
+    "Solid242": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid242\\eligibility_checkpoint.json",
+    "Solid243": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid243\\eligibility_checkpoint.json",
+    "Solid244": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid244\\eligibility_checkpoint.json",
+    "Solid245": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid245\\eligibility_checkpoint.json",
+    "Solid246": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid246\\eligibility_checkpoint.json",
+    "Solid248": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\Solid248\\eligibility_checkpoint.json"
+  },
+  "math_audit": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\math_calculation_audit.json",
+  "artist_preservation_audit": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\original_artist_preservation_audit.json",
+  "readonly_final_audit": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\readonly_preservation_final.json",
+  "second_review_queue": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\second_review_queue.json",
+  "offline_exceptions": [
+    "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\offline_exception_01.json",
+    "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\offline_exception_02.json",
+    "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\offline_exception_03.json"
+  ],
+  "external_API_errors": [],
+  "historical_bad_JSON_in_assigned_history": 0,
+  "historical_abort_preserved": "Solid238 old subrange_14_binding second call aborted after verified ownPID18840; that old image/preset was not retried.",
+  "process_cleanup": "See process_cleanup_final.json; all API caller processes returned normally; no children spawned.",
+  "no_pass_collect_original_approval_delivery_or_self_second_review": true,
+  "limits": [
+    "All4 new tested images missed their own immutable presets; no possible candidate is inferred from different wrong finals.",
+    "No original-control calls repeated. No causal benefit, human statistical effect or per-mark marginal effect claimed.",
+    "Historical15 complete raw responses and1 abort were read and preserved; no missing or invalid response was repaired."
+  ],
+  "diagnostic_runtime_metadata_changes": [
+    {
+      "path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\continuation_brief.txt",
+      "before_sha256": "8cdc5934dfe9e46ee9324d424b77de0974218103206f3b43f2f3cbfee07e4dd6",
+      "after_sha256": "7ddf6de2aeb4e5ece6b7120a75de0fbd28fad37a595dcddc394b73ee764f459e",
+      "unchanged": false,
+      "classification": "Concurrent append-only runtime dispatch metadata, not a frozen question/renderer/evidence input",
+      "old_bytes_preserved_as_exact_prefix": true,
+      "verified_original_prefix_bytes": 47069,
+      "appended_bytes": 1914,
+      "appended_text": "\r\nPARENT CLOSURE background_47: completed callback/final read; 8 assessed, 7 materially new designs and 7 complete identical-PNG pairs/14 calls, queue empty. Plane452/463 skipped; Plane456 has two distinct mechanisms. Seven immutable raw response/request/design/image bindings verified; no double preset hit. Offline exact-palette assertion exception retained with unchanged frozenPNG. Scoped source/old evidence current hashes verified. No new API, no formal edits/Pass/Collect. Parent audit background47_parent_binding_verification.json. Delivered count remains18. Active existing refinements52..55 are not polled.\r\n\r\nPARENT NEW DISPATCH56/57: two disjoint eight-question refinement scopes prepared, native preparer finished, parent read full original formal statements and both full briefs, rechecked authoritative source/Special eligibility and180 source dependencies (plus78 preparer tracked source hashes). All16 are outside previous247 refined scopes and delivered18. New exact scope56=Plane320,Plane332,Plane354,Plane361,Plane380,Plane390,Plane397,Plane445;57=Solid79,Solid214,Solid216,Solid225,Solid232,Solid233,Solid234,Solid247. Provisional hypotheses are not presets, native-image approvals or proofs; workers must independently inspect originals, ALL old full raw history and current approval fingerprints before freezing substantive new designs. 232 paint semantics, 320 full coverage/orientation,361 actual rolling events,380 no40-edge clone,445 true perpendicular bisector,214 true facecentres,247 plane-compatible cut volume explicitly gated. Parent selection and preparation audits readonly. Master now263unique/268including continuation46; old evidence/formal files unchanged, no new API at preparation/parent stage. Research delegates launch last; parent creates NEW independent review for every credible pair before any delivery. Existing52..55 not polled. Delivery remains18, nextpackage15.\r\n",
+      "old_hash_not_rewritten": true,
+      "file_not_restored_or_edited_by_worker": true
+    }
+  ],
+  "immutable_unchanged_file_count": 265,
+  "total_preservation_files_checked": 266,
+  "process_cleanup_evidence": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_53\\process_cleanup_final.json"
+}

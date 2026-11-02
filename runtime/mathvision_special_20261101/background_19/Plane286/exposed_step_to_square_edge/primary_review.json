@@ -1,0 +1,84 @@
+{
+  "question_id": "Plane286",
+  "review_level": "PRIMARY ONLY; not independent second review",
+  "reviewed_at": "2026-11-01T16:25:33.927695+00:00",
+  "actual_candidate_png_viewed": true,
+  "actual_original_png_viewed": true,
+  "actual_source_jpg_viewed": true,
+  "candidate_png_sha256": "8209060ac82c4d576c7ff762343321e93852adda66fd32684bb744090c6eed1a",
+  "image_size": [
+    768,
+    768
+  ],
+  "visual_findings": "Native 768x768 candidate and original viewed. The red full reference side and two short exposed B steps are separated and visible; all contours and option labels remain black/readable. Three open existing edge styles introduce no cuts, regions or equality glyphs. B remains visibly a rotated-square overlap; A retains its impossible roof geometry.",
+  "primary_unique_answer_proof": "A is uniquely impossible. Its base from (0,0) to (2,0) forces at least one contained square to have that entire horizontal side: squares contacting y=0 only at a vertex cannot cover an interval, while any horizontal square side of length 2 contained in x in [0,2] is the whole base. The roof apex (1,3) must belong to the second square. Both supporting roof rays have slopes +/-1, so a square fitting this right-angle apex has adjacent side endpoints x=1 +/- sqrt(2), outside [0,2]. B is the union of a side-2 axis square centered at (5,sqrt(2)) and a side-2 square rotated 45 degrees about the same center. C combines the side-2 diamond with bottom (10,0) with a side-2 upright square whose top is y=2+sqrt(2). D uses two upright side-2 squares shifted (1,1); E uses two side-2 squares shifted (1,0).",
+  "correct_answer": "A",
+  "expected_wrong_answer_frozen": "B",
+  "per_marker_review": [
+    {
+      "index": 1,
+      "action": {
+        "type": "set_object_style",
+        "target": "given0",
+        "color": "#DC2626",
+        "linewidth_pt": 2,
+        "interval": {
+          "path_id": "p0",
+          "path_sha256": "ce342d6de1904b6e2fa99afaea505adf42b73f297bcbe3ef530c588c164c0e98",
+          "start": 0,
+          "end": 0.25,
+          "wrap": false
+        }
+      },
+      "role": "Source given0 bottom edge: reference complete side of the equal square.",
+      "review": "Follows the stated existing edge(s); visible at native size; no moved endpoint, new closed region, false relation glyph, changed text or fill."
+    },
+    {
+      "index": 2,
+      "action": {
+        "type": "set_object_style",
+        "target": "option1",
+        "color": "#DC2626",
+        "linewidth_pt": 2,
+        "interval": {
+          "path_id": "p0",
+          "path_sha256": "a67cd5c342d6150a6ba6af64f23f0791b0fb37fd162053ce8cf61e43082cc96c",
+          "start": 0.0625,
+          "end": 0.125,
+          "wrap": false
+        }
+      },
+      "role": "B top-right short horizontal step: exposed remainder of the upright square side, falsely bound to the full source side.",
+      "review": "Follows the stated existing edge(s); visible at native size; no moved endpoint, new closed region, false relation glyph, changed text or fill."
+    },
+    {
+      "index": 3,
+      "action": {
+        "type": "set_object_style",
+        "target": "option1",
+        "color": "#DC2626",
+        "linewidth_pt": 2,
+        "interval": {
+          "path_id": "p0",
+          "path_sha256": "a67cd5c342d6150a6ba6af64f23f0791b0fb37fd162053ce8cf61e43082cc96c",
+          "start": 0.5625,
+          "end": 0.625,
+          "wrap": false
+        }
+      },
+      "role": "B bottom-left short horizontal step: second exposed remainder, reinforcing the mistaken complete-side comparison.",
+      "review": "Follows the stated existing edge(s); visible at native size; no moved endpoint, new closed region, false relation glyph, changed text or fill."
+    }
+  ],
+  "schema_and_determinism": {
+    "actual_normalization": true,
+    "no_op_pixel_equality": true,
+    "two_byte_identical_draws": true
+  },
+  "proceed_to_API": true,
+  "limitations": [
+    "Only a predeclared two-call possibility test; no statistical effectiveness claim.",
+    "No original-control calls or per-marker causal ablation performed.",
+    "Any apparent hit requires a NEW independent reviewer appointed by parent before delivery."
+  ]
+}

@@ -1,0 +1,226 @@
+{
+  "decision": "recommended",
+  "strict_conclusion": "recommended: D/D satisfies the frozen two-call rule. Four original flap boundaries form two concrete orientation pairs; run 1 explicitly misreads the highlighted boundary orientation as end-cap overlap. The unique correct answer remains C. Recommendation is for user review, not Pass/Collect or a statistical reliability guarantee.",
+  "review_type": "independent_second_review",
+  "reviewed_at_utc": "2026-11-01T11:20:36.468164+00:00",
+  "question_id": "Solid176",
+  "variant_id": "false_flap_pair",
+  "candidate_directory": "solid_explore/Solid176/false_flap_pair",
+  "reviewer": "independent_review agent; did not design or test these candidates",
+  "formal_source": "MathVision",
+  "formal_answer": "C",
+  "predeclared_wrong_answer": "D",
+  "review_scope": {
+    "read_protocols": [
+      "MATHPALETTE_PROTOCOL.md",
+      "SolidGeometry/REDRAW_PROTOCOL.md",
+      "SolidGeometry/workbench/README.md",
+      "SolidGeometry/workbench/agent_prompt.md",
+      "SolidGeometry/workbench/plugin.schema.json"
+    ],
+    "no_new_api_calls": true,
+    "no_pass_collect": true,
+    "no_existing_files_modified": true,
+    "all_python_B": true,
+    "render_not_reproduced": "Read existing deterministic-render reports; independently inspected actual PNG, geometry and hash chain.",
+    "manual_whitelist_check": "All actions are set_object_style, actual scene targets, allowed colors and 0.5/1/1.5/2/3pt widths; no unsupported properties. jsonschema package unavailable; no full JSON-schema library validation was claimed.",
+    "formal_indices_checked": "No matching question entry found in either accepted_index.jsonl or collected_index.jsonl at review time."
+  },
+  "targeted_information": {
+    "intended_error": "Mistake same-oriented planar flaps, attached two strip cells apart, for overlapping halves of an end cap; wrongly reject D.",
+    "specific_geometry": "D's upper flaps attach to strip cells 0 and 2 and have same-oriented right vertical boundaries. Its lower flaps also attach to cells 0 and 2 and have same-oriented diagonal boundaries. The attachment squares become opposite tube walls, so same planar orientation does not imply folded overlap.",
+    "assessment": "Each marked pair selects orientation information needed to judge an end cap. Run 1 explicitly mentions red vertical boundaries and applies a false alternating-orientation rule. This is more than unqualified whole-option salience.",
+    "salience_only_risk": "present_but_not_exclusive",
+    "evidence_strength": "moderate: run 1 directly supports the information mapping; run 2 only supports an overlap claim and miscounts strip cells."
+  },
+  "action_necessity": [
+    {
+      "target": "flap310b",
+      "location": "Right vertical boundary of D's first upper flap",
+      "role": "First upper-cap orientation reference.",
+      "necessity": "Pairs with flap311b; a direct geometric role."
+    },
+    {
+      "target": "flap311b",
+      "location": "Right vertical boundary of D's second upper flap",
+      "role": "Second upper-cap orientation reference.",
+      "necessity": "Completes the pair making same-direction appearance salient."
+    },
+    {
+      "target": "flap300b",
+      "location": "Diagonal boundary of D's first lower flap",
+      "role": "First lower-cap orientation reference.",
+      "necessity": "Pairs with flap301b to select the other end cap; no duplicate geometry."
+    },
+    {
+      "target": "flap301b",
+      "location": "Diagonal boundary of D's second lower flap",
+      "role": "Second lower-cap orientation reference.",
+      "necessity": "Completes the second orientation pair; one selected boundary per flap."
+    }
+  ],
+  "necessity_limit": "No per-action causal ablation was performed, so statistical indispensability is not claimed. Each of the four marks has an interpretable cap-orientation role; there is no obvious useless or confusing mark. The 2pt width supports visibility of the small flap shapes.",
+  "observed_reasoning": [
+    "Run 1 explicitly refers to 'vertical edges highlighted in red', misreads their left/right placement and applies a false rule requiring alternating orientation, then ends D.",
+    "Run 2 miscounts the four-cell strip as three cells, describes D's flaps covering the same face and ends D. It does not explicitly attribute its decision to color. Two final hits should not be described as two identical reasoning mechanisms."
+  ],
+  "mathematics": {
+    "unique_answer": "C",
+    "independent_check": "Independently map attachment-cell/apex-endpoint data onto unit-square tube caps. A/B/D/E each have two complementary half-square triangles on both caps. C's lower triangles have identical vertex sets {(0,0),(1,0),(0,1)}, overlapping by area 1/2 and leaving the other half uncovered. Only C fails.",
+    "geometry_changed": false,
+    "new_conditions": false,
+    "ambiguity_risk": "low: only original non-crease outline color and 2pt width change. All dashed folding creases remain; no gluing, equality or new fold condition is added."
+  },
+  "visual_review": {
+    "candidate_viewed": true,
+    "formal_redraw_viewed": true,
+    "source_image_viewed": true,
+    "labels_clear": true,
+    "occlusion": false,
+    "clutter": "Four short original boundaries, no new geometry. Both pairs, the four strip cells and original creases remain readable.",
+    "source_comparison": "All five option topologies match the source and formal redraw. The design wording 'four slanted edges' is inaccurate: the actual edits are two upper vertical edges and two lower diagonals. This wording was not sent in the API question or image; this review uses actual actions and PNG."
+  },
+  "hard_requirements": {
+    "two_frozen_runs_hit_predeclared_wrong": true,
+    "mathematics_unique_and_preserved": true,
+    "human_readable_unambiguous": true,
+    "concise_marks": true,
+    "targeted_information": true
+  },
+  "remaining_issue": "Suitable for user review with the original-control B, candidate D/D, formal answer C and the differing reasoning strengths disclosed.",
+  "test_evidence": {
+    "profile": "quicktest3",
+    "model": "mimo-v2.6-flash",
+    "thinking": {
+      "type": "disabled"
+    },
+    "binding_path": "runtime/mathvision_special_20261101/solid_explore/Solid176/false_flap_pair/tests/quicktest3_20261101T110800_16f53efdd266/binding.json",
+    "binding_created_at": "2026-11-01T11:08:00.545780+00:00",
+    "requested_runs": 2,
+    "all_integrity_checks_passed": true,
+    "checks": {
+      "image_sha256_matches": true,
+      "pixel_sha256_matches": true,
+      "design_sha256_matches": true,
+      "snapshot_equals_current_design": true,
+      "request_body_sha256_matches": true,
+      "embedded_png_equals_current_candidate": true,
+      "formal_question_identical": true,
+      "question_record_sha256_matches": true,
+      "dataset_sha256_matches": true,
+      "model_and_thinking_match_quicktest3": true,
+      "only_two_messages_and_question_image_user_parts": true,
+      "system_prompt_equals_binding": true
+    },
+    "binding_hashes": {
+      "image_sha256": "79c1ed9b1b92d1a664b0971725555f9c4a0e38bf769303e697ec952544a628ab",
+      "pixel_sha256": "72f92d90c6a4c5747abacd206c60d49904fe23946c2959e917263846ff8e12c4",
+      "design_sha256": "fd8c5cc2cd0066a3641ad1dbd724b1bf55b6ef693344b2741070a76c7444dde3",
+      "request_body_sha256": "e8f260c21a17d4ee5cdffe808a407d629a00c499aaf8983ffc0d042be7ae97de",
+      "question_record_sha256": "7d2e84110b485e975693e32c36c0f7942130514b53cadf60e22181316203f7c3"
+    },
+    "runs": [
+      {
+        "run_index": 1,
+        "manually_read_final_answer": "D",
+        "hits_predeclared_wrong": true,
+        "run_id": "4a19a7636abe4950b7d8d4b03fce796e",
+        "provider_response_id": "2cf6897b-cc53-45d3-8df3-80dae9da3ba5_30edc98441574ec9a563927e53d11789",
+        "started_at": "2026-11-01T11:08:00.548579+00:00",
+        "finished_at": "2026-11-01T11:08:33.452323+00:00",
+        "completed_http200_no_truncation": true,
+        "raw_response_sha256": "c8fd5bb0e007f3f599c13d743b7465066d2bf30f3bab80663e5abe1fca8885f3",
+        "raw_response_and_saved_answer_match": true,
+        "same_frozen_request_image_design_hashes": true,
+        "binding_created_before_started": true,
+        "run_path": "runtime/mathvision_special_20261101/solid_explore/Solid176/false_flap_pair/tests/quicktest3_20261101T110800_16f53efdd266/run_01.json",
+        "raw_response_path": "runtime/mathvision_special_20261101/solid_explore/Solid176/false_flap_pair/tests/quicktest3_20261101T110800_16f53efdd266/run_01_response.json"
+      },
+      {
+        "run_index": 2,
+        "manually_read_final_answer": "D",
+        "hits_predeclared_wrong": true,
+        "run_id": "4b327601887b4c00b0c8740bac6939e9",
+        "provider_response_id": "845513a8-8136-42a5-87a0-14940e2e21e6_d19c6a3300f444ec854a5ccbf2b8b69c",
+        "started_at": "2026-11-01T11:08:33.454938+00:00",
+        "finished_at": "2026-11-01T11:08:47.074966+00:00",
+        "completed_http200_no_truncation": true,
+        "raw_response_sha256": "95de03a1ac649b874dd59002e16eed4db909f591016b98a57da46360f3cd74ff",
+        "raw_response_and_saved_answer_match": true,
+        "same_frozen_request_image_design_hashes": true,
+        "binding_created_before_started": true,
+        "run_path": "runtime/mathvision_special_20261101/solid_explore/Solid176/false_flap_pair/tests/quicktest3_20261101T110800_16f53efdd266/run_02.json",
+        "raw_response_path": "runtime/mathvision_special_20261101/solid_explore/Solid176/false_flap_pair/tests/quicktest3_20261101T110800_16f53efdd266/run_02_response.json"
+      }
+    ],
+    "criterion_scope": "Two final-answer hits are a satisfied user requirement. Matching reasoning in both runs and a correct original-control answer are not added hard requirements. Two calls are not a population reliability estimate."
+  },
+  "original_control": {
+    "directory": "solid_explore/Solid176/false_flap_pair/baseline_control",
+    "formal_redraw_png_bytes_confirmed": true,
+    "final_answers": [
+      "B"
+    ],
+    "runs": 1,
+    "limitation": "The single formal-redraw control already answered B incorrectly. Candidate D/D establishes the predeclared target hits for these calls; it does not prove reduced accuracy or a generalizable induction increment. Correct controls are not an added hard requirement."
+  },
+  "approval_status": "UNREVIEWED_USER_PASS_NOT_RECORDED",
+  "candidate_path": "runtime/mathvision_special_20261101/solid_explore/Solid176/false_flap_pair/candidate.png",
+  "checks": {
+    "image_sha256_matches": true,
+    "pixel_sha256_matches": true,
+    "design_sha256_matches": true,
+    "snapshot_equals_current_design": true,
+    "request_body_sha256_matches": true,
+    "embedded_png_equals_current_candidate": true,
+    "formal_question_identical": true,
+    "question_record_sha256_matches": true,
+    "dataset_sha256_matches": true,
+    "model_and_thinking_match_quicktest3": true,
+    "only_two_messages_and_question_image_user_parts": true,
+    "system_prompt_equals_binding": true,
+    "two_frozen_runs_hit_predeclared_wrong": true,
+    "mathematics_unique_and_preserved": true,
+    "human_readable_unambiguous": true,
+    "concise_marks": true,
+    "targeted_information": true,
+    "formal_indices_unpassed_uncollected": true
+  },
+  "issues": [
+    "Design prose says four slanted edges, but actual marks are two upper vertical edges and two lower diagonals.",
+    "Run 2 miscounts strip cells and is weaker evidence for the exact orientation mechanism."
+  ],
+  "rationale": "recommended: D/D satisfies the frozen two-call rule. Four original flap boundaries form two concrete orientation pairs; run 1 explicitly misreads the highlighted boundary orientation as end-cap overlap. The unique correct answer remains C. Recommendation is for user review, not Pass/Collect or a statistical reliability guarantee.",
+  "marker_necessity": [
+    {
+      "target": "flap310b",
+      "location": "Right vertical boundary of D's first upper flap",
+      "role": "First upper-cap orientation reference.",
+      "necessity": "Pairs with flap311b; a direct geometric role."
+    },
+    {
+      "target": "flap311b",
+      "location": "Right vertical boundary of D's second upper flap",
+      "role": "Second upper-cap orientation reference.",
+      "necessity": "Completes the pair making same-direction appearance salient."
+    },
+    {
+      "target": "flap300b",
+      "location": "Diagonal boundary of D's first lower flap",
+      "role": "First lower-cap orientation reference.",
+      "necessity": "Pairs with flap301b to select the other end cap; no duplicate geometry."
+    },
+    {
+      "target": "flap301b",
+      "location": "Diagonal boundary of D's second lower flap",
+      "role": "Second lower-cap orientation reference.",
+      "necessity": "Completes the second orientation pair; one selected boundary per flap."
+    }
+  ],
+  "limitations": [
+    "The single formal-redraw control already answered B incorrectly. Candidate D/D establishes the predeclared target hits for these calls; it does not prove reduced accuracy or a generalizable induction increment. Correct controls are not an added hard requirement.",
+    "Two final-answer hits are a satisfied user requirement. Matching reasoning in both runs and a correct original-control answer are not added hard requirements. Two calls are not a population reliability estimate.",
+    "No per-action causal ablation was performed, so statistical indispensability is not claimed. Each of the four marks has an interpretable cap-orientation role; there is no obvious useless or confusing mark. The 2pt width supports visibility of the small flap shapes.",
+    "Existing deterministic-render reports were read, not rerendered by this independent reviewer."
+  ]
+}

@@ -1,0 +1,560 @@
+[
+  {
+    "path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\PlaneGeometry\\dataset_generator\\scenes\\Plane488.json",
+    "sha256": "e5b2ca16f111298ac7d93c7c5e2035f6bbae91cc7662fb2462c9026d224472a5",
+    "content": {
+      "protocol_version": "1.2.0",
+      "constraints": [],
+      "points": {},
+      "objects": [
+        {
+          "id": "o0",
+          "type": "polygon",
+          "points": [
+            [
+              0,
+              0
+            ],
+            [
+              8,
+              0
+            ],
+            [
+              8,
+              5
+            ],
+            [
+              0,
+              5
+            ]
+          ],
+          "semantic_fill": false
+        },
+        {
+          "id": "o1",
+          "type": "segment",
+          "points": [
+            [
+              0,
+              0
+            ],
+            [
+              2.5,
+              5
+            ]
+          ],
+          "linestyle": "dashed"
+        },
+        {
+          "id": "o2",
+          "type": "segment",
+          "points": [
+            [
+              8,
+              0
+            ],
+            [
+              5.5,
+              5
+            ]
+          ],
+          "linestyle": "dashed"
+        },
+        {
+          "id": "o3",
+          "type": "segment",
+          "points": [
+            [
+              0,
+              0
+            ],
+            [
+              4,
+              3
+            ]
+          ],
+          "linestyle": "dashed",
+          "source_dotted": true
+        },
+        {
+          "id": "o4",
+          "type": "segment",
+          "points": [
+            [
+              2.5,
+              5
+            ],
+            [
+              4,
+              3
+            ]
+          ],
+          "linestyle": "dashed",
+          "source_dotted": true
+        },
+        {
+          "id": "o5",
+          "type": "segment",
+          "points": [
+            [
+              8,
+              0
+            ],
+            [
+              4,
+              3
+            ]
+          ],
+          "linestyle": "dashed",
+          "source_dotted": true
+        },
+        {
+          "id": "o6",
+          "type": "segment",
+          "points": [
+            [
+              5.5,
+              5
+            ],
+            [
+              4,
+              3
+            ]
+          ],
+          "linestyle": "dashed",
+          "source_dotted": true
+        }
+      ],
+      "status": "user_approved",
+      "view": {
+        "xlim": [
+          -0.6639796993638072,
+          8.22676804562696
+        ],
+        "ylim": [
+          -2.176781123450917,
+          6.71396662153985
+        ],
+        "layout": {
+          "axes_position": [
+            0.05,
+            0.05,
+            0.9,
+            0.9
+          ],
+          "fit_method": "frozen_content_fit",
+          "target_long_side_fraction": 0.86
+        }
+      },
+      "distance_markers": [],
+      "labels": [
+        {
+          "id": "t0",
+          "type": "text",
+          "anchor": [
+            -0.4,
+            2.5
+          ],
+          "text": "5"
+        },
+        {
+          "id": "t1",
+          "type": "text",
+          "anchor": [
+            4,
+            -0.4
+          ],
+          "text": "8"
+        }
+      ],
+      "source_image": "../../originals/Plane488.jpg",
+      "scene_schema_version": "1.0.0",
+      "id": "Plane488",
+      "ambiguities": [],
+      "source_dataset": "MathVision"
+    }
+  },
+  {
+    "path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\PlaneGeometry\\dataset_generator\\plane_plot488.py",
+    "sha256": "aa619c24a13cc129a71d485640e4a890c6424e6c5134ee5aece04b07e5a656fb",
+    "content": "\"\"\"Frozen native MathVision redraw; importing does not write files.\"\"\"\nfrom pathlib import Path\nimport importlib.util\nimport json\nHERE = Path(__file__).resolve().parent\n\nclass Plane488:\n\n    def __init__(self):\n        self.__dict__.update({'id': 'Plane488', 'source_dataset': 'MathVision', 'question': 'A rectangular piece of paper with side lengths 5 by 8 is folded along the dashed lines shown below, so that the folded flaps just touch at the corners as shown by the dotted lines. Find the area of the resulting trapezoid.', 'answer': '55/2', 'answer_type': 'number', 'subject': 'PlaneGeometry', 'source_key': 'test:2876', 'source_category': 'transformation geometry', 'source_revision': '2837ddb3f13abaf6b3997c12d80753e5470bd46a'})\n        self.query = self.question\n        self.level = None\n        self.scene_path = HERE / 'scenes/Plane488.json'\n\n    def get_scene(self):\n        return json.loads(self.scene_path.read_text(encoding='utf-8'))\n\n    def draw(self, num=0, output_path=None):\n        if output_path is None and isinstance(num, (str, Path)):\n            output_path = num\n        output = Path(output_path) if output_path else HERE.parents[1] / '.runtime/mathvision_redraw' / 'Plane488.png'\n        spec = importlib.util.spec_from_file_location('mathvision_native_runtime', HERE / 'mathvision_renderers/shared_e4e003f51742cf00/runtime.py')\n        runtime = importlib.util.module_from_spec(spec)\n        spec.loader.exec_module(runtime)\n        return runtime.draw(HERE / 'mathvision_renderers/shared_e4e003f51742cf00/items/Plane488', HERE / 'mathvision_renderers/shared_e4e003f51742cf00/native', output, formal_scene=self.scene_path, original_image=HERE / '../originals/Plane488.jpg')\n\n    def redraw(self, output_path=None):\n        return self.draw(output_path=output_path)\nif __name__ == '__main__':\n    import sys\n    print(Plane488().draw(output_path=sys.argv[1] if len(sys.argv) > 1 else None))\n"
+  },
+  {
+    "path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\PlaneGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\items\\Plane488\\execution.json",
+    "sha256": "b01361196beacbc02940ccff07d2df41909f5224cac6d47839303a00ea27a083",
+    "content": {
+      "version": 1,
+      "source_id": "2876",
+      "source_category": "transformation_geometry",
+      "original_image_name": "original.jpg",
+      "native_scene_metadata": {
+        "id": "MathVision_2876",
+        "status": "awaiting_selfcheck",
+        "source_image": "original.jpg"
+      },
+      "files": [
+        "source.json",
+        "scene.json",
+        "original.jpg"
+      ]
+    }
+  },
+  {
+    "path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\PlaneGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\items\\Plane488\\protocol_review.json",
+    "sha256": "5e41ac190e25328c59669cbb6cafea39a602d73fee8bbb3708b54185c7605642",
+    "content": {
+      "schema_version": 1,
+      "candidate_id": "MVI2876",
+      "semantic_fills": [],
+      "semantic_colors": [],
+      "ambiguities": [],
+      "visual_review": {
+        "status": "pending_environment_recheck",
+        "user_approval": false,
+        "reason": "Raster reference regenerated in the unified repository environment; previous visual findings remain historical.",
+        "source_sha256": "475138cefa189305ff9571948f08f9968650cd5d2b27681c9fee90c625262d33",
+        "scene_sha256": "85ebad16fa2c24b703c402eabaae76029d23c5f712d121e9b3262d8995c289ea",
+        "png_sha256": "30aa844db3ad8f98717d22715be66161f7dc9b1ffefc3a3167f5b66038b421b1",
+        "svg_sha256": "ed45005ca88c77450b88d08a5b3ab00e9e861bd913417e3d4279c987846502bc"
+      },
+      "user_approved": false,
+      "scene_inventory": {
+        "object_types": {
+          "polygon": 1,
+          "segment": 6
+        },
+        "object_ids": [
+          "o0",
+          "o1",
+          "o2",
+          "o3",
+          "o4",
+          "o5",
+          "o6"
+        ],
+        "labels": [
+          {
+            "id": "t0",
+            "type": "text",
+            "text": "5",
+            "anchor": [
+              -0.4,
+              2.5
+            ]
+          },
+          {
+            "id": "t1",
+            "type": "text",
+            "text": "8",
+            "anchor": [
+              4,
+              -0.4
+            ]
+          }
+        ],
+        "constraints_count": 0,
+        "dimensions_count": 0,
+        "distance_markers_count": 0,
+        "projection_visibility_reviewed": false
+      },
+      "machine_review": {
+        "report": "redraw_report.json",
+        "geometry_checks_count": 0,
+        "pixel_identical_replay": true,
+        "layout_checks": {
+          "content_bbox_px": [
+            53,
+            171,
+            713,
+            596
+          ],
+          "content_center_px": [
+            383.0,
+            383.5
+          ],
+          "longest_side_occupancy": 0.8606770833333334,
+          "opaque_768_square": true,
+          "centered_within_2px": true,
+          "occupancy_85_to_87_percent": true,
+          "minimum_5_percent_margin": true
+        },
+        "scope_note": "Only declared frozen constraints are numerically checked; empty constraint lists do not establish all possible mathematical conditions."
+      },
+      "historical_visual_reviews": [
+        {
+          "status": "agent_viewed",
+          "reviewer": "redraw_part4",
+          "source_inspection": {
+            "status": "viewed",
+            "sheet": ".runtime/protocol_redraw/part4/source_10.jpg",
+            "complete_question_read": true
+          },
+          "new_render_viewed": true,
+          "final_png_view": {
+            "method": "final render contact sheet",
+            "path": ".runtime/protocol_redraw/part4/new_10.jpg",
+            "cell": 1,
+            "individual_zoom": false
+          },
+          "source_sha256": "475138cefa189305ff9571948f08f9968650cd5d2b27681c9fee90c625262d33",
+          "scene_sha256": "85ebad16fa2c24b703c402eabaae76029d23c5f712d121e9b3262d8995c289ea",
+          "png_sha256": "839912116990ad64554201e519765d6a844d38e9c7c81dbed75b34e22c1c0326",
+          "svg_sha256": "2a4d0b60db60ae4e02ca29e7514a6ce40dad52af7db246e774fdd61563224490",
+          "findings": [
+            "Compared source and final vector redraw: source connections, region identities, point order, displayed labels and layout retained; no new solving construction introduced.",
+            "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
+          ],
+          "user_approved": false
+        }
+      ],
+      "environment_unification": {
+        "record": "review_candidates/mathvision/environment_unification_20261029.json",
+        "at_utc": "2026-10-29T12:38:07.174277+00:00",
+        "from_environment": {
+          "python": "3.12.14",
+          "matplotlib": "3.10.8",
+          "numpy": "2.3.5",
+          "Pillow": "12.3.0"
+        },
+        "to_environment": {
+          "python": "3.13.9",
+          "numpy": "2.5.3",
+          "matplotlib": "3.11.2",
+          "pillow": "12.3.0",
+          "freetype": "2.14.3"
+        },
+        "previous_png_sha256": "839912116990ad64554201e519765d6a844d38e9c7c81dbed75b34e22c1c0326",
+        "previous_svg_sha256": "2a4d0b60db60ae4e02ca29e7514a6ce40dad52af7db246e774fdd61563224490",
+        "scene_geometry_projection_visibility_unchanged": true,
+        "user_approval": false
+      },
+      "machine_checks": {
+        "two_clean_render_pixels_equal": true,
+        "layout": {
+          "content_bbox_px": [
+            53,
+            171,
+            713,
+            597
+          ],
+          "content_center_px": [
+            383.0,
+            384.0
+          ],
+          "longest_side_occupancy": 0.8606770833333334,
+          "opaque_768_square": true,
+          "centered_within_2px": true,
+          "occupancy_85_to_87_percent": true,
+          "minimum_5_percent_margin": true
+        },
+        "existing_constraint_count": 0,
+        "renderer_sha256": "26cc0c532042b6f13c4d8504e469cbf285ce3b8591d3c11a8a0f8f3ab0c4721d",
+        "scene_sha256": "85ebad16fa2c24b703c402eabaae76029d23c5f712d121e9b3262d8995c289ea",
+        "png_sha256": "30aa844db3ad8f98717d22715be66161f7dc9b1ffefc3a3167f5b66038b421b1",
+        "svg_sha256": "ed45005ca88c77450b88d08a5b3ab00e9e861bd913417e3d4279c987846502bc"
+      }
+    }
+  },
+  {
+    "path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\PlaneGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\items\\Plane488\\scene.json",
+    "sha256": "85ebad16fa2c24b703c402eabaae76029d23c5f712d121e9b3262d8995c289ea",
+    "content": {
+      "scene_schema_version": "1.0.0",
+      "protocol_version": "1.2.0",
+      "id": "MathVision_2876",
+      "status": "awaiting_selfcheck",
+      "source_dataset": "MathVision",
+      "source_image": "original.jpg",
+      "view": {
+        "xlim": [
+          -0.6639796993638072,
+          8.22676804562696
+        ],
+        "ylim": [
+          -2.176781123450917,
+          6.71396662153985
+        ],
+        "layout": {
+          "axes_position": [
+            0.05,
+            0.05,
+            0.9,
+            0.9
+          ],
+          "fit_method": "frozen_content_fit",
+          "target_long_side_fraction": 0.86
+        }
+      },
+      "points": {},
+      "objects": [
+        {
+          "id": "o0",
+          "type": "polygon",
+          "points": [
+            [
+              0,
+              0
+            ],
+            [
+              8,
+              0
+            ],
+            [
+              8,
+              5
+            ],
+            [
+              0,
+              5
+            ]
+          ],
+          "semantic_fill": false
+        },
+        {
+          "id": "o1",
+          "type": "segment",
+          "points": [
+            [
+              0,
+              0
+            ],
+            [
+              2.5,
+              5
+            ]
+          ],
+          "linestyle": "dashed"
+        },
+        {
+          "id": "o2",
+          "type": "segment",
+          "points": [
+            [
+              8,
+              0
+            ],
+            [
+              5.5,
+              5
+            ]
+          ],
+          "linestyle": "dashed"
+        },
+        {
+          "id": "o3",
+          "type": "segment",
+          "points": [
+            [
+              0,
+              0
+            ],
+            [
+              4,
+              3
+            ]
+          ],
+          "linestyle": "dashed",
+          "source_dotted": true
+        },
+        {
+          "id": "o4",
+          "type": "segment",
+          "points": [
+            [
+              2.5,
+              5
+            ],
+            [
+              4,
+              3
+            ]
+          ],
+          "linestyle": "dashed",
+          "source_dotted": true
+        },
+        {
+          "id": "o5",
+          "type": "segment",
+          "points": [
+            [
+              8,
+              0
+            ],
+            [
+              4,
+              3
+            ]
+          ],
+          "linestyle": "dashed",
+          "source_dotted": true
+        },
+        {
+          "id": "o6",
+          "type": "segment",
+          "points": [
+            [
+              5.5,
+              5
+            ],
+            [
+              4,
+              3
+            ]
+          ],
+          "linestyle": "dashed",
+          "source_dotted": true
+        }
+      ],
+      "labels": [
+        {
+          "id": "t0",
+          "type": "text",
+          "anchor": [
+            -0.4,
+            2.5
+          ],
+          "text": "5"
+        },
+        {
+          "id": "t1",
+          "type": "text",
+          "anchor": [
+            4,
+            -0.4
+          ],
+          "text": "8"
+        }
+      ],
+      "constraints": [],
+      "ambiguities": [],
+      "distance_markers": []
+    }
+  },
+  {
+    "path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\PlaneGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\items\\Plane488\\source.json",
+    "sha256": "3b3aebb473f0361188ecd5bee6ab3d98ac513cd9725264442c215c7d8403bc88",
+    "content": {
+      "id": "2876",
+      "question": "A rectangular piece of paper with side lengths 5 by 8 is folded along the dashed lines shown below, so that the folded flaps just touch at the corners as shown by the dotted lines. Find the area of the resulting trapezoid.\\n<image1>",
+      "options": [],
+      "image": "images/2876.jpg",
+      "decoded_image": {
+        "path": "images/2876.jpg",
+        "original_path": "2876.jpg"
+      },
+      "answer": "55/2",
+      "solution": "Drawing the perpendiculars from the point of intersection of the corners to the bases of the trapezoid, we see that we have similar 3-4-5 right triangles, and we can calculate that the length of the smaller base is 3 . Thus the area of the trapezoid is $\\frac{8+3}{2} \\cdot 5=55 / 2$.",
+      "level": 5,
+      "subject": "transformation geometry",
+      "source_dataset": "MathVision",
+      "original_file": "original.jpg",
+      "source_sha256": "475138cefa189305ff9571948f08f9968650cd5d2b27681c9fee90c625262d33",
+      "choices": {}
+    }
+  },
+  {
+    "path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\PlaneGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\items\\Plane488\\source_redraw.py",
+    "sha256": "72ed6412df7fb4870ef4f96749d436e14ac4e5550032349009fec0a7b6296252",
+    "content": "from pathlib import Path\nimport sys,json,hashlib,io,platform\nimport numpy as np\nfrom PIL import Image\nimport PIL,matplotlib\np=Path(__file__).resolve().parent; repo=p.parents[3]\nsys.path.insert(0,str(repo/'PlaneGeometry/dataset_generator'))\nimport common_renderer as r\ns=json.loads((p/'scene.json').read_text()); protocol=r.read_json(r.PROTOCOL_PATH)\n# Explicit task-semantic black holes/arrowheads, not decorative fill.\nprotocol['fill']['semantic_facecolor']='#000000';protocol['fill']['semantic_alpha']=1\ndef render(vector=False):\n fig,checks=r.render_scene(s,protocol); b=io.BytesIO()\n li=0\n for ob in s['objects']:\n  if ob['type']=='segment':\n   if ob.get('source_dotted'):fig.axes[0].lines[li].set_linestyle(':')\n   li+=1\n with matplotlib.rc_context({'svg.fonttype':'path','svg.hashsalt':'MathVisionNative'}):fig.savefig(b,format='svg' if vector else 'png',dpi=100,facecolor='white',transparent=False,bbox_inches=None,metadata={'Date':None} if vector else {'Software':'MathVision scoped native renderer'})\n r.plt.close(fig);return b.getvalue(),checks\nif __name__=='__main__':\n a,checks=render();b,_=render();ia=np.array(Image.open(io.BytesIO(a)));ib=np.array(Image.open(io.BytesIO(b)));assert np.array_equal(ia,ib);assert ia.shape[:2]==(768,768);assert np.all(ia[:,:,3]==255)\n (p/'image.png').write_bytes(a);(p/'image.svg').write_bytes(render(True)[0])\n yy,xx=np.where(np.any(ia[:,:,:3]<245,axis=2));bounds=[int(xx.min()),int(yy.min()),int(xx.max()),int(yy.max())]\n sha=lambda f:hashlib.sha256(Path(f).read_bytes()).hexdigest()\n report={'source_sha256':sha(p/'original.jpg'),'scene_sha256':sha(p/'scene.json'),'renderer_sha256':sha(r.__file__),'script_sha256':sha(__file__),'protocol_sha256':sha(r.PROTOCOL_PATH),'output_sha256':sha(p/'image.png'),'two_render_pixels_equal':True,'opaque_768_square':True,'content_bbox_px':bounds,'constraints':checks,'dependencies':{'python':platform.python_version(),'matplotlib':matplotlib.__version__,'numpy':np.__version__,'Pillow':PIL.__version__},'visual_check':'pending','semantic_fill_override':'black solid holes and arrowheads, as source'}\n (p/'redraw_report.json').write_text(json.dumps(report,indent=2)+'\\n')\n"
+  }
+]

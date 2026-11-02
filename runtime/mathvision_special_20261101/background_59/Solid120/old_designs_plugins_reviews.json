@@ -1,0 +1,331 @@
+[
+  {
+    "path": "runtime\\mathvision_special_20261101\\background_03\\solid_worker\\Solid120\\false_tick_chain_v2\\design.json",
+    "sha256": "6a87d1ab8006c530aef2eedabd7f258bf39927047bc66435c0638ffae844fae4",
+    "content": {
+      "question_id": "Solid120",
+      "branch": "SolidGeometry",
+      "expected_wrong_answer": "50",
+      "correct_answer": "48",
+      "mechanism": "Exact-context dashed guides chain tick6 to tick28 to the requested tick, encoding a false22-unit turn. The requested position is two turns above6. Guides are visual correspondence annotations, not measured paths or new conditions. All original tape ticks, labels and boundaries stay unchanged.",
+      "meaningful_redesign_from": "false_tick_correspondence: added exact endpoint-to-endpoint relational guides; Solid138 also marks a previously unmarked intermediate blank turn. Prior image/test history retained.",
+      "marker_endpoint_bindings": [
+        {
+          "target": "tick0_6",
+          "source_world_endpoint": [
+            -1.8369701987210297e-16,
+            -1.0,
+            0.755
+          ],
+          "snap_point_id": "vertex_262bf4e63a59a49e",
+          "exact_context_xy": [
+            -1.8369701987210297e-16,
+            0.22849999999999998
+          ]
+        },
+        {
+          "target": "tick1_7",
+          "source_world_endpoint": [
+            0.2947551744109043,
+            -0.9555728057861407,
+            1.4883333333333333
+          ],
+          "snap_point_id": "vertex_7cbd08f89db65079",
+          "exact_context_xy": [
+            0.2947551744109043,
+            0.755161491597491
+          ]
+        },
+        {
+          "target": "tick2_6",
+          "source_world_endpoint": [
+            -1.8369701987210297e-16,
+            -1.0,
+            2.1550000000000002
+          ],
+          "snap_point_id": "vertex_18a0711f182b1810",
+          "exact_context_xy": [
+            -1.8369701987210297e-16,
+            1.2085000000000001
+          ]
+        }
+      ],
+      "mathematical_answer_unchanged": true,
+      "second_review_status": "pending; no independent second review",
+      "approval_status": "unreviewed runtime research; no Pass/Collect"
+    }
+  },
+  {
+    "path": "runtime\\mathvision_special_20261101\\background_03\\solid_worker\\Solid120\\false_tick_chain_v2\\plugin.json",
+    "sha256": "2045a1b3f6c715a4e857317dd817c61757f26ed98cf90f20102cae9357ea4420",
+    "content": {
+      "plugin_schema_version": "1.0.0",
+      "question_id": "Solid120",
+      "category": "C",
+      "operation": "C_manual",
+      "description": "Exact-context dashed guides chain tick6 to tick28 to the requested tick, encoding a false22-unit turn. The requested position is two turns above6. Guides are visual correspondence annotations, not measured paths or new conditions. All original tape ticks, labels and boundaries stay unchanged.",
+      "intent": "Predeclared wrong 50",
+      "params": {
+        "actions": [
+          {
+            "type": "set_object_style",
+            "target": "tick0_6",
+            "color": "#DC2626",
+            "linewidth_pt": 2
+          },
+          {
+            "type": "set_object_style",
+            "target": "tick1_7",
+            "color": "#DC2626",
+            "linewidth_pt": 2
+          },
+          {
+            "type": "set_object_style",
+            "target": "tick2_6",
+            "color": "#DC2626",
+            "linewidth_pt": 2
+          },
+          {
+            "type": "add_line",
+            "id": "false_correspondence_0",
+            "endpoints": [
+              [
+                -1.8369701987210297e-16,
+                0.22849999999999998
+              ],
+              [
+                0.2947551744109043,
+                0.755161491597491
+              ]
+            ],
+            "color": "#DC2626",
+            "linestyle": "dashed",
+            "linewidth_pt": 1.0,
+            "dash_pattern_pt": [
+              3.7,
+              1.6
+            ]
+          },
+          {
+            "type": "add_line",
+            "id": "false_correspondence_1",
+            "endpoints": [
+              [
+                0.2947551744109043,
+                0.755161491597491
+              ],
+              [
+                -1.8369701987210297e-16,
+                1.2085000000000001
+              ]
+            ],
+            "color": "#DC2626",
+            "linestyle": "dashed",
+            "linewidth_pt": 1.0,
+            "dash_pattern_pt": [
+              3.7,
+              1.6
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": "runtime\\mathvision_special_20261101\\background_03\\solid_worker\\Solid120\\false_tick_correspondence\\design.json",
+    "sha256": "d3f71a9e33d80fe7f510257bebacc1469c746ad5d10bd14b3503dc52dbaddc29",
+    "content": {
+      "question_id": "Solid120",
+      "branch": "SolidGeometry",
+      "expected_wrong_answer": "50",
+      "correct_answer": "48",
+      "mechanism": "Red existing tick6 and existing tick28 are grouped as a false one-revolution correspondence (22 units); the red target-column tick prompts extrapolation 6+2*22=50. Correct same-angle values6,27 differ21; true answer6+2*21=48. All original ticks and numbers remain. Each of the three ticks has a role: lower anchor, misbound next-turn anchor, requested extrapolation position.",
+      "unique_solution": "The same azimuth gives6 and27 on successive turns, so one revolution advances21. The ? is two turns above6:6+2*21=48.",
+      "second_review_status": "pending; no independent review performed",
+      "approval_status": "runtime research only; no Pass or Collect"
+    }
+  },
+  {
+    "path": "runtime\\mathvision_special_20261101\\background_03\\solid_worker\\Solid120\\false_tick_correspondence\\plugin.json",
+    "sha256": "684e3bd06a4cde089a4d22a37073b321f5e75cebff613b5da9e906ccb7fdc0cb",
+    "content": {
+      "plugin_schema_version": "1.0.0",
+      "question_id": "Solid120",
+      "category": "C",
+      "operation": "C_manual",
+      "description": "Red existing tick6 and existing tick28 are grouped as a false one-revolution correspondence (22 units); the red target-column tick prompts extrapolation 6+2*22=50. Correct same-angle values6,27 differ21; true answer6+2*21=48. All original ticks and numbers remain. Each of the three ticks has a role: lower anchor, misbound next-turn anchor, requested extrapolation position.",
+      "intent": "Predeclared target 50",
+      "params": {
+        "actions": [
+          {
+            "type": "set_object_style",
+            "target": "tick0_6",
+            "color": "#DC2626",
+            "linewidth_pt": 2
+          },
+          {
+            "type": "set_object_style",
+            "target": "tick1_7",
+            "color": "#DC2626",
+            "linewidth_pt": 2
+          },
+          {
+            "type": "set_object_style",
+            "target": "tick2_6",
+            "color": "#DC2626",
+            "linewidth_pt": 2
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": "runtime\\mathvision_special_20261101\\background_03\\solid_worker\\Solid120\\false_tick_nodes_v3\\design.json",
+    "sha256": "7fca5e5fb72e2051b94c3b21fbcec27278ee000165dfb4041bd0ce8b541c5d4c",
+    "content": {
+      "question_id": "Solid120",
+      "branch": "SolidGeometry",
+      "expected_wrong_answer": "50",
+      "correct_answer": "48",
+      "mechanism": "Discrete filled nodes at exact existing tick lower tips and dashed node-to-node guides encode false6-to28 one-revolution correspondence and continuation to the question. Two additions of22 from6 suggest50. Original ticks remain black: each point identifies one specific tick and each guide specifies a proposed relation; no redundant original-edge recoloring.",
+      "meaningful_redesign_from": "v2 red tick styles replaced with filled discrete endpoint nodes; guides moved to lower tips to bind the nodes without duplicate highlighting. The full v1/v2 evidence remains immutable.",
+      "marker_endpoint_bindings": [
+        {
+          "target": "tick0_6",
+          "source_world_endpoint": [
+            -1.8369701987210297e-16,
+            -1.0,
+            0.65
+          ],
+          "snap_point_id": "vertex_86bc936b072806d3",
+          "exact_context_xy": [
+            -1.8369701987210297e-16,
+            0.155
+          ]
+        },
+        {
+          "target": "tick1_7",
+          "source_world_endpoint": [
+            0.2947551744109043,
+            -0.9555728057861407,
+            1.3833333333333333
+          ],
+          "snap_point_id": "vertex_d8c2a90884d051d7",
+          "exact_context_xy": [
+            0.2947551744109043,
+            0.681661491597491
+          ]
+        },
+        {
+          "target": "tick2_6",
+          "source_world_endpoint": [
+            -1.8369701987210297e-16,
+            -1.0,
+            2.0500000000000003
+          ],
+          "snap_point_id": "vertex_91073e34c194bc5b",
+          "exact_context_xy": [
+            -1.8369701987210297e-16,
+            1.135
+          ]
+        }
+      ],
+      "second_review_status": "pending; no independent second review",
+      "approval_status": "unreviewed runtime research only; no Pass/Collect"
+    }
+  },
+  {
+    "path": "runtime\\mathvision_special_20261101\\background_03\\solid_worker\\Solid120\\false_tick_nodes_v3\\plugin.json",
+    "sha256": "e6efe249a519ea70b5101a6e8db6be5212eaefc4e655e036d4548188e86c09e8",
+    "content": {
+      "plugin_schema_version": "1.0.0",
+      "question_id": "Solid120",
+      "category": "C",
+      "operation": "C_manual",
+      "description": "Discrete filled nodes at exact existing tick lower tips and dashed node-to-node guides encode false6-to28 one-revolution correspondence and continuation to the question. Two additions of22 from6 suggest50. Original ticks remain black: each point identifies one specific tick and each guide specifies a proposed relation; no redundant original-edge recoloring.",
+      "intent": "Predeclared wrong 50",
+      "params": {
+        "actions": [
+          {
+            "type": "add_point",
+            "id": "tick_node_0",
+            "xy": [
+              -1.8369701987210297e-16,
+              0.155
+            ],
+            "color": "#DC2626",
+            "filled": true,
+            "size_pt2": 50,
+            "edge_linewidth_pt": 1.0
+          },
+          {
+            "type": "add_point",
+            "id": "tick_node_1",
+            "xy": [
+              0.2947551744109043,
+              0.681661491597491
+            ],
+            "color": "#DC2626",
+            "filled": true,
+            "size_pt2": 50,
+            "edge_linewidth_pt": 1.0
+          },
+          {
+            "type": "add_point",
+            "id": "tick_node_2",
+            "xy": [
+              -1.8369701987210297e-16,
+              1.135
+            ],
+            "color": "#DC2626",
+            "filled": true,
+            "size_pt2": 50,
+            "edge_linewidth_pt": 1.0
+          },
+          {
+            "type": "add_line",
+            "id": "tick_correspondence_0",
+            "endpoints": [
+              [
+                -1.8369701987210297e-16,
+                0.155
+              ],
+              [
+                0.2947551744109043,
+                0.681661491597491
+              ]
+            ],
+            "color": "#DC2626",
+            "linestyle": "dashed",
+            "linewidth_pt": 1.0,
+            "dash_pattern_pt": [
+              3.7,
+              1.6
+            ]
+          },
+          {
+            "type": "add_line",
+            "id": "tick_correspondence_1",
+            "endpoints": [
+              [
+                0.2947551744109043,
+                0.681661491597491
+              ],
+              [
+                -1.8369701987210297e-16,
+                1.135
+              ]
+            ],
+            "color": "#DC2626",
+            "linestyle": "dashed",
+            "linewidth_pt": 1.0,
+            "dash_pattern_pt": [
+              3.7,
+              1.6
+            ]
+          }
+        ]
+      }
+    }
+  }
+]

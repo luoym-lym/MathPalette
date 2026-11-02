@@ -1,0 +1,13 @@
+--- original isolated harness
++++ background_71 local path relocation
+@@ -24,7 +24,9 @@
+ from urllib.request import Request, build_opener
+ 
+ sys.dont_write_bytecode = True
+-PROJECT = Path(__file__).resolve().parents[3]
++sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
++import env71
++PROJECT = env71.PROJECT
+ RUNTIME = (PROJECT / "runtime").resolve()
+ HARNESS = Path(__file__).resolve().parent
+ for variable, directory in {"MPLCONFIGDIR": "mpl_cache", "XDG_CACHE_HOME": "cache",

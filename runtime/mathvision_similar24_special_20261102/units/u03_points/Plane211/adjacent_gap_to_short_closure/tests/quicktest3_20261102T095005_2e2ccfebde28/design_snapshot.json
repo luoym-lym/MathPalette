@@ -1,0 +1,726 @@
+{
+  "created_at": "2026-11-02T09:48:01.069185+00:00",
+  "question_id": "Plane211",
+  "variant_id": "adjacent_gap_to_short_closure",
+  "expected_wrong_answer": "B",
+  "expected_wrong_value": "(B)",
+  "correct_answer": "E",
+  "formal_record": {
+    "source_dataset": "MathVision",
+    "source_key": "test:533",
+    "question": "Nine points numbered 1 to 9 are marked on a circle. Join point 1 to point 3, then point 3 to point 5, and continue by joining every second point until returning to point 1. Which drawing results?\nChoices:\nA:(A)\nB:(B)\nC:(C)\nD:(D)\nE:(E)",
+    "answer": "E",
+    "answer_type": "choice",
+    "id": "Plane211",
+    "choices": {
+      "A": "(A)",
+      "B": "(B)",
+      "C": "(C)",
+      "D": "(D)",
+      "E": "(E)"
+    },
+    "image": "image/Plane211.png",
+    "original_image": "originals/Plane211.jpg",
+    "scene": "dataset_generator/scenes/Plane211.json",
+    "script": "dataset_generator/plane_plot211.py",
+    "runtime_dependencies": [
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane211/execution.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane211/protocol_review.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane211/scene.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane211/source.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane211/source_redraw.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+    ],
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "source_category": "combinatorial geometry"
+  },
+  "mathematical_proof": {
+    "question_id": "Plane211",
+    "correct_answer": "E",
+    "formal_text": "Nine points numbered 1 to 9 are marked on a circle. Join point 1 to point 3, then point 3 to point 5, and continue by joining every second point until returning to point 1. Which drawing results?\nChoices:\nA:(A)\nB:(B)\nC:(C)\nD:(D)\nE:(E)",
+    "proof_method": "Exact graph edge sets from frozen formal objects, not shape appearance.",
+    "ordered_mod9_cycle": [
+      1,
+      3,
+      5,
+      7,
+      9,
+      2,
+      4,
+      6,
+      8,
+      1
+    ],
+    "expected_edges": [
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        9
+      ]
+    ],
+    "panels": {
+      "A": {
+        "objects": [
+          {
+            "id": "edge1_0",
+            "type": "segment",
+            "points": [
+              "p1_1",
+              "p1_3"
+            ]
+          },
+          {
+            "id": "edge1_1",
+            "type": "segment",
+            "points": [
+              "p1_3",
+              "p1_5"
+            ]
+          },
+          {
+            "id": "edge1_2",
+            "type": "segment",
+            "points": [
+              "p1_5",
+              "p1_6"
+            ]
+          },
+          {
+            "id": "edge1_3",
+            "type": "segment",
+            "points": [
+              "p1_6",
+              "p1_8"
+            ]
+          },
+          {
+            "id": "edge1_4",
+            "type": "segment",
+            "points": [
+              "p1_8",
+              "p1_1"
+            ]
+          }
+        ],
+        "edges": [
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            8
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            6,
+            8
+          ]
+        ],
+        "matches_full_cycle": false,
+        "missing_edges": [
+          [
+            2,
+            4
+          ],
+          [
+            2,
+            9
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            5,
+            7
+          ],
+          [
+            7,
+            9
+          ]
+        ],
+        "extra_edges": [
+          [
+            5,
+            6
+          ]
+        ]
+      },
+      "B": {
+        "objects": [
+          {
+            "id": "edge2_0",
+            "type": "segment",
+            "points": [
+              "p2_1",
+              "p2_3"
+            ]
+          },
+          {
+            "id": "edge2_1",
+            "type": "segment",
+            "points": [
+              "p2_3",
+              "p2_5"
+            ]
+          },
+          {
+            "id": "edge2_2",
+            "type": "segment",
+            "points": [
+              "p2_5",
+              "p2_7"
+            ]
+          },
+          {
+            "id": "edge2_3",
+            "type": "segment",
+            "points": [
+              "p2_7",
+              "p2_9"
+            ]
+          },
+          {
+            "id": "edge2_4",
+            "type": "segment",
+            "points": [
+              "p2_9",
+              "p2_1"
+            ]
+          }
+        ],
+        "edges": [
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            9
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            5,
+            7
+          ],
+          [
+            7,
+            9
+          ]
+        ],
+        "matches_full_cycle": false,
+        "missing_edges": [
+          [
+            1,
+            8
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            2,
+            9
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            6,
+            8
+          ]
+        ],
+        "extra_edges": [
+          [
+            1,
+            9
+          ]
+        ]
+      },
+      "C": {
+        "objects": [
+          {
+            "id": "edge3_0",
+            "type": "segment",
+            "points": [
+              "p3_1",
+              "p3_8"
+            ]
+          },
+          {
+            "id": "edge3_1",
+            "type": "segment",
+            "points": [
+              "p3_8",
+              "p3_6"
+            ]
+          },
+          {
+            "id": "edge3_2",
+            "type": "segment",
+            "points": [
+              "p3_6",
+              "p3_4"
+            ]
+          },
+          {
+            "id": "edge3_3",
+            "type": "segment",
+            "points": [
+              "p3_4",
+              "p3_2"
+            ]
+          },
+          {
+            "id": "edge3_4",
+            "type": "segment",
+            "points": [
+              "p3_2",
+              "p3_9"
+            ]
+          }
+        ],
+        "edges": [
+          [
+            1,
+            8
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            2,
+            9
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            6,
+            8
+          ]
+        ],
+        "matches_full_cycle": false,
+        "missing_edges": [
+          [
+            1,
+            3
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            5,
+            7
+          ],
+          [
+            7,
+            9
+          ]
+        ],
+        "extra_edges": []
+      },
+      "D": {
+        "objects": [
+          {
+            "id": "edge4_0",
+            "type": "segment",
+            "points": [
+              "p4_8",
+              "p4_6"
+            ]
+          },
+          {
+            "id": "edge4_1",
+            "type": "segment",
+            "points": [
+              "p4_6",
+              "p4_4"
+            ]
+          },
+          {
+            "id": "edge4_2",
+            "type": "segment",
+            "points": [
+              "p4_4",
+              "p4_2"
+            ]
+          },
+          {
+            "id": "edge4_3",
+            "type": "segment",
+            "points": [
+              "p4_2",
+              "p4_9"
+            ]
+          },
+          {
+            "id": "edge4_4",
+            "type": "segment",
+            "points": [
+              "p4_9",
+              "p4_4"
+            ]
+          },
+          {
+            "id": "edge4_5",
+            "type": "segment",
+            "points": [
+              "p4_4",
+              "p4_8"
+            ]
+          }
+        ],
+        "edges": [
+          [
+            2,
+            4
+          ],
+          [
+            2,
+            9
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            4,
+            8
+          ],
+          [
+            4,
+            9
+          ],
+          [
+            6,
+            8
+          ]
+        ],
+        "matches_full_cycle": false,
+        "missing_edges": [
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            8
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            5,
+            7
+          ],
+          [
+            7,
+            9
+          ]
+        ],
+        "extra_edges": [
+          [
+            4,
+            8
+          ],
+          [
+            4,
+            9
+          ]
+        ]
+      },
+      "E": {
+        "objects": [
+          {
+            "id": "edge5_0",
+            "type": "segment",
+            "points": [
+              "p5_1",
+              "p5_3"
+            ]
+          },
+          {
+            "id": "edge5_1",
+            "type": "segment",
+            "points": [
+              "p5_3",
+              "p5_5"
+            ]
+          },
+          {
+            "id": "edge5_2",
+            "type": "segment",
+            "points": [
+              "p5_5",
+              "p5_7"
+            ]
+          },
+          {
+            "id": "edge5_3",
+            "type": "segment",
+            "points": [
+              "p5_7",
+              "p5_9"
+            ]
+          },
+          {
+            "id": "edge5_4",
+            "type": "segment",
+            "points": [
+              "p5_9",
+              "p5_2"
+            ]
+          },
+          {
+            "id": "edge5_5",
+            "type": "segment",
+            "points": [
+              "p5_2",
+              "p5_4"
+            ]
+          },
+          {
+            "id": "edge5_6",
+            "type": "segment",
+            "points": [
+              "p5_4",
+              "p5_6"
+            ]
+          },
+          {
+            "id": "edge5_7",
+            "type": "segment",
+            "points": [
+              "p5_6",
+              "p5_8"
+            ]
+          },
+          {
+            "id": "edge5_8",
+            "type": "segment",
+            "points": [
+              "p5_8",
+              "p5_1"
+            ]
+          }
+        ],
+        "edges": [
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            8
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            2,
+            9
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            5,
+            7
+          ],
+          [
+            6,
+            8
+          ],
+          [
+            7,
+            9
+          ]
+        ],
+        "matches_full_cycle": true,
+        "missing_edges": [],
+        "extra_edges": []
+      }
+    },
+    "uniqueness": "Adding 2 modulo 9 has order 9 since gcd(2,9)=1. All nine vertices must be visited before the return to 1. Only E has precisely all nine required undirected edges. No parity-only closure is valid."
+  },
+  "marker_roles": [
+    {
+      "action_index": 0,
+      "source": "actual adjacent cyclic gap from label 1 toward label 9",
+      "recipient": "B existing short closing chord 9-1",
+      "information": "The 0.4..0.5 native circle path interval is contained inside the adjacent 1/9 gap; it is not a cut or added chord.",
+      "purpose": "Supply the concrete cyclic-neighbor gap compared with the candidate closing chord."
+    },
+    {
+      "action_index": 1,
+      "source": "actual adjacent cyclic gap from label 1 toward label 9",
+      "recipient": "same gap in this corresponding result circle",
+      "information": "The 0.4..0.5 native circle path interval is contained inside the adjacent 1/9 gap; it is not a cut or added chord.",
+      "purpose": "Preserve the exact source circle ink in every result panel, including E, so literal colored-ink continuation stays possible."
+    },
+    {
+      "action_index": 2,
+      "source": "actual adjacent cyclic gap from label 1 toward label 9",
+      "recipient": "same gap in this corresponding result circle",
+      "information": "The 0.4..0.5 native circle path interval is contained inside the adjacent 1/9 gap; it is not a cut or added chord.",
+      "purpose": "Preserve the exact source circle ink in every result panel, including E, so literal colored-ink continuation stays possible."
+    },
+    {
+      "action_index": 3,
+      "source": "actual adjacent cyclic gap from label 1 toward label 9",
+      "recipient": "same gap in this corresponding result circle",
+      "information": "The 0.4..0.5 native circle path interval is contained inside the adjacent 1/9 gap; it is not a cut or added chord.",
+      "purpose": "Preserve the exact source circle ink in every result panel, including E, so literal colored-ink continuation stays possible."
+    },
+    {
+      "action_index": 4,
+      "source": "actual adjacent cyclic gap from label 1 toward label 9",
+      "recipient": "same gap in this corresponding result circle",
+      "information": "The 0.4..0.5 native circle path interval is contained inside the adjacent 1/9 gap; it is not a cut or added chord.",
+      "purpose": "Preserve the exact source circle ink in every result panel, including E, so literal colored-ink continuation stays possible."
+    },
+    {
+      "action_index": 5,
+      "source": "actual adjacent cyclic gap from label 1 toward label 9",
+      "recipient": "same gap in this corresponding result circle",
+      "information": "The 0.4..0.5 native circle path interval is contained inside the adjacent 1/9 gap; it is not a cut or added chord.",
+      "purpose": "Preserve the exact source circle ink in every result panel, including E, so literal colored-ink continuation stays possible."
+    },
+    {
+      "action_index": 6,
+      "source": "actual given 1-3 / 3-5 source prefix",
+      "recipient": "edge0_0",
+      "information": "These are precisely the given prefix chords, present in source/A/B/E.",
+      "purpose": "Distinguish true given prefix from the red adjacent-gap closure and preserve its blue ink in all prefix-containing panels."
+    },
+    {
+      "action_index": 7,
+      "source": "actual given 1-3 / 3-5 source prefix",
+      "recipient": "edge0_1",
+      "information": "These are precisely the given prefix chords, present in source/A/B/E.",
+      "purpose": "Distinguish true given prefix from the red adjacent-gap closure and preserve its blue ink in all prefix-containing panels."
+    },
+    {
+      "action_index": 8,
+      "source": "actual given 1-3 / 3-5 source prefix",
+      "recipient": "edge1_0",
+      "information": "These are precisely the given prefix chords, present in source/A/B/E.",
+      "purpose": "Distinguish true given prefix from the red adjacent-gap closure and preserve its blue ink in all prefix-containing panels."
+    },
+    {
+      "action_index": 9,
+      "source": "actual given 1-3 / 3-5 source prefix",
+      "recipient": "edge1_1",
+      "information": "These are precisely the given prefix chords, present in source/A/B/E.",
+      "purpose": "Distinguish true given prefix from the red adjacent-gap closure and preserve its blue ink in all prefix-containing panels."
+    },
+    {
+      "action_index": 10,
+      "source": "actual given 1-3 / 3-5 source prefix",
+      "recipient": "edge2_0",
+      "information": "These are precisely the given prefix chords, present in source/A/B/E.",
+      "purpose": "Distinguish true given prefix from the red adjacent-gap closure and preserve its blue ink in all prefix-containing panels."
+    },
+    {
+      "action_index": 11,
+      "source": "actual given 1-3 / 3-5 source prefix",
+      "recipient": "edge2_1",
+      "information": "These are precisely the given prefix chords, present in source/A/B/E.",
+      "purpose": "Distinguish true given prefix from the red adjacent-gap closure and preserve its blue ink in all prefix-containing panels."
+    },
+    {
+      "action_index": 12,
+      "source": "actual given 1-3 / 3-5 source prefix",
+      "recipient": "edge5_0",
+      "information": "These are precisely the given prefix chords, present in source/A/B/E.",
+      "purpose": "Distinguish true given prefix from the red adjacent-gap closure and preserve its blue ink in all prefix-containing panels."
+    },
+    {
+      "action_index": 13,
+      "source": "actual given 1-3 / 3-5 source prefix",
+      "recipient": "edge5_1",
+      "information": "These are precisely the given prefix chords, present in source/A/B/E.",
+      "purpose": "Distinguish true given prefix from the red adjacent-gap closure and preserve its blue ink in all prefix-containing panels."
+    },
+    {
+      "action_index": 14,
+      "source": "red adjacent cyclic 9/1 gap in source",
+      "recipient": "B existing chord from 9 directly to 1",
+      "information": "Same pair of endpoint labels on the source circle and B closing chord, but adjacency is not a skip-two edge.",
+      "purpose": "Invite the specific false shortcut from neighboring cyclic labels to premature closure at 1, in contrast to the true next point 2."
+    }
+  ],
+  "mechanism": "The blue lines identify the exact given prefix. The red source arc lies in the actual adjacent 9/1 gap, and the red B short closing chord joins that same pair. The predicted mistake is using a local neighbor-gap-to-chord match to implement return to 1 prematurely. Correct continuation is 9 to 2, because one must skip 1. This targets cyclic closure semantics through an arc/chord relation, not odd-group membership or the failed A paired-motif mapping.",
+  "human_semantics": "Nine source points and all result points, labels, circles and edge graphs remain unchanged. Every result circle preserves the same source red interval; every panel containing the given prefix preserves its blue strokes. Even literal colored-circle ink leaves E available and uniquely graph-correct. The red interval stays inside one genuine neighboring-label gap, does not add a spoke or point, and does not assert an extra connection in the source. Native interval .4 starts near angle54deg, not exactly at point1; no exact arc-endpoint equality is claimed.",
+  "difference_from_old": "Old B trial marked five odd point centers only. The first new trial compared repeated two-chord motifs in A. This new candidate uses an existing circle interval and the existing B 9-1 chord as a concrete cyclic-gap versus closing-edge correspondence; it has no point grouping and preserves source ink in all panels. It is not a recoloring, linewidth change, filename change, or reuse of either prior PNG.",
+  "remaining_risk": "The frame may be insufficiently persuasive; mathematical validity and readable true comparisons do not guarantee model errors. This is PRIMARY author judgement and requires new parent independent review if two-hit.",
+  "candidate_sha256": "3525638e298f5982fe1124a16fb2530d82f6d941201cac966c0cf1918dc7ae16",
+  "plugin_sha256": "49a9843ede159db53dcaeb2dd48363846127cfb38263732fd85f9bc761704349",
+  "context_sha256": "99a664b4c9ffd00ac7f62c6068b0c452855bb5cdeac4bd013868f4fe71e710ec",
+  "status": "FROZEN_BEFORE_BOTH_CALLS_PRIMARY_ONLY"
+}

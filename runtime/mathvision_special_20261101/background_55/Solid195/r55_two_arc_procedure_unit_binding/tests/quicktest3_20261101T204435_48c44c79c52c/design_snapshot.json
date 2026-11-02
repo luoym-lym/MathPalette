@@ -1,0 +1,2685 @@
+{
+  "question_id": "Solid195",
+  "name": "r55_two_arc_procedure_unit_binding",
+  "variant_id": "r55_two_arc_procedure_unit_binding",
+  "branch": "SolidGeometry",
+  "description": "Bind the six actual quarter-arcs of a legal alternating right/left route into three two-arc color groups. Each group is one repeated two-arc procedure; the frozen wrong hypothesis counts procedure repetitions3 instead of quarter-arcs6. No new route segment, arrow, intersection or start label is added; every other hoop portion remains visible.",
+  "expected_wrong_answer": "3",
+  "correct_answer": "6",
+  "mechanism": "Bind the six actual quarter-arcs of a legal alternating right/left route into three two-arc color groups. Each group is one repeated two-arc procedure; the frozen wrong hypothesis counts procedure repetitions3 instead of quarter-arcs6. No new route segment, arrow, intersection or start label is added; every other hoop portion remains visible.",
+  "primary_math_proof": {
+    "proof": "The only true junctions are the six signed unit axes. For successive junctions p,q the arrival tangent is -p and the outward normal is q; a right turn selects next junction -p cross q, a left turn selects p cross q. The rule alternates. All 48 directed initial states return first at six arcs. Example +x,+y,-z,-x,-y,+z,+x; at return the outgoing direction and next turn phase also reset. Counting only positions therefore does NOT produce a different return time; only counting two-arc procedure cycles instead of arcs gives 3.",
+    "all_states": [
+      {
+        "start": [
+          1,
+          0,
+          0
+        ],
+        "first_next": [
+          0,
+          1,
+          0
+        ],
+        "first_right": true,
+        "path": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            0
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          1,
+          0,
+          0
+        ],
+        "first_next": [
+          0,
+          1,
+          0
+        ],
+        "first_right": false,
+        "path": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            1,
+            0,
+            0
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          1,
+          0,
+          0
+        ],
+        "first_next": [
+          0,
+          -1,
+          0
+        ],
+        "first_right": true,
+        "path": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            1,
+            0,
+            0
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          1,
+          0,
+          0
+        ],
+        "first_next": [
+          0,
+          -1,
+          0
+        ],
+        "first_right": false,
+        "path": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            0
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          1,
+          0,
+          0
+        ],
+        "first_next": [
+          0,
+          0,
+          1
+        ],
+        "first_right": true,
+        "path": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          1,
+          0,
+          0
+        ],
+        "first_next": [
+          0,
+          0,
+          1
+        ],
+        "first_right": false,
+        "path": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          1,
+          0,
+          0
+        ],
+        "first_next": [
+          0,
+          0,
+          -1
+        ],
+        "first_right": true,
+        "path": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          1,
+          0,
+          0
+        ],
+        "first_next": [
+          0,
+          0,
+          -1
+        ],
+        "first_right": false,
+        "path": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          -1,
+          0,
+          0
+        ],
+        "first_next": [
+          0,
+          1,
+          0
+        ],
+        "first_right": true,
+        "path": [
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            -1,
+            0,
+            0
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          -1,
+          0,
+          0
+        ],
+        "first_next": [
+          0,
+          1,
+          0
+        ],
+        "first_right": false,
+        "path": [
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            -1,
+            0,
+            0
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          -1,
+          0,
+          0
+        ],
+        "first_next": [
+          0,
+          -1,
+          0
+        ],
+        "first_right": true,
+        "path": [
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            -1,
+            0,
+            0
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          -1,
+          0,
+          0
+        ],
+        "first_next": [
+          0,
+          -1,
+          0
+        ],
+        "first_right": false,
+        "path": [
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            -1,
+            0,
+            0
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          -1,
+          0,
+          0
+        ],
+        "first_next": [
+          0,
+          0,
+          1
+        ],
+        "first_right": true,
+        "path": [
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            -1,
+            0,
+            0
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          -1,
+          0,
+          0
+        ],
+        "first_next": [
+          0,
+          0,
+          1
+        ],
+        "first_right": false,
+        "path": [
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            -1,
+            0,
+            0
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          -1,
+          0,
+          0
+        ],
+        "first_next": [
+          0,
+          0,
+          -1
+        ],
+        "first_right": true,
+        "path": [
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            -1,
+            0,
+            0
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          -1,
+          0,
+          0
+        ],
+        "first_next": [
+          0,
+          0,
+          -1
+        ],
+        "first_right": false,
+        "path": [
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            -1,
+            0,
+            0
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          0,
+          1,
+          0
+        ],
+        "first_next": [
+          1,
+          0,
+          0
+        ],
+        "first_right": true,
+        "path": [
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          0,
+          1,
+          0
+        ],
+        "first_next": [
+          1,
+          0,
+          0
+        ],
+        "first_right": false,
+        "path": [
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          0,
+          1,
+          0
+        ],
+        "first_next": [
+          -1,
+          0,
+          0
+        ],
+        "first_right": true,
+        "path": [
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          0,
+          1,
+          0
+        ],
+        "first_next": [
+          -1,
+          0,
+          0
+        ],
+        "first_right": false,
+        "path": [
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          0,
+          1,
+          0
+        ],
+        "first_next": [
+          0,
+          0,
+          1
+        ],
+        "first_right": true,
+        "path": [
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          0,
+          1,
+          0
+        ],
+        "first_next": [
+          0,
+          0,
+          1
+        ],
+        "first_right": false,
+        "path": [
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          0,
+          1,
+          0
+        ],
+        "first_next": [
+          0,
+          0,
+          -1
+        ],
+        "first_right": true,
+        "path": [
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          0,
+          1,
+          0
+        ],
+        "first_next": [
+          0,
+          0,
+          -1
+        ],
+        "first_right": false,
+        "path": [
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          0,
+          -1,
+          0
+        ],
+        "first_next": [
+          1,
+          0,
+          0
+        ],
+        "first_right": true,
+        "path": [
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            -1,
+            0
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          0,
+          -1,
+          0
+        ],
+        "first_next": [
+          1,
+          0,
+          0
+        ],
+        "first_right": false,
+        "path": [
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            0,
+            -1,
+            0
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          0,
+          -1,
+          0
+        ],
+        "first_next": [
+          -1,
+          0,
+          0
+        ],
+        "first_right": true,
+        "path": [
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            0,
+            -1,
+            0
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          0,
+          -1,
+          0
+        ],
+        "first_next": [
+          -1,
+          0,
+          0
+        ],
+        "first_right": false,
+        "path": [
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            -1,
+            0
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          0,
+          -1,
+          0
+        ],
+        "first_next": [
+          0,
+          0,
+          1
+        ],
+        "first_right": true,
+        "path": [
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            -1,
+            0
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          0,
+          -1,
+          0
+        ],
+        "first_next": [
+          0,
+          0,
+          1
+        ],
+        "first_right": false,
+        "path": [
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            -1,
+            0
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          0,
+          -1,
+          0
+        ],
+        "first_next": [
+          0,
+          0,
+          -1
+        ],
+        "first_right": true,
+        "path": [
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            -1,
+            0
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          0,
+          -1,
+          0
+        ],
+        "first_next": [
+          0,
+          0,
+          -1
+        ],
+        "first_right": false,
+        "path": [
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            -1,
+            0
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          0,
+          0,
+          1
+        ],
+        "first_next": [
+          1,
+          0,
+          0
+        ],
+        "first_right": true,
+        "path": [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          0,
+          0,
+          1
+        ],
+        "first_next": [
+          1,
+          0,
+          0
+        ],
+        "first_right": false,
+        "path": [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          0,
+          0,
+          1
+        ],
+        "first_next": [
+          -1,
+          0,
+          0
+        ],
+        "first_right": true,
+        "path": [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          0,
+          0,
+          1
+        ],
+        "first_next": [
+          -1,
+          0,
+          0
+        ],
+        "first_right": false,
+        "path": [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          0,
+          0,
+          1
+        ],
+        "first_next": [
+          0,
+          1,
+          0
+        ],
+        "first_right": true,
+        "path": [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          0,
+          0,
+          1
+        ],
+        "first_next": [
+          0,
+          1,
+          0
+        ],
+        "first_right": false,
+        "path": [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          0,
+          0,
+          1
+        ],
+        "first_next": [
+          0,
+          -1,
+          0
+        ],
+        "first_right": true,
+        "path": [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          0,
+          0,
+          1
+        ],
+        "first_next": [
+          0,
+          -1,
+          0
+        ],
+        "first_right": false,
+        "path": [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          0,
+          0,
+          -1
+        ],
+        "first_next": [
+          1,
+          0,
+          0
+        ],
+        "first_right": true,
+        "path": [
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          0,
+          0,
+          -1
+        ],
+        "first_next": [
+          1,
+          0,
+          0
+        ],
+        "first_right": false,
+        "path": [
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          0,
+          0,
+          -1
+        ],
+        "first_next": [
+          -1,
+          0,
+          0
+        ],
+        "first_right": true,
+        "path": [
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          0,
+          0,
+          -1
+        ],
+        "first_next": [
+          -1,
+          0,
+          0
+        ],
+        "first_right": false,
+        "path": [
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          0,
+          0,
+          -1
+        ],
+        "first_next": [
+          0,
+          1,
+          0
+        ],
+        "first_right": true,
+        "path": [
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          0,
+          0,
+          -1
+        ],
+        "first_next": [
+          0,
+          1,
+          0
+        ],
+        "first_right": false,
+        "path": [
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          0,
+          0,
+          -1
+        ],
+        "first_next": [
+          0,
+          -1,
+          0
+        ],
+        "first_right": true,
+        "path": [
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ]
+        ],
+        "first_return": 6
+      },
+      {
+        "start": [
+          0,
+          0,
+          -1
+        ],
+        "first_next": [
+          0,
+          -1,
+          0
+        ],
+        "first_right": false,
+        "path": [
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ]
+        ],
+        "first_return": 6
+      }
+    ],
+    "correct_answer": 6
+  },
+  "marker_roles": [
+    {
+      "index": 0,
+      "quarter_index": 0,
+      "target": "hoop0arc0",
+      "geometric_angle_range": [
+        0.0,
+        69.35642709904208
+      ],
+      "full_quarter": [
+        0,
+        90
+      ],
+      "role": "+x to +y: first arc of procedure1",
+      "why_needed": "One original visible fragment of the named true quarter; omitted false-crossing occlusion gaps are not filled or bridged.",
+      "exact_domain": [
+        0.0,
+        69.35642709904208
+      ],
+      "samples": 140,
+      "path_sha256": "144cfa600ec702fffe1cd14698fed41a27f18934be890afae61fc9f41ed8bac0"
+    },
+    {
+      "index": 1,
+      "quarter_index": 0,
+      "target": "hoop0arc1",
+      "geometric_angle_range": [
+        72.22121607469619,
+        90
+      ],
+      "full_quarter": [
+        0,
+        90
+      ],
+      "role": "+x to +y: first arc of procedure1",
+      "why_needed": "One original visible fragment of the named true quarter; omitted false-crossing occlusion gaps are not filled or bridged.",
+      "exact_domain": [
+        72.22121607469619,
+        139.69028557829014
+      ],
+      "samples": 136,
+      "path_sha256": "0a07e0d8249799bebfc1adfc9540c4f03bc723296381b166297eacd60e940ce7"
+    },
+    {
+      "index": 2,
+      "quarter_index": 1,
+      "target": "hoop1arc4",
+      "geometric_angle_range": [
+        270,
+        314.6825678821456
+      ],
+      "full_quarter": [
+        270,
+        360
+      ],
+      "role": "+y to -z: second arc of procedure1, traversed decreasing angle",
+      "why_needed": "One original visible fragment of the named true quarter; omitted false-crossing occlusion gaps are not filled or bridged.",
+      "exact_domain": [
+        22.803897160951752,
+        314.6825678821456
+      ],
+      "samples": 585,
+      "path_sha256": "065088552be5ea0d17c8156c2e0a9053d71705293ae3fbfb1025cade41243388"
+    },
+    {
+      "index": 3,
+      "quarter_index": 1,
+      "target": "hoop1arc5",
+      "geometric_angle_range": [
+        317.54735685779974,
+        360.0
+      ],
+      "full_quarter": [
+        270,
+        360
+      ],
+      "role": "+y to -z: second arc of procedure1, traversed decreasing angle",
+      "why_needed": "One original visible fragment of the named true quarter; omitted false-crossing occlusion gaps are not filled or bridged.",
+      "exact_domain": [
+        317.54735685779974,
+        360.0
+      ],
+      "samples": 86,
+      "path_sha256": "4a1375f62dd7e5c8314023f9434c3337946329c33e0e0bd8fc03766c4595370d"
+    },
+    {
+      "index": 4,
+      "quarter_index": 2,
+      "target": "hoop2arc6",
+      "geometric_angle_range": [
+        180,
+        207.61129352931815
+      ],
+      "full_quarter": [
+        180,
+        270
+      ],
+      "role": "-z to -x: first arc of procedure2, decreasing angle",
+      "why_needed": "One original visible fragment of the named true quarter; omitted false-crossing occlusion gaps are not filled or bridged.",
+      "exact_domain": [
+        0.0,
+        207.61129352931815
+      ],
+      "samples": 417,
+      "path_sha256": "93a1b959ceec9f1d807363a2b5957f8e50c19060b832671df9d81091612be2a5"
+    },
+    {
+      "index": 5,
+      "quarter_index": 2,
+      "target": "hoop2arc7",
+      "geometric_angle_range": [
+        210.47608250497225,
+        236.04379601731353
+      ],
+      "full_quarter": [
+        180,
+        270
+      ],
+      "role": "-z to -x: first arc of procedure2, decreasing angle",
+      "why_needed": "One original visible fragment of the named true quarter; omitted false-crossing occlusion gaps are not filled or bridged.",
+      "exact_domain": [
+        210.47608250497225,
+        236.04379601731353
+      ],
+      "samples": 53,
+      "path_sha256": "f0b1949a9fe72c16eb84f07d87dcaf3020f36e0a48cb44a20494fc26c388763c"
+    },
+    {
+      "index": 6,
+      "quarter_index": 2,
+      "target": "hoop2arc8",
+      "geometric_angle_range": [
+        238.9085849929677,
+        270
+      ],
+      "full_quarter": [
+        180,
+        270
+      ],
+      "role": "-z to -x: first arc of procedure2, decreasing angle",
+      "why_needed": "One original visible fragment of the named true quarter; omitted false-crossing occlusion gaps are not filled or bridged.",
+      "exact_domain": [
+        238.9085849929677,
+        360.0
+      ],
+      "samples": 244,
+      "path_sha256": "c16def704ec778bef21eca68d9748c8e7ad5f02bcadb665019b4eb741f91cbe5"
+    },
+    {
+      "index": 7,
+      "quarter_index": 3,
+      "target": "hoop0arc2",
+      "geometric_angle_range": [
+        180,
+        270
+      ],
+      "full_quarter": [
+        180,
+        270
+      ],
+      "role": "-x to -y: second arc of procedure2",
+      "why_needed": "One original visible fragment of the named true quarter; omitted false-crossing occlusion gaps are not filled or bridged.",
+      "exact_domain": [
+        142.55507455394425,
+        360.0
+      ],
+      "samples": 436,
+      "path_sha256": "6abdbd9ccb57492a701120c7c96aca5b35c8ac7e0793055e59200a82e30b2941"
+    },
+    {
+      "index": 8,
+      "quarter_index": 4,
+      "target": "hoop1arc4",
+      "geometric_angle_range": [
+        90,
+        180
+      ],
+      "full_quarter": [
+        90,
+        180
+      ],
+      "role": "-y to +z: first arc of procedure3, decreasing angle",
+      "why_needed": "One original visible fragment of the named true quarter; omitted false-crossing occlusion gaps are not filled or bridged.",
+      "exact_domain": [
+        22.803897160951752,
+        314.6825678821456
+      ],
+      "samples": 585,
+      "path_sha256": "065088552be5ea0d17c8156c2e0a9053d71705293ae3fbfb1025cade41243388"
+    },
+    {
+      "index": 9,
+      "quarter_index": 5,
+      "target": "hoop2arc6",
+      "geometric_angle_range": [
+        0.0,
+        90
+      ],
+      "full_quarter": [
+        0,
+        90
+      ],
+      "role": "+z to +x: second arc of procedure3, decreasing angle",
+      "why_needed": "One original visible fragment of the named true quarter; omitted false-crossing occlusion gaps are not filled or bridged.",
+      "exact_domain": [
+        0.0,
+        207.61129352931815
+      ],
+      "samples": 417,
+      "path_sha256": "93a1b959ceec9f1d807363a2b5957f8e50c19060b832671df9d81091612be2a5"
+    }
+  ],
+  "limitations": [
+    "Primary designer assessment only; parent must commission NEW independent second review.",
+    "Two responses cannot establish incremental effect, reliability or the precise causal mechanism; no controls repeated."
+  ],
+  "created_at": "2026-11-01T20:40:32.894450+00:00",
+  "plugin_sha256": "78c92120e2acdf7f0a797e6fbe36900ff7ef410cbac4637340e8286ed5b9fcc8",
+  "png_sha256": "d0822970ef6475e6dc24422e96db2d320e91d697336d28a5a99cc9260ce1d877",
+  "pixel_sha256": "a0032321eb3f3243d466e20619559bfbf296bbfbb1c9b31d1a5a7cd27f6e8089",
+  "approval_status": "PRIMARY ONLY; parent NEW independent review required; no Pass/Collect"
+}

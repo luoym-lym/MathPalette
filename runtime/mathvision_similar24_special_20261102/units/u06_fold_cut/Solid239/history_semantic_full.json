@@ -1,0 +1,532 @@
+[
+  {
+    "path": "runtime/mathvision_special_20261101/background_18/Solid239/assessment.json",
+    "content": {
+      "question_id": "Solid239",
+      "assessed_at": "2026-11-01T16:26:38.689323+00:00",
+      "actual_original_png_viewed_native_size": true,
+      "no_op_baseline_exact": true,
+      "current_eligible": true,
+      "assessment": "Two materially different legal hypotheses rendered: incomplete unfold-to-triangle and crease-axis-to-square-edge alias. Both preserve actual cut/crease geometry and existing hole boundaries; all four complete finals read.",
+      "candidate_dirs": [
+        "crease_axes_as_hole_edges",
+        "single_unfold_triangle_binding"
+      ],
+      "unworked": false
+    }
+  },
+  {
+    "path": "runtime/mathvision_special_20261101/background_18/Solid239/crease_axes_as_hole_edges/design.json",
+    "content": {
+      "question_id": "Solid239",
+      "variant_id": "crease_axes_as_hole_edges",
+      "expected_wrong_answer": "C",
+      "created_at": "2026-11-01T16:19:12.488299+00:00",
+      "mechanism": "Bind two perpendicular packet crease edges to the bottom/right edges of C's axis-aligned square hole, confusing crease directions with the diagonal cut directions.",
+      "marker_roles": [
+        "Red existing bottom crease provides horizontal input feature.",
+        "Red bottom square-hole edge in C provides false output feature.",
+        "Blue existing right crease provides vertical input feature.",
+        "Blue right square-hole edge in C provides false output feature. No full option outline is emphasized."
+      ],
+      "primary_math_proof": "The closed packet has crease boundaries right x=1 and bottom y=0, open stacked edges top/left. In local quarter[0,1]^2, cut endpoints(.5,0),(1,.5) remove the corner triangle at(1,0). Reflections(x,y),(2-x,y),(x,-y),(2-x,-y) give diamond vertices(.5,0),(1,.5),(1.5,0),(1,-.5), strictly interior to original[0,2]×[-1,1]. OnlyE has this hole. D omits the final reflection andC has axis-aligned edges. Original dashedcut, fold/open edges, all fills and choices retained.",
+      "candidate_png_sha256": "818fd2e1064fa80c25a4605d7439df17666a29b1df850dcdecef518471c9703e",
+      "candidate_pixel_sha256": "cfef810f22e26caf218fec67a0f0a82c88e6f48cc1a5a146c453261e469dbf7c",
+      "plugin_sha256": "8a5631d378266b9af77c55a08af721a28d3797a1434c438d10cdb825e955638e",
+      "frozen_before_two_calls": true,
+      "schema_normalized": true,
+      "no_control_run": true
+    }
+  },
+  {
+    "path": "runtime/mathvision_special_20261101/background_18/Solid239/crease_axes_as_hole_edges/manual_finals_review.json",
+    "content": {
+      "question_id": "Solid239",
+      "variant_id": "crease_axes_as_hole_edges",
+      "expected_wrong_answer": "C",
+      "formal_correct_answer": "E",
+      "two_complete_finals_manually_read": true,
+      "finals": [
+        {
+          "run_index": 1,
+          "complete_final_read_manually": true,
+          "full_final_exact": "Based on the analysis of the folding and cutting process:\n\n1.  **Folding**: The square paper is folded into quarters (four layers). The top-left corner corresponds to the center of the unfolded sheet.\n2.  **Cutting**: The cut is a diagonal line through the bottom-right corner of the folded square.\n3.  **Unfolding**:\n    *   Unfolding the first fold creates a triangular hole along the vertical edge of the rectangle.\n    *   Unfolding the second fold mirrors this shape across the horizontal edge.\n    *   Since the cut passes through the corner (the center of the paper), the two triangular holes from the unfolding steps join together in the center to form a square (diamond) hole.\n\nTherefore, the unfolded paper will have a square hole in the center.\n\n**Answer:** E",
+          "manually_resolved_final": "E",
+          "preset_hit": false,
+          "raw_response": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_18\\Solid239\\crease_axes_as_hole_edges\\tests\\quicktest3_20261101T162105_f9a1a9b851e9\\run_01_response.json",
+          "parsed_full_response": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_18\\Solid239\\crease_axes_as_hole_edges\\tests\\quicktest3_20261101T162105_f9a1a9b851e9\\run_01.json",
+          "response_sha256": "0662cb829894d8548a84e8a04b36ede8ae7362a852934ee1ad76d67bdb636f3c",
+          "finish_reason": "stop"
+        },
+        {
+          "run_index": 2,
+          "complete_final_read_manually": true,
+          "full_final_exact": "**Answer:**\n\nTo solve this puzzle, we track the position of the cut through the folds:\n\n1.  **Folding:** The square paper is folded in half horizontally (creating a top and bottom layer) and then in half vertically (creating a left and right column). This results in a small square representing the **bottom-right quarter** of the original paper.\n2.  **The Folded Edges:** The **bottom edge** (marked red) corresponds to the center fold line of the original sheet (horizontal). The **right edge** (marked blue) corresponds to the center fold line (vertical).\n3.  **The Cut:** The dashed line cuts diagonally across the bottom-right corner of this folded square. This creates a triangular cutout bounded by the bottom edge (red), the right edge (blue), and the diagonal line.\n4.  **Unfolding:**\n    *   When unfolded once (horizontally), the triangular notch at the bottom-right mirrors to become a diamond shape spanning the bottom-right and bottom-center of the folded strip.\n    *   When unfolded fully (vertically), the bottom half mirrors to the top half.\n    *   The four cut corners meet at the center of the paper.\n5.  **Result:** Because the cut is at the corner bounded by the two fold lines, the resulting hole is a **diamond shape (a square rotated 45 degrees)** located exactly in the center of the paper.\n\nThis corresponds to figure **E**.\n\n**E**",
+          "manually_resolved_final": "E",
+          "preset_hit": false,
+          "raw_response": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_18\\Solid239\\crease_axes_as_hole_edges\\tests\\quicktest3_20261101T162105_f9a1a9b851e9\\run_02_response.json",
+          "parsed_full_response": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_18\\Solid239\\crease_axes_as_hole_edges\\tests\\quicktest3_20261101T162105_f9a1a9b851e9\\run_02.json",
+          "response_sha256": "40ef6536884cabdad4e8f6fae0d73704c4b7bf1edfe7175cf86efd32ec09e01a",
+          "finish_reason": "stop"
+        }
+      ],
+      "paired_hit": false,
+      "primary_credible_paired_hit": false,
+      "review_notes": "Both complete finals chooseE, the formal answer. Neither the triangle presetD nor square presetC was hit; do not retest either unchanged candidate.",
+      "controls": [],
+      "causal_limit": "No original control, human study, per-marker causal ablation or statistical efficacy estimate. Individual wrong finals are observations only.",
+      "image_sha256": "818fd2e1064fa80c25a4605d7439df17666a29b1df850dcdecef518471c9703e",
+      "design_sha256": "fc2a7a9eb29cf05e99f7e9b907cada5d0b091d3d839a7d5883c08cbcc8b17d1e",
+      "exact_request_body_sha256": "57e8a0101c28e494a43d34d8407717452c00796d719b7ea23b73bfbeca1e0da3",
+      "evidence_summary": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_18\\Solid239\\crease_axes_as_hole_edges\\tests\\quicktest3_20261101T162105_f9a1a9b851e9\\summary.json",
+      "approval_status": "Primary exploration only; no Pass/Collect/review API or delivery."
+    }
+  },
+  {
+    "path": "runtime/mathvision_special_20261101/background_18/Solid239/crease_axes_as_hole_edges/primary_review.json",
+    "content": {
+      "question_id": "Solid239",
+      "variant_id": "crease_axes_as_hole_edges",
+      "review_kind": "primary_only_NOT_independent",
+      "actual_candidate_png_viewed": true,
+      "native_size": true,
+      "formal_original_png_viewed": true,
+      "original_source_jpg_viewed": true,
+      "preserved_unique_answer": "E",
+      "unique_math_proof": "The closed packet has crease boundaries right x=1 and bottom y=0, open stacked edges top/left. In local quarter[0,1]^2, cut endpoints(.5,0),(1,.5) remove the corner triangle at(1,0). Reflections(x,y),(2-x,y),(x,-y),(2-x,-y) give diamond vertices(.5,0),(1,.5),(1.5,0),(1,-.5), strictly interior to original[0,2]×[-1,1]. OnlyE has this hole. D omits the final reflection andC has axis-aligned edges. Original dashedcut, fold/open edges, all fills and choices retained.",
+      "independent_of_color_matching": true,
+      "graph_audit": null,
+      "marker_roles": [
+        "Red existing bottom crease provides horizontal input feature.",
+        "Red bottom square-hole edge in C provides false output feature.",
+        "Blue existing right crease provides vertical input feature.",
+        "Blue right square-hole edge in C provides false output feature. No full option outline is emphasized."
+      ],
+      "visual_findings": "All three fold panels, open-layer stack, original diagonal dashed cut, reverse-side bands and five option holes remain visible. Color covers only existing crease/cut/hole edges. No new source region or cut boundary. Source fold and cut meanings still distinguishable from dashedness and layer context.",
+      "human_semantics": "Colors and widths are Special appearance annotations, not added mathematical givens; original geometry/text/fill/frozen projection/visibility untouched. Human should solve original geometric or rope/folding constraints; second reviewer must check whether a colored correspondence could reasonably be misread as a new mandatory given.",
+      "proceed_to_API": true,
+      "controls": [],
+      "limits": [
+        "No human study, statistical evidence, per-marker causal ablation or original control in this unit.",
+        "Two predeclared model outcomes can only establish the exact observed pair, not causality or robustness."
+      ],
+      "required_next_step_if_pair_hits": "Parent must create a NEW independent second reviewer before any delivery.",
+      "created_at": "2026-11-01T16:20:44.095265+00:00"
+    }
+  },
+  {
+    "path": "runtime/mathvision_special_20261101/background_18/Solid239/crease_axes_as_hole_edges/source_audit.json",
+    "content": {
+      "question_id": "Solid239",
+      "formal_record": {
+        "source_dataset": "MathVision",
+        "source_key": "test:2782",
+        "question": "A square piece of paper is folded twice into four equal quarters, as shown below, then cut along the dashed line. When unfolded, the paper will match which of the following figures?\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E",
+        "answer": "E",
+        "answer_type": "choice",
+        "id": "Solid239",
+        "choices": {
+          "A": "A",
+          "B": "B",
+          "C": "C",
+          "D": "D",
+          "E": "E"
+        },
+        "image": "image/Solid239.png",
+        "original_image": "originals/Solid239.jpg",
+        "scene": "dataset_generator/scenes/Solid239.json",
+        "script": "dataset_generator/solid_plot239.py",
+        "runtime_dependencies": [
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid239/execution.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid239/protocol_review.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid239/scene.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid239/source.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid239/source_redraw.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+        ],
+        "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+        "source_category": "transformation geometry"
+      },
+      "source_notes_file_sha256": "a3639377bc6da010995a37031b8bf6474ef16b70aaeecbe196d409dc27d39770",
+      "source_audit": {
+        "inventory": [
+          "Initial solid-gray square",
+          "Rightward fold arrow",
+          "Native partially folded four-quarter paper stack, reverse face banded",
+          "Second rightward arrow",
+          "Closed four-layer quarter with open stacked edges at top/left and folds at bottom/right; dashed cut joining bottom midpoint to right midpoint",
+          "Five complete options in source3+2 arrangement: four boundary V cuts, two boundary V cuts, square central hole, triangular central hole, diamond central hole"
+        ],
+        "explicit_conditions": "A square piece of paper is folded twice into four equal quarters, as shown below, then cut along the dashed line. When unfolded, the paper will match which of the following figures?\n<image1>\n<image2>",
+        "answer_review": {
+          "status": "verified",
+          "source_answer": "E",
+          "computed_answer": "E",
+          "reasoning": "The common folded corner is lower-right: the right and bottom boundaries are the two crease edges, while the source top/left heavy boundaries are the stacked open edges. In quarter coordinates0<=x,y<=1, the dashed segment joins(.5,0) to(1,.5). Reflect the removed triangle across x=1 and y=0; the four triangles form one central diamond with vertices(.5,0),(1,.5),(1.5,0),(1,-.5) in the original square[0,2]×[-1,1]. That is E, not a boundary notch or axis-aligned square.",
+          "fold_axes": [
+            "x=1",
+            "y=0"
+          ],
+          "unfolded_hole_vertices": [
+            [
+              0.5,
+              0
+            ],
+            [
+              1,
+              0.5
+            ],
+            [
+              1.5,
+              0
+            ],
+            [
+              1,
+              -0.5
+            ]
+          ],
+          "normalized_hole_vertices": [
+            [
+              0.25,
+              0.5
+            ],
+            [
+              0.5,
+              0.75
+            ],
+            [
+              0.75,
+              0.5
+            ],
+            [
+              0.5,
+              0.25
+            ]
+          ],
+          "removed_area_fraction": 0.125
+        },
+        "display_conditions": "Actual3D rigid square faces and hinge model, separately frozen projection/occlusion. Native reverse-side material bands retain source meaning. Four offset display layers explain source heavy stack edges without changing1pt line protocol or adding mathematical conditions.",
+        "source_viewed": true,
+        "source_artifact_exclusions": [
+          "Blue imageN headers and separator rules are dataset packaging, not the question figure."
+        ],
+        "native_model": "3D coordinates, rigid folded paper / wood model, explicit projection and boundary visibility. Native analytic vector objects only."
+      },
+      "own_primary_proof": "The closed packet has crease boundaries right x=1 and bottom y=0, open stacked edges top/left. In local quarter[0,1]^2, cut endpoints(.5,0),(1,.5) remove the corner triangle at(1,0). Reflections(x,y),(2-x,y),(x,-y),(2-x,-y) give diamond vertices(.5,0),(1,.5),(1.5,0),(1,-.5), strictly interior to original[0,2]×[-1,1]. OnlyE has this hole. D omits the final reflection andC has axis-aligned edges. Original dashedcut, fold/open edges, all fills and choices retained.",
+      "formal_original_preserved": true,
+      "source_scene_png_hashes": {
+        "question_record_sha256": "9580c23cb0ee3cac84fb530b2e9d3baa378f3a962687ee712548a7ac52b45d72",
+        "files": {
+          "AGENTS.md": "35edf9c9e2114f8f808d9745f6e22ab9a4b05dea2e86fbcbfe1587388a22fe29",
+          "dataset_tools\\geometry_dataset.py": "a7cf8bb6662eafaffa2e96b883f49a3e23817e05bdd08cbb5f80f08affe52595",
+          "dataset_tools\\mathvision_workbench.py": "90a17218c28b78068cc410887899ae0683e7c6c4b9853e6ffc0de25ec6917e11",
+          "MATHPALETTE_PROTOCOL.md": "b6a0a85651b4c317d2db081e4cd9bbbff569017db2471f71a4a21c3e0e24c5af",
+          "SolidGeometry\\dataset_generator\\common_renderer.py": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+          "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\items\\Solid239\\execution.json": "9d1bf33c8c97fecf3e4514af9e59f1f34be51550ad8f46e9f6c13e01aba52c8a",
+          "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\items\\Solid239\\protocol_review.json": "09d107108930fbe09a9dd0efc3e6a572b2d598ad6d17dc66ca90a229bf41e0b9",
+          "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\items\\Solid239\\scene.json": "99ee9a52bdd9cb3b0ca8d8e52a9f243ac9dd65bda359b57e3da11d198bb739a5",
+          "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\items\\Solid239\\source.json": "86f5d1133b29504d0620b247972764bc66b8a5402f134d4777c645b23d784891",
+          "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\items\\Solid239\\source_redraw.py": "6953ee978d3b318bf2dd3be73e44607e1c5880b85e60e3ede0db867a44dbc86f",
+          "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\geometry\\PlaneGeometry\\dataset_generator\\common_renderer.py": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+          "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\geometry\\PlaneGeometry\\dataset_generator\\protocol.json": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+          "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\geometry\\SolidGeometry\\dataset_generator\\common_renderer.py": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+          "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\geometry\\SolidGeometry\\dataset_generator\\protocol.json": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+          "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\helpers\\combinatorial_geometry\\upper_comb_renderer.py": "f8b46c832ae8ff8e16730970bd31d1d549035f4e230f49acb6b88141efda0d84",
+          "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\helpers\\combinatorial_geometry\\upper_comb_renderer_fillonly.py": "0d0b200ad11ef8a4dc1642ab57168dafd65e70ae2d14a5f24ab0810f3dad2212",
+          "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\helpers\\combinatorial_geometry\\upper_comb_renderer_v2.py": "c62c2b054bacaf988b2ad5ca1b65cd34e4197552b13f4af8c58edf63e42acb39",
+          "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\helpers\\combinatorial_geometry\\upper_comb_solid_renderer.py": "c266e9f96734883b56e3d3a43438128d9c42ce65d9465f6dc83840f410f205ff",
+          "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\helpers\\solid_geometry\\upper_solid_face_text_renderer.py": "c316a4fc088a318ce35232e46392ef3ab11af1ac24acaeeda36d99b016581d8e",
+          "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\helpers\\solid_geometry\\upper_solid_fill_renderer.py": "a5fe3c7a62fce5bc104b5015549a7e6325924d58ea0b9a3d6f3192a459706d52",
+          "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\protocol_renderer.py": "26cc0c532042b6f13c4d8504e469cbf285ce3b8591d3c11a8a0f8f3ab0c4721d",
+          "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\runtime.py": "4b465c5bb4ea2973e4f3e861ff34c1661c154b747d66f8d6670299bf824953ab",
+          "SolidGeometry\\dataset_generator\\protocol.json": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+          "SolidGeometry\\dataset_generator\\scenes\\Solid239.json": "8ccf0cd890c2fce4be280071a9a9a1a7b7f1f14571f83c5e07849ff0a3d54969",
+          "SolidGeometry\\dataset_generator\\solid_plot239.py": "0bf388a998aca8ab2668b03ba10d8a95a9c2343b4e0c928889bb4018623e363e",
+          "SolidGeometry\\image\\Solid239.png": "ee77c874d1bd6e3bc023999d18c88880b7397146df7af0c189e929d05b654ded",
+          "SolidGeometry\\originals\\Solid239.jpg": "f44ec63245e08fe904edda9c664963a894e18602cf6dec9b956c073dcdfada63",
+          "SolidGeometry\\REDRAW_PROTOCOL.md": "206719278a674ee238af811def681a8fd12b93f6d20e34aeea7ace16e0eeb2bd",
+          "SolidGeometry\\workbench\\config.json": "4d70720703aecee165cfe553c2664405fce55dfad723583c17bb2de5649b2d73",
+          "SolidGeometry\\workbench\\partial_style.py": "765686102817bbe3a38275aae96bd878ba28bd66b3e56ee9bcf5080e7d72c310",
+          "SolidGeometry\\workbench\\plugin.schema.json": "8a17f6acff120406a60d8eae7f0433d7e5df516adca1bab1f46e1a352fbd3b30",
+          "SolidGeometry\\workbench\\render_plugins.py": "e7638568083a8c1e9c09b74ed821aaefa1c114897d026bcdb22bc5b3c83d14ed",
+          "SolidGeometry\\workbench\\renderer_adapter.py": "6b78f06eb4171aba8dc8fa188748cb9777a5ee4e9cc2ba3d0bd372f6601b8f89",
+          "SolidGeometry\\workbench\\workbench_io.py": "dcf4583c2ce2bf6a35b3c90d3f51e57777c48f65db233882dee2e79f3555f318"
+        },
+        "environment": {
+          "python": "3.13.9",
+          "matplotlib": "3.11.2",
+          "numpy": "2.5.3",
+          "pillow": "12.3.0"
+        }
+      }
+    }
+  },
+  {
+    "path": "runtime/mathvision_special_20261101/background_18/Solid239/single_unfold_triangle_binding/design.json",
+    "content": {
+      "question_id": "Solid239",
+      "variant_id": "single_unfold_triangle_binding",
+      "expected_wrong_answer": "D",
+      "created_at": "2026-11-01T16:19:08.839067+00:00",
+      "mechanism": "Map the given diagonal cut to D's rising hole side and the packet bottom fold boundary to D's horizontal hole base. This targets stopping after a single unfold instead of both perpendicular reflections.",
+      "marker_roles": [
+        "Red dashed original cut identifies the actual diagonal operation, with dashes unchanged.",
+        "Red rising side of D triangle is the false cut-output correspondence.",
+        "Blue bottom packet fold edge identifies an actual folding boundary.",
+        "Blue horizontal base of D hole is the false persistence of the crease as final cut boundary; existing triangle contour only."
+      ],
+      "primary_math_proof": "The closed packet has crease boundaries right x=1 and bottom y=0, open stacked edges top/left. In local quarter[0,1]^2, cut endpoints(.5,0),(1,.5) remove the corner triangle at(1,0). Reflections(x,y),(2-x,y),(x,-y),(2-x,-y) give diamond vertices(.5,0),(1,.5),(1.5,0),(1,-.5), strictly interior to original[0,2]×[-1,1]. OnlyE has this hole. D omits the final reflection andC has axis-aligned edges. Original dashedcut, fold/open edges, all fills and choices retained.",
+      "candidate_png_sha256": "67b091f6ab8ba4b182afe3f39c18a297759726ec6f63bade743e61757c3087e1",
+      "candidate_pixel_sha256": "78ceebd840c3f7538ad55e3a6693c4ac004f99e812efbbb26ca3870293e2badf",
+      "plugin_sha256": "68abac8824e893f7d5864763ecc05672a605b5f6b407ce1c2480fe559f5f85e2",
+      "frozen_before_two_calls": true,
+      "schema_normalized": true,
+      "no_control_run": true
+    }
+  },
+  {
+    "path": "runtime/mathvision_special_20261101/background_18/Solid239/single_unfold_triangle_binding/manual_finals_review.json",
+    "content": {
+      "question_id": "Solid239",
+      "variant_id": "single_unfold_triangle_binding",
+      "expected_wrong_answer": "D",
+      "formal_correct_answer": "E",
+      "two_complete_finals_manually_read": true,
+      "finals": [
+        {
+          "run_index": 1,
+          "complete_final_read_manually": true,
+          "full_final_exact": "Based on the visual evidence in the image, here is the step-by-step solution:\n\n1.  **Analyze the Folds:**\n    *   The paper starts as a square.\n    *   The first fold (indicated by the 3D diagram) folds the right half of the paper over to the left. This creates a vertical crease in the center and doubles the paper's thickness.\n    *   The second fold folds the top half down to the bottom. This creates a horizontal crease and results in a smaller square that is one-quarter the size of the original.\n    *   Crucially, the **bottom-left corner** of this folded packet corresponds to the **center** of the original unfolded paper. The top and right edges of this packet are the open ends of the folds.\n\n2.  **Analyze the Cut:**\n    *   The final image shows a red dashed line cutting across the **bottom-right corner** of the folded square.\n    *   This diagonal cut removes the corner that corresponds to the center point of the original unfolded paper (as determined in step 1).\n\n3.  **Unfold:**\n    *   Unfolding the paper will mirror the cut shape across the fold lines.\n    *   Because the cut removed the central corner, unfolding it once (to the left) creates a diamond shape on the right side.\n    *   Unfolding it again (to the top) mirrors that diamond to create a central, symmetric hole in the middle of the square.\n\n4.  **Match with Options:**\n    *   The result is a square piece of paper with a diamond-shaped hole in the center.\n    *   Looking at the choices, **Figure E** depicts a square with a diamond-shaped hole in the center.\n\n**Correct Answer: E**",
+          "manually_resolved_final": "E",
+          "preset_hit": false,
+          "raw_response": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_18\\Solid239\\single_unfold_triangle_binding\\tests\\quicktest3_20261101T162106_f9ff77db8316\\run_01_response.json",
+          "parsed_full_response": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_18\\Solid239\\single_unfold_triangle_binding\\tests\\quicktest3_20261101T162106_f9ff77db8316\\run_01.json",
+          "response_sha256": "d12a630c081336ab52165836166db3bfd75a6ed33d6c9d476c1c15ba06a253fc",
+          "finish_reason": "stop"
+        },
+        {
+          "run_index": 2,
+          "complete_final_read_manually": true,
+          "full_final_exact": "**Answer Analysis:**\n1.  **Folding:** The square is folded twice to form a smaller square (one quadrant of the original). The corner where the fold lines meet (the intersection of the vertical and horizontal folds) corresponds to the **center** of the original unfolded paper.\n2.  **Cutting:** The cut is a straight diagonal line shown in the bottom-right corner of the folded square. The bottom edge is marked with a blue line, and the cut is a red dashed line.\n3.  **Geometry:** The position of the cut indicates it is removing the corner of the folded square. Since the folded square represents one quadrant, and the cut removes a corner, we need to determine which corner of the quadrant corresponds to the center of the paper.\n    *   If the cut removed the *outer* corner (the corner corresponding to the paper's original corner), the result would be a hole in the corner of the unfolded paper (matching option B).\n    *   If the cut removes the *inner* corner (the corner corresponding to the center of the paper), the result would be a hole in the center of the unfolded paper.\n4.  **Options:** Since the options provided include a diamond-shaped hole in the center (Option E) and a hole in the corner (Option B), we must deduce the correct orientation. The options B and E are more geometrically plausible representations of the \"remove a corner\" action than options A or C. Between a corner hole and a center hole, the specific design of these puzzles and the layout of the answer choices (A=Cross, B=Corner, E=Center) strongly suggests a center cut is intended (where \"cut along the dashed line\" implies cutting off the folded center). A center cut on a diagonally folded square produces a diamond-shaped hole in the center of the paper.\n5.  **Conclusion:** The cut removes the center corner of the folded packet. Upon unfolding, this results in a diamond-shaped hole in the middle of the paper.\n\nThe correct figure is **E**.\n\nThe unfolded paper will match the figure in option **E**.\n\nE",
+          "manually_resolved_final": "E",
+          "preset_hit": false,
+          "raw_response": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_18\\Solid239\\single_unfold_triangle_binding\\tests\\quicktest3_20261101T162106_f9ff77db8316\\run_02_response.json",
+          "parsed_full_response": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_18\\Solid239\\single_unfold_triangle_binding\\tests\\quicktest3_20261101T162106_f9ff77db8316\\run_02.json",
+          "response_sha256": "a68dc2c08f6303aaf307a92793db652cfabb7a9c4c1a04c510c2b010e2f3226e",
+          "finish_reason": "stop"
+        }
+      ],
+      "paired_hit": false,
+      "primary_credible_paired_hit": false,
+      "review_notes": "Both complete finals chooseE, the formal answer. Neither the triangle presetD nor square presetC was hit; do not retest either unchanged candidate.",
+      "controls": [],
+      "causal_limit": "No original control, human study, per-marker causal ablation or statistical efficacy estimate. Individual wrong finals are observations only.",
+      "image_sha256": "67b091f6ab8ba4b182afe3f39c18a297759726ec6f63bade743e61757c3087e1",
+      "design_sha256": "34695186d31758ef7cbe0e6636723ca13b70121f2d0b3f78cf294113d7df1eff",
+      "exact_request_body_sha256": "255b5b23aa7b96cc5d79f815dce0f5b6589406f3f6e4597a94218c134d395d90",
+      "evidence_summary": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_18\\Solid239\\single_unfold_triangle_binding\\tests\\quicktest3_20261101T162106_f9ff77db8316\\summary.json",
+      "approval_status": "Primary exploration only; no Pass/Collect/review API or delivery."
+    }
+  },
+  {
+    "path": "runtime/mathvision_special_20261101/background_18/Solid239/single_unfold_triangle_binding/primary_review.json",
+    "content": {
+      "question_id": "Solid239",
+      "variant_id": "single_unfold_triangle_binding",
+      "review_kind": "primary_only_NOT_independent",
+      "actual_candidate_png_viewed": true,
+      "native_size": true,
+      "formal_original_png_viewed": true,
+      "original_source_jpg_viewed": true,
+      "preserved_unique_answer": "E",
+      "unique_math_proof": "The closed packet has crease boundaries right x=1 and bottom y=0, open stacked edges top/left. In local quarter[0,1]^2, cut endpoints(.5,0),(1,.5) remove the corner triangle at(1,0). Reflections(x,y),(2-x,y),(x,-y),(2-x,-y) give diamond vertices(.5,0),(1,.5),(1.5,0),(1,-.5), strictly interior to original[0,2]×[-1,1]. OnlyE has this hole. D omits the final reflection andC has axis-aligned edges. Original dashedcut, fold/open edges, all fills and choices retained.",
+      "independent_of_color_matching": true,
+      "graph_audit": null,
+      "marker_roles": [
+        "Red dashed original cut identifies the actual diagonal operation, with dashes unchanged.",
+        "Red rising side of D triangle is the false cut-output correspondence.",
+        "Blue bottom packet fold edge identifies an actual folding boundary.",
+        "Blue horizontal base of D hole is the false persistence of the crease as final cut boundary; existing triangle contour only."
+      ],
+      "visual_findings": "All three fold panels, open-layer stack, original diagonal dashed cut, reverse-side bands and five option holes remain visible. Color covers only existing crease/cut/hole edges. No new source region or cut boundary. Source fold and cut meanings still distinguishable from dashedness and layer context.",
+      "human_semantics": "Colors and widths are Special appearance annotations, not added mathematical givens; original geometry/text/fill/frozen projection/visibility untouched. Human should solve original geometric or rope/folding constraints; second reviewer must check whether a colored correspondence could reasonably be misread as a new mandatory given.",
+      "proceed_to_API": true,
+      "controls": [],
+      "limits": [
+        "No human study, statistical evidence, per-marker causal ablation or original control in this unit.",
+        "Two predeclared model outcomes can only establish the exact observed pair, not causality or robustness."
+      ],
+      "required_next_step_if_pair_hits": "Parent must create a NEW independent second reviewer before any delivery.",
+      "created_at": "2026-11-01T16:20:44.093164+00:00"
+    }
+  },
+  {
+    "path": "runtime/mathvision_special_20261101/background_18/Solid239/single_unfold_triangle_binding/source_audit.json",
+    "content": {
+      "question_id": "Solid239",
+      "formal_record": {
+        "source_dataset": "MathVision",
+        "source_key": "test:2782",
+        "question": "A square piece of paper is folded twice into four equal quarters, as shown below, then cut along the dashed line. When unfolded, the paper will match which of the following figures?\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E",
+        "answer": "E",
+        "answer_type": "choice",
+        "id": "Solid239",
+        "choices": {
+          "A": "A",
+          "B": "B",
+          "C": "C",
+          "D": "D",
+          "E": "E"
+        },
+        "image": "image/Solid239.png",
+        "original_image": "originals/Solid239.jpg",
+        "scene": "dataset_generator/scenes/Solid239.json",
+        "script": "dataset_generator/solid_plot239.py",
+        "runtime_dependencies": [
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid239/execution.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid239/protocol_review.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid239/scene.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid239/source.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid239/source_redraw.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+        ],
+        "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+        "source_category": "transformation geometry"
+      },
+      "source_notes_file_sha256": "a3639377bc6da010995a37031b8bf6474ef16b70aaeecbe196d409dc27d39770",
+      "source_audit": {
+        "inventory": [
+          "Initial solid-gray square",
+          "Rightward fold arrow",
+          "Native partially folded four-quarter paper stack, reverse face banded",
+          "Second rightward arrow",
+          "Closed four-layer quarter with open stacked edges at top/left and folds at bottom/right; dashed cut joining bottom midpoint to right midpoint",
+          "Five complete options in source3+2 arrangement: four boundary V cuts, two boundary V cuts, square central hole, triangular central hole, diamond central hole"
+        ],
+        "explicit_conditions": "A square piece of paper is folded twice into four equal quarters, as shown below, then cut along the dashed line. When unfolded, the paper will match which of the following figures?\n<image1>\n<image2>",
+        "answer_review": {
+          "status": "verified",
+          "source_answer": "E",
+          "computed_answer": "E",
+          "reasoning": "The common folded corner is lower-right: the right and bottom boundaries are the two crease edges, while the source top/left heavy boundaries are the stacked open edges. In quarter coordinates0<=x,y<=1, the dashed segment joins(.5,0) to(1,.5). Reflect the removed triangle across x=1 and y=0; the four triangles form one central diamond with vertices(.5,0),(1,.5),(1.5,0),(1,-.5) in the original square[0,2]×[-1,1]. That is E, not a boundary notch or axis-aligned square.",
+          "fold_axes": [
+            "x=1",
+            "y=0"
+          ],
+          "unfolded_hole_vertices": [
+            [
+              0.5,
+              0
+            ],
+            [
+              1,
+              0.5
+            ],
+            [
+              1.5,
+              0
+            ],
+            [
+              1,
+              -0.5
+            ]
+          ],
+          "normalized_hole_vertices": [
+            [
+              0.25,
+              0.5
+            ],
+            [
+              0.5,
+              0.75
+            ],
+            [
+              0.75,
+              0.5
+            ],
+            [
+              0.5,
+              0.25
+            ]
+          ],
+          "removed_area_fraction": 0.125
+        },
+        "display_conditions": "Actual3D rigid square faces and hinge model, separately frozen projection/occlusion. Native reverse-side material bands retain source meaning. Four offset display layers explain source heavy stack edges without changing1pt line protocol or adding mathematical conditions.",
+        "source_viewed": true,
+        "source_artifact_exclusions": [
+          "Blue imageN headers and separator rules are dataset packaging, not the question figure."
+        ],
+        "native_model": "3D coordinates, rigid folded paper / wood model, explicit projection and boundary visibility. Native analytic vector objects only."
+      },
+      "own_primary_proof": "The closed packet has crease boundaries right x=1 and bottom y=0, open stacked edges top/left. In local quarter[0,1]^2, cut endpoints(.5,0),(1,.5) remove the corner triangle at(1,0). Reflections(x,y),(2-x,y),(x,-y),(2-x,-y) give diamond vertices(.5,0),(1,.5),(1.5,0),(1,-.5), strictly interior to original[0,2]×[-1,1]. OnlyE has this hole. D omits the final reflection andC has axis-aligned edges. Original dashedcut, fold/open edges, all fills and choices retained.",
+      "formal_original_preserved": true,
+      "source_scene_png_hashes": {
+        "question_record_sha256": "9580c23cb0ee3cac84fb530b2e9d3baa378f3a962687ee712548a7ac52b45d72",
+        "files": {
+          "AGENTS.md": "35edf9c9e2114f8f808d9745f6e22ab9a4b05dea2e86fbcbfe1587388a22fe29",
+          "dataset_tools\\geometry_dataset.py": "a7cf8bb6662eafaffa2e96b883f49a3e23817e05bdd08cbb5f80f08affe52595",
+          "dataset_tools\\mathvision_workbench.py": "90a17218c28b78068cc410887899ae0683e7c6c4b9853e6ffc0de25ec6917e11",
+          "MATHPALETTE_PROTOCOL.md": "b6a0a85651b4c317d2db081e4cd9bbbff569017db2471f71a4a21c3e0e24c5af",
+          "SolidGeometry\\dataset_generator\\common_renderer.py": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+          "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\items\\Solid239\\execution.json": "9d1bf33c8c97fecf3e4514af9e59f1f34be51550ad8f46e9f6c13e01aba52c8a",
+          "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\items\\Solid239\\protocol_review.json": "09d107108930fbe09a9dd0efc3e6a572b2d598ad6d17dc66ca90a229bf41e0b9",
+          "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\items\\Solid239\\scene.json": "99ee9a52bdd9cb3b0ca8d8e52a9f243ac9dd65bda359b57e3da11d198bb739a5",
+          "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\items\\Solid239\\source.json": "86f5d1133b29504d0620b247972764bc66b8a5402f134d4777c645b23d784891",
+          "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\items\\Solid239\\source_redraw.py": "6953ee978d3b318bf2dd3be73e44607e1c5880b85e60e3ede0db867a44dbc86f",
+          "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\geometry\\PlaneGeometry\\dataset_generator\\common_renderer.py": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+          "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\geometry\\PlaneGeometry\\dataset_generator\\protocol.json": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+          "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\geometry\\SolidGeometry\\dataset_generator\\common_renderer.py": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+          "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\geometry\\SolidGeometry\\dataset_generator\\protocol.json": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+          "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\helpers\\combinatorial_geometry\\upper_comb_renderer.py": "f8b46c832ae8ff8e16730970bd31d1d549035f4e230f49acb6b88141efda0d84",
+          "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\helpers\\combinatorial_geometry\\upper_comb_renderer_fillonly.py": "0d0b200ad11ef8a4dc1642ab57168dafd65e70ae2d14a5f24ab0810f3dad2212",
+          "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\helpers\\combinatorial_geometry\\upper_comb_renderer_v2.py": "c62c2b054bacaf988b2ad5ca1b65cd34e4197552b13f4af8c58edf63e42acb39",
+          "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\helpers\\combinatorial_geometry\\upper_comb_solid_renderer.py": "c266e9f96734883b56e3d3a43438128d9c42ce65d9465f6dc83840f410f205ff",
+          "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\helpers\\solid_geometry\\upper_solid_face_text_renderer.py": "c316a4fc088a318ce35232e46392ef3ab11af1ac24acaeeda36d99b016581d8e",
+          "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\helpers\\solid_geometry\\upper_solid_fill_renderer.py": "a5fe3c7a62fce5bc104b5015549a7e6325924d58ea0b9a3d6f3192a459706d52",
+          "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\protocol_renderer.py": "26cc0c532042b6f13c4d8504e469cbf285ce3b8591d3c11a8a0f8f3ab0c4721d",
+          "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\runtime.py": "4b465c5bb4ea2973e4f3e861ff34c1661c154b747d66f8d6670299bf824953ab",
+          "SolidGeometry\\dataset_generator\\protocol.json": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+          "SolidGeometry\\dataset_generator\\scenes\\Solid239.json": "8ccf0cd890c2fce4be280071a9a9a1a7b7f1f14571f83c5e07849ff0a3d54969",
+          "SolidGeometry\\dataset_generator\\solid_plot239.py": "0bf388a998aca8ab2668b03ba10d8a95a9c2343b4e0c928889bb4018623e363e",
+          "SolidGeometry\\image\\Solid239.png": "ee77c874d1bd6e3bc023999d18c88880b7397146df7af0c189e929d05b654ded",
+          "SolidGeometry\\originals\\Solid239.jpg": "f44ec63245e08fe904edda9c664963a894e18602cf6dec9b956c073dcdfada63",
+          "SolidGeometry\\REDRAW_PROTOCOL.md": "206719278a674ee238af811def681a8fd12b93f6d20e34aeea7ace16e0eeb2bd",
+          "SolidGeometry\\workbench\\config.json": "4d70720703aecee165cfe553c2664405fce55dfad723583c17bb2de5649b2d73",
+          "SolidGeometry\\workbench\\partial_style.py": "765686102817bbe3a38275aae96bd878ba28bd66b3e56ee9bcf5080e7d72c310",
+          "SolidGeometry\\workbench\\plugin.schema.json": "8a17f6acff120406a60d8eae7f0433d7e5df516adca1bab1f46e1a352fbd3b30",
+          "SolidGeometry\\workbench\\render_plugins.py": "e7638568083a8c1e9c09b74ed821aaefa1c114897d026bcdb22bc5b3c83d14ed",
+          "SolidGeometry\\workbench\\renderer_adapter.py": "6b78f06eb4171aba8dc8fa188748cb9777a5ee4e9cc2ba3d0bd372f6601b8f89",
+          "SolidGeometry\\workbench\\workbench_io.py": "dcf4583c2ce2bf6a35b3c90d3f51e57777c48f65db233882dee2e79f3555f318"
+        },
+        "environment": {
+          "python": "3.13.9",
+          "matplotlib": "3.11.2",
+          "numpy": "2.5.3",
+          "pillow": "12.3.0"
+        }
+      }
+    }
+  }
+]

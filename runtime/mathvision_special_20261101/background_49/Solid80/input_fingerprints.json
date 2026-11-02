@@ -1,0 +1,532 @@
+{
+  "branch": "SolidGeometry",
+  "record": {
+    "source_dataset": "MathVision",
+    "source_key": "test:25",
+    "question": "A wooden block has 8 vertices. One vertex is cut off now (see the picture).\nHow many vertices has the block now?",
+    "answer": "10",
+    "answer_type": "number",
+    "id": "Solid80",
+    "image": "image/Solid80.png",
+    "original_image": "originals/Solid80.jpg",
+    "scene": "dataset_generator/scenes/Solid80.json",
+    "script": "dataset_generator/solid_plot80.py",
+    "runtime_dependencies": [
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid80/execution.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid80/protocol_review.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid80/scene.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid80/source.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid80/source_redraw.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+    ],
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "source_category": "solid geometry"
+  },
+  "files": {
+    "image/Solid80.png": "3cdd9c25d8ffa9b494e9cbcdad7133fa54086dd211dec6596fd564fefe2fcdb4",
+    "originals/Solid80.jpg": "bdfe77bb464607d6e83cdd3245125e432ddf0af41c5cc02c61f835145a078e44",
+    "dataset_generator/solid_plot80.py": "743a2f2ce13238665e2316955a3e4e7072582b817dd98f3e02b9df1cbcb96f8f",
+    "dataset_generator/scenes/Solid80.json": "0f876d1d13c7edd7e5e957ba7cd732453211005653ff0b7b5d478861e537067d",
+    "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid80/execution.json": "25ab2c6b446ef108da7a9c4728528e2fba5601878072e238018fb1c7b01a0733",
+    "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid80/protocol_review.json": "34d8940ecf17fb6554672669fde34556bb2d2667450f960d8453365ba5edfd3f",
+    "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid80/scene.json": "1f810d9128293814d15ac943b1f4beb4e5284002239f153f6ad11e4d212fd738",
+    "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid80/source.json": "35b374e4b38406672f240f4b51576fa453d7a69de8d3e88c357a966e86a15c75",
+    "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid80/source_redraw.py": "854fffeddd6220bb2986f53708d7d8058a3048946d2fefcb72c7e8f724c1eb44",
+    "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+    "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+    "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+    "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+    "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py": "f8b46c832ae8ff8e16730970bd31d1d549035f4e230f49acb6b88141efda0d84",
+    "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py": "0d0b200ad11ef8a4dc1642ab57168dafd65e70ae2d14a5f24ab0810f3dad2212",
+    "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py": "c62c2b054bacaf988b2ad5ca1b65cd34e4197552b13f4af8c58edf63e42acb39",
+    "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py": "c266e9f96734883b56e3d3a43438128d9c42ce65d9465f6dc83840f410f205ff",
+    "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py": "c316a4fc088a318ce35232e46392ef3ab11af1ac24acaeeda36d99b016581d8e",
+    "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py": "a5fe3c7a62fce5bc104b5015549a7e6325924d58ea0b9a3d6f3192a459706d52",
+    "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py": "26cc0c532042b6f13c4d8504e469cbf285ce3b8591d3c11a8a0f8f3ab0c4721d",
+    "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py": "4b465c5bb4ea2973e4f3e861ff34c1661c154b747d66f8d6670299bf824953ab",
+    "dataset_generator/common_renderer.py": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+    "dataset_generator/protocol.json": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+    "../dataset_tools/geometry_dataset.py": "a7cf8bb6662eafaffa2e96b883f49a3e23817e05bdd08cbb5f80f08affe52595"
+  },
+  "source_notes": {
+    "source_dataset": "MathVision",
+    "source_key": "test:25",
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "source_category": "solid geometry",
+    "original_record": {
+      "id": "25",
+      "question": "A wooden block has 8 vertices. One vertex is cut off now (see the picture).\n<image1>\nHow many vertices has the block now?",
+      "options": [],
+      "image": "images/25.jpg",
+      "decoded_image": {
+        "path": "images/25.jpg",
+        "original_path": "25.jpg"
+      },
+      "answer": "10",
+      "solution": null,
+      "level": 1,
+      "subject": "solid geometry"
+    },
+    "source_package": "MathVision_redrawn_solid_geometry_240_final",
+    "source_package_summary": {
+      "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+      "protocol_versions": {
+        "PlaneGeometry": "1.2.0",
+        "SolidGeometry": "1.2.0"
+      },
+      "created_utc": "2026-10-27T04:52:00.302878+00:00",
+      "complete": true,
+      "category": "solid_geometry",
+      "source_questions": 244,
+      "retained": 240,
+      "excluded": 4,
+      "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+      "formal_user_approval": false,
+      "final_validation": {
+        "all_retained_tested": 696,
+        "two_clean_output_runs_per_item": true,
+        "all_passed": true,
+        "report": "validation/final_entrypoint_validation.json"
+      }
+    },
+    "audit": {
+      "source_id": "25",
+      "source_image_viewed": true,
+      "source_image_sha256": "bdfe77bb464607d6e83cdd3245125e432ddf0af41c5cc02c61f835145a078e44",
+      "inventory": [
+        "one cube-like wooden block",
+        "one truncated front/top/right vertex with triangular cut face",
+        "three dashed removed edge stubs; no labels"
+      ],
+      "conditions": "A wooden block has 8 vertices. One vertex is cut off now (see the picture).\n<image1>\nHow many vertices has the block now?",
+      "panel_option_mapping": "single diagram; textual choices preserved in source.json",
+      "ambiguities": [
+        "Cut distances and block edge dimensions unspecified; chosen unit cube and cut distances .20; dashed stubs retain removed corner construction."
+      ],
+      "answer_verification": {
+        "reasoning": "Removing one degree-three vertex subtracts 1 vertex and creates 3 edge-plane intersections: 8-1+3=10.",
+        "result": "10",
+        "verified": true
+      },
+      "stage": "source_audit_complete"
+    },
+    "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+    "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+    "agent_verification_is_user_approval": false,
+    "protocol_redraw": {
+      "date": "2026-10-28",
+      "baseline_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+      "protocol_version": "1.2.0",
+      "protocol_review": "protocol_review.json",
+      "verification": "verification.json",
+      "report": "redraw_report.json",
+      "original_image_unchanged": true,
+      "question_answer_choices_unchanged": true,
+      "user_approved": false,
+      "historical_package_notice": "Source package summaries describe the original imported package, not current style compliance or approval."
+    },
+    "environment_unification": {
+      "record": "review_candidates/mathvision/environment_unification_20261029.json",
+      "at_utc": "2026-10-29T12:38:07.174277+00:00",
+      "from_environment": {
+        "python": "3.12.14",
+        "matplotlib": "3.10.8",
+        "numpy": "2.3.5",
+        "Pillow": "12.3.0"
+      },
+      "to_environment": {
+        "python": "3.13.9",
+        "numpy": "2.5.3",
+        "matplotlib": "3.11.2",
+        "pillow": "12.3.0",
+        "freetype": "2.14.3"
+      },
+      "previous_png_sha256": "11c2b065a7478493a9349bd3944568b96a94b8433f33ef9dc6d058c0959bcc99",
+      "previous_svg_sha256": "9abf44f975bfb57978de751f79a7a68fd5266dde6e54a7acfef45faa82354075",
+      "scene_geometry_projection_visibility_unchanged": true,
+      "user_approval": false
+    },
+    "candidate_id": "MVI0025",
+    "verification": {
+      "reviewer": "Unified-environment machine reproduction",
+      "reviewed_utc": "2026-10-29T12:38:07.174277+00:00",
+      "verdict": "machine_reproduced_pending_user_review",
+      "user_approval": false,
+      "scope": "Two deterministic vector renders; unchanged frozen geometry and styles. Human approval remains pending.",
+      "hashes": {
+        "scene.json": "1f810d9128293814d15ac943b1f4beb4e5284002239f153f6ad11e4d212fd738",
+        "image.png": "3cdd9c25d8ffa9b494e9cbcdad7133fa54086dd211dec6596fd564fefe2fcdb4",
+        "image.svg": "93fb6ddd96c31b658016d1b77727a32bf2f9205eec7eae84ff586a4bf6ade8f9",
+        "redraw_report.json": "bd28314e8dc200dc6c6db8a690be2a06d37552197d9eb3155e916c5c21db2c34",
+        "protocol_review.json": "34d8940ecf17fb6554672669fde34556bb2d2667450f960d8453365ba5edfd3f",
+        "source_redraw.py": "854fffeddd6220bb2986f53708d7d8058a3048946d2fefcb72c7e8f724c1eb44",
+        "execution.json": "25ab2c6b446ef108da7a9c4728528e2fba5601878072e238018fb1c7b01a0733",
+        "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
+        "original.jpg": "bdfe77bb464607d6e83cdd3245125e432ddf0af41c5cc02c61f835145a078e44",
+        "source.json": "35b374e4b38406672f240f4b51576fa453d7a69de8d3e88c357a966e86a15c75",
+        "machine_protocol": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+        "protocol_renderer.py": "26cc0c532042b6f13c4d8504e469cbf285ce3b8591d3c11a8a0f8f3ab0c4721d",
+        "shared/runtime.py": "4b465c5bb4ea2973e4f3e861ff34c1661c154b747d66f8d6670299bf824953ab"
+      },
+      "explicit_inspected_facts": [],
+      "agent_visual_review": {
+        "status": "pending_environment_recheck",
+        "user_approval": false,
+        "reason": "Raster reference regenerated in the unified repository environment; previous visual findings remain historical.",
+        "source_sha256": "bdfe77bb464607d6e83cdd3245125e432ddf0af41c5cc02c61f835145a078e44",
+        "scene_sha256": "1f810d9128293814d15ac943b1f4beb4e5284002239f153f6ad11e4d212fd738",
+        "png_sha256": "3cdd9c25d8ffa9b494e9cbcdad7133fa54086dd211dec6596fd564fefe2fcdb4",
+        "svg_sha256": "93fb6ddd96c31b658016d1b77727a32bf2f9205eec7eae84ff586a4bf6ade8f9"
+      },
+      "checks": {
+        "two_clean_render_pixels_equal": true,
+        "two_clean_render_svg_bytes_equal": true,
+        "native_vector_geometry": true,
+        "layout": {
+          "content_bbox_px": [
+            54,
+            54,
+            714,
+            714
+          ],
+          "content_center_px": [
+            384.0,
+            384.0
+          ],
+          "longest_side_occupancy": 0.8606770833333334,
+          "opaque_768_square": true,
+          "centered_within_2px": true,
+          "occupancy_85_to_87_percent": true,
+          "minimum_5_percent_margin": true
+        },
+        "declared_native_checks_count": 2,
+        "failed_declared_checks": []
+      },
+      "ambiguities": [],
+      "needs_manual_confirmation": true,
+      "historical_evidence": {
+        "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+        "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+        "previous_verification": {
+          "reviewer": "independent /root/review_geometry_redraws",
+          "source_id": "25",
+          "category": "solid_geometry",
+          "reviewed_utc": "2026-10-27T00:40:45.556366+00:00",
+          "verdict": "agent_verified",
+          "user_approval": false,
+          "hashes": {
+            "source.json": "35b374e4b38406672f240f4b51576fa453d7a69de8d3e88c357a966e86a15c75",
+            "original.jpg": "bdfe77bb464607d6e83cdd3245125e432ddf0af41c5cc02c61f835145a078e44",
+            "scene.json": "756780d6967e34fa5bc2092a526280e1fe067076b4e8c5cdafb6b38b281bb83f",
+            "image.png": "5a79017a6816534cc4f6755398c8cd5b9496ca9b90b2ed99df5628fdd77cab08",
+            "image.svg": "42cb9fdfa0276fd9bc54e5f1a67bae456e7378529967df57eff7cf5dfea4cb73",
+            "render.py": "854fffeddd6220bb2986f53708d7d8058a3048946d2fefcb72c7e8f724c1eb44",
+            "audit.json": "c1635ba0cb9dd0d4c8d6a2dd7f6263f549c05032e3de6672c488a31dc882e5e9",
+            "redraw_report.json": "758b2cffe177ccc60cff3838f8ebede4b5ec54e124bf89d6fb291ffca653e274"
+          },
+          "explicit_inspected_facts": [
+            "Viewed original.jpg and image.png independently at full resolution. One unlabelled block with upper-front-right corner removed; triangular cut face retains three boundary edges and three dashed stubs meeting at removed corner. No added hidden rear cube edges, labels, dots, fill, answer or helper lines. Source left/right/front/top orientation preserved.",
+            "Eight original vertices minus the removed degree-three vertex plus three cut intersections = ten; source answer 10 remains valid. Unspecified cut depth .20 and unit cube are documented construction choices."
+          ],
+          "checks": {
+            "source_record_equals_export": true,
+            "original_bytes_match_export": true,
+            "input_output_report_hashes": {
+              ".runtime/mathvision_redraw_720/solid_geometry/25/source.json": true,
+              ".runtime/mathvision_redraw_720/solid_geometry/25/original.jpg": true,
+              ".runtime/mathvision_redraw_720/solid_geometry/25/scene.json": true,
+              ".runtime/mathvision_redraw_720/solid_geometry/25/render.py": true,
+              ".runtime/mathvision_redraw_720/solid_geometry/25/image.png": true,
+              ".runtime/mathvision_redraw_720/solid_geometry/25/image.svg": true,
+              "SolidGeometry/dataset_generator/common_renderer.py": true,
+              "SolidGeometry/dataset_generator/protocol.json": true,
+              "SolidGeometry/REDRAW_PROTOCOL.md": true
+            },
+            "two_independent_renders_pixel_identical": true,
+            "independent_render_matches_candidate_pixels": true,
+            "pixel_size": [
+              768,
+              768
+            ],
+            "opaque": true,
+            "white_outer_border": true,
+            "content_bbox": [
+              53,
+              53,
+              715,
+              715
+            ],
+            "occupancy": 0.86328125,
+            "center_offset_px": [
+              0.5,
+              0.5
+            ],
+            "margins_px": [
+              53,
+              53,
+              52,
+              52
+            ],
+            "layout_pass": true,
+            "renderer_constraints": [
+              {
+                "id": "projection_and_visibility",
+                "type": "projection",
+                "passed": true,
+                "projection_sha256": "255202fe2645ae399cad3ef9a986cdd2684257ffb2df2050c9ff2b7777c07dc1",
+                "automatic_occlusion": false
+              },
+              {
+                "id": "cut_plane",
+                "type": "coplanar",
+                "basis": "construction: planar vertex cut",
+                "measured": 1.3141749540046645e-16,
+                "passed": true
+              },
+              {
+                "id": "layout",
+                "type": "layout",
+                "outer_margin_fraction": 0.05,
+                "label_line_overlap": false,
+                "label_label_overlap": false,
+                "passed": true
+              }
+            ],
+            "frozen_fields_present": true,
+            "no_duplicated_question_answer_fields": true
+          },
+          "required_changes": [],
+          "previous_revisions": []
+        }
+      },
+      "environment_history": [
+        {
+          "reviewer": "Agent curator part1",
+          "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+          "verdict": "agent_protocol_reviewed",
+          "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
+          "hashes": {
+            "scene.json": "1f810d9128293814d15ac943b1f4beb4e5284002239f153f6ad11e4d212fd738",
+            "image.png": "3cdd9c25d8ffa9b494e9cbcdad7133fa54086dd211dec6596fd564fefe2fcdb4",
+            "image.svg": "93fb6ddd96c31b658016d1b77727a32bf2f9205eec7eae84ff586a4bf6ade8f9",
+            "redraw_report.json": "43a5169b1b8e33540be18d730339a20cd76d4a00f962d3f532179eba64e4b218",
+            "protocol_review.json": "3fb4f4098b9c4a535a5a438aba9b50082d4fb526340efb0c495416a4f7243857",
+            "source_redraw.py": "854fffeddd6220bb2986f53708d7d8058a3048946d2fefcb72c7e8f724c1eb44",
+            "execution.json": "25ab2c6b446ef108da7a9c4728528e2fba5601878072e238018fb1c7b01a0733",
+            "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
+            "original.jpg": "bdfe77bb464607d6e83cdd3245125e432ddf0af41c5cc02c61f835145a078e44",
+            "source.json": "35b374e4b38406672f240f4b51576fa453d7a69de8d3e88c357a966e86a15c75",
+            "machine_protocol": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+            "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+            "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
+          },
+          "explicit_inspected_facts": [
+            "The clipped upper-front-right corner retains three cut vertices and the three dashed removed-corner stubs."
+          ],
+          "agent_visual_review": {
+            "status": "inspected",
+            "reviewer": "Agent curator part1",
+            "user_approval": false,
+            "reviewed_at_utc": "2026-10-28T12:56:24.042041+00:00",
+            "method": "Source and final PNG comparison on 12-item contact sheets.",
+            "contact_sheet": ".runtime/protocol_redraw/part1/final_00.jpg",
+            "individual_final_png_viewed": false,
+            "findings": [
+              "The clipped upper-front-right corner retains three cut vertices and the three dashed removed-corner stubs."
+            ],
+            "source_sha256": "bdfe77bb464607d6e83cdd3245125e432ddf0af41c5cc02c61f835145a078e44",
+            "scene_sha256": "1f810d9128293814d15ac943b1f4beb4e5284002239f153f6ad11e4d212fd738",
+            "png_sha256": "11c2b065a7478493a9349bd3944568b96a94b8433f33ef9dc6d058c0959bcc99",
+            "svg_sha256": "9abf44f975bfb57978de751f79a7a68fd5266dde6e54a7acfef45faa82354075"
+          },
+          "checks": {
+            "two_clean_render_pixels_equal": true,
+            "two_clean_render_svg_bytes_equal": true,
+            "native_vector_geometry": true,
+            "layout": {
+              "content_bbox_px": [
+                54,
+                54,
+                714,
+                714
+              ],
+              "content_center_px": [
+                384.0,
+                384.0
+              ],
+              "longest_side_occupancy": 0.8606770833333334,
+              "opaque_768_square": true,
+              "centered_within_2px": true,
+              "occupancy_85_to_87_percent": true,
+              "minimum_5_percent_margin": true
+            },
+            "declared_native_checks_count": 2,
+            "failed_declared_checks": []
+          },
+          "needs_manual_confirmation": false
+        }
+      ],
+      "environment_unification": {
+        "record": "review_candidates/mathvision/environment_unification_20261029.json",
+        "at_utc": "2026-10-29T12:38:07.174277+00:00",
+        "from_environment": {
+          "python": "3.12.14",
+          "matplotlib": "3.10.8",
+          "numpy": "2.3.5",
+          "Pillow": "12.3.0"
+        },
+        "to_environment": {
+          "python": "3.13.9",
+          "numpy": "2.5.3",
+          "matplotlib": "3.11.2",
+          "pillow": "12.3.0",
+          "freetype": "2.14.3"
+        },
+        "previous_png_sha256": "11c2b065a7478493a9349bd3944568b96a94b8433f33ef9dc6d058c0959bcc99",
+        "previous_svg_sha256": "9abf44f975bfb57978de751f79a7a68fd5266dde6e54a7acfef45faa82354075",
+        "scene_geometry_projection_visibility_unchanged": true,
+        "user_approval": false
+      }
+    },
+    "geometry_notes": {
+      "additional_model_evidence": {},
+      "execution": "Native semantic extras are retained in fingerprinted runtime dependencies; formal scene controls canonical geometry.",
+      "protocol_redraw": {
+        "schema_version": 1,
+        "id": "MVI0025",
+        "semantic_fills": [],
+        "semantic_colors": [],
+        "ambiguities": [],
+        "source_review": {
+          "status": "inspected",
+          "contact_sheet": ".runtime/protocol_redraw/part1/source_00.jpg",
+          "question_read": true,
+          "notes": "Source and complete candidate question inspected; extraction wrappers are not diagram content.",
+          "source_sha256": "bdfe77bb464607d6e83cdd3245125e432ddf0af41c5cc02c61f835145a078e44",
+          "original_question_preserved": true
+        },
+        "visual_review": {
+          "status": "pending_environment_recheck",
+          "user_approval": false,
+          "reason": "Raster reference regenerated in the unified repository environment; previous visual findings remain historical.",
+          "source_sha256": "bdfe77bb464607d6e83cdd3245125e432ddf0af41c5cc02c61f835145a078e44",
+          "scene_sha256": "1f810d9128293814d15ac943b1f4beb4e5284002239f153f6ad11e4d212fd738",
+          "png_sha256": "3cdd9c25d8ffa9b494e9cbcdad7133fa54086dd211dec6596fd564fefe2fcdb4",
+          "svg_sha256": "93fb6ddd96c31b658016d1b77727a32bf2f9205eec7eae84ff586a4bf6ade8f9"
+        },
+        "geometry_review": {
+          "status": "source_compared",
+          "scene_inventory": {
+            "object_types": [
+              "segment"
+            ],
+            "label_count": 0,
+            "constraint_count": 1
+          },
+          "finding": "The clipped upper-front-right corner retains three cut vertices and the three dashed removed-corner stubs.",
+          "scene_ambiguities": [
+            "Cut distances and block edge dimensions unspecified; chosen unit cube and cut distances .20; dashed stubs retain removed corner construction."
+          ],
+          "projection_frozen": true,
+          "visibility_frozen": true
+        },
+        "machine_checks": {
+          "report": "redraw_report.json",
+          "agent_visual_review_separate": true,
+          "two_clean_render_pixels_equal": true,
+          "layout": {
+            "content_bbox_px": [
+              54,
+              54,
+              714,
+              714
+            ],
+            "content_center_px": [
+              384.0,
+              384.0
+            ],
+            "longest_side_occupancy": 0.8606770833333334,
+            "opaque_768_square": true,
+            "centered_within_2px": true,
+            "occupancy_85_to_87_percent": true,
+            "minimum_5_percent_margin": true
+          },
+          "existing_constraint_count": 2,
+          "renderer_sha256": "26cc0c532042b6f13c4d8504e469cbf285ce3b8591d3c11a8a0f8f3ab0c4721d",
+          "scene_sha256": "1f810d9128293814d15ac943b1f4beb4e5284002239f153f6ad11e4d212fd738",
+          "png_sha256": "3cdd9c25d8ffa9b494e9cbcdad7133fa54086dd211dec6596fd564fefe2fcdb4",
+          "svg_sha256": "93fb6ddd96c31b658016d1b77727a32bf2f9205eec7eae84ff586a4bf6ade8f9"
+        },
+        "historical_visual_reviews": [
+          {
+            "status": "inspected",
+            "reviewer": "Agent curator part1",
+            "user_approval": false,
+            "reviewed_at_utc": "2026-10-28T12:56:24.042041+00:00",
+            "method": "Source and final PNG comparison on 12-item contact sheets.",
+            "contact_sheet": ".runtime/protocol_redraw/part1/final_00.jpg",
+            "individual_final_png_viewed": false,
+            "findings": [
+              "The clipped upper-front-right corner retains three cut vertices and the three dashed removed-corner stubs."
+            ],
+            "source_sha256": "bdfe77bb464607d6e83cdd3245125e432ddf0af41c5cc02c61f835145a078e44",
+            "scene_sha256": "1f810d9128293814d15ac943b1f4beb4e5284002239f153f6ad11e4d212fd738",
+            "png_sha256": "11c2b065a7478493a9349bd3944568b96a94b8433f33ef9dc6d058c0959bcc99",
+            "svg_sha256": "9abf44f975bfb57978de751f79a7a68fd5266dde6e54a7acfef45faa82354075"
+          }
+        ],
+        "environment_unification": {
+          "record": "review_candidates/mathvision/environment_unification_20261029.json",
+          "at_utc": "2026-10-29T12:38:07.174277+00:00",
+          "from_environment": {
+            "python": "3.12.14",
+            "matplotlib": "3.10.8",
+            "numpy": "2.3.5",
+            "Pillow": "12.3.0"
+          },
+          "to_environment": {
+            "python": "3.13.9",
+            "numpy": "2.5.3",
+            "matplotlib": "3.11.2",
+            "pillow": "12.3.0",
+            "freetype": "2.14.3"
+          },
+          "previous_png_sha256": "11c2b065a7478493a9349bd3944568b96a94b8433f33ef9dc6d058c0959bcc99",
+          "previous_svg_sha256": "9abf44f975bfb57978de751f79a7a68fd5266dde6e54a7acfef45faa82354075",
+          "scene_geometry_projection_visibility_unchanged": true,
+          "user_approval": false
+        }
+      }
+    },
+    "image_placeholder_cleanup": {
+      "user_instruction": "你直接帮忙把所有Math-Vision题目都加入正式题库吧（mashpalette-publish），然后如果题目里面有<image1>这种标记要删去。\n记得标记来源。",
+      "approval_channel": "explicit_user_chat_bulk",
+      "before": "A wooden block has 8 vertices. One vertex is cut off now (see the picture).\n<image1>\nHow many vertices has the block now?",
+      "after": "A wooden block has 8 vertices. One vertex is cut off now (see the picture).\nHow many vertices has the block now?",
+      "removed_image_markers": [
+        "<image1>"
+      ],
+      "source_originals_preserved": true,
+      "answers_and_frozen_diagrams_unchanged": true,
+      "rationale": "Remove standalone image placeholders and their empty lines."
+    },
+    "bulk_formal_import": {
+      "record": "provenance/mathvision/imports_20261029.json",
+      "candidate_id": "MVI0025",
+      "user_instruction": "你直接帮忙把所有Math-Vision题目都加入正式题库吧（mashpalette-publish），然后如果题目里面有<image1>这种标记要删去。\n记得标记来源。",
+      "approval_channel": "explicit_user_chat_bulk",
+      "formal_id": "Solid80"
+    }
+  }
+}

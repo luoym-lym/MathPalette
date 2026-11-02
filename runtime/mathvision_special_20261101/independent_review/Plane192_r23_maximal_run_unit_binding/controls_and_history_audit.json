@@ -1,0 +1,519 @@
+{
+  "controls": {
+    "binding_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\plane_explore\\Plane192\\original_control\\tests\\quicktest3_20261101T111425_b94f97d8c2b8\\binding.json",
+    "binding_sha256": "25187ca5e0641fbccc385faf539f8428a60dd3bcc51e18c396cce650d6003a85",
+    "png_equals_current_formal_bytes": true,
+    "request_hash_matches": true,
+    "exact_formal_question": true,
+    "runs": [
+      {
+        "raw_response_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\plane_explore\\Plane192\\original_control\\tests\\quicktest3_20261101T111425_b94f97d8c2b8\\run_01_response.json",
+        "sha256": "c1511f04c16df95b1ab969c323e93740c558b4970d9ddd8a908e1b39b5e4e114",
+        "raw_hash_matches": true,
+        "completed": true,
+        "full_final": "Based on a geometric analysis of the provided image, here is the solution:\n\n1.  **Analyze the horizontal span:** Looking at the grid in each diagram, the start and end points for all four routes are separated by the same horizontal distance (8 grid squares).\n\n2.  **Calculate the length of Route A:**\n    *   Route A is a single triangle composed of two segments.\n    *   The first segment goes from $(0,0)$ to $(4,4)$. This is the diagonal of a $4 \\times 4$ square.\n    *   The second segment goes from $(4,4)$ to $(8,0)$. This is the diagonal of another $4 \\times 4$ square.\n    *   The length of each diagonal is $\\sqrt{4^2 + 4^2} = \\sqrt{32}$.\n    *   Total length of Route A = $\\sqrt{32} + \\sqrt{32} = 2\\sqrt{32} = 2 \\times 4\\sqrt{2} = \\mathbf{8\\sqrt{2}}$.\n\n3.  **Analyze Routes B, C, and D:**\n    *   The principle behind the \"staircase paradox\" tells us that replacing a straight diagonal with a series of smaller steps or smaller triangles does not result in a shorter distance. In fact, it generally results in a longer distance.\n    *   Geometrically, the shortest path between two points is a straight line. Since a straight line cannot be drawn on this grid while going \"up\" and then \"down\" (it would require going through the points), the path that is \"closest to straight\" is the shortest.\n    *   Route A consists of just two segments with a very large horizontal run ($4$ units). Routes B, C, and D break these same climbs into smaller, steeper steps with smaller horizontal runs (e.g., $2$ units or $1$ unit).\n    *   Because smaller runs have a higher ratio of vertical travel to horizontal travel (slope), the overall length increases as the \"steps\" get smaller and more numerous.\n\n4.  **Conclusion:** Route A is the most direct path and therefore has the shortest length.\n\nThe correct choice is **A**.",
+        "manually_read_final": "A"
+      },
+      {
+        "raw_response_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\plane_explore\\Plane192\\original_control\\tests\\quicktest3_20261101T111425_b94f97d8c2b8\\run_02_response.json",
+        "sha256": "71a9582b698fc027f20c0127dfd9132bc562864e1096ee765dc17c158eeb8e62",
+        "raw_hash_matches": true,
+        "completed": true,
+        "full_final": "To determine which route is the shortest, let's analyze the paths geometrically.\n\n1.  **Analyze the Grid:**\n    Imagine the side length of each small square in the grid is **1 unit**.\n\n2.  **Analyze Route A:**\n    *   The path starts at the bottom-left corner of the grid section.\n    *   It rises diagonally to a peak and then descends diagonally.\n    *   By counting the grid squares, the peak is reached after moving **4 units horizontally** and **3 units vertically**.\n    *   The descent mirrors this, going **4 units right** and **3 units down**.\n    *   The total horizontal width is $4 + 4 = 8$ units, which matches the grid width shown.\n    *   The length of one diagonal segment can be calculated using the Pythagorean theorem: $\\sqrt{4^2 + 3^2} = \\sqrt{16 + 9} = \\sqrt{25} = 5$ units.\n    *   The total length of Route A is $5 + 5 = \\mathbf{10}$ **units**.\n\n3.  **Analyze Route B:**\n    *   This path consists of **three** diagonal segments (Up, Up, Down) that span the same horizontal width of 8 units.\n    *   To get from height 0 to height 0 over a width of 8 with 3 segments, the path must go Up, Up, then Down by a larger amount.\n    *   Visually, the slope is steeper than in Route A. For example, if it moves 3 units right and 2.67 units up for the first two segments ($\\sqrt{3^2 + 2.67^2} \\approx 4$), the path length would be around 12.6.\n    *   Generally, zig-zagging a path increases its length compared to the single straight diagonal segments.\n\n4.  **Analyze Route C and D:**\n    *   Route C has **5** segments.\n    *   Route D has **7** segments.\n    *   Both of these are even more jagged (zig-zagged) than Route B. The more \"wiggly\" a line is between two points, the longer it becomes (unless it is a straight line, which is the shortest possible path).\n\n5.  **Conclusion:**\n    *   By comparing the number of segments: Route A (2 segments) < Route B (3 segments) < Route C (5 segments) < Route D (7 segments).\n    *   Route A is the smoothest path and requires the least amount of \"up and down\" movement to cover the distance.\n    *   Therefore, Route A is the shortest.\n\n**Correct Answer:**\n**A:A**",
+        "manually_read_final": "A"
+      }
+    ]
+  },
+  "prior_materially_different_designs": [
+    {
+      "variant_id": "v01",
+      "design": {
+        "question_id": "Plane192",
+        "variant_id": "v01",
+        "correct_answer": "E",
+        "predicted_wrong_answer": "D",
+        "design_reason": "将最接近水平基线但含最多折返的D路线用红色强调，诱导按视觉高度误判最短，原有路径和格线不变。",
+        "plugin_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\plane_explore\\Plane192\\v01\\plugin.json",
+        "image_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\plane_explore\\Plane192\\v01\\candidate.png",
+        "pixel_sha256": "fb1a1fa433f9231fbce0da0477f35b8a587bad4ce0ed6e968f6e73521047a0f4",
+        "png_sha256": "9dccd6bc5141aad933b261ce303928229dfe123d769db15b836bee14415d40fd",
+        "input_record_sha256": "074537b0b9a85b6b743004a51d634ccf66b1ba2307596082d07952ee4284a39a",
+        "schema_valid": true,
+        "baseline_pixels_match": true,
+        "deterministic_redraw": true,
+        "action_count": 8,
+        "review_status": "unreviewed",
+        "test_status": "pending"
+      },
+      "plugin": {
+        "plugin_schema_version": "1.0.0",
+        "question_id": "Plane192",
+        "category": "C",
+        "operation": "C_manual",
+        "description": "将最接近水平基线但含最多折返的D路线用红色强调，诱导按视觉高度误判最短，原有路径和格线不变。",
+        "intent": "预设诱导错误答案 D",
+        "params": {
+          "actions": [
+            {
+              "type": "set_object_style",
+              "target": "route3_0",
+              "color": "#DC2626",
+              "linewidth_pt": 2
+            },
+            {
+              "type": "set_object_style",
+              "target": "route3_1",
+              "color": "#DC2626",
+              "linewidth_pt": 2
+            },
+            {
+              "type": "set_object_style",
+              "target": "route3_2",
+              "color": "#DC2626",
+              "linewidth_pt": 2
+            },
+            {
+              "type": "set_object_style",
+              "target": "route3_3",
+              "color": "#DC2626",
+              "linewidth_pt": 2
+            },
+            {
+              "type": "set_object_style",
+              "target": "route3_4",
+              "color": "#DC2626",
+              "linewidth_pt": 2
+            },
+            {
+              "type": "set_object_style",
+              "target": "route3_5",
+              "color": "#DC2626",
+              "linewidth_pt": 2
+            },
+            {
+              "type": "set_object_style",
+              "target": "route3_6",
+              "color": "#DC2626",
+              "linewidth_pt": 2
+            },
+            {
+              "type": "set_object_style",
+              "target": "route3_7",
+              "color": "#DC2626",
+              "linewidth_pt": 2
+            }
+          ]
+        }
+      },
+      "candidate_sha256": "9dccd6bc5141aad933b261ce303928229dfe123d769db15b836bee14415d40fd",
+      "raw_finals": [
+        {
+          "path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\plane_explore\\Plane192\\v01\\tests\\quicktest3_20261101T105517_3d38b1087184\\run_01_response.json",
+          "sha256": "cc94dd8905196f386cb8d8dad69855a8255a8922dd295eecd1e3342003b008bd",
+          "full_response": "Based on a visual analysis of the grid provided in the image:\n\n1.  **Analyze the Grid:** Each square on the grid represents a unit of measurement. The paths are composed of diagonal lines moving through these squares. Let's assume the diagonal of a single grid square has a length of $\\sqrt{2}$. The \"cost\" of moving diagonally across one square is $\\approx 1.41$ units, whereas moving straight along a grid line is $1$ unit. However, all these paths are composed of similar diagonal segments, so we can compare their lengths by the number of grid diagonals they cover.\n\n2.  **Estimate Path A:** This path forms a triangle. It rises from the bottom-left corner, peaks in the middle (3 units up), and descends to the bottom-right. It spans a total horizontal width of roughly 10 grid squares.\n    *   It covers a height of 3 units on the left side and 3 units on the right side.\n    *   The horizontal distance for the rise is roughly 5 squares.\n    *   By the Pythagorean theorem, the length is approximately $\\sqrt{5^2 + 3^2} + \\sqrt{5^2 + 3^2} = \\sqrt{34} + \\sqrt{34} \\approx 5.83 + 5.83 = 11.66$ units (counting in grid steps).\n\n3.  **Estimate Path B:** This path rises, then goes flat for a section, then descends.\n    *   The upward slope is steep (climbs 3 units quickly). The downward slope is also steep.\n    *   Crucially, it has a horizontal \"bridge\" section in the middle where the path does not gain height but continues right.\n    *   This adds significant horizontal length without reducing the vertical effort compared to a simple triangle. It will be longer than A.\n\n4.  **Estimate Path C:** This path is zig-zagged. It rises and falls multiple times.\n    *   It has more \"ups and downs\" than path A.\n    *   It touches the bottom line in the middle, meaning it does extra vertical work (going up and down repeatedly) compared to a single peak.\n    *   This additional vertical movement adds length, making it longer than A.\n\n5.  **Estimate Path D:** This is a high-frequency zig-zag.\n    *   It moves horizontally while oscillating up and down repeatedly.\n    *   While each small step is short, the total length is the sum of many small hypotenuses.\n    *   Visually, the \"jaggedness\" accumulates more distance than the direct slopes of A. It is longer than A.\n\n**Conclusion:** Path A is the most direct route with the fewest deviations or vertical detours. It approximates the straight line distance better than the others.\n\nThe correct answer is **A**."
+        },
+        {
+          "path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\plane_explore\\Plane192\\v01\\tests\\quicktest3_20261101T105517_3d38b1087184\\run_02_response.json",
+          "sha256": "7b0f974ffd192473e966b7e21517d504d61205bb8d2ce7e3b7d3e02c9386a951",
+          "full_response": "To find the shortest route, we need to calculate the length of each path using the grid squares as units. Let's assume the side length of one grid square is $1$.\n\n1.  **Analyze the Start and End Points:**\n    In each diagram, the path starts at the leftmost dot and ends at the rightmost dot. By counting the grid squares between these two points horizontally, we can see the distance is **$10$ units** for all routes (A, B, C, and D).\n\n2.  **Calculate the Length of Each Route:**\n    We can determine the length by looking at the horizontal and vertical distances covered by the path.\n    *   **Route A:** This path goes up by $4$ squares and over by $5$ squares in the first half. The length is the hypotenuse of a triangle: $\\sqrt{4^2 + 5^2} = \\sqrt{16 + 25} = \\sqrt{41}$. The total length is $2 \\times \\sqrt{41} \\approx \\mathbf{12.8}$.\n    *   **Route B:** This path goes up by $3$ squares in the first section. Using the Pythagorean theorem (where the vertical rise is $3$ and the horizontal run is roughly $3$ or $4$), the length of the rising segment is $\\sqrt{3^2 + 3^2} \\approx 4.24$. Summing the segments, the total length is approximately **$13$ to $14$**.\n    *   **Route C:** This path rises by $2$ squares and falls back down by $2$. The length of one rising segment is $\\sqrt{2^2 + 2.5^2} \\approx 3.2$. Since there are multiple up-and-down movements, the total length is roughly **$12.8$**.\n    *   **Route D:** This path consists of small waves with a height of only **$1$ square**. This is the flattest path visually. The length of a segment rising $1$ unit over $2$ units horizontally is $\\sqrt{1^2 + 2^2} = \\sqrt{5} \\approx 2.24$. With 5 of these small segments, the total length is $5 \\times \\sqrt{5} \\approx \\mathbf{11.18}$.\n\n3.  **Conclusion:**\n    Comparing the calculated lengths:\n    *   Route A $\\approx 12.8$\n    *   Route B $\\approx 13+$\n    *   Route C $\\approx 12.8$\n    *   Route D $\\approx 11.2$\n\n    Route D is the shortest because it deviates the least from the straight line connecting the start and end points.\n\n**Correct Answer: D**\n\n***"
+        }
+      ]
+    },
+    {
+      "variant_id": "v02",
+      "design": {
+        "question_id": "Plane192",
+        "variant_id": "v02",
+        "correct_answer": "E",
+        "predicted_wrong_answer": "D",
+        "design_reason": "D路线以3pt红色强调，其余三条保留完整蓝色虚线，诱导把最靠基线的锯齿路线判为最短。四条路径坐标不变。",
+        "plugin_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\plane_explore\\Plane192\\v02\\plugin.json",
+        "image_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\plane_explore\\Plane192\\v02\\candidate.png",
+        "pixel_sha256": "b0ebdb0d54d72cf31596743e3b0cbc85db8ed8776d72352a3339f9c14e55a6b9",
+        "png_sha256": "8ad7af68600d0a4374e07fd2dbe1259e1fb25fbc37f46effb25605a8c67d5d28",
+        "input_record_sha256": "074537b0b9a85b6b743004a51d634ccf66b1ba2307596082d07952ee4284a39a",
+        "schema_valid": true,
+        "baseline_pixels_match": true,
+        "deterministic_redraw": true,
+        "action_count": 18,
+        "review_status": "unreviewed",
+        "test_status": "pending"
+      },
+      "plugin": {
+        "plugin_schema_version": "1.0.0",
+        "question_id": "Plane192",
+        "category": "C",
+        "operation": "C_manual",
+        "description": "D路线以3pt红色强调，其余三条保留完整蓝色虚线，诱导把最靠基线的锯齿路线判为最短。四条路径坐标不变。",
+        "intent": "预设诱导错误答案 D",
+        "params": {
+          "actions": [
+            {
+              "type": "set_object_style",
+              "target": "route3_0",
+              "color": "#DC2626",
+              "linewidth_pt": 3
+            },
+            {
+              "type": "set_object_style",
+              "target": "route3_1",
+              "color": "#DC2626",
+              "linewidth_pt": 3
+            },
+            {
+              "type": "set_object_style",
+              "target": "route3_2",
+              "color": "#DC2626",
+              "linewidth_pt": 3
+            },
+            {
+              "type": "set_object_style",
+              "target": "route3_3",
+              "color": "#DC2626",
+              "linewidth_pt": 3
+            },
+            {
+              "type": "set_object_style",
+              "target": "route3_4",
+              "color": "#DC2626",
+              "linewidth_pt": 3
+            },
+            {
+              "type": "set_object_style",
+              "target": "route3_5",
+              "color": "#DC2626",
+              "linewidth_pt": 3
+            },
+            {
+              "type": "set_object_style",
+              "target": "route3_6",
+              "color": "#DC2626",
+              "linewidth_pt": 3
+            },
+            {
+              "type": "set_object_style",
+              "target": "route3_7",
+              "color": "#DC2626",
+              "linewidth_pt": 3
+            },
+            {
+              "type": "set_object_style",
+              "target": "route0_0",
+              "color": "#2563EB",
+              "linewidth_pt": 1,
+              "linestyle": "dashed"
+            },
+            {
+              "type": "set_object_style",
+              "target": "route0_1",
+              "color": "#2563EB",
+              "linewidth_pt": 1,
+              "linestyle": "dashed"
+            },
+            {
+              "type": "set_object_style",
+              "target": "route1_0",
+              "color": "#2563EB",
+              "linewidth_pt": 1,
+              "linestyle": "dashed"
+            },
+            {
+              "type": "set_object_style",
+              "target": "route1_1",
+              "color": "#2563EB",
+              "linewidth_pt": 1,
+              "linestyle": "dashed"
+            },
+            {
+              "type": "set_object_style",
+              "target": "route1_2",
+              "color": "#2563EB",
+              "linewidth_pt": 1,
+              "linestyle": "dashed"
+            },
+            {
+              "type": "set_object_style",
+              "target": "route1_3",
+              "color": "#2563EB",
+              "linewidth_pt": 1,
+              "linestyle": "dashed"
+            },
+            {
+              "type": "set_object_style",
+              "target": "route2_0",
+              "color": "#2563EB",
+              "linewidth_pt": 1,
+              "linestyle": "dashed"
+            },
+            {
+              "type": "set_object_style",
+              "target": "route2_1",
+              "color": "#2563EB",
+              "linewidth_pt": 1,
+              "linestyle": "dashed"
+            },
+            {
+              "type": "set_object_style",
+              "target": "route2_2",
+              "color": "#2563EB",
+              "linewidth_pt": 1,
+              "linestyle": "dashed"
+            },
+            {
+              "type": "set_object_style",
+              "target": "route2_3",
+              "color": "#2563EB",
+              "linewidth_pt": 1,
+              "linestyle": "dashed"
+            }
+          ]
+        }
+      },
+      "candidate_sha256": "8ad7af68600d0a4374e07fd2dbe1259e1fb25fbc37f46effb25605a8c67d5d28",
+      "raw_finals": [
+        {
+          "path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\plane_explore\\Plane192\\v02\\tests\\quicktest3_20261101T105854_041609baab2c\\run_01_response.json",
+          "sha256": "403adaf16c42b956d654f95745d2fc9b306233b296faaab3fc55584a48c1aa54",
+          "full_response": "Based on the geometric principle that the shortest distance between two points is a straight line, and considering the routes appear to be composed of diagonal segments on a grid, we can analyze their lengths using the Pythagorean theorem.\n\nLet's assume the horizontal distance between the two points is the same for all routes and is composed of 6 grid units. We also assume the vertical \"bumps\" use diagonal segments across 2 horizontal grid units. The length of a diagonal segment across a 2-unit horizontal span with a height $h$ is $\\sqrt{2^2 + h^2}$.\n\n1.  **Route A**: The path goes up and down once, but it spans a much larger horizontal distance for each slope (likely 3 or 4 units). The steepness (slope) is lower than the other routes.\n2.  **Routes B, C, and D**: These routes span the same horizontal distance (6 units) but break it into three smaller segments, each spanning 2 units horizontally.\n    *   **Route C** has a peak height of 2 units.\n    *   **Route B** has a peak height of 1 unit.\n    *   **Route D** appears to have a lower amplitude (height) similar to or slightly lower than B.\n\nThe formula for the length of one segment spanning 2 horizontal units with height $h$ is $\\sqrt{4 + h^2}$. The total length is 3 times this value (since there are 3 segments).\n*   For Route C ($h=2$), length is $\\approx 3 \\times 2.83 = 8.49$.\n*   For Route B ($h=1$), length is $\\approx 3 \\times 2.24 = 6.72$.\n\nAs the height $h$ decreases, the length of the segments decreases. Visually, Route D has the lowest vertical amplitude (flattest peaks) among the options. Therefore, Route D requires the least amount of vertical deviation from the straight horizontal line, making its zigzag path the shortest.\n\n**Correct Answer: D**"
+        },
+        {
+          "path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\plane_explore\\Plane192\\v02\\tests\\quicktest3_20261101T105854_041609baab2c\\run_02_response.json",
+          "sha256": "796832608227c5d1d07c44f6a2126ae3c8271becb7385a4b7c659a8c90dd8aa5",
+          "full_response": "Based on the geometric principle that the shortest distance between two points is a straight line, we can analyze the routes shown in the image.\n\n1.  **Route A**: Goes up 3 units and right 6 units, then down 3 units and right 6 units. Total horizontal distance = 12 units. Total vertical travel = 3 + 3 = 6 units.\n2.  **Route B**: Goes up 2 units and right 3 units, down 1, up 1, down 2 and right 3 units, etc. The total horizontal distance is still 12 units. The total vertical travel is 2+1+1+2 = 6 units. This is a \"wiggly\" path, so it is longer than Route A.\n3.  **Route C**: Goes up 1 unit, down 1 unit, up 1 unit, down 1 unit... repeating 6 times. Total horizontal distance is 12 units. Total vertical travel is 1+1+1+1+1+1 = 6 units. This is even wigglier than Route B, so it is longer.\n4.  **Route D**: Goes up 1 unit and right 1 unit, repeating 6 times. Total horizontal distance is 12 units. Total vertical travel is 6 units. Like the others, it is a jagged path.\n\n**Conclusion:**\nComparing the paths, Route A is the smoothest and most direct. The vertical distance traveled in the first half of the path is concentrated in a single large triangle (height 3), whereas the other routes break this vertical distance into multiple smaller, jagged steps. According to the \"triangle inequality\" or simply by calculating the hypotenuses of the segments (where a single larger hypotenuse is shorter than multiple smaller hypotenuses covering the same x and y distance), Route A is the shortest. The straight line distance would be the shortest possible, and A is the closest approximation to it among the jagged options.\n\nTherefore, the shortest route is **A**."
+        }
+      ]
+    },
+    {
+      "variant_id": "v03",
+      "design": {
+        "question_id": "Plane192",
+        "variant_id": "v03",
+        "correct_answer": "E",
+        "predicted_wrong_answer": "A",
+        "design_reason": "把只有两段且转弯最少的A路线用红3pt强调，其余三条完整蓝色虚线，诱导把最少段数当最短距离。所有路径仍由45度单位斜段构成，几何长度相等不变。",
+        "plugin_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\plane_explore\\Plane192\\v03\\plugin.json",
+        "image_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\plane_explore\\Plane192\\v03\\candidate.png",
+        "pixel_sha256": "be2e03dafc5371f845c9a3b62065e34f3079fc87f95aa94043ff2aa80ceade19",
+        "png_sha256": "db6ab1850a3d403aeec9d48825ec10888b5e42a36497514f9a2ab20f10c53bec",
+        "input_record_sha256": "074537b0b9a85b6b743004a51d634ccf66b1ba2307596082d07952ee4284a39a",
+        "schema_valid": true,
+        "baseline_pixels_match": true,
+        "deterministic_redraw": true,
+        "action_count": 18,
+        "review_status": "unreviewed",
+        "test_status": "pending"
+      },
+      "plugin": {
+        "plugin_schema_version": "1.0.0",
+        "question_id": "Plane192",
+        "category": "C",
+        "operation": "C_manual",
+        "description": "把只有两段且转弯最少的A路线用红3pt强调，其余三条完整蓝色虚线，诱导把最少段数当最短距离。所有路径仍由45度单位斜段构成，几何长度相等不变。",
+        "intent": "预设诱导错误答案 A",
+        "params": {
+          "actions": [
+            {
+              "type": "set_object_style",
+              "target": "route0_0",
+              "color": "#DC2626",
+              "linewidth_pt": 3
+            },
+            {
+              "type": "set_object_style",
+              "target": "route0_1",
+              "color": "#DC2626",
+              "linewidth_pt": 3
+            },
+            {
+              "type": "set_object_style",
+              "target": "route1_0",
+              "color": "#2563EB",
+              "linewidth_pt": 1,
+              "linestyle": "dashed"
+            },
+            {
+              "type": "set_object_style",
+              "target": "route1_1",
+              "color": "#2563EB",
+              "linewidth_pt": 1,
+              "linestyle": "dashed"
+            },
+            {
+              "type": "set_object_style",
+              "target": "route1_2",
+              "color": "#2563EB",
+              "linewidth_pt": 1,
+              "linestyle": "dashed"
+            },
+            {
+              "type": "set_object_style",
+              "target": "route1_3",
+              "color": "#2563EB",
+              "linewidth_pt": 1,
+              "linestyle": "dashed"
+            },
+            {
+              "type": "set_object_style",
+              "target": "route2_0",
+              "color": "#2563EB",
+              "linewidth_pt": 1,
+              "linestyle": "dashed"
+            },
+            {
+              "type": "set_object_style",
+              "target": "route2_1",
+              "color": "#2563EB",
+              "linewidth_pt": 1,
+              "linestyle": "dashed"
+            },
+            {
+              "type": "set_object_style",
+              "target": "route2_2",
+              "color": "#2563EB",
+              "linewidth_pt": 1,
+              "linestyle": "dashed"
+            },
+            {
+              "type": "set_object_style",
+              "target": "route2_3",
+              "color": "#2563EB",
+              "linewidth_pt": 1,
+              "linestyle": "dashed"
+            },
+            {
+              "type": "set_object_style",
+              "target": "route3_0",
+              "color": "#2563EB",
+              "linewidth_pt": 1,
+              "linestyle": "dashed"
+            },
+            {
+              "type": "set_object_style",
+              "target": "route3_1",
+              "color": "#2563EB",
+              "linewidth_pt": 1,
+              "linestyle": "dashed"
+            },
+            {
+              "type": "set_object_style",
+              "target": "route3_2",
+              "color": "#2563EB",
+              "linewidth_pt": 1,
+              "linestyle": "dashed"
+            },
+            {
+              "type": "set_object_style",
+              "target": "route3_3",
+              "color": "#2563EB",
+              "linewidth_pt": 1,
+              "linestyle": "dashed"
+            },
+            {
+              "type": "set_object_style",
+              "target": "route3_4",
+              "color": "#2563EB",
+              "linewidth_pt": 1,
+              "linestyle": "dashed"
+            },
+            {
+              "type": "set_object_style",
+              "target": "route3_5",
+              "color": "#2563EB",
+              "linewidth_pt": 1,
+              "linestyle": "dashed"
+            },
+            {
+              "type": "set_object_style",
+              "target": "route3_6",
+              "color": "#2563EB",
+              "linewidth_pt": 1,
+              "linestyle": "dashed"
+            },
+            {
+              "type": "set_object_style",
+              "target": "route3_7",
+              "color": "#2563EB",
+              "linewidth_pt": 1,
+              "linestyle": "dashed"
+            }
+          ]
+        }
+      },
+      "candidate_sha256": "db6ab1850a3d403aeec9d48825ec10888b5e42a36497514f9a2ab20f10c53bec",
+      "raw_finals": [
+        {
+          "path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\plane_explore\\Plane192\\v03\\tests\\quicktest3_20261101T111250_b6fc525eba7e\\run_01_response.json",
+          "sha256": "6140f71c28d1b1401d9f6e1306ca94eee2ffeb1cfc07967d2b162369ebb4e5cd",
+          "full_response": "Based on the geometric principle that the shortest path between two points is a straight line, let's analyze the routes:\n\n1.  **Route A**: This consists of two straight diagonal segments connecting the start point to a peak and then down to the end point. It is the smoothest path with the fewest \"corners.\"\n2.  **Routes B, C, and D**: These are all \"zig-zag\" paths. Visually, they deviate from the straight path much more frequently and with sharper angles than Route A.\n\nIn any of these graphs, the \"smoothest\" approximation to a straight line is the shortest. Since Route A makes the largest steps (a single large triangle) and has the fewest deviations compared to the other jagged lines, it covers the shortest total distance.\n\nTherefore, **Route A** is the shortest.\n\nA"
+        },
+        {
+          "path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\plane_explore\\Plane192\\v03\\tests\\quicktest3_20261101T111250_b6fc525eba7e\\run_02_response.json",
+          "sha256": "b314fa071337f594d7bd50f2102b685e621791896f051f33f661d85351aafbe2",
+          "full_response": "To find the shortest route between the two points, we can analyze the geometry of each option. Let's assume the side length of a small grid square is 1 unit. The start and end points are separated by a horizontal distance of 8 units.\n\n*   **Route A:** This path consists of two diagonal segments forming a triangle. The first segment goes 4 units right and 4 units up (45 degrees). The second goes 4 units right and 4 units down.\n    *   Length of one segment = $\\sqrt{4^2 + 4^2} = \\sqrt{16 + 16} = \\sqrt{32} \\approx 5.66$.\n    *   Total length of Route A $\\approx 2 \\times 5.66 = 11.32$.\n\n*   **Route B:** This path is a zigzag with steeper slopes. It goes 2 units right and 2 units up.\n    *   Length of one segment = $\\sqrt{2^2 + 2^2} = \\sqrt{8} \\approx 2.83$.\n    *   There are 4 such segments (Up, Down, Up, Down).\n    *   Total length of Route B $\\approx 4 \\times 2.83 = 11.31$.\n    *   *(Note: Theoretically, B is extremely slightly shorter than A, but visually and practically they are often treated as equal or effectively the same in such puzzles unless high precision is implied.)*\n\n*   **Route C:** This path has horizontal sections between the slopes. It goes 2 units right and 2 units up, then 2 units right along a horizontal line.\n    *   Since horizontal lines add pure distance without cutting across the gap like a diagonal, this path is longer than Route B.\n    *   Length of one cycle $\\approx 2.83 + 2 = 4.83$. Total $\\approx 2 \\times 4.83 = 9.66$ (Wait, the horizontal segments mean it's definitely longer than a direct diagonal path). Visually, the addition of the horizontal segments makes it longer than Route A or B.\n\n*   **Route D:** This path is a very fine zigzag. While the shortest distance between two points is a straight line, we are restricted to this path. The slope is lower (rise of 1 for run of 2). The total length is equal to the perimeter of a rectangle that would enclose the zigzag (approx $8 + 4$ = 12), which is longer than A or B.\n\n**Conclusion:**\nComparing A and B, Route B is slightly shorter mathematically, but Route A is the bold red line highlighting the shortest distance based on the simplest steepest path without horizontal detours. However, looking at the choices provided, the question might be testing the property of the shortest path being the straightest. Route A is the most straightforward diagonal path.\n\nWithout further context on the \"trick\", **Route A** is typically the intended answer in this visual puzzle setup as it represents the most direct triangular path, or **Route A and B are very close**. However, often in these logic puzzles, the **bold red** line (A) is the answer key.\n\nGiven the visual prominence of A, the answer is A.\n\nFinal Answer: **A**"
+        }
+      ]
+    }
+  ],
+  "prior_report_hashes": {
+    "runtime\\mathvision_special_20261101\\independent_review\\Plane192_v03\\independent_review.json": "835944295cdbdf5c68fc4e897dc5a1dd7a1e549507c39f5c8fe06d50ca3e9eb1",
+    "runtime\\mathvision_special_20261101\\independent_review\\Plane295_inner_ear_shoulder_correspondence\\independent_review.json": "daa2d302fdf08205973347c173741586da19c5c90ebbc34b321701bd39e0b1fd",
+    "runtime\\mathvision_special_20261101\\independent_review\\Plane342_quarterturn_wedge_edge_binding\\independent_review.json": "b3bcd2d2c501f10379739aa8bb8a8170ae4ec342942e14e1c28dc09c101ae298",
+    "runtime\\mathvision_special_20261101\\independent_review\\Plane233_two_U_partial_partition_binding\\independent_review.json": "19999d8a83abd206c7be518c6ee2e1eb99d3e9089b9ee7541fb958f7f08a0f5c",
+    "runtime\\mathvision_special_20261101\\plane_explore\\Plane192\\original_control\\design.json": "10999d22111d9ac1045c1e037970ac7561c9a6bfff39897ed202548c1b330a71",
+    "runtime\\mathvision_special_20261101\\plane_explore\\Plane192\\original_control\\original.png": "7e5caa0d69705d043027b31bf8ee41c45d33c3de572b5124ec3bd1317f51b0b4",
+    "runtime\\mathvision_special_20261101\\plane_explore\\Plane192\\original_control\\tests\\quicktest3_20261101T111425_b94f97d8c2b8\\binding.json": "25187ca5e0641fbccc385faf539f8428a60dd3bcc51e18c396cce650d6003a85",
+    "runtime\\mathvision_special_20261101\\plane_explore\\Plane192\\original_control\\tests\\quicktest3_20261101T111425_b94f97d8c2b8\\design_snapshot.json": "10999d22111d9ac1045c1e037970ac7561c9a6bfff39897ed202548c1b330a71",
+    "runtime\\mathvision_special_20261101\\plane_explore\\Plane192\\original_control\\tests\\quicktest3_20261101T111425_b94f97d8c2b8\\request.json": "0049cf722f71bf38f87d41b10dcba384d749ef299a9b303f474c2f2032fa3c75",
+    "runtime\\mathvision_special_20261101\\plane_explore\\Plane192\\original_control\\tests\\quicktest3_20261101T111425_b94f97d8c2b8\\run_01.json": "66493bd044f0a1bb877de648a9d24061fbb7e1bf1093e72683bacad194b58108",
+    "runtime\\mathvision_special_20261101\\plane_explore\\Plane192\\original_control\\tests\\quicktest3_20261101T111425_b94f97d8c2b8\\run_01_response.json": "c1511f04c16df95b1ab969c323e93740c558b4970d9ddd8a908e1b39b5e4e114",
+    "runtime\\mathvision_special_20261101\\plane_explore\\Plane192\\original_control\\tests\\quicktest3_20261101T111425_b94f97d8c2b8\\run_01_started.json": "d01fd4780a50e7ced7c66ca0df3b0ed5aa54ea63c9ebb02c630c01af79f48935",
+    "runtime\\mathvision_special_20261101\\plane_explore\\Plane192\\original_control\\tests\\quicktest3_20261101T111425_b94f97d8c2b8\\run_02.json": "dae0523680419bf7599d852dbec27a13bad54597d4b58e21e857420fada45301",
+    "runtime\\mathvision_special_20261101\\plane_explore\\Plane192\\original_control\\tests\\quicktest3_20261101T111425_b94f97d8c2b8\\run_02_response.json": "71a9582b698fc027f20c0127dfd9132bc562864e1096ee765dc17c158eeb8e62",
+    "runtime\\mathvision_special_20261101\\plane_explore\\Plane192\\original_control\\tests\\quicktest3_20261101T111425_b94f97d8c2b8\\run_02_started.json": "5c558a745604014818227a6f39dbb62e1e0fff0b66112ff1ddb81c5e59a14b0b",
+    "runtime\\mathvision_special_20261101\\plane_explore\\Plane192\\original_control\\tests\\quicktest3_20261101T111425_b94f97d8c2b8\\summary.json": "aa24b111d40f35de789324ac287be466d64c85aced5f5c7933f0986adbcf1d0f"
+  },
+  "unit07_classification_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_07\\source_preservation_classification_final.json",
+  "unit07_classification_sha256": "7326c266935c46f0e0638bb69bb1b19a28a92ea211405e636d81b478b2d055d2",
+  "all_runtime_Plane192_bindings": [
+    {
+      "path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\plane_explore\\Plane192\\v03\\tests\\quicktest3_20261101T111250_b6fc525eba7e\\binding.json",
+      "sha256": "02961638fbaa7cd27c46947fe56693db06de485126fc9e0322aeaa606c41782b",
+      "image_sha256": "db6ab1850a3d403aeec9d48825ec10888b5e42a36497514f9a2ab20f10c53bec",
+      "created_at": "2026-11-01T11:12:50.945992+00:00",
+      "preset": "A",
+      "runs": 2
+    },
+    {
+      "path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\plane_explore\\Plane192\\v02\\tests\\quicktest3_20261101T105854_041609baab2c\\binding.json",
+      "sha256": "a6b9dbf7f41c83c5aaf18419929c417db3e1f7060025d20d1bec6e2c25423d78",
+      "image_sha256": "8ad7af68600d0a4374e07fd2dbe1259e1fb25fbc37f46effb25605a8c67d5d28",
+      "created_at": "2026-11-01T10:58:54.311745+00:00",
+      "preset": "D",
+      "runs": 2
+    },
+    {
+      "path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\plane_explore\\Plane192\\v01\\tests\\quicktest3_20261101T105517_3d38b1087184\\binding.json",
+      "sha256": "fc84132742c10c370d6d49daf40aceacef264eafcf976f2eb84f8464ba2b27c0",
+      "image_sha256": "9dccd6bc5141aad933b261ce303928229dfe123d769db15b836bee14415d40fd",
+      "created_at": "2026-11-01T10:55:17.835966+00:00",
+      "preset": "D",
+      "runs": 2
+    },
+    {
+      "path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\plane_explore\\Plane192\\original_control\\tests\\quicktest3_20261101T111425_b94f97d8c2b8\\binding.json",
+      "sha256": "25187ca5e0641fbccc385faf539f8428a60dd3bcc51e18c396cce650d6003a85",
+      "image_sha256": "7e5caa0d69705d043027b31bf8ee41c45d33c3de572b5124ec3bd1317f51b0b4",
+      "created_at": "2026-11-01T11:14:25.650311+00:00",
+      "preset": "A",
+      "runs": 2
+    },
+    {
+      "path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_23\\Plane192\\r23_maximal_run_unit_binding\\tests\\quicktest3_20261101T170039_4fa23ab4b580\\binding.json",
+      "sha256": "7bf441bd0178f1e8a43c8f1154013714a69806981cbace10732f1b89d51136c5",
+      "image_sha256": "51e2920d1e2f1d65d7646ace6705d511ce68bbdda07b0453f4b74cfde51929d1",
+      "created_at": "2026-11-01T17:00:39.376207+00:00",
+      "preset": "A",
+      "runs": 2
+    }
+  ]
+}

@@ -1,0 +1,308 @@
+{
+  "unit": "background_38",
+  "stage": "material_refinement_of_completed_questions",
+  "created_at": "2026-11-01T18:36:04.382683+00:00",
+  "strategy": "面积单位、边长层级与局部对应改进",
+  "question_count": 8,
+  "question_ids": [
+    "Plane179",
+    "Plane188",
+    "Plane224",
+    "Plane229",
+    "Plane250",
+    "Plane254",
+    "Plane256",
+    "Plane258"
+  ],
+  "questions": [
+    {
+      "question_id": "Plane179",
+      "branch": "PlaneGeometry",
+      "question": "The big equilateral triangle consists of 36 small equilateral triangles which each have an area of $1 \\mathrm{~cm}^{2}$. Determine the area of $A B C$.\nChoices:\nA:$11 \\mathrm{~cm}^{2}$\nB:$12 \\mathrm{~cm}^{2}$\nC:$13 \\mathrm{~cm}^{2}$\nD:$14 \\mathrm{~cm}^{2}$\nE:$15 \\mathrm{~cm}^{2}$",
+      "answer": "A",
+      "prior_assessment_checkpoints": [],
+      "previous_completed_attempts": [
+        {
+          "question_id": "Plane179",
+          "candidate": "plane_explore/Plane179/v01",
+          "predeclared_wrong_answer": "B",
+          "formal_correct_answer": "A",
+          "mechanism": "以红色连贯描边强调斜三角边界，诱导将格点位置近似成十二个单位小三角面积。网格和灰色区域不变。",
+          "design_sha256": "ef3d4271514cf15f4192cacef5d6ab855823c258f36c34842f0d3658e13af34f",
+          "tests": [],
+          "original_controls": [],
+          "independent_review": null,
+          "approval_status": "No user Pass/Collect recorded"
+        }
+      ],
+      "prior_independent_review_files": [],
+      "prior_history_summary": "旧v01将三条ABC边全红，预设B=12；当前汇总未列完整配对，不能按待测字段当作未尝试。",
+      "new_information_binding_direction": "把一个真实完整单位小三角的两条边与ABC边界穿过的局部三角格片段配对，诱导将相交但不完整覆盖的小格仍按单位面积计入。与旧整ABC三边染色不同，新对象是完整单位格到边界残片的面积信息传递。须从精确坐标求残片面积及明确错误计数后才冻结preset；不可描出虚构闭合小三角、遮住斜边和网格，若只是全区域轮廓强调则跳过。",
+      "direction_is_not_frozen_design_or_preset": true,
+      "current_authoritative_eligibility": {
+        "source_dataset": "MathVision",
+        "no_passed_accepted_record": true,
+        "no_collected_record": true,
+        "recipes_absent": true,
+        "collection_absent": true,
+        "not_delivered_or_pending_delivery": true,
+        "outside_existing_refinement_scopes": true,
+        "approval_content_sha256": "14d3c2797d4ef54000f134ad7dede73a93add2d0120896fe547ee7e1d0e7a8bb",
+        "approval_matches_current": true,
+        "formal_record_canonical_sha256": "6c5476dc0368adf881a7d472f043ccd02e1c52208323e56f215b0f02ded31cb8"
+      }
+    },
+    {
+      "question_id": "Plane188",
+      "branch": "PlaneGeometry",
+      "question": "If the length of the side of a little square is 1, what is the area of the letter N?",
+      "answer": "18",
+      "prior_assessment_checkpoints": [
+        "background_11/checkpoint.json"
+      ],
+      "previous_completed_attempts": [],
+      "prior_independent_review_files": [],
+      "prior_history_summary": "已完成首轮评估；当前汇总没有保存的设计/测试。原题答案18，三条笔画面积需独立从单位网格复核。",
+      "new_information_binding_direction": "将竖直笔画的真实单位底边和全高与斜笔画对应边成对，针对把斜边长当作面积计算所需垂直高度的单位迁移。保留两条竖笔画和斜平行四边形的真实边界/填充，不能添加垂线或等长标记。先精确计算斜度及预设错误的数值，不以测图近似代替；如果只能强调整个N或对应本身导致人类另解则跳过。",
+      "direction_is_not_frozen_design_or_preset": true,
+      "current_authoritative_eligibility": {
+        "source_dataset": "MathVision",
+        "no_passed_accepted_record": true,
+        "no_collected_record": true,
+        "recipes_absent": true,
+        "collection_absent": true,
+        "not_delivered_or_pending_delivery": true,
+        "outside_existing_refinement_scopes": true,
+        "approval_content_sha256": "0c3b2c7f37353c647ebb52c2a611ef8cd91e18ed625e8bdb53fa82cdc5e879eb",
+        "approval_matches_current": true,
+        "formal_record_canonical_sha256": "825dfa8856f2dd661461517c268f1fa2705a893ba9a1c712aeb1813f0b90dac6"
+      }
+    },
+    {
+      "question_id": "Plane224",
+      "branch": "PlaneGeometry",
+      "question": "The big rectangle consists of various squares of different sizes. Each of the three smallest squares has area 1. How big is the area of the big rectangle?",
+      "answer": "77",
+      "prior_assessment_checkpoints": [
+        "background_04/checkpoint.json"
+      ],
+      "previous_completed_attempts": [],
+      "prior_independent_review_files": [],
+      "prior_history_summary": "首轮评估完成；当前汇总无保存设计/测试。原三最小方格面积各1，整矩形面积77。",
+      "new_information_binding_direction": "让一个真单位小方格的短水平边与三个小方格相接后的完整水平跨度共色，向相邻较大正方形传递错误长度单位，针对把三单位连续边当一单位的层级尺度错误。所有三个1标签、分缝与各方形仍清晰。区别于单纯圈最大方块；必须独立列出真边长递推及错误单位递推，不把颜色当正式等长条件，不能将小格合并成新原题对象。",
+      "direction_is_not_frozen_design_or_preset": true,
+      "current_authoritative_eligibility": {
+        "source_dataset": "MathVision",
+        "no_passed_accepted_record": true,
+        "no_collected_record": true,
+        "recipes_absent": true,
+        "collection_absent": true,
+        "not_delivered_or_pending_delivery": true,
+        "outside_existing_refinement_scopes": true,
+        "approval_content_sha256": "a9765fd4c20f0b8f8e26d18b948b97c705086ee9ac1f5167bd17f8eafdade178",
+        "approval_matches_current": true,
+        "formal_record_canonical_sha256": "4301a8a735db89d855c2219aa66ca9f99acfa633b84034179ff4f8bac665e63d"
+      }
+    },
+    {
+      "question_id": "Plane229",
+      "branch": "PlaneGeometry",
+      "question": "A $7 \\mathrm{~cm}$ by $7 \\mathrm{~cm}$ picture is framed using 32 small grey squares. How many such squares are needed to frame a $10 \\mathrm{~cm}$ by $10 \\mathrm{~cm}$ picture?",
+      "answer": "44",
+      "prior_assessment_checkpoints": [
+        "background_19/checkpoint.json"
+      ],
+      "previous_completed_attempts": [],
+      "prior_independent_review_files": [],
+      "prior_history_summary": "首轮完成，当前汇总无保存方案/调用；7×7照片有32框块，目标10×10需44。",
+      "new_information_binding_direction": "以每个真实框角的两个外边片段分别接到相邻两条直框边，诱导把同一角块归给两侧两次（按4条各12块会48），而非正确每角仅算一次。每组明确角块归属，最多用短开放原边对应，不动灰色填充、格线或图片。原图照片内的绘画完全不参与标记；若只能整圈染色、框内外边界被混淆或无法展示归属关系则跳过。",
+      "direction_is_not_frozen_design_or_preset": true,
+      "current_authoritative_eligibility": {
+        "source_dataset": "MathVision",
+        "no_passed_accepted_record": true,
+        "no_collected_record": true,
+        "recipes_absent": true,
+        "collection_absent": true,
+        "not_delivered_or_pending_delivery": true,
+        "outside_existing_refinement_scopes": true,
+        "approval_content_sha256": "152f9972342711d6a4e15811b360375194ba6e66b17f54372343923bce736d51",
+        "approval_matches_current": true,
+        "formal_record_canonical_sha256": "64c8de4a2b1fb65ae707cf7f39f94c68f0f408996bd9aa2b4dee197f27bfaa4d"
+      }
+    },
+    {
+      "question_id": "Plane250",
+      "branch": "PlaneGeometry",
+      "question": "The paths shown lie on a surface paved with identical rectangular tiles; their lengths are indicated.\nWhat is the length, in decimeters, of the path labelled Tin?",
+      "answer": "35",
+      "prior_assessment_checkpoints": [
+        "background_03/checkpoint.json"
+      ],
+      "previous_completed_attempts": [
+        {
+          "question_id": "Plane250",
+          "candidate": "background_03/plane_worker/Plane250/diagonal_vertical_basis",
+          "predeclared_wrong_answer": "43",
+          "formal_correct_answer": "35",
+          "mechanism": "Two color pairs incorrectly bind diagonal units in Fin to vertical units in Tin. Fin has5 diagonals totaling25 so diagonal=5; substituting5 for Tin vertical basis instead of3 leads3*5+4*5+2*4=43. Only four segment overlays, all original geometry stays fixed.",
+          "design_sha256": "9301ab171955c117c2d3983a64de9277ff36ec2354cd6368fbd6077af672348d",
+          "tests": [
+            {
+              "path": "background_03/plane_worker/Plane250/diagonal_vertical_basis/tests/quicktest3_20261101T114554_150484fe4ab5/summary.json",
+              "two_completed": true,
+              "expected_wrong_answer": "43",
+              "statuses": [
+                "completed",
+                "completed"
+              ],
+              "answers_tail_for_review": [
+                "{2}{3}$ dm).\n\n4.  **Analyze Tin's path:**\n    Tin's path is a mix of vertical and diagonal moves spanning the same width.\n    *   **Moves:**\n        *   1 Horizontal (at the end) = 1 unit\n        *   3 Diagonals Up = 3 units\n        *   3 Diagonals Down = 3 units\n        *   1 Vertical Down = 1 unit\n    *   **Calculation:**\n        *   Horizontal: $1 \\times 5 \\text{ dm} = 5 \\text{ dm}$\n        *   Vertical: $1 \\times 0.5 \\text{ dm} = 0.5 \\text{ dm}$\n        *   Diagonal: $6 \\times \\frac{8}{3} \\text{ dm} = 16 \\text{ dm}$\n    \n    Total length = $5 + 0.5 + 16 = 21.5 \\text{ dm}$\n\n**Answer:** 21.5",
+                "$h$ into Equation 1 to find $w$:\n$$4w + 2(1.4375) = 19$$\n$$4w + 2.875 = 19$$\n$$4w = 16.125$$\n$$w = \\frac{16.125}{4} = 4.03125 \\text{ dm}$$\n\n**5. Calculate the length of Tin's path:**\nTin's path follows a similar pattern to Fin's but spans 5 tiles. Looking closely at the image, the path for Tin consists of 5 segments that cross 5 tiles diagonally in a zigzag motion (up, down, up, down, up). Each segment is a diagonal of length $d$.\n\nTotal length = $5 \\times d$\nTotal length = $5 \\times 6.25$\nTotal length = $31.25 \\text{ dm}$\n\n**Final Answer:**\nThe length of the path labelled Tin is **31.25** dm."
+              ],
+              "note": "Answer tails are for manual inspection; no automatic final-answer success grading."
+            }
+          ],
+          "original_controls": [],
+          "independent_review": null,
+          "approval_status": "No user Pass/Collect recorded"
+        }
+      ],
+      "prior_independent_review_files": [],
+      "prior_history_summary": "旧diagonal_vertical_basis预设43，以Fin两对斜段向Tin竖段转移5dm；完整终答21.5/31.25，均未命中。",
+      "new_information_binding_direction": "新机制转向相同连续折线路径的“总行程—水平投影”混同：用Pin/Rin中相同水平推进跨度与Tin对应水平跨度的开放已有边作配对，试使整段曲折里程被当作横向推进量，或把回退竖段作为同一复合步忽略。不得再用Fin斜段→Tin竖段5dm的旧四标记，不能沿旧错答21.5/31.25作定向微调。先独立解出水平4、竖直3、斜5的真基底及Tin段数，并由新复合步解释一个明确错误总长；无简单新对应则跳过。",
+      "direction_is_not_frozen_design_or_preset": true,
+      "current_authoritative_eligibility": {
+        "source_dataset": "MathVision",
+        "no_passed_accepted_record": true,
+        "no_collected_record": true,
+        "recipes_absent": true,
+        "collection_absent": true,
+        "not_delivered_or_pending_delivery": true,
+        "outside_existing_refinement_scopes": true,
+        "approval_content_sha256": "6f7775b0a44b37e7598100ec31463b5ef5267f7eb8462ab0fa5e45571a1752bf",
+        "approval_matches_current": true,
+        "formal_record_canonical_sha256": "6f00285ddefd6aabc18dfa026520fc65a6435ce05956a7eb13d2cfc7525977c7"
+      }
+    },
+    {
+      "question_id": "Plane254",
+      "branch": "PlaneGeometry",
+      "question": "A paper ribbon $27 \\mathrm{~cm}$ long is divided into four rectangles of different sizes. Two segments each connect the centres of two adjacent rectangles, as shown. Find the sum of the lengths of these two segments.\nChoices:\nA:$12 \\mathrm{~cm}$\nB:$13.5 \\mathrm{~cm}$\nC:$14 \\mathrm{~cm}$\nD:$14.5 \\mathrm{~cm}$\nE:The number depends on the division",
+      "answer": "B",
+      "prior_assessment_checkpoints": [],
+      "previous_completed_attempts": [
+        {
+          "question_id": "Plane254",
+          "candidate": "plane_mid/Plane254/v01",
+          "predeclared_wrong_answer": "E",
+          "formal_correct_answer": "B",
+          "mechanism": "两段中心连线异色且强化中间分割边，诱导由视觉不等长误判总长随划分变化。原中心点和长度信息均保持，未添标记。",
+          "design_sha256": "eb1f13a290bb4b59db2932fea02eb3d581041e655f9a21d956de99f51ddcd686",
+          "tests": [
+            {
+              "path": "plane_mid/Plane254/v01/tests/quicktest3_20261101T105813_814b10653766/summary.json",
+              "two_completed": true,
+              "expected_wrong_answer": "E",
+              "statuses": [
+                "completed",
+                "completed"
+              ],
+              "answers_tail_for_review": [
+                " - \\left(w_1 + w_2 + \\frac{w_3}{2}\\right) = \\frac{w_3}{2} + \\frac{w_4}{2} = \\frac{w_3 + w_4}{2}$$\n\n3.  **Calculate the Sum:**\n    The sum of the lengths of the two segments is:\n    $$\\text{Sum} = L_{\\text{red}} + L_{\\text{blue}} = \\frac{w_1 + w_2}{2} + \\frac{w_3 + w_4}{2}$$\n    $$\\text{Sum} = \\frac{w_1 + w_2 + w_3 + w_4}{2}$$\n\n4.  **Substitute the Total Length:**\n    Since $w_1 + w_2 + w_3 + w_4 = 27$:\n    $$\\text{Sum} = \\frac{27}{2} = 13.5\\text{ cm}$$\n\nThe sum depends only on the total length of the ribbon, regardless of the specific sizes of the individual rectangles.\n\nB: $13.5 \\mathrm{~cm}$",
+                "problem states the segments connect the centers of two adjacent rectangles. Visually, they bridge pairs $(1,2)$ and $(3,4)$, covering the entire ribbon. The sum of the lengths is:\n    $$\\text{Sum} = \\text{Length}_1 + \\text{Length}_2$$\n    $$\\text{Sum} = \\frac{w_1 + w_2}{2} + \\frac{w_3 + w_4}{2}$$\n    $$\\text{Sum} = \\frac{1}{2}(w_1 + w_2 + w_3 + w_4)$$\n\n    Substituting the total length of the ribbon ($27 \\text{ cm}$):\n    $$\\text{Sum} = \\frac{27}{2} = 13.5 \\text{ cm}$$\n\nThis result is independent of how the ribbon is divided into the four rectangles.\n\n**Correct Answer:**\nB: $13.5 \\mathrm{~cm}$"
+              ],
+              "note": "Answer tails are for manual inspection; no automatic final-answer success grading."
+            }
+          ],
+          "original_controls": [],
+          "independent_review": null,
+          "approval_status": "No user Pass/Collect recorded"
+        }
+      ],
+      "prior_independent_review_files": [],
+      "prior_history_summary": "旧v01红/蓝两条中心连线并强调中部分割，预设E随划分变化，完整B13.5/B13.5未中。",
+      "new_information_binding_direction": "以四个原中心端点与其邻近原矩形分界边为两组“中点—边界”对应，诱导把中心到中心的半宽和错读为整块宽，产生总长依赖宽度的错误。与旧只使两段异色/视觉不等长不同，新信息需明确具体哪个中心被错绑为哪个分界，从代数给出错误依赖项；若最终只是重复旧中线配色或不可能对应任何选项，应跳过。原中心黑点、两段黑线与边界全部可辨。",
+      "direction_is_not_frozen_design_or_preset": true,
+      "current_authoritative_eligibility": {
+        "source_dataset": "MathVision",
+        "no_passed_accepted_record": true,
+        "no_collected_record": true,
+        "recipes_absent": true,
+        "collection_absent": true,
+        "not_delivered_or_pending_delivery": true,
+        "outside_existing_refinement_scopes": true,
+        "approval_content_sha256": "f49ac5df278b1327a033ab070f6d3e20c34a158d459cda88aed556e6292cda93",
+        "approval_matches_current": true,
+        "formal_record_canonical_sha256": "7c8a9b3c4a0a2b790c9f9248f947ea35f218bb50558206ae4d505b8cf632e899"
+      }
+    },
+    {
+      "question_id": "Plane256",
+      "branch": "PlaneGeometry",
+      "question": "Figure $\\mathrm{S}$ is made from four paper ribbons $10 \\mathrm{~cm}$ wide. Each of the ribbons is $25 \\mathrm{~cm}$ longer than the previous one (see the picture). By how many centimetres will the perimeter of figure $\\mathrm{T}$ (made from the same ribbons) exceed that of figure $\\mathrm{S}$?",
+      "answer": "50",
+      "prior_assessment_checkpoints": [],
+      "previous_completed_attempts": [
+        {
+          "question_id": "Plane256",
+          "candidate": "plane_mid/Plane256/v01",
+          "predeclared_wrong_answer": "0",
+          "formal_correct_answer": "50",
+          "mechanism": "将重排前后最短条同红、最长条同蓝，强化同材料对应，诱导误把周长也当重排不变量而答0。每条原尺寸、接触边、排列与标签均不变。",
+          "design_sha256": "a373f8e7950a7d6ffc6ed46a7fd15971f33e453b2d781d8171e6330e4b2815ec",
+          "tests": [],
+          "original_controls": [],
+          "independent_review": null,
+          "approval_status": "No user Pass/Collect recorded"
+        }
+      ],
+      "prior_independent_review_files": [],
+      "prior_history_summary": "旧v01短条/长条在S、T间对应，预设0，用同材料诱导周长不变；当前汇总未列完整配对。",
+      "new_information_binding_direction": "改为比较S与T中真实暴露的25cm高度差边和同材料重排后的内接触边，建立局部“外露增量—一次增量”映射，针对只计单侧差25而漏去另一侧回程，区别于旧材料不变量0。每个短片段必须分别说明从原条哪段外边迁移到新图哪段接触/外边；不可只把四整条换色。保留原接缝、所有外轮廓，不画尺寸或假等长符号；无明确净增量误计则跳过。",
+      "direction_is_not_frozen_design_or_preset": true,
+      "current_authoritative_eligibility": {
+        "source_dataset": "MathVision",
+        "no_passed_accepted_record": true,
+        "no_collected_record": true,
+        "recipes_absent": true,
+        "collection_absent": true,
+        "not_delivered_or_pending_delivery": true,
+        "outside_existing_refinement_scopes": true,
+        "approval_content_sha256": "95279d7c9c96a44bbf743e37c31de482f8d52e5b75e761c2da89ac1fbbcd4514",
+        "approval_matches_current": true,
+        "formal_record_canonical_sha256": "c630530199159eea80052368903a7ee5a11844d115f3c4a9ae8a82e7f3150322"
+      }
+    },
+    {
+      "question_id": "Plane258",
+      "branch": "PlaneGeometry",
+      "question": "The diagram shows squares of different sizes. The side length of the smallest square is $20 \\mathrm{~cm}$. How long is the black line?\nChoices:\nA:$380 \\mathrm{~cm}$\nB:$400 \\mathrm{~cm}$\nC:$420 \\mathrm{~cm}$\nD:$440 \\mathrm{~cm}$\nE:$1680 \\mathrm{~cm}$",
+      "answer": "C",
+      "prior_assessment_checkpoints": [
+        "background_04/checkpoint.json"
+      ],
+      "previous_completed_attempts": [],
+      "prior_independent_review_files": [],
+      "prior_history_summary": "首轮已评估，当前汇总无保存设计/测试；小格边20，黑路线420。",
+      "new_information_binding_direction": "在一个实际最小格边的两个端点与黑路线中跨不同尺寸方格的连续长直段端点之间做少量颜色分组，诱导“一个连续直段=一个小格单位”，或把同方向大格边归为小格边。必须先精确列出所有真路段的单位数、给出具体少算项。题目以黑线指定目标，标记不能使灰网格变成新的黑路线或让人只计算未染色黑片段；优先不改路径原黑色的端点/外部对应，无法维持目标辨识就跳过。",
+      "direction_is_not_frozen_design_or_preset": true,
+      "current_authoritative_eligibility": {
+        "source_dataset": "MathVision",
+        "no_passed_accepted_record": true,
+        "no_collected_record": true,
+        "recipes_absent": true,
+        "collection_absent": true,
+        "not_delivered_or_pending_delivery": true,
+        "outside_existing_refinement_scopes": true,
+        "approval_content_sha256": "e18430b6e4380e29d7eff0215b79535636161df365c880d1784db8980c977c6c",
+        "approval_matches_current": true,
+        "formal_record_canonical_sha256": "1681f94e0fa71db2c58663f28c255caf71ad6a621409267376002e20514e87a2"
+      }
+    }
+  ],
+  "old_completed_overlap_intentional": true,
+  "new_active_scopes_disjoint": true,
+  "preparation_only_no_solver_calls": true,
+  "requires_current_recheck_before_work": true,
+  "parent_dispatch_required_before_start": true
+}

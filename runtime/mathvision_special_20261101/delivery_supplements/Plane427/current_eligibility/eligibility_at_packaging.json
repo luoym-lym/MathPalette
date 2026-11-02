@@ -1,0 +1,110 @@
+{
+  "checked_at": "2026-11-01T19:43:45.576761+00:00",
+  "question_id": "Plane427",
+  "variant_id": "r41_isosceles_base_angle_frame",
+  "source": "MathVision",
+  "correct_answer": "D",
+  "correct_degrees": 35,
+  "expected_wrong_answer": "B",
+  "wrong_degrees": 25,
+  "manual_finals": [
+    "B",
+    "B"
+  ],
+  "original_approval_and_scoped_frozen_source_hashes_match_review": true,
+  "no_existing_pass_or_collect_or_special_completion": true,
+  "relevant_dependencies_checked": 28,
+  "accepted_index_sha256": "13eb21be6ecffdc10bcb8e032d65d5dd530e68dde395743ac7ed030b2ace3a49",
+  "collected_index_sha256": "03976671d4eefde0c22e5ae811106843c7039c211654c2e5850687432c0fb248",
+  "precision_and_AA_qualification": {
+    "fully_compared_frozen_input_files": 3416,
+    "all_3416_path_hashes_match": true,
+    "original_arcs_exactly_identical": true,
+    "pixel_difference_classification": {
+      "total_changed_pixels": 4046,
+      "within_4px_exact_selected_centerlines": 3721,
+      "outside_centerline_tubes": 325,
+      "outside_all_on_original_unselected_strokes_within_2px": true,
+      "outside_all_grayscale_no_color_or_fill_added": true,
+      "outside_channel_delta_histogram": {
+        "23": 1,
+        "1": 322,
+        "10": 2
+      },
+      "one_level_AA_pixels": 322,
+      "R_original_closing_join_pixels": [
+        {
+          "x": 243,
+          "y": 224,
+          "before": [
+            63,
+            63,
+            63,
+            255
+          ],
+          "after": [
+            86,
+            86,
+            86,
+            255
+          ],
+          "distance_to_marked_segments": 177.5391008856678
+        },
+        {
+          "x": 243,
+          "y": 225,
+          "before": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "after": [
+            10,
+            10,
+            10,
+            255
+          ],
+          "distance_to_marked_segments": 176.61191703110103
+        },
+        {
+          "x": 243,
+          "y": 226,
+          "before": [
+            145,
+            145,
+            145,
+            255
+          ],
+          "after": [
+            155,
+            155,
+            155,
+            255
+          ],
+          "distance_to_marked_segments": 175.68473317653422
+        }
+      ],
+      "explanation": "Replacing triangle outlines with exact PathPatches changes rasterization on 322 gray AA pixels by one 8-bit channel level. The original polygon closing join at R becomes two butt-capped path ends, changing only (243,224),(243,225),(243,226) by 23,10,10. The original RS/RT centerlines, endpoint incidence, black 1pt width, readability and continuous apparent R corner remain. These are renderer AA/join differences, not a styled fourth edge, new intersection, cut or geometry change.",
+      "no_claim_all_unselected_pixels_are_identical": true
+    },
+    "SV_unstyled_floating_tail": {
+      "display_unit_length": 1.9860273225978185e-15,
+      "pixel_length": 1.023610270970129e-13,
+      "reason": "The required end is 0.9999999999999999, not 1. The final floating-point-sized black tail is retained by the exact interval implementation. It has no native visible gap/cut/new condition."
+    },
+    "native_text_boxes_unchanged": true,
+    "all_original_text_artist_properties_and_fills_exactly_preserved": true
+  },
+  "limitations": [
+    "原图control不存在，未新增。无法宣称相对原图增加错误、正确率下降、统计稳健性或因果增益。",
+    "两次确实终答B25，但正文实际是错误的角相减/射线顺序。预设“先正确中间25再漏减”机制未被证实；设计原文保留，未事后更换机制或预设。",
+    "蓝边和红基底有真实具体信息用途；这不等于其诱导效果或每一条的因果必要性已被验证。未做新消融/人群研究；未将此另设硬门槛。",
+    "本次原生可读、人类无歧义属于独立图文判断，不是人群测验。",
+    "局部重绘存在已精确分类的AA/接点微差及浮点尾段，未声称未选像素完全一致；无几何、原弧、文字、线型、填充或目标改变。",
+    "哈希和内部/文件/响应时间证明现存材料的一致性，不能排除未保存或删除的外部调用，也不是外部可信时间戳或提供商账户审计。",
+    "只读核验限定于明列源/证据；严格写入guard涵盖其余项目路径。并行无关工作保留，不恢复任何旧全局日志或分数。"
+  ],
+  "no_formal_edits_performed": true,
+  "unrelated_concurrent_changes_preserved": true
+}

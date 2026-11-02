@@ -1,0 +1,23 @@
+from tools45 import *
+math=read(TASK/'independent_primary_math_audit.json')
+history=read(TASK/'history_inventory_complete.json')
+checks={}
+reasons={
+ 'Solid84':{'distinct_directions_considered':['Match the top square frame in view1 to the front square frame in view2 and transfer neighboring face order.','Use partial exterior rim directions to confuse reflection with rotation instead of old interior-X or diamond-similarity marks.'],'reason':'Both views show the same square face adjacent to four distinct other patterns. All24 proper rotations/all6 completions still force its opposite to the big diamond. A false same-edge rim assignment on the full square frames can become conflicting physical print across the two cube views; a consistent true correspondence still gives C and provides no specific independent different wrong preset. Cross-panel generic frame connectors add no new false feature correspondence beyond a common-face cue. Interior-symbol similarity would repeat the old mechanism. No clean targeted new wrong hypothesis survived.'},
+ 'Solid98':{'distinct_directions_considered':['A bent2x2 WW/GG top-left group in C instead of the old B legal front rows.','Whole four-cell outline/count correspondence ignoring rigid straight-bar orientation.'],'reason':math['Solid98']['semantic_objection']},
+ 'Solid100':{'distinct_directions_considered':['Relate outer regular-octagon corner to rhombus corner.','Transfer square90/outer-turn45/acute45 to the obtuse target.'],'reason':math['Solid100']['target_search']},
+ 'Solid101':{'distinct_directions_considered':['Local equal-pip-value rim correspondence across D/E repeated2 faces.','Treat B three visible1 faces as a repeated identity versus three distinct faces.'],'reason':math['Solid101']['local_grouping_assessed']},
+ 'Solid105':{'distinct_directions_considered':math['Solid105']['local_mechanisms_assessed'],'reason':math['Solid105']['skip_reason']}
+}
+for q in IDS:
+    e=eligibility(q);assert e['eligible'];r=AD.records[q]
+    item=(ROOT/'SolidGeometry'/r['runtime_dependencies'][0]).parent
+    write(TASK/q/'native_scene_snapshot.json',read(item/'scene.json'))
+    write(TASK/q/'source_context_audit.json',{'checked_at':now(),'question_id':q,'formal_question_and_choices':r['question'],'source_jpg_actually_viewed':True,'formal_png_actually_viewed_at_native768':True,'exact_frozen_3d_projection_visibility_2d_view_and_dimensions_read':True,'native_scene_path':str(item/'scene.json'),'native_scene_sha256':file_hash(item/'scene.json'),'formal_scene_sha256':file_hash(ROOT/'SolidGeometry'/r['scene']),'current_original_approval_content_sha256':e['current_content_sha256'],'current_original_approval_matches':True,'current_eligibility':e,'old_evidence_inventory':history[q],'math_audit':str(TASK/'independent_primary_math_audit.json'),'semantic_lesson_applied':'Actual task-dependent physical ink/color interpretation reviewed; no general ban on colors in numerical geometry. Original gray/white cube/rhombus/marked-face membership and all pips remain unchanged. No legend or question rewrite.'})
+    if q in reasons:
+        write(TASK/q/'material_refinement_prescreen.json',{'question_id':q,'stage':'material_refinement','checked_at':now(),'status':'assessed_no_clean_new_design','api_calls':0,'source_and_approval_rechecked':True,'fresh_unique_math_completed':True,'unique_answer':math[q]['unique_answer'],'old_history_preserved':True,'old_summary_absence_not_used_as_no_call_proof':True,**reasons[q]})
+    checks[q]={'question_id':q,'unique_answer':math[q]['unique_answer'],'status':'new_design_tested_or_pending' if q not in reasons else 'assessed_no_clean_new_design'}
+write(TASK/'assessment_status.json',checks)
+draft=TASK/'Solid81/r45_external_overlapping_domino_correspondence'
+write(draft/'preflight_rejection.json',{'checked_at':now(),'status':'offline_draft_rejected_no_API','reason':'Exact line-intersection check found red crossed Ae9/Ae19 at its95percent point and blue crossed Ae9 at96.5percent, before the intended front seams. This contradicts the draft external-clearance claim; corrected in a separate untested side-seam endpoint draft. No old or own solver response was used.','call_count':0,'api_started_records':[],'binding_records':[],'runner_preflight_failure':'A subsequent runner command failed for missing pretest_freeze.json before process_launch, harness import or request construction. This was a local sequencing error, not a solver call, transport abort or reason to retry an image.','superseding_offline_presentation':str(TASK/'Solid81/r45_external_overlapping_domino_side_seams'),'old_bytes_preserved':True})
+print('8 assessed;5 no-call prescreens;3 distinct design hypotheses;1 rejected offline placement draft')

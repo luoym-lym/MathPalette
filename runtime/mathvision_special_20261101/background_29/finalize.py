@@ -1,0 +1,66 @@
+import bootstrap
+from bootstrap import OWN,ROOT,HISTORY
+from make_candidates import ad,save,eligible
+from workbench_io import file_hash,canonical_hash
+import json,hashlib,base64
+from datetime import datetime,timezone
+IDS=['Solid91','Solid118','Solid124','Solid147','Solid150','Solid175','Solid191','Solid198']
+manual={
+'Solid91':(['4','3'],['Explicit final4laps, based on a false per-lap quarter-turn; misses immutable1.','Explicit final3loops, correct answer with speculative narrative; misses immutable1.']),
+'Solid147':(['D','A'],['Explicit finalD; correct letter, inaccurate hidden-cell reasoning. Misses presetA.','Explicit finalA; bodyAconsistent and invokes source/option red-end matching. Single target hit only.']),
+'Solid150':(['105','49'],['Explicit final105. Correct number despite an erroneous claim that every equal glued pair sums7. Misses preset126.','Read the complete long answer including abandoned52.5and49calculations; final49is unambiguous. It incorrectly restricts surface faces and omits two opposite-face pairs per arm. Misses preset126.']),
+'Solid175':(['D','D'],['Explicit finalDand2/7consistent. Both direction/orientation tracking errors. Immutable presetCis1/5, so D/Dis a miss and is never relabeled.','Explicit finalDand2/7consistent after incorrect path E,E,N,N,N,E. Immutable presetCis1/5, so D/Dis a miss; no target change or extra calls.']),
+'Solid191':(['3','4'],['Explicit final3, with incorrect initial pip reading and path. Misses preset1.','Explicit final4, with invalid assertion that two same-direction rolls cancel. Misses preset1.']),
+'Solid198':(['E','D'],['Explicit finalE; calls actual L option aT and miscounts source dimensions. Misses presetB.','Complete conclusion states optionDmatches a2x2plate; unambiguous D despite absent standalone answer line. Misses presetB.'])}
+assessments=[];binding_audits=[];total=0
+for q in IDS:
+    start=json.loads((OWN/q/'frozen_inputs.json').read_text(encoding='utf-8'));current=ad.frozen_inputs(q)
+    assert start==current,(q,'frozen source drift')
+    finaleligible=eligible(q);save(OWN/q/'eligibility_at_end.json',finaleligible)
+    old=json.loads((OWN/q/'old_evidence_manifest.json').read_text(encoding='utf-8'))
+    oldchanged=[e['path'] for e in old if not (ROOT/e['path']).is_file() or file_hash(ROOT/e['path'])!=e['sha256']]
+    assert not oldchanged
+    sourceaudit={'question_id':q,'current_eligibility':finaleligible,'initial_and_terminal_frozen_input_hashes_equal':True,'frozen_inputs':current,'old_evidence_files_checked':len(old),'old_evidence_changed':oldchanged,'current_formal_record_matches_initial':json.loads((OWN/q/'formal_record.json').read_text(encoding='utf-8'))==ad.records[q],'baseline_pixel_equality':json.loads((OWN/q/'context.json').read_text(encoding='utf-8'))['original_pixel_sha256'],'mutable_progress_hashes':'Not frozen original inputs; old diagnostic snapshots preserved unchanged; never used as source-corruption proof.','concurrent_unrelated_workbench_activity':'Preserved; no whole-workspace unchanged claim.'}
+    save(OWN/q/'source_and_eligibility_audit_final.json',sourceaudit)
+    if q not in manual:
+        p=OWN/q/'material_refinement_prescreen.json';screen=json.loads(p.read_text(encoding='utf-8'))
+        assessments.append({'question_id':q,'status':screen['status'],'reason':screen['hypotheses_considered_and_rejected'],'assessment_path':str(p),'source_audit':str(OWN/q/'source_and_eligibility_audit_final.json'),'new_design_count':0,'actual_API_calls':0});continue
+    base=next((OWN/q).glob('r29_*/design.json')).parent;design=json.loads((base/'design.json').read_text(encoding='utf-8'));summaries=list((base/'tests').glob('*/summary.json'));assert len(summaries)==1
+    summary_path=summaries[0];ev=summary_path.parent;s=json.loads(summary_path.read_text(encoding='utf-8'));binding=json.loads((ev/'binding.json').read_text(encoding='utf-8'))
+    assert s['two_completed'] and binding['requested_runs']==2 and len(s['results'])==2
+    assert file_hash(base/'design.json')==binding['design_sha256']==file_hash(ev/'design_snapshot.json')
+    assert (base/'design.json').read_bytes()==(ev/'design_snapshot.json').read_bytes()
+    assert file_hash(base/'frozen/candidate.png')==binding['image_sha256']==design['candidate_sha256']
+    assert file_hash(ev/'request.json')==binding['request_body_sha256']
+    req=json.loads((ev/'request.json').read_text(encoding='utf-8'))
+    assert set(req)=={'model','stream','thinking','messages'} and req['model']=='mimo-v2.6-flash' and req['thinking']=={'type':'disabled'} and req['stream'] is False
+    assert len(req['messages'])==2 and req['messages'][0]['role']=='system' and req['messages'][1]['role']=='user'
+    assert req['messages'][0]['content']==binding['system_prompt']
+    content=req['messages'][1]['content'];assert len(content)==2 and content[0]=={'type':'text','text':ad.records[q]['question']}
+    assert content[1]['type']=='image_url' and base64.b64decode(content[1]['image_url']['url'].split(',',1)[1])==(base/'frozen/candidate.png').read_bytes()
+    assert binding['question_record_sha256']==canonical_hash(ad.records[q])
+    results=[]
+    for i,(answer,note) in enumerate(zip(*manual[q]),1):
+        rawp=ev/f'run_{i:02d}_response.json';parsedp=ev/f'run_{i:02d}.json';raw=json.loads(rawp.read_text(encoding='utf-8-sig'));parsed=json.loads(parsedp.read_text(encoding='utf-8-sig'))
+        assert parsed['status']=='completed' and raw['choices'][0]['finish_reason']=='stop'
+        assert parsed['response_sha256']==file_hash(rawp) and parsed['request_body_sha256']==binding['request_body_sha256']
+        assert parsed['image_sha256']==binding['image_sha256'] and parsed['design_sha256']==binding['design_sha256']
+        results.append({'run_index':i,'complete_final_response_manually_read':True,'complete_final_response_text':raw['choices'][0]['message']['content'],'manually_extracted_final':answer,'manual_interpretation':note,'matches_original_predeclared_wrong_answer':answer==str(design['expected_wrong_answer']),'raw_response_path':str(rawp),'raw_response_sha256':file_hash(rawp),'parsed_response_path':str(parsedp),'parsed_response_sha256':file_hash(parsedp),'finish_reason':'stop','elapsed_seconds':parsed['elapsed_seconds']})
+    total+=2;double=all(r['matches_original_predeclared_wrong_answer'] for r in results);assert not double
+    mr={'stage':'material_refinement','question_id':q,'variant_id':design['variant_id'],'immutable_expected_wrong_answer':design['expected_wrong_answer'],'design_sha256':binding['design_sha256'],'image_sha256':binding['image_sha256'],'results':results,'two_complete_preset_hits':double,'status':'complete_pair_missed_preset','no_posthoc_preset_relabel':True,'no_retry_or_extra_calls':True,'independent_review':'None performed; author primary only.'}
+    save(base/'manual_final_review.json',mr)
+    evidence={'question_id':q,'variant_id':design['variant_id'],'request':str(ev/'request.json'),'binding':str(ev/'binding.json'),'summary':str(summary_path),'design':str(base/'design.json'),'design_snapshot':str(ev/'design_snapshot.json'),'candidate_png':str(base/'frozen/candidate.png'),'normalized_plugin':str(base/'frozen/plugin.json'),'all_exact_binding_checks_passed':True,'two_complete_raw_responses':True,'only_formal_question_and_frozen_png_to_solver':True,'correct_answer_preset_intent_history_parameters_not_sent':True,'model':'mimo-v2.6-flash','thinking':'disabled','no_profile_token_or_timeout_overrides':True,'new_hypothesis_saved_before_calls':str(base/'design_difference_audit.json'),'primary_math_audit':str(base/'primary_math_audit.json'),'native_visual_and_per_marker_audit':str(base/'pretest_native_visual_and_marker_audit.json'),'fresh_paths':str(base/'fresh_target_paths.json'),'source_audit':str(OWN/q/'source_and_eligibility_audit_final.json'),'raw_and_manual_finals':results}
+    save(base/'exact_evidence_binding_audit.json',evidence);binding_audits.append(evidence)
+    primary={'stage':'material_refinement','question_id':q,'variant_id':design['variant_id'],'review_kind':'Author primary review only; not independent second review','unique_correct_answer':ad.records[q]['answer'],'unique_mathematics':design['mathematics'],'each_marker':design['marker_roles'],'native_visual':json.loads((base/'pretest_native_visual_and_marker_audit.json').read_text(encoding='utf-8')),'frozen_source_current_eligibility':sourceaudit,'manual_finals':mr,'old_new_difference':json.loads((base/'design_difference_audit.json').read_text(encoding='utf-8')),'qualification':'Not a credible exact preset double-hit; do not queue/deliver.','limits':['No claim of statistical or causal improvement from two calls.','No new original control calls. No correct-control, same-narrative, per-marker ablation, human or statistical study was imposed as an extra gate.','Small original panels remain at their frozen scale for147/198.','Read complete final replies; incidental mentions and D/Dagainst presetCnever count as target hits.'],'self_approved':False,'parent_new_independent_review_mandatory_for_any_future_delivery':True}
+    if q=='Solid150':primary['mathematics_clarification']=json.loads((base/'pretest_math_clarification.json').read_text(encoding='utf-8'))
+    save(base/'primary_review.json',primary)
+    assessments.append({'question_id':q,'variant_id':design['variant_id'],'status':'tested_no_exact_preset_double_hit','expected_wrong_answer':design['expected_wrong_answer'],'complete_manual_finals':manual[q][0],'new_design_count':1,'actual_API_calls':2,'old_new_difference':str(base/'design_difference_audit.json'),'primary_review':str(base/'primary_review.json'),'manual_final_review':str(base/'manual_final_review.json'),'exact_evidence_binding_audit':str(base/'exact_evidence_binding_audit.json'),'source_audit':str(OWN/q/'source_and_eligibility_audit_final.json')})
+processaudit=json.loads((OWN/'terminal_process_audit.json').read_text(encoding='utf-8-sig'));assert processaudit['own_live_count']==0
+for a in assessments:
+    if a['new_design_count']:
+        base=next((OWN/a['question_id']).glob('r29_*/design.json')).parent;p=json.loads((base/'api_process_completed.json').read_text(encoding='utf-8'));assert p['exit_code']==0
+queue={'stage':'material_refinement','unit':'background_29','created_at':datetime.now(timezone.utc).isoformat(),'assessed_question_ids':IDS,'actual_assessed_question_ids':IDS,'unworked_question_ids':[],'candidates':[],'credible_candidate_ids':[],'credible_twohit_possibility_count':0,'reason':'All six complete new pairs missed their own immutable presets; two questions screened without a clean materially new hypothesis.','new_parent_independent_review_required_before_any_eventual_delivery':True,'primary_only':True,'formal_Pass_Collect_publication_or_review_API_calls':0}
+save(OWN/'second_review_queue.json',queue)
+checkpoint={'unit':'background_29','stage':'material_refinement','completed_at':datetime.now(timezone.utc).isoformat(),'terminal':True,'stop_reason':'All EXACT8assigned previously completed questions assessed in a finite material-refinement review: six substantively new geometric hypotheses tested in exact frozen pairs; two exhausted clean retained hypotheses and skipped. No quota/cost stopping. No exact preset double-hit.','assigned_question_ids':IDS,'assessed_question_ids':IDS,'actual_assessed_question_ids':IDS,'unworked_question_ids':[],'actual_assessed_question_count':8,'new_saved_design_count':6,'completed_candidate_pair_count':6,'completed_candidate_API_call_count':total,'original_control_call_count':0,'API_error_count':0,'aborted_call_count':0,'retry_count':0,'credible_twohit_possibility_count':0,'credible_candidate_ids':[],'assessments':assessments,'full_exact_raw_binding_and_manual_final_audits':binding_audits,'second_review_queue':str(OWN/'second_review_queue.json'),'old_evidence_preservation_audit':str(OWN/'old_evidence_preservation_audit.json'),'local_pretest_failures_and_timing_limits':str(OWN/'local_pretest_failures.json'),'terminal_process_audit':processaudit,'independent_review':'None; all author primary only. Any eventual delivery requires parent NEW independent review, never self-approval or reuse of old review on a new PNG.','source_and_state_preservation':'All8individual frozen formal input maps and approval entries rechecked unchanged; no own formal/state/approval/.env/.runtime/.git writes, no Pass/Collect/publication/review API use. Preserve unrelated human workbench changes. Mutable progress metadata is not frozen source.','write_isolation':'All new files, images, model requests, logs and TEMP/TMP/MPL/XDG caches restricted by runtime_isolation plus own-root audit guard to background_29/; Python-Xutf8-B.','control_and_study_limits':'No new original controls, no causal/statistical or human-performance claim, no extra correct-control or matching-narrative hard gate.'}
+save(OWN/'checkpoint.json',checkpoint)
+print(json.dumps({'unit':'background_29','stage':'material_refinement','assessed':8,'new_designs':6,'complete_pairs':6,'complete_calls':total,'credible_candidates':[],'API_errors':0,'aborts':0,'own_live_processes':0,'results':[{k:a[k] for k in ('question_id','expected_wrong_answer','complete_manual_finals') if k in a} for a in assessments],'checkpoint':str(OWN/'checkpoint.json'),'queue':str(OWN/'second_review_queue.json')},ensure_ascii=False,indent=2))

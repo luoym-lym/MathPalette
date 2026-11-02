@@ -1,0 +1,230 @@
+[
+  {
+    "path": "runtime\\mathvision_special_20261101\\background_17\\Solid140\\rotation_axis_dimension_swap\\design.json",
+    "sha256": "f0908e208625644a65005fd6bbb9307f60884e90b69d17d599d940775c63b2d3",
+    "content": {
+      "question_id": "Solid140",
+      "name": "rotation_axis_dimension_swap",
+      "expected_wrong_answer": "B",
+      "correct_answer": "D",
+      "mechanism": "Pair the old 1m height with the new 2m depth in red, and the old 2m depth with the new 1m width in blue. This wrong axis transport targets a factor2 rise (50cm, B) in place of the actual factor4. All dimension text, water fill and edge visibility remain frozen.",
+      "primary_math_proof": "Original water volume is4*2*.25=2 cubic meters. After the shown rotation the base is1*2=2 square meters, hence height=1m uniquely D. Pair colors have no measurement semantics and cannot override the explicit 4m/2m/1m labels; the original water surface already depicts the correct conserved volume.",
+      "marker_roles": [
+        {
+          "action_index": 1,
+          "role": "Original 1m vertical edge: red first member of the erroneous old-height/new-depth pair."
+        },
+        {
+          "action_index": 2,
+          "role": "New 2m base-depth edge: red second member."
+        },
+        {
+          "action_index": 3,
+          "role": "Original 2m base-depth edge: blue first member of the erroneous old-depth/new-width pair."
+        },
+        {
+          "action_index": 4,
+          "role": "New 1m base-width edge: blue second member."
+        }
+      ],
+      "created_at": "2026-11-01T16:21:51.425931+00:00",
+      "png_sha256": "33968f7311687e46cadda033f5fbd1fee9282e2e6de3a9df807f66c87a2b2176",
+      "plugin_sha256": "0cdbb1a1a1c14dabbc27bd339712400154dafd178eb9e4388bf126e9ed5808b3",
+      "pixel_sha256": "7e16596b9e48b406a77fd98da47bd82ccd0921b631023fb7961a3d55108f8aec",
+      "approval_status": "PRIMARY ONLY; requires parent NEW independent review; no Pass/Collect"
+    }
+  },
+  {
+    "path": "runtime\\mathvision_special_20261101\\background_17\\Solid140\\rotation_axis_dimension_swap\\manual_final_review.json",
+    "sha256": "7b199e215c4e8c2794afbc4c19350eda6175803cea196ea6a4d3d331c0c334b7",
+    "content": {
+      "question_id": "Solid140",
+      "candidate_name": "rotation_axis_dimension_swap",
+      "expected_wrong_answer": "B",
+      "correct_answer": "D",
+      "complete_pair": true,
+      "credible_paired_hit_primary": false,
+      "manual_reviews": [
+        {
+          "run_index": 1,
+          "status": "completed",
+          "complete_final": "To find the new height of the water, we need to calculate the volume of the water and then determine how high that volume will rise in the new orientation of the tank.\n\n**Step 1: Calculate the volume of water.**\nFirst, let's look at the initial position of the tank on the left.\n*   The tank lies flat with a length of $4 \\text{ m}$ and a width of $2 \\text{ m}$.\n*   The height of the tank is $1 \\text{ m}$.\n*   The water height is given as $25 \\text{ cm}$.\n\nLet's convert the water height to meters to keep the units consistent:\n$$25 \\text{ cm} = 0.25 \\text{ m}$$\n\nThe volume of the water ($V$) is the base area multiplied by the water height:\n$$V = \\text{Length} \\times \\text{Width} \\times \\text{Water Height}$$\n$$V = 4 \\text{ m} \\times 2 \\text{ m} \\times 0.25 \\text{ m}$$\n$$V = 8 \\text{ m}^2 \\times 0.25 \\text{ m}$$\n$$V = 2 \\text{ m}^3$$\n\n**Step 2: Analyze the new orientation.**\nNow, let's look at the tank on the right, which is turned on its side.\n*   The new base of the tank is formed by the previous width ($2 \\text{ m}$) and the previous height ($1 \\text{ m}$).\n*   Looking at the diagram for the right-hand tank, the dimensions of the rectangular base at the bottom are $1 \\text{ m}$ and $2 \\text{ m}$.\n*   The new height of the tank (the vertical dimension) is $4 \\text{ m}$.\n\n**Step 3: Calculate the new water height.**\nThe volume of water remains the same ($2 \\text{ m}^3$). Let $h$ be the new height of the water.\n$$V = \\text{Base Area} \\times \\text{New Height}$$\n$$2 \\text{ m}^3 = (1 \\text{ m} \\times 2 \\text{ m}) \\times h$$\n$$2 \\text{ m}^3 = 2 \\text{ m}^2 \\times h$$\n\nDivide both sides by $2 \\text{ m}^2$:\n$$h = \\frac{2 \\text{ m}^3}{2 \\text{ m}^2}$$\n$$h = 1 \\text{ m}$$\n\nThe new height of the water is $1 \\text{ m}$.\n\nComparing this result to the choices:\nA: $25 \\text{ cm}$\nB: $50 \\text{ cm}$\nC: $75 \\text{ cm}$\nD: $1 \\text{ m}$\nE: $1.25 \\text{ m}$\n\nThe correct option is **D**.",
+          "read_complete_final_manually": true,
+          "manual_final": "D; 1m",
+          "manual_hit": false,
+          "internally_consistent_final": true,
+          "manual_reason": "Complete final derives conserved volume2m^3 and new base2m^2, concludes D=1m.",
+          "raw_run": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_17\\Solid140\\rotation_axis_dimension_swap\\tests\\quicktest3_20261101T162334_8a589f5d8ad1\\run_01.json",
+          "raw_response": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_17\\Solid140\\rotation_axis_dimension_swap\\tests\\quicktest3_20261101T162334_8a589f5d8ad1\\run_01_response.json",
+          "response_sha256": "0ccdfc200c4f06bd7053084f0bf5a496415ea62fdfe22a9cbc65912633043590",
+          "elapsed_seconds": 17.737
+        },
+        {
+          "run_index": 2,
+          "status": "completed",
+          "complete_final": "Based on the provided image and problem description, here is the step-by-step solution:\n\n1.  **Calculate the volume of the water in the initial position:**\n    *   The tank is a box with dimensions $4 \\mathrm{~m} \\times 2 \\mathrm{~m} \\times 1 \\mathrm{~m}$.\n    *   In the first picture (on the left), the tank is lying on its largest face. The length is $4 \\mathrm{~m}$ and the width is $2 \\mathrm{~m}$. The vertical height of the tank is $1 \\mathrm{~m}$.\n    *   The height of the water is given as $25 \\mathrm{~cm}$, which is $0.25 \\mathrm{~m}$.\n    *   The volume of water ($V$) is calculated as: $\\text{Length} \\times \\text{Width} \\times \\text{Water Height}$.\n    *   $V = 4 \\mathrm{~m} \\times 2 \\mathrm{~m} \\times 0.25 \\mathrm{~m} = 8 \\times 0.25 = 2 \\mathrm{~m}^3$.\n\n2.  **Determine the new base dimensions in the second position:**\n    *   In the second picture (on the right), the tank is \"turned on its side\" and stands upright.\n    *   The vertical dimension is now $4 \\mathrm{~m}$.\n    *   The base of the tank is formed by the other two dimensions: $1 \\mathrm{~m}$ and $2 \\mathrm{~m}$.\n    *   The area of the new base ($A$) is: $1 \\mathrm{~m} \\times 2 \\mathrm{~m} = 2 \\mathrm{~m}^2$.\n\n3.  **Calculate the new height of the water:**\n    *   The volume of water remains constant at $2 \\mathrm{~m}^3$.\n    *   Let $h$ be the new height of the water. Using the formula $\\text{Volume} = \\text{Base Area} \\times \\text{Height}$:\n    *   $2 \\mathrm{~m}^3 = 2 \\mathrm{~m}^2 \\times h$.\n    *   Solving for $h$: $h = \\frac{2}{2} = 1 \\mathrm{~m}$.\n\n**Conclusion:**\nThe new height of the water is $1 \\mathrm{~m}$.\n\nChoice: **D**",
+          "read_complete_final_manually": true,
+          "manual_final": "D; 1m",
+          "manual_hit": false,
+          "internally_consistent_final": true,
+          "manual_reason": "Complete final independently concludes D=1m.",
+          "raw_run": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_17\\Solid140\\rotation_axis_dimension_swap\\tests\\quicktest3_20261101T162334_8a589f5d8ad1\\run_02.json",
+          "raw_response": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_17\\Solid140\\rotation_axis_dimension_swap\\tests\\quicktest3_20261101T162334_8a589f5d8ad1\\run_02_response.json",
+          "response_sha256": "c7f94c5c3ec66e56a0c207287a4664584ea205b0a0c096aaad801cc74830d346",
+          "elapsed_seconds": 14.913
+        }
+      ],
+      "evidence_dir": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_17\\Solid140\\rotation_axis_dimension_swap\\tests\\quicktest3_20261101T162334_8a589f5d8ad1",
+      "binding": {
+        "branch": "SolidGeometry",
+        "question_id": "Solid140",
+        "profile": "quicktest3",
+        "settings": {
+          "label": "Quick Test 3",
+          "provider": "mimo",
+          "model": "mimo-v2.6-flash",
+          "thinking": {
+            "type": "disabled"
+          },
+          "api_base": "https://token-plan-cn.xiaomimimo.com/v1"
+        },
+        "system_prompt": "Solve the mathematics question using the provided image. Give a clear final answer at the end. For a multiple-choice question, include the option letter in your final answer.",
+        "question": "In a box-shaped water tank with dimensions $4 \\mathrm{~m} \\times 2 \\mathrm{~m} \\times 1 \\mathrm{~m}$, the height of the water is $25 \\mathrm{~cm}$. The tank is then turned on its side (see picture on the right). How high is the water in the tank now?\nChoices:\nA:$25 \\mathrm{~cm}$\nB:$50 \\mathrm{~cm}$\nC:$75 \\mathrm{~cm}$\nD:$1 \\mathrm{~m}$\nE:$1.25 \\mathrm{~m}$",
+        "image_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_17\\Solid140\\rotation_axis_dimension_swap\\candidate.png",
+        "image_sha256": "33968f7311687e46cadda033f5fbd1fee9282e2e6de3a9df807f66c87a2b2176",
+        "pixel_sha256": "7e16596b9e48b406a77fd98da47bd82ccd0921b631023fb7961a3d55108f8aec",
+        "design_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_17\\Solid140\\rotation_axis_dimension_swap\\design.json",
+        "design_sha256": "f0908e208625644a65005fd6bbb9307f60884e90b69d17d599d940775c63b2d3",
+        "expected_wrong_answer": "B",
+        "question_record_sha256": "f438dbd2ae4b03a82b3d3a17e3335a4296c739869b8fbee6fb42c692ae85202a",
+        "dataset_sha256": "a6ebf7b8be8fc2bf738be007d56cc578272ca6ffad436c696be60fbfe2b6f3b8",
+        "request_body_sha256": "ea6c8f88208144a2632cb5efdfd820361859908b734701a3d2432bc6df00b39b",
+        "reference_quick_test_sha256": "c08eef18db2d758c7828cfdfd7a7c087272bc35d5f013113220050d2e7666212",
+        "created_at": "2026-11-01T16:23:34.179068+00:00",
+        "requested_runs": 2,
+        "authorization": "User explicitly requested automatic exploration and two quicktest3 calls.",
+        "approval_status": "UNREVIEWED; no Pass or Collect action performed"
+      },
+      "request_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_17\\Solid140\\rotation_axis_dimension_swap\\tests\\quicktest3_20261101T162334_8a589f5d8ad1\\request.json",
+      "raw_request_verified_only_formal_question_and_candidate_png": true,
+      "design_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_17\\Solid140\\rotation_axis_dimension_swap\\design.json",
+      "design": {
+        "question_id": "Solid140",
+        "name": "rotation_axis_dimension_swap",
+        "expected_wrong_answer": "B",
+        "correct_answer": "D",
+        "mechanism": "Pair the old 1m height with the new 2m depth in red, and the old 2m depth with the new 1m width in blue. This wrong axis transport targets a factor2 rise (50cm, B) in place of the actual factor4. All dimension text, water fill and edge visibility remain frozen.",
+        "primary_math_proof": "Original water volume is4*2*.25=2 cubic meters. After the shown rotation the base is1*2=2 square meters, hence height=1m uniquely D. Pair colors have no measurement semantics and cannot override the explicit 4m/2m/1m labels; the original water surface already depicts the correct conserved volume.",
+        "marker_roles": [
+          {
+            "action_index": 1,
+            "role": "Original 1m vertical edge: red first member of the erroneous old-height/new-depth pair."
+          },
+          {
+            "action_index": 2,
+            "role": "New 2m base-depth edge: red second member."
+          },
+          {
+            "action_index": 3,
+            "role": "Original 2m base-depth edge: blue first member of the erroneous old-depth/new-width pair."
+          },
+          {
+            "action_index": 4,
+            "role": "New 1m base-width edge: blue second member."
+          }
+        ],
+        "created_at": "2026-11-01T16:21:51.425931+00:00",
+        "png_sha256": "33968f7311687e46cadda033f5fbd1fee9282e2e6de3a9df807f66c87a2b2176",
+        "plugin_sha256": "0cdbb1a1a1c14dabbc27bd339712400154dafd178eb9e4388bf126e9ed5808b3",
+        "pixel_sha256": "7e16596b9e48b406a77fd98da47bd82ccd0921b631023fb7961a3d55108f8aec",
+        "approval_status": "PRIMARY ONLY; requires parent NEW independent review; no Pass/Collect"
+      },
+      "plugin_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_17\\Solid140\\rotation_axis_dimension_swap\\plugin.json",
+      "candidate_png": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_17\\Solid140\\rotation_axis_dimension_swap\\candidate.png",
+      "render_check_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_17\\Solid140\\rotation_axis_dimension_swap\\render_check.json",
+      "primary_visual_review_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_17\\Solid140\\rotation_axis_dimension_swap\\primary_visual_review.json",
+      "source_audit_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_17\\Solid140\\source_audit_final.json",
+      "controls": [],
+      "independent_second_review": "NOT performed by this primary researcher. Parent must start NEW independent reviewer before delivery."
+    }
+  },
+  {
+    "path": "runtime\\mathvision_special_20261101\\background_17\\Solid140\\rotation_axis_dimension_swap\\plugin.json",
+    "sha256": "0cdbb1a1a1c14dabbc27bd339712400154dafd178eb9e4388bf126e9ed5808b3",
+    "content": {
+      "plugin_schema_version": "1.0.0",
+      "question_id": "Solid140",
+      "category": "C",
+      "operation": "C_manual",
+      "description": "Pair the old 1m height with the new 2m depth in red, and the old 2m depth with the new 1m width in blue. This wrong axis transport targets a factor2 rise (50cm, B) in place of the actual factor4. All dimension text, water fill and edge visibility remain frozen.",
+      "intent": "Pair the old 1m height with the new 2m depth in red, and the old 2m depth with the new 1m width in blue. This wrong axis transport targets a factor2 rise (50cm, B) in place of the actual factor4. All dimension text, water fill and edge visibility remain frozen.",
+      "params": {
+        "actions": [
+          {
+            "type": "set_object_style",
+            "target": "leftedge1",
+            "color": "#DC2626",
+            "linewidth_pt": 2
+          },
+          {
+            "type": "set_object_style",
+            "target": "rightedge7",
+            "color": "#DC2626",
+            "linewidth_pt": 2
+          },
+          {
+            "type": "set_object_style",
+            "target": "leftedge7",
+            "color": "#2563EB",
+            "linewidth_pt": 2
+          },
+          {
+            "type": "set_object_style",
+            "target": "rightedge0",
+            "color": "#2563EB",
+            "linewidth_pt": 2
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": "runtime\\mathvision_special_20261101\\background_17\\Solid140\\rotation_axis_dimension_swap\\primary_visual_review.json",
+    "sha256": "a2e8a5fd0cb7c7705c7eb1519183b736a37b0558afa0c5b473cb8dfd5ac8d033",
+    "content": {
+      "question_id": "Solid140",
+      "candidate_sha256": "33968f7311687e46cadda033f5fbd1fee9282e2e6de3a9df807f66c87a2b2176",
+      "plugin_sha256": "0cdbb1a1a1c14dabbc27bd339712400154dafd178eb9e4388bf126e9ed5808b3",
+      "viewed_original_and_candidate_native_768": true,
+      "reviewed_at": "2026-11-01T16:23:03.605335+00:00",
+      "legal_and_readable": true,
+      "geometry_text_fill_projection_visibility_preserved": true,
+      "human_semantics_review": "Four original edges carry two paired colors. Old 1m and 2m dimensions and new 1m and 2m dimensions remain adjacent to their original edges and legible. The correct gray water volume and right 4m height are intact. No new face, hidden-edge segment, waterline or relation symbol is created.",
+      "per_marker_review": [
+        {
+          "action_index": 1,
+          "role": "Original 1m vertical edge: red first member of the erroneous old-height/new-depth pair."
+        },
+        {
+          "action_index": 2,
+          "role": "New 2m base-depth edge: red second member."
+        },
+        {
+          "action_index": 3,
+          "role": "Original 2m base-depth edge: blue first member of the erroneous old-depth/new-width pair."
+        },
+        {
+          "action_index": 4,
+          "role": "New 1m base-width edge: blue second member."
+        }
+      ],
+      "primary_math_review": "Original water volume is4*2*.25=2 cubic meters. After the shown rotation the base is1*2=2 square meters, hence height=1m uniquely D. Pair colors have no measurement semantics and cannot override the explicit 4m/2m/1m labels; the original water surface already depicts the correct conserved volume.",
+      "review_level": "PRIMARY ONLY. Parent must commission a NEW independent reviewer before any delivery.",
+      "limitations": [
+        "No human performance study or per-marker causal ablation.",
+        "Two stochastic calls assess only the frozen candidate/preset, not statistical reliability.",
+        "No separate original control yet."
+      ]
+    }
+  }
+]

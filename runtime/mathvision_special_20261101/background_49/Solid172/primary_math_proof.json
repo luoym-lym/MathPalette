@@ -1,0 +1,106 @@
+{
+  "unique_answer": 17,
+  "native_points": {
+    "L": [
+      0,
+      0,
+      0
+    ],
+    "F": [
+      1.83,
+      -1,
+      0
+    ],
+    "R": [
+      2.56,
+      0,
+      0.73
+    ],
+    "T": [
+      1.11,
+      -0.3,
+      1.43
+    ],
+    "B": [
+      1.83,
+      -0.3,
+      -1.01
+    ]
+  },
+  "native_labels": [
+    {
+      "id": "label1",
+      "type": "text",
+      "text": "1",
+      "anchor": "T",
+      "offset_pt": [
+        -12,
+        10
+      ]
+    },
+    {
+      "id": "label5",
+      "type": "text",
+      "text": "5",
+      "anchor": "L",
+      "offset_pt": [
+        -13,
+        0
+      ]
+    }
+  ],
+  "six_actual_faces": [
+    [
+      "T",
+      "L",
+      "F"
+    ],
+    [
+      "T",
+      "F",
+      "R"
+    ],
+    [
+      "T",
+      "R",
+      "L"
+    ],
+    [
+      "B",
+      "L",
+      "F"
+    ],
+    [
+      "B",
+      "F",
+      "R"
+    ],
+    [
+      "B",
+      "R",
+      "L"
+    ]
+  ],
+  "incidence_degrees": {
+    "L": 4,
+    "F": 4,
+    "R": 4,
+    "T": 3,
+    "B": 3
+  },
+  "equal_sum_constraint_rank_with_givens": 5,
+  "unique_vertex_values": {
+    "L": 5,
+    "F": 5,
+    "R": 5,
+    "T": 1,
+    "B": 1
+  },
+  "proof": "Equal totals on TLF,TFR,TRL imply L=F=R=5. Comparing TLF and BLF gives T=B=1. All five values are therefore forced; sum3*5+2*1=17. The hidden LR is a true equatorial edge; the TF/LR screen crossing is not a new vertex.",
+  "semantics": "The problem assigns numbers to graph vertices. Colored edge stubs are comparisons of incidences; neither edge length nor color is a new number equality condition. No material paper/color transport is requested.",
+  "prospective_error": {
+    "rule": "treat the two visible three-arm stars at horizontal extremes L,R as the apex pair; propagate5 twice and1 to the remaining triple",
+    "wrong_total": 13,
+    "actual_diagnostic": "L and R each have degree4 including the preserved hidden LR; T and B are the actual degree3 apex pair."
+  }
+}

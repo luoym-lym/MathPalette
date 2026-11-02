@@ -1,0 +1,56 @@
+{
+  "question_id": "Solid218",
+  "variant_id": "r61_square_to_half_square_base",
+  "frozen_created_at": "2026-11-01T21:13:52.405030+00:00",
+  "expected_wrong_answer_unchanged": "B",
+  "reviewed_at_utc": "2026-11-02T00:47:16.357936+00:00",
+  "review_level": "Fresh PRIMARY screening only; not independent second review, original approval or Pass/Collect",
+  "original_unique_math": "Three unit square faces fold to a trihedral cube corner: D is z=0 with vertices(0,0,0),(1,0,0),(1,1,0),(0,1,0); C is x=0; B is y=1. At their common corner, the three square90-degree face angles fix pairwise perpendicular incident unit edges. A, E and F close the remaining half faces z=1, x=1, y=0. Their hypotenuses join U=(0,0,1), V=(1,0,0), W=(1,1,1); every pair has squared distance2, matching the equilateral G. The seven original faces are exactly the boundary of [0,1]^3 intersected with x-y+z<=1. Its only omitted cube vertex is T=(1,0,1). The removed tetrahedron TUVW has three mutually perpendicular unit legs from T, determinant absolute1, so volume1/6. The closed folded solid therefore has volume1-1/6=5/6, uniquely D. Reflecting the whole fold cannot alter volume. F is the surviving right-triangular half of y=0, NOT the removed triangular base itself; the omitted base is its congruent complement, both area1/2. The complete face construction, rather than old solver narratives about eight midpoint cuts, verifies the folding. No optimization is asked.",
+  "derived_answer": "D",
+  "agrees_with_formal": true,
+  "native_actual_image_inspection": "Personally viewed original JPG, formal PNG, old G-outline candidate and frozen r61 PNG. All A..G labels and all18 existing net segments are readable. C remains a complete square; F remains an isosceles right triangle with its black hypotenuse; G remains an equilateral triangle with all its edges black. Four red strokes form two open L portions on existing boundaries, with no added line, closed subregion, face, fold or partition.",
+  "actual_viewed_paths": [
+    "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\SolidGeometry\\originals\\Solid218.jpg",
+    "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\SolidGeometry\\image\\Solid218.png",
+    "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_61\\Solid218\\r61_square_to_half_square_base\\candidate.png"
+  ],
+  "human_semantics": "C top/left unit edges are the square-area source; F top/left unit legs are the receiver. Both actual right-angle leg pairs have length1; identical color adds no area equality. The erroneous step is dropping the triangular1/2 in the corresponding corner-removal base, yielding1-1/3=2/3=B. This is a numerical volume question, so even a physical red-ink reading of the net does not change the folded solid or volume. No extra painted area or missing puzzle piece is inferred.",
+  "every_marker_roles": [
+    {
+      "action_index": 0,
+      "role": "line_1: actual upper unit side of square C, horizontal member of the source L."
+    },
+    {
+      "action_index": 1,
+      "role": "line_15: actual left unit side of C, vertical source member; C enclosed area remains1."
+    },
+    {
+      "action_index": 2,
+      "role": "line_2: existing D/F shared unit boundary, horizontal leg of receiver F; does not add a fold."
+    },
+    {
+      "action_index": 3,
+      "role": "line_11: existing left unit leg of F, vertical receiver member; together with line_2 it encloses no new region and F area remains1/2."
+    }
+  ],
+  "native_readability_pass": true,
+  "no_false_relation_symbol_or_added_condition": true,
+  "geometry_projection_visibility_text_semantic_fills_counts_preserved": true,
+  "old_outcomes": [
+    "B (2/3)",
+    "D (5/6)"
+  ],
+  "old_own_preset_doublehit": false,
+  "reuse_is_new_mechanism": false,
+  "limits": [
+    "Primary assessment is not an independent review or a human performance study.",
+    "No original control is required or repeated; any two observations establish observed hits only, not causal gain.",
+    "Zero-call and fresh-render gates are separate and must pass before copying/testing."
+  ],
+  "numerical_verification": {
+    "cube_volume": "1",
+    "removed_determinant": "1",
+    "removed_volume": "1/6",
+    "remaining_volume": "5/6"
+  }
+}

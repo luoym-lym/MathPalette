@@ -1,0 +1,279 @@
+{
+  "question_id": "Solid207",
+  "name": "r55_source_halfside_to_full_panel_scale",
+  "variant_id": "r55_source_halfside_to_full_panel_scale",
+  "branch": "SolidGeometry",
+  "description": "Match the real half of the source square top side, from midpoint sm to corner s2 (length6), to one true full side of the upper A panel (length12). Test carrying the half-side unit into the full enclosing cube side: side6 gives half-cube volume108 instead of864. No fold, piece, hexagon edge, text or equality marker is added.",
+  "expected_wrong_answer": "108",
+  "correct_answer": "864",
+  "mechanism": "Match the real half of the source square top side, from midpoint sm to corner s2 (length6), to one true full side of the upper A panel (length12). Test carrying the half-side unit into the full enclosing cube side: side6 gives half-cube volume108 instead of864. No fold, piece, hexagon edge, text or equality marker is added.",
+  "primary_math_proof": {
+    "proof": "Intersect [0,12]^3 with x+y+z<=18. The cutting face has vertices all permutations of (0,6,12), a regular hexagon with side6sqrt2 and angles120. Each coordinate0 cube face is exactly a 12x12 square minus a 6-by-6 corner right triangle: three A pentagons with cyclic lengths6,12,12,6,6sqrt2. Each coordinate12 face is a right isosceles triangle with legs6: three B triangles. They attach alternately to the six hexagon sides, with the same cyclic net adjacencies and angles as the actual frozen net. Thus the given six panels plus hexagon realize the convex half-cube; fixed convex face metric rigidity excludes another convex folded volume. The map (x,y,z)->(12-x,12-y,12-z) exchanges the two half-cubes and preserves volume, so V=12^3/2=864.",
+    "actual_panels": {
+      "0": {
+        "vertices": {
+          "f0_0": [
+            8.485281374238571,
+            0.0,
+            0.0
+          ],
+          "f0_1": [
+            10.038195644853698,
+            5.79555495773441,
+            0.0
+          ],
+          "f0_2": [
+            4.242640687119287,
+            7.3484692283495345,
+            0.0
+          ]
+        },
+        "edge_lengths": [
+          6.000000000000001,
+          6.000000000000001,
+          8.48528137423857
+        ]
+      },
+      "1": {
+        "vertices": {
+          "f1_0": [
+            4.242640687119287,
+            7.3484692283495345,
+            0.0
+          ],
+          "f1_1": [
+            8.485281374238573,
+            11.59110991546882,
+            0.0
+          ],
+          "f1_2": [
+            2.6645352591003757e-15,
+            20.07639128970739,
+            0.0
+          ],
+          "f1_3": [
+            -8.48528137423857,
+            11.59110991546882,
+            0.0
+          ],
+          "f1_4": [
+            -4.242640687119284,
+            7.3484692283495345,
+            0.0
+          ]
+        },
+        "edge_lengths": [
+          6.000000000000001,
+          12.000000000000002,
+          12.000000000000002,
+          6.000000000000001,
+          8.485281374238571
+        ]
+      },
+      "2": {
+        "vertices": {
+          "f2_0": [
+            -4.242640687119284,
+            7.348469228349535,
+            0.0
+          ],
+          "f2_1": [
+            -10.038195644853694,
+            5.795554957734412,
+            0.0
+          ],
+          "f2_2": [
+            -8.485281374238571,
+            8.881784197001252e-16,
+            0.0
+          ]
+        },
+        "edge_lengths": [
+          6.000000000000001,
+          6.000000000000001,
+          8.485281374238571
+        ]
+      },
+      "3": {
+        "vertices": {
+          "f3_0": [
+            -8.485281374238571,
+            8.881784197001252e-16,
+            0.0
+          ],
+          "f3_1": [
+            -14.28083633197298,
+            1.5529142706151267,
+            0.0
+          ],
+          "f3_2": [
+            -17.38666487320323,
+            -10.038195644853689,
+            0.0
+          ],
+          "f3_3": [
+            -5.795554957734415,
+            -13.14402418608394,
+            0.0
+          ],
+          "f3_4": [
+            -4.242640687119289,
+            -7.348469228349533,
+            0.0
+          ]
+        },
+        "edge_lengths": [
+          5.999999999999999,
+          11.999999999999995,
+          11.999999999999995,
+          5.999999999999997,
+          8.485281374238568
+        ]
+      },
+      "4": {
+        "vertices": {
+          "f4_0": [
+            -4.242640687119289,
+            -7.348469228349533,
+            0.0
+          ],
+          "f4_1": [
+            -2.220446049250313e-15,
+            -11.59110991546882,
+            0.0
+          ],
+          "f4_2": [
+            4.242640687119286,
+            -7.3484692283495345,
+            0.0
+          ]
+        },
+        "edge_lengths": [
+          6.000000000000003,
+          6.000000000000002,
+          8.485281374238575
+        ]
+      },
+      "5": {
+        "vertices": {
+          "f5_0": [
+            4.242640687119287,
+            -7.3484692283495345,
+            0.0
+          ],
+          "f5_1": [
+            5.795554957734412,
+            -13.144024186083943,
+            0.0
+          ],
+          "f5_2": [
+            17.38666487320323,
+            -10.038195644853694,
+            0.0
+          ],
+          "f5_3": [
+            14.280836331972981,
+            1.5529142706151249,
+            0.0
+          ],
+          "f5_4": [
+            8.485281374238571,
+            0.0,
+            0.0
+          ]
+        },
+        "edge_lengths": [
+          5.999999999999999,
+          11.999999999999998,
+          11.999999999999998,
+          6.000000000000001,
+          8.48528137423857
+        ]
+      }
+    },
+    "cut_vertices": [
+      [
+        0,
+        6,
+        12
+      ],
+      [
+        0,
+        12,
+        6
+      ],
+      [
+        6,
+        0,
+        12
+      ],
+      [
+        6,
+        12,
+        0
+      ],
+      [
+        12,
+        0,
+        6
+      ],
+      [
+        12,
+        6,
+        0
+      ]
+    ],
+    "correct_answer": 864,
+    "prospective_scale_error": "If a real input half-side6 is incorrectly identified with a full A panel side12, reconstructing the enclosing cube with side6 instead of12 scales the half-cube volume by1/8, giving108. This is a part-to-whole correspondence error; no equal-length condition is added."
+  },
+  "difference_audit": {
+    "old": "Previous own prescreen had no design/calls; it considered wrong A/B closures that would change the visible six-piece net.",
+    "new": "An open half-side source and a full existing A side form one local scale-level correspondence; the correct half-cube topology is kept.",
+    "substantive_difference": "The enclosing cube scale is misbound by a factor2, not a different closure, omitted face, restored square or doubled volume.",
+    "preset_rationale_before_calls": "The source half is6 because the source square is12. Treating that source half as the full A edge and hence cube side yields6^3/2=108.",
+    "human_resolution": "The uncolored remaining source half and all A/B edges remain present; original cuts and the numerical12x12 statement independently fix actual full cube side12. Colored ink has no effect on the numerical volume asked."
+  },
+  "actions": [
+    {
+      "type": "set_object_style",
+      "target": "line_26",
+      "color": "#DC2626",
+      "linewidth_pt": 2,
+      "interval": {
+        "path_id": "p0",
+        "path_sha256": "087eb08e988a00258f28bc11b0598ed799cb6a85685bc4857e738086b840c55d",
+        "start": 0,
+        "end": 0.5,
+        "wrap": false
+      }
+    },
+    {
+      "type": "set_object_style",
+      "target": "line_9",
+      "color": "#DC2626",
+      "linewidth_pt": 2
+    }
+  ],
+  "marker_roles": [
+    {
+      "index": 0,
+      "target": "line_26",
+      "range": [
+        0,
+        0.5
+      ],
+      "role": "Source s2 to sm half-edge length6; endpoint at the pre-existing cut midpoint.",
+      "why_needed": "Selects the real half-side scale, not the full12 edge."
+    },
+    {
+      "index": 1,
+      "target": "line_9",
+      "role": "Receiving full A side f1_1 to f1_2 length12.",
+      "why_needed": "Locates the full cube-edge role which would be incorrectly assigned the source half-side scale. No closed contour or extra partition."
+    }
+  ],
+  "limitations": [
+    "Primary designer assessment only; parent must commission NEW independent second review.",
+    "Two responses cannot establish incremental effect, reliability or the precise causal mechanism; no controls repeated."
+  ]
+}

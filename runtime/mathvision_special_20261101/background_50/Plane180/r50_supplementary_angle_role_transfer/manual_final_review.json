@@ -1,0 +1,44 @@
+{
+  "question_id": "Plane180",
+  "variant_id": "r50_supplementary_angle_role_transfer",
+  "reviewed_at": "2026-11-01T20:09:46.640774+00:00",
+  "expected_wrong_answer_immutable": "D",
+  "formal_correct_answer": "C",
+  "full_manual_final_reviews": [
+    {
+      "run_index": 1,
+      "full_final_text": "To find $\\beta$, we track the orientation of the strip's edges through the sequence of folds.\n\n**Step 1: First Fold**\nThe strip is initially folded upwards. The problem states $\\alpha = 70^{\\circ}$. Looking at the diagram, $\\alpha$ is the angle between the downward-pointing left edge (the red line) and the new direction of the strip pointing up-right.\nIf we assign a coordinate system where the downward direction is $180^{\\circ}$, the new direction is at $70^{\\circ}$ from it. So the new direction is $180^{\\circ} - 70^{\\circ} = 110^{\\circ}$.\nThe turning angle (deviation) at this fold is $70^{\\circ}$ to the left.\n\n**Step 2: Second Fold**\nThe strip is folded downwards to the left. By visual inspection, the angle of this fold appears to be $90^{\\circ}$ (a right angle). The strip turns from pointing up ($110^{\\circ}$) to pointing down-left ($200^{\\circ}$).\nThe turning angle at this fold is $90^{\\circ}$ to the left.\n\n**Step 3: Third Fold**\nThe strip is folded upwards to the right. Based on the symmetry often found in these puzzles and visual estimation, this fold is also $90^{\\circ}$. The strip turns from pointing down-left ($200^{\\circ}$) to pointing up-right ($290^{\\circ}$).\nThe turning angle at this fold is $90^{\\circ}$ to the left.\n\n**Calculating $\\beta$**\nThe angle $\\beta$ corresponds to the angle between the two visible \"tails\" of the strip.\n*   The left tail points at $180^{\\circ}$ (Down).\n*   The right tail points at $290^{\\circ}$ (Up-Right, derived from adding the turn $290^{\\circ} - 360^{\\circ} = -70^{\\circ}$ or just following the turns).\n*   The angle between the directions $180^{\\circ}$ and $290^{\\circ}$ is $290^{\\circ} - 180^{\\circ} = 110^{\\circ}$.\n\nAlternatively, we can look at the sum of the turning angles. The strip has made a net turn of $70^{\\circ} + 90^{\\circ} + 90^{\\circ} = 250^{\\circ}$ to the left. The angle between the start and end directions is the reflex of this turn, which corresponds to the interior angle $\\beta$.\n$\\beta = 360^{\\circ} - 250^{\\circ} = 110^{\\circ}$.\n\nTherefore, $\\beta = 110^{\\circ}$.\n\nA:$140^{\\circ}$\nB:$130^{\\circ}$\nC:$120^{\\circ}$\nD:$110^{\\circ}$\nE:$100^{\\circ}$\n\nThe correct choice is D.\n\n**D**",
+      "full_raw_response_manually_read": true,
+      "terminal_answer": "D",
+      "terminal_value": 110,
+      "matches_original_frozen_wrong_preset": true,
+      "contradictory_terminal_letter_value": false,
+      "narrative_notes": "Run1 assumes two undocumented right-angle turns, gives110 and D. This is only one target hit; no new right-angle condition exists in the candidate.",
+      "raw_response_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_50\\Plane180\\r50_supplementary_angle_role_transfer\\tests\\quicktest3_20261101T200409_ce9da32f2837\\run_01_response.json",
+      "raw_response_sha256": "a5758e41d996b56dc34e7cc1eb59102fabdec182484fd405e4d75c306b9b0ebf",
+      "job_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_50\\Plane180\\r50_supplementary_angle_role_transfer\\tests\\quicktest3_20261101T200409_ce9da32f2837\\run_01.json",
+      "finish_reason": "stop"
+    },
+    {
+      "run_index": 2,
+      "full_final_text": "**Answer:**\nBased on the geometry of the paper folding:\n1.  **First Fold**: A $180^\\circ$ fold at $\\alpha = 70^\\circ$ changes the direction of the paper by $2(180^\\circ - 70^\\circ) = 220^\\circ$.\n2.  **Second Fold**: A $180^\\circ$ fold on a straight strip turns the paper by another $180^\\circ$.\n3.  **Third Fold**: A flat vertex ($360^\\circ$ around the point) meeting requires the total turning angles to sum to $360^\\circ$. Let $\\gamma$ be the deviation of the third fold. $220^\\circ + 180^\\circ + \\gamma = 360^\\circ \\Rightarrow \\gamma = -40^\\circ$ (a $40^\\circ$ reversal).\n4.  **Resulting Angle**: The angle $\\beta$ is formed by the two branches leaving the vertex. The first branch is at $220^\\circ$ from the start. The second branch turns back by $40^\\circ$, so it is at $220^\\circ - 40^\\circ = 180^\\circ$ from the start. The angle between them is $180^\\circ - 220^\\circ$ relative to the start, or simply $2 \\times 40^\\circ = 80^\\circ$ between them. However, the angle $\\beta$ is the reflex angle or the obtuse angle depending on the diagram's labeling convention. Given the choices, the calculation $2 \\times (90^\\circ - 70^\\circ) = 40^\\circ$ is related. The angle between the two red lines (the \"legs\" of the final shape) is $80^\\circ$. The supplementary angle (the \"mouth\" angle) is $180^\\circ - 80^\\circ = 100^\\circ$.\n\nThe correct choice is **E**.\n\nE",
+      "full_raw_response_manually_read": true,
+      "terminal_answer": "E",
+      "terminal_value": 100,
+      "matches_original_frozen_wrong_preset": false,
+      "contradictory_terminal_letter_value": false,
+      "narrative_notes": "Run2 uses inconsistent80/100 angle story, but terminal E corresponds100, no contradictory terminal letter/value. It misses presetD.",
+      "raw_response_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_50\\Plane180\\r50_supplementary_angle_role_transfer\\tests\\quicktest3_20261101T200409_ce9da32f2837\\run_02_response.json",
+      "raw_response_sha256": "de8749c7583a18e80facd66845f499abed3a9a44940066027eb01b09a8d5f3aa",
+      "job_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_50\\Plane180\\r50_supplementary_angle_role_transfer\\tests\\quicktest3_20261101T200409_ce9da32f2837\\run_02.json",
+      "finish_reason": "stop"
+    }
+  ],
+  "hits": 1,
+  "two_hit": false,
+  "outcome": "MISS",
+  "same_wrong_final_does_not_override_preset": true,
+  "no_posthoc_relabel_or_retests": true,
+  "actual_narratives_do_not_establish_causal_mechanism": true,
+  "original_controls": "None located for these8originals; none newly called. No causal/statistical gain claim."
+}

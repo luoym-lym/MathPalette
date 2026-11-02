@@ -1,0 +1,14 @@
+from local_env import *
+appendix={
+ 'question_id':'Plane220','created_at':now(),'original_answer_unchanged':'D',
+ 'reason_for_appendix':'Make the left-fold interpretation exhaustive under the wording can result, without adding a source condition.',
+ 'argument':'All five candidate paper frames have the same wide rectangle with a central vertical dotted half-fold; the displayed folded packet is its square half. If the cut left boundary of that packet is the fold, reflection joins the half-opening across a positive-length interval, giving D exactly. If the left cut boundary is instead an outer free edge and the right boundary is the fold, opening gives notches on the two exterior left/right paper boundaries, not any candidate internal opening. A horizontal-edge interpretation likewise leaves this cut connected to the outside boundary and does not yield any of the shown internal cutouts. A/B/E have two opening interiors rather than the one joined opening; C is not a vertical reflection invariant. Thus D alone CAN result. This does not require silently declaring all possible source edges to be the fold or editing the prompt.',
+ 'native_gap_qualification':'The conceptual B circles are tangent in the schematic picture; the native polygonal arc sampling leaves a positive gap of about .001948 display units between its facing boundaries, smaller than a pixel. Either convention has two disjoint interiors. E/A may have exact point contacts, also without a positive-width opening. The proof uses interiors and fold intersection, not pixel gap measurement.',
+ 'frozen_previous_designs_modified':False,'new_calls_used_for_mathematics':False}
+save(OWN/'Plane220/mathematics_fold_side_exhaustion.json',appendix,True)
+path=OWN/'Plane220/false_mirror_extremity_pair/mathematics.json'
+proof=read_json(path)
+assert not path.with_name('design.json').exists()
+proof['fold_side_exhaustion_before_calls']=appendix
+save(path,proof)
+print('Fold-side exhaustion recorded before this new candidate design is frozen; earlier frozen designs remain intact.')

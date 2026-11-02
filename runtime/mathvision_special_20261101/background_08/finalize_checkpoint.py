@@ -19,7 +19,7 @@ for p in HERE.glob('Plane*/*/tests/quicktest3_*/run_??.json'):
     r=json.loads(p.read_text(encoding='utf-8'))
     if r['status']=='completed':completed_calls.append(p)
 prescreens=[{'question_id':q,'path':str(HERE/q/'prescreen_assessment.json'),'assessment':json.loads((HERE/q/'prescreen_assessment.json').read_text(encoding='utf-8'))} for q in ASSIGNED if (HERE/q/'prescreen_assessment.json').exists()]
-cleanup=json.loads((HERE/'no_live_processes.json').read_text(encoding='utf-8'));assert cleanup['no_live_own_python_processes']
+cleanup=json.loads((HERE/'no_live_processes.json').read_text(encoding='utf-8-sig'));assert cleanup['no_live_own_python_processes']
 source=json.loads((HERE/'source_preservation_audit.json').read_text(encoding='utf-8'));assert source['all_unchanged']
 queue_doc={'unit':'background_08','created_at':now(),'status':'ready_for_parent_NEW_independent_review','self_approved':False,'published':False,'Pass_Collect_performed':False,'candidate_count':len(queue),'candidates':queue,'review_requirements':'Parent must create a NEW independent reviewer. Check unique mathematics, actual PNG, each marker role and human semantics, exact immutable design/image/request/raw-response bindings and manual finals. Original controls/identical narratives/causal experiments are limitations, not additional hard gates.','source_audit_path':str(HERE/'source_preservation_final.json'),'evidence_audit_path':str(HERE/'evidence_binding_audit_final.json'),'original_controls':controls}
 write(HERE/'second_review_queue.json',queue_doc)

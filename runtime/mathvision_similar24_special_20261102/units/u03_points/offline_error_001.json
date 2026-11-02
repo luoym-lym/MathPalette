@@ -1,0 +1,10 @@
+{
+  "stage": "capture.py initial offline context/path serialization",
+  "error": "TypeError: Object of type ndarray is not JSON serializable",
+  "location": "capture.py line 17 save paths.json, unit_env.py line 61 json.dump",
+  "diagnosis": "The native object_paths result includes raw NumPy segment arrays. My command attempted to serialize those arrays rather than the public path identity metadata. This is a local command serialization error, not a renderer, host allocation, source, or geometry failure.",
+  "preserved_partial_file": "Plane211/paths.json",
+  "preserved_successful_files": ["Plane211/context.json", "Plane211/noop.png"],
+  "offline_fix": "Save only exact public id/sha256/closed path identity fields to new paths_v2.json files; rerun all relevant offline gates. No drawing implementation or numeric values changed.",
+  "new_model_calls_at_error": 0
+}

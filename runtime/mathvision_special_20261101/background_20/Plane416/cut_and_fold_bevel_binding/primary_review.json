@@ -1,0 +1,26 @@
+{
+  "review_type": "PRIMARY ONLY; not independent",
+  "reviewed_at": "2026-11-01T16:19:32.776134+00:00",
+  "actual_original_png_viewed": true,
+  "actual_candidate_png_viewed": true,
+  "proceed_to_API": true,
+  "math_proof": "Translate the last triangle apex to (0,0): its folded wedge is bounded by x=0 and y=-x, with y>=0 and -y<=x<=0. The cut is y=a for positive a (a=0.75 in frozen display coordinates). Reflection about the diagonal boundary y=-x sends the cut to x=-a. Reflection about the previous horizontal and vertical folds generates only x=+-a and y=+-a. Their removed center is the axis-aligned square [-a,a]^2. No diagonal cut is made, and unfolding does not turn the fold boundary itself into a cut. C alone has an axis-aligned square hole. A has a tilted square, B and E octagonal holes, D a star with extra concave corners. All original grey material, white holes, dashed fold/cut lines, right-angle sign and scissors remain. Only existing open edge portions receive color, so no new cut or region is drawn.",
+  "per_marker_roles": [
+    "Original horizontal dashed cutting line, still dashed, identifies the actual cut direction in the last folded wedge.",
+    "E hole top horizontal edge is paired to the actual horizontal cut. This is one short hole side, not a whole-hole border.",
+    "Original final wedge diagonal fold boundary from (13.5,6) to (12.439339828220179,7.060660171779821) is the second input feature. Mistaking this fold boundary for a surviving cut edge would create bevels.",
+    "E upper-right diagonal hole bevel is paired to the source diagonal fold boundary. The targeted error incorrectly propagates a fold as an additional cut and produces an octagonal hole."
+  ],
+  "visual_findings": "Native 768px candidate viewed. Original red cutting line is still visibly dashed; scissors and perpendicular marker remain black/readable. Blue lies only along the existing wedge diagonal. E has just one short red horizontal and one short blue bevel edge; white hole and grey octagon remain intact. No new region/cut line is added.",
+  "human_semantics": "Red identifies actual cutting direction, blue an existing fold boundary. It does not state that the blue edge is an extra cut. Reversing the specified folds yields the same axis-aligned square C. E is demonstrably wrong because diagonal fold edges do not generate hole bevels. Colored annotations on existing diagram boundaries do not alter the explicit operation or original topology.",
+  "schema_and_default_normalization": "Actual checked-in PluginRenderer.normalize/render and frozen render passed; all original interval path hashes validated.",
+  "baseline_noop_pixel_equal": true,
+  "frozen_render_twice_byte_identical": true,
+  "tested_image_sha256": "3e71a299e7bad46edeaf48926f58b5962c8acae8702ad52418f6ebf2683e7160",
+  "design_sha256": "6fc7fc8b61395f3cc1f81d842052d30f6b997c72e44319fd341b952755013cba",
+  "limitations": [
+    "No original control calls yet.",
+    "No human study or statistical/per-marker causal ablation.",
+    "No independent second review yet; parent must start NEW reviewer before any delivery."
+  ]
+}

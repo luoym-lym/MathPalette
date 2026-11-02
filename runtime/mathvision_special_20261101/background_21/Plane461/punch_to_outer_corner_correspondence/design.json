@@ -1,0 +1,43 @@
+{
+  "question_id": "Plane461",
+  "variant_id": "punch_to_outer_corner_correspondence",
+  "created_at": "2026-11-01T16:21:05.225665+00:00",
+  "expected_wrong_answer": "C",
+  "correct_answer": "B",
+  "mechanism": "Five original hole outlines form a concrete one-to-four punch-to-hole correspondence. It favors C by mistaking the left vertical fold boundary for an outer edge; it does not color a choice box, letter, or unrelated outline.",
+  "mathematical_solution": "Normalize the original rectangle to [0,4] x [0,2]. Bottom-to-top maps y to 2-y on the moving half, leaving the stack in y in [1,2]. Left-to-right maps x to 4-x on the moving half, leaving x in [2,4]. The final punch lies near (2.25,1.75), as its frozen local coordinates (12.25,5.45) are 0.25 from the folded left side and 0.25 from its top. Reverse the folds: (2.25,1.75), (1.75,1.75), (2.25,0.25), (1.75,0.25). In B these are translated by +6 along x, giving its four exact centers (7.75/8.25,0.25/1.75). C instead has x=0.25/3.75 relative to its box, wrongly near outside edges; D is near both axes; E is near outside x and central y; A is not symmetric about both axes. Only B is the complete correct reflected orbit.",
+  "human_semantics": "Only the pre-existing circle outlines are recolored. The punch X remains visible; every circle center, radius, white interior, original fold arrow, dashed fold line and option label is unchanged. These are proposed visual correspondences, not new holes, cuts, or a condition that physical red ink must survive a fold. No whole option is boxed. Native-size small circles require an explicit visual check.",
+  "marker_roles": [
+    {
+      "action_index": 0,
+      "target": "o13",
+      "edge_index": null,
+      "role": "Actual punch circle at X in the twice-folded sheet; source of the four reflected hole copies."
+    },
+    {
+      "action_index": 1,
+      "target": "o33",
+      "edge_index": null,
+      "role": "C upper left existing hole outline, paired with the punched hole as an outer-corner unfolding copy. The false correspondence treats the left edge of the folded sheet as an original outer edge instead of the vertical fold."
+    },
+    {
+      "action_index": 2,
+      "target": "o34",
+      "edge_index": null,
+      "role": "C upper right existing hole outline, paired with the punched hole as an outer-corner unfolding copy. The false correspondence treats the left edge of the folded sheet as an original outer edge instead of the vertical fold."
+    },
+    {
+      "action_index": 3,
+      "target": "o35",
+      "edge_index": null,
+      "role": "C lower left existing hole outline, paired with the punched hole as an outer-corner unfolding copy. The false correspondence treats the left edge of the folded sheet as an original outer edge instead of the vertical fold."
+    },
+    {
+      "action_index": 4,
+      "target": "o36",
+      "edge_index": null,
+      "role": "C lower right existing hole outline, paired with the punched hole as an outer-corner unfolding copy. The false correspondence treats the left edge of the folded sheet as an original outer edge instead of the vertical fold."
+    }
+  ],
+  "status": "PRIMARY_ONLY_REQUIRES_NEW_PARENT_INDEPENDENT_REVIEW"
+}

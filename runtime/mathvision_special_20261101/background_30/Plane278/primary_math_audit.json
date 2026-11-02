@@ -1,0 +1,39 @@
+{
+  "convex_concave_counts": {
+    "A": [
+      0,
+      2
+    ],
+    "B": [
+      1,
+      1
+    ],
+    "C": [
+      2,
+      0
+    ],
+    "D": [
+      1,
+      0
+    ],
+    "E": [
+      0,
+      1
+    ]
+  },
+  "necessity": "All curved boundaries must be interior paired convex/concave seams. Omitting A/B/C/D/E leaves imbalance +2/0/-2/-1/+1, respectively. Only B can be omitted.",
+  "construction": {
+    "lower_left": "C original",
+    "lower_right": "E half-turn",
+    "upper_left": "A clockwise90",
+    "upper_right": "D counterclockwise90"
+  },
+  "actual_seams": [
+    "C top with A bottom",
+    "C right with E left",
+    "D left with A right",
+    "D bottom with E top"
+  ],
+  "unique_answer": "B",
+  "target_error": "B and E share the same lower-left straight L frame and right concavity; treating this three-side match as complete substitutability ignores B convex top."
+}

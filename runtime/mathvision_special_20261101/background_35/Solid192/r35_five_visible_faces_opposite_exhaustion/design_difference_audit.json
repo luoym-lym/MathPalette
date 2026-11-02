@@ -1,0 +1,18 @@
+{
+  "question_id": "Solid192",
+  "variant_id": "r35_five_visible_faces_opposite_exhaustion",
+  "stage": "material_refinement",
+  "created_at": "2026-11-01T17:51:44.270670+00:00",
+  "before_any_API_calls": true,
+  "material_difference": "Old Solid192 was screened with no saved candidate or calls. It rejected changing pips or highlighting only the shared seam. This new design never marks a pip: it assigns two open existing boundary edges to EACH of five visible faces, matching top-to-top and front-to-front across the dice. It targets the precise mistake that the five opposite faces exhaust the unseen faces, omitting the remaining unseen opposite pair of the left die. Thus35-15=20 rather than42-15=27.",
+  "predeclared_wrong_hypothesis": "Group the five visible faces by genuine orientation, prompting one opposite-face complement7 per displayed face. False exhaustiveness gives5*7-(1+2+4+6+2)=20; the missing left side-pair contributes7.",
+  "expected_wrong_answer": "20",
+  "prior_evidence_manifest": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_35\\history_read_audit.json",
+  "old_variant_unchanged_retest": false,
+  "cosmetic_or_posthoc": false,
+  "primary_proof": "Each ordinary die has total1+2+3+4+5+6=21 spots. Actual source/formal show left top1 and front2, and right top4,front6,side2; visible total15. Both dice total42, so all unseen spots total27. Opposite lookup alone accounts for left bottom6+rear5=11 and right bottom3+rear1+left5=9, total20. The left die also has two unseen opposite side faces summing7; including them gives27. This uses only ordinary dice and actual visible faces, without assuming hidden contact values individually.",
+  "risks": [
+    "The color does not communicate a rule that only marked faces count; the formal question still asks all unseen faces. A correct human can use42-visible total.",
+    "No causal effect assumed; the grouping may merely make the correct visible total easier. Every spot must remain black and readable."
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "created_at": "2026-11-01T17:54:28.781144+00:00",
+  "stage": "material_refinement",
+  "pre_call": true,
+  "question_id": "Plane328",
+  "variant_id": "r33_shared_center_diagonal_constraints",
+  "expected_wrong_answer": "1",
+  "actions": [
+    {
+      "type": "add_line",
+      "id": "r33_aux_0",
+      "endpoints": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          2.0,
+          2.0
+        ]
+      ],
+      "color": "#DC2626",
+      "linestyle": "solid"
+    },
+    {
+      "type": "add_line",
+      "id": "r33_aux_1",
+      "endpoints": [
+        [
+          0.0,
+          2.0
+        ],
+        [
+          2.0,
+          0.0
+        ]
+      ],
+      "color": "#2563EB",
+      "linestyle": "solid"
+    }
+  ],
+  "per_marker_roles": [
+    "The actual full P00-P11-P22 diagonal is one non-axis collinearity constraint. Its intersection with the blue line is the already marked P11, not a new point.",
+    "The actual full P02-P11-P20 diagonal supplies the second constraint sharing P11. Together these support the local one-center deletion misconception while the three disjoint row constraints still force 3."
+  ],
+  "hypothesis": "Two true diagonal 3-point constraints share the original center. Predicted error deletes just their shared center, answering 1 and overlooking the remaining full outer rows/columns.",
+  "material_difference": "Old assessment incorrectly said 8 perimeter points and dismissed arbitrary triples. Current source/formal contain all 9 points. This design targets the structurally distinguished pair of non-axis 3-point lines and their existing shared center; no deletion marker or point recoloring, no arbitrary triple nomination.",
+  "human_semantics_precheck": "The target is removal of marked dots to avoid any three collinear points; solid auxiliary segments do not change collinearity or the nine-dot inventory. Both added lines meet only at existing P11 and do not mark any dot as removed.",
+  "extra_certificate": null
+}

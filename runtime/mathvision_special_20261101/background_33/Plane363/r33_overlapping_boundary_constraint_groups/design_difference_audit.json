@@ -1,0 +1,84 @@
+{
+  "created_at": "2026-11-01T17:54:30.329971+00:00",
+  "stage": "material_refinement",
+  "pre_call": true,
+  "question_id": "Plane363",
+  "variant_id": "r33_overlapping_boundary_constraint_groups",
+  "expected_wrong_answer": "4",
+  "actions": [
+    {
+      "type": "add_line",
+      "id": "r33_aux_0",
+      "endpoints": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          2.0,
+          0.0
+        ]
+      ],
+      "color": "#DC2626",
+      "linestyle": "solid"
+    },
+    {
+      "type": "add_line",
+      "id": "r33_aux_1",
+      "endpoints": [
+        [
+          2.0,
+          0.0
+        ],
+        [
+          2.0,
+          2.0
+        ]
+      ],
+      "color": "#2563EB",
+      "linestyle": "solid"
+    },
+    {
+      "type": "add_line",
+      "id": "r33_aux_2",
+      "endpoints": [
+        [
+          2.0,
+          2.0
+        ],
+        [
+          0.0,
+          2.0
+        ]
+      ],
+      "color": "#16A34A",
+      "linestyle": "solid"
+    },
+    {
+      "type": "add_line",
+      "id": "r33_aux_3",
+      "endpoints": [
+        [
+          0.0,
+          2.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "color": "#EA580C",
+      "linestyle": "solid"
+    }
+  ],
+  "per_marker_roles": [
+    "Boundary constraint P00-P20 passes through its original side midpoint and has exactly three existing points. Its color identifies one of four real perimeter constraints; each corner belongs to two adjacent constraints. Predicted error adds one removal per color and ignores that overlap.",
+    "Boundary constraint P20-P22 passes through its original side midpoint and has exactly three existing points. Its color identifies one of four real perimeter constraints; each corner belongs to two adjacent constraints. Predicted error adds one removal per color and ignores that overlap.",
+    "Boundary constraint P22-P02 passes through its original side midpoint and has exactly three existing points. Its color identifies one of four real perimeter constraints; each corner belongs to two adjacent constraints. Predicted error adds one removal per color and ignores that overlap.",
+    "Boundary constraint P02-P00 passes through its original side midpoint and has exactly three existing points. Its color identifies one of four real perimeter constraints; each corner belongs to two adjacent constraints. Predicted error adds one removal per color and ignores that overlap."
+  ],
+  "hypothesis": "Four differently colored perimeter collinear triples appear as separate constraint groups. Predicted error sums one deletion per side to give 4, overlooking shared-corner coverage and the actual three-deletion main-diagonal solution.",
+  "material_difference": "No prior saved design/calls. Replaces old proposed removed-point salience with full actual collinearity-group boundaries and their overlap. Every endpoint and intermediate point is original; all segment meetings are existing corners. Target misconception is overlap double-counting, distinct from Plane328 shared-center local-only undercount.",
+  "human_semantics_precheck": "The question counts removed points, not drawn sides or regions. The rectangle is only the existing perimeter-point constraint cycle, introduces no point, cross-out, false equality or cut condition; all 9 marked dots remain relevant.",
+  "extra_certificate": null
+}

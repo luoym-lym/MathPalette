@@ -1,0 +1,153 @@
+{
+  "question_id": "Plane482",
+  "name": "four_tile_single_window_binding",
+  "expected_wrong_answer": "B",
+  "description": "Pair the four input tile diagonals with the four existing sides of the example gray diamond.",
+  "hypothesis": "Four distinct color correspondences bind the full four-tile event to one illustrated 2x2 window. Intended error: calculate its probability (1/4)^4=1/256 and omit the other three possible window locations.",
+  "primary_math": "For each of four 2x2 locations exactly one arrangement of its four oriented tiles forms a gray diamond, probability 1/256. Any pair of locations shares a cell demanding conflicting gray orientations, so events are disjoint. Total 4/256=1/64, choice C.",
+  "semantic_review": "Only existing diagonal strokes change color/width; gray halves, square boundaries, blank grid and example are frozen. No new cut, region, text, tile, or probability condition is added.",
+  "marker_roles": [
+    {
+      "action": {
+        "type": "set_object_style",
+        "target": "graytile0",
+        "color": "#DC2626",
+        "linewidth_pt": 2,
+        "interval": {
+          "path_id": "p0",
+          "path_sha256": "b0b916e5ebbd75514b9eba8367a40ef66b25aef8a6a619ea419f8432f36719be",
+          "start": 0.6666666666666666,
+          "end": 1.0,
+          "wrap": false
+        }
+      },
+      "information_role": "NW-gray input tile diagonal paired to bottom-right cell of the actual diamond; input feature",
+      "necessary_to_hypothesis": true
+    },
+    {
+      "action": {
+        "type": "set_object_style",
+        "target": "eggray22",
+        "color": "#DC2626",
+        "linewidth_pt": 2,
+        "interval": {
+          "path_id": "p0",
+          "path_sha256": "4e33698e2ba96f45343ab06b6475befb5718925685677a81cab42673f9db89c4",
+          "start": 0.6666666666666666,
+          "end": 1.0,
+          "wrap": false
+        }
+      },
+      "information_role": "NW-gray input tile diagonal paired to bottom-right cell of the actual diamond; example feature",
+      "necessary_to_hypothesis": true
+    },
+    {
+      "action": {
+        "type": "set_object_style",
+        "target": "graytile1",
+        "color": "#2563EB",
+        "linewidth_pt": 2,
+        "interval": {
+          "path_id": "p0",
+          "path_sha256": "8b751e6b9baf5250af5ca178f89a4871def72dc639ee8b89a707f4e9e4e27ddb",
+          "start": 0.6666666666666666,
+          "end": 1.0,
+          "wrap": false
+        }
+      },
+      "information_role": "NE-gray input tile diagonal paired to bottom-left cell of the actual diamond; input feature",
+      "necessary_to_hypothesis": true
+    },
+    {
+      "action": {
+        "type": "set_object_style",
+        "target": "eggray21",
+        "color": "#2563EB",
+        "linewidth_pt": 2,
+        "interval": {
+          "path_id": "p0",
+          "path_sha256": "4dedb47cc285e01392bb8f09887c384571dbd4fc54881c59f6267b3397d87f66",
+          "start": 0.6666666666666666,
+          "end": 1.0,
+          "wrap": false
+        }
+      },
+      "information_role": "NE-gray input tile diagonal paired to bottom-left cell of the actual diamond; example feature",
+      "necessary_to_hypothesis": true
+    },
+    {
+      "action": {
+        "type": "set_object_style",
+        "target": "graytile2",
+        "color": "#16A34A",
+        "linewidth_pt": 2,
+        "interval": {
+          "path_id": "p0",
+          "path_sha256": "52fde66647e9e99f8bcde070227b98cfebbe8bcfa3243c0fb6a86c07f709789c",
+          "start": 0.6666666666666666,
+          "end": 1.0,
+          "wrap": false
+        }
+      },
+      "information_role": "SE-gray input tile diagonal paired to top-left cell of the actual diamond; input feature",
+      "necessary_to_hypothesis": true
+    },
+    {
+      "action": {
+        "type": "set_object_style",
+        "target": "eggray11",
+        "color": "#16A34A",
+        "linewidth_pt": 2,
+        "interval": {
+          "path_id": "p0",
+          "path_sha256": "23bfab5e195b9d3f3c829ddce6ec89b5ccb016f4e913c84cdb757f20fbdc88f8",
+          "start": 0.6666666666666666,
+          "end": 1.0,
+          "wrap": false
+        }
+      },
+      "information_role": "SE-gray input tile diagonal paired to top-left cell of the actual diamond; example feature",
+      "necessary_to_hypothesis": true
+    },
+    {
+      "action": {
+        "type": "set_object_style",
+        "target": "graytile3",
+        "color": "#EA580C",
+        "linewidth_pt": 2,
+        "interval": {
+          "path_id": "p0",
+          "path_sha256": "a088cf020b2c5e4f32da9c754db95221714e9719b212e02f38f4fdb139b9180d",
+          "start": 0.3333333333333333,
+          "end": 0.6666666666666666,
+          "wrap": false
+        }
+      },
+      "information_role": "SW-gray input tile diagonal paired to top-right cell of the actual diamond; input feature",
+      "necessary_to_hypothesis": true
+    },
+    {
+      "action": {
+        "type": "set_object_style",
+        "target": "eggray12",
+        "color": "#EA580C",
+        "linewidth_pt": 2,
+        "interval": {
+          "path_id": "p0",
+          "path_sha256": "630e6928e8cce0dd2d783c38b4ffbdf3fe7eef23476f08b7f91555072bc866d1",
+          "start": 0.3333333333333333,
+          "end": 0.6666666666666666,
+          "wrap": false
+        }
+      },
+      "information_role": "SW-gray input tile diagonal paired to top-right cell of the actual diamond; example feature",
+      "necessary_to_hypothesis": true
+    }
+  ],
+  "created_at": "2026-11-01T16:19:40.800933+00:00",
+  "branch": "PlaneGeometry",
+  "plugin_sha256": "7a00a4bc8d9404a3cbe6f4eebfd1d9bbe388b17381597a85112a49ce8e30f12d",
+  "image_sha256": "f1f3fdf10f75e92e730a26c5e430bb56225893debad89c32b05097c99780ee72",
+  "pixel_sha256": "fb8b73dde0b384497fe7afa9cc2555f5be963d4a4fd19a775f1ba7dd5099ef88",
+  "approval_status": "PRIMARY ONLY; no independent second review, no Pass/Collect"
+}

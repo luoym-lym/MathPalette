@@ -1,0 +1,27 @@
+{
+  "question_id": "Solid241",
+  "variant_id": "r53_cross_plane_angle_difference",
+  "branch": "SolidGeometry",
+  "expected_wrong_answer": "\\frac{\\sqrt{3}}{2}",
+  "primary_math_proof": "Set A=(0,0,0), B=(a,0,0), D=(0,b,0), E=(0,0,h), with positive a,b,h. The rectangular prism gives tan(BAF)=h/a=tan30=1/sqrt3 and tan(DAH)=h/b=tan60=sqrt3. Thus a=sqrt3*h and b=h/sqrt3. At E, EG=(a,b,0), EC=(a,b,-h). Their dot product is a^2+b^2=(10/3)h^2, and their norm product is sqrt((10/3)*(13/3))*h^2. cosCEG=sqrt(10/13)=sqrt130/13, independent of positive scale. AB and AD are perpendicular; the two given angles lie in different vertical planes and cannot be subtracted as coplanar angles.",
+  "specific_wrong_geometric_rule": "Illegally treat the two perpendicular green baseline directions as a common coplanar baseline, compute60-30=30, then transplant the red/blue source-ray angle to the target red/blue ray angleCEG. Return cos30=sqrt3/2. In the actual prism the source angleFAH has cosine sqrt3/4 and targetCEG has cosine sqrt130/13; neither is30deg.",
+  "design_difference": "Old background18 assessment saved no design or calls because it found no clean metric correspondence. This design proposes an explicit6-ray/reference mapping and a fixed cross-plane subtraction error. It acknowledges the old objection and preserves all named endpoints and perpendicular prism structure; no equal-angle marks, arcs, plane assertion or changed source dimensions are introduced.",
+  "marker_roles": [
+    "AB is the actual first reference edge of given30deg, highlighted as one baseline member.",
+    "AD is the actual perpendicular second reference edge of given60deg. Its original hidden dash remains; green grouping compares the two reference roles without declaring parallelism.",
+    "AF is the actual front-face diagonal used by givenBAF=30deg, exact named endpoints. Red supplies one source ray.",
+    "AH is the actual left-face diagonal used by givenDAH=60deg, exact named endpoints. Blue supplies the second source ray; dashed auxiliary appearance does not expose a missing physical edge.",
+    "EC is the actual space diagonal forming the first target ray at E, paired red with AF.",
+    "EG is the actual top-face diagonal forming the second target ray at E, paired blue with AH."
+  ],
+  "created_at": "2026-11-01T20:21:38.945707+00:00",
+  "status": "FROZEN_BEFORE_BOTH_CALLS",
+  "frozen_at_utc": "2026-11-01T20:23:27.502771+00:00",
+  "candidate_png_sha256": "e9cab053092da5184c2ddb993d6826cad97c8d85b00ab4e29b92866d03244dfa",
+  "plugin_sha256": "7308950b90250dc835a1cce2daea6712a4a31804c37b8404199d4233d266a627",
+  "difference_audit_sha256": "43c13a30144812ed651bd209b425dd027463fac4dc1d1972883e7f0410a1736f",
+  "path_bindings_sha256": "3ba53159e9ea6c0ebe44e9b6ae66225d0e9dc93a10fd38f19693b77807a5500a",
+  "native_review": "Native768px shows all8 original letters, all12 original box edges and the original3 hidden rear edges. AF and EC are thin red dashed true diagonals; AH and EG are thin blue dashed true diagonals. The AF/EC projected crossing has no new dot and is not claimed to be a spatial intersection. Green AB and AD remain separate perpendicular box directions; AD remains dashed. E target rays are identifiable. No false arcs, angle labels, equality signs, material faces or plane conditions appear. A careful human can use the unchanged30/60 givens and3D rectangular box to get sqrt130/13.",
+  "primary_only": true,
+  "second_review_required": "Parent must start a NEW independent review before delivery. No self second review, Pass, Collect or formal approval."
+}

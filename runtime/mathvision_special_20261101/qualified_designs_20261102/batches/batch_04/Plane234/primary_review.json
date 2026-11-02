@@ -1,0 +1,32 @@
+{
+  "question_id": "Plane234",
+  "variant_id": "three_feature_match_ignores_gray",
+  "reviewed_at": "2026-11-01T12:52:08.858807+00:00",
+  "review_kind": "primary_author_review_only",
+  "actual_original_png_viewed": true,
+  "actual_candidate_png_viewed": true,
+  "proceed_to_API": true,
+  "correct_unique_answer": "B",
+  "unchanged_math_proof": "Encode every ray by its preserved shade and radius: S=(white,1.5), M=(gray,1.75), L=(dark,2). Clockwise starting at sunray0 the cycle is M,M,L,L,S,M,L,S,S,S,M,L,L,M,S,L,S,S. The five option words in left-to-right(clockwise) order are A=LLSS, B=LMSL, C=MLMS, D=LSSL, E=SSLS. Enumerating all18 length4 cyclic windows gives only B=LMSL at sunray12..15. No A,C,D,E word occurs. A rigid turn preserves order, every ray length and shade, so B is unique. The candidate still visibly has source sunray5 gray and longer than the white third ray in D; the added outlines confer no new equality condition.",
+  "marker_roles": [
+    "sunray3 red: source dark first endpoint ray.",
+    "3ray0 red: candidate D first dark ray proposed as its rotation partner.",
+    "sunray4 blue: source first small white ray.",
+    "3ray1 blue: D second ray, a true local feature match.",
+    "sunray5 green: source medium gray ray, the deliberately mismatched third input feature.",
+    "3ray2 green: D third ray, short and white, false correspondence partner.",
+    "sunray6 orange: source final dark endpoint ray.",
+    "3ray3 orange: D final dark ray, closing the four-feature ordered match."
+  ],
+  "visual_observations": "Actual768x768 candidate viewed directly. Source four-ray sector and D four-ray partner use ordered red, blue, green, orange outlines. The gray source third ray is visibly gray and longer than its white D partner; neither fill is covered. Four source ray contours use legal2pt styling; D uses eight exact existing-side1pt add_line overlays because numeric-leading IDs cannot be schema style targets. Labels and all other rays are intact.",
+  "math_evidence": "Plane234/cyclic_ray_math_audit.json enumerates all18 length4 cyclic ray windows. Only B=LMSL at source rays12..15 matches shade and length. D=LSSL never occurs.",
+  "necessity": "Each ordered color pair binds one source ray to its proposed partner; the third pair is the exact local mismatch. End rays set sector extent and direction, the second ray fixes interior order. Colors confer no condition equating the visibly different lengths or fills. No per-marker ablation was done.",
+  "original_givens_readable": true,
+  "no_false_explicit_condition_or_count_target_change": true,
+  "limits": [
+    "No independent second review yet; parent must create a new review task before any delivery.",
+    "No original control or human performance measurement has been performed; no claim of causal effect from two calls alone.",
+    "Repeated reasoning narratives and correct controls are not added hard requirements."
+  ],
+  "approval": "No user Pass/Collect; research only."
+}

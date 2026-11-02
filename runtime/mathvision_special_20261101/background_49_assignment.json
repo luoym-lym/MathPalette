@@ -1,0 +1,454 @@
+{
+  "unit": "background_49",
+  "stage": "material_refinement_of_completed_questions",
+  "created_at": "2026-11-01T19:31:59.256960+00:00",
+  "branch": "SolidGeometry",
+  "question_count": 8,
+  "question_ids": [
+    "Solid80",
+    "Solid89",
+    "Solid90",
+    "Solid107",
+    "Solid159",
+    "Solid163",
+    "Solid171",
+    "Solid172"
+  ],
+  "old_completed_overlap_intentional": true,
+  "active_scopes_disjoint": true,
+  "must_independently_check_current_original_approval_fingerprint_before_calls": true,
+  "questions": [
+    {
+      "question_id": "Solid80",
+      "formal_record_at_assignment": {
+        "source_dataset": "MathVision",
+        "source_key": "test:25",
+        "question": "A wooden block has 8 vertices. One vertex is cut off now (see the picture).\nHow many vertices has the block now?",
+        "answer": "10",
+        "answer_type": "number",
+        "id": "Solid80",
+        "image": "image/Solid80.png",
+        "original_image": "originals/Solid80.jpg",
+        "scene": "dataset_generator/scenes/Solid80.json",
+        "script": "dataset_generator/solid_plot80.py",
+        "runtime_dependencies": [
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid80/execution.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid80/protocol_review.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid80/scene.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid80/source.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid80/source_redraw.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+        ],
+        "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+        "source_category": "solid geometry"
+      },
+      "prospective_new_direction_not_proof_or_preset": "从实际切角三角新面的真实顶点/原棱信息建立三换一的角色比较，探索只加三个新角而忘减被去掉的一个。不能补出原图没有的旧顶点/隐藏边或增添额外几何顶点；先独立证明8−1+3=10，标记不应只是新面任意描色。",
+      "old_saved_attempts_diagnostic_only": [
+        {
+          "question_id": "Solid80",
+          "candidate": "solid_explore/Solid80/removed_vertex_marker",
+          "predeclared_wrong_answer": "11",
+          "formal_correct_answer": "10",
+          "mechanism": "仅标出三条原有切除辅助虚线交汇的旧顶点，诱导把已切旧顶点继续计入得11。题干明确切去一角，新实体仍有8-1+3=10个顶点；不新增边或遮住切面。",
+          "design_sha256": "f8f9b84efcb8ae0809a463adafe20e95f542776c8c68bf08c475840a77ae0239",
+          "tests": [
+            {
+              "path": "solid_explore/Solid80/removed_vertex_marker/tests/quicktest3_20261101T111547_66fc6ab5d530/summary.json",
+              "two_completed": true,
+              "expected_wrong_answer": "11",
+              "statuses": [
+                "completed",
+                "completed"
+              ],
+              "answers_tail_for_review": [
+                "Based on the image and the principles of geometry:\n\n1.  **Original Vertices:** A cube has 8 vertices (corners).\n2.  **Effect of Cutting:** When you cut off a corner (vertex), you remove 1 existing vertex.\n3.  **New Vertices:** The cut creates a new flat face (a triangle). This new triangular face has 3 corners (vertices).\n4.  **Calculation:** You subtract the lost vertex and add the new ones:\n    $$8 - 1 + 3 = 10$$\n\n**Answer:** The block now has **10** vertices.",
+                "lock starts with 8 vertices (the corners of a cube).\n2.  **The Cut:** When you cut off one corner (vertex), that specific point is removed.\n3.  **New Vertices:** The cut creates a new triangular face. The corners of this new triangle become the new vertices of the block. Since a triangle has 3 corners, cutting off one vertex creates 3 new vertices.\n4.  **Calculation:** We subtract the lost vertex and add the new ones.\n    *   Start: $8$\n    *   Subtract the cut corner: $-1$\n    *   Add the 3 new corners: $+3$\n    *   Total: $8 - 1 + 3 = 10$\n\n**Final Answer:**\nThe block now has **10** vertices."
+              ],
+              "note": "Answer tails are for manual inspection; no automatic final-answer success grading."
+            }
+          ],
+          "original_controls": [],
+          "independent_review": null,
+          "approval_status": "No user Pass/Collect recorded"
+        }
+      ],
+      "full_old_source_image_design_and_raw_response_history_required": true
+    },
+    {
+      "question_id": "Solid89",
+      "formal_record_at_assignment": {
+        "source_dataset": "MathVision",
+        "source_key": "test:180",
+        "question": "A $3 \\times 3 \\times 3$ cube weighs 810 grams. Three holes are drilled through it as shown, each in the shape of a $1 \\times 1 \\times 3$ rectangular parallelepiped. What is the weight of the remaining solid?\nChoices:\nA:$540 \\mathrm{~g}$\nB:$570 \\mathrm{~g}$\nC:$600 \\mathrm{~g}$\nD:$630 \\mathrm{~g}$\nE:$660 \\mathrm{~g}$",
+        "answer": "C",
+        "answer_type": "choice",
+        "id": "Solid89",
+        "choices": {
+          "A": "$540 \\mathrm{~g}$",
+          "B": "$570 \\mathrm{~g}$",
+          "C": "$600 \\mathrm{~g}$",
+          "D": "$630 \\mathrm{~g}$",
+          "E": "$660 \\mathrm{~g}$"
+        },
+        "image": "image/Solid89.png",
+        "original_image": "originals/Solid89.jpg",
+        "scene": "dataset_generator/scenes/Solid89.json",
+        "script": "dataset_generator/solid_plot89.py",
+        "runtime_dependencies": [
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid89/execution.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid89/protocol_review.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid89/scene.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid89/source.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid89/source_redraw.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+        ],
+        "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+        "source_category": "solid geometry"
+      },
+      "prospective_new_direction_not_proof_or_preset": "对三个真实1×1贯穿洞的入口边或深度对应作分组，探索三洞体积独立相加而漏交集中心块。原洞/黑灰填充/3D和可见性不改，不画隐藏交点或新增孔；精确求并集去7块、剩20块600g，再解释某实际错项的重复归属。",
+      "old_saved_attempts_diagnostic_only": [],
+      "full_old_source_image_design_and_raw_response_history_required": true
+    },
+    {
+      "question_id": "Solid90",
+      "formal_record_at_assignment": {
+        "source_dataset": "MathVision",
+        "source_key": "test:192",
+        "question": "The lengths of the sides of triangle $X Y Z$ are $X Z=\\sqrt{55}$, $X Y=8, Y Z=9$. Find the length of the diagonal $X A$ of the rectangular parallelepiped in the figure.",
+        "answer": "10",
+        "answer_type": "number",
+        "id": "Solid90",
+        "image": "image/Solid90.png",
+        "original_image": "originals/Solid90.jpg",
+        "scene": "dataset_generator/scenes/Solid90.json",
+        "script": "dataset_generator/solid_plot90.py",
+        "runtime_dependencies": [
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid90/execution.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid90/protocol_review.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid90/scene.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid90/source.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid90/source_redraw.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+        ],
+        "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+        "source_category": "solid geometry"
+      },
+      "prospective_new_direction_not_proof_or_preset": "必须读旧face_body_diagonal_identity完整插件/失败响应，不重复其脸面对角→体对角直接误绑。另探索把三条真实面内对角的平方信息作为一组转给体对角而漏除2：各底层边平方被计两遍。仅能用实际原有线或合法明确辅助关系，不能新增隐藏原棱/假等角；若旧方案已覆盖相同机制或无简洁实际对象就跳过。",
+      "old_saved_attempts_diagnostic_only": [
+        {
+          "question_id": "Solid90",
+          "candidate": "background_17/Solid90/face_body_diagonal_identity",
+          "predeclared_wrong_answer": "sqrt(55)",
+          "formal_correct_answer": "10",
+          "mechanism": "Pair actual face diagonal XZ and body diagonal XA by the same red dashed style, targeting transfer of the explicitly given sqrt(55) from XZ to XA. Both share X but have different named endpoints. The purpose is face/body edge correspondence, with all labels and original hidden dashes retained.",
+          "design_sha256": "da8189d7ac98817b160555cb8cb57253d23ce4b1b8747e06a400ed534e0e363f",
+          "tests": [
+            {
+              "path": "background_17/Solid90/face_body_diagonal_identity/tests/quicktest3_20261101T162852_2e085fb6dd68/summary.json",
+              "two_completed": true,
+              "expected_wrong_answer": "sqrt(55)",
+              "statuses": [
+                "completed",
+                "completed"
+              ],
+              "answers_tail_for_review": [
+                "XZ=\\sqrt{55}$, $AY=9$, $XY=8$), it is impossible to form such a rectangular parallelepiped.\n\nHowever, if this is a textbook problem where we simply need to follow the algebraic steps, the algebraic result for $XA$ (which is $h$) would be $\\sqrt{-17}$. If there is a typo in the numbers (for example, if $AY$ was meant to be smaller such that $AY^2 < 64$), one would subtract $AY^2$ from $XY^2$ to find $XA$. For instance, if $AY$ were $\\sqrt{29}$, then $XA = \\sqrt{64-29} = \\sqrt{35}$.\n\nGiven the numbers strictly as written:\n**$XA = \\sqrt{-17}$** (which indicates no such real triangle exists).\n\n***",
+                "d $XY$).\n    *   Using the 3D Pythagorean theorem:\n        $$XA^2 = XZ^2 + XY^2 + YZ_{edge}^2$$\n    *   We know from the previous step that $XZ^2 + XY^2 = ZY^2 = 119$.\n    *   The square of the third edge (let's call it $w$) is $w^2 = YZ_{face}^2 - ZY^2$ (using the right triangle formed by the edges $w$ and $ZY$ on the face containing $A$). So $w^2 = 9^2 - 119$.\n    *   Substituting these into the equation for $XA$:\n        $$XA^2 = (XZ^2 + XY^2) + w^2$$\n        $$XA^2 = 119 + (81 - 119)$$\n        $$XA^2 = 81$$\n    *   Taking the square root:\n        $$XA = \\sqrt{81} = 9$$\n\n**Final Answer:** 9"
+              ],
+              "note": "Answer tails are for manual inspection; no automatic final-answer success grading."
+            }
+          ],
+          "original_controls": [],
+          "independent_review": null,
+          "approval_status": "No user Pass/Collect recorded"
+        }
+      ],
+      "full_old_source_image_design_and_raw_response_history_required": true
+    },
+    {
+      "question_id": "Solid107",
+      "formal_record_at_assignment": {
+        "source_dataset": "MathVision",
+        "source_key": "test:387",
+        "question": "In a three-sided pyramid all side lengths are integers. Four of the side lengths can be seen in the diagram. What is the sum of the two remaining side lengths?",
+        "answer": "11",
+        "answer_type": "number",
+        "id": "Solid107",
+        "image": "image/Solid107.png",
+        "original_image": "originals/Solid107.jpg",
+        "scene": "dataset_generator/scenes/Solid107.json",
+        "script": "dataset_generator/solid_plot107.py",
+        "runtime_dependencies": [
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid107/execution.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid107/protocol_review.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid107/scene.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid107/source.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid107/source_redraw.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+        ],
+        "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+        "source_category": "solid geometry"
+      },
+      "prospective_new_direction_not_proof_or_preset": "读旧known_edge_to_hidden_diagonal_binding后，转向未知边在哪两真实三角面共享的incidence关系，用原边局部组比较各整数三角不等式的归属，避免旧已知长度向隐藏边搬值。独立解所有可行整数对及唯一总11，再提具体新错配；不加新数值或假等边条件。",
+      "old_saved_attempts_diagnostic_only": [
+        {
+          "question_id": "Solid107",
+          "candidate": "background_15/Solid107/known_edge_to_hidden_diagonal_binding",
+          "predeclared_wrong_answer": "10",
+          "formal_correct_answer": "11",
+          "mechanism": "Pair the actual4-edge CB to hidden diagonal AC in blue, inviting length-label transfer and6+4=10 while the integer triangle inequalities still uniquely yield11.",
+          "design_sha256": "4fceeb2464eb035e83c84e1671ffd1f95f2134779fad0500bf801988b649ea4a",
+          "tests": [
+            {
+              "path": "background_15/Solid107/known_edge_to_hidden_diagonal_binding/tests/quicktest3_20261101T155614_79d9b128e18e/summary.json",
+              "two_completed": true,
+              "expected_wrong_answer": "10",
+              "statuses": [
+                "completed",
+                "completed"
+              ],
+              "answers_tail_for_review": [
+                "Based on the analysis of the diagram and the geometric constraints, the two missing side lengths are 4 and 5.\n\nThe face on the right is a right-angled triangle with sides 3, 4, and 5 (satisfying $3^2+4^2=5^2$).\nThe face on the left is a triangle with sides 2, 7, and 5 (satisfying $2+5 > 7$).\nThe base is a triangle with sides 2, 5, and 4 (satisfying $2+4 > 5$ and $2^2+4^2=5^2$).\n\nThe two missing side lengths are 4 and 5.\nTheir sum is $4 + 5 = 9$.\n\n**9**",
+                "ers to the bottom horizontal edge of the pyramid, connecting the front-left vertex to the front-right vertex.\n\n4.  **Determine the Final Slant Height:** The diagram implies symmetry or a consistent structure. The edge labeled \"7\" connects the top vertex to the front-left vertex. The remaining missing edge (the middle vertical line) connects the top vertex to the front-right vertex. By symmetry with the side labeled \"7\", this edge also has a length of **7**.\n\nThe two remaining side lengths are **5** and **7**.\n\n**Final Answer:**\nThe sum of the two remaining side lengths is $5 + 7 = 12$.\n\n**12**"
+              ],
+              "note": "Answer tails are for manual inspection; no automatic final-answer success grading."
+            }
+          ],
+          "original_controls": [],
+          "independent_review": null,
+          "approval_status": "No user Pass/Collect recorded"
+        }
+      ],
+      "full_old_source_image_design_and_raw_response_history_required": true
+    },
+    {
+      "question_id": "Solid159",
+      "formal_record_at_assignment": {
+        "source_dataset": "MathVision",
+        "source_key": "test:1323",
+        "question": "The diagram on the right shows a solid made up of 6 triangles. Each vertex is assigned a number, two of which are indicated. The total of the three numbers on each triangle is the same. What is the total of all five numbers?",
+        "answer": "17",
+        "answer_type": "number",
+        "id": "Solid159",
+        "image": "image/Solid159.png",
+        "original_image": "originals/Solid159.jpg",
+        "scene": "dataset_generator/scenes/Solid159.json",
+        "script": "dataset_generator/solid_plot159.py",
+        "runtime_dependencies": [
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid159/execution.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid159/protocol_review.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid159/scene.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid159/source.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid159/source_redraw.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+        ],
+        "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+        "source_category": "solid geometry"
+      },
+      "prospective_new_direction_not_proof_or_preset": "从真实六三角面双锥的赤道顶点与两个顶点入射边角色作配对，探索三顶点组/两顶点组的数字重复次数互换。原数字与所有五个顶点不变，不新建交点；独立由每面和相等推出正确17，若只是任意节点同色或旧案同机制则跳过。",
+      "old_saved_attempts_diagnostic_only": [
+        {
+          "question_id": "Solid159",
+          "candidate": "background_17/Solid159/projected_extreme_apex_grouping",
+          "predeclared_wrong_answer": "13",
+          "formal_correct_answer": "17",
+          "mechanism": "Color the two horizontal screen extremes L/R blue and the other three existing vertices T/F/B red. This targets mistaking screen extremes for the two bipyramid apices, assigning the blue pair 5 and red triple1 and reporting13. Every marker coincides with a frozen existing vertex; no graph edge, face, or number changes.",
+          "design_sha256": "18fcff1fce2d2c68597da401245195bdf2b7199e6b60d1830bbdfd4840052d49",
+          "tests": [
+            {
+              "path": "background_17/Solid159/projected_extreme_apex_grouping/tests/quicktest3_20261101T162852_b0a6d928a813/summary.json",
+              "two_completed": true,
+              "expected_wrong_answer": "13",
+              "statuses": [
+                "completed",
+                "completed"
+              ],
+              "answers_tail_for_review": [
+                "ies F = 1$\nSince $F = B$, then **$B = 1$**.\n\nNow use equation (1) to find $S$:\n$1 + 5 + 1 = S$\n**$S = 7$**\n\nNow we can find $R$ using equation (2):\n$1 + R + 1 = 7$\n$R + 2 = 7$\n**$R = 5$**\n\n**4. Calculate the total:**\nThe five numbers are:\n*   Top: $1$\n*   Left Base: $5$\n*   Right Base: $5$ (calculated)\n*   Front Base: $1$ (calculated)\n*   Back Base: $1$ (calculated)\n\nTotal = $1 + 5 + 5 + 1 + 1 = 13$.\n\nAlternatively, using the base sum $x$:\n$x = 5 + R + F + B = 5 + 5 + 1 + 1 = 12$.\nTotal of all numbers = Top + Base Sum = $1 + 12 = 13$.\n\nThe total of all five numbers is 13.\n\n**Final Answer:** 13",
+                "ut knowing $S$.\n\nLet's use the vertex values directly. We know $t=1$ and one equatorial vertex $x_1=5$.\nTop Triangle 1: $1 + 5 + x_2 = S \\Rightarrow x_2 = S - 6$\nTop Triangle 2: $1 + 5 + x_3 = S \\Rightarrow x_3 = S - 6$\nTop Triangle 3: $1 + (S-6) + (S-6) = S \\Rightarrow 2S - 11 = S \\Rightarrow S = 11$\n\n**Step 3: Calculate the values.**\nIf $S = 11$:\n$x_2 = 11 - 6 = 5$\n$x_3 = 11 - 6 = 5$\n\nSo the equatorial vertices are 5, 5, 5.\nThe top vertex $t = 1$.\nThe bottom vertex $b = 1$.\n\n**Step 4: Calculate the total.**\nTotal = $x_1 + x_2 + x_3 + t + b$\nTotal = $5 + 5 + 5 + 1 + 1 = 17$.\n\nFinal Answer: 17"
+              ],
+              "note": "Answer tails are for manual inspection; no automatic final-answer success grading."
+            }
+          ],
+          "original_controls": [],
+          "independent_review": null,
+          "approval_status": "No user Pass/Collect recorded"
+        }
+      ],
+      "full_old_source_image_design_and_raw_response_history_required": true
+    },
+    {
+      "question_id": "Solid163",
+      "formal_record_at_assignment": {
+        "source_dataset": "MathVision",
+        "source_key": "test:1384",
+        "question": "The diagram shows two different views of the same cube. The cube is made from 27 small cubes, which are either white or black. At most how many black cubes are there?",
+        "answer": "9",
+        "answer_type": "number",
+        "id": "Solid163",
+        "image": "image/Solid163.png",
+        "original_image": "originals/Solid163.jpg",
+        "scene": "dataset_generator/scenes/Solid163.json",
+        "script": "dataset_generator/solid_plot163.py",
+        "runtime_dependencies": [
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid163/execution.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid163/protocol_review.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid163/renderer_semantic.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid163/scene.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid163/source.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid163/source_redraw.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+        ],
+        "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+        "source_category": "solid geometry"
+      },
+      "prospective_new_direction_not_proof_or_preset": "在同一27小方块立方体两视图中比较真实同一面/角列的白格约束，探索把同一白格重复扣、或忽略未露中心块等极值计数。原白黑填充和视图几何不变，不以红边新造第三类块色；独立枚举可旋转对应与自由未知格验证最大9后才选新预设。",
+      "old_saved_attempts_diagnostic_only": [],
+      "full_old_source_image_design_and_raw_response_history_required": true
+    },
+    {
+      "question_id": "Solid171",
+      "formal_record_at_assignment": {
+        "source_dataset": "MathVision",
+        "source_key": "test:1554",
+        "question": "A shape is made by cutting all the corners off a cube, as shown in the diagram. How many edges does the shape have?",
+        "answer": "36",
+        "answer_type": "number",
+        "id": "Solid171",
+        "image": "image/Solid171.png",
+        "original_image": "originals/Solid171.jpg",
+        "scene": "dataset_generator/scenes/Solid171.json",
+        "script": "dataset_generator/solid_plot171.py",
+        "runtime_dependencies": [
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid171/execution.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid171/protocol_review.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid171/scene.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid171/source.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid171/source_redraw.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+        ],
+        "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+        "source_category": "solid geometry"
+      },
+      "prospective_new_direction_not_proof_or_preset": "将一个真实新三角面的三条棱作为一组，与一条保留的旧棱作具体类别/计数单位比较，探索把每个切角面当一条棱，漏三倍新边数。不能添/删任何切面或隐藏棱，不能整物体统一色；精确核验12保留+8×3=36及重复归属。",
+      "old_saved_attempts_diagnostic_only": [],
+      "full_old_source_image_design_and_raw_response_history_required": true
+    },
+    {
+      "question_id": "Solid172",
+      "formal_record_at_assignment": {
+        "source_dataset": "MathVision",
+        "source_key": "test:1563",
+        "question": "The diagram shows a solid with six triangular faces. At each vertex there is a number and two of the numbers are 1 and 5, as shown. For each face the sum of the numbers at the three vertices of each face is calculated, and all the sums are the same. What is the sum of all five numbers at the vertices?",
+        "answer": "17",
+        "answer_type": "number",
+        "id": "Solid172",
+        "image": "image/Solid172.png",
+        "original_image": "originals/Solid172.jpg",
+        "scene": "dataset_generator/scenes/Solid172.json",
+        "script": "dataset_generator/solid_plot172.py",
+        "runtime_dependencies": [
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid172/execution.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid172/protocol_review.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid172/scene.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid172/source.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid172/source_redraw.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+        ],
+        "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+        "source_category": "solid geometry"
+      },
+      "prospective_new_direction_not_proof_or_preset": "依据此题自己的实际1/5位置与五个原顶点，比较赤道三点和两锥顶的face-incidence重复角色，探索把组大小或1/5归属错配。与Solid159一般原理相近可共用数学代码，但不得复制其未验证图/结论或忽略本题旧历史；不得改数字/加顶点，独立证明17后再设计。",
+      "old_saved_attempts_diagnostic_only": [],
+      "full_old_source_image_design_and_raw_response_history_required": true
+    }
+  ]
+}

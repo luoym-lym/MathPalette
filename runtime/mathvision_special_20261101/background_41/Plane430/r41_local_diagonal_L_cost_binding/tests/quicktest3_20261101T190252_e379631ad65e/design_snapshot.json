@@ -1,0 +1,110 @@
+{
+  "question_id": "Plane430",
+  "variant_id": "r41_local_diagonal_L_cost_binding",
+  "created_at_utc": "2026-11-01T19:01:17.284670+00:00",
+  "expected_wrong_answer": "E",
+  "correct_answer": "C",
+  "mechanism": "Pair each of two permitted single-cell diagonal steps with its two original orthogonal edge components, using red at Start and blue at Finish. Hypothesis: transfer the two-unit L cost to each diagonal, obtaining Manhattan distance 6 instead of 2+2sqrt2. No complete longer route is selected.",
+  "substantive_difference": "Unit20 rejected a highlighted full longer route and illegal multicell chords. New diagram compares two LOCAL legal one-cell diagonal/L substitutions, without marking the connecting route or any option.",
+  "primary_unique_math_proof": [
+    "Let a step have dx,dy in {-1,0,1}. Its Euclidean length is at least dx+(sqrt(2)-1)*(-dy) for a net journey right/down; this linear lower bound holds for every horizontal, vertical and diagonal directed step.",
+    "Summing from (0,2) to (4,0) gives 4+2(sqrt2-1)=2+2sqrt2. Two down-right cell diagonals and two horizontal unit edges attain it. Thus the minimum value is uniquely C.",
+    "Both dashed additions are expressly permitted cell diagonals. Their red/blue L alternatives cost2, while a diagonal costs sqrt2. Color grouping compares displacement, never declares equal travel lengths. Grid sizes, Start and Finish remain unchanged."
+  ],
+  "marker_roles": [
+    {
+      "action_index": 0,
+      "role": "Start-cell horizontal unit leg of the L replacement.",
+      "endpoints": [
+        [
+          0.0,
+          2.0
+        ],
+        [
+          1.0,
+          2.0
+        ]
+      ]
+    },
+    {
+      "action_index": 1,
+      "role": "Start-cell vertical unit leg of the same L replacement.",
+      "endpoints": [
+        [
+          1.0,
+          2.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "action_index": 2,
+      "role": "Actual permitted diagonal of one unit square, source/receiver counterpart of the red two-edge L.",
+      "endpoints": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "action_index": 3,
+      "role": "Finish-cell horizontal unit leg of the second local L.",
+      "endpoints": [
+        [
+          3.0,
+          1.0
+        ],
+        [
+          4.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "action_index": 4,
+      "role": "Finish-cell vertical unit leg of the second local L.",
+      "endpoints": [
+        [
+          4.0,
+          1.0
+        ],
+        [
+          4.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "action_index": 5,
+      "role": "Actual permitted diagonal of a single unit square, paired with its blue two-edge L.",
+      "endpoints": [
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          0
+        ]
+      ]
+    }
+  ],
+  "human_semantics": "Numerical geometry/measurement question. Colors are comparison groups, not tick marks, angle symbols, new units, fills or constraints. Every original text and count target remains. Specific false relationships are hypotheses of model error; they are not asserted as added givens. Native visual review required before calls.",
+  "plugin_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_41\\Plane430\\r41_local_diagonal_L_cost_binding\\plugin.json",
+  "image_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_41\\Plane430\\r41_local_diagonal_L_cost_binding\\candidate.png",
+  "png_sha256": "0db7701b182040506699f8b7d4c29df88b5e9ad528b4190fe1b60a9172781c3a",
+  "pixel_sha256": "ee7ac15e35de9e67add7aa5f76de412d83d8630367d4520385febaf56d33808d",
+  "plugin_sha256": "467b2dcf53023a89823c4c0d97d3807d0583d300d03689186aff5757837dc089",
+  "context_sha256": "57685588c436c2e9bc159f4479f4ed0fe368f75d053cab6a3b59a958eb5638ab",
+  "path_fingerprints_sha256": "e68475a3a0806dc3ff452dd18a462b1c0938600f6d0b7bbc04ec9aab78e3fab8",
+  "approval_status": "UNREVIEWED_RESEARCH_ONLY; no Pass/Collect/approval/publication",
+  "independent_second_review_performed": false
+}

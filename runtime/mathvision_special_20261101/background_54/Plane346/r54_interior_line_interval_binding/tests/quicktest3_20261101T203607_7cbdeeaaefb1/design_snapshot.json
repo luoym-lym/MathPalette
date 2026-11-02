@@ -1,0 +1,56 @@
+{
+  "question_id": "Plane346",
+  "variant_id": "r54_interior_line_interval_binding",
+  "created_at": "2026-11-01T20:32:34.202570+00:00",
+  "expected_wrong_answer": "C",
+  "formal_correct_answer": "D",
+  "mechanism": "Two orientation families mark all5 internal verticals and3 internal horizontals, binding line counts to dimension counts while retaining the black outerframe. Misread5x3 scaffold lines as6x4 cell intervals, at correct side4.",
+  "primary_math_proof": {
+    "answer": "D",
+    "value": "24cm x16cm",
+    "proof": "Use actual coordinates x=0..6,y=0..4 and radius2 quarter arcs. Upper boundary: y=2+sqrt(4-x^2) on[0,2], y=2+sqrt(4-(x-4)^2) on[2,4], y=4-sqrt(4-(x-6)^2) on[4,6]. Its integral is(4+pi)+(4+pi)+(8-pi)=16+pi. Lower boundary y=4-3x on[0,1], y=(4-x)/3 on[1,4], y=sqrt(4-(x-6)^2) on[4,6]. Its integral is5/2+3/2+pi=4+pi. Difference12 square grid units, exact cancellation of equal quarter disks. Area192 implies cell area16 and positive side4cm. Six intervals horizontally and4 vertically give24x16, uniquely D. C20x12 would count5 and3 INTERNAL LINES, not6 and4 intervals.",
+    "new_error": "Keep the valid cell side4cm but associate5 highlighted interior vertical lines with horizontal size and3 highlighted interior horizontal lines with vertical size:5*4 by3*4=20x12, C. Outer black frame and all6x4 intervals remain clear."
+  },
+  "marker_roles": [
+    {
+      "target": "v1",
+      "role": "Interior vertical grid line 1; one count member of actual 5-line family, distinct from the 6 cell intervals."
+    },
+    {
+      "target": "v2",
+      "role": "Interior vertical grid line 2; one count member of actual 5-line family, distinct from the 6 cell intervals."
+    },
+    {
+      "target": "v3",
+      "role": "Interior vertical grid line 3; one count member of actual 5-line family, distinct from the 6 cell intervals."
+    },
+    {
+      "target": "v4",
+      "role": "Interior vertical grid line 4; one count member of actual 5-line family, distinct from the 6 cell intervals."
+    },
+    {
+      "target": "v5",
+      "role": "Interior vertical grid line 5; one count member of actual 5-line family, distinct from the 6 cell intervals."
+    },
+    {
+      "target": "h1",
+      "role": "Interior horizontal grid line 1; one count member of actual 3-line family, distinct from the 4 cell intervals."
+    },
+    {
+      "target": "h2",
+      "role": "Interior horizontal grid line 2; one count member of actual 3-line family, distinct from the 4 cell intervals."
+    },
+    {
+      "target": "h3",
+      "role": "Interior horizontal grid line 3; one count member of actual 3-line family, distinct from the 4 cell intervals."
+    }
+  ],
+  "image_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_54\\Plane346\\r54_interior_line_interval_binding\\candidate.png",
+  "plugin_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_54\\Plane346\\r54_interior_line_interval_binding\\plugin.json",
+  "image_sha256": "df0ce677b9432461263678ea0064cf4518a6d92e3e99c5bd05330b0acda9b590",
+  "pixel_sha256": "b76dcf7c9808a7f4403083e3653ec77b9270283e9d03958cff2ec3a20aa8ed5c",
+  "plugin_sha256": "f2faef207f7b9e0af6efc646f7abd531559d36ff71f33051ae6e91dc937d5246",
+  "difference_audit_sha256": "6019d45916263d950bd53be3fe5e3e85b640bb32d97a85ebcf0629710264a753",
+  "source_context_sha256": "aab3a899e2289d4981b42778de7f9bf062f1ccfb090f6e457c6f25f94c84f749",
+  "approval_status": "UNREVIEWED; parent NEW independent second review required; no Pass/Collect"
+}

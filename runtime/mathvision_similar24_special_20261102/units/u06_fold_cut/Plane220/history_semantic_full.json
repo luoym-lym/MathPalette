@@ -1,0 +1,352 @@
+[
+  {
+    "path": "runtime/mathvision_special_20261101/background_06/plane_parts/Plane220/arc_star_copy_binding/design.json",
+    "content": {
+      "question_id": "Plane220",
+      "variant_id": "arc_star_copy_binding",
+      "created_at": "2026-11-01T13:57:01.759671+00:00",
+      "expected_wrong_answer": "C",
+      "correct_answer": "D",
+      "mechanism": "Bind the actual source star-tip and circular cut-arc features to the single star-tip and oval features of C using red and blue. Targets copying the cut profile into an oval-with-one-tail rather than reflecting the whole cut boundary through the fold. The original contour and dotted candidate fold remain visible; C is not highlighted in isolation.",
+      "mathematical_solution": "Unfolding across the left folded edge reflects the entire cut boundary. The source opening meets that fold at both ends of the circular arc, so its reflected cut is one connected opening, with one continuous central rounded region and matching star-like tips on both sides. D alone has this connected, bilaterally symmetric topology. A and B are two separate circle/tip openings; E has two separate smaller double-tip openings; C has a single right-hand tip and cannot be invariant under reflection about its shown vertical fold. Therefore D remains unique. The red and blue outlines confer no equality or new cut edge, and neither the existing fold nor original boundary is moved.",
+      "human_gate": "All marks are 2pt partial boundary color overrides. No new line, hole, label, fold or region is introduced. The complete original paper boundary, all five option contours and dotted folds remain distinguishable.",
+      "marker_roles": [
+        {
+          "action_index": 0,
+          "target": "o0",
+          "segment_start": 54,
+          "segment_end": 60,
+          "role": "Source zigzag cut boundary; anchor the original star-tip feature."
+        },
+        {
+          "action_index": 1,
+          "target": "o0",
+          "segment_start": 4,
+          "segment_end": 53,
+          "role": "Source lower circular cut arc; first half of the curved feature."
+        },
+        {
+          "action_index": 2,
+          "target": "o0",
+          "segment_start": 61,
+          "segment_end": 110,
+          "role": "Source upper circular cut arc; second half of the same curved feature."
+        },
+        {
+          "action_index": 3,
+          "target": "o11",
+          "segment_start": 50,
+          "segment_end": 56,
+          "role": "Option C single right-hand zigzag feature proposed as a direct copy of the source star-tip."
+        },
+        {
+          "action_index": 4,
+          "target": "o11",
+          "segment_start": 0,
+          "segment_end": 49,
+          "role": "Option C oval feature proposed as completion of the source circular cut arc; this ignores that reflection also duplicates the star to the other side."
+        }
+      ],
+      "overlay_bindings": [],
+      "review_status": "PRIMARY_ONLY_REQUIRES_NEW_PARENT_INDEPENDENT_REVIEW"
+    }
+  },
+  {
+    "path": "runtime/mathvision_special_20261101/background_06/plane_parts/Plane220/arc_star_copy_binding/manual_final_review.json",
+    "content": {
+      "reviewed_at": "2026-11-01T14:02:26.763374+00:00",
+      "full_answers_read_manually": true,
+      "manual_final_answers": [
+        "A",
+        "C"
+      ],
+      "predeclared_expected_wrong_answer": "C",
+      "two_complete": true,
+      "preset_hits": [
+        false,
+        true
+      ],
+      "status": "FAILED_PAIR_NOT_TWO_TARGET_HITS",
+      "interpretation": "Run1 explicitly final Choice A, run2 explicitly final C. Run1 incidental reference to circle/star cannot be counted as C. No repeat of identical design permitted.",
+      "raw_binding_path": "runtime\\mathvision_special_20261101\\background_06\\plane_parts\\Plane220\\arc_star_copy_binding\\tests\\quicktest3_20261101T135826_cbaf7baeaf9a\\binding.json",
+      "correct_answer": "D"
+    }
+  },
+  {
+    "path": "runtime/mathvision_special_20261101/background_06/plane_parts/Plane220/arc_star_copy_binding/primary_review.json",
+    "content": {
+      "reviewed_at": "2026-11-01T13:58:24.041078+00:00",
+      "reviewer": "primary researcher only",
+      "actual_original_png_viewed": true,
+      "actual_candidate_png_viewed": true,
+      "view_method": "view_image actual original and candidate PNG at native 768px",
+      "unique_unchanged_mathematics_confirmed": true,
+      "proof_reference": "design.json mathematical_solution: reflected connected cut topology and symmetry isolate D",
+      "each_marker_role_confirmed": true,
+      "visual_findings": "Source opening, star teeth, connected circular arcs and folded edge are intact. Red and blue pair the same two named source features with C. All five option silhouettes, dotted folds and labels are clear; D still has two mirrored star tips and C has only one. No new relation sign or cut edge.",
+      "necessity": "Each of five actions marks part of the stated two-feature correspondence: one star pair and one arc pair (source arc is split into two original boundary ranges).",
+      "proceed_to_API": true,
+      "independent_second_review_completed": false,
+      "limits": "No human study, causal ablation or original control; two calls test only this frozen design and no delivery approval is implied."
+    }
+  },
+  {
+    "path": "runtime/mathvision_special_20261101/background_06/plane_parts/Plane220/separated_mirror_copy_binding/design.json",
+    "content": {
+      "question_id": "Plane220",
+      "variant_id": "separated_mirror_copy_binding",
+      "created_at": "2026-11-01T14:07:57.523941+00:00",
+      "expected_wrong_answer": "A",
+      "correct_answer": "D",
+      "mechanism": "Map the source cut star-tip (red) and round arc (blue) to BOTH corresponding feature pairs in the two separate openings of A. Unlike the earlier C design, this binds two complete mirrored-looking copies and targets treating a cut meeting the fold as two disconnected holes. Actual fold intersection and all original connectivity remain visible.",
+      "mathematical_solution": "The source cut intersects the folded boundary at both circular-arc endpoints. Reflection across that boundary makes one connected opening: the two arc halves join in a central circle and the star-like feature is mirrored to both outer sides. D alone has one connected centrally rounded opening with matching left and right tips. A and B have two separate cutouts, E also has two separate openings, and C has only one outer tip and is not symmetric about its fold. Therefore D is unique. Outlining features in A changes no intersection with its fold or number of connected components.",
+      "human_gate": "Seven 2pt partial contour styles mark a source two-feature pair and its proposed two copy partners in A. No new cut or fold is added. The source still touches the folded edge, both A components are clearly separate, and D remains visible and unmarked.",
+      "marker_roles": [
+        {
+          "action_index": 0,
+          "target": "o0",
+          "segment_start": 54,
+          "segment_end": 60,
+          "role": "Source zigzag cut boundary, the star-like input feature."
+        },
+        {
+          "action_index": 1,
+          "target": "o0",
+          "segment_start": 4,
+          "segment_end": 53,
+          "role": "Source lower circular cut arc, first curved-feature range."
+        },
+        {
+          "action_index": 2,
+          "target": "o0",
+          "segment_start": 61,
+          "segment_end": 110,
+          "role": "Source upper circular cut arc, second curved-feature range."
+        },
+        {
+          "action_index": 3,
+          "target": "o3",
+          "segment_start": 50,
+          "segment_end": 56,
+          "role": "A left disconnected opening star-like tip, proposed mirror-copy partner for the source notch."
+        },
+        {
+          "action_index": 4,
+          "target": "o3",
+          "segment_start": 0,
+          "segment_end": 49,
+          "role": "A left disconnected opening circular arc, proposed copy of the source round cut feature."
+        },
+        {
+          "action_index": 5,
+          "target": "o4",
+          "segment_start": 50,
+          "segment_end": 56,
+          "role": "A right disconnected opening star-like tip, proposed mirror-copy partner for the source notch."
+        },
+        {
+          "action_index": 6,
+          "target": "o4",
+          "segment_start": 0,
+          "segment_end": 49,
+          "role": "A right disconnected opening circular arc, proposed copy of the source round cut feature."
+        }
+      ],
+      "subset_info": null,
+      "review_status": "PRIMARY_ONLY_REQUIRES_NEW_PARENT_INDEPENDENT_REVIEW"
+    }
+  },
+  {
+    "path": "runtime/mathvision_special_20261101/background_06/plane_parts/Plane220/separated_mirror_copy_binding/manual_final_review.json",
+    "content": {
+      "reviewed_at": "2026-11-01T14:13:30.610081+00:00",
+      "full_answers_read_manually": true,
+      "manual_final_answers": [
+        "E",
+        "A"
+      ],
+      "predeclared_expected_wrong_answer": "A",
+      "two_complete": true,
+      "preset_hits": [
+        false,
+        true
+      ],
+      "status": "FAILED_PAIR_NOT_TWO_TARGET_HITS",
+      "interpretation": "Run1 final E, run2 final A. No repeat of unchanged candidate permitted.",
+      "raw_binding_path": "runtime\\mathvision_special_20261101\\background_06\\plane_parts\\Plane220\\separated_mirror_copy_binding\\tests\\quicktest3_20261101T140924_55d88999e82d\\binding.json",
+      "correct_answer": "D"
+    }
+  },
+  {
+    "path": "runtime/mathvision_special_20261101/background_06/plane_parts/Plane220/separated_mirror_copy_binding/primary_review.json",
+    "content": {
+      "reviewed_at": "2026-11-01T14:09:21.427718+00:00",
+      "reviewer": "primary researcher only",
+      "actual_original_png_viewed": true,
+      "actual_candidate_png_viewed": true,
+      "view_method": "view_image original and actual candidate at native 768px",
+      "unique_unchanged_mathematics_confirmed": true,
+      "proof_reference": "design.json: reflection of boundary touching fold yields one connected double-tip opening, unique D",
+      "each_marker_role_confirmed": true,
+      "visual_findings": "Both disconnected A openings have separate red tips and blue arcs, bound to actual source features. Their separation and source fold-contact endpoints remain visible. Other option letters/contours and all dotted folds are clear.",
+      "necessity": "Seven partial-style actions mark the source star plus two source arc halves, and one star/arc pair in each of the two A copies. All marks serve the stated mirror-copy error.",
+      "proceed_to_API": true,
+      "independent_second_review_completed": false,
+      "limits": "No controls or human study. Earlier C map failed A/C and remains frozen; this design instead encodes two disconnected mirror-copy partners and has its own immutable A preset."
+    }
+  },
+  {
+    "path": "runtime/mathvision_special_20261101/background_24/Plane220/design_difference_audit.json",
+    "content": {
+      "stage": "material_refinement",
+      "question_id": "Plane220",
+      "decision": "skip_calls",
+      "created_at": "2026-11-01T17:09:07.073767+00:00",
+      "considered_new_hypotheses": [
+        "Use outward-pointing star tips of B instead of inward-tip A.",
+        "Split round-arc and spike features into alternative colors or mark the remaining paper perimeter.",
+        "Mark source fold contact or hypothetical reflection seam."
+      ],
+      "why_no_material_clear_new_design": "The two previous designs already exhaust direct cut-profile copying and disconnected mirror-copy grouping of the same arc/star features. Switching A to B with the same two-feature matching only changes which duplicate contours receive the marks; it does not supply a new geometric feature or misconception. A new interior seam or hinge mark would risk implying a new cut/fold absent from the source. The contact endpoints and one connected finite-width D opening are clear in the native PNG. No source feature correspondence distinct enough to justify another pair was found. No candidate or preset frozen; no calls.",
+      "math_primary": "Reflect the cut that meets the folded left boundary: its two circular halves join into one rounded opening, with matched outer star tips; D. A/B/E have separated opening interiors (point contact does not produce a finite-width joined hole); C lacks mirrored outer tip.",
+      "prior_outcomes": [
+        {
+          "variant": "arc_star_copy_binding",
+          "preset": "C",
+          "finals": [
+            "A",
+            "C"
+          ],
+          "hits": 1
+        },
+        {
+          "variant": "separated_mirror_copy_binding",
+          "preset": "A",
+          "finals": [
+            "E",
+            "A"
+          ],
+          "hits": 1
+        }
+      ]
+    }
+  },
+  {
+    "path": "runtime/mathvision_special_20261101/background_24/Plane220/refinement_assessment.json",
+    "content": {
+      "stage": "material_refinement",
+      "question_id": "Plane220",
+      "assessed_at": "2026-11-01T17:09:07.073722+00:00",
+      "old_outcomes_manually_reassessed": [
+        {
+          "variant": "arc_star_copy_binding",
+          "preset": "C",
+          "finals": [
+            "A",
+            "C"
+          ],
+          "hits": 1
+        },
+        {
+          "variant": "separated_mirror_copy_binding",
+          "preset": "A",
+          "finals": [
+            "E",
+            "A"
+          ],
+          "hits": 1
+        }
+      ],
+      "prior_frozen_evidence_inventory": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_24\\Plane220\\prior_history_inventory.json",
+      "all_prior_designs_plugins_presets_native_images_full_raw_replies_primary_reviews_read": true,
+      "independent_objections_for_exact_old_variants": [],
+      "old_already_two_target_hit_to_queue_unchanged": false,
+      "current_eligibility": {
+        "question_id": "Plane220",
+        "checked_at": "2026-11-01T17:09:07.051310+00:00",
+        "eligible": true,
+        "reasons": [],
+        "formal_record": {
+          "source_dataset": "MathVision",
+          "source_key": "test:583",
+          "question": "A piece of paper is folded exactly in half, and a figure is cut out as shown.\nWhich of the five pictures can result when the paper is unfolded?\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E",
+          "answer": "D",
+          "answer_type": "choice",
+          "id": "Plane220",
+          "choices": {
+            "A": "A",
+            "B": "B",
+            "C": "C",
+            "D": "D",
+            "E": "E"
+          },
+          "image": "image/Plane220.png",
+          "original_image": "originals/Plane220.jpg",
+          "scene": "dataset_generator/scenes/Plane220.json",
+          "script": "dataset_generator/plane_plot220.py",
+          "runtime_dependencies": [
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane220/execution.json",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane220/protocol_review.json",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane220/scene.json",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane220/source.json",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane220/source_redraw.py",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+          ],
+          "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+          "source_category": "transformation geometry"
+        },
+        "approval": {
+          "valid_current_content": true,
+          "current_content_sha256": "d0335a1130f532315cadd51fe259d08d11489838d0cd7ef9f4e65aee72c9f488",
+          "recorded_content_sha256": "d0335a1130f532315cadd51fe259d08d11489838d0cd7ef9f4e65aee72c9f488",
+          "approved_at_utc": "2026-10-29T13:35:56.706287+00:00",
+          "instruction": "你直接帮忙把所有Math-Vision题目都加入正式题库吧（mashpalette-publish），然后如果题目里面有<image1>这种标记要删去。\n记得标记来源。"
+        },
+        "authoritative_state_hashes": {
+          "PlaneGeometry\\dataset.jsonl": "f167f666cb1037754e9516dcf516b5c4f462c9ef3da17e867458d392e35ed2ec",
+          "provenance\\approvals.json": "b37d405210604311c76c9adc7e414a98e4b283201e557f32449c56265a059fec",
+          "PlaneGeometry\\special_variant\\accepted_index.jsonl": "13eb21be6ecffdc10bcb8e032d65d5dd530e68dde395743ac7ed030b2ace3a49",
+          "PlaneGeometry\\special_variant\\collected_index.jsonl": "03976671d4eefde0c22e5ae811106843c7039c211654c2e5850687432c0fb248",
+          "PlaneGeometry\\special_variant\\Plane220\\recipes.json": null,
+          "PlaneGeometry\\special_variant\\Plane220\\collection.json": null,
+          "runtime\\mathvision_special_20261101\\batch_01\\manifest.json": "7bb283501f1a4eae1dc54a9332afb234eeab35f9c963e60d382ac01850bac090",
+          "runtime\\mathvision_special_20261101\\batch_02\\manifest.json": "f8513846b6e6dd318e77b33bbc327009c667ac2e0236c351ef83aa5a07b54a9a",
+          "runtime\\mathvision_special_20261101\\batch_03\\manifest.json": "577f0cca7d6dade4ba1e6cfd8fad0289ebfc0fbdba90ad4ccd6fabd692700e8d",
+          "runtime\\mathvision_special_20261101\\batch_04\\manifest.json": "5d9e506dd7dfd73900ec5e46f77a3185a8c852c689816218a844cf9e5ac33ecc",
+          "runtime\\mathvision_special_20261101\\batch_05\\manifest.json": "4c6bbfebe43ff308e3c203e9a0f48cdb9d702d0b9c3ab7ec251f136b9f202b9d",
+          "runtime\\mathvision_special_20261101\\batch_06\\manifest.json": "ff15590d3b4563ff7216ea7d145ad19f643b65d4b6f85690d36f8b50e2661b4e",
+          "runtime\\mathvision_special_20261101\\batch_07\\manifest.json": "e505930b6e0d40ce8ff4c0a19fd98a3bc0adaf193acb866d3ca47596234cdf15",
+          "runtime\\mathvision_special_20261101\\batch_08\\manifest.json": "6c74448acc1dca19aaf730ee93c636abbe5d7d9bae8a8065c3abaa8e5b6ecb62",
+          "runtime\\mathvision_special_20261101\\batch_09\\manifest.json": "799c6c50e7a86d40e4b252bc15c9a3d983b596d81e38035f0c816245fb6122c0"
+        },
+        "diagnostic_runtime_metadata_hashes": {
+          "runtime\\mathvision_special_20261101\\exploration_report.json": "67110953964f3a17efdac4c2bd90bf9016b859216a975f9232a02648d6a13a69",
+          "runtime\\mathvision_special_20261101\\remaining_questions.jsonl": "f23856eb9014458af06b213bc2b0b2d239bd4322bbd870e2164de492d9e23112"
+        },
+        "completed_assignment_overlap_intentional": true
+      },
+      "source_jpg_and_native_formal_png_viewed": true,
+      "new_design_differences": [],
+      "status": "SCREENED_NO_MATERIAL_NEW_HYPOTHESIS",
+      "original_controls": "No old original control found in these same-question histories; no new controls called. No causal claim.",
+      "considered_new_hypotheses": [
+        "Use outward-pointing star tips of B instead of inward-tip A.",
+        "Split round-arc and spike features into alternative colors or mark the remaining paper perimeter.",
+        "Mark source fold contact or hypothetical reflection seam."
+      ],
+      "why_no_material_clear_new_design": "The two previous designs already exhaust direct cut-profile copying and disconnected mirror-copy grouping of the same arc/star features. Switching A to B with the same two-feature matching only changes which duplicate contours receive the marks; it does not supply a new geometric feature or misconception. A new interior seam or hinge mark would risk implying a new cut/fold absent from the source. The contact endpoints and one connected finite-width D opening are clear in the native PNG. No source feature correspondence distinct enough to justify another pair was found. No candidate or preset frozen; no calls.",
+      "math_primary": "Reflect the cut that meets the folded left boundary: its two circular halves join into one rounded opening, with matched outer star tips; D. A/B/E have separated opening interiors (point contact does not produce a finite-width joined hole); C lacks mirrored outer tip."
+    }
+  }
+]

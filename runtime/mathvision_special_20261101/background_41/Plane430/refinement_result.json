@@ -1,0 +1,154 @@
+{
+  "question_id": "Plane430",
+  "variant_id": "r41_local_diagonal_L_cost_binding",
+  "status": "failed_predeclared_pair",
+  "expected_wrong_answer": "E",
+  "correct_answer": "C",
+  "manual_final_answers": [
+    "D",
+    "B"
+  ],
+  "preset_hit_count": 0,
+  "new_material_difference": "Unit20 rejected a highlighted full longer route and illegal multicell chords. New diagram compares two LOCAL legal one-cell diagonal/L substitutions, without marking the connecting route or any option.",
+  "mechanism": "Pair each of two permitted single-cell diagonal steps with its two original orthogonal edge components, using red at Start and blue at Finish. Hypothesis: transfer the two-unit L cost to each diagonal, obtaining Manhattan distance 6 instead of 2+2sqrt2. No complete longer route is selected.",
+  "complete_raw_manual_finals": [
+    {
+      "run_index": 1,
+      "complete_raw_response_manually_read": true,
+      "full_assistant_content": "**Step-by-step Solution:**\n\n1.  **Analyze the grid**: The grid consists of 4 columns and 2 rows of unit squares. Let's define the position of the Start point as coordinates $(0, 2)$ and the Finish point as $(4, 0)$. The horizontal distance to cover is 4 units, and the vertical distance is 2 units.\n\n2.  **Understand the rules**: We can travel on the edges of the squares (length 1) or on the diagonals of the squares (length $\\sqrt{2}$).\n\n3.  **Identify the path**:\n    *   **Start to middle (First half):** The most direct path is to move diagonally from the top-left corner $(0, 2)$ down to the middle row at $x=1$ (point $(1, 1)$). This distance is the length of the square's diagonal: $\\sqrt{2}$.\n    *   **Middle segment:** To continue efficiently towards the finish, we need to traverse the two central columns. If we take diagonal paths, we can zigzag (down-right, then up-right) to cover the horizontal distance of 2 units while returning to the middle row. This zigzag path travels two diagonals, giving a total distance of $\\sqrt{2} + \\sqrt{2} = 2\\sqrt{2}$. Alternatively, simply walking along the middle horizontal line also covers this distance of 2. Both methods incur the same cost of $2\\sqrt{2}$.\n    *   **Middle to finish (Second half):** From the middle of the third column (point $(3, 1)$), the path mirrors the first section. We can take a diagonal to the bottom-right corner $(4, 0)$, covering a distance of $\\sqrt{2}$.\n\n4.  **Calculate the total**:\n    *   Total Distance = (Path to middle) + (Middle segment) + (Path to finish)\n    *   Total Distance = $\\sqrt{2} + 2\\sqrt{2} + \\sqrt{2}$\n    *   Total Distance = $4\\sqrt{2}$\n\nComparing this result to the choices:\nA: $2 \\sqrt{2}$\nB: $\\sqrt{10}+\\sqrt{2}$\nC: $2+2 \\sqrt{2}$\nD: $4 \\sqrt{2}$\nE: $6$\n\nThe calculated minimum distance is $4 \\sqrt{2}$, which corresponds to option D.\n\n**Answer:**\nD: $4 \\sqrt{2}$",
+      "manually_extracted_terminal_answer": "D",
+      "matches_predeclared_wrong_answer": false,
+      "interpretation": "FinalD4sqrt2. It says a horizontal length2 and two diagonals2sqrt2 have equal cost. This is an incorrect but unambiguous D, not presetE.",
+      "raw_response_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_41\\Plane430\\r41_local_diagonal_L_cost_binding\\tests\\quicktest3_20261101T190252_e379631ad65e\\run_01_response.json",
+      "raw_response_sha256": "581b196d1ffb60003980f3563166ed884ffcb60ed1cbf435b7d4570c58eb58d9",
+      "run_record_sha256": "cab0116d4ef5a79b8908f0dbe8c1d948eac78478ee6d2ba2e5aa9da7c49b9707"
+    },
+    {
+      "run_index": 2,
+      "complete_raw_response_manually_read": true,
+      "full_assistant_content": "To find the minimum distance from 'Start' to 'Finish', we can model the problem using coordinates on a grid. Let the top-left corner ('Start') be at position $(0, 0)$. The grid consists of squares of side length 1.\n\n1.  **Identify Coordinates:**\n    *   The 'Start' point is at $(0, 0)$.\n    *   The grid is 4 units wide (4 squares horizontally) and 2 units high (2 squares vertically).\n    *   The 'Finish' point is at the bottom-right corner, so its coordinates are $(4, 2)$.\n\n2.  **Analyze Allowed Moves:**\n    *   You can travel along grid edges (horizontal or vertical lines).\n    *   You can travel along diagonals of the squares (segments of length $\\sqrt{2}$).\n\n3.  **Calculate Straight Line Distance (Displacement):**\n    The shortest distance between two points is a straight line. Let's calculate the Euclidean distance between $(0, 0)$ and $(4, 2)$:\n    $$ \\text{Distance} = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} $$\n    $$ \\text{Distance} = \\sqrt{(4 - 0)^2 + (2 - 0)^2} $$\n    $$ \\text{Distance} = \\sqrt{4^2 + 2^2} $$\n    $$ \\text{Distance} = \\sqrt{16 + 4} $$\n    $$ \\text{Distance} = \\sqrt{20} $$\n    Simplifying $\\sqrt{20}$:\n    $$ \\sqrt{20} = \\sqrt{4 \\times 5} = 2\\sqrt{5} $$\n\n4.  **Compare with Choices:**\n    Let's evaluate the approximate value of $2\\sqrt{5}$ to see which option matches, as none of the choices are exactly $2\\sqrt{5}$.\n    $$ 2\\sqrt{5} \\approx 2 \\times 2.236 = 4.472 $$\n\n    Now let's evaluate the given choices:\n    *   **A:** $2\\sqrt{2} \\approx 2 \\times 1.414 = 2.828$\n    *   **B:** $\\sqrt{10} + \\sqrt{2} \\approx 3.162 + 1.414 = 4.576$\n    *   **C:** $2 + 2\\sqrt{2} \\approx 2 + 2.828 = 4.828$\n    *   **D:** $4\\sqrt{2} \\approx 4 \\times 1.414 = 5.656$\n    *   **E:** $6 = 6.0$\n\n    Option B is the closest value to the theoretical minimum straight-line distance ($4.576$ vs $4.472$). Additionally, the specific form of Option B suggests a path composed of a diagonal ($\\sqrt{2}$) and a hypotenuse of a $1 \\times 3$ rectangle ($\\sqrt{1^2 + 3^2} = \\sqrt{10}$), which corresponds to the most efficient path strategy on this grid (using diagonals to move diagonally and edges to adjust the remaining offset).\n\n    Therefore, the intended answer is **B**.\n\nB",
+      "manually_extracted_terminal_answer": "B",
+      "matches_predeclared_wrong_answer": false,
+      "interpretation": "FinalB sqrt10+sqrt2. It chooses a closest option to unrestricted straight-line distance and permits an illegal1x3 diagonal. Not presetE; no relabel.",
+      "raw_response_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_41\\Plane430\\r41_local_diagonal_L_cost_binding\\tests\\quicktest3_20261101T190252_e379631ad65e\\run_02_response.json",
+      "raw_response_sha256": "15faefea318eceab5ab96ee66b247774221579bc9b344a1423ad800349ee34e8",
+      "run_record_sha256": "beffb933cdbd03f4e76a958e69328ab75a5840eb80d773952816a70454c9fbcf"
+    }
+  ],
+  "unique_primary_math_proof": [
+    "Let a step have dx,dy in {-1,0,1}. Its Euclidean length is at least dx+(sqrt(2)-1)*(-dy) for a net journey right/down; this linear lower bound holds for every horizontal, vertical and diagonal directed step.",
+    "Summing from (0,2) to (4,0) gives 4+2(sqrt2-1)=2+2sqrt2. Two down-right cell diagonals and two horizontal unit edges attain it. Thus the minimum value is uniquely C.",
+    "Both dashed additions are expressly permitted cell diagonals. Their red/blue L alternatives cost2, while a diagonal costs sqrt2. Color grouping compares displacement, never declares equal travel lengths. Grid sizes, Start and Finish remain unchanged."
+  ],
+  "per_marker_roles": [
+    {
+      "action_index": 0,
+      "role": "Start-cell horizontal unit leg of the L replacement.",
+      "endpoints": [
+        [
+          0.0,
+          2.0
+        ],
+        [
+          1.0,
+          2.0
+        ]
+      ]
+    },
+    {
+      "action_index": 1,
+      "role": "Start-cell vertical unit leg of the same L replacement.",
+      "endpoints": [
+        [
+          1.0,
+          2.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "action_index": 2,
+      "role": "Actual permitted diagonal of one unit square, source/receiver counterpart of the red two-edge L.",
+      "endpoints": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "action_index": 3,
+      "role": "Finish-cell horizontal unit leg of the second local L.",
+      "endpoints": [
+        [
+          3.0,
+          1.0
+        ],
+        [
+          4.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "action_index": 4,
+      "role": "Finish-cell vertical unit leg of the second local L.",
+      "endpoints": [
+        [
+          4.0,
+          1.0
+        ],
+        [
+          4.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "action_index": 5,
+      "role": "Actual permitted diagonal of a single unit square, paired with its blue two-edge L.",
+      "endpoints": [
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          0
+        ]
+      ]
+    }
+  ],
+  "human_semantics": "Numerical geometry/measurement question. Colors are comparison groups, not tick marks, angle symbols, new units, fills or constraints. Every original text and count target remains. Specific false relationships are hypotheses of model error; they are not asserted as added givens. Native visual review required before calls.",
+  "candidate_directory": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_41\\Plane430\\r41_local_diagonal_L_cost_binding",
+  "evidence_paths": {
+    "design_difference_audit.json": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_41\\Plane430\\r41_local_diagonal_L_cost_binding\\design_difference_audit.json",
+    "design.json": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_41\\Plane430\\r41_local_diagonal_L_cost_binding\\design.json",
+    "plugin.json": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_41\\Plane430\\r41_local_diagonal_L_cost_binding\\plugin.json",
+    "candidate.png": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_41\\Plane430\\r41_local_diagonal_L_cost_binding\\candidate.png",
+    "path_fingerprints.json": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_41\\Plane430\\r41_local_diagonal_L_cost_binding\\path_fingerprints.json",
+    "full_precision_marker_bindings.json": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_41\\Plane430\\r41_local_diagonal_L_cost_binding\\full_precision_marker_bindings.json",
+    "render_check.json": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_41\\Plane430\\r41_local_diagonal_L_cost_binding\\render_check.json",
+    "primary_review.json": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_41\\Plane430\\r41_local_diagonal_L_cost_binding\\primary_review.json",
+    "manual_final_review.json": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_41\\Plane430\\r41_local_diagonal_L_cost_binding\\manual_final_review.json",
+    "harness_context.json": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_41\\Plane430\\r41_local_diagonal_L_cost_binding\\harness_context.json",
+    "eligibility_immediately_before_calls.json": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_41\\Plane430\\r41_local_diagonal_L_cost_binding\\eligibility_immediately_before_calls.json",
+    "api_process.json": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_41\\Plane430\\r41_local_diagonal_L_cost_binding\\api_process.json",
+    "api_process_finished.json": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_41\\Plane430\\r41_local_diagonal_L_cost_binding\\api_process_finished.json"
+  },
+  "binding_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_41\\Plane430\\r41_local_diagonal_L_cost_binding\\tests\\quicktest3_20261101T190252_e379631ad65e\\binding.json",
+  "summary_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_41\\Plane430\\r41_local_diagonal_L_cost_binding\\tests\\quicktest3_20261101T190252_e379631ad65e\\summary.json",
+  "prior_history_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_41\\Plane430\\prior_history_inventory.json",
+  "native_source_formal_candidate_PNGs_viewed": true,
+  "fresh_context_schema_noop_and_two_byte_equal_draws": true,
+  "original_controls": [],
+  "no_unchanged_retest_or_preset_relabel": true,
+  "independent_second_review_performed": false
+}

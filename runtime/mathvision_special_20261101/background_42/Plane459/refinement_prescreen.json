@@ -1,0 +1,84 @@
+{
+  "question_id": "Plane459",
+  "stage": "material_refinement",
+  "assessed_at": "2026-11-01T19:07:27.812111+00:00",
+  "status": "screened_no_clean_material_hypothesis",
+  "actual_source_JPEG_and_native_formal_PNG_viewed": true,
+  "fresh_current_eligibility_and_user_approval_verified": {
+    "question_id": "Plane459",
+    "checked_at": "2026-11-01T18:53:57.437538+00:00",
+    "eligible": true,
+    "reasons": [],
+    "formal_record": {
+      "source_dataset": "MathVision",
+      "source_key": "test:2597",
+      "question": "How many triangles are in this figure? (Some triangles may overlap other triangles.)",
+      "answer": "5",
+      "answer_type": "number",
+      "id": "Plane459",
+      "image": "image/Plane459.png",
+      "original_image": "originals/Plane459.jpg",
+      "scene": "dataset_generator/scenes/Plane459.json",
+      "script": "dataset_generator/plane_plot459.py",
+      "runtime_dependencies": [
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane459/execution.json",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane459/protocol_review.json",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane459/scene.json",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane459/source.json",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane459/source_redraw.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+      ],
+      "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+      "source_category": "combinatorial geometry"
+    },
+    "approval": {
+      "valid_current_content": true,
+      "current_content_sha256": "3c0726906e3e11c2e443bb54a048e972e29f247d8b2c907640a4723ff841dfd4",
+      "recorded_content_sha256": "3c0726906e3e11c2e443bb54a048e972e29f247d8b2c907640a4723ff841dfd4",
+      "approved_at_utc": "2026-10-29T13:36:15.134903+00:00",
+      "instruction": "你直接帮忙把所有Math-Vision题目都加入正式题库吧（mashpalette-publish），然后如果题目里面有<image1>这种标记要删去。\n记得标记来源。"
+    },
+    "authoritative_state_hashes": {
+      "PlaneGeometry\\special_variant\\accepted_index.jsonl": "13eb21be6ecffdc10bcb8e032d65d5dd530e68dde395743ac7ed030b2ace3a49",
+      "PlaneGeometry\\special_variant\\collected_index.jsonl": "03976671d4eefde0c22e5ae811106843c7039c211654c2e5850687432c0fb248",
+      "PlaneGeometry\\special_variant\\Plane459\\recipes.json": null,
+      "PlaneGeometry\\special_variant\\Plane459\\collection.json": null
+    }
+  },
+  "fresh_noop_pixel_equal": true,
+  "fresh_context_and_exact_path_inventory": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_42\\Plane459\\context.json",
+  "independent_original_math_audit": {
+    "question_id": "Plane459",
+    "source_scene_read_in_full": true,
+    "created_at": "2026-11-01T18:56:37.572080+00:00",
+    "answer": 5,
+    "triangles": [
+      "ABD",
+      "BDE",
+      "DEC",
+      "BDC",
+      "ABC"
+    ],
+    "not_triangles": [
+      "ABED (quadrilateral; AB and BE are not collinear)",
+      "ADE (AE absent)",
+      "AEC (AE absent)"
+    ],
+    "proof": "D lies on AC and E on BC. Splitting BDC by DE creates BDE/DEC; with ABD, BDC, ABC there are5. Among5 point triples A,D,C and B,E,C are collinear; the other unlisted triples require absent AE. Partial edge pairing cannot turn ABED into a triangle. DE is near parallel to AB in the displayed layout but not an exact parallel given."
+  },
+  "no_numeric_mark_cap": true,
+  "no_API_calls": true,
+  "reason": "No materially new concise grouping survived. Original5 triangles are ABD,BDE,DEC,BDC,ABC. Oldv01 outer-red/inner-blue preset4 ended5/6; oldv02 uniform-red preset6 ended6/3. Examined matching actual shared DE subtriangles, using partial BC sides to separate small and composite families, and matching near-parallel AB/DE. A shared-edge family still has3 atomic plus2 composite triangles and does not independently yield another wrong count; the apparent additional left composite ABED is a quadrilateral with an obvious bend, not a triangle. A claim that AB and DE are exactly parallel is not given and is slightly false in the frozen layout. Coloring essentially the same outer/inner grouping or presetting an old6/3 outcome would repeat prior mechanisms. No new edge, false relation or cosmetic rerun was made.",
+  "old_scope": "Both actual oldPNGs, full design/plugin presets and all4 full raw replies manually read; no independent report for these exact variants found."
+}

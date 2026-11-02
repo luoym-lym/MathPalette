@@ -1,0 +1,33 @@
+{
+  "question_id": "Plane412",
+  "variant_id": "r43_unit_endpoint_to_long_run_binding",
+  "expected_wrong_answer": "A",
+  "correct_answer": "C",
+  "created_at": "2026-11-01T19:12:17.892412+00:00",
+  "mechanism": "Match start/end roles of one actual20cm square side with the two endpoints of the bottom60cm straight run. Targets treating a single uninterrupted endpoint-to-endpoint run as one unit, undercounting40cm and selecting A=380.",
+  "primary_math_proof": "Small squares have side1unit=20cm. Edge matching of the rectangle shows the medium squares side2 and the large squares side3: the rectangle is5units wide,7high. Traversing the ORIGINAL black route P->Q gives maximal straight lengths[1,1,2,2,2,2,2,3,4,1,1], sum21=420cm,C. A direct graph enumeration of all original black unit-edge objects independently gives21edges and one P-Q chain. Mapping the marked endpoint pair of the bottom3unit run to the source1unit side would undercount2units, giving19units=380cm,A. It does not omit colored sections of the path; all original black route edges remain black,2.5pt.",
+  "marker_roles": [
+    {
+      "action_index": 0,
+      "role": "Red source start: actual left end of one20cm horizontal smallest-square side on the black route."
+    },
+    {
+      "action_index": 1,
+      "role": "Blue source end: actual right end of that20cm side."
+    },
+    {
+      "action_index": 2,
+      "role": "Red receiver start: lower-left endpoint of the full60cm black bottom run."
+    },
+    {
+      "action_index": 3,
+      "role": "Blue receiver end: lower-right endpoint of that60cm run."
+    }
+  ],
+  "human_semantics": "Numerical length question, not a point-count target. Four markers lie on actual existing square/path corners and do not introduce a new edge or route. Original black path remains continuous and distinguishable from gray grid; P,Q labels remain. Marked points are endpoint comparisons, not equal-length symbols or additional20cm givens.",
+  "material_difference_audit": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_43\\Plane412\\r43_unit_endpoint_to_long_run_binding\\design_difference_audit.json",
+  "image_sha256": "e4aa1974fda92db9925a208b884078a2149af1204cc7922dac34dfec953640b2",
+  "plugin_sha256": "299189c3cee3f0ed186266ba6393baf5677d7b39fe111aacedfce68559a85a75",
+  "context_sha256": "85230f4df65c66687f8d3fb056882c2f9c4bd9ac6ec8a7ac6f5dab60a0c5406d",
+  "status": "PRIMARY research design only; no approval/Pass/Collect; parent NEW independent second review required for any possible pair"
+}

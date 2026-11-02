@@ -1,0 +1,58 @@
+import env
+from env import OWN,PROJECT,SHARED
+from prepare import read,dump,sha,IDS
+from fractions import Fraction as F
+from collections import defaultdict,Counter
+from datetime import datetime,timezone
+import json
+
+def main():
+    items=PROJECT/'PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items'
+    assessments={
+      'Plane400':{'status':'assessed_skip_no_clean_new_mechanism','unique_answer_independently_verified':True,'proof':'Five identical bottom rectangles span10cm; four rows span6cm. Each rectangle is2 by1.5, area3. Rows contain5+4+3+2=14 disjoint rectangles, total42. Every horizontal section of the overlaid triangle is inside its corresponding row union: row unions[0,10],[0.8,8.8],[2.1,8.1],[2.4,6.4]; triangle x-left=11y/15 and x-right=10-14y/15 for0<=y<=6. At each row lower endpoint the triangle is already within the union and contracts upward, so triangle is wholly covered. Its area10*6/2=30. Shaded rectangle-union minus triangle=12, B.','mechanisms_assessed':['Complete rectangle unit to partial edge fragment: a consistent partial-cell inventory does not map to a given wrong option without arbitrary exceptions.','Counting every exposed piece as full rectangle gives9pieces*3=27, absent from choices; counting boundary contacts as extra blocks would invent geometry.','Double subtraction of the full triangle gives negative area, absent from choices.'],'reason':'No concise source/receiver grouping yielding a specific available wrong answer without arbitrary omission, false closure or phantom rectangle. Old prescreen likewise had no design; this is a fresh exact source/math check, not an identical failed call.','api_calls':0},
+      'Plane401':{'status':'assessed_skip_unique_minimum_not_established_without_extra_assumption','unique_answer_independently_verified':False,'partial_proof':'The actual36 triangles occupy a triangular lattice. Their three pairs of supporting lines are v=0,6; x-v/2=-2,4; x+v/2=1,7, with physical y=v*sqrt3/2. Intersecting these six halfplanes forms a side3 regular hexagon with54 unit triangle areas, so adding18 is feasible. Among convex hexagons whose edges follow the original tile directions, each of the six support bounds is forced and this is minimal.','uncertainty':'The formal wording says hexagon, not regular. This unit has not proved that all allowed six-sided completions, including potentially nonconvex alternatives or nonstandard placement, must fit that convex-direction argument. No unsupported unique18 proof, no mathematical ambiguity claim without counterexample, and no added regular condition.','mechanisms_assessed':['Matching small-unit edge with boundary notches could suggest local6 or12 count, but no complete minimum proof and an added completion outline could become a fixed target.'],'reason':'Do not fabricate a source-unit/receiver-completion scheme when the required unrestricted unique-minimum proof is unresolved. No design or call.','api_calls':0},
+      'Plane402':{'status':'new_material_design_test_pending','unique_answer_independently_verified':True,'proof':'x+4+q=13, P=4x=2Q=8q, so q=3 and x=6. New hypothesis double counts two perpendicular4-unit projections of the same elbow: x+q+8=13 ->x=10/3.','old_history':'Old preset26/3 returned26/3 then8, not paired. Full raw outputs preserved and read. New10/3 is neither old observed final and uses width/projection information rather than13/exposed-length omission.','design':'r43_elbow_double_projection_binding'},
+      'Plane405':{'status':'assessed_skip_no_clean_new_mechanism','unique_answer_independently_verified':True,'proof':'With h=sqrt3/2, actual gray vertices are(2,0),(4.5,0),(4.5,5h),(2,4h). Area=2.5*(4h+5h)/2=45h/4. One real small equilateral triangle area=h/2, ratio45/2=22.5, each4cm2 ->90cm2,B. Independent rational clipping of all49 actual unit triangles sums45/2.','exact_check':str(OWN/'Plane405/exact_math.json'),'mechanisms_assessed':['Count each intersected triangle as whole:29positive triangles gives116, absent from choices.','Count only full triangles:16 gives64, absent from choices.','Count all13partial triangles as halves:16+13/2=22.5 accidentally gives correct90; no wrong preset.','Ignore sloped cap gives80, but highlighting an existing full row would merely hide a region, not supply a false unit correspondence; adding a cap-base or new triangulation could introduce a false partition.'],'reason':'No geometrically honest, concise new feature correspondence to80/100/110/120 found. Retain exact partial-cell audit rather than force an option.','api_calls':0},
+      'Plane407':{'status':'new_material_design_test_pending','unique_answer_independently_verified':True,'proof':'For positive widths a+b+c+d=36, source centre distances are(a+b)/2 and(c+d)/2, sum18,A. Full-width to target half-width transfer would yield18+(b+d)/2 and mistaken E dependence.','draft_hold':'Initial local untested draft overpainted two centre pixels; retained HOLD,0API. Repaired pre-call intervals stop at frozen left rims, same conceptual mechanism.','design':'r43_full_base_to_center_half_clear_dots'},
+      'Plane409':{'status':'assessed_skip_no_clean_material_change','unique_answer_independently_verified':True,'proof':'Let a be short base,b long base and t equal leg. Assembly with equilateral outer corners makes each leg slope60degrees to a base. Isosceles projection gives b-a=2*t*cos60=t. Each hole side is a-t=2a-b, perimeter6a-3b,E. Positive nonzero hole requiresa<b<2a. Actual frozena=4,b=5,t=1,hole side3 confirms topology only, not a numeric given. All three hole edges and all seams remain read-only.','old_history':'Old a/b color swap presetC has first final incompatible3b andC=6b-3a, secondB=3b-6a. Both are preset misses, no relabel.','mechanisms_assessed':['A source leg-to-hole local unit transfer predicts3(b-a), absent from options.','Omitting one covered short-base contribution predicts3(b-a) or3a depending span convention, also absent.','Available C via another a/b swap is the same old mechanism; changing color, marked segment length or naming would not justify a new call.','Sign-flip6a+3b lacks a distinct concrete edge/source information transfer on this frozen assembly.'],'reason':'No material new simple correspondence to a listed wrong expression; do not repeat old failed swap or add false equality/angle marks.','api_calls':0},
+      'Plane410':{'status':'new_material_design_test_pending','unique_answer_independently_verified':True,'proof':'Actual areas left-to-right:3/8,12/20,2/3,15/25,4/8. Only second/fourth satisfy3/5 ->2. False similarity area transfer from white half-square triangle(area1/2,legs1) to central black triangle(area1,legssqrt2) would make the central black area1/2 and count a spurious third design.','design':'r43_similar_triangle_area_unit_binding'},
+      'Plane412':{'status':'new_material_design_test_pending','unique_answer_independently_verified':True,'proof':'The two top small squares establish medium side2units and large side3; three small squares bridge large width at the middle. Rectangle5 by7. Actual black P-Q run lengths[1,1,2,2,2,2,2,3,4,1,1] total21unit=420cm,C. New endpoint correspondence maps bottom3unit run to actual1unit example, predicting19units=380cm,A.','design':'r43_unit_endpoint_to_long_run_binding'}
+    }
+    # Independent route graph uses only exact original semantic route edge objects.
+    s=read(items/'Plane412/scene.json');g=defaultdict(list);edges=[]
+    for o in s['objects']:
+        if o.get('role')!='semantic_bold_route':continue
+        a,b=[tuple(s['points'][p]) for p in o['points']];g[a].append(b);g[b].append(a)
+        edges.append({'id':o['id'],'endpoints':[a,b],'length_units':sum(abs(a[k]-b[k]) for k in range(2))})
+    p=tuple(s['points']['P']);q=tuple(s['points']['Q']);route=[p];prev=None
+    while route[-1]!=q:
+        choices=[n for n in g[route[-1]] if n!=prev];assert len(choices)==1
+        prev,cur=route[-1],choices[0];route.append(cur)
+    total=sum(e['length_units'] for e in edges);assert total==21 and len(edges)==21
+    assert Counter(len(ns) for ns in g.values())=={2:20,1:2}
+    dump(OWN/'Plane412/exact_route_math.json',{'edges':edges,'unique_chain_vertices':route,'unit_sum':total,'cm_sum':total*20,'degree_counts':dict(Counter(len(ns) for ns in g.values())),'P':p,'Q':q,'black_route_query_preserved':True})
+    # Retain relevant initial checkpoint excerpts without modifying shared history.
+    cp_paths=[SHARED/'background_03/plane_worker/checkpoint.json',SHARED/'background_12/checkpoint.json',SHARED/'background_17/checkpoint.json',SHARED/'background_20/checkpoint.json']
+    excerpts=[]
+    def collect(x):
+        out=[]
+        if isinstance(x,dict):
+            if x.get('question_id',x.get('id')) in IDS:out.append(x)
+            else:
+                for k,v in x.items():
+                    if k in IDS:out.append({k:v})
+                    else:out.extend(collect(v))
+        elif isinstance(x,list):
+            for v in x:out.extend(collect(v))
+        return out
+    for p in cp_paths:
+        try:excerpts.append({'path':str(p),'sha256':sha(p),'matching_full_records':collect(read(p)),'malformed':False})
+        except json.JSONDecodeError as e:excerpts.append({'path':str(p),'sha256':sha(p),'bytes':p.stat().st_size,'malformed':True,'error':str(e),'bytes_read_only_preserved':True,'not_rerun_excuse':True})
+    dump(OWN/'old_checkpoint_excerpts.json',excerpts)
+    for q,a in assessments.items():
+        a.update({'question_id':q,'actual_original_JPG_viewed':True,'actual_formal_PNG_native_viewed':True,'fresh_noop_equals_formal_pixels':True,'current_eligibility':str(OWN/q/'eligibility_start.json'),'history_audit':str(OWN/q/'history_audit.json'),'frozen_scene_read':str(items/q/'scene.json'),'only_own_unit_writes':True,'primary_only_not_independent_second_review':True,'at_utc':datetime.now(timezone.utc).isoformat()})
+        dump(OWN/q/'assessment.json',a)
+    dump(OWN/'assessed_questions.json',assessments)
+    print(json.dumps({q:a['status'] for q,a in assessments.items()}))
+
+if __name__=='__main__':main()

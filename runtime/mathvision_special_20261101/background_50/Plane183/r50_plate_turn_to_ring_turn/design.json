@@ -1,0 +1,138 @@
+{
+  "question_id": "Plane183",
+  "variant_id": "r50_plate_turn_to_ring_turn",
+  "created_at": "2026-11-01T20:01:26.511094+00:00",
+  "expected_wrong_answer": "5",
+  "formal_correct_answer": "10",
+  "hypothesis": "Pair a two-edge outer vertex of the last displayed pentagon (interior108/exterior72) with the two inner-boundary edges at a shared junction (hole144/turn36). Proposed error uses72 per ring step and returns5.",
+  "difference": "Old initial assessment saved no design/calls: whole successive-side color lacked a selective correspondence and extra radii risked fake seams. New two separated open angle frames use4existing boundary-edge intervals, without whole contour or any added radius/center/seam.",
+  "primary_math_proof": {
+    "unique_answer": "10",
+    "proof": "A regular pentagon interior angle is108. At each shown inner ring junction two pentagon angles meet, leaving inner-hole angle360-2*108=144. Following the actual ring inner boundary turns180-144=36 degrees per plate. A complete simple ring turns360, hence360/36=10 plates. Translation/rotation repeats the same gluing role; no extra plate or radial seam is assumed.",
+    "wrong_rule": "Copy the single pentagon exterior turn180-108=72 to the inner ring boundary advance36, obtaining360/72=5."
+  },
+  "per_marker_roles": [
+    {
+      "action_index": 0,
+      "role": "SOURCE first edge at bottom outer pentagon vertex; with next edge gives intrinsic108 angle/exterior72.",
+      "selected_control_full_precision": [
+        [
+          -0.16913060635885718,
+          -1.6091702292618333
+        ],
+        [
+          -0.2736590696265108,
+          -2.603692124630107
+        ]
+      ],
+      "original_selected_segment": [
+        [
+          -0.16913060635885718,
+          -1.6091702292618333
+        ],
+        [
+          -0.2736590696265108,
+          -2.603692124630107
+        ]
+      ],
+      "segment_index": 3,
+      "segment_count": 5,
+      "length_display_units": 1.0000000000000002,
+      "no_new_geometry_or_relation_symbol": true
+    },
+    {
+      "action_index": 1,
+      "role": "SOURCE second edge of same last displayed pentagon, completes open intrinsic-angle frame.",
+      "selected_control_full_precision": [
+        [
+          -0.2736590696265108,
+          -2.603692124630107
+        ],
+        [
+          0.6398863880160901,
+          -3.0104287677059065
+        ]
+      ],
+      "original_selected_segment": [
+        [
+          -0.2736590696265108,
+          -2.603692124630107
+        ],
+        [
+          0.6398863880160901,
+          -3.0104287677059065
+        ]
+      ],
+      "segment_index": 4,
+      "segment_count": 5,
+      "length_display_units": 0.9999999999999999,
+      "no_new_geometry_or_relation_symbol": true
+    },
+    {
+      "action_index": 2,
+      "role": "RECEIVER upper inner-hole boundary edge terminating at the shared junction; not the glued seam.",
+      "selected_control_full_precision": [
+        [
+          1.0826760640014599,
+          1.2024335861860322
+        ],
+        [
+          1.5826760640014599,
+          0.3364081824015934
+        ]
+      ],
+      "original_selected_segment": [
+        [
+          1.0826760640014599,
+          1.2024335861860322
+        ],
+        [
+          1.5826760640014599,
+          0.3364081824015934
+        ]
+      ],
+      "segment_index": 2,
+      "segment_count": 5,
+      "length_display_units": 1.0000000000000002,
+      "no_new_geometry_or_relation_symbol": true
+    },
+    {
+      "action_index": 3,
+      "role": "RECEIVER lower inner-hole boundary edge leaving that junction, together hole144/turn36; not a radial line.",
+      "selected_control_full_precision": [
+        [
+          1.5826760640014599,
+          0.33640818240159365
+        ],
+        [
+          1.4781476007338061,
+          -0.6581137129666799
+        ]
+      ],
+      "original_selected_segment": [
+        [
+          1.5826760640014599,
+          0.33640818240159365
+        ],
+        [
+          1.4781476007338061,
+          -0.6581137129666799
+        ]
+      ],
+      "segment_index": 2,
+      "segment_count": 5,
+      "length_display_units": 1.0000000000000002,
+      "no_new_geometry_or_relation_symbol": true
+    }
+  ],
+  "plugin_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_50\\Plane183\\r50_plate_turn_to_ring_turn\\plugin.json",
+  "plugin_sha256": "d31a187072ca2dc29922e3d3985e0724426814e3bd0909ad502be44d3bba9ed1",
+  "image_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_50\\Plane183\\r50_plate_turn_to_ring_turn\\candidate.png",
+  "image_sha256": "0de6659ec24a77a0ff8440f4826afbc29d64b82082eaa50c249c6cc4fa576af7",
+  "pixel_sha256": "0bd1522da65242dacc1a586f3af017a1e849c6446b0337eb666341963da57eb8",
+  "context_sha256": "fbc0e541e2ee631e29274b9cf178d9f5ffead91559cbdedba3c9d815cdb1bea7",
+  "path_fingerprints_sha256": "e7ba4c045aaf50b1b3666b93d1cdc17869209d3ef1881bdc1b7dfe9b184a8bd3",
+  "approval_content_sha256": "c46ed39af28b5fdd490ce5af6c1681ea1d1fc7df0dfc67f6082fbb7a5733301f",
+  "human_semantics": "This asks for a numerical count, angle or area, not color-preserving picture completion. Existing-edge color does not add equality, angle, length, fill or cut conditions. Source/fold geometry and targets remain. A physical colored edge may remain ink without changing the requested numerical quantity; no matching colored-result option is required. Native review is a separate required pre-call step.",
+  "approval_status": "UNREVIEWED primary research only; parent must commission NEW independent second review."
+}

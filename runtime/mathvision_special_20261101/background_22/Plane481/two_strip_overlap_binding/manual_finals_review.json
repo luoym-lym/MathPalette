@@ -1,0 +1,48 @@
+{
+  "question_id": "Plane481",
+  "design_name": "two_strip_overlap_binding",
+  "reviewed_at": "2026-11-01T16:26:39.280705+00:00",
+  "manual_reader": "background_22 primary designer",
+  "independent_second_review": false,
+  "preset": "12",
+  "formal_answer": "10",
+  "final_answers": [
+    "10",
+    "3"
+  ],
+  "runs": [
+    {
+      "run_index": 1,
+      "complete_final_response_manually_read": true,
+      "full_final_response": "To find the area of the shape, we can break it down into two overlapping squares: one rotated 45 degrees (a diamond shape) and one that is upright (a regular square aligned with the grid).\n\n1.  **Calculate the area of the \"Diamond\" shape (rotated square):**\n    *   The vertices of this shape lie on the grid lines. Looking at the grid, the diamond has a width (horizontal diagonal) of 4 grid units and a height (vertical diagonal) of 4 grid units.\n    *   The area of a square calculated from its diagonals is given by the formula: $\\text{Area} = \\frac{d_1 \\times d_2}{2}$.\n    *   $\\text{Area}_{\\text{diamond}} = \\frac{4 \\times 4}{2} = 8$ square inches.\n\n2.  **Calculate the area of the Upright Square:**\n    *   The sides of the upright square are horizontal and vertical lines that connect the midpoints of the diamond's diagonals.\n    *   The square spans from one grid line to the next in both horizontal and vertical directions (specifically, it occupies the central 2x2 grid area, but is a single square shape). Its side length is 2 grid units.\n    *   $\\text{Area}_{\\text{upright}} = \\text{side} \\times \\text{side} = 2 \\times 2 = 4$ square inches.\n\n3.  **Account for the Overlap:**\n    *   The two squares overlap in the very center of the grid.\n    *   The overlapping region is a smaller square that shares the same orientation as the diamond (its sides are parallel to the diamond's sides).\n    *   The vertices of this overlap are the centers of the 1x1 squares surrounding the center. This overlap region has a horizontal diagonal of 2 units and a vertical diagonal of 2 units.\n    *   Using the diagonal area formula again: $\\text{Area}_{\\text{overlap}} = \\frac{2 \\times 2}{2} = 2$ square inches.\n\n4.  **Calculate Total Area:**\n    *   Using the principle of inclusion-exclusion, we add the areas of the two shapes and subtract the overlap to avoid double-counting.\n    *   $\\text{Total Area} = \\text{Area}_{\\text{diamond}} + \\text{Area}_{\\text{upright}} - \\text{Area}_{\\text{overlap}}$\n    *   $\\text{Total Area} = 8 + 4 - 2 = 10$ square inches.\n\n**Final Answer:** 10",
+      "manual_final_answer": "10",
+      "manual_interpretation": "Read the complete final: ends Final Answer 10. The response uses an inaccurate diamond-plus-square narrative but its declared final is 10; predeclared 12 is not the final.",
+      "predeclared_wrong_answer": "12",
+      "target_hit": false,
+      "raw_run_path": "Plane481\\two_strip_overlap_binding\\tests\\quicktest3_20261101T162247_ce1b239aee61\\run_01.json",
+      "response_path": "Plane481\\two_strip_overlap_binding\\tests\\quicktest3_20261101T162247_ce1b239aee61\\run_01_response.json",
+      "response_sha256": "f289b4d8caf6ce30f5dbbd39e030f3386c52419b0b4037ae4100ad3abf30bedf"
+    },
+    {
+      "run_index": 2,
+      "complete_final_response_manually_read": true,
+      "full_final_response": "To find the area of the shape, we can decompose it into a central square and four identical triangles (the \"points\" of the star). We will determine the area of each part by analyzing the grid of 1-inch squares.\n\n1.  **Central Square**:\n    *   The center of the shape is a square aligned with the grid.\n    *   By looking at the grid lines, the side of this square is **1 unit** long.\n    *   **Area of the central square** = $1 \\times 1 = \\mathbf{1}$ **square inch**.\n\n2.  **Four Triangular Points**:\n    *   Each of the four points is a triangle attached to the central square.\n    *   Let's look at the **top point**. Its base is the top side of the central square, which has a length of **1 inch**.\n    *   The tip of this triangle extends to the grid intersection one unit above the center. So, the height of the triangle is **1 inch**.\n    *   The area of a triangle is $\\frac{1}{2} \\times \\text{base} \\times \\text{height}$.\n    *   **Area of one triangle** = $\\frac{1}{2} \\times 1 \\times 1 = \\mathbf{0.5}$ **square inches**.\n    *   Since all four points are identical, the total area for the four triangles is $4 \\times 0.5 = \\mathbf{2}$ **square inches**.\n\n3.  **Total Area**:\n    *   Add the area of the central square and the four triangles:\n    *   Total Area = $1 + 2 = \\mathbf{3}$ **square inches**.\n\n**Answer:** 3",
+      "manual_final_answer": "3",
+      "manual_interpretation": "Read the complete final: ends Answer 3 after treating the center as a one-unit square. This is wrong relative to formal 10 and differs from preset 12.",
+      "predeclared_wrong_answer": "12",
+      "target_hit": false,
+      "raw_run_path": "Plane481\\two_strip_overlap_binding\\tests\\quicktest3_20261101T162247_ce1b239aee61\\run_02.json",
+      "response_path": "Plane481\\two_strip_overlap_binding\\tests\\quicktest3_20261101T162247_ce1b239aee61\\run_02_response.json",
+      "response_sha256": "35a195d531c865ac16b1cf1459e1e01c54fc35911d2e1256326baa0f0a873c3b"
+    }
+  ],
+  "credible_predeclared_paired_hit": false,
+  "status": "completed_pair_missed_preset",
+  "no_retest_or_posthoc_preset_change": true,
+  "controls": [],
+  "limitations": [
+    "No original-image control pair was run.",
+    "No human performance study or per-marker causal ablation was run.",
+    "These outputs do not establish a causal effect of the marks."
+  ]
+}

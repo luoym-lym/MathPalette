@@ -1,0 +1,160 @@
+{
+  "stage": "material_refinement",
+  "question_id": "Plane192",
+  "variant_id": "r23_maximal_run_unit_binding",
+  "checked_at": "2026-11-01T17:06:22.347720+00:00",
+  "render_and_visual_pixel_scope": {
+    "baseline_noop_formal_rgba_equal": true,
+    "twice_byte_identical_png": true,
+    "changed_pixel_count": 821,
+    "maximum_distance_to_selected_strokes_px": 1.9396040081313854,
+    "all_pixel_differences_within_4_1px_selected_stroke_neighborhoods": true,
+    "all_other_geometry_text_fill_pixels_unchanged": true,
+    "native_canvas_768": true,
+    "frozen_files_current_match": true
+  },
+  "solver_evidence": [
+    {
+      "binding_path": "runtime\\mathvision_special_20261101\\background_23\\Plane192\\r23_maximal_run_unit_binding\\tests\\quicktest3_20261101T170039_4fa23ab4b580\\binding.json",
+      "binding": {
+        "branch": "PlaneGeometry",
+        "question_id": "Plane192",
+        "profile": "quicktest3",
+        "settings": {
+          "label": "Quick Test 3",
+          "provider": "mimo",
+          "model": "mimo-v2.6-flash",
+          "thinking": {
+            "type": "disabled"
+          },
+          "api_base": "https://token-plan-cn.xiaomimimo.com/v1"
+        },
+        "system_prompt": "Solve the mathematics question using the provided image. Give a clear final answer at the end. For a multiple-choice question, include the option letter in your final answer.",
+        "question": "Between two points four routes are drawn. Which route is the shortest?\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E",
+        "image_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_23\\Plane192\\r23_maximal_run_unit_binding\\candidate.png",
+        "image_sha256": "51e2920d1e2f1d65d7646ace6705d511ce68bbdda07b0453f4b74cfde51929d1",
+        "pixel_sha256": "14d2fe0ecdd1b2e34bffb06a16796f2606d1861b6c7950d972ab066b39a1b239",
+        "design_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_23\\Plane192\\r23_maximal_run_unit_binding\\design.json",
+        "design_sha256": "b3d8eb2331aa17033afb6e85cf848962a02fe73122aef71ffa7cd668610c6141",
+        "expected_wrong_answer": "A",
+        "question_record_sha256": "074537b0b9a85b6b743004a51d634ccf66b1ba2307596082d07952ee4284a39a",
+        "dataset_sha256": "f167f666cb1037754e9516dcf516b5c4f462c9ef3da17e867458d392e35ed2ec",
+        "request_body_sha256": "ee3283bb584198c883fa18e7de6249ea824c6a9aa27aa70d45714f4210a8a80f",
+        "reference_quick_test_sha256": "558b80e92363e17d42c51e44272a6085f44676176c1a2e5698ab6b466458967f",
+        "created_at": "2026-11-01T17:00:39.376207+00:00",
+        "requested_runs": 2,
+        "authorization": "User explicitly requested automatic exploration and two quicktest3 calls.",
+        "approval_status": "UNREVIEWED; no Pass or Collect action performed"
+      },
+      "request_exact_verified": true,
+      "no_answer_preset_intent_history_or_parameters_in_solver_input": true,
+      "runs": [
+        {
+          "run": 1,
+          "raw_sha256": "7e9cc53ea9df7c5dffaed1c27d33d07be001e20b9768a3a68c09206484dd01de",
+          "run_id": "edfc7427ed1b4b2492431720b98ec8cd",
+          "provider_id": "0701b797-1256-401a-b3c2-bca9a60e5804_a32fba127f514c8e89e7923c974b6e7e",
+          "status": "completed_http200_stop",
+          "full_final": "Based on geometric principles, the shortest distance between two points is a straight line.\n\nLet's analyze the paths:\n*   **Route A** follows a path that goes up and down. The red segment rises 2 units over a horizontal distance of 2 units.\n*   **Route B** has a red segment that rises 2 units over a horizontal distance of 2 units (following the grid diagonal).\n*   **Route C** has a red segment that rises 2 units over a horizontal distance of 3 units.\n*   **Route D** has a red segment that rises 2 units over a horizontal distance of 6 units (or possibly 1 unit, but visually much flatter than A and B).\n\nIn all cases, the total horizontal distance is the same (let's call it $W$) and the total vertical distance is the same (let's call it $H$). A direct straight line from start to finish would be the shortest. However, none of the drawn routes are a single straight line; they are all zig-zags composed of diagonal segments.\n\nThe length of a diagonal segment is determined by the formula $\\sqrt{\\Delta x^2 + \\Delta y^2}$.\n*   In **Route B**, the \"steps\" of the zig-zag are perfectly diagonal (moving 1 unit right and 1 unit up/down for each grid intersection). This corresponds to a slope of 1, which is the most efficient way to gain height horizontally on a square grid. The length of the path is exactly $\\sqrt{2}$ times the grid width.\n*   In **Route A**, the zig-zag segments are flatter (moving 2 units right for every 2 units up... wait, looking closely at A, the red line goes 2 units right and 2 units up, which is also a 1:1 ratio). Let's re-examine.\n    *   **A:** Red segment goes 2 right, 2 up. Black segment goes 2 right, 2 down. The peak is at the center. Total length = $2\\sqrt{2} + 2\\sqrt{2}$? No, that's the full width. If width is 4, A is two segments of length $\\sqrt{2^2+2^2} = \\sqrt{8} = 2\\sqrt{2}$. Total = $4\\sqrt{2} \\approx 5.66$.\n    *   **B:** Red segment goes 2 right, 2 up. Then there is a small down-up-down-up pattern. Actually, looking at B, it has 4 segments. Each segment seems to go 1 right and 1 up/down. The total width is 4 units. Length = $4 \\times \\sqrt{1^2+1^2} = 4\\sqrt{2} \\approx 5.66$.\n    *   **C:** The zig-zag has a lower amplitude and wider segments.\n    *   **D:** The zig-zag is very tight.\n\nLet's look closer at the geometry relative to the grid.\nThe length of a path that traverses a rectangle of width $W$ and height $H$ is minimized when the path is as close to a straight line as possible. Among zig-zag paths made of segments with a slope magnitude $|m|$, the length is generally minimized when the slope is closest to the slope of the ideal straight line.\n\nHowever, let's look at the \"triangle inequality\" logic.\nCompare A and B.\nRoute A goes straight up the diagonal for 2 units, then straight down. It touches the \"ceiling\" once.\nRoute B goes up, down, up, down. It touches the ceiling multiple times.\nUsually, deviating from the straight line (going up and down) adds length. Route A deviates from the centerline the *least*. The peak of A is the midpoint. The paths in B, C, and D oscillate around the centerline more frequently.\nThe oscillations in B, C, and D represent additional distance traveled away from the direct path and back. For instance, going up and down a small \"tooth\" adds length compared to just going straight along the average height.\n\n**Therefore, Route A is the shortest** because it has the fewest oscillations (changes in direction) and stays closest to the hypothetical straight line connecting the start and end points.\n\nAnswer: **A:A**"
+        },
+        {
+          "run": 2,
+          "raw_sha256": "c1fecc72f8c54a13bf91c039e5660a2b0bb17483e534b0ee366e0882f5c0e168",
+          "run_id": "46952747d0364de7a8c7f4ed6671a829",
+          "provider_id": "318a2ece-ec40-4290-a60d-a5c797e529bf_144bf5bf2f4c4e1ebd3d1715fa5f1751",
+          "status": "completed_http200_stop",
+          "full_final": "Based on the geometric principle that the shortest distance between two points is a straight line, we can analyze the four routes.\n\n*   **Route A** is a straight line segment connecting the two points. Its length is exactly equal to the direct distance between the start and end points.\n*   **Routes B, C, and D** are all zigzag paths that deviate from the straight path. Because they involve \"detours\" (moving up and down or side to side away from the direct path), their total lengths are strictly longer than the direct distance.\n\nTherefore, Route A is the shortest.\n\n**Correct Answer:**\n**A: A**"
+        }
+      ],
+      "exactly_two_complete": true
+    }
+  ],
+  "frozen_current_eligibility": {
+    "question_id": "Plane192",
+    "branch": "PlaneGeometry",
+    "formal_record": {
+      "source_dataset": "MathVision",
+      "source_key": "test:432",
+      "question": "Between two points four routes are drawn. Which route is the shortest?\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E",
+      "answer": "E",
+      "answer_type": "choice",
+      "id": "Plane192",
+      "choices": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D",
+        "E": "E"
+      },
+      "image": "image/Plane192.png",
+      "original_image": "originals/Plane192.jpg",
+      "scene": "dataset_generator/scenes/Plane192.json",
+      "script": "dataset_generator/plane_plot192.py",
+      "runtime_dependencies": [
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane192/execution.json",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane192/protocol_review.json",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane192/renderer.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane192/scene.json",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane192/source.json",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane192/source_redraw.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+      ],
+      "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+      "source_category": "combinatorial geometry"
+    },
+    "source_dataset": "MathVision",
+    "original_approval": {
+      "id": "Plane192",
+      "branch": "PlaneGeometry",
+      "reviewer": "user",
+      "instruction": "你直接帮忙把所有Math-Vision题目都加入正式题库吧（mashpalette-publish），然后如果题目里面有<image1>这种标记要删去。\n记得标记来源。",
+      "approved_at_utc": "2026-10-29T13:35:54.516288+00:00",
+      "content_sha256": "1381fed53b42bb9653dde01b546935f73cdb6cd6b30955ff314b2fec2e5b9666"
+    },
+    "current_content_sha256": "1381fed53b42bb9653dde01b546935f73cdb6cd6b30955ff314b2fec2e5b9666",
+    "approval_matches_current": true,
+    "accepted_entries": [],
+    "collected_entries": [],
+    "recipes": null,
+    "collection": null,
+    "has_passed": false,
+    "collected_or_special_completed": false,
+    "eligible": true,
+    "frozen_source_files": {
+      "PlaneGeometry\\image\\Plane192.png": "7e5caa0d69705d043027b31bf8ee41c45d33c3de572b5124ec3bd1317f51b0b4",
+      "PlaneGeometry\\dataset_generator\\scenes\\Plane192.json": "f5c35e9b2987433097ca033290b87155a6ecd923ab0f3db6ba78fe078c2035bf",
+      "PlaneGeometry\\dataset_generator\\plane_plot192.py": "7e1482ccf1211bc859378a73843f99eb591de6978dbc29112d0130baca8d5613",
+      "PlaneGeometry\\originals\\Plane192.jpg": "1944b9e862f5f7e5e633ebed8b75970e7c42feb3ed0ecc6ca0d1906a150991cb",
+      "PlaneGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\items\\Plane192\\execution.json": "a8b02729097e6043a56779a6cc6180c5c4ff3d4fb7dba268e9bb20dae645dbf4",
+      "PlaneGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\items\\Plane192\\protocol_review.json": "67d3edb12624f8eaa453f51e88f5a40809ba480fa5ba31683c3a0d6864ef9225",
+      "PlaneGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\items\\Plane192\\renderer.py": "696c4bc156e4879aa1748106ce254f84bddf6d573f1060fb79dcc8cff1ae06f8",
+      "PlaneGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\items\\Plane192\\scene.json": "4e49e80473d495dd5785fdc39a9de7686bb33174ecd1b8c81164c96ea76ef718",
+      "PlaneGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\items\\Plane192\\source.json": "3374cab0ff54f9fd02e499a103ae4a1060a78ae2fdd8725cf5f8d6e0ea7333a6",
+      "PlaneGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\items\\Plane192\\source_redraw.py": "6230a77f65d77e53d2507549bab035ace070b726232b185b0cb06a0765fa8a6b",
+      "PlaneGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\geometry\\PlaneGeometry\\dataset_generator\\common_renderer.py": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+      "PlaneGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\geometry\\PlaneGeometry\\dataset_generator\\protocol.json": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+      "PlaneGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\geometry\\SolidGeometry\\dataset_generator\\common_renderer.py": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+      "PlaneGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\geometry\\SolidGeometry\\dataset_generator\\protocol.json": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+      "PlaneGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\helpers\\combinatorial_geometry\\upper_comb_renderer.py": "f8b46c832ae8ff8e16730970bd31d1d549035f4e230f49acb6b88141efda0d84",
+      "PlaneGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\helpers\\combinatorial_geometry\\upper_comb_renderer_fillonly.py": "0d0b200ad11ef8a4dc1642ab57168dafd65e70ae2d14a5f24ab0810f3dad2212",
+      "PlaneGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\helpers\\combinatorial_geometry\\upper_comb_renderer_v2.py": "c62c2b054bacaf988b2ad5ca1b65cd34e4197552b13f4af8c58edf63e42acb39",
+      "PlaneGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\helpers\\combinatorial_geometry\\upper_comb_solid_renderer.py": "c266e9f96734883b56e3d3a43438128d9c42ce65d9465f6dc83840f410f205ff",
+      "PlaneGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\helpers\\solid_geometry\\upper_solid_face_text_renderer.py": "c316a4fc088a318ce35232e46392ef3ab11af1ac24acaeeda36d99b016581d8e",
+      "PlaneGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\helpers\\solid_geometry\\upper_solid_fill_renderer.py": "a5fe3c7a62fce5bc104b5015549a7e6325924d58ea0b9a3d6f3192a459706d52",
+      "PlaneGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\protocol_renderer.py": "26cc0c532042b6f13c4d8504e469cbf285ce3b8591d3c11a8a0f8f3ab0c4721d",
+      "PlaneGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\runtime.py": "4b465c5bb4ea2973e4f3e861ff34c1661c154b747d66f8d6670299bf824953ab"
+    }
+  },
+  "quality_review": "PRIMARY only; does not replace parent NEW independent second review."
+}

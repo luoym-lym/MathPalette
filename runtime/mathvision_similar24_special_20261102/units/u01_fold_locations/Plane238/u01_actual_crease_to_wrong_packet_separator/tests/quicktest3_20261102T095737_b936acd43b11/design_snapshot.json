@@ -1,0 +1,51 @@
+{
+  "question_id": "Plane238",
+  "variant_id": "u01_actual_crease_to_wrong_packet_separator",
+  "expected_wrong_answer": "D",
+  "expected_wrong_value": "15,16,21,22",
+  "correct_answer": "C",
+  "mechanism": "Match TWO actual fold identities across the separate stages. Red pairs the first actual horizontal fold o33 with the final top boundary o32 (a true hinge correspondence). Blue pairs the second actual vertical fold o34 with the final INTERNAL grid separator o26 atx17 (false: actual second-fold boundary is x16). The punch is .5 from the blue separator but1.5 from the true left fold. PredictD by using the wrong final gridline as the second-fold axis: original columns3/4 rather than2/5, while retaining the correct rows3/4. No punch, cell, numeral or option is highlighted.",
+  "primary_math_proof": "Use original coordinates x,y in [0,6], with row r from top having y in (6-r,7-r). First top-to-bottom fold is y -> 6-y; the stationary stack occupies y in [0,3]. Second left-to-right fold is x -> 6-x; stationary half occupies x in [3,6]. Final packet is translated from this to [16,19]x[0,3]. Its hole is centered (17.5,2.5), so original stationary coordinate is (4.5,2.5). The four preimages are (1.5,2.5),(4.5,2.5),(1.5,3.5),(4.5,3.5), giving rows3/4 and columns2/5, i.e. 14,17,20,23, only C. Exhaustive per-cell folding enumeration is saved. A uses rows2/5 with columns2/5; B,D,E each fail the exact orbit as enumerated. Colored existing grid edges cannot change which cells have a physical hole; even if intrinsic colored ink, the question asks only numbered cells pierced, so C remains uniquely correct.",
+  "marker_roles": [
+    {
+      "action_index": 0,
+      "source": "actual first horizontal fold o33 at originaly3",
+      "target": "final top packet boundary o32",
+      "purpose": "Expose the true first-fold identity across stages; establishes what role is being compared."
+    },
+    {
+      "action_index": 1,
+      "source": "actual first horizontal fold o33",
+      "target": "final top packet boundary o32 y3",
+      "purpose": "True first-fold hinge receiver. Preserves correct row mapping and contrasts with the wrong second-fold receiver."
+    },
+    {
+      "action_index": 2,
+      "source": "actual second vertical fold o34 at intermediatex11",
+      "target": "existing final internal grid separator o26 x17",
+      "purpose": "Source of the second crease-identity comparison; actual fold arrows stay unchanged."
+    },
+    {
+      "action_index": 3,
+      "source": "actual second vertical fold o34",
+      "target": "existing internal separator o26 left of the punched middle-column cell",
+      "purpose": "Incorrect proposed hinge receiver. A .5-cell punch-to-this-line offset substitutes for the true1.5-cell punch-to-left-boundary offset, leading to columnpair3/4."
+    }
+  ],
+  "human_semantics": "Only4 existing line objects change color/width; both arrows, black punch, all36 numbers, full grids and physical fold boundaries stay fixed. A colored existing solid grid separator is not an extra crease, new cut or additional fold condition; the wording still specifies exactly two folds. Even as physical ink the colored grid does not alter pierced numbers. A careful human traces the actual stationary half boundaries and uniquely obtainsC. The red true/blue false pair makes a specific line-identity comparison, not isolated option salience.",
+  "substantive_difference_from_all_prior_designs": "Old D designs recolored the whole punch and boxed an adjacent numbered/intermediate CELL, directly proposing a cell-location correspondence. Current A used row-band locations; current B used independent staggered layer-number groups. This new design leaves all punch/cell boundaries unhighlighted as cells and compares ACTUAL CREASE IDENTITIES to final packet LINES, with one true receiver and one wrong non-crease separator. This changes the source and receiver entities and the logical input (hinge identity rather than assigned cell), beyond palette/width changes. D is derived before both new calls from a .5-cell false-hinge offset and exact reflection calculation, not by relabeling any prior output.",
+  "created_at": "2026-11-02T09:55:39.039664+00:00",
+  "reference": "current frozen Plane217 C01; all nine current references actually viewed",
+  "scope": "PRIMARY AUTHOR ONLY; new independent parent second review still required",
+  "limitations": [
+    "Two observations only; no causal or general success-rate assertion.",
+    "Native original figure size and layout retained.",
+    "Not user approval or Pass/Collect."
+  ],
+  "current_task_prior_finals": "row-band presetA -> C,E; staggered-layer presetB -> D,C. These remain misses. New presetD belongs only to this new crease-identity PNG, never to either previous image.",
+  "image_sha256": "1398e83168b83a74132cb0dde0e7aaddbea0d1e9aadece676380119bad890af2",
+  "plugin_sha256": "927963a5a4378faa53d454133903041870bed1c9ab89999b730106714206d79a",
+  "context_sha256": "6ccc4e0b1f735aca5a84b0f9e3c748242247b2f38f5b0807bcd735fedd229558",
+  "proof_calculation_sha256": "3abbd220af1f0c7189d019e809955637f121ec611109cef7420316a1fce134b3",
+  "frozen_before_calls": true
+}

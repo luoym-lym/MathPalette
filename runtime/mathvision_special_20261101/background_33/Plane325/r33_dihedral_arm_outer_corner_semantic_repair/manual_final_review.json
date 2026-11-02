@@ -1,0 +1,47 @@
+{
+  "question_id": "Plane325",
+  "variant_id": "r33_dihedral_arm_outer_corner_semantic_repair",
+  "stage": "material_refinement",
+  "created_at": "2026-11-01T18:07:08.426028+00:00",
+  "precall_wrong_preset": "1",
+  "formal_answer": "3",
+  "manually_read_full_finals": [
+    {
+      "run_index": 1,
+      "complete_final_read_manually": true,
+      "full_complete_final": "To solve this problem, we need to determine the number of squares to shade such that the grid has an axis of symmetry. We will test the four possible axes of symmetry for the cross shape: the vertical axis, the horizontal axis, and the two diagonal axes.\n\n**Step 1: Analyze the current shading**\nThe grid is a 5x5 cross shape with a central 5x5 square and single squares extending from the middle of each side. Let's map the current shaded squares to coordinates $(row, col)$ where row 1 is the top and col 1 is the left:\n1.  $(2, 2)$\n2.  $(2, 4)$\n3.  $(3, 2)$\n4.  $(3, 4)$\n5.  $(4, 2)$\n6.  $(5, 2)$\n7.  $(6, 2)$\n\n**Step 2: Check Vertical Symmetry (Column 3)**\nThe axis of symmetry is the vertical line passing through column 3.\n*   $(2, 2)$ reflects to $(2, 4)$: Both are shaded. (Match)\n*   $(3, 2)$ reflects to $(3, 4)$: Both are shaded. (Match)\n*   $(4, 2)$ reflects to $(4, 4)$: $(4, 4)$ is unshaded. (Need 1)\n*   $(5, 2)$ reflects to $(5, 4)$: $(5, 4)$ is unshaded. (Need 1)\n*   $(6, 2)$ reflects to $(6, 4)$: The grid ends at row 6 only in column 3 (the tip). There is no cell at $(6, 4)$ to shade. **Impossible.**\n\n**Step 3: Check Horizontal Symmetry (Row 3)**\nThe axis of symmetry is the horizontal line passing through row 3.\n*   $(2, 2)$ reflects to $(4, 2)$: Both are shaded. (Match)\n*   $(2, 4)$ reflects to $(4, 4)$: $(4, 4)$ is unshaded. (Need 1)\n*   $(3, 2)$ is on the axis (Match)\n*   $(3, 4)$ is on the axis (Match)\n*   $(5, 2)$ reflects to $(1, 2)$: The grid does not extend to row 1. **Impossible.**\n\n**Step 4: Check Diagonal Symmetry (Top-Left to Bottom-Right)**\nThe axis passes through $(1,1), (2,2), ..., (6,6)$. A point $(r, c)$ reflects to $(c, r)$.\n*   $(2, 2)$ is on the axis. (Match)\n*   $(2, 4)$ reflects to $(4, 2)$: Both are shaded. (Match)\n*   $(3, 2)$ reflects to $(2, 3)$: $(2, 3)$ is unshaded. (Need 1)\n*   $(3, 4)$ reflects to $(4, 3)$: $(4, 3)$ is unshaded. (Need 1)\n*   $(4, 2)$ reflects to $(2, 4)$: Both are shaded. (Match)\n*   $(5, 2)$ reflects to $(2, 5)$: The grid does not have a cell at $(2, 5)$. **Impossible.**\n\n**Step 5: Check Diagonal Symmetry (Bottom-Left to Top-Right)**\nThe axis passes through $(6,1), (5,2), (4,3), (3,4), (2,5), (1,6)$. The reflection of $(r, c)$ across this axis maps to $(6-c+1, 6-r+1) = (7-c, 7-r)$. This symmetry works because the shape is symmetric with respect to the anti-diagonal.\nLet's map each shaded square to its reflection:\n1.  $(2, 2)$ maps to $(5, 5)$: $(5, 5)$ is unshaded. (Need 1)\n2.  $(2, 4)$ maps to $(3, 5)$: $(3, 5)$ is unshaded. (Need 1)\n3.  $(3, 2)$ maps to $(5, 4)$: $(5, 4)$ is unshaded. (Need 1)\n4.  $(3, 4)$ is on the axis (Match)\n5.  $(4, 2)$ maps to $(5, 3)$: $(5, 3)$ is unshaded. (Need 1)\n6.  $(5, 2)$ is on the axis (Match)\n7.  $(6, 2)$ maps to $(5, 1)$: $(5, 1)$ is unshaded. (Need 1)\n\nTotal additional squares needed: 5.\n\n**Conclusion**\nThe minimum number of additional small squares to shade is **5**.\n\nAnswer: 5",
+      "manually_extracted_terminal_answer": "5",
+      "terminal_choice_value": null,
+      "terminal_letter_value_consistent": true,
+      "matches_predeclared_wrong_answer": false,
+      "matches_formal_terminal_answer": false,
+      "interpretation": "The complete response ends Answer 5 after incorrectly describing a much smaller cross and wrong gray-cell coordinates. This is wrong relative to original 3 but misses frozen 1.",
+      "raw_response_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_33\\Plane325\\r33_dihedral_arm_outer_corner_semantic_repair\\tests\\quicktest3_20261101T180050_c93bf5f24278\\run_01_response.json",
+      "raw_response_sha256": "dad363c7904ff8e314f3ed9de073a627fa2c70675f08814e78dfd41fd46abd07",
+      "run_record_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_33\\Plane325\\r33_dihedral_arm_outer_corner_semantic_repair\\tests\\quicktest3_20261101T180050_c93bf5f24278\\run_01.json",
+      "run_record_sha256": "8e7c480ac60d72a539730f344310654f77165df026c19f6839c3746e507fa538"
+    },
+    {
+      "run_index": 2,
+      "complete_final_read_manually": true,
+      "full_complete_final": "To find the minimum number of additional squares to shade, let's analyze the positions of the currently shaded squares and check for symmetry across the potential axes.\n\n**1. Analyze the Grid and Shaded Squares**\nLet's define the position of each shaded square based on a coordinate system or by quadrant.\nLooking at the diagram:\n*   **Top-Left Quadrant:** There are 2 shaded squares.\n*   **Top-Right Quadrant:** There are 2 shaded squares.\n*   **Bottom-Left Quadrant:** There is 1 shaded square.\n*   **Bottom-Right Quadrant:** There are 0 shaded squares.\n\nFor the pattern to have an axis of symmetry, the distribution of shaded squares on opposite sides of that axis must be mirror images. Let's test the main axes of symmetry for a cross shape:\n\n**2. Testing Horizontal Axis**\nTo be symmetric horizontally, the top half must mirror the bottom half.\n*   The top half has 4 shaded squares.\n*   The bottom half has only 1 shaded square.\n*   To match, the bottom half would need 4 squares. We would have to shade 3 more squares in the bottom half.\n*   **Additional squares needed: 3.**\n\n**3. Testing Vertical Axis**\nTo be symmetric vertically, the left side must mirror the right side.\n*   The left half has 3 shaded squares.\n*   The right half has 2 shaded squares.\n*   While the count is closer, the specific positions do not mirror each other. For instance, the shaded square on the far bottom-left does not have a corresponding shaded square on the far bottom-right.\n*   If we mirror the left side onto the right:\n    *   One square on the right already matches its partner on the left.\n    *   We would need to add the missing counterparts for the other 2 squares on the left.\n*   **Additional squares needed: 2.**\n\n**4. Testing Diagonal Axes**\n*   **Diagonal (Top-Left to Bottom-Right):** There are 2 squares on one side and 3 on the other.\n*   **Diagonal (Top-Right to Bottom-Left):** There are 2 squares on one side and 3 on the other.\n*   Both diagonal options would require shading 3 new squares to match the sides.\n\n**Conclusion**\nComparing the options, shading **2** additional squares (specifically in the bottom-right section to mirror the bottom-left section) creates a vertical axis of symmetry. This is the minimum number possible.\n\nAnswer: **2**",
+      "manually_extracted_terminal_answer": "2",
+      "terminal_choice_value": null,
+      "terminal_letter_value_consistent": true,
+      "matches_predeclared_wrong_answer": false,
+      "matches_formal_terminal_answer": false,
+      "interpretation": "The complete response ends Answer 2 after undercounting the shaded cells and making an invalid vertical-symmetry claim. Wrong relative to original 3; misses frozen 1.",
+      "raw_response_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_33\\Plane325\\r33_dihedral_arm_outer_corner_semantic_repair\\tests\\quicktest3_20261101T180050_c93bf5f24278\\run_02_response.json",
+      "raw_response_sha256": "7cb81e1df7dbcd01a1aa7eeba1aa66ddc8978d69cdff6a9a7bc29319a5f19363",
+      "run_record_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_33\\Plane325\\r33_dihedral_arm_outer_corner_semantic_repair\\tests\\quicktest3_20261101T180050_c93bf5f24278\\run_02.json",
+      "run_record_sha256": "30d117ad9c120b1a293d0b77eafc5908fee6f904fd72862abc3586b8ed9f6079"
+    }
+  ],
+  "preset_hit_count": 0,
+  "two_complete_calls": true,
+  "credible_paired_hit_possibility": false,
+  "posthoc_relabel": false,
+  "status": "failed_predeclared_preset_pair",
+  "control_evidence": [],
+  "effect_limits": "No old same-question original control pair exists; none added. These two calls do not show statistical, incremental or per-marker effects."
+}

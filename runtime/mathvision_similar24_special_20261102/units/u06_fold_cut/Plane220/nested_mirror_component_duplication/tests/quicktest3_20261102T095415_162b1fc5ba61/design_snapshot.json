@@ -1,0 +1,127 @@
+{
+  "question_id": "Plane220",
+  "variant_id": "nested_mirror_component_duplication",
+  "created_at": "2026-11-02T09:47:24.335429+00:00",
+  "expected_wrong_answer": "E",
+  "expected_wrong_value": "E",
+  "formal_correct_answer": "D",
+  "answer_semantics": "Each option letter maps to itself; a hit requires an explicit final choice with matching letter/value, no conflicting final.",
+  "mechanism_predeclared": [
+    {
+      "action_index": 0,
+      "source": "E left component outer zigzag",
+      "receiver": "E right component outer zigzag (action 3)",
+      "information": "Red pairs the two outer three-point tips under reflection about the actual global dotted fold; source half-cut has a three-point zigzag.",
+      "necessity": "First member of outer correspondence."
+    },
+    {
+      "action_index": 1,
+      "source": "E left component inward zigzag near global seam",
+      "receiver": "E right component inward zigzag (action 2)",
+      "information": "Blue pairs the extra inward tips under the same global reflection. Each component also has its own local reflection pair, unlike A single-sided raw copies.",
+      "necessity": "First member of inner correspondence; exposes the second reflection level."
+    },
+    {
+      "action_index": 2,
+      "source": "E right component inward zigzag",
+      "receiver": "Action 1",
+      "information": "Second member of inner correspondence; the point contact at the fold stays visible.",
+      "necessity": "Completes the actual inner pair."
+    },
+    {
+      "action_index": 3,
+      "source": "E right component outward zigzag",
+      "receiver": "Action 0",
+      "information": "Second member of outer correspondence. Together the four lobes suggest two already-completed symmetric holes for the two layers.",
+      "necessity": "Completes the actual outer pair."
+    }
+  ],
+  "mathematics": {
+    "kind": "primary independent mathematical derivation, not independent second review",
+    "fold_assignment": "Exactly one fold. The left vertical edge of the displayed remaining half-sheet, x=13 in its local display panel, is the fold; the right straight edge is an outside edge. Reflect the whole removed half-opening about x=13.",
+    "analytic_cut": "The cut joins (13,5.4) and (13,6.6) on the fold. It has circular arc portions of radius .6 centered at (13,6) and one three-point zigzag on the right, with middle tip (14.25,6) and two side tips (13.98,5.55),(13.98,6.45). Its reflected partner supplies the left three-point zigzag. The removed half-opening has a segment of positive length on the crease, so the two removed interiors join across an interval, not a single point.",
+    "construction": "After reflection there is one connected finite-width rounded central opening with three points on both left and right. Translate center (13,6) to (20,0) to obtain the native D contour. The fold line is an axis of the whole opening, not two local axes of separate holes.",
+    "exhaustive_choices": {
+      "A": "Two single-sided openings have disjoint interiors. Their star tips may touch at a point at the fold, but a point does not reproduce the positive-width central opening.",
+      "B": "Two outward-pointing openings have separate interiors; their circular boundaries can be tangent, still no positive-width joined center.",
+      "C": "Only one right zigzag and no left reflected zigzag; not invariant under the displayed vertical fold.",
+      "D": "One central rounded region and two mirrored outer zigzags, exactly the reflected half-cut.",
+      "E": "Two separate locally double-sided openings, with local centers away from the global fold; a point contact at the seam does not connect their interiors. It duplicates an already completed reflection instead of joining the two halves."
+    },
+    "unique_answer": "D",
+    "source_originals_viewed": true,
+    "formal_png_viewed": true,
+    "display_note": "Curve sample vertices are rendering construction samples, not new physical vertices or extra cuts. No new fold is permitted."
+  },
+  "human_semantics": "Source remains entirely uncolored and retains its original one-fold meaning. Correct D stays entirely unchanged. E fails connected-interior/size geometry with or without colors; interpreting red/blue as E intrinsic edging cannot make E possible or invalidate D. A/B/C are untouched. Hence D stays uniquely correct under both readings.",
+  "native_visual_review": "Viewed native 768px: red outer E zigzags and blue inner E zigzags form two definite reflection pairs. Two circular interiors and their point contact with the global dotted seam remain visible; rounded arcs stay black. Source and correct D are untouched.",
+  "reference_transfer": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_similar24_special_20261102\\units\\u06_fold_cut\\Plane220\\nested_mirror_component_duplication\\reference_transfer.json",
+  "history_difference_audit": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_similar24_special_20261102\\units\\u06_fold_cut\\Plane220\\nested_mirror_component_duplication\\history_difference_audit.json",
+  "frozen_files": {
+    "candidate.png": "28e147e1a0e1c6f00564123d6c015bcd99769f84ad5d56fec25059fb9170cdd5",
+    "plugin.json": "d74c589d401eb7b82c7d488bb54b905aeea3aea3450f60497cb0343bfdae865f",
+    "context.json": "eb23163f5b97322378ea5b787790c065b9a628f1af4a8635ac9c402da673cad4",
+    "path_fingerprints.json": "a0f6e77ed64af356ed8013b85cd2da60e2a20b0520252ad78350767dabccbfbd",
+    "mathematics.json": "b2ef25138d869cd781ad9081ce7e0c0d9f38e0f718761629cd8c68c0aa600248",
+    "reference_transfer.json": "bc3756ca2d409068ae24f8813d442813f06845901296290e9faac8fa8f7a68cc",
+    "history_difference_audit.json": "a916fe780634416f961d6a91737c6f43e79af7936187ca85850035cccb45afa7",
+    "primary_review_before_calls.json": "5195e3395329c990e8ba96e74424b88c60ecb61614abd973a674f84475cd9202",
+    "render_check.json": "a8eec8d49538990613f1d2fe82469fbad9a2af1d14e3daa1139341d37021bcc2",
+    "fresh_process_replay.json": "b9b091e7358dd3c78babb8299d5a1b20fe865e64076de2a73e65e88ecbf7042f",
+    "prior_input_novelty.json": "4c11c1dae9dd6692581441467ae6247c757fa7dbe8861e4f9c9fbb9db61d5da8"
+  },
+  "formal_record": {
+    "source_dataset": "MathVision",
+    "source_key": "test:583",
+    "question": "A piece of paper is folded exactly in half, and a figure is cut out as shown.\nWhich of the five pictures can result when the paper is unfolded?\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E",
+    "answer": "D",
+    "answer_type": "choice",
+    "id": "Plane220",
+    "choices": {
+      "A": "A",
+      "B": "B",
+      "C": "C",
+      "D": "D",
+      "E": "E"
+    },
+    "image": "image/Plane220.png",
+    "original_image": "originals/Plane220.jpg",
+    "scene": "dataset_generator/scenes/Plane220.json",
+    "script": "dataset_generator/plane_plot220.py",
+    "runtime_dependencies": [
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane220/execution.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane220/protocol_review.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane220/scene.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane220/source.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane220/source_redraw.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+    ],
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "source_category": "transformation geometry"
+  },
+  "approval_content_sha256": "d0335a1130f532315cadd51fe259d08d11489838d0cd7ef9f4e65aee72c9f488",
+  "requested_runs": 2,
+  "profile": "original quicktest3 / mimo-v2.6-flash / thinking.disabled",
+  "max_tokens_sent": false,
+  "only_formal_question_and_PNG_sent": true,
+  "status": "PRIMARY_PENDING_EXACT_TWO_OBSERVATIONS",
+  "forbidden": [
+    "third call",
+    "automatic retry",
+    "post-output preset change",
+    "selecting two from more attempts",
+    "Pass/Collect",
+    "self second review"
+  ]
+}

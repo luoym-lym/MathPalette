@@ -1,0 +1,1035 @@
+{
+  "question_id": "Plane364",
+  "variant_id": "square_side_diagonal_role_comparison",
+  "created_at": "2026-11-02T09:55:42.426968+00:00",
+  "expected_wrong_answer": "A",
+  "expected_wrong_value": "square",
+  "correct_answer": "E",
+  "formal_record": {
+    "source_dataset": "MathVision",
+    "source_key": "test:1331",
+    "question": "Six points are marked on a square grid as pictured. Which geometric figure cannot be drawn if only the marked points are allowed to be used as cornerpoints of the figure?\nChoices:\nA:square\nB:parallelogram with different long sides\nC:acute triangle\nD:obtuse triangle\nE:all figures are possible",
+    "answer": "E",
+    "answer_type": "choice",
+    "id": "Plane364",
+    "choices": {
+      "A": "square",
+      "B": "parallelogram with different long sides",
+      "C": "acute triangle",
+      "D": "obtuse triangle",
+      "E": "all figures are possible"
+    },
+    "image": "image/Plane364.png",
+    "original_image": "originals/Plane364.jpg",
+    "scene": "dataset_generator/scenes/Plane364.json",
+    "script": "dataset_generator/plane_plot364.py",
+    "runtime_dependencies": [
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane364/execution.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane364/protocol_review.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane364/scene.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane364/source.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane364/source_redraw.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+    ],
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "source_category": "combinatorial geometry"
+  },
+  "mathematical_proof": {
+    "question_id": "Plane364",
+    "correct_answer": "E",
+    "formal_text": "Six points are marked on a square grid as pictured. Which geometric figure cannot be drawn if only the marked points are allowed to be used as cornerpoints of the figure?\nChoices:\nA:square\nB:parallelogram with different long sides\nC:acute triangle\nD:obtuse triangle\nE:all figures are possible",
+    "point_coordinates_exact": {
+      "P0": [
+        6,
+        6
+      ],
+      "P1": [
+        3,
+        5
+      ],
+      "P2": [
+        7,
+        5
+      ],
+      "P3": [
+        1,
+        3
+      ],
+      "P4": [
+        5,
+        3
+      ],
+      "P5": [
+        3,
+        1
+      ]
+    },
+    "proof_method": "All 20 unordered triples and every strictly convex cyclic quadruple, with integer cross/dot/squared-distance arithmetic. No numerical tolerance.",
+    "triangles": [
+      {
+        "vertices": [
+          "P0",
+          "P1",
+          "P2"
+        ],
+        "area2": 4,
+        "squared_lengths_sorted": [
+          2,
+          10,
+          16
+        ],
+        "type": "obtuse"
+      },
+      {
+        "vertices": [
+          "P0",
+          "P1",
+          "P3"
+        ],
+        "area2": 4,
+        "squared_lengths_sorted": [
+          8,
+          10,
+          34
+        ],
+        "type": "obtuse"
+      },
+      {
+        "vertices": [
+          "P0",
+          "P1",
+          "P4"
+        ],
+        "area2": 8,
+        "squared_lengths_sorted": [
+          8,
+          10,
+          10
+        ],
+        "type": "acute"
+      },
+      {
+        "vertices": [
+          "P0",
+          "P1",
+          "P5"
+        ],
+        "area2": 12,
+        "squared_lengths_sorted": [
+          10,
+          16,
+          34
+        ],
+        "type": "obtuse"
+      },
+      {
+        "vertices": [
+          "P0",
+          "P2",
+          "P3"
+        ],
+        "area2": -8,
+        "squared_lengths_sorted": [
+          2,
+          34,
+          40
+        ],
+        "type": "obtuse"
+      },
+      {
+        "vertices": [
+          "P0",
+          "P2",
+          "P4"
+        ],
+        "area2": -4,
+        "squared_lengths_sorted": [
+          2,
+          8,
+          10
+        ],
+        "type": "right"
+      },
+      {
+        "vertices": [
+          "P0",
+          "P2",
+          "P5"
+        ],
+        "area2": -8,
+        "squared_lengths_sorted": [
+          2,
+          32,
+          34
+        ],
+        "type": "right"
+      },
+      {
+        "vertices": [
+          "P0",
+          "P3",
+          "P4"
+        ],
+        "area2": 12,
+        "squared_lengths_sorted": [
+          10,
+          16,
+          34
+        ],
+        "type": "obtuse"
+      },
+      {
+        "vertices": [
+          "P0",
+          "P3",
+          "P5"
+        ],
+        "area2": 16,
+        "squared_lengths_sorted": [
+          8,
+          34,
+          34
+        ],
+        "type": "acute"
+      },
+      {
+        "vertices": [
+          "P0",
+          "P4",
+          "P5"
+        ],
+        "area2": -4,
+        "squared_lengths_sorted": [
+          8,
+          10,
+          34
+        ],
+        "type": "obtuse"
+      },
+      {
+        "vertices": [
+          "P1",
+          "P2",
+          "P3"
+        ],
+        "area2": -8,
+        "squared_lengths_sorted": [
+          8,
+          16,
+          40
+        ],
+        "type": "obtuse"
+      },
+      {
+        "vertices": [
+          "P1",
+          "P2",
+          "P4"
+        ],
+        "area2": -8,
+        "squared_lengths_sorted": [
+          8,
+          8,
+          16
+        ],
+        "type": "right"
+      },
+      {
+        "vertices": [
+          "P1",
+          "P2",
+          "P5"
+        ],
+        "area2": -16,
+        "squared_lengths_sorted": [
+          16,
+          16,
+          32
+        ],
+        "type": "right"
+      },
+      {
+        "vertices": [
+          "P1",
+          "P3",
+          "P4"
+        ],
+        "area2": 8,
+        "squared_lengths_sorted": [
+          8,
+          8,
+          16
+        ],
+        "type": "right"
+      },
+      {
+        "vertices": [
+          "P1",
+          "P3",
+          "P5"
+        ],
+        "area2": 8,
+        "squared_lengths_sorted": [
+          8,
+          8,
+          16
+        ],
+        "type": "right"
+      },
+      {
+        "vertices": [
+          "P1",
+          "P4",
+          "P5"
+        ],
+        "area2": -8,
+        "squared_lengths_sorted": [
+          8,
+          8,
+          16
+        ],
+        "type": "right"
+      },
+      {
+        "vertices": [
+          "P2",
+          "P3",
+          "P4"
+        ],
+        "area2": 8,
+        "squared_lengths_sorted": [
+          8,
+          16,
+          40
+        ],
+        "type": "obtuse"
+      },
+      {
+        "vertices": [
+          "P2",
+          "P3",
+          "P5"
+        ],
+        "area2": 16,
+        "squared_lengths_sorted": [
+          8,
+          32,
+          40
+        ],
+        "type": "right"
+      },
+      {
+        "vertices": [
+          "P2",
+          "P4",
+          "P5"
+        ],
+        "area2": 0,
+        "squared_lengths_sorted": [
+          8,
+          8,
+          32
+        ],
+        "type": "degenerate"
+      },
+      {
+        "vertices": [
+          "P3",
+          "P4",
+          "P5"
+        ],
+        "area2": -8,
+        "squared_lengths_sorted": [
+          8,
+          8,
+          16
+        ],
+        "type": "right"
+      }
+    ],
+    "convex_quadrilaterals": [
+      {
+        "cyclic_vertices": [
+          "P0",
+          "P1",
+          "P3",
+          "P2"
+        ],
+        "edges": [
+          [
+            -3,
+            -1
+          ],
+          [
+            -2,
+            -2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            -1,
+            1
+          ]
+        ],
+        "edge_squared_lengths": [
+          10,
+          8,
+          40,
+          2
+        ],
+        "opposite_pair_parallel": [
+          true,
+          false
+        ],
+        "square": false,
+        "parallelogram": false,
+        "unequal_adjacent_sides_parallelogram": false,
+        "strict_trapezium": true
+      },
+      {
+        "cyclic_vertices": [
+          "P0",
+          "P1",
+          "P4",
+          "P2"
+        ],
+        "edges": [
+          [
+            -3,
+            -1
+          ],
+          [
+            2,
+            -2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            -1,
+            1
+          ]
+        ],
+        "edge_squared_lengths": [
+          10,
+          8,
+          8,
+          2
+        ],
+        "opposite_pair_parallel": [
+          false,
+          true
+        ],
+        "square": false,
+        "parallelogram": false,
+        "unequal_adjacent_sides_parallelogram": false,
+        "strict_trapezium": true
+      },
+      {
+        "cyclic_vertices": [
+          "P0",
+          "P1",
+          "P5",
+          "P2"
+        ],
+        "edges": [
+          [
+            -3,
+            -1
+          ],
+          [
+            0,
+            -4
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            -1,
+            1
+          ]
+        ],
+        "edge_squared_lengths": [
+          10,
+          16,
+          32,
+          2
+        ],
+        "opposite_pair_parallel": [
+          false,
+          false
+        ],
+        "square": false,
+        "parallelogram": false,
+        "unequal_adjacent_sides_parallelogram": false,
+        "strict_trapezium": false
+      },
+      {
+        "cyclic_vertices": [
+          "P0",
+          "P1",
+          "P3",
+          "P4"
+        ],
+        "edges": [
+          [
+            -3,
+            -1
+          ],
+          [
+            -2,
+            -2
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "edge_squared_lengths": [
+          10,
+          8,
+          16,
+          10
+        ],
+        "opposite_pair_parallel": [
+          false,
+          false
+        ],
+        "square": false,
+        "parallelogram": false,
+        "unequal_adjacent_sides_parallelogram": false,
+        "strict_trapezium": false
+      },
+      {
+        "cyclic_vertices": [
+          "P0",
+          "P1",
+          "P3",
+          "P5"
+        ],
+        "edges": [
+          [
+            -3,
+            -1
+          ],
+          [
+            -2,
+            -2
+          ],
+          [
+            2,
+            -2
+          ],
+          [
+            3,
+            5
+          ]
+        ],
+        "edge_squared_lengths": [
+          10,
+          8,
+          8,
+          34
+        ],
+        "opposite_pair_parallel": [
+          false,
+          false
+        ],
+        "square": false,
+        "parallelogram": false,
+        "unequal_adjacent_sides_parallelogram": false,
+        "strict_trapezium": false
+      },
+      {
+        "cyclic_vertices": [
+          "P0",
+          "P1",
+          "P5",
+          "P4"
+        ],
+        "edges": [
+          [
+            -3,
+            -1
+          ],
+          [
+            0,
+            -4
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "edge_squared_lengths": [
+          10,
+          16,
+          8,
+          10
+        ],
+        "opposite_pair_parallel": [
+          false,
+          false
+        ],
+        "square": false,
+        "parallelogram": false,
+        "unequal_adjacent_sides_parallelogram": false,
+        "strict_trapezium": false
+      },
+      {
+        "cyclic_vertices": [
+          "P0",
+          "P2",
+          "P4",
+          "P3"
+        ],
+        "edges": [
+          [
+            1,
+            -1
+          ],
+          [
+            -2,
+            -2
+          ],
+          [
+            -4,
+            0
+          ],
+          [
+            5,
+            3
+          ]
+        ],
+        "edge_squared_lengths": [
+          2,
+          8,
+          16,
+          34
+        ],
+        "opposite_pair_parallel": [
+          false,
+          false
+        ],
+        "square": false,
+        "parallelogram": false,
+        "unequal_adjacent_sides_parallelogram": false,
+        "strict_trapezium": false
+      },
+      {
+        "cyclic_vertices": [
+          "P0",
+          "P2",
+          "P5",
+          "P3"
+        ],
+        "edges": [
+          [
+            1,
+            -1
+          ],
+          [
+            -4,
+            -4
+          ],
+          [
+            -2,
+            2
+          ],
+          [
+            5,
+            3
+          ]
+        ],
+        "edge_squared_lengths": [
+          2,
+          32,
+          8,
+          34
+        ],
+        "opposite_pair_parallel": [
+          true,
+          false
+        ],
+        "square": false,
+        "parallelogram": false,
+        "unequal_adjacent_sides_parallelogram": false,
+        "strict_trapezium": true
+      },
+      {
+        "cyclic_vertices": [
+          "P0",
+          "P3",
+          "P5",
+          "P4"
+        ],
+        "edges": [
+          [
+            -5,
+            -3
+          ],
+          [
+            2,
+            -2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "edge_squared_lengths": [
+          34,
+          8,
+          8,
+          10
+        ],
+        "opposite_pair_parallel": [
+          false,
+          false
+        ],
+        "square": false,
+        "parallelogram": false,
+        "unequal_adjacent_sides_parallelogram": false,
+        "strict_trapezium": false
+      },
+      {
+        "cyclic_vertices": [
+          "P1",
+          "P2",
+          "P4",
+          "P3"
+        ],
+        "edges": [
+          [
+            4,
+            0
+          ],
+          [
+            -2,
+            -2
+          ],
+          [
+            -4,
+            0
+          ],
+          [
+            2,
+            2
+          ]
+        ],
+        "edge_squared_lengths": [
+          16,
+          8,
+          16,
+          8
+        ],
+        "opposite_pair_parallel": [
+          true,
+          true
+        ],
+        "square": false,
+        "parallelogram": true,
+        "unequal_adjacent_sides_parallelogram": true,
+        "strict_trapezium": false
+      },
+      {
+        "cyclic_vertices": [
+          "P1",
+          "P2",
+          "P5",
+          "P3"
+        ],
+        "edges": [
+          [
+            4,
+            0
+          ],
+          [
+            -4,
+            -4
+          ],
+          [
+            -2,
+            2
+          ],
+          [
+            2,
+            2
+          ]
+        ],
+        "edge_squared_lengths": [
+          16,
+          32,
+          8,
+          8
+        ],
+        "opposite_pair_parallel": [
+          false,
+          true
+        ],
+        "square": false,
+        "parallelogram": false,
+        "unequal_adjacent_sides_parallelogram": false,
+        "strict_trapezium": true
+      },
+      {
+        "cyclic_vertices": [
+          "P1",
+          "P3",
+          "P5",
+          "P4"
+        ],
+        "edges": [
+          [
+            -2,
+            -2
+          ],
+          [
+            2,
+            -2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            -2,
+            2
+          ]
+        ],
+        "edge_squared_lengths": [
+          8,
+          8,
+          8,
+          8
+        ],
+        "opposite_pair_parallel": [
+          true,
+          true
+        ],
+        "square": true,
+        "parallelogram": true,
+        "unequal_adjacent_sides_parallelogram": false,
+        "strict_trapezium": false
+      }
+    ],
+    "option_witnesses": {
+      "A_square": {
+        "cyclic_vertices": [
+          "P1",
+          "P3",
+          "P5",
+          "P4"
+        ],
+        "edges": [
+          [
+            -2,
+            -2
+          ],
+          [
+            2,
+            -2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            -2,
+            2
+          ]
+        ],
+        "edge_squared_lengths": [
+          8,
+          8,
+          8,
+          8
+        ],
+        "opposite_pair_parallel": [
+          true,
+          true
+        ],
+        "square": true,
+        "parallelogram": true,
+        "unequal_adjacent_sides_parallelogram": false,
+        "strict_trapezium": false
+      },
+      "B_unequal_side_parallelogram": {
+        "cyclic_vertices": [
+          "P1",
+          "P2",
+          "P4",
+          "P3"
+        ],
+        "edges": [
+          [
+            4,
+            0
+          ],
+          [
+            -2,
+            -2
+          ],
+          [
+            -4,
+            0
+          ],
+          [
+            2,
+            2
+          ]
+        ],
+        "edge_squared_lengths": [
+          16,
+          8,
+          16,
+          8
+        ],
+        "opposite_pair_parallel": [
+          true,
+          true
+        ],
+        "square": false,
+        "parallelogram": true,
+        "unequal_adjacent_sides_parallelogram": true,
+        "strict_trapezium": false
+      },
+      "C_acute_triangle": {
+        "vertices": [
+          "P0",
+          "P1",
+          "P4"
+        ],
+        "area2": 8,
+        "squared_lengths_sorted": [
+          8,
+          10,
+          10
+        ],
+        "type": "acute"
+      },
+      "D_obtuse_triangle": {
+        "vertices": [
+          "P0",
+          "P1",
+          "P2"
+        ],
+        "area2": 4,
+        "squared_lengths_sorted": [
+          2,
+          10,
+          16
+        ],
+        "type": "obtuse"
+      }
+    },
+    "uniqueness": "Each of A-D has its own exact permitted construction, so no listed type is impossible. The sole correct response is E. Extra colored line segments cannot change the six allowed corners or the existential word can.",
+    "trapezium_definition": "For Plane423 B uses exactly one parallel pair, which is a trapezium under both inclusive and exclusive British definitions.",
+    "count_summary": {
+      "triangle_types": {
+        "acute": 2,
+        "right": 9,
+        "obtuse": 8,
+        "degenerate": 1
+      },
+      "convex_quad_count": 12
+    }
+  },
+  "marker_roles": [
+    {
+      "action_index": 0,
+      "source": [
+        "P3",
+        "P4"
+      ],
+      "recipient": "the other red span and the blue square side spans",
+      "information": "Actual square diagonal with squared length 16; both red spans are equal and perpendicular.",
+      "purpose": "Compare a true diagonal point-pair role with side point-pair roles, rather than restrict orientations or allowed point subsets."
+    },
+    {
+      "action_index": 1,
+      "source": [
+        "P5",
+        "P1"
+      ],
+      "recipient": "the other red span and the blue square side spans",
+      "information": "Actual square diagonal with squared length 16; both red spans are equal and perpendicular.",
+      "purpose": "Compare a true diagonal point-pair role with side point-pair roles, rather than restrict orientations or allowed point subsets."
+    },
+    {
+      "action_index": 2,
+      "source": [
+        "P3",
+        "P1"
+      ],
+      "recipient": "red diagonal spans and the other blue boundary spans",
+      "information": "Actual square boundary side with squared length 8; the four blue sides are equal and adjacent ones perpendicular.",
+      "purpose": "Show the geometric edge role and compare its true length with a different point-pair role (diagonal); no false equality mark is added."
+    },
+    {
+      "action_index": 3,
+      "source": [
+        "P1",
+        "P4"
+      ],
+      "recipient": "red diagonal spans and the other blue boundary spans",
+      "information": "Actual square boundary side with squared length 8; the four blue sides are equal and adjacent ones perpendicular.",
+      "purpose": "Show the geometric edge role and compare its true length with a different point-pair role (diagonal); no false equality mark is added."
+    },
+    {
+      "action_index": 4,
+      "source": [
+        "P4",
+        "P5"
+      ],
+      "recipient": "red diagonal spans and the other blue boundary spans",
+      "information": "Actual square boundary side with squared length 8; the four blue sides are equal and adjacent ones perpendicular.",
+      "purpose": "Show the geometric edge role and compare its true length with a different point-pair role (diagonal); no false equality mark is added."
+    },
+    {
+      "action_index": 5,
+      "source": [
+        "P5",
+        "P3"
+      ],
+      "recipient": "red diagonal spans and the other blue boundary spans",
+      "information": "Actual square boundary side with squared length 8; the four blue sides are equal and adjacent ones perpendicular.",
+      "purpose": "Show the geometric edge role and compare its true length with a different point-pair role (diagonal); no false equality mark is added."
+    }
+  ],
+  "mechanism": "Red diagonal point pairs have length4, blue side point pairs have length sqrt(8). The specific predicted error is mixing the two point-pair roles and demanding that all emphasized pair lengths be equal for a square, falsely concluding no square (A). The real square requires equality only of its four boundary sides; its diagonals are correctly longer by sqrt(2).",
+  "difference_from_old": "The first tilted-square trial compared opposite parallel classes; the second existing-grid trial compared axis directions. This new design compares the actual side vs diagonal roles of different point pairs: squared lengths 8 vs16. All blue boundary sides belong to one class; both red internal diagonals to the other. The predicted side/diagonal role-mixing error is different from orientation restriction or universal equal-sidedness. This is not a relabel of either failed test and does not reuse its PNG.",
+  "human_semantics": "All six black marked points remain at their exact positions. The four blue sides form a true permitted square. Two red intervals lie on the original horizontal/vertical grid through its actual diagonals. Their crossing is an already existing unmarked grid intersection, not a new allowed corner. No new point, label, angle/equality tick, restriction on allowed joins, or paper cut is introduced. Even literal colored grid and illustrative square ink leave all A-D constructions possible, so E remains uniquely correct. The side/diagonal distinction is readable from incidence and the existing grid; no text legend is required.",
+  "remaining_risk": "The square may instead be made obvious by these correct geometric relations. Only the frozen two-call observation can evaluate the preset; no repeated old input or posthoc label change is allowed.",
+  "candidate_sha256": "33fc690c89d3d441cac63462d1f4ccfb8ecfda3d8408df90a2a9fcbe1e3d34a5",
+  "plugin_sha256": "a9eac530425c04c558543cf93e8b3e91c5e43c91994d72bf926bb033db6d9273",
+  "context_sha256": "6942763f003f210f13555116f23f69fc8d8efed07d4a35ea5e2bd7d0e9d961a3",
+  "status": "FROZEN_BEFORE_BOTH_CALLS_PRIMARY_ONLY"
+}

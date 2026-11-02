@@ -1,0 +1,399 @@
+{
+  "question_id": "Plane361",
+  "variant_id": "r56_material_edge_visible_motion_events",
+  "stage": "material_refinement",
+  "created_at": "2026-11-01T20:42:23.314324+00:00",
+  "expected_wrong_answer": "A",
+  "correct_answer": "C",
+  "mechanism": "Track the same physical P-R side through initial,45-degree and terminal poses, while matching the two actually displayed terminal trajectory fragments as an apparent two-event path. Target omission of the unpictured middle diagonal-radius quarter-turn, counting only two side-radius quarter-turns and returning10pi (A). The design does not transfer a diagonal radius and does not pretend the drawn45-degree fragments are complete measured quarter-arcs.",
+  "old_new_difference": "Old diagonal_to_terminal_arc_radius_binding added two dashed diagonals and matched their long radii to red end arcs, presetD; full finalsB/C were misses. New design removes all new diagonals, uses three true poses of the SAME existing material side and two blue original trajectory arcs, and predeclaresA for a missing-motion-event hypothesis. It is geometrically different from a diagonal-radius substitution or relabelling the oldB/C outputs.",
+  "primary_unique_math_proof": "Write initial square vertices P=(0,0),R=(s,0),S=(s,s),T=(0,s), with s=10. Successive clockwise90-degree rolls pivot about R=(s,0), then S=(2s,0), then T=(3s,0). The tracked P positions after these turns are(s,s),(3s,s),(4s,0). Its successive distances to the actual pivots are s,s*sqrt(2),s. P stays above the line between its departure and the end of the third turn, so first return occurs then. The length is(pi/2)*(s+s*sqrt(2)+s)=10pi+5pi*sqrt(2), uniquely C. The subsequent turn about P contributes zero but is outside the first-return path. The native diagram deliberately shows only45-degree portions of the first/last arcs and compresses the intervening motion by an ellipsis; these are not the entire measured path. In all three displayed square poses the same material side P-R is respectively initial bottom edge, dashed tilted P-to-pivot edge, and terminal right edge. These correspondences preserve material identity.",
+  "marker_roles": [
+    {
+      "action_index": 0,
+      "action": {
+        "type": "set_object_style",
+        "target": "o0",
+        "color": "#DC2626",
+        "linewidth_pt": 2,
+        "interval": {
+          "path_id": "p0",
+          "path_sha256": "91fd8d89398e769a4b6f0fd9f3fb327977e99185c3f1f197670145fd1dbe304d",
+          "start": 0,
+          "end": 0.25,
+          "wrap": false
+        }
+      },
+      "role": "Source material side P-R, original bottom edge, joining P to the first true pivot.",
+      "actual_paths": [
+        {
+          "id": "p0",
+          "sha256": "91fd8d89398e769a4b6f0fd9f3fb327977e99185c3f1f197670145fd1dbe304d",
+          "closed": true,
+          "segments": [
+            {
+              "control": [
+                [
+                  4.440892098500626e-16,
+                  0.0
+                ],
+                [
+                  2.0000000000000004,
+                  0.0
+                ]
+              ],
+              "style": {
+                "color": "#000000ff",
+                "linewidth_pt": 1.0,
+                "dash": [
+                  0.0,
+                  null
+                ],
+                "solid_cap": "butt",
+                "dash_cap": "butt",
+                "solid_join": "miter",
+                "dash_join": "miter"
+              }
+            },
+            {
+              "control": [
+                [
+                  2.0000000000000004,
+                  0.0
+                ],
+                [
+                  2.0000000000000004,
+                  2.0
+                ]
+              ],
+              "style": {
+                "color": "#000000ff",
+                "linewidth_pt": 1.0,
+                "dash": [
+                  0.0,
+                  null
+                ],
+                "solid_cap": "butt",
+                "dash_cap": "butt",
+                "solid_join": "miter",
+                "dash_join": "miter"
+              }
+            },
+            {
+              "control": [
+                [
+                  2.0000000000000004,
+                  2.0
+                ],
+                [
+                  4.440892098500626e-16,
+                  2.0
+                ]
+              ],
+              "style": {
+                "color": "#000000ff",
+                "linewidth_pt": 1.0,
+                "dash": [
+                  0.0,
+                  null
+                ],
+                "solid_cap": "butt",
+                "dash_cap": "butt",
+                "solid_join": "miter",
+                "dash_join": "miter"
+              }
+            },
+            {
+              "control": [
+                [
+                  4.440892098500626e-16,
+                  2.0
+                ],
+                [
+                  4.440892098500626e-16,
+                  0.0
+                ]
+              ],
+              "style": {
+                "color": "#000000ff",
+                "linewidth_pt": 1.0,
+                "dash": [
+                  0.0,
+                  null
+                ],
+                "solid_cap": "butt",
+                "dash_cap": "butt",
+                "solid_join": "miter",
+                "dash_join": "miter"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "action_index": 1,
+      "action": {
+        "type": "set_object_style",
+        "target": "o3",
+        "color": "#DC2626",
+        "linewidth_pt": 2
+      },
+      "role": "The same material side P-R in the displayed45-degree intermediate pose; original dashed visibility retained. Its nonpivot endpoint is the original small open P-position circle.",
+      "actual_paths": [
+        {
+          "id": "p0",
+          "sha256": "48b74d38835718d2d32104ddb8d92734b524959dd5cc8edcbfea4e5b6697229e",
+          "closed": false,
+          "segments": [
+            {
+              "control": [
+                [
+                  0.5857864376269053,
+                  1.414213562373095
+                ],
+                [
+                  2.0000000000000004,
+                  0.0
+                ]
+              ],
+              "style": {
+                "color": "#000000ff",
+                "linewidth_pt": 1.0,
+                "dash": [
+                  0.0,
+                  [
+                    4.0,
+                    3.0
+                  ]
+                ],
+                "solid_cap": "round",
+                "dash_cap": "butt",
+                "solid_join": "round",
+                "dash_join": "round"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "action_index": 2,
+      "action": {
+        "type": "set_object_style",
+        "target": "o18",
+        "color": "#DC2626",
+        "linewidth_pt": 2
+      },
+      "role": "The same material side P-R after three rolls, now terminal right vertical edge, ending at the displayed terminal P at its bottom. This is NOT the terminal bottom side.",
+      "actual_paths": [
+        {
+          "id": "p0",
+          "sha256": "e428f5856e455431d26abae3e7393cfab0e13f7608c9ac9e217d8d45cdc937cb",
+          "closed": false,
+          "segments": [
+            {
+              "control": [
+                [
+                  9.0,
+                  0.0
+                ],
+                [
+                  9.0,
+                  2.0
+                ]
+              ],
+              "style": {
+                "color": "#000000ff",
+                "linewidth_pt": 1.0,
+                "dash": [
+                  0.0,
+                  [
+                    4.0,
+                    3.0
+                  ]
+                ],
+                "solid_cap": "round",
+                "dash_cap": "butt",
+                "solid_join": "round",
+                "dash_join": "round"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "action_index": 3,
+      "action": {
+        "type": "set_object_style",
+        "target": "o7",
+        "color": "#2563EB",
+        "linewidth_pt": 2
+      },
+      "role": "True initial displayed P-trajectory arc, blue source event; unchanged45-degree illustrated portion.",
+      "actual_paths": [
+        {
+          "id": "p0",
+          "sha256": "0660521afcc90e3a0c9a9a8570e658bfecaa609cde7a8c1b14a000d0858cfcdb",
+          "closed": false,
+          "segments": [
+            {
+              "control": [
+                [
+                  0.585786437626906,
+                  1.4142135623730951
+                ],
+                [
+                  0.40007361418738463,
+                  1.2285007389335738
+                ],
+                [
+                  0.2527479907700356,
+                  1.0080123619388839
+                ],
+                [
+                  0.1522409349774274,
+                  0.7653668647301798
+                ]
+              ],
+              "style": {
+                "color": "#000000ff",
+                "linewidth_pt": 1.0,
+                "dash": [
+                  0.0,
+                  null
+                ],
+                "solid_cap": "butt",
+                "dash_cap": "butt",
+                "solid_join": "miter",
+                "dash_join": "miter"
+              }
+            },
+            {
+              "control": [
+                [
+                  0.1522409349774274,
+                  0.7653668647301798
+                ],
+                [
+                  0.0517338791848192,
+                  0.5227213675214757
+                ],
+                [
+                  8.881784197001252e-16,
+                  0.2626375936147714
+                ],
+                [
+                  8.881784197001252e-16,
+                  2.4492935982947064e-16
+                ]
+              ],
+              "style": {
+                "color": "#000000ff",
+                "linewidth_pt": 1.0,
+                "dash": [
+                  0.0,
+                  null
+                ],
+                "solid_cap": "butt",
+                "dash_cap": "butt",
+                "solid_join": "miter",
+                "dash_join": "miter"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "action_index": 4,
+      "action": {
+        "type": "set_object_style",
+        "target": "o21",
+        "color": "#2563EB",
+        "linewidth_pt": 2
+      },
+      "role": "True terminal displayed P-trajectory arc, blue receiver event; unchanged45-degree illustrated portion. Both blue end motions have side10 radius but do not include the hidden middle motion.",
+      "actual_paths": [
+        {
+          "id": "p0",
+          "sha256": "3cb4c92665cc12699859cd5ebb84056a1760de14efc7ce4393b4f50afb51b66b",
+          "closed": false,
+          "segments": [
+            {
+              "control": [
+                [
+                  9.0,
+                  0.0
+                ],
+                [
+                  9.0,
+                  0.2626375936147712
+                ],
+                [
+                  8.948266120815182,
+                  0.5227213675214755
+                ],
+                [
+                  8.847759065022574,
+                  0.7653668647301796
+                ]
+              ],
+              "style": {
+                "color": "#000000ff",
+                "linewidth_pt": 1.0,
+                "dash": [
+                  0.0,
+                  null
+                ],
+                "solid_cap": "butt",
+                "dash_cap": "butt",
+                "solid_join": "miter",
+                "dash_join": "miter"
+              }
+            },
+            {
+              "control": [
+                [
+                  8.847759065022574,
+                  0.7653668647301796
+                ],
+                [
+                  8.747252009229966,
+                  1.0080123619388837
+                ],
+                [
+                  8.599926385812616,
+                  1.2285007389335738
+                ],
+                [
+                  8.414213562373096,
+                  1.4142135623730951
+                ]
+              ],
+              "style": {
+                "color": "#000000ff",
+                "linewidth_pt": 1.0,
+                "dash": [
+                  0.0,
+                  null
+                ],
+                "solid_cap": "butt",
+                "dash_cap": "butt",
+                "solid_join": "miter",
+                "dash_join": "miter"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "human_semantics": "Material identity was explicitly checked: P-R maps from initial bottom to intermediate o3 and final right o18. Initial red bottom does NOT map to the final bottom o17. No paint disappears or migrates to a different material edge. Red is a material-side correspondence; blue is the existing path, not ink on the square. Original dashed pose edges keep their dash patterns. P endpoints, open circle, all ellipsis dots and line remain unchanged.",
+  "candidate_sha256": "cc78d5c8391358b88fb4aacf21e3c15eb8fe45020366be6ce0bfb8edab3c3edc",
+  "candidate_pixel_sha256": "4088da6a1c750cd1bf6b40f113048c08ff749c22ff8ded377699266ec92aabfd",
+  "normalized_plugin_sha256": "00f1ced066cb8ae01350a6e09388b568922276ae7575e9b1bda8561ccda072dd",
+  "frozen_paths_sha256": "c97c34f999df150610068d441c6549554f25384ef2802928a773152450b68aec",
+  "review_status": "PRIMARY ONLY; parent must create a NEW independent second review; no approval/Pass/Collect/delivery"
+}

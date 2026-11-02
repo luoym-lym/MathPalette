@@ -1,0 +1,71 @@
+{
+  "question_id": "Plane321",
+  "variant_id": "a01_pivot_legs_vs_true_bases",
+  "created_at": "2026-11-02T09:40:47.470649+00:00",
+  "expected_wrong_answer": "B",
+  "expected_wrong_value_degrees": "120",
+  "correct_answer": "E",
+  "mechanism": "Both equilateral triangles have their A-incident legs blue and their opposite bases BC/CD red. The red bases meet at C, exposing the actual120-degree sum of the two60-degree angles. A solver may substitute that static two-angle opening (also the outer blue opening at A) for the directed rotation. Preset B=120, frozen without seeing any new response.",
+  "mark_roles": [
+    {
+      "target": "o0",
+      "source": "AB: target A-incident side",
+      "receiver": "blue AC/AD A-incident sides",
+      "use": "Completes the true two-blue-leg target group; under correct rotation AC->AB."
+    },
+    {
+      "target": "o1",
+      "source": "BC: target side opposite fixedA",
+      "receiver": "red CD source side opposite fixedA",
+      "use": "Genuine whole-triangle opposite-base correspondence; exposes red opening atC."
+    },
+    {
+      "target": "o2",
+      "source": "AC: existing shared side",
+      "receiver": "both blue incident-leg groups",
+      "use": "Shows the shared leg as part of each triangle; at correct rotation AD->AC and AC->AB. Does not assert it stays fixed."
+    },
+    {
+      "target": "o3",
+      "source": "AD: source A-incident side",
+      "receiver": "blue target AC/AB",
+      "use": "Completes source two-leg structure; contrasts pivot sides against red nonpivot base."
+    },
+    {
+      "target": "o4",
+      "source": "CD: source side opposite fixedA",
+      "receiver": "red BC target base",
+      "use": "Actual base correspondence, not arbitrary outer rayD->B."
+    }
+  ],
+  "human_semantics": "Under300, blue AC->blue AB, blue AD->blue AC, and red CD->red BC. Therefore even a literal colored-edge reading preserves exactly the original mapping. Labels are ordinary geometric names, as in the original. All coordinates, solid lines, equilateral conditions, direction, center and full-cover meaning are retained. No new cuts, arcs, arrowheads, symbols or equality assumptions.",
+  "primary_math_proof": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_similar24_special_20261102\\units\\u04_angles\\Plane321\\primary_math_proof.json",
+  "substantive_history_difference": "All four old tested designs concern the A-incident outer rays AB/AD, short sector AB/AC, or endpointB/D markers. This design instead colors the actual nonpivot base pair CD/BC red and closes both two-leg blue groups. This is a different correspondence partition with an intrinsic-color-compatible correct mapping, not a color/width-only permutation of an old failed input.",
+  "reference": {
+    "question_id": "Plane427",
+    "png": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_similar24_special_20261102\\references\\Plane427\\C01.png",
+    "png_sha256": "e4646f7445c7df2deb57e47961c0ed8a3fb6ea434b3df9396cd5a24cb8904796",
+    "plugin_sha256": "72f697433099635f4291b8856bd396e7c74795bc65d50a49c49fbdcd7d18cb7a",
+    "actual_png_viewed": true,
+    "observed": "Current ST and TV red; original dotted SV blue. Original70 arc and target arc retained.",
+    "not_old18": "Uses actual current nine C01s; not old reversed colors, old option labels or delivered18 mechanisms."
+  },
+  "review_status": "PRIMARY_FROZEN_BEFORE_BOTH_CALLS",
+  "calls": 0,
+  "png_sha256": "daa6f0147cd639342e2b5eb70799bfa6da626ba7325577554488833415ea894b",
+  "plugin_sha256": "6ef12448048f0cd2a52c4997e3111843bbeafb61945d567853601e82d0aa9e4f",
+  "pixel_sha256": "a08b26e13ed294d30eadef694c2e390d1576e4392fba9d1eb51385d1f2bf1c12",
+  "context_sha256": "4f7dba9b904405af03fb172022a204d8cd7fd40a2b8146086288956fd40d4242",
+  "proof_sha256": "67b3059aa5355456a19d9a8ca3412e25f9d492838ee9d7d22676e9e737f029b3",
+  "proposal_sha256": "510f5351060276970e59800056a4c221c0fe3a4cb2a4fa4bec06b20cc07e485a",
+  "render_gates_sha256": "88a4e857bdc53d35407c93fe2313f6decc48e66b895a1cac10cf124208c2e6da",
+  "independent_process_replay_sha256": "333f6ddf9b8b4accdbd6d57b1175691fb317bb85555d6ae971fb07d8e9ed7a32",
+  "global_prior_request_audit_sha256": "878ede537bdcf3f861ec320f6402d3a0acb0e92fb21f9b83408352e92ebfb4ac",
+  "manual_native_image_review": "Actual768PNG viewed after legal rendering: clear full geometry and all names; no obstruction; every listed mark visible and useful. Original source JPG/formal PNG also viewed.",
+  "image_immutable_after_this_point": true,
+  "restrictions": [
+    "Exactly2 original quicktest3 calls only; no control, no third, no retry, no preset change.",
+    "Primary only; independent second review to be created fresh by parent; no delivery/Pass/Collect.",
+    "Two observed final answers do not establish a population success rate or causal gain."
+  ]
+}

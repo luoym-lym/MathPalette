@@ -20,13 +20,21 @@ def main():
     inventory=read(HERE/'inventory.json')
     eligible={r['id']: {**r,'branch':branch} for branch,group in inventory.items() for r in group['eligible']}
     reviews={}
+    reviews_by_identity={}
     for path in (HERE/'independent_review').rglob('independent_review.json'):
         value=read(path)
         candidate=value.get('candidate_directory',value.get('candidate_path',''))
         candidate=candidate.replace('\\','/').removeprefix('runtime/mathvision_special_20261101/')
         if candidate.endswith('/candidate.png'):
             candidate=candidate[:-len('/candidate.png')]
-        reviews[candidate]={'decision':value['decision'],'review_file':str(path.relative_to(HERE)).replace('\\','/'),'rationale':value.get('rationale',value.get('strict_conclusion',''))}
+        review={'decision':value['decision'],'review_file':str(path.relative_to(HERE)).replace('\\','/'),'rationale':value.get('rationale',value.get('strict_conclusion',''))}
+        variant_id=value.get('variant_id')
+        if not variant_id and value.get('candidate_id'):
+            variant_id=value['candidate_id'].replace('\\','/').rsplit('/',1)[-1]
+        identity=(value.get('question_id'),variant_id)
+        if all(identity):
+            reviews_by_identity[identity]=review
+        reviews[candidate or '/'.join(str(x) for x in identity if x) or str(path.relative_to(HERE))]=review
     attempts=[]
     used=set()
     for path in HERE.rglob('design.json'):
@@ -49,12 +57,13 @@ def main():
             if is_control(result):
                 value=read(result)
                 controls.append({'path':str(result.relative_to(HERE)).replace('\\','/'),'answers_tail':[r.get('answer','')[-600:] for r in value.get('results',[])]})
-        attempts.append({'question_id':qid,'candidate':key,'predeclared_wrong_answer':design.get('expected_wrong_answer',design.get('predicted_wrong_answer')),'formal_correct_answer':eligible[qid]['answer'],'mechanism':design.get('mechanism',design.get('design_reason','')),'design_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'tests':summaries,'original_controls':controls,'independent_review':reviews.get(key),'approval_status':'No user Pass/Collect recorded'})
+        attempts.append({'question_id':qid,'candidate':key,'predeclared_wrong_answer':design.get('expected_wrong_answer',design.get('predicted_wrong_answer')),'formal_correct_answer':eligible[qid]['answer'],'mechanism':design.get('mechanism',design.get('design_reason','')),'design_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'tests':summaries,'original_controls':controls,'independent_review':reviews.get(key) or reviews_by_identity.get((qid,design.get('variant_id') or folder.name)),'approval_status':'No user Pass/Collect recorded'})
     assessed=set(used)
     work_units=[]
     for path in HERE.glob('background_*/checkpoint.json'):
         value=read(path)
-        assessed_ids=value.get('new_question_ids',value.get('assessed_question_ids',[]))
+        assessed_ids=value.get('actual_assessed_question_ids',value.get('assessed_question_ids',value.get('new_question_ids',[])))
+        assessed_ids=[qid for qid in assessed_ids if qid in eligible]
         assessed.update(assessed_ids)
         assessed.update(x.get('qid') for x in value.get('prepared_five_drafts',[]) if x.get('qid'))
         work_units.append({'checkpoint':str(path.relative_to(HERE)).replace('\\','/'),

@@ -1,0 +1,41 @@
+{
+  "question_id": "Plane366",
+  "variant_id": "directed_endpoint_binding",
+  "expected_wrong_answer": "D",
+  "formal_correct_answer": "C",
+  "two_complete_finals_manually_read": true,
+  "finals": [
+    {
+      "run_index": 1,
+      "complete_final_read_manually": true,
+      "full_final_exact": "Based on the visual analysis of the grid:\n\n1.  **Coordinates and Orientation**:\n    *   **Left Line (Source)**: This line is vertical. It has a **Red** segment on the top half and a **Blue** segment on the bottom half.\n    *   **Right Line (Target)**: This line is horizontal. It has a **Blue** segment on the left half and a **Red** segment on the right half.\n\n2.  **Transformation Analysis**:\n    *   The rotation changes the orientation from **Vertical to Horizontal**, which corresponds to a **90-degree** rotation (or 270-degree).\n    *   Let's trace the **Red Segment** (which is the top half of the source line).\n        *   **For a 90-degree Clockwise rotation**:\n            *   \"Top\" becomes \"Right\".\n            *   The Red segment would appear on the **Right** end of the target line.\n            *   This matches the image (Red is on the Right).\n        *   **For a 270-degree Clockwise rotation**:\n            *   \"Top\" becomes \"Left\".\n            *   The Red segment would appear on the **Left** end of the target line.\n            *   This does not match the image.\n\n3.  **Center of Rotation**: We are looking for a center that allows a 90-degree clockwise rotation to map the left line to the right line.\n    *   **Point X**: Located at grid intersection $(3,4)$ (top-center). Rotating the left line 90° clockwise around $X$ moves it to the upper-right, above the target line. (Incorrect).\n    *   **Point Y**: Located at grid intersection $(2,3)$ (center). Rotating the left line 90° clockwise around $Y$ would move the red top half to the right of $Y$ and the blue bottom half to the left of $Y$. This perfectly overlaps the target line, which has Red on the right and Blue on the left. (Correct).\n    *   **Point Z**: Located at grid intersection $(1,1)$ (bottom-left). Rotating the left line 90° clockwise around $Z$ would move it to the bottom-right, below the target line. (Incorrect).\n    *   **Point T**: Located at grid intersection $(2,1)$ (bottom-center). Rotating the left line 90° clockwise around $T$ would move it to the bottom-right, below the target line. (Incorrect).\n\nTherefore, only **$Y$** could be the centre of the rotation.\n\nHowever, looking at the provided options:\nA: only $X$\nB: $X$ and $Z$\nC: $X$ and $T$\nD: only $T$\nE: $X, Y, Z$ and $T$\n\nThere is a discrepancy: the correct mathematical answer is **only $Y$**, but $Y$ is not listed as a standalone option. In multiple-choice questions where the calculated answer is absent, it is highly probable that there is a **typo** in the question's options. The intended option was likely **\"only Y\"**.\n\nGiven the analysis that $X$, $Z$, and $T$ are incorrect, and $Y$ is the correct answer, the correct choice in a corrected version of this question would be the one corresponding to \"only Y\".\n\n**Correct Answer Logic**: Only $Y$ works.\n\nIf forced to choose from the options provided without assuming a typo, the options are invalid. However, in the context of the puzzle, the point **$Y$** is the only valid centre of rotation.\n\nFinal Answer: **only Y** (Note: Option choices contain a typo and do not list Y as a valid single option, but geometric analysis confirms only Y is correct).\n\nSystem instruction:: \"",
+      "manually_resolved_final": "only Y",
+      "preset_hit": false,
+      "raw_response": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_18\\Plane366\\directed_endpoint_binding\\tests\\quicktest3_20261101T162121_5acb730c0099\\run_01_response.json",
+      "parsed_full_response": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_18\\Plane366\\directed_endpoint_binding\\tests\\quicktest3_20261101T162121_5acb730c0099\\run_01.json",
+      "response_sha256": "8bb832bc0e640c23e13c5a85569f351c08e84699255ff3f2c1daddfaf19a6238",
+      "finish_reason": "stop"
+    },
+    {
+      "run_index": 2,
+      "complete_final_read_manually": true,
+      "full_final_exact": "To determine the correct center of rotation, we need to find the point that can rotate one line to match the other, preserving the features (the colored ends).\n\n**1. Analyze the Line Segments:**\n*   **Left Line:** It is a vertical line segment. It has a **red** end at the top and a **blue** end at the bottom. Let's calculate its relative vector (change in x, change in y). From the bottom (blue) to the top (red), the vector is $(0, 2)$.\n*   **Right Line:** It is a horizontal line segment. It has a **blue** end on the left and a **red** end on the right. From the bottom (blue) to the top (red), the vector is $(2, 0)$.\n\n**2. Analyze the Rotation:**\n*   To go from a vector of $(0, 2)$ to $(2, 0)$, we rotate the vector by **$90^\\circ$ clockwise**.\n*   This means the center of rotation must be able to rotate the entire figure by $90^\\circ$ clockwise.\n\n**3. Check the Candidate Points:**\nWe can use a simpler coordinate geometry trick. The center of rotation for a segment to segment transformation with a $90^\\circ$ turn must satisfy a specific coordinate relationship:\n$C_x = \\frac{x_1 + x_2 + y_1 - y_2}{2}$ and $C_y = \\frac{y_1 + y_2 - (x_1 - x_2)}{2}$\n\nLet's test the points based on their visual coordinates (assuming a standard grid):\n*   **Point T:** Located at grid intersection $(2, 1)$.\n*   **Point Z:** Located at grid intersection $(1, 1)$.\n*   **Point Y:** Located at grid intersection $(2, 3)$.\n\nLet's check the coordinates of the center calculated from the lines:\nThe lines are positioned such that the geometry requires a center with **x-coordinate = 2** and **y-coordinate = 1**.\n\n*   **Point T $(2, 1)$** fits these coordinates perfectly.\n*   **Point Z $(1, 1)$** has the wrong x-coordinate (it is too far left).\n*   **Point Y $(2, 3)$** has the wrong y-coordinate (it is too high).\n\n**Conclusion:**\nPoint $T$ is the only point among the choices that lies at the correct position to act as the center of rotation.\n\n**Answer:**\nD: only $T$",
+      "manually_resolved_final": "D",
+      "preset_hit": true,
+      "raw_response": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_18\\Plane366\\directed_endpoint_binding\\tests\\quicktest3_20261101T162121_5acb730c0099\\run_02_response.json",
+      "parsed_full_response": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_18\\Plane366\\directed_endpoint_binding\\tests\\quicktest3_20261101T162121_5acb730c0099\\run_02.json",
+      "response_sha256": "e8786d3a5cc11785ff87bc84ddd3de5d65286b3a344f9c3e7d0497e761017863",
+      "finish_reason": "stop"
+    }
+  ],
+  "paired_hit": false,
+  "primary_credible_paired_hit": false,
+  "review_notes": "Run1 final is onlyY with an explicit claim of missing option; incidental listings ofD do not count. Run2 final isD onlyT. PresetD is hit once, not a pair. Colored feature identity could be read as mandatory, a human-semantics concern; no new test or design change made.",
+  "controls": [],
+  "causal_limit": "No original control, human study, per-marker causal ablation or statistical efficacy estimate. Individual wrong finals are observations only.",
+  "image_sha256": "df283e8f6c71732de17978cb33e94ad6d6b91b3cdbd84bfaebe7042f17798570",
+  "design_sha256": "6df09fb6e4b7d951b8c1ce02710aec7d13f8da442a8276162989b534d74f3296",
+  "exact_request_body_sha256": "be86208cda0aea3bcf73e6327c478eb15e01be1f87ab055c9766e29c9bfb2f0f",
+  "evidence_summary": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_18\\Plane366\\directed_endpoint_binding\\tests\\quicktest3_20261101T162121_5acb730c0099\\summary.json",
+  "approval_status": "Primary exploration only; no Pass/Collect/review API or delivery."
+}

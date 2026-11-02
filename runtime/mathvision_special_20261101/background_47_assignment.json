@@ -1,0 +1,481 @@
+{
+  "unit": "background_47",
+  "stage": "material_refinement_of_completed_questions",
+  "created_at": "2026-11-01T19:31:59.218305+00:00",
+  "branch": "PlaneGeometry",
+  "question_count": 8,
+  "question_ids": [
+    "Plane452",
+    "Plane456",
+    "Plane457",
+    "Plane458",
+    "Plane460",
+    "Plane462",
+    "Plane463",
+    "Plane465"
+  ],
+  "old_completed_overlap_intentional": true,
+  "active_scopes_disjoint": true,
+  "must_independently_check_current_original_approval_fingerprint_before_calls": true,
+  "questions": [
+    {
+      "question_id": "Plane452",
+      "formal_record_at_assignment": {
+        "source_dataset": "MathVision",
+        "source_key": "test:2497",
+        "question": "Five rectangles, $A$, $B$, $C$, $D$, and $E$, are arranged in a square as shown below. These rectangles have dimensions $1\\times6$, $2\\times4$, $5\\times6$, $2\\times7$, and $2\\times3$, respectively. (The figure is not drawn to scale.) Which of the five rectangles is the shaded one in the middle?\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E",
+        "answer": "B",
+        "answer_type": "choice",
+        "id": "Plane452",
+        "choices": {
+          "A": "A",
+          "B": "B",
+          "C": "C",
+          "D": "D",
+          "E": "E"
+        },
+        "image": "image/Plane452.png",
+        "original_image": "originals/Plane452.jpg",
+        "scene": "dataset_generator/scenes/Plane452.json",
+        "script": "dataset_generator/plane_plot452.py",
+        "runtime_dependencies": [
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane452/execution.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane452/protocol_review.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane452/scene.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane452/source.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane452/source_redraw.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+        ],
+        "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+        "source_category": "combinatorial geometry"
+      },
+      "prospective_new_direction_not_proof_or_preset": "从五矩形拼方的真实共享跨度与中心矩形边形成来源/接收角色，探索把一块的完整边错赋另一块、或按外观长短选择尺寸而忽略整数拼合约束。题干明确not drawn to scale，不能把像素边长当真量或新增等长条件；必须先独立解出中心2×4=B，再形成具体新错配。",
+      "old_saved_attempts_diagnostic_only": [
+        {
+          "question_id": "Plane452",
+          "candidate": "plane_explore/Plane452/v01",
+          "predeclared_wrong_answer": "E",
+          "formal_correct_answer": "B",
+          "mechanism": "仅强调中间阴影矩形的红色轮廓，诱导以接近正方形的显示比例选择2x3，而非按拼接约束求解。",
+          "design_sha256": "51975eeb6d5b633eaa89cbfcbbbbc1b4a526b0e610d007bbc3a1853c979c287a",
+          "tests": [
+            {
+              "path": "plane_explore/Plane452/v01/tests/quicktest3_20261101T105517_5658f29082ea/summary.json",
+              "two_completed": true,
+              "expected_wrong_answer": "E",
+              "statuses": [
+                "completed",
+                "completed"
+              ],
+              "answers_tail_for_review": [
+                "roblem states \"Which of the five rectangles is the shaded one\". Since the first four account for the outer regions, the fifth rectangle listed ($2\\times3$) must be the answer, regardless of the geometric scaling issues in the provided diagram (which is \"not drawn to scale\" and likely uses inconsistent dimensions for the sake of the logic puzzle).\n    *   Alternatively, if the dimensions are interpreted to fit perfectly: Suppose the horizontal gaps are 2 and 3? No, that doesn't fit the outer list.\n    *   The only rectangle left is the $2\\times3$ rectangle.\n    *   This corresponds to option E.",
+                "      *   Direction 1: $7 - 5 = 2$. (From the $2 \\times 7$ and $5 \\times 6$ rectangles).\n                *   Direction 2: $7 - 3 = 4$? No. $7 - (1+2) = 4$.\n                *   This works! The \"width\" of the other column of rectangles is $1 + 2 = 3$. The full side is 7. The remaining width is $7 - 3 = 4$.\n                *   So the hole is width 4. The height is determined by the other overlap $7 - 5 = 2$.\n                *   Thus, the hole is $4 \\times 2$.\n                *   This matches the dimensions of rectangle **D** ($2 \\times 4$).\n\nThe rectangle in the middle is D.\n\nAnswer: **Choice D**"
+              ],
+              "note": "Answer tails are for manual inspection; no automatic final-answer success grading."
+            }
+          ],
+          "original_controls": [],
+          "independent_review": null,
+          "approval_status": "No user Pass/Collect recorded"
+        }
+      ],
+      "full_old_source_image_design_and_raw_response_history_required": true
+    },
+    {
+      "question_id": "Plane456",
+      "formal_record_at_assignment": {
+        "source_dataset": "MathVision",
+        "source_key": "test:2572",
+        "question": "Each of the three large squares shown below is the same size.  Segments that intersect the sides of the squares intersect at the midpoints of the sides.  How do the shaded areas of these squares compare?\n\nChoices:\nA:$\\text{The shaded areas in all three are equal.}$\nB:$\\text{Only the shaded areas of }I\\text{ and }II\\text{ are equal.}$\nC:$\\text{Only the shaded areas of }I\\text{ and }III\\text{ are equal.}$\nD:$\\text{Only the shaded areas of }II\\text{ and }III\\text{ are equal.}$\nE:$\\text{The shaded areas of }I, II\\text{ and }III\\text{ are all different.}$",
+        "answer": "A",
+        "answer_type": "choice",
+        "id": "Plane456",
+        "choices": {
+          "A": "$\\text{The shaded areas in all three are equal.}$",
+          "B": "$\\text{Only the shaded areas of }I\\text{ and }II\\text{ are equal.}$",
+          "C": "$\\text{Only the shaded areas of }I\\text{ and }III\\text{ are equal.}$",
+          "D": "$\\text{Only the shaded areas of }II\\text{ and }III\\text{ are equal.}$",
+          "E": "$\\text{The shaded areas of }I, II\\text{ and }III\\text{ are all different.}$"
+        },
+        "image": "image/Plane456.png",
+        "original_image": "originals/Plane456.jpg",
+        "scene": "dataset_generator/scenes/Plane456.json",
+        "script": "dataset_generator/plane_plot456.py",
+        "runtime_dependencies": [
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane456/execution.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane456/protocol_review.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane456/scene.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane456/source.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane456/source_redraw.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+        ],
+        "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+        "source_category": "combinatorial geometry"
+      },
+      "prospective_new_direction_not_proof_or_preset": "在三等大方形中选择同角色完整三角/矩形单位与面积不同残片边作对应，探索片数相同当面积相同、或相同面积因形状不同被错判。原中点、灰白填充与全部分界不动，逐图精确证明等面积后选新误分组；不是把整幅图统一涂色。",
+      "old_saved_attempts_diagnostic_only": [],
+      "full_old_source_image_design_and_raw_response_history_required": true
+    },
+    {
+      "question_id": "Plane457",
+      "formal_record_at_assignment": {
+        "source_dataset": "MathVision",
+        "source_key": "test:2581",
+        "question": "The area of each of the four congruent L-shaped regions of this 100-inch by 100-inch square is 3/16 of the total area.  How many inches long is the side of the center square?",
+        "answer": "50",
+        "answer_type": "number",
+        "id": "Plane457",
+        "image": "image/Plane457.png",
+        "original_image": "originals/Plane457.jpg",
+        "scene": "dataset_generator/scenes/Plane457.json",
+        "script": "dataset_generator/plane_plot457.py",
+        "runtime_dependencies": [
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane457/execution.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane457/protocol_review.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane457/scene.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane457/source.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane457/source_redraw.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+        ],
+        "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+        "source_category": "combinatorial geometry"
+      },
+      "prospective_new_direction_not_proof_or_preset": "将原L形区域可分解的局部边与中心方形边建立单位层级对应，探索把剩余面积1/4直接当剩余线性边长1/4，得25而非50。原100及每L的3/16不改，不画新尺寸/切分/等长号；若没有清楚的面积来源—边长接收对象就跳过。",
+      "old_saved_attempts_diagnostic_only": [],
+      "full_old_source_image_design_and_raw_response_history_required": true
+    },
+    {
+      "question_id": "Plane458",
+      "formal_record_at_assignment": {
+        "source_dataset": "MathVision",
+        "source_key": "test:2589",
+        "question": "The horizontal and vertical distances between adjacent points equal $1$ unit.  The area of triangle $ABC$ is\n\nChoices:\nA:1/4\nB:1/2\nC:3/4\nD:1\nE:5/4",
+        "answer": "B",
+        "answer_type": "choice",
+        "id": "Plane458",
+        "choices": {
+          "A": "1/4",
+          "B": "1/2",
+          "C": "3/4",
+          "D": "1",
+          "E": "5/4"
+        },
+        "image": "image/Plane458.png",
+        "original_image": "originals/Plane458.jpg",
+        "scene": "dataset_generator/scenes/Plane458.json",
+        "script": "dataset_generator/plane_plot458.py",
+        "runtime_dependencies": [
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane458/execution.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane458/protocol_review.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane458/scene.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane458/source.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane458/source_redraw.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+        ],
+        "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+        "source_category": "combinatorial geometry"
+      },
+      "prospective_new_direction_not_proof_or_preset": "对点阵真单位水平/竖向跨度与三角ABC的实际底高或边界残片作局部对应，探索把单位底高的矩形面积当三角面积、或把斜边当垂高。保持所有原点数量/位置及ABC身份，不能新增点或将注释变成新给定，先精确证明1/2再选实际错项。",
+      "old_saved_attempts_diagnostic_only": [
+        {
+          "question_id": "Plane458",
+          "candidate": "plane_explore/Plane458/v01",
+          "predeclared_wrong_answer": "D",
+          "formal_correct_answer": "B",
+          "mechanism": "仅以红色强调细长三角形，诱导将半单位面积误判为一单位；所有网格点、标签、真实顶点不变。",
+          "design_sha256": "0b65232b07ea681120bf486796aabc6f29ea5fe7925cf168b86e62711b203c89",
+          "tests": [
+            {
+              "path": "plane_explore/Plane458/v01/tests/quicktest3_20261101T105740_4b465b6c5c08/summary.json",
+              "two_completed": true,
+              "expected_wrong_answer": "D",
+              "statuses": [
+                "completed",
+                "completed"
+              ],
+              "answers_tail_for_review": [
+                "mes 4 \\times 3 = 6$.\n        *   There is a trapezoid under B-C, or we can simply sum the subtracted areas.\n        *   Actually, a simpler decomposition is:\n            *   Total rectangle area: 12.\n            *   Subtract area below AC (Triangle with base 4, height 3): Area = 6.\n            *   Subtract area below AB (Triangle with base 3, height 2): Area = 3.\n            *   Subtract area below BC (Trapezoid/Triangle logic is messy here).\n        *   Let's stick to the determinant result which is robust: **0.5**.\n\nThe calculated area is $1/2$.\n\nChoice B corresponds to $1/2$.\n\n**Answer:** B",
+                "+ x_3(y_1 - y_2)|$$\n\nSubstituting the coordinates $A(0, 0)$, $B(4, 2)$, and $C(5, 3)$:\n\n$$Area = \\frac{1}{2} |0(2 - 3) + 4(3 - 0) + 5(0 - 2)|$$\n$$Area = \\frac{1}{2} |0 + 4(3) + 5(-2)|$$\n$$Area = \\frac{1}{2} |12 - 10|$$\n$$Area = \\frac{1}{2} |2|$$\n$$Area = 1$$\n\nAlternatively, since $A$ is at the origin $(0,0)$, the area is simply half the absolute value of the determinant formed by the vectors $AB$ and $AC$:\n$$Area = \\frac{1}{2} |(4 \\times 3) - (2 \\times 5)| = \\frac{1}{2} |12 - 10| = \\frac{1}{2} (2) = 1$$\n\n**Conclusion:**\nThe area of triangle $ABC$ is 1.\n\n**Answer:**\nThe correct choice is **D**."
+              ],
+              "note": "Answer tails are for manual inspection; no automatic final-answer success grading."
+            }
+          ],
+          "original_controls": [],
+          "independent_review": null,
+          "approval_status": "No user Pass/Collect recorded"
+        }
+      ],
+      "full_old_source_image_design_and_raw_response_history_required": true
+    },
+    {
+      "question_id": "Plane460",
+      "formal_record_at_assignment": {
+        "source_dataset": "MathVision",
+        "source_key": "test:2598",
+        "question": "Dots are spaced one unit apart, horizontally and vertically. The number of square units enclosed by the polygon is",
+        "answer": "6",
+        "answer_type": "number",
+        "id": "Plane460",
+        "image": "image/Plane460.png",
+        "original_image": "originals/Plane460.jpg",
+        "scene": "dataset_generator/scenes/Plane460.json",
+        "script": "dataset_generator/plane_plot460.py",
+        "runtime_dependencies": [
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane460/execution.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane460/protocol_review.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane460/scene.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane460/source.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane460/source_redraw.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+        ],
+        "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+        "source_category": "combinatorial geometry"
+      },
+      "prospective_new_direction_not_proof_or_preset": "从真实单位点距与多边形边界跨不同格数的整段作对象/度量对应，探索把节点/长直段当面积单位、或把边界半格当整格。目标多边形原轮廓始终明确，原点数量不动，无新封闭分区；先用精确坐标/鞋带或Pick交叉证明6。",
+      "old_saved_attempts_diagnostic_only": [],
+      "full_old_source_image_design_and_raw_response_history_required": true
+    },
+    {
+      "question_id": "Plane462",
+      "formal_record_at_assignment": {
+        "source_dataset": "MathVision",
+        "source_key": "test:2620",
+        "question": "Consider these two geoboard quadrilaterals. Which of the following statements is true?\n\nChoices:\nA:$\\text{The area of quadrilateral I is more than the area of quadrilateral II.}$\nB:$\\text{The area of quadrilateral I is less than the area of quadrilateral II.}$\nC:$\\text{The quadrilaterals have the same area and the same perimeter.}$\nD:$\\text{The quadrilaterals have the same area, but the perimeter of I is more than the perimeter of II.}$\nE:$\\text{The quadrilaterals have the same area, but the perimeter of I is less than the perimeter of II.}$",
+        "answer": "E",
+        "answer_type": "choice",
+        "id": "Plane462",
+        "choices": {
+          "A": "$\\text{The area of quadrilateral I is more than the area of quadrilateral II.}$",
+          "B": "$\\text{The area of quadrilateral I is less than the area of quadrilateral II.}$",
+          "C": "$\\text{The quadrilaterals have the same area and the same perimeter.}$",
+          "D": "$\\text{The quadrilaterals have the same area, but the perimeter of I is more than the perimeter of II.}$",
+          "E": "$\\text{The quadrilaterals have the same area, but the perimeter of I is less than the perimeter of II.}$"
+        },
+        "image": "image/Plane462.png",
+        "original_image": "originals/Plane462.jpg",
+        "scene": "dataset_generator/scenes/Plane462.json",
+        "script": "dataset_generator/plane_plot462.py",
+        "runtime_dependencies": [
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane462/execution.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane462/protocol_review.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane462/scene.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane462/source.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane462/source_redraw.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+        ],
+        "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+        "source_category": "combinatorial geometry"
+      },
+      "prospective_new_direction_not_proof_or_preset": "在两geoboard四边形之间配对边的结构角色，探索把四条边的对象数相同当周长相同、或把同边界跨度当面积差。每个真斜边与单位横向跨度可比较但不能加假等长刻痕；独立证明等面积且I周长较小=E，原所有顶点保留。",
+      "old_saved_attempts_diagnostic_only": [
+        {
+          "question_id": "Plane462",
+          "candidate": "plane_explore/Plane462/v01",
+          "predeclared_wrong_answer": "C",
+          "formal_correct_answer": "E",
+          "mechanism": "将两四边形用相同红色轮廓分组，诱导从面积相同过度推断周长也相同。保留所有点位与边界。",
+          "design_sha256": "a813e58af237760e8e8a8081a927659c6ad4f3f311ce67c590d7742b3c28b3da",
+          "tests": [
+            {
+              "path": "plane_explore/Plane462/v01/tests/quicktest3_20261101T105740_376be4234f42/summary.json",
+              "two_completed": true,
+              "expected_wrong_answer": "C",
+              "statuses": [
+                "completed",
+                "completed"
+              ],
+              "answers_tail_for_review": [
+                " + 0\\times3 + 1\\times4 + 2\\times2 = 3 + 0 + 4 + 4 = 11$\n        *   $\\text{Area} = \\frac{|13 - 11|}{2} = \\frac{2}{2} = 1$.\n*   **Perimeter:**\n    *   Sum of sides = $1 + \\sqrt{2} + \\sqrt{5} + \\sqrt{2} = 1 + 2\\sqrt{2} + \\sqrt{5} \\approx 5.58$.\n\n**Conclusion:**\n*   **Area:** Quadrilateral I ($1$) is equal to Quadrilateral II ($1$).\n*   **Perimeter:** Quadrilateral I ($2 + 2\\sqrt{2}$) is less than Quadrilateral II ($1 + 2\\sqrt{2} + \\sqrt{5}$).\n\nTherefore, the quadrilaterals have the same area, but the perimeter of I is less than the perimeter of II.\n\n**Final Answer:**\nThe correct choice is **E**.",
+                " (1-2)^2} = \\sqrt{(-2)^2 + (-1)^2} = \\sqrt{4+1} = \\sqrt{5}$.\n    *   Total Perimeter II = $\\sqrt{2} + 1 + \\sqrt{2} + \\sqrt{5} = 1 + 2\\sqrt{2} + \\sqrt{5}$.\n\n**3. Comparison**\n\n*   **Area:** Area of I = $1$, Area of II = $1$. They have the **same area**.\n*   **Perimeter:** Perimeter of I = $2 + 2\\sqrt{2} \\approx 4.83$. Perimeter of II = $1 + 2\\sqrt{2} + \\sqrt{5} \\approx 6.06$.\n    *   Since $2 < 1 + \\sqrt{5}$ (or approx $2 < 3.24$), Perimeter I < Perimeter II.\n\nTherefore, the quadrilaterals have the same area, but the perimeter of I is less than the perimeter of II.\n\nThe correct choice is **E**."
+              ],
+              "note": "Answer tails are for manual inspection; no automatic final-answer success grading."
+            }
+          ],
+          "original_controls": [],
+          "independent_review": null,
+          "approval_status": "No user Pass/Collect recorded"
+        }
+      ],
+      "full_old_source_image_design_and_raw_response_history_required": true
+    },
+    {
+      "question_id": "Plane463",
+      "formal_record_at_assignment": {
+        "source_dataset": "MathVision",
+        "source_key": "test:2625",
+        "question": "A small kite and a large kite have the shape shown in the diagram. The small kite is drawn on a one-inch grid. For the large kite, both the height and width of the entire grid are tripled.\n\nWhat is the area of the small kite in square inches?",
+        "answer": "21",
+        "answer_type": "number",
+        "id": "Plane463",
+        "image": "image/Plane463.png",
+        "original_image": "originals/Plane463.jpg",
+        "scene": "dataset_generator/scenes/Plane463.json",
+        "script": "dataset_generator/plane_plot463.py",
+        "runtime_dependencies": [
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane463/execution.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane463/protocol_review.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane463/scene.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane463/source.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane463/source_redraw.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+        ],
+        "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+        "source_category": "combinatorial geometry"
+      },
+      "prospective_new_direction_not_proof_or_preset": "实际查看小/大图是否都存在；只从已显示的真单位格/边提取尺度来源与接收对象，探索将文字中的tripled扩展误用于所求小kite、或线性三倍当面积倍数。若大图未画，不凭空绘制大kite或添加3/9新数值；无真实接收对象就跳过，原small求问与面积21不变。",
+      "old_saved_attempts_diagnostic_only": [
+        {
+          "question_id": "Plane463",
+          "candidate": "plane_explore/Plane463/v01",
+          "predeclared_wrong_answer": "189",
+          "formal_correct_answer": "21",
+          "mechanism": "用红色粗轮廓强调网格风筝，诱导在读到宽高均三倍后错误回答放大风筝189而非题目所问的小风筝。全部网格点和尺寸语义不变。",
+          "design_sha256": "7c21d0066c49480801c26481633de7232f735eb58546e5a39defdbda3958531e",
+          "tests": [
+            {
+              "path": "plane_explore/Plane463/v01/tests/quicktest3_20261101T110320_ecbc25d0ef50/summary.json",
+              "two_completed": true,
+              "expected_wrong_answer": "189",
+              "statuses": [
+                "completed",
+                "completed"
+              ],
+              "answers_tail_for_review": [
+                "the area of each triangle using the formula $\\text{Area} = \\frac{1}{2} \\times \\text{base} \\times \\text{height}$.\n\n*   **Area of the upper triangle:**\n    $$\\text{Area}_{\\text{upper}} = \\frac{1}{2} \\times 6 \\times 2 = 6 \\text{ square inches}$$\n\n*   **Area of the lower triangle:**\n    $$\\text{Area}_{\\text{lower}} = \\frac{1}{2} \\times 6 \\times 4 = 12 \\text{ square inches}$$\n\n**5. Total Area**\nAdd the areas of the two triangles together to get the total area of the kite.\n$$\\text{Total Area} = 6 + 12 = 18 \\text{ square inches}$$\n\n**Final Answer:**\nThe area of the small kite is **18 square inches**.",
+                "nits, from the bottom point to the top point.\n        *   Height = **8 inches**.\n\n2.  **Calculate the area:**\n    *   The area of a kite is calculated using the formula: $\\text{Area} = \\frac{d_1 \\times d_2}{2}$\n    *   $\\text{Area} = \\frac{6 \\text{ inches} \\times 8 \\text{ inches}}{2}$\n    *   $\\text{Area} = \\frac{48}{2}$\n    *   $\\text{Area} = 24 \\text{ square inches}$\n\n(Note: The information about the large kite being tripled in height and width is extra information and not needed to find the area of the small kite shown.)\n\n**Final Answer:**\nThe area of the small kite is **24** square inches."
+              ],
+              "note": "Answer tails are for manual inspection; no automatic final-answer success grading."
+            }
+          ],
+          "original_controls": [],
+          "independent_review": null,
+          "approval_status": "No user Pass/Collect recorded"
+        }
+      ],
+      "full_old_source_image_design_and_raw_response_history_required": true
+    },
+    {
+      "question_id": "Plane465",
+      "formal_record_at_assignment": {
+        "source_dataset": "MathVision",
+        "source_key": "test:2643",
+        "question": "A portion of a corner of a tiled floor is shown.  If the entire floor is tiled in this way and each of the four corners  looks like this one, then what fraction of the tiled floor is made of darker tiles?\n\nChoices:\nA:$\\frac{1}{3}$\nB:$\\frac{4}{9}$\nC:$\\frac{1}{2}$\nD:$\\frac{5}{9}$\nE:$\\frac{5}{8}$",
+        "answer": "B",
+        "answer_type": "choice",
+        "id": "Plane465",
+        "choices": {
+          "A": "$\\frac{1}{3}$",
+          "B": "$\\frac{4}{9}$",
+          "C": "$\\frac{1}{2}$",
+          "D": "$\\frac{5}{9}$",
+          "E": "$\\frac{5}{8}$"
+        },
+        "image": "image/Plane465.png",
+        "original_image": "originals/Plane465.jpg",
+        "scene": "dataset_generator/scenes/Plane465.json",
+        "script": "dataset_generator/plane_plot465.py",
+        "runtime_dependencies": [
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane465/execution.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane465/protocol_review.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane465/scene.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane465/source.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane465/source_redraw.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+        ],
+        "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+        "source_category": "combinatorial geometry"
+      },
+      "prospective_new_direction_not_proof_or_preset": "从实际角部铺砖图的真重复单元、边缘残砖与深色完整砖建立面积/个数对应，探索把边角残片当完整砖或从局部数目比直接迁移全局面积比。深浅填充不改，不额外假设无限周期/尺寸；独立证明4/9与唯一性，若角部条件不足也必须记录而不造方案。",
+      "old_saved_attempts_diagnostic_only": [],
+      "full_old_source_image_design_and_raw_response_history_required": true
+    }
+  ]
+}

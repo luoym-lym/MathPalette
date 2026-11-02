@@ -1,0 +1,218 @@
+{
+  "question_id": "Solid153",
+  "name": "r51_reversed_capacity_profile_binding",
+  "branch": "SolidGeometry",
+  "description": "Pair wide and narrow ends of A and D in reversed vertical roles.",
+  "mechanism": "Bind A wide upper walls to D wide lower walls (red) and A narrow lower walls to D narrow upper walls (blue). Test reversing the vertical direction of cumulative capacity: transfer the high half-volume rise of an upward-flaring vase to the high narrow end of the downward-tapering vase, effectively using empty headspace instead of filled-from-base volume. This predicts D, not a local E-waist minimum.",
+  "expected_wrong_answer": "D",
+  "correct_answer": "A",
+  "primary_math_proof": "A is uniquely above half height; B,C,E exactly half height by constant section or up/down profile symmetry; D below half height by decreasing section area. Equal capacity is given, so this comparison uses within-vase volume fractions, not absolute silhouette widths.",
+  "difference_audit": {
+    "old": "background_17 local_neck_cumulative_volume_confusion paired only A lower stem with E waist; preset E, A/A MISS.",
+    "new": "Two distributed wide/narrow endpoint correspondences between A and D reverse the vertical volume profile. No E styling, no waterline, no narrowest-local-waist ranking.",
+    "substantive_difference": "Orientation of full vertical capacity distribution and filled-vs-empty cumulative role; two different receiving regions with opposite height order.",
+    "preset_rationale_before_calls": "An erroneous integration from the opening downward treats D narrow upper quarter as the capacity-accumulation region and chooses D. This is inconsistent with water being poured into the base.",
+    "old_final_answers_not_retargeted": true
+  },
+  "marker_roles": [
+    {
+      "index": 0,
+      "target": "Aleft",
+      "range": [
+        0.75,
+        1
+      ],
+      "role": "Wide end, paired across reversed height roles.",
+      "source_receiver_group": "A upper -> D lower",
+      "reason_both_sides": "Both walls define the actual width of that end; neither side alone encodes a cross-section."
+    },
+    {
+      "index": 1,
+      "target": "Aright",
+      "range": [
+        0.75,
+        1
+      ],
+      "role": "Wide end, paired across reversed height roles.",
+      "source_receiver_group": "A upper -> D lower",
+      "reason_both_sides": "Both walls define the actual width of that end; neither side alone encodes a cross-section."
+    },
+    {
+      "index": 2,
+      "target": "Dleft",
+      "range": [
+        0,
+        0.25
+      ],
+      "role": "Wide end, paired across reversed height roles.",
+      "source_receiver_group": "A upper -> D lower",
+      "reason_both_sides": "Both walls define the actual width of that end; neither side alone encodes a cross-section."
+    },
+    {
+      "index": 3,
+      "target": "Dright",
+      "range": [
+        0,
+        0.25
+      ],
+      "role": "Wide end, paired across reversed height roles.",
+      "source_receiver_group": "A upper -> D lower",
+      "reason_both_sides": "Both walls define the actual width of that end; neither side alone encodes a cross-section."
+    },
+    {
+      "index": 4,
+      "target": "Aleft",
+      "range": [
+        0,
+        0.25
+      ],
+      "role": "Narrow end, paired across reversed height roles.",
+      "source_receiver_group": "A lower -> D upper",
+      "reason_both_sides": "Both walls define the actual width of that end; neither side alone encodes a cross-section."
+    },
+    {
+      "index": 5,
+      "target": "Aright",
+      "range": [
+        0,
+        0.25
+      ],
+      "role": "Narrow end, paired across reversed height roles.",
+      "source_receiver_group": "A lower -> D upper",
+      "reason_both_sides": "Both walls define the actual width of that end; neither side alone encodes a cross-section."
+    },
+    {
+      "index": 6,
+      "target": "Dleft",
+      "range": [
+        0.75,
+        1
+      ],
+      "role": "Narrow end, paired across reversed height roles.",
+      "source_receiver_group": "A lower -> D upper",
+      "reason_both_sides": "Both walls define the actual width of that end; neither side alone encodes a cross-section."
+    },
+    {
+      "index": 7,
+      "target": "Dright",
+      "range": [
+        0.75,
+        1
+      ],
+      "role": "Narrow end, paired across reversed height roles.",
+      "source_receiver_group": "A lower -> D upper",
+      "reason_both_sides": "Both walls define the actual width of that end; neither side alone encodes a cross-section."
+    }
+  ],
+  "actions": [
+    {
+      "type": "set_object_style",
+      "target": "Aleft",
+      "color": "#DC2626",
+      "linewidth_pt": 2,
+      "interval": {
+        "path_id": "p0",
+        "path_sha256": "1ef41791c6c3a33e5bdebbc3501bd82dabde3994259f091bfb75c698ad30dba9",
+        "start": 0.75,
+        "end": 1,
+        "wrap": false
+      }
+    },
+    {
+      "type": "set_object_style",
+      "target": "Aright",
+      "color": "#DC2626",
+      "linewidth_pt": 2,
+      "interval": {
+        "path_id": "p0",
+        "path_sha256": "ca159a4fa7a8e891395a80fc1f08e396118e09490e7e4e79ba6e166b8fd89587",
+        "start": 0.75,
+        "end": 1,
+        "wrap": false
+      }
+    },
+    {
+      "type": "set_object_style",
+      "target": "Dleft",
+      "color": "#DC2626",
+      "linewidth_pt": 2,
+      "interval": {
+        "path_id": "p0",
+        "path_sha256": "995907878f9577c97cf567ee0321ca7bdfc51dce9c08bf2aacd5decfa4539f3d",
+        "start": 0,
+        "end": 0.25,
+        "wrap": false
+      }
+    },
+    {
+      "type": "set_object_style",
+      "target": "Dright",
+      "color": "#DC2626",
+      "linewidth_pt": 2,
+      "interval": {
+        "path_id": "p0",
+        "path_sha256": "a3e4e0af7552158241526c0de0ed923fde1c9672ec87d763b4ef512e05750352",
+        "start": 0,
+        "end": 0.25,
+        "wrap": false
+      }
+    },
+    {
+      "type": "set_object_style",
+      "target": "Aleft",
+      "color": "#2563EB",
+      "linewidth_pt": 2,
+      "interval": {
+        "path_id": "p0",
+        "path_sha256": "1ef41791c6c3a33e5bdebbc3501bd82dabde3994259f091bfb75c698ad30dba9",
+        "start": 0,
+        "end": 0.25,
+        "wrap": false
+      }
+    },
+    {
+      "type": "set_object_style",
+      "target": "Aright",
+      "color": "#2563EB",
+      "linewidth_pt": 2,
+      "interval": {
+        "path_id": "p0",
+        "path_sha256": "ca159a4fa7a8e891395a80fc1f08e396118e09490e7e4e79ba6e166b8fd89587",
+        "start": 0,
+        "end": 0.25,
+        "wrap": false
+      }
+    },
+    {
+      "type": "set_object_style",
+      "target": "Dleft",
+      "color": "#2563EB",
+      "linewidth_pt": 2,
+      "interval": {
+        "path_id": "p0",
+        "path_sha256": "995907878f9577c97cf567ee0321ca7bdfc51dce9c08bf2aacd5decfa4539f3d",
+        "start": 0.75,
+        "end": 1,
+        "wrap": false
+      }
+    },
+    {
+      "type": "set_object_style",
+      "target": "Dright",
+      "color": "#2563EB",
+      "linewidth_pt": 2,
+      "interval": {
+        "path_id": "p0",
+        "path_sha256": "a3e4e0af7552158241526c0de0ed923fde1c9672ec87d763b4ef512e05750352",
+        "start": 0.75,
+        "end": 1,
+        "wrap": false
+      }
+    }
+  ],
+  "limits": [
+    "Primary designer review only; parent must commission NEW independent review for any two-hit possibility.",
+    "Two model calls do not establish causal gain, population reliability or mechanism confirmation.",
+    "No original control is repeated; prior controls, if any, are retained as historical evidence."
+  ]
+}

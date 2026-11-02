@@ -1,0 +1,89 @@
+{
+  "question_id": "Plane259",
+  "variant_id": "cap_stem_quarterturn_binding",
+  "created_at": "2026-11-01T15:09:21.993564+00:00",
+  "expected_wrong_answer": "D",
+  "correct_answer": "C",
+  "mechanism": "Pair the actual cap and upright stem of 5 with their clockwise-quarter-turned copies in D using red and blue partial edges. Targets replacing two perpendicular reflections with a single 90-degree turn. The complete worked 4 reflections, both mirror lines and every original digit silhouette stay visible.",
+  "mathematical_solution": "The worked example shows reflection first in the vertical line and then in the horizontal line. Relative to the crossing, (x,y)->(-x,y)->(-x,-y), so the net linear transformation is a half-turn, preserving handedness. The same sequence sends the input upper-left 5 to an upside-down 5 in the lower-right field: its original horizontal cap becomes the lower horizontal cap pointing left, and its original left upright becomes the right downward stem. The exact source polygon is reflected in both coordinates and rescaled to the option size; C has this pair and the corresponding curved lobe. A is left-right reflected, B is only up-down reflected, and D/E place the cap vertically, so all fail. Only C is correct. Colored partial outlines leave all numeral black fills and white counters unchanged.",
+  "human_semantics": "Four legal partial outline recolorings of existing long digit edges. No character, mirror, answer text or fill is moved/covered. Color does not assert a new mirror operation; the worked 4 and crossing lines still determine the unique two-reflection answer.",
+  "marker_roles": [
+    {
+      "action_index": 0,
+      "target": "o10",
+      "segment_start": 0,
+      "segment_end": 1,
+      "role": "Long horizontal top cap of the input 5; first orientation-defining feature.",
+      "exact_controls": [
+        [
+          [
+            6.9051713264662595,
+            2.4000000000000012
+          ],
+          [
+            8.036935043094385,
+            2.4000000000000012
+          ]
+        ]
+      ]
+    },
+    {
+      "action_index": 1,
+      "target": "o10",
+      "segment_start": 37,
+      "segment_end": 38,
+      "role": "Long left upright stem of the input 5; second nonparallel orientation-defining feature.",
+      "exact_controls": [
+        [
+          [
+            6.9051713264662595,
+            1.4067269287366002
+          ],
+          [
+            6.9051713264662595,
+            2.4000000000000012
+          ]
+        ]
+      ]
+    },
+    {
+      "action_index": 2,
+      "target": "o14",
+      "segment_start": 0,
+      "segment_end": 1,
+      "role": "D right vertical cap edge: the source cap mapped by a clockwise quarter-turn instead of the required half-turn.",
+      "exact_controls": [
+        [
+          [
+            9.4,
+            -5.471263401303339
+          ],
+          [
+            9.4,
+            -6.477275593861675
+          ]
+        ]
+      ]
+    },
+    {
+      "action_index": 3,
+      "target": "o14",
+      "segment_start": 37,
+      "segment_end": 38,
+      "role": "D upper horizontal stem edge: companion of the same quarter-turn correspondence, not an independent answer cue.",
+      "exact_controls": [
+        [
+          [
+            8.51709060332142,
+            -5.471263401303339
+          ],
+          [
+            9.4,
+            -5.471263401303339
+          ]
+        ]
+      ]
+    }
+  ],
+  "status": "PRIMARY_ONLY_REQUIRES_NEW_PARENT_INDEPENDENT_REVIEW"
+}

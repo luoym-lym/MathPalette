@@ -1,0 +1,113 @@
+{
+  "question_id": "Plane458",
+  "variant_id": "r47_unit_cell_to_shared_diagonal_triangle",
+  "created_at": "2026-11-01T19:45:54.895873+00:00",
+  "expected_wrong_answer": "D",
+  "formal_correct_answer": "B",
+  "geometric_error_rule": "Pair a true unit horizontal/vertical L in the empty grid with the unit L adjacent to BC. Proposed error assigns the full1x1 cell area1 to triangle ABC via its shared diagonal BC, forgetting that the equivalent adjacent half-cell triangle has area1/2.",
+  "material_difference": "Old v01 colored the entire ABC contour red, presetD, finalsB/D. New design leaves all original triangle edges black and draws four1pt unit projection spans between EXISTING dots; it supplies an actual one-cell area source and receiver instead of whole-triangle salience. PresetD is retained prospectively for the new full-cell/half-triangle rule, not a relabel of the old one-hit.",
+  "primary_math_proof": {
+    "answer": "B",
+    "vertices": [
+      [
+        0,
+        0
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        4,
+        3
+      ]
+    ],
+    "shoelace_area": "1/2",
+    "derivation": "20 original dots form a5-column4-row unit grid. A=(0,0),B=(3,2),C=(4,3), not B=(4,2) or C=(5,3). |3*3-2*4|/2=1/2. For the auxiliary comparison cell D=(4,2), BC=sqrt2; A and D are on opposite sides of x-y=1 at distance1/sqrt2. Thus ABC and DBC each have area1/2, whereas the full one-by-one cell has area1. Only B gives1/2.",
+    "target_identity": "ABC stays the single labeled original triangle; D is only an existing unlabeled grid dot. No new point is drawn."
+  },
+  "per_marker_roles": [
+    {
+      "action_index": 0,
+      "role": "One genuine horizontal grid interval source.",
+      "source_snap_ids": [
+        "p03",
+        "p13"
+      ],
+      "full_precision_endpoints": [
+        [
+          0.0,
+          3.0
+        ],
+        [
+          1.0,
+          3.0
+        ]
+      ]
+    },
+    {
+      "action_index": 1,
+      "role": "One genuine vertical grid interval source; paired with horizontal source supplies unit-cell scale.",
+      "source_snap_ids": [
+        "p02",
+        "p03"
+      ],
+      "full_precision_endpoints": [
+        [
+          0.0,
+          2.0
+        ],
+        [
+          0.0,
+          3.0
+        ]
+      ]
+    },
+    {
+      "action_index": 2,
+      "role": "B to existing right-neighbor dot: one horizontal cathetus of the BC cell receiver.",
+      "source_snap_ids": [
+        "p32",
+        "p42"
+      ],
+      "full_precision_endpoints": [
+        [
+          3.0,
+          2.0
+        ],
+        [
+          4.0,
+          2.0
+        ]
+      ]
+    },
+    {
+      "action_index": 3,
+      "role": "Existing right-neighbor dot to C: one vertical cathetus of the BC cell receiver; does not represent ABC altitude.",
+      "source_snap_ids": [
+        "p42",
+        "p43"
+      ],
+      "full_precision_endpoints": [
+        [
+          4.0,
+          2.0
+        ],
+        [
+          4.0,
+          3.0
+        ]
+      ]
+    }
+  ],
+  "plugin_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_47\\Plane458\\r47_unit_cell_to_shared_diagonal_triangle\\plugin.json",
+  "plugin_sha256": "9390b642b04edf4c08249588924f970b91567d9a20bd07cb177479570614b594",
+  "image_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_47\\Plane458\\r47_unit_cell_to_shared_diagonal_triangle\\candidate.png",
+  "image_sha256": "d0cd10ba1eda5a37ec125ba7e545c584904be78edefd93841a31af6904b2393c",
+  "pixel_sha256": "b699a177b92e89715e0db9610f53d88797c907eb451f17e58c30a19f8b9f8618",
+  "context_sha256": "f2e917f233de25c8e16b7618d63227b699441e03d431de87054e0938c931798e",
+  "path_fingerprints_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+  "original_approval_content_sha256": "24f1190463a5eab8136bbf953a6672d96780e302fe1116dc2ccb52252c7935bb",
+  "human_semantics": "Numerical metric/area comparison. Colors on existing edges or allowed auxiliary lines do not become explicit equality, length, fill or count conditions. Actual target outlines, all gray/white interiors, vertices/dots and labels remain. Task does not require carrying printed colors to another picture. Primary native visual review still required before calls.",
+  "approval_status": "UNREVIEWED research; no Pass/Collect or independent second review"
+}

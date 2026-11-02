@@ -1,0 +1,160 @@
+{
+  "question_id": "Plane307",
+  "variant_id": "r30_invariant_cross_axis_confusion",
+  "stage": "material_refinement",
+  "status": "complete_pair_preset_missed",
+  "correct_formal_answer": "21",
+  "expected_wrong_answer_predeclared": "9",
+  "actual_completed_calls": 2,
+  "actual_started_calls": 2,
+  "full_manual_finals": [
+    {
+      "run_index": 1,
+      "full_model_final_body": "**Answer:**\n\nTo create a design with 4 axes of symmetry on a $6 \\times 6$ grid, the pattern must be symmetric about the vertical center line, the horizontal center line, and both main diagonals. This implies the pattern has 8-fold rotational symmetry (or more simply, it must be symmetric across all these axes).\n\nLet's analyze the positions of the existing shaded squares in the grid using coordinates $(row, column)$ from top-left (1,1):\n1.  **Row 1, Column 2**\n2.  **Row 1, Column 3**\n3.  **Row 2, Column 3**\n\nWe need to determine which other squares *must* be shaded to satisfy the required symmetries.\n\n1.  **Vertical Symmetry (x-axis):** The square at **Row 1, Column 2** must have a mirror partner on the right side.\n    *   Mirror position: **Row 1, Column 5**.\n    *   (Check: Row 1, Col 3 mirrors to Row 1, Col 4. Row 2, Col 3 mirrors to Row 2, Col 4.)\n\n2.  **Horizontal Symmetry (y-axis):** The square at **Row 2, Column 3** must have a mirror partner on the bottom.\n    *   Mirror position: **Row 5, Column 3**.\n    *   (Check: The other two squares are in Row 1, so they mirror to Row 6).\n\n3.  **Diagonal Symmetry (Main Diagonal):** The square at **Row 2, Column 3** is not on the diagonal. It must have a mirror partner across the main diagonal (Top-Left to Bottom-Right).\n    *   Mirror position: Swap row and column indices $\\rightarrow$ **Row 3, Column 2**.\n    *   (Check: The square at Row 1, Col 2 is on the diagonal, so it is its own mirror. The square at Row 1, Col 3 mirrors to Row 3, Col 1. This introduces another square, **Row 3, Col 1**).\n\n4.  **Diagonal Symmetry (Anti-Diagonal):** By applying the diagonal symmetry to the newly introduced square at **Row 3, Column 1**, we find it needs a mirror partner.\n    *   Anti-diagonal coordinates $(r, c)$ map to $(7-c, 7-r)$.\n    *   Position **Row 3, Column 1** maps to **Row 6, Column 4**.\n    *   (Check: Square at Row 5, Col 3 (from step 2) maps to Row 4, Col 6. Square at Row 1, Col 5 maps to Row 2, Col 6).\n\n**Counting the new squares:**\n*   From vertical symmetry: **Row 1, Col 5** (1 square)\n*   From horizontal symmetry: **Row 5, Col 3** (1 square)\n*   From diagonal symmetry: **Row 3, Col 1** and **Row 3, Col 2** (2 squares)\n*   From anti-diagonal consistency: **Row 4, Col 6**, **Row 6, Col 4**, **Row 2, Col 6**, and **Row 6, Col 1** (4 squares)\n\nWait, let's re-verify the set more systematically to ensure we count only the squares that actually appear in the final pattern.\n- **Top Left Quadrant (Rows 1-3, Cols 1-3):**\n  - (1,2) [Exists]\n  - (1,3) [Exists]\n  - (2,3) [Exists]\n  - (3,1) [New]\n  - (3,2) [New]\n- **Top Right Quadrant (Mirror of TL across vertical):**\n  - (1,5) [New]\n  - (1,4) [New]\n  - (2,4) [New]\n  - (3,6) [New]\n  - (3,5) [New]\n- **Bottom Left Quadrant (Mirror of TL across horizontal):**\n  - (6,2) [New]\n  - (6,3) [New]\n  - (5,3) [New]\n  - (4,1) [New]\n  - (4,2) [New]\n- **Bottom Right Quadrant (Mirror of TL across origin):**\n  - (6,5) [New]\n  - (6,4) [New]\n  - (5,4) [New]\n  - (4,6) [New]\n  - (4,5) [New]\n\n**Total Squares in Pattern:** 20.\n**Existing Squares:** 3.\n**Squares to Add:** $20 - 3 = 17$.\n\nThe smallest number of shaded squares that can be added is **17**.",
+      "complete_final_manually_read": true,
+      "manual_final": "17",
+      "matches_immutable_preset": false,
+      "manual_note": "Final17 from a faulty orbit closure; preset9 miss.",
+      "raw_response_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane307\\r30_invariant_cross_axis_confusion\\tests\\quicktest3_20261101T171751_dd0ec7b90542\\run_01_response.json",
+      "raw_response_sha256": "0d0272dd312db24fdc9e2b1c6b5a0cd37726e6a145ce7ac6ff4feed040174126"
+    },
+    {
+      "run_index": 2,
+      "full_model_final_body": "To find the smallest number of shaded squares that can be added to create a design with 4 axes of symmetry, let's analyze the properties of the design and the grid.\n\n**1. Analyze the Grid and Axes of Symmetry**\nThe diagram shows a $6 \\times 6$ square grid. The grid itself has a center point and a vertical and horizontal grid line passing through the center (indicated by the blue lines in the image).\nFor a $6 \\times 6$ grid to have 4 axes of symmetry (vertical, horizontal, and both diagonals), the shaded pattern must also exhibit this symmetry.\n*   The 4 axes of symmetry for the square grid are the vertical midline, the horizontal midline, and the two main diagonals.\n\n**2. Analyze the Shaded Squares**\nLet's identify the positions of the currently shaded squares using coordinates $(x, y)$, where $x$ is the column (1 to 6) and $y$ is the row (1 to 6), starting from the top-left.\nLooking at the image:\n*   There is a shaded square at **row 1, column 2** (labeled $S_1$).\n*   There is a shaded square at **row 1, column 3** (labeled $S_2$).\n*   There is a shaded square at **row 2, column 3** (labeled $S_3$).\n\n**3. Determine the Target Pattern (D4 Symmetry)**\nA design with 4 axes of symmetry on a square grid usually implies the pattern is symmetric under the Dihedral group $D_4$ (rotations by $90^\\circ$ and reflections).\nIf we apply these symmetries to the squares $S_1, S_2, S_3$, we will generate the positions of all other squares required to complete the design.\n\nLet's trace the symmetry starting with the shaded square at **row 1, column 3** ($S_2$):\n*   **Original:** Row 1, Col 3.\n*   **Horizontal Reflection:** Row 1, Col 4.\n*   **Vertical Reflection:** Row 6, Col 3.\n*   **Rotation 180°:** Row 6, Col 4.\n*   **Diagonal Reflections:** These map positions to their transposes $(r, c) \\rightarrow (c, r)$.\n    *   Original $(1, 3) \\rightarrow (3, 1)$.\n    *   Reflected $(1, 4) \\rightarrow (4, 1)$.\n    *   Reflected $(6, 3) \\rightarrow (3, 6)$.\n    *   Reflected $(6, 4) \\rightarrow (4, 6)$.\nThis set of 8 squares forms a hollow square frame in the center of the grid.\n\nNow let's apply the same symmetries to the shaded square at **row 1, column 2** ($S_1$):\n*   **Original:** Row 1, Col 2.\n*   **Symmetries:** The other 7 positions are:\n    *   Row 1, Col 5.\n    *   Row 6, Col 2.\n    *   Row 6, Col 5.\n    *   Row 2, Col 1.\n    *   Row 2, Col 6.\n    *   Row 5, Col 1.\n    *   Row 5, Col 6.\n\nFinally, consider the shaded square at **row 2, column 3** ($S_3$):\n*   **Original:** Row 2, Col 3.\n*   **Symmetries:** The other 7 positions are:\n    *   Row 2, Col 4.\n    *   Row 5, Col 3.\n    *   Row 5, Col 4.\n    *   Row 3, Col 2.\n    *   Row 3, Col 5.\n    *   Row 4, Col 2.\n    *   Row 4, Col 5.\n\n**4. Calculate the Number of Squares**\nThe total design consists of three disjoint sets of squares (since none of the generated positions overlap with each other or the existing ones):\n*   Set 1 (from $S_2$): 8 squares.\n*   Set 2 (from $S_1$): 8 squares.\n*   Set 3 (from $S_3$): 8 squares.\nTotal squares in the design = $8 + 8 + 8 = 24$ squares.\n\n**5. Calculate Squares to be Added**\nThe problem asks for the number of squares that **can be added**.\n*   Total squares needed = 24.\n*   Squares already shaded = 3.\n*   Squares to be added = $24 - 3 = 21$.\n\n**Answer:**\nThe smallest number of shaded squares that can be added is **21**.",
+      "complete_final_manually_read": true,
+      "manual_final": "21",
+      "matches_immutable_preset": false,
+      "manual_note": "Final21 with all three disjoint8-cell orbits; correct answer, preset9 miss.",
+      "raw_response_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane307\\r30_invariant_cross_axis_confusion\\tests\\quicktest3_20261101T171751_dd0ec7b90542\\run_02_response.json",
+      "raw_response_sha256": "96f96b4372477107ab9a80e3a5ed12163b8a357bbebed151543393e4be4d6358"
+    }
+  ],
+  "exact_two_completed_same_frozen_png": true,
+  "pretest_difference_audit": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane307\\r30_invariant_cross_axis_confusion\\design_difference_audit.json",
+  "old_new_difference": "Old first-pass saved no candidate because asymmetric colored cell borders would alter the design INCLUDING THE GRID. New resolves that precise objection with an identical centered cross invariant under the full D4 group and tests an axis-count/orbit error.",
+  "immutable_bindings": {
+    "branch": "PlaneGeometry",
+    "question_id": "Plane307",
+    "profile": "quicktest3",
+    "settings": {
+      "label": "Quick Test 3",
+      "provider": "mimo",
+      "model": "mimo-v2.6-flash",
+      "thinking": {
+        "type": "disabled"
+      },
+      "api_base": "https://token-plan-cn.xiaomimimo.com/v1"
+    },
+    "system_prompt": "Solve the mathematics question using the provided image. Give a clear final answer at the end. For a multiple-choice question, include the option letter in your final answer.",
+    "question": "What is the smallest number of shaded squares that can be added to the diagram to create a design, including the grid, with 4 axes of symmetry?",
+    "image_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane307\\r30_invariant_cross_axis_confusion\\candidate.png",
+    "image_sha256": "f5663d1d42d054d9df3102333e31ad5276f51ae8523b8896e3d8e7db8a18e19a",
+    "pixel_sha256": "c75f44f3ea556d03739c9f027581f4e58e50c52d0f3b907e827a34128beee45f",
+    "design_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane307\\r30_invariant_cross_axis_confusion\\design.json",
+    "design_sha256": "b5a49575a1ddf903b6edb44f6d631bfa82ea6783a5f0e85ddbd85a60539ea299",
+    "expected_wrong_answer": "9",
+    "question_record_sha256": "faaa0227a460e13d4478774b144d77d4a0a1c385b7eea0f495ac618f2ffa5dd0",
+    "dataset_sha256": "f167f666cb1037754e9516dcf516b5c4f462c9ef3da17e867458d392e35ed2ec",
+    "request_body_sha256": "46437a2b1b152baebae84cead101437b51f6f7af905cb480a725d95fcd7f2cb7",
+    "reference_quick_test_sha256": "558b80e92363e17d42c51e44272a6085f44676176c1a2e5698ab6b466458967f",
+    "created_at": "2026-11-01T17:17:51.757131+00:00",
+    "requested_runs": 2,
+    "authorization": "User explicitly requested automatic exploration and two quicktest3 calls.",
+    "approval_status": "UNREVIEWED; no Pass or Collect action performed"
+  },
+  "binding_file": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane307\\r30_invariant_cross_axis_confusion\\tests\\quicktest3_20261101T171751_dd0ec7b90542\\binding.json",
+  "request_file": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane307\\r30_invariant_cross_axis_confusion\\tests\\quicktest3_20261101T171751_dd0ec7b90542\\request.json",
+  "candidate_image": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane307\\r30_invariant_cross_axis_confusion\\candidate.png",
+  "plugin": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane307\\r30_invariant_cross_axis_confusion\\plugin.json",
+  "math_audit": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane307\\primary_math_audit.json",
+  "marker_audit": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane307\\r30_invariant_cross_axis_confusion\\per_marker_geometry_audit.json",
+  "native_visual_review": {
+    "reviewer_role": "PRIMARY research worker ONLY",
+    "native_png_viewed": true,
+    "source_jpg_and_original_png_viewed": true,
+    "dimensions": [
+      768,
+      768
+    ],
+    "reviewed_at": "2026-11-01T17:15:08.012216+00:00",
+    "human_semantics_acceptable": true,
+    "findings": "Identical blue1.5pt v3/h3 form a centered plus on existing grid lines. Remaining grid black and three gray cells distinguishable. The marked grid is unchanged under both axial and both diagonal reflections: new appearance does not remove required symmetry axes. No new cell boundary or fill added.",
+    "candidate_sha256": "f5663d1d42d054d9df3102333e31ad5276f51ae8523b8896e3d8e7db8a18e19a",
+    "all_markers_reviewed": true,
+    "original_distinctions_readable": true,
+    "limitations": [
+      "No human/per-marker/statistical or causal validation.",
+      "A new parent independent review is mandatory before delivery."
+    ]
+  },
+  "render_check": {
+    "qid": "Plane307",
+    "baseline_match": true,
+    "schema_normalized": true,
+    "two_draws_byte_identical": true,
+    "png_sha256": "f5663d1d42d054d9df3102333e31ad5276f51ae8523b8896e3d8e7db8a18e19a",
+    "pixel_sha256": "c75f44f3ea556d03739c9f027581f4e58e50c52d0f3b907e827a34128beee45f",
+    "frozen_inputs": {
+      "question_record_sha256": "faaa0227a460e13d4478774b144d77d4a0a1c385b7eea0f495ac618f2ffa5dd0",
+      "files": {
+        "AGENTS.md": "35edf9c9e2114f8f808d9745f6e22ab9a4b05dea2e86fbcbfe1587388a22fe29",
+        "dataset_tools/geometry_dataset.py": "a7cf8bb6662eafaffa2e96b883f49a3e23817e05bdd08cbb5f80f08affe52595",
+        "dataset_tools/mathvision_workbench.py": "90a17218c28b78068cc410887899ae0683e7c6c4b9853e6ffc0de25ec6917e11",
+        "MATHPALETTE_PROTOCOL.md": "b6a0a85651b4c317d2db081e4cd9bbbff569017db2471f71a4a21c3e0e24c5af",
+        "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane307/execution.json": "ae6931cc170699f065f1437ac6bd8f270fd4565069bda01bd814c3e8a1df1eb6",
+        "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane307/protocol_review.json": "8fc67764f84282e7eecf8c36a0ded888141a6c67104a3ebcaf9b59aff8cf7473",
+        "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane307/renderer.py": "696c4bc156e4879aa1748106ce254f84bddf6d573f1060fb79dcc8cff1ae06f8",
+        "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane307/scene.json": "313c8c04121f639fb09bf12164d1634d75d74c4b46bafc5438265775c3022b45",
+        "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane307/source.json": "2a21e431967bdd7b72e1cd063d26ea301911b8f34ee15a0115a95da3cf6238b8",
+        "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane307/source_redraw.py": "6230a77f65d77e53d2507549bab035ace070b726232b185b0cb06a0765fa8a6b",
+        "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+        "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+        "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+        "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+        "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py": "f8b46c832ae8ff8e16730970bd31d1d549035f4e230f49acb6b88141efda0d84",
+        "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py": "0d0b200ad11ef8a4dc1642ab57168dafd65e70ae2d14a5f24ab0810f3dad2212",
+        "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py": "c62c2b054bacaf988b2ad5ca1b65cd34e4197552b13f4af8c58edf63e42acb39",
+        "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py": "c266e9f96734883b56e3d3a43438128d9c42ce65d9465f6dc83840f410f205ff",
+        "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py": "c316a4fc088a318ce35232e46392ef3ab11af1ac24acaeeda36d99b016581d8e",
+        "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py": "a5fe3c7a62fce5bc104b5015549a7e6325924d58ea0b9a3d6f3192a459706d52",
+        "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py": "26cc0c532042b6f13c4d8504e469cbf285ce3b8591d3c11a8a0f8f3ab0c4721d",
+        "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py": "4b465c5bb4ea2973e4f3e861ff34c1661c154b747d66f8d6670299bf824953ab",
+        "PlaneGeometry/dataset_generator/plane_plot307.py": "8a31b637eb578d354e00ad56bcf02b9138cc2328cef2101bcf49fdbd07f8ec6a",
+        "PlaneGeometry/dataset_generator/protocol.json": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+        "PlaneGeometry/dataset_generator/scenes/Plane307.json": "f740448d0d4e62a126379ffd3593792078a5db40b78c49a8fe635a6c1e089433",
+        "PlaneGeometry/image/Plane307.png": "29d896ab4fe5e31b68e7c1833a7150f25ca048e97e61a28b400586eb8a364de0",
+        "PlaneGeometry/originals/Plane307.jpg": "b222b0fa3704ab816dc0faf6d35c97acae36f785403545d7d6fb08c07d02af84",
+        "PlaneGeometry/REDRAW_PROTOCOL.md": "528e7a3bc67ee300db15d562ae795e39ce43f71dd102dbe1736f12aa54fd3989",
+        "PlaneGeometry/workbench/config.json": "73bb338b43be0ab64523f2f4edca607123b195821a94486e897a779a8c5b1316",
+        "PlaneGeometry/workbench/mathvision_adapter.py": "720bab7bb7b1b428d7beaf0accc5deb7682d55de1b202a8eb2181e5fc2ee3227",
+        "PlaneGeometry/workbench/mathvision_plugins.py": "ccb42a21702027584d19c00e9cf2f71987537cbb91454be2c507aaee42cbbed1",
+        "PlaneGeometry/workbench/partial_style.py": "765686102817bbe3a38275aae96bd878ba28bd66b3e56ee9bcf5080e7d72c310",
+        "PlaneGeometry/workbench/plugin.schema.json": "1f4c6082911e6826d67ad474174474654738a337e01a4690b5255ac9d48eb3d5",
+        "PlaneGeometry/workbench/render_plugins.py": "1ccc979a7c1a6f11d37bc46af476017df8316ad5eba93d9a2d2e6085aa347084",
+        "PlaneGeometry/workbench/renderer_adapter.py": "cade4d483f9f13202ef9c5658f4fce95fadd9d2672fbb03a3ae0213d23c96c7c",
+        "PlaneGeometry/workbench/workbench_io.py": "19bd9b6590eccf8960c159c6125eae6e93c1c2eaf69aee0dff14909e203c2c5f"
+      },
+      "environment": {
+        "python": "3.13.9",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.3",
+        "pillow": "12.3.0"
+      }
+    },
+    "isolation": {
+      "temporary_root": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\render_tmp",
+      "write_guard": true,
+      "library_files_modified": false,
+      "drawing_operations_modified": false
+    },
+    "world_geometry_projection_visibility_text_fill_unchanged": true
+  },
+  "API_profile_or_timeout_overrides": false,
+  "retries": 0,
+  "original_controls": [],
+  "limits": [
+    "No original controls exist for these old attempts; none repeated.",
+    "No statistical/human/causal/per-marker study, no equal-narrative or correct-control hard gate.",
+    "Primary review only; parent NEW independent review required before any eventual delivery."
+  ]
+}

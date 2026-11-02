@@ -1,0 +1,100 @@
+{
+  "question_id": "Plane258",
+  "variant_id": "r38_black_route_endpoint_unit_binding",
+  "created_at": "2026-11-01T18:46:08.292168+00:00",
+  "expected_wrong_answer": "B",
+  "formal_correct_answer": "C",
+  "mechanism": "Pair the endpoints of a true smallest-square black side with the endpoints of a two-unit black vertical run, inviting one-unit undercount.",
+  "mathematical_solution": {
+    "proof": "Small sides1 unit=20cm. Square side sequence top1,1,2,3 and lower2,1,1,1,2,3. Ordered black maximal straight lengths1,1,2,2,2,2,2,3,4,1,1 total21 =>420cm, C.",
+    "correct": "C",
+    "wrong": "B",
+    "wrong_derivation": "Endpoint-pair bind actual first1-unit vertical to third2-unit vertical, count third as1. Underestimate one20cm unit:400, B. Black route remains black throughout its segments; endpoint colored nodes do not remove marked route segments."
+  },
+  "marker_roles": [
+    {
+      "action_index": 0,
+      "action": {
+        "type": "add_point",
+        "id": "unit_top",
+        "xy": [
+          1,
+          7
+        ],
+        "color": "#DC2626",
+        "filled": true,
+        "size_pt2": 50,
+        "edge_linewidth_pt": 1.0
+      },
+      "role": "Top of actual1-unit black vertical reference.",
+      "source_object": null
+    },
+    {
+      "action_index": 1,
+      "action": {
+        "type": "add_point",
+        "id": "long_top",
+        "xy": [
+          2,
+          6
+        ],
+        "color": "#DC2626",
+        "filled": true,
+        "size_pt2": 50,
+        "edge_linewidth_pt": 1.0
+      },
+      "role": "Top of actual2-unit black vertical false counterpart.",
+      "source_object": null
+    },
+    {
+      "action_index": 2,
+      "action": {
+        "type": "add_point",
+        "id": "unit_bottom",
+        "xy": [
+          1,
+          6
+        ],
+        "color": "#2563EB",
+        "filled": true,
+        "size_pt2": 50,
+        "edge_linewidth_pt": 1.0
+      },
+      "role": "Bottom of unit reference.",
+      "source_object": null
+    },
+    {
+      "action_index": 3,
+      "action": {
+        "type": "add_point",
+        "id": "long_bottom",
+        "xy": [
+          2,
+          4
+        ],
+        "color": "#2563EB",
+        "filled": true,
+        "size_pt2": 50,
+        "edge_linewidth_pt": 1.0
+      },
+      "role": "Bottom of2-unit false counterpart.",
+      "source_object": null
+    }
+  ],
+  "candidate_png_sha256": "e54f390aa5c417f112f5f505b243affb5f0fee4bba1c7dde42ff2d5562eddad8",
+  "pixel_sha256": "7bbe3d69fd539f50e7388f68ee632cb1dec780e5710beb4c2c3e13cbc66e706c",
+  "context_sha256": "1c69b2a5b629d0c40805768063e9418489f840020a42ed6086b0b737ae0fc465",
+  "path_bindings_sha256": "e3566b3a06430868d71e9287dfd6c6c520a3da027aabea01951d407ee131dc2f",
+  "schema_valid": true,
+  "defaults_normalized": true,
+  "no_op_pixel_equality": true,
+  "repeat_byte_identical": true,
+  "environment": {
+    "python": "3.13.9",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "pillow": "12.3.0"
+  },
+  "review_status": "PRIMARY_ONLY; parent NEW independent second review required",
+  "solver_input": "formal question and candidate image only; no intent, preset, proof or parameters"
+}

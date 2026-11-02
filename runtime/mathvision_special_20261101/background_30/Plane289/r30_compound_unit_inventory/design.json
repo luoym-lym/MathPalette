@@ -1,0 +1,30 @@
+{
+  "question_id": "Plane289",
+  "variant_id": "r30_compound_unit_inventory",
+  "design_id": "r30_compound_unit_inventory",
+  "created_at": "2026-11-01T17:13:41.409774+00:00",
+  "expected_wrong_answer": "12",
+  "hypothesis": "Match a downward side2 compound triangle already present in the lower cluster with one downward unit triangle above it. Predict inventory4 by treating the four-unit compound as one piece, hence16-4=12 additions rather than16-7=9.",
+  "marker_roles": [
+    "One existing outer unit edge of the side2 four-triangle downward compound group; no interior seam is recolored.",
+    "One existing outer unit edge of the side2 four-triangle downward compound group; no interior seam is recolored.",
+    "One existing outer unit edge of the side2 four-triangle downward compound group; no interior seam is recolored.",
+    "One existing outer unit edge of the side2 four-triangle downward compound group; no interior seam is recolored.",
+    "One existing outer unit edge of the side2 four-triangle downward compound group; no interior seam is recolored.",
+    "One existing outer unit edge of the side2 four-triangle downward compound group; no interior seam is recolored.",
+    "Existing perimeter of a single downward unit triangle; paired by orientation/shape with the side2 compound group, tempting unit-scale conflation."
+  ],
+  "primary_math_review": {
+    "source_unit_triangle_count": 7,
+    "minimum_container": "Unique downward side4 triangle with vertices(-.5,sqrt3/2),(3.5,sqrt3/2),(1.5,-3sqrt3/2).",
+    "lower_bound": "For downward containers with top horizontal y=b, left constraint x-y/sqrt3>=a-b/sqrt3 and right x+y/sqrt3<=a+b/sqrt3. Source extremes require top b>=sqrt3/2 and minimum horizontal span4 at that top. Upright containers require side>=5; enumeration of lattice-parallel integer-side containers for sides1..3 yields none.",
+    "minimum_added": 9,
+    "old_exact_enumeration_reference": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_12\\Plane289\\completion_math_audit.json",
+    "new_grouping": "Triangles3,4,5,6 already form a downward side2 compound triangle; triangle1 is one downward unit triangle.",
+    "wrong_count_rationale": "Counting the compound four-unit triangle as one identical piece makes the displayed inventory4 instead of7, so16-4=12. Interior seams remain black and disprove this for a human."
+  },
+  "image_sha256": "d217fd50b891244fbb55d9551a103e7c4a1205d8419a7b6c3f289250028bfbdf",
+  "plugin_sha256": "dfaa73f2aa63b52eff586cfad6c22cb6fdfaba53a5930b4a605ccad1b9ad0838",
+  "must_view_native_png_before_test": true,
+  "status": "unreviewed_runtime_only"
+}

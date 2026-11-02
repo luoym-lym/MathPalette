@@ -1,0 +1,26 @@
+import tools_local as t
+def read(p):return t.json.loads(p.read_text(encoding='utf-8-sig'))
+checks=[];files={}
+for design in t.HERE.glob('Plane*/r30_*/design.json'):
+    p=design.parent;test=next((p/'tests').glob('quicktest3_*'));start=read(test/'run_01_started.json');stamp=t.datetime.fromisoformat(start['started_at']).timestamp();audit=p/'design_difference_audit.json'
+    assert audit.stat().st_mtime<=stamp and design.stat().st_mtime<=stamp
+    assert t.file_hash(design)==t.file_hash(test/'design_snapshot.json')
+    entry={'question_id':design.parent.parent.name,'variant_id':design.parent.name,'audit_existed_before_first_actual_call':True,'audit_mtime_utc':t.datetime.fromtimestamp(audit.stat().st_mtime,t.timezone.utc).isoformat(),'first_actual_call_start':start['started_at'],'design_and_preset_unchanged':True,'same_png_bound_to_every_started_call':True,'raw_invocation_count':1,'frozen_raw_files_sha256':{str(x.relative_to(t.HERE)):t.file_hash(x) for x in test.iterdir() if x.is_file()}}
+    assert len(list((p/'tests').glob('quicktest3_*')))==1
+    for s in test.glob('run_*_started.json'):assert read(s)['image_sha256']==t.file_hash(p/'candidate.png')
+    checks.append(entry)
+t.write(t.HERE/'chronology_and_final_bindings.json',{'stage':'material_refinement','all_pretest_audits_before_calls':True,'actual_invocations':checks,'no_extra_samples_or_preset_changes':True})
+exhaust={
+'Plane171':['Tested local missing-unit-notch comparison in A/C.','Full wrong-option outlines repeat old E salience.','Further recoloring other congruent notches repeats the same missing-unit count rationale; adding decomposition cuts risks false regions. No further distinct clear hypothesis retained.'],
+'Plane206':['Tested two-feature exact greedy corner anchor in target4, distinct from old mismatched target3 rail.','Other corner anchors are the same failure-to-backtrack class; internal colored L outlines risk a forced partition.','Handedness/rotation prohibitions would impose an unprovided new constraint. Do not repeat the stalled pair.'],
+'Plane244':['Read old local-U correspondence, 3/1 miss on preset5.','Quarterturn match in final pattern offers a correct fit; would need a new unsupported rotation ban to induce a specific wrong count.','Closed misleading partitions or another source-to-local-U pattern repeat old design or introduce cuts. Skip.'],
+'Plane278':['Tested B/E three-side surrogate, removes old B/D convex-top substitution.','Old unpreset C/C cannot be relabeled or promoted; new pair inconsistent C/A and D misses presetE.','Other two-piece curve colorings repeat matching/substitution without a distinct constraint; complete colored piece sets risk treating colors as rules.'],
+'Plane286':['Tested endpoint-pair binding of side versus diagonal widths in C, distinct from old B exposed-fragment length.','Switching lateral extrema to B repeats diagonal-versus-side error, not a new design.','Drawing hidden square overlays would add unprovided partition boundaries. No clean further hypothesis.'],
+'Plane289':['Tested compound-four-unit triangle versus single-unit grouping; old side5 guide was rejected.','Repositioning a nonminimal enclosing guide repeats old nonminimum hypothesis and viewport problem.','Emphasizing a different compound triangle is the same unit-inventory error. Extra enclosing/count guides would risk new regions.'],
+'Plane307':['Tested centered D4-invariant cross as two-axis/four-quadrant cue, repairing asymmetric-grid objection.','Asymmetric cell-border styling changes the counted design including grid.','D4-invariant outer frame mostly reinforces correct diagonal symmetry; asymmetric diagonal/orbit cues cannot be added without altering the original symmetry completion target.'],
+'Plane349':['Read old no-design prescreen; independently rederived grey12.','Stair-versus-triangle pairing has no actual half-area identity to support presetE=21.','Changing length-dimension grouping or color-equaling unequal scraps would imply false givens; no clean meaningful design.']}
+t.write(t.HERE/'hypothesis_exhaustion_audit.json',{'stage':'material_refinement','question_specific_assessment':exhaust,'no_forced_test_quota':True,'external_failure_checkpoint':'Plane206 first request manually aborted after400.54seconds and exact own PID/command verification. Five other fixed pairs complete; no retries or additional calls.'})
+for p in t.HERE.rglob('*'):
+    if p.is_file() and not any(x in p.parts for x in ['cache','mpl_cache','tmp','render_tmp']):files[str(p.relative_to(t.HERE))]=t.file_hash(p)
+t.write(t.HERE/'evidence_manifest_final.json',{'files_sha256':files,'note':'Frozen requests/responses/designs/plugins/images included; final_process_check.json is written after this manifest by a separate OS process query. Runtime caches excluded.'})
+print(t.json.dumps({'chronology_verified_candidates':len(checks),'manifest_files':len(files),'hypothesis_assessed':len(exhaust)}))

@@ -1,0 +1,11 @@
+{
+  "phase": "first_context_attempt_before_any_model_call",
+  "command": "python -X utf8 -B runtime/mathvision_similar24_special_20261102/units/u04_angles/research.py context Plane321",
+  "exception": "ValueError: Use a formal branch dataset.jsonl",
+  "trace": "research.py context -> setup_renderer -> RendererAdapter(config) -> renderer_adapter.py:109 assert_formal_dataset -> catalog.py:97",
+  "cause": "Own command read raw config.json instead of workbench_io.load_config; relative dataset_file was resolved against project cwd.",
+  "remedy": "Use unchanged workbench_io.load_config to resolve paths relative to original config file, route own output/runtime in memory, rerun context/noop and all later offline gates.",
+  "source_modified": false,
+  "model_calls": 0,
+  "classification": "ordinary own command local path mistake permitted to correct offline by brief"
+}

@@ -1,0 +1,47 @@
+{
+  "question_id": "Plane486",
+  "variant_id": "r33_principal_direction_exclusion_families",
+  "stage": "material_refinement",
+  "created_at": "2026-11-01T18:07:09.823349+00:00",
+  "precall_wrong_preset": "87",
+  "formal_answer": "60",
+  "manually_read_full_finals": [
+    {
+      "run_index": 1,
+      "complete_final_read_manually": true,
+      "full_complete_final": "To find the number of lines passing through exactly two points, we need to systematically examine all possible lines formed by pairs of points on the hexagonal grid.\n\n**1. Analyze the grid structure:**\nThe grid consists of points arranged in rows. Let's denote the position of a point by its row number (from top to bottom, 1 to 5) and its column index within that row.\n*   Row 1 (Top): 3 points (indices 1, 2, 3)\n*   Row 2: 4 points (indices 1, 2, 3, 4)\n*   Row 3 (Middle): 5 points (indices 1, 2, 3, 4, 5)\n*   Row 4: 4 points (indices 1, 2, 3, 4)\n*   Row 5 (Bottom): 3 points (indices 1, 2, 3)\n\nWe classify lines based on their direction: Horizontal, Slope Down ($\\searrow$), Slope Up ($\\nearrow$), and Steep Slopes (connecting non-adjacent rows).\n\n**2. Evaluate Horizontal Lines (Red):**\n*   Row 1: Connects 3 points. (0 lines of exactly 2)\n*   Row 2: Connects 4 points. (0 lines)\n*   Row 3: Connects 5 points. (0 lines)\n*   Row 4: Connects 4 points. (0 lines)\n*   Row 5: Connects 3 points. (0 lines)\n*   **Subtotal: 0**\n\n**3. Evaluate Slope Down Lines (Blue):**\nThese lines connect a point to a point in the next row below and to the right.\n*   From Row 1 to Row 2: 1-2, 2-3, 3-4. All extend to Row 3 (4 lines).\n*   From Row 1 to Row 3: 1-3, 2-4. All extend to Row 4 (2 lines).\n*   From Row 1 to Row 4: 1-4. Ends at Row 4 (1 line).\n*   From Row 2 to Row 3: 1-2, 2-3, 3-4, 4-5. All extend to Row 5 (4 lines).\n*   From Row 2 to Row 4: 1-3, 2-4. Ends at Row 4 (2 lines).\n*   From Row 3 to Row 4: 1-2, 2-3, 3-4, 4-5. All extend to Row 5 (4 lines).\n*   From Row 3 to Row 5: 1-3, 2-4. Ends at Row 5 (2 lines).\n*   From Row 4 to Row 5: 1-2, 2-3, 3-4. Ends at Row 5 (3 lines).\n*   **Subtotal: 18 lines**\n\n**4. Evaluate Slope Up Lines (Green):**\nThis is symmetric to the Down lines. The lines that pass through exactly two points are:\n*   Lines connecting Row 1 to Row 4: (1-4) $\\rightarrow$ 1 line.\n*   Lines connecting Row 2 to Row 4: (1-3), (2-4) $\\rightarrow$ 2 lines.\n*   Lines connecting Row 3 to Row 5: (1-3), (2-4) $\\rightarrow$ 2 lines.\n*   **Subtotal: 5 lines**\n\n**5. Evaluate Steep Lines (Vertical and Non-adjacent):**\nThese lines pass through points in non-adjacent rows (skipping rows) or share the same column.\n*   **Vertical lines** (connecting 3 points): 0 lines.\n*   **Row 1 $\\leftrightarrow$ Row 3:** 2-point lines: (1-3), (2-4) $\\rightarrow$ 2 lines.\n*   **Row 1 $\\leftrightarrow$ Row 4:** 2-point lines: (2-5) $\\rightarrow$ 1 line.\n*   **Row 2 $\\leftrightarrow$ Row 4:** 2-point lines: (1-3), (2-4), (3-5) $\\rightarrow$ 3 lines.\n*   **Row 2 $\\leftrightarrow$ Row 5:** 2-point lines: (2-4) $\\rightarrow$ 1 line.\n*   **Row 3 $\\leftrightarrow$ Row 5:** 2-point lines: (3-5) $\\rightarrow$ 1 line.\n*   **Subtotal: 8 lines**\n\n**Total Count:**\n$0 \\text{ (Horizontal)} + 18 \\text{ (Slope Down)} + 5 \\text{ (Slope Up)} + 8 \\text{ (Steep)} = 31$\n\n**Final Answer:**\nThere are **31** lines that pass through exactly two points.",
+      "manually_extracted_terminal_answer": "31",
+      "terminal_choice_value": null,
+      "terminal_letter_value_consistent": true,
+      "matches_predeclared_wrong_answer": false,
+      "matches_formal_terminal_answer": false,
+      "interpretation": "Explicit final 31 after inconsistent direction totals and double-counting. Wrong relative to exact 60, but misses frozen 87.",
+      "raw_response_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_33\\Plane486\\r33_principal_direction_exclusion_families\\tests\\quicktest3_20261101T180314_999d92989c96\\run_01_response.json",
+      "raw_response_sha256": "d321f8a512c25916c6f88117f0c81b5351c32c3275fab3299bf99f7f8c22f7e9",
+      "run_record_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_33\\Plane486\\r33_principal_direction_exclusion_families\\tests\\quicktest3_20261101T180314_999d92989c96\\run_01.json",
+      "run_record_sha256": "052ca7eb1ac78b8f6d6c88ea2d8b1f6172bc78708bf51722854dca30a6accb80"
+    },
+    {
+      "run_index": 2,
+      "complete_final_read_manually": true,
+      "full_complete_final": "Based on the provided image of the hexagonal grid:\n\n1.  **Analyze the Grid**: The grid consists of points arranged in a hexagonal pattern. By counting the points in each row from top to bottom, we see 3, 4, 5, 6, 5, 4, and 3 points, totaling **30 points**.\n2.  **Analyze the Lines**: The grid is formed by three sets of parallel lines (horizontal, diagonal up, and diagonal down).\n    *   **Horizontal Lines**: There are 7 horizontal lines. The longest is the middle one with 6 points. Moving away from the center, the point counts are 5, 4, and 3.\n    *   **Diagonal Lines**: By symmetry, the two diagonal directions follow the same pattern. Each has 7 lines with point counts of 3, 4, 5, 6, 5, 4, and 3.\n3.  **Count Lines with Exactly Two Points**:\n    *   For the horizontal direction: Lines with 6, 5, and 4 points do not qualify. Lines with 3 points qualify (there are 2 such lines). Lines with 2 points qualify (there are 2 such lines). Total = 4 lines.\n    *   For the first diagonal direction: Same logic, total = 4 lines.\n    *   For the second diagonal direction: Same logic, total = 4 lines.\n\nSumming these up: $4 + 4 + 4 = 12$.\n\n**Answer:** 12",
+      "manually_extracted_terminal_answer": "12",
+      "terminal_choice_value": null,
+      "terminal_letter_value_consistent": true,
+      "matches_predeclared_wrong_answer": false,
+      "matches_formal_terminal_answer": false,
+      "interpretation": "Explicit terminal 12 after misreading 19 dots as a fictitious 30-point pattern and even admitting 3-point lines. Wrong; misses frozen 87.",
+      "raw_response_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_33\\Plane486\\r33_principal_direction_exclusion_families\\tests\\quicktest3_20261101T180314_999d92989c96\\run_02_response.json",
+      "raw_response_sha256": "2b8fb0a09c5e0991549d3f6645b2c56331e2a4582e3b12d037b4bfcc1646e333",
+      "run_record_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_33\\Plane486\\r33_principal_direction_exclusion_families\\tests\\quicktest3_20261101T180314_999d92989c96\\run_02.json",
+      "run_record_sha256": "d35412da784ebd1e6e3d6a63bc89d3d0e21911eb4328ba7bf1614fcad050054e"
+    }
+  ],
+  "preset_hit_count": 0,
+  "two_complete_calls": true,
+  "credible_paired_hit_possibility": false,
+  "posthoc_relabel": false,
+  "status": "failed_predeclared_preset_pair",
+  "control_evidence": [],
+  "effect_limits": "No old same-question original control pair exists; none added. These two calls do not show statistical, incremental or per-marker effects."
+}

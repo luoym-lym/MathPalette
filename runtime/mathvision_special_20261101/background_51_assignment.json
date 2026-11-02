@@ -1,0 +1,776 @@
+{
+  "unit": "background_51",
+  "stage": "material_refinement_of_completed_questions",
+  "created_at": "2026-11-01T19:48:45.603159+00:00",
+  "branch": "SolidGeometry",
+  "requested_question_ids": [
+    "Solid153",
+    "Solid158",
+    "Solid180",
+    "Solid182",
+    "Solid183",
+    "Solid185",
+    "Solid194",
+    "Solid202"
+  ],
+  "question_ids": [
+    "Solid153",
+    "Solid158",
+    "Solid180",
+    "Solid182",
+    "Solid183",
+    "Solid185",
+    "Solid194",
+    "Solid202"
+  ],
+  "question_count": 8,
+  "excluded_requested_ids": [],
+  "old_initial_completed_overlap_intentional": true,
+  "no_master_or_other_new_scope_overlap": true,
+  "questions": [
+    {
+      "question_id": "Solid153",
+      "formal_record_at_preparation": {
+        "source_dataset": "MathVision",
+        "source_key": "test:1209",
+        "question": "Each of the five vases shown has the same height and each has a volume of 1 litre. Half a litre of water is poured into each vase. In which vase would the level of the water be the highest?\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E",
+        "answer": "A",
+        "answer_type": "choice",
+        "id": "Solid153",
+        "choices": {
+          "A": "A",
+          "B": "B",
+          "C": "C",
+          "D": "D",
+          "E": "E"
+        },
+        "image": "image/Solid153.png",
+        "original_image": "originals/Solid153.jpg",
+        "scene": "dataset_generator/scenes/Solid153.json",
+        "script": "dataset_generator/solid_plot153.py",
+        "runtime_dependencies": [
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid153/execution.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid153/protocol_review.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid153/scene.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid153/source.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid153/source_redraw.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+        ],
+        "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+        "source_category": "solid geometry"
+      },
+      "current_qualification": {
+        "eligible": true,
+        "reasons": [],
+        "branch": "SolidGeometry",
+        "source_dataset": "MathVision",
+        "approval_matches_current": true,
+        "approval_content_sha256": "ee19fe67f07866b61fc9014e646951d66fb1b198290a0bcf3f9b20bfd4d3cd28"
+      },
+      "initial_records_read": [
+        {
+          "checkpoint": "background_17/checkpoint.json",
+          "records": [
+            {
+              "question_id": "Solid153",
+              "candidate_name": "local_neck_cumulative_volume_confusion",
+              "expected_wrong_answer": "E",
+              "correct_answer": "A",
+              "complete_pair": true,
+              "credible_paired_hit_primary": false,
+              "manual_reviews": [
+                {
+                  "run_index": 1,
+                  "status": "completed",
+                  "complete_final": "Based on the principle of volume and container shape:\n\n1.  **Condition:** Each vase holds the same amount of water (half a litre).\n2.  **Formula:** $Volume = \\text{Base Area} \\times \\text{Height}$ (simplified for constant cross-sections). Therefore, $\\text{Height} = \\frac{\\text{Volume}}{\\text{Base Area}}$.\n3.  **Analysis:** To get the highest water level for a fixed volume, you need the container with the smallest cross-sectional area (the narrowest part).\n4.  **Comparison:**\n    *   **Vase A** has a very narrow stem at the bottom where the water would collect.\n    *   **Vase D** is a truncated cone which is narrow at the top and wide at the bottom; since the water is at the bottom, it occupies a large area, resulting in a lower level.\n    *   The others have wider bases or middle sections.\n5.  **Conclusion:** Vase A is the narrowest at the bottom. Since the same volume of water must fit into this narrow section, it will rise to a much higher level than in the wider vases.\n\nThe correct choice is **A**.",
+                  "read_complete_final_manually": true,
+                  "manual_final": "A",
+                  "manual_hit": false,
+                  "internally_consistent_final": true,
+                  "manual_reason": "Complete final selects A from narrow lower capacity.",
+                  "raw_run": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_17\\Solid153\\local_neck_cumulative_volume_confusion\\tests\\quicktest3_20261101T162334_a3fad4602b24\\run_01.json",
+                  "raw_response": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_17\\Solid153\\local_neck_cumulative_volume_confusion\\tests\\quicktest3_20261101T162334_a3fad4602b24\\run_01_response.json",
+                  "response_sha256": "40748c0810dc44469554968915e6c2554ce40ed02032623681f6847513021a04",
+                  "elapsed_seconds": 9.708
+                },
+                {
+                  "run_index": 2,
+                  "status": "completed",
+                  "complete_final": "To determine which vase has the highest water level, we must analyze how the volume of water (half a litre) is distributed within each shape.\n\n**Key Principle:**\nSince all vases have the same total volume (1 litre) and total height, and we are adding the same amount of water (0.5 litres) to each, the water level will be highest where the cross-sectional area is smallest.\n\n1.  **Vase (A):** This vase has a very narrow, cylindrical bottom section that expands significantly near the top. Since it is very narrow at the bottom, the 0.5 litres of water will fill the narrow column to a considerable height before the vase starts to widen.\n2.  **Vase (B):** This is a rectangular prism with a constant cross-sectional area. The water level would fill exactly half the height of the vase.\n3.  **Vase (C):** This vase is narrow at the top and bottom but bulges in the middle. The 0.5 litres will spread out in the wider middle section, resulting in a lower water level compared to a shape with a narrow base.\n4.  **Vase (D):** This shape is a truncated cone (frustum) that is widest at the base and narrows towards the top. The large cross-sectional area at the bottom means the water will spread out wide and low.\n5.  **Vase (E):** This vase has a wide opening at the top and tapers inward towards a narrow middle \"waist,\" then widens again at the base. The base is significantly wider than the thin stem of Vase (A). Consequently, the water will spread out more at the bottom compared to Vase (A), leading to a lower water level.\n\n**Conclusion:**\nVase (A) has the narrowest cross-sectional area at the bottom. Therefore, the 0.5 litres of water will reach the greatest height in this vase.\n\n**Final Answer:**\nThe correct choice is **A**.",
+                  "read_complete_final_manually": true,
+                  "manual_final": "A",
+                  "manual_hit": false,
+                  "internally_consistent_final": true,
+                  "manual_reason": "Complete final compares all five shapes and selects A. No preset E conclusion.",
+                  "raw_run": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_17\\Solid153\\local_neck_cumulative_volume_confusion\\tests\\quicktest3_20261101T162334_a3fad4602b24\\run_02.json",
+                  "raw_response": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_17\\Solid153\\local_neck_cumulative_volume_confusion\\tests\\quicktest3_20261101T162334_a3fad4602b24\\run_02_response.json",
+                  "response_sha256": "fca6b283b3dff2065256d07f8f184c27f13e74bff66d6ad7819da22f47c4491b",
+                  "elapsed_seconds": 12.104
+                }
+              ],
+              "evidence_dir": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_17\\Solid153\\local_neck_cumulative_volume_confusion\\tests\\quicktest3_20261101T162334_a3fad4602b24",
+              "binding": {
+                "branch": "SolidGeometry",
+                "question_id": "Solid153",
+                "profile": "quicktest3",
+                "settings": {
+                  "label": "Quick Test 3",
+                  "provider": "mimo",
+                  "model": "mimo-v2.6-flash",
+                  "thinking": {
+                    "type": "disabled"
+                  },
+                  "api_base": "https://token-plan-cn.xiaomimimo.com/v1"
+                },
+                "system_prompt": "Solve the mathematics question using the provided image. Give a clear final answer at the end. For a multiple-choice question, include the option letter in your final answer.",
+                "question": "Each of the five vases shown has the same height and each has a volume of 1 litre. Half a litre of water is poured into each vase. In which vase would the level of the water be the highest?\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E",
+                "image_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_17\\Solid153\\local_neck_cumulative_volume_confusion\\candidate.png",
+                "image_sha256": "d6f9a64d789443d251d072b1e5e15c9e8ac648b8260efeebc6887f701681f9e2",
+                "pixel_sha256": "c9f6e23494da94ebafc5e3de1a67b694ea7005ebc66fac5208bbfbc6b296dd3d",
+                "design_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_17\\Solid153\\local_neck_cumulative_volume_confusion\\design.json",
+                "design_sha256": "61863eb26d0fceb8d9c9b3b14d5c1e26983c1677c201f78541c7034a5779b98d",
+                "expected_wrong_answer": "E",
+                "question_record_sha256": "6f5af70014cd5e863bb87261ef44469f64654dd88c2ff5cc67baeb6d786faf35",
+                "dataset_sha256": "a6ebf7b8be8fc2bf738be007d56cc578272ca6ffad436c696be60fbfe2b6f3b8",
+                "request_body_sha256": "221eb4ab9fe88a34fc08efdcdf7ece2f6dd357adb6e5b4eab29be4f45649e7a4",
+                "reference_quick_test_sha256": "c08eef18db2d758c7828cfdfd7a7c087272bc35d5f013113220050d2e7666212",
+                "created_at": "2026-11-01T16:23:34.199769+00:00",
+                "requested_runs": 2,
+                "authorization": "User explicitly requested automatic exploration and two quicktest3 calls.",
+                "approval_status": "UNREVIEWED; no Pass or Collect action performed"
+              },
+              "request_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_17\\Solid153\\local_neck_cumulative_volume_confusion\\tests\\quicktest3_20261101T162334_a3fad4602b24\\request.json",
+              "raw_request_verified_only_formal_question_and_candidate_png": true,
+              "design_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_17\\Solid153\\local_neck_cumulative_volume_confusion\\design.json",
+              "design": {
+                "question_id": "Solid153",
+                "name": "local_neck_cumulative_volume_confusion",
+                "expected_wrong_answer": "E",
+                "correct_answer": "A",
+                "mechanism": "Pair the narrow lower walls of A with the narrow middle waist of E using four partial original side-contour styles. This targets the misconception that the narrowest local neck creates the highest half-volume level, favoring E. No waterline, new contour, dimension or fill is added.",
+                "primary_math_proof": "A widens upwards, so its lower half contains less than half its full volume and the half-volume water level is above midheight. B has constant cross-section and reaches midheight. C and E have top/bottom symmetric profiles and reach midheight. D widens downwards, so half volume is below midheight. Thus A is uniquely highest. This is a qualitative profile argument; no exact pixel-derived volume is assumed.",
+                "marker_roles": [
+                  {
+                    "action_index": 1,
+                    "role": "A left lower wall: narrow lower portion whose cumulative capacity controls a high half-volume level."
+                  },
+                  {
+                    "action_index": 2,
+                    "role": "E left middle waist: paired local narrow feature invites local-neck reasoning rather than cumulative volume."
+                  },
+                  {
+                    "action_index": 3,
+                    "role": "A right lower wall: narrow lower portion whose cumulative capacity controls a high half-volume level."
+                  },
+                  {
+                    "action_index": 4,
+                    "role": "E right middle waist: paired local narrow feature invites local-neck reasoning rather than cumulative volume."
+                  }
+                ],
+                "created_at": "2026-11-01T16:21:55.580340+00:00",
+                "png_sha256": "d6f9a64d789443d251d072b1e5e15c9e8ac648b8260efeebc6887f701681f9e2",
+                "plugin_sha256": "c0b685c12d7c63f0d7993bdbadd4126b932812d8143a8452557c6842b2424071",
+                "pixel_sha256": "c9f6e23494da94ebafc5e3de1a67b694ea7005ebc66fac5208bbfbc6b296dd3d",
+                "approval_status": "PRIMARY ONLY; requires parent NEW independent review; no Pass/Collect"
+              },
+              "plugin_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_17\\Solid153\\local_neck_cumulative_volume_confusion\\plugin.json",
+              "candidate_png": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_17\\Solid153\\local_neck_cumulative_volume_confusion\\candidate.png",
+              "render_check_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_17\\Solid153\\local_neck_cumulative_volume_confusion\\render_check.json",
+              "primary_visual_review_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_17\\Solid153\\local_neck_cumulative_volume_confusion\\primary_visual_review.json",
+              "source_audit_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_17\\Solid153\\source_audit_final.json",
+              "controls": [],
+              "independent_second_review": "NOT performed by this primary researcher. Parent must start NEW independent reviewer before delivery."
+            }
+          ]
+        }
+      ],
+      "old_history": [
+        {
+          "candidate": "background_17/Solid153/local_neck_cumulative_volume_confusion",
+          "design_sha256": "61863eb26d0fceb8d9c9b3b14d5c1e26983c1677c201f78541c7034a5779b98d",
+          "frozen_mechanism": {
+            "mechanism": "Pair the narrow lower walls of A with the narrow middle waist of E using four partial original side-contour styles. This targets the misconception that the narrowest local neck creates the highest half-volume level, favoring E. No waterline, new contour, dimension or fill is added.",
+            "marker_roles": [
+              {
+                "action_index": 1,
+                "role": "A left lower wall: narrow lower portion whose cumulative capacity controls a high half-volume level."
+              },
+              {
+                "action_index": 2,
+                "role": "E left middle waist: paired local narrow feature invites local-neck reasoning rather than cumulative volume."
+              },
+              {
+                "action_index": 3,
+                "role": "A right lower wall: narrow lower portion whose cumulative capacity controls a high half-volume level."
+              },
+              {
+                "action_index": 4,
+                "role": "E right middle waist: paired local narrow feature invites local-neck reasoning rather than cumulative volume."
+              }
+            ]
+          },
+          "diagnostic_summary": {
+            "question_id": "Solid153",
+            "candidate": "background_17/Solid153/local_neck_cumulative_volume_confusion",
+            "predeclared_wrong_answer": "E",
+            "formal_correct_answer": "A",
+            "mechanism": "Pair the narrow lower walls of A with the narrow middle waist of E using four partial original side-contour styles. This targets the misconception that the narrowest local neck creates the highest half-volume level, favoring E. No waterline, new contour, dimension or fill is added.",
+            "design_sha256": "61863eb26d0fceb8d9c9b3b14d5c1e26983c1677c201f78541c7034a5779b98d",
+            "tests": [
+              {
+                "path": "background_17/Solid153/local_neck_cumulative_volume_confusion/tests/quicktest3_20261101T162334_a3fad4602b24/summary.json",
+                "two_completed": true,
+                "expected_wrong_answer": "E",
+                "statuses": [
+                  "completed",
+                  "completed"
+                ],
+                "answers_tail_for_review": [
+                  " cross-sectional area (the narrowest part).\n4.  **Comparison:**\n    *   **Vase A** has a very narrow stem at the bottom where the water would collect.\n    *   **Vase D** is a truncated cone which is narrow at the top and wide at the bottom; since the water is at the bottom, it occupies a large area, resulting in a lower level.\n    *   The others have wider bases or middle sections.\n5.  **Conclusion:** Vase A is the narrowest at the bottom. Since the same volume of water must fit into this narrow section, it will rise to a much higher level than in the wider vases.\n\nThe correct choice is **A**.",
+                  "-sectional area at the bottom means the water will spread out wide and low.\n5.  **Vase (E):** This vase has a wide opening at the top and tapers inward towards a narrow middle \"waist,\" then widens again at the base. The base is significantly wider than the thin stem of Vase (A). Consequently, the water will spread out more at the bottom compared to Vase (A), leading to a lower water level.\n\n**Conclusion:**\nVase (A) has the narrowest cross-sectional area at the bottom. Therefore, the 0.5 litres of water will reach the greatest height in this vase.\n\n**Final Answer:**\nThe correct choice is **A**."
+                ],
+                "note": "Answer tails are for manual inspection; no automatic final-answer success grading."
+              }
+            ],
+            "original_controls": [],
+            "independent_review": null,
+            "approval_status": "No user Pass/Collect recorded"
+          }
+        }
+      ],
+      "provisional_direction_not_preset_proof_or_review": "旧local_neck_cumulative_volume_confusion以A下窄壁→E腰部targetE，A/A失败。新方向转向实际上下扩张轮廓与累计体积角色，探索用某高度局部截面代0.5L累计量，不能重染E窄腰；不画假水位或刻度。独立检查唯一A及等高等容量约束，来源不足或只能形状醒目则跳过。",
+      "related_failure_history": null,
+      "future_worker_full_source_and_history_review_required": true
+    },
+    {
+      "question_id": "Solid158",
+      "formal_record_at_preparation": {
+        "source_dataset": "MathVision",
+        "source_key": "test:1319",
+        "question": "A 3-pyramid is a stack of the 3 layers of balls shown. A 4-pyramid, a 5-pyramid, and so on are defined in the same way. All the outside balls of an 8-pyramid are removed. What figure do the remaining balls form?\nChoices:\nA:3-pyramid\nB:4-pyramid\nC:5-pyramid\nD:6-pyramid\nE:7-pyramid",
+        "answer": "B",
+        "answer_type": "choice",
+        "id": "Solid158",
+        "choices": {
+          "A": "3-pyramid",
+          "B": "4-pyramid",
+          "C": "5-pyramid",
+          "D": "6-pyramid",
+          "E": "7-pyramid"
+        },
+        "image": "image/Solid158.png",
+        "original_image": "originals/Solid158.jpg",
+        "scene": "dataset_generator/scenes/Solid158.json",
+        "script": "dataset_generator/solid_plot158.py",
+        "runtime_dependencies": [
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid158/execution.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid158/protocol_review.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid158/scene.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid158/source.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid158/source_redraw.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+        ],
+        "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+        "source_category": "solid geometry"
+      },
+      "current_qualification": {
+        "eligible": true,
+        "reasons": [],
+        "branch": "SolidGeometry",
+        "source_dataset": "MathVision",
+        "approval_matches_current": true,
+        "approval_content_sha256": "8991c89e83c438fc55cc4e043856cb78766d18df8f67bd2da2098d1a0f457bff"
+      },
+      "initial_records_read": [
+        {
+          "checkpoint": "background_18/checkpoint.json",
+          "records": [
+            {
+              "question_id": "Solid158",
+              "path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_18\\Solid158\\assessment.json"
+            }
+          ]
+        }
+      ],
+      "old_history": [],
+      "provisional_direction_not_preset_proof_or_review": "用给出的3层球模板中真实侧边行与基底行的角色，探索去全部外层仅被当上下各减1，或只缩侧行漏掉基底。先独立枚举8层去壳剩4-pyramid=B；不画8层、添球或改点数，无真实角色接收则跳过。可与194共享纯数学代码，但自己历史、插件、PNG、preset和两次调用独立，不能复制改标。",
+      "related_failure_history": null,
+      "future_worker_full_source_and_history_review_required": true
+    },
+    {
+      "question_id": "Solid180",
+      "formal_record_at_preparation": {
+        "source_dataset": "MathVision",
+        "source_key": "test:1657",
+        "question": "The diagram shows a net of an unfolded rectangular box. What is the volume of the box (in $\\mathrm{cm}^{3}$ )?",
+        "answer": "80",
+        "answer_type": "number",
+        "id": "Solid180",
+        "image": "image/Solid180.png",
+        "original_image": "originals/Solid180.jpg",
+        "scene": "dataset_generator/scenes/Solid180.json",
+        "script": "dataset_generator/solid_plot180.py",
+        "runtime_dependencies": [
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid180/execution.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid180/protocol_review.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid180/scene.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid180/source.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid180/source_redraw.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+        ],
+        "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+        "source_category": "solid geometry"
+      },
+      "current_qualification": {
+        "eligible": true,
+        "reasons": [],
+        "branch": "SolidGeometry",
+        "source_dataset": "MathVision",
+        "approval_matches_current": true,
+        "approval_content_sha256": "dd90a00ddc041fcd5e9173e31f7769ca930626205ef8ffd382edc647ac3dcc78"
+      },
+      "initial_records_read": [],
+      "old_history": [
+        {
+          "candidate": "solid_explore/Solid180/bounding_dimension_capture",
+          "design_sha256": "70d4dbb014eb21991c12594738b1f3d484152aeab78698d48b4297406a3dadc6",
+          "frozen_mechanism": {
+            "mechanism": "突出与26、10、7显示范围平行的三条原线，诱导直接将三个总范围相乘1820，忽略展开图尺寸分解。"
+          },
+          "diagnostic_summary": {
+            "question_id": "Solid180",
+            "candidate": "solid_explore/Solid180/bounding_dimension_capture",
+            "predeclared_wrong_answer": "1820",
+            "formal_correct_answer": "80",
+            "mechanism": "突出与26、10、7显示范围平行的三条原线，诱导直接将三个总范围相乘1820，忽略展开图尺寸分解。",
+            "design_sha256": "70d4dbb014eb21991c12594738b1f3d484152aeab78698d48b4297406a3dadc6",
+            "tests": [
+              {
+                "path": "solid_explore/Solid180/bounding_dimension_capture/tests/quicktest3_20261101T111013_41ed21ad5dd6/summary.json",
+                "two_completed": true,
+                "expected_wrong_answer": "1820",
+                "statuses": [
+                  "completed",
+                  "completed"
+                ],
+                "answers_tail_for_review": [
+                  "Substitute $h = 3$ and $w = 7$ into the horizontal equation:\n    $$l + 3 + 3 + 7 = 26$$\n    $$l + 13 = 26$$\n    $$l = 13\\text{ cm}$$\n\n6.  **Calculate the volume:**\n    The dimensions of the box are:\n    *   Length ($l$) = $13\\text{ cm}$\n    *   Width ($w$) = $7\\text{ cm}$\n    *   Height ($h$) = $3\\text{ cm}$\n\n    $$\\text{Volume} = l \\times w \\times h$$\n    $$\\text{Volume} = 13\\text{ cm} \\times 7\\text{ cm} \\times 3\\text{ cm}$$\n    $$\\text{Volume} = 91\\text{ cm}^{2} \\times 3\\text{ cm}$$\n    $$\\text{Volume} = 273\\text{ cm}^{3}$$\n\n**Final Answer:**\nThe volume of the box is **$273\\text{ cm}^{3}$**.",
+                  "    *   For the set $(10, 3, 7)$: Ratio $10:3$ is very high (3.33), whereas visual estimation suggests $L$ is about twice $W$ (approx 2:1). $(9, 4, 6)$ gives a ratio of $2.25$, which is closer.\n    *   Therefore, the most likely integer dimensions are Length $= 9\\text{ cm}$, Width $= 4\\text{ cm}$, and Height $= 6\\text{ cm}$.\n\n3.  **Calculate the volume:**\n    The volume $V$ of a rectangular box is given by the product of its length, width, and height.\n    $$V = L \\times W \\times h$$\n    $$V = 9 \\times 4 \\times 6$$\n    $$V = 216$$\n\n**Answer:**\nThe volume of the box is **216** $\\mathrm{cm}^{3}$."
+                ],
+                "note": "Answer tails are for manual inspection; no automatic final-answer success grading."
+              }
+            ],
+            "original_controls": [],
+            "independent_review": null,
+            "approval_status": "No user Pass/Collect recorded"
+          }
+        }
+      ],
+      "provisional_direction_not_preset_proof_or_review": "旧bounding_dimension_capture以26/10/7总跨度乘1820，raw273/216未中；相关152/r40_composite_span_to_flap_side首次TLS EOF禁止重试同图或改号复制。新方向仅限真净面板相对边/共享折边的局部归属，探索相邻面板把同长度重复计入，不重染总跨度或复制152合成跨度→襟片。独立从原标注解80，无实质新误配则跳过。",
+      "related_failure_history": {
+        "failed_related_Solid152_r40_summary": "background_40/Solid152/r40_composite_span_to_flap_side/tests/quicktest3_20261101T190037_e605e3c0711a/summary.json",
+        "failed_PNG_sha256": "c11e0fb78c7a9390fde24e4c5ecf972c7e107f469bd724175259e886c0c60e19",
+        "first_TLS_EOF_no_retry": true,
+        "never_copy_rename_or_retest_this_image": true
+      },
+      "future_worker_full_source_and_history_review_required": true
+    },
+    {
+      "question_id": "Solid182",
+      "formal_record_at_preparation": {
+        "source_dataset": "MathVision",
+        "source_key": "test:1692",
+        "question": "A ball is made of white hexagons and black pentagons, as seen in the picture. There are 12 pentagons in total. How many hexagons are there?",
+        "answer": "20",
+        "answer_type": "number",
+        "id": "Solid182",
+        "image": "image/Solid182.png",
+        "original_image": "originals/Solid182.jpg",
+        "scene": "dataset_generator/scenes/Solid182.json",
+        "script": "dataset_generator/solid_plot182.py",
+        "runtime_dependencies": [
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid182/execution.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid182/protocol_review.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid182/renderer_semantic.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid182/scene.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid182/source.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid182/source_redraw.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+        ],
+        "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+        "source_category": "solid geometry"
+      },
+      "current_qualification": {
+        "eligible": true,
+        "reasons": [],
+        "branch": "SolidGeometry",
+        "source_dataset": "MathVision",
+        "approval_matches_current": true,
+        "approval_content_sha256": "962f4693a611750c0858b3e2ba477a434ac0ccfe35aa50105b72fb8cfc0ba9e7"
+      },
+      "initial_records_read": [
+        {
+          "checkpoint": "background_18/checkpoint.json",
+          "records": [
+            {
+              "question_id": "Solid182",
+              "path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_18\\Solid182\\assessment.json"
+            }
+          ]
+        }
+      ],
+      "old_history": [],
+      "provisional_direction_not_preset_proof_or_review": "从真实黑五边形边与白六边形多个五边邻接位置建立面—接触记录对应，探索60接触记录被当六边形数，漏掉每六边被3五边共有。黑白填充、拼球接缝冻结，不添面/邻接；先从实际问法/图证20，不能凭球模型记忆或孤立脸强调，若信息不足则如实跳过。",
+      "related_failure_history": null,
+      "future_worker_full_source_and_history_review_required": true
+    },
+    {
+      "question_id": "Solid183",
+      "formal_record_at_preparation": {
+        "source_dataset": "MathVision",
+        "source_key": "test:1693",
+        "question": "The diagram shows a $3 \\times 4 \\times 5$ cuboid consisting of 60 identical small cubes. Consider the diagonal from $P$ to $Q$. This diagonal does not intersect the edges of any small cube inside the cuboid. How many of the small cubes does this diagonal pass through?",
+        "answer": "10",
+        "answer_type": "number",
+        "id": "Solid183",
+        "image": "image/Solid183.png",
+        "original_image": "originals/Solid183.jpg",
+        "scene": "dataset_generator/scenes/Solid183.json",
+        "script": "dataset_generator/solid_plot183.py",
+        "runtime_dependencies": [
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid183/execution.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid183/protocol_review.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid183/scene.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid183/source.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid183/source_redraw.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+        ],
+        "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+        "source_category": "solid geometry"
+      },
+      "current_qualification": {
+        "eligible": true,
+        "reasons": [],
+        "branch": "SolidGeometry",
+        "source_dataset": "MathVision",
+        "approval_matches_current": true,
+        "approval_content_sha256": "2ee5f639d02480bf27db73a84d9d9784a87a2a7449a7ce21d0db976c7bf11b0b"
+      },
+      "initial_records_read": [],
+      "old_history": [
+        {
+          "candidate": "solid_explore/Solid183/projected_diagonal_count",
+          "design_sha256": "f668c09375a0de54442cb175c70ddf6039434e0fc32993ca16502699d194ea02",
+          "frozen_mechanism": {
+            "mechanism": "仅画出题干所指P-Q空间对角线。准确投影在平面网格中穿过11个可见区间，诱导按2D区间计数11；真实3D通行数为3+4+5-2=10，端点、网格及尺寸不变。"
+          },
+          "diagnostic_summary": {
+            "question_id": "Solid183",
+            "candidate": "solid_explore/Solid183/projected_diagonal_count",
+            "predeclared_wrong_answer": "11",
+            "formal_correct_answer": "10",
+            "mechanism": "仅画出题干所指P-Q空间对角线。准确投影在平面网格中穿过11个可见区间，诱导按2D区间计数11；真实3D通行数为3+4+5-2=10，端点、网格及尺寸不变。",
+            "design_sha256": "f668c09375a0de54442cb175c70ddf6039434e0fc32993ca16502699d194ea02",
+            "tests": [
+              {
+                "path": "solid_explore/Solid183/projected_diagonal_count/tests/quicktest3_20261101T111546_089abac4c696/summary.json",
+                "two_completed": true,
+                "expected_wrong_answer": "11",
+                "statuses": [
+                  "completed",
+                  "completed"
+                ],
+                "answers_tail_for_review": [
+                  " along the $x$-axis (width 3): The line crosses 3 grid planes. Enters 3 cubes.\n- Moving along the $y$-axis (height 4): The line crosses 4 grid planes. Enters 4 cubes.\n- Moving along the $z$-axis (depth 5): The line crosses 5 grid planes. Enters 5 cubes.\n- Because the GCD is 1, the line never enters a \"new\" cube by simultaneously crossing two boundaries (which would happen if, for example, it hit a corner).\n- Total entries = $3 + 4 + 5 = 12$.\n- We subtract the start and end points to count the number of cubes traversed: $12 - 2 = 10$.\n\n**Answer:**\nThe diagonal passes through **10** small cubes.",
+                  " $z$-coordinates. Depth is 5, so $5-1 = 4$ crossings.\n- The problem states the line does not intersect any edges. This means it never crosses two planes at the exact same time (which would happen at an edge) or all three (a vertex). Therefore, each crossing corresponds to a distinct cube transition.\n- Starting at $P$, we are in the first cube.\n- Each of the crossings moves us from one cube to a new one.\n- Total cubes = (Initial cube) + (Crossings along x) + (Crossings along y) + (Crossings along z)\n- Total cubes = $1 + 2 + 3 + 4 = 11$.\n\nFinal Answer:\nThe diagonal passes through 11 small cubes."
+                ],
+                "note": "Answer tails are for manual inspection; no automatic final-answer success grading."
+              }
+            ],
+            "original_controls": [],
+            "independent_review": null,
+            "approval_status": "No user Pass/Collect recorded"
+          }
+        }
+      ],
+      "provisional_direction_not_preset_proof_or_review": "旧投影对角线target11的10/11未中；相关155旧失败及r40边界走12在46首次双测10/11已结束，所有旧失败图禁止复用。新方向为可见真实内部坐标分界记录→对角跨面次数与含起始块的区别，探索漏起始块；不是2D区间11或三折边12。不补隐藏网格/内部交点/对角线，独立得10，每标记必须对应真分界，否则跳过。",
+      "related_failure_history": {
+        "related_Solid155_old_failed_path": "solid_explore/Solid155/projected_diagonal_count",
+        "r40_first_pair_completed_in46": {
+          "variant": "r40_boundary_walk_unit_substitution",
+          "PNG_sha256": "fc92758a5c721cc32d3c046d72b7fcbdada2e12b6a626a53b5296a066cb5e09f",
+          "preset": "12",
+          "finals": [
+            "10",
+            "11"
+          ],
+          "summary_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_46\\Solid155\\r40_boundary_walk_unit_substitution\\tests\\quicktest3_20261101T192040_b3c5af0918b1\\summary.json"
+        },
+        "old_failed_images_not_reusable": true
+      },
+      "future_worker_full_source_and_history_review_required": true
+    },
+    {
+      "question_id": "Solid185",
+      "formal_record_at_preparation": {
+        "source_dataset": "MathVision",
+        "source_key": "test:1717",
+        "question": "The diagram on the right shows a cube of side $18 \\mathrm{~cm}$. A path across the cube's surface runs from $\\mathrm{X}$ to $\\mathrm{Y}$ along the route shown. What is the length of this path?\nChoices:\nA:$54 \\mathrm{~cm}$\nB:$72 \\mathrm{~cm}$\nC:$80 \\mathrm{~cm}$\nD:$88 \\mathrm{~cm}$\nE:$90 \\mathrm{~cm}$",
+        "answer": "E",
+        "answer_type": "choice",
+        "id": "Solid185",
+        "choices": {
+          "A": "$54 \\mathrm{~cm}$",
+          "B": "$72 \\mathrm{~cm}$",
+          "C": "$80 \\mathrm{~cm}$",
+          "D": "$88 \\mathrm{~cm}$",
+          "E": "$90 \\mathrm{~cm}$"
+        },
+        "image": "image/Solid185.png",
+        "original_image": "originals/Solid185.jpg",
+        "scene": "dataset_generator/scenes/Solid185.json",
+        "script": "dataset_generator/solid_plot185.py",
+        "runtime_dependencies": [
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid185/execution.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid185/protocol_review.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid185/scene.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid185/source.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid185/source_redraw.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+        ],
+        "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+        "source_category": "solid geometry"
+      },
+      "current_qualification": {
+        "eligible": true,
+        "reasons": [],
+        "branch": "SolidGeometry",
+        "source_dataset": "MathVision",
+        "approval_matches_current": true,
+        "approval_content_sha256": "4380aa30153b14c2f8ea3e3d13d6c5e32cee6a2cd2f75493fed5e8c6a717de3d"
+      },
+      "initial_records_read": [
+        {
+          "checkpoint": "background_04/checkpoint.json",
+          "records": [
+            {
+              "decision": "prescreen_reject_no_clean_legal_mechanism",
+              "math": "Same six-arrow route decomposition:3s vertical+s from complementary front horizontal pieces+s depth=5s=90cm for s18, unique E.",
+              "considered_mechanism": "Encourage four-edge counting (72cm) by de-emphasizing horizontal pieces.",
+              "reason": "This needs treating visible arrowed route pieces as ignorable, creating route-membership ambiguity. It also duplicates the same weak mechanism considered on Solid169, so no marks or API calls are justified."
+            }
+          ]
+        }
+      ],
+      "old_history": [],
+      "provisional_direction_not_preset_proof_or_review": "将原18cm立方棱与表面路径真单位分段作跨面对应，探索两面折线路程被当单直段/chord或多个真路段合并为1单位。黑路径目标、X/Y、显隐与面归属不变，不加展开图/捷径；独立逐段证90(E)，无明确错里程或仅整路高亮则跳过。",
+      "related_failure_history": null,
+      "future_worker_full_source_and_history_review_required": true
+    },
+    {
+      "question_id": "Solid194",
+      "formal_record_at_preparation": {
+        "source_dataset": "MathVision",
+        "source_key": "test:1849",
+        "question": "An $n$-pyramid is defined to be a stack of $n$ layers of balls, with each layer forming a triangular array. The layers of a 3-pyramid are shown in the diagram.\nAn 8-pyramid is now formed where all the balls on the outside of the 8 -pyramid are black (including the base layer) and the balls on the inside are all white. How many layers are there in the white pyramid?",
+        "answer": "4",
+        "answer_type": "number",
+        "id": "Solid194",
+        "image": "image/Solid194.png",
+        "original_image": "originals/Solid194.jpg",
+        "scene": "dataset_generator/scenes/Solid194.json",
+        "script": "dataset_generator/solid_plot194.py",
+        "runtime_dependencies": [
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid194/execution.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid194/protocol_review.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid194/scene.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid194/source.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid194/source_redraw.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+        ],
+        "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+        "source_category": "solid geometry"
+      },
+      "current_qualification": {
+        "eligible": true,
+        "reasons": [],
+        "branch": "SolidGeometry",
+        "source_dataset": "MathVision",
+        "approval_matches_current": true,
+        "approval_content_sha256": "51f5bceec2afee31e2c6727e73b8f66bfe572376f4fffa1eec5f622f098b318a"
+      },
+      "initial_records_read": [
+        {
+          "checkpoint": "background_22/checkpoint.json",
+          "records": [
+            {
+              "status": "prescreen_no_clean_hypothesis",
+              "reason": "The illustrated 3-pyramid has no interior balls. Inferring 6 by removing only top/base is a numerical omission; no actual displayed interior feature supports a clean false shell correspondence. Extra stack/shell lines could misrepresent the separated layers."
+            },
+            "Solid194\\primary_math.json",
+            "Solid194\\source_primary_audit.json"
+          ]
+        }
+      ],
+      "old_history": [],
+      "provisional_direction_not_preset_proof_or_review": "把包括底层在内的全部黑外球与模板真实侧边/顶边行角色比较，探索仅剥侧壳漏黑底层或把行宽减少当层数减少。原球/点数和黑白语义冻结，先独立枚举白4层；158可共享算法但不可复制其PNG/预设/双测换号，无可读新接收角色则跳过。",
+      "related_failure_history": null,
+      "future_worker_full_source_and_history_review_required": true
+    },
+    {
+      "question_id": "Solid202",
+      "formal_record_at_preparation": {
+        "source_dataset": "MathVision",
+        "source_key": "test:1917",
+        "question": "The picture shows a cube with four marked angles, $\\angle W X Y$, $\\angle X Y Z, \\angle Y Z W$ and $\\angle Z W X$. What is the sum of these angles?\nChoices:\nA:$315^{\\circ}$\nB:$330^{\\circ}$\nC:$345^{\\circ}$\nD:$360^{\\circ}$\nE:$375^{\\circ}$",
+        "answer": "B",
+        "answer_type": "choice",
+        "id": "Solid202",
+        "choices": {
+          "A": "$315^{\\circ}$",
+          "B": "$330^{\\circ}$",
+          "C": "$345^{\\circ}$",
+          "D": "$360^{\\circ}$",
+          "E": "$375^{\\circ}$"
+        },
+        "image": "image/Solid202.png",
+        "original_image": "originals/Solid202.jpg",
+        "scene": "dataset_generator/scenes/Solid202.json",
+        "script": "dataset_generator/solid_plot202.py",
+        "runtime_dependencies": [
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid202/execution.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid202/protocol_review.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid202/scene.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid202/source.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid202/source_redraw.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+          "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+        ],
+        "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+        "source_category": "solid geometry"
+      },
+      "current_qualification": {
+        "eligible": true,
+        "reasons": [],
+        "branch": "SolidGeometry",
+        "source_dataset": "MathVision",
+        "approval_matches_current": true,
+        "approval_content_sha256": "e38df512fd919111afb7f7f681fa24ec39827a30ffa4ce84fd93b4dd34be9c78"
+      },
+      "initial_records_read": [],
+      "old_history": [
+        {
+          "candidate": "solid_explore/Solid202/red_quadrilateral",
+          "design_sha256": "f85ebfddf9eddfcb7997cfbd7cb381d20912ffcaaf559ea8fa40410189809b18",
+          "frozen_mechanism": {
+            "mechanism": "将WXYZ的投影闭环以同色突出，诱导平面内角和360。"
+          },
+          "diagnostic_summary": {
+            "question_id": "Solid202",
+            "candidate": "solid_explore/Solid202/red_quadrilateral",
+            "predeclared_wrong_answer": "D",
+            "formal_correct_answer": "B",
+            "mechanism": "将WXYZ的投影闭环以同色突出，诱导平面内角和360。",
+            "design_sha256": "f85ebfddf9eddfcb7997cfbd7cb381d20912ffcaaf559ea8fa40410189809b18",
+            "tests": [],
+            "original_controls": [],
+            "independent_review": null,
+            "approval_status": "No user Pass/Collect recorded"
+          }
+        }
+      ],
+      "provisional_direction_not_preset_proof_or_review": "旧red_quadrilateral整WXYZ投影闭环targetD360不得换色重试。新方向只从同一面真直角边对到空间斜角两条面对角线作局部角角色迁移，探索将空间60当平面90，而非全环共面暗示。原四角弧/点保留，不增等角/直角符号，先独立3D证330(B)；若仍只是旧闭环或需假条件就跳过。",
+      "related_failure_history": null,
+      "future_worker_full_source_and_history_review_required": true
+    }
+  ],
+  "preparation_only_no_API_new_design_or_native_math_review": true,
+  "parent_dispatch_required": true
+}

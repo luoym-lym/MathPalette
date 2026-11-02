@@ -1,0 +1,33 @@
+{
+  "stage": "material_refinement",
+  "question_id": "Plane252",
+  "variant_id": "r26_optimal_six_joint_correspondence",
+  "saved_before_solver_calls": true,
+  "created_at": "2026-11-01T16:58:39.146147+00:00",
+  "all_prior_designs_images_presets_raw_finals_and_primary_objections_read": true,
+  "prior_evidence_audit_sha256": "11b6737a875ec0e61b0211f71885f15f8d892bcf959b1624310c879ccaef4fd7",
+  "old_variants": [
+    {
+      "variant_id": "incompatible_local_overlap_sum",
+      "preset": "6",
+      "manual_final_answers": [
+        "2",
+        "6"
+      ],
+      "old_mechanism": "Red binds the actual four-unit U features and blue binds the actual two-unit horizontal runs. Intended mistake: sum the four red units and two blue units to get six coinciding units, overlooking that these local correspondences require incompatible rigid placements. Each color is a proposed local match, not an asserted positional constraint."
+    },
+    {
+      "variant_id": "single_U_contiguous_overlap",
+      "preset": "4",
+      "manual_final_answers": [
+        "3",
+        "6"
+      ],
+      "old_mechanism": "Show only a genuine four-unit contiguous U-to-U correspondence, leaving both other arms black. Targets reporting the longest immediately visible single connected coincidence as the maximum total common length, overlooking an optimal placement with5 total units. This is a different hypothesis from adding incompatible red and blue correspondences; no second blue pairing is present."
+    }
+  ],
+  "substantive_geometric_or_grouping_difference": "Old preset6 summed incompatible four-edge U and two-edge run alignments; old preset4 used only a four-edge U. New design styles ONLY existing joint contours, identifies a different actually realizable optimal five-edge chain, and targets vertex-versus-segment counting. No old colored segment is reused as a cosmetic substitute.",
+  "new_wrong_answer_hypothesis": "6",
+  "new_mechanism_frozen_before_calls": "Mark the six original joints along each wire that coincide in a genuine optimal five-unit overlap after a quarter turn and translation. Predict 6 by counting the six matched joint positions as six common length units, instead of the five intervals between them.",
+  "not_palette_width_crop_rename_or_posthoc_relabel": true
+}

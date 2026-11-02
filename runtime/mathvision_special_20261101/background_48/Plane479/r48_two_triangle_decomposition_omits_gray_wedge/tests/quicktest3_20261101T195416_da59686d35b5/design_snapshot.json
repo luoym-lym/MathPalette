@@ -1,0 +1,447 @@
+{
+  "question_id": "Plane479",
+  "variant_id": "r48_two_triangle_decomposition_omits_gray_wedge",
+  "created_at_utc": "2026-11-01T19:46:12.898769+00:00",
+  "expected_wrong_answer": "B",
+  "geometric_error_rule": "Match the two marked right triangles by horizontal-base/vertical-leg/hypotenuse roles and sum only ABC+KIJ=2+1.5=3.5, omitting the still-gray third triangle ACK of area.5. Divide by12 to get7/24 (B).",
+  "material_difference": "Old question was screened without any saved candidate or call. Parent union-vs-sum conjecture is disproved here (the three squares have disjoint interiors). This new design adds one true diagonal AC and styles two actual right-triangle decompositions, targeting a specific omitted middle gray wedge. It does not alter the named shaded pentagon.",
+  "primary_math": {
+    "coordinates": {
+      "E": [
+        0,
+        0
+      ],
+      "F": [
+        0,
+        -2
+      ],
+      "G": [
+        2,
+        -2
+      ],
+      "H": [
+        2,
+        0
+      ],
+      "I": [
+        4,
+        0
+      ],
+      "J": [
+        4,
+        -2
+      ],
+      "D": [
+        1,
+        0
+      ],
+      "C": [
+        3,
+        0
+      ],
+      "A": [
+        1,
+        2
+      ],
+      "B": [
+        3,
+        2
+      ]
+    },
+    "K_unmarked_existing_AJ_intersection_with_HI": [
+      2.5,
+      0.0
+    ],
+    "square_areas": [
+      4,
+      4,
+      4
+    ],
+    "shaded_pentagon_area": 4.0,
+    "ABC": 2,
+    "KIJ": 1.5,
+    "ACK": 0.5,
+    "unique_answer": "C",
+    "ratio": "1/3",
+    "derivation": "At y=0, AJ meets K=(5/2,0). Shaded pentagon decomposes into ABC(area2), ACK(area1/2), KIJ(area3/2). Total4 over three square areas12 gives1/3. Omitting ACK gives7/2 over12=7/24. Squares have disjoint interiors, so union-vs-sum alone would not change the denominator."
+  },
+  "marker_roles": [
+    {
+      "action_index": 0,
+      "role": "Source triangle ABC: true horizontal base AB of length 2, paired to receiver KI of length1.5.",
+      "target": "upper",
+      "interval": {
+        "path_id": "p0",
+        "path_sha256": "17f3c57fe26be674a78a01422681315312be557b652cac8ac70c920b741fa7c4",
+        "start": 0.0,
+        "end": 0.25,
+        "wrap": false
+      },
+      "full_path_controls": [
+        [
+          [
+            1.0000000000000004,
+            2.0000000000000004
+          ],
+          [
+            3.000000000000001,
+            2.0000000000000004
+          ]
+        ],
+        [
+          [
+            3.000000000000001,
+            2.0000000000000004
+          ],
+          [
+            3.000000000000001,
+            0.0
+          ]
+        ],
+        [
+          [
+            3.000000000000001,
+            0.0
+          ],
+          [
+            1.0000000000000004,
+            0.0
+          ]
+        ],
+        [
+          [
+            1.0000000000000004,
+            0.0
+          ],
+          [
+            1.0000000000000004,
+            2.0000000000000004
+          ]
+        ]
+      ]
+    },
+    {
+      "action_index": 1,
+      "role": "Source triangle ABC: true perpendicular vertical leg BC of length2, paired to IJ of length2.",
+      "target": "upper",
+      "interval": {
+        "path_id": "p0",
+        "path_sha256": "17f3c57fe26be674a78a01422681315312be557b652cac8ac70c920b741fa7c4",
+        "start": 0.25,
+        "end": 0.5,
+        "wrap": false
+      },
+      "full_path_controls": [
+        [
+          [
+            1.0000000000000004,
+            2.0000000000000004
+          ],
+          [
+            3.000000000000001,
+            2.0000000000000004
+          ]
+        ],
+        [
+          [
+            3.000000000000001,
+            2.0000000000000004
+          ],
+          [
+            3.000000000000001,
+            0.0
+          ]
+        ],
+        [
+          [
+            3.000000000000001,
+            0.0
+          ],
+          [
+            1.0000000000000004,
+            0.0
+          ]
+        ],
+        [
+          [
+            1.0000000000000004,
+            0.0
+          ],
+          [
+            1.0000000000000004,
+            2.0000000000000004
+          ]
+        ]
+      ]
+    },
+    {
+      "action_index": 2,
+      "role": "True auxiliary diagonal AC closes triangle ABC; it also exposes the remaining gray triangle ACK without recoloring or removing it.",
+      "exact_endpoint_ids": [
+        "A",
+        "C"
+      ],
+      "endpoints": [
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "action_index": 3,
+      "role": "Receiver triangle KIJ: true vertical leg JI of length2, counterpart to BC.",
+      "target": "shaded",
+      "interval": {
+        "path_id": "p0",
+        "path_sha256": "24e3874b3cf106a7a625f82fd9aff0d29153485f272ec519b19e32b08ff6ff90",
+        "start": 0.2,
+        "end": 0.4,
+        "wrap": false
+      },
+      "full_path_controls": [
+        [
+          [
+            1.0000000000000004,
+            2.0000000000000004
+          ],
+          [
+            4.000000000000001,
+            -2.0000000000000004
+          ]
+        ],
+        [
+          [
+            4.000000000000001,
+            -2.0000000000000004
+          ],
+          [
+            4.000000000000001,
+            0.0
+          ]
+        ],
+        [
+          [
+            4.000000000000001,
+            0.0
+          ],
+          [
+            3.000000000000001,
+            0.0
+          ]
+        ],
+        [
+          [
+            3.000000000000001,
+            0.0
+          ],
+          [
+            3.000000000000001,
+            2.0000000000000004
+          ]
+        ],
+        [
+          [
+            3.000000000000001,
+            2.0000000000000004
+          ],
+          [
+            1.0000000000000004,
+            2.0000000000000004
+          ]
+        ]
+      ]
+    },
+    {
+      "action_index": 4,
+      "role": "Receiver horizontal base IC, length1. It is a visible subset of KI; remaining CK is left black so the exact 1.5 base stays traceable.",
+      "target": "shaded",
+      "interval": {
+        "path_id": "p0",
+        "path_sha256": "24e3874b3cf106a7a625f82fd9aff0d29153485f272ec519b19e32b08ff6ff90",
+        "start": 0.4,
+        "end": 0.6,
+        "wrap": false
+      },
+      "full_path_controls": [
+        [
+          [
+            1.0000000000000004,
+            2.0000000000000004
+          ],
+          [
+            4.000000000000001,
+            -2.0000000000000004
+          ]
+        ],
+        [
+          [
+            4.000000000000001,
+            -2.0000000000000004
+          ],
+          [
+            4.000000000000001,
+            0.0
+          ]
+        ],
+        [
+          [
+            4.000000000000001,
+            0.0
+          ],
+          [
+            3.000000000000001,
+            0.0
+          ]
+        ],
+        [
+          [
+            3.000000000000001,
+            0.0
+          ],
+          [
+            3.000000000000001,
+            2.0000000000000004
+          ]
+        ],
+        [
+          [
+            3.000000000000001,
+            2.0000000000000004
+          ],
+          [
+            1.0000000000000004,
+            2.0000000000000004
+          ]
+        ]
+      ]
+    },
+    {
+      "action_index": 5,
+      "role": "Receiver triangle KIJ: exact lower half KJ of AJ, which meets the original horizontal edge at K=(2.5,0). No point is added at K.",
+      "target": "shaded",
+      "interval": {
+        "path_id": "p0",
+        "path_sha256": "24e3874b3cf106a7a625f82fd9aff0d29153485f272ec519b19e32b08ff6ff90",
+        "start": 0.1,
+        "end": 0.2,
+        "wrap": false
+      },
+      "full_path_controls": [
+        [
+          [
+            1.0000000000000004,
+            2.0000000000000004
+          ],
+          [
+            4.000000000000001,
+            -2.0000000000000004
+          ]
+        ],
+        [
+          [
+            4.000000000000001,
+            -2.0000000000000004
+          ],
+          [
+            4.000000000000001,
+            0.0
+          ]
+        ],
+        [
+          [
+            4.000000000000001,
+            0.0
+          ],
+          [
+            3.000000000000001,
+            0.0
+          ]
+        ],
+        [
+          [
+            3.000000000000001,
+            0.0
+          ],
+          [
+            3.000000000000001,
+            2.0000000000000004
+          ]
+        ],
+        [
+          [
+            3.000000000000001,
+            2.0000000000000004
+          ],
+          [
+            1.0000000000000004,
+            2.0000000000000004
+          ]
+        ]
+      ]
+    },
+    {
+      "action_index": 6,
+      "role": "Receiver base completion CK: original CD first quarter (C=3 to K=2.5), joining IC to give full KI=1.5.",
+      "target": "upper",
+      "interval": {
+        "path_id": "p0",
+        "path_sha256": "17f3c57fe26be674a78a01422681315312be557b652cac8ac70c920b741fa7c4",
+        "start": 0.5,
+        "end": 0.5625,
+        "wrap": false
+      },
+      "full_path_controls": [
+        [
+          [
+            1.0000000000000004,
+            2.0000000000000004
+          ],
+          [
+            3.000000000000001,
+            2.0000000000000004
+          ]
+        ],
+        [
+          [
+            3.000000000000001,
+            2.0000000000000004
+          ],
+          [
+            3.000000000000001,
+            0.0
+          ]
+        ],
+        [
+          [
+            3.000000000000001,
+            0.0
+          ],
+          [
+            1.0000000000000004,
+            0.0
+          ]
+        ],
+        [
+          [
+            1.0000000000000004,
+            0.0
+          ],
+          [
+            1.0000000000000004,
+            2.0000000000000004
+          ]
+        ]
+      ]
+    }
+  ],
+  "human_semantics": "Numerical geometry/counting target is identified by the original wording. Original fills, original points and labels remain. Existing-edge colors are local matching/counting cues, not equality/angle relation symbols; no physical-picture color transport is requested. All actual native marks must be inspected before calls.",
+  "png_sha256": "a5e6f431f7c0c4ef33d54be261726d2e79215e683353042307ea4c263ac1f72b",
+  "pixel_sha256": "02ee4b565d7854532e3eb403e6942fd9268b5bc3a9b6446467dd504b7ad7a473",
+  "plugin_sha256": "e527da10a77a06a4b72e19cd6f03ee8afc989357ed166eb83202d182ebda90aa",
+  "approval_status": "PRIMARY RESEARCH ONLY; parent NEW independent review required; no Pass/Collect"
+}

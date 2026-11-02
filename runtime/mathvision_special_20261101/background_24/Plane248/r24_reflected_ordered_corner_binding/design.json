@@ -1,0 +1,166 @@
+{
+  "question_id": "Plane248",
+  "variant_id": "r24_reflected_ordered_corner_binding",
+  "created_at": "2026-11-01T17:03:47.679499+00:00",
+  "stage": "material_refinement",
+  "expected_wrong_answer": "E",
+  "correct_answer": "D",
+  "mechanism": "Old E design colored both entire source contours and the entire E contour uniformly red; it had weak information targeting and finals D/E against presetE. New design removes every whole contour highlight and instead binds two ordered edge pairs at the actual convex source tail corners to two E boundary corners whose red-to-blue turns have opposite sign. This is a specific false reflected-part assignment, with source handedness evidence and no added seam. Actual E has different valid rotated decompositions. Reusing presetE does not reuse the old image or salience mechanism.",
+  "primary_math_proof": "Each source arrow is the union of a unit-area isosceles right triangular head and a unit-square stem, totalarea2. Fresh polygon computation supplies explicit two-rotation/translation tilings of A,B,C,E. For D the long exposed diagonal has length2sqrt2; each piece can contribute at most one edge on this support line. At45degree source rotations two unit-axis edges total2 cannot cover2sqrt2, so both contributing edges must be the head edges of lengthsqrt2 under90degree rotations. They meet at the diagonal midpoint, forcing a finite set of placements; none can be a contained disjoint pair. Thus D alone is impossible. The marked source corner and marked E corners have opposite boundary traversal signs, but the source-to-E matching is an optional incorrect correspondence: it does not prevent E actual tiling. No interior partition or seam is drawn.",
+  "marker_roles": [
+    {
+      "action_index": 0,
+      "target": "source0",
+      "segment_start": 2,
+      "segment_end": 3,
+      "role": "First source arrow downward side entering its convex tail corner; ordered edge1.",
+      "exact_controls": [
+        [
+          [
+            10.0,
+            6.0
+          ],
+          [
+            10.0,
+            5.0
+          ]
+        ]
+      ]
+    },
+    {
+      "action_index": 1,
+      "target": "source0",
+      "segment_start": 3,
+      "segment_end": 4,
+      "role": "First source arrow leftward bottom edge leaving that corner; ordered edge2. Together the source boundary turn is clockwise90degrees.",
+      "exact_controls": [
+        [
+          [
+            10.0,
+            5.0
+          ],
+          [
+            9.0,
+            5.0
+          ]
+        ]
+      ]
+    },
+    {
+      "action_index": 2,
+      "target": "source1",
+      "segment_start": 2,
+      "segment_end": 3,
+      "role": "Second identical source arrow same entering edge; confirms the two available pieces have the same ordered corner geometry.",
+      "exact_controls": [
+        [
+          [
+            13.0,
+            6.0
+          ],
+          [
+            13.0,
+            5.0
+          ]
+        ]
+      ]
+    },
+    {
+      "action_index": 3,
+      "target": "source1",
+      "segment_start": 3,
+      "segment_end": 4,
+      "role": "Second source same leaving edge; the relative turn cannot reverse under rotation.",
+      "exact_controls": [
+        [
+          [
+            13.0,
+            5.0
+          ],
+          [
+            12.0,
+            5.0
+          ]
+        ]
+      ]
+    },
+    {
+      "action_index": 4,
+      "target": "option4",
+      "segment_start": 3,
+      "segment_end": 4,
+      "role": "E rightward edge entering lower-right convex corner, false feature partner to first source downward side.",
+      "exact_controls": [
+        [
+          [
+            26.0,
+            1.0
+          ],
+          [
+            27.0,
+            1.0
+          ]
+        ]
+      ]
+    },
+    {
+      "action_index": 5,
+      "target": "option4",
+      "segment_start": 4,
+      "segment_end": 5,
+      "role": "E upward edge leaving that corner; the color-ordered turn reverses, suggesting a reflected piece if this false assignment were forced.",
+      "exact_controls": [
+        [
+          [
+            27.0,
+            1.0
+          ],
+          [
+            27.0,
+            2.0
+          ]
+        ]
+      ]
+    },
+    {
+      "action_index": 6,
+      "target": "option4",
+      "segment_start": 8,
+      "segment_end": 9,
+      "role": "E leftward edge entering upper-left corner, proposed second source partner.",
+      "exact_controls": [
+        [
+          [
+            25.0,
+            2.0
+          ],
+          [
+            24.0,
+            2.0
+          ]
+        ]
+      ]
+    },
+    {
+      "action_index": 7,
+      "target": "option4",
+      "segment_start": 9,
+      "segment_end": 10,
+      "role": "E downward edge leaving that corner, same reversed color-ordered turn as the first E pair.",
+      "exact_controls": [
+        [
+          [
+            24.0,
+            2.0
+          ],
+          [
+            24.0,
+            1.0
+          ]
+        ]
+      ]
+    }
+  ],
+  "human_semantics": "Only existing contour styles; all original geometry, text and fill unchanged. Colors are correspondence annotations and not extra physical ink constraints. No new cut, region, condition or puzzle part. Actual native PNG primary review required before calls.",
+  "status": "PRIMARY_ONLY_REQUIRES_PARENT_NEW_INDEPENDENT_REVIEW"
+}

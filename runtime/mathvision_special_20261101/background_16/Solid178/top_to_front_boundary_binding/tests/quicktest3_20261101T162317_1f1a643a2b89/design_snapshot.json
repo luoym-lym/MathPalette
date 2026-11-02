@@ -1,0 +1,16 @@
+{
+  "question_id": "Solid178",
+  "design_id": "top_to_front_boundary_binding",
+  "created_at": "2026-11-01T16:22:32.023866+00:00",
+  "expected_wrong_answer": "13",
+  "hypothesis": "Pair the gray top cell x-directed edge with the same x-span at the front boundary in red. Test flattening the depth offset and treating a face-interior start as an edge start.",
+  "marker_roles": [
+    "Gray top cell first edge identifies its actual x-span without adding a point or recoloring the fill.",
+    "The matched existing front-boundary x-edge has that same x-span but a different y coordinate. Confusing the depth mapping would place the start on a second boundary and give13 instead17."
+  ],
+  "primary_math_review": "The 4x4x4 grid has a single initial gray cube in the top-face interior. After two days exactly cubes within Manhattan distance<=2 are gray. Enumerate all64 lattice positions from the frozen gray cell lower corner; the count is17. For the paired but false front-edge coordinate the count is13. Original gray location remains unambiguous; no cell is moved and only two existing open edges change color.",
+  "image_sha256": "4d30eee79ac652ebd7ed76385cf70692b895e42fd01fe7be87b4aebe3adfca24",
+  "plugin_sha256": "cb7e70f88ce1633685f5b6d86399dc22ab8d7c295026d6223c5987ac03da23a3",
+  "must_view_native_png_before_test": true,
+  "status": "unreviewed_runtime_only"
+}

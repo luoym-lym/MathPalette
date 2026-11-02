@@ -1,0 +1,273 @@
+{
+  "unit": "background_39",
+  "stage": "material_refinement_of_completed_questions",
+  "created_at": "2026-11-01T18:36:04.475839+00:00",
+  "strategy": "周长边界、节点和共享边计数改进",
+  "question_count": 8,
+  "question_ids": [
+    "Plane267",
+    "Plane276",
+    "Plane280",
+    "Plane283",
+    "Plane322",
+    "Plane323",
+    "Plane428",
+    "Plane433"
+  ],
+  "questions": [
+    {
+      "question_id": "Plane267",
+      "branch": "PlaneGeometry",
+      "question": "The figure on the right has a perimeter of $42 \\mathrm{~cm}$. The figure was made from eight equally sized squares. What is the area of the figure?\nChoices:\nA:$8 \\mathrm{~cm}^{2}$\nB:$9 \\mathrm{~cm}^{2}$\nC:$24 \\mathrm{~cm}^{2}$\nD:$72 \\mathrm{~cm}^{2}$\nE:$128 \\mathrm{~cm}^{2}$",
+      "answer": "D",
+      "prior_assessment_checkpoints": [
+        "background_11/checkpoint.json"
+      ],
+      "previous_completed_attempts": [],
+      "prior_independent_review_files": [],
+      "prior_history_summary": "首轮已评估，当前汇总无保存设计/测试；八方格，外周14个单位边，42给出单位边3、总面积72。",
+      "new_information_binding_direction": "把中心两块连接的连续外周跨度与一个真正单位方格边作局部配对，诱导周长单位14误数为别的分组数，再把错误线性单位平方成总面积。所有八个格子的原分界须可见，不许变为新拼法。应先挑能落在实际选项的具体错误边数（例如12则单位3.5给出98不在选项，不能机械测试），无有理几何机制且匹配候选错误选项则跳过。",
+      "direction_is_not_frozen_design_or_preset": true,
+      "current_authoritative_eligibility": {
+        "source_dataset": "MathVision",
+        "no_passed_accepted_record": true,
+        "no_collected_record": true,
+        "recipes_absent": true,
+        "collection_absent": true,
+        "not_delivered_or_pending_delivery": true,
+        "outside_existing_refinement_scopes": true,
+        "approval_content_sha256": "da9f886e6eacea1b24c8b7e67871d18bfa60d310f7b60c27eee82dd0c4fa3c64",
+        "approval_matches_current": true,
+        "formal_record_canonical_sha256": "ecc8851cd59bca7b126f7d00975f039969f611d2cd2046914e5ceb289f9708b4"
+      }
+    },
+    {
+      "question_id": "Plane276",
+      "branch": "PlaneGeometry",
+      "question": "A square with perimeter $48 \\mathrm{~cm}$ is cut into two equally big pieces with one cut. They are fitted together to make a rectangle as shown in the diagram. How big is the perimeter of that rectangle?\nChoices:\nA:$24 \\mathrm{~cm}$\nB:$30 \\mathrm{~cm}$\nC:$48 \\mathrm{~cm}$\nD:$60 \\mathrm{~cm}$\nE:$72 \\mathrm{~cm}$",
+      "answer": "D",
+      "prior_assessment_checkpoints": [
+        "background_09/checkpoint.json"
+      ],
+      "previous_completed_attempts": [
+        {
+          "question_id": "Plane276",
+          "candidate": "background_09/Plane276/exposed_cut_edge_migration",
+          "predeclared_wrong_answer": "E",
+          "formal_correct_answer": "D",
+          "mechanism": "Bind the original cut to its two genuine exposed copies on the rearranged rectangle using red. Targets adding twice the12cm cut length to the original48cm perimeter, giving72cm(E), without subtracting the12cm of former exterior edges hidden by the new seam. All marked edges are actual part migrations, no false length or cut is introduced.",
+          "design_sha256": "026c6e9debffa3133724e49d6f2bdb17a0c6919898a0c327bf7cdb621348b7a2",
+          "tests": [
+            {
+              "path": "background_09/Plane276/exposed_cut_edge_migration/tests/quicktest3_20261101T160041_ce7af3d5a84c/summary.json",
+              "two_completed": true,
+              "expected_wrong_answer": "E",
+              "statuses": [
+                "completed",
+                "completed"
+              ],
+              "answers_tail_for_review": [
+                " length of the new rectangle, and the two $6 \\mathrm{~cm}$ sides form the ends.\n    \n    *   **Length** of the new rectangle = $12 \\mathrm{~cm} + 12 \\mathrm{~cm} = 24 \\mathrm{~cm}$\n    *   **Width** of the new rectangle = $6 \\mathrm{~cm}$\n\n4.  **Calculate the perimeter of the new rectangle:**\n    The formula for the perimeter of a rectangle is $P = 2 \\times (\\text{length} + \\text{width})$.\n    $$ P = 2 \\times (24 \\mathrm{~cm} + 6 \\mathrm{~cm}) $$\n    $$ P = 2 \\times 30 \\mathrm{~cm} $$\n    $$ P = 60 \\mathrm{~cm} $$\n\n**Answer:**\nThe perimeter of the rectangle is **60 cm**.\n\nCorrect choice: **D**",
+                " *   The new length is the sum of the lengths of the two pieces: $12 \\mathrm{~cm} + 12 \\mathrm{~cm} = 24 \\mathrm{~cm}$.\n    *   The height (width) remains the same as the cut pieces: $6 \\mathrm{~cm}$.\n\n4.  **Calculate the perimeter of the new rectangle:**\n    The formula for the perimeter of a rectangle is $2 \\times (\\text{length} + \\text{width})$.\n    $$P = 2 \\times (24 \\mathrm{~cm} + 6 \\mathrm{~cm})$$\n    $$P = 2 \\times (30 \\mathrm{~cm})$$\n    $$P = 60 \\mathrm{~cm}$$\n\nTherefore, the perimeter of the resulting rectangle is $60 \\mathrm{~cm}$.\n\nThe correct choice is **D**.\n\nD: $60 \\mathrm{~cm}$"
+              ],
+              "note": "Answer tails are for manual inspection; no automatic final-answer success grading."
+            }
+          ],
+          "original_controls": [],
+          "independent_review": null,
+          "approval_status": "No user Pass/Collect recorded"
+        }
+      ],
+      "prior_independent_review_files": [],
+      "prior_history_summary": "旧exposed_cut_edge_migration将真12cm切口与其两份暴露副本匹配，预设E72，完整D60/D60未中。",
+      "new_information_binding_direction": "转而配对源方形一条完整外边与拼合矩形中央真实内接缝及其相邻外短边，针对把原外边转成接触后仍算在外周的归属错误或将“同面积”误当相同外周。新主张必须是具体被隐藏的外边/接缝迁移，不能重用旧切口及两份副本三红边。先列清楚净外露增减和错误周长对应哪项；不改变原虚线，不将内缝涂成新的物体外边，若产生两种合理边界读法则跳过。",
+      "direction_is_not_frozen_design_or_preset": true,
+      "current_authoritative_eligibility": {
+        "source_dataset": "MathVision",
+        "no_passed_accepted_record": true,
+        "no_collected_record": true,
+        "recipes_absent": true,
+        "collection_absent": true,
+        "not_delivered_or_pending_delivery": true,
+        "outside_existing_refinement_scopes": true,
+        "approval_content_sha256": "0c1a341d03f79b9f2c762c0204b753570bc48af3622e6dd35a92d3e60f4f6d13",
+        "approval_matches_current": true,
+        "formal_record_canonical_sha256": "f2b86a41818f67db11ac71607de767c696e0eaa7bb6985e4ee05f6087b241153"
+      }
+    },
+    {
+      "question_id": "Plane280",
+      "branch": "PlaneGeometry",
+      "question": "Each square in the shape has an area of $4 \\mathrm{~cm}^{2}$. How long is the thick line?\nChoices:\nA:$16 \\mathrm{~cm}$\nB:$18 \\mathrm{~cm}$\nC:$20 \\mathrm{~cm}$\nD:$21 \\mathrm{~cm}$\nE:$23 \\mathrm{~cm}$",
+      "answer": "B",
+      "prior_assessment_checkpoints": [
+        "background_04/checkpoint.json"
+      ],
+      "previous_completed_attempts": [
+        {
+          "question_id": "Plane280",
+          "candidate": "background_04/Plane280/unit_to_double_span",
+          "predeclared_wrong_answer": "A",
+          "formal_correct_answer": "B",
+          "mechanism": "False unit-span correspondence: color one true unit grid side and the long two-unit thick route segment identically. The proposed wrongA=16 occurs if that long span is treated as a single2cm unit instead of4cm. Only actual existing geometry is colored.",
+          "design_sha256": "d60e03b2b45b9466f7205f93254c038987f814b8729fd6e04a12bc584d1d6cd2",
+          "tests": [],
+          "original_controls": [],
+          "independent_review": null,
+          "approval_status": "No user Pass/Collect recorded"
+        }
+      ],
+      "prior_independent_review_files": [],
+      "prior_history_summary": "旧unit_to_double_span配对真单位薄格边与两单位粗路径段，预设A16；当前汇总未列完整配对，不可重测原图。",
+      "new_information_binding_direction": "新机制为“节点数—边段数”混同：在原粗路径上精确现有格点/折点按实际一单位步的端点作同色序列，诱导把10个节点当10个长度单位而答20(C)，正确9边×2=18。不能只是旧2单位段换色；新标记每个点都须有序列边界角色，所有点精确落原路径真格点、不新增支线/路径/面积。保留2.5pt粗线及薄网格区别。若新增点掩盖连接、读成待数点新问题或顺序不清，则跳过。",
+      "direction_is_not_frozen_design_or_preset": true,
+      "current_authoritative_eligibility": {
+        "source_dataset": "MathVision",
+        "no_passed_accepted_record": true,
+        "no_collected_record": true,
+        "recipes_absent": true,
+        "collection_absent": true,
+        "not_delivered_or_pending_delivery": true,
+        "outside_existing_refinement_scopes": true,
+        "approval_content_sha256": "e99b88013c7adfe68e7589883926aa4c070fd070f2c2e7f6eb7a560b321cb9e3",
+        "approval_matches_current": true,
+        "formal_record_canonical_sha256": "a1daa1184f811b7b5bdfd779382fa140cdaf1bae23596b3024c69fca14fa92dc"
+      }
+    },
+    {
+      "question_id": "Plane283",
+      "branch": "PlaneGeometry",
+      "question": "A rectangle is formed from 4 equally sized smaller rectangles. The shorter side is $10 \\mathrm{~cm}$ long. How long is the longer side?\nChoices:\nA:$40 \\mathrm{~cm}$\nB:$30 \\mathrm{~cm}$\nC:$20 \\mathrm{~cm}$\nD:$10 \\mathrm{~cm}$\nE:$5 \\mathrm{~cm}$",
+      "answer": "C",
+      "prior_assessment_checkpoints": [
+        "background_12/checkpoint.json"
+      ],
+      "previous_completed_attempts": [],
+      "prior_independent_review_files": [],
+      "prior_history_summary": "首轮已评估，当前汇总无保存设计/测试；小矩形比例2:1，外短10，外长20。",
+      "new_information_binding_direction": "将带10cm的真实外整高与两侧竖放矩形顶端的短边或中间横放矩形的半高信息成对，诱导将长边10赋给短边，按三列计得30(B)，而不是正确5+10+5。只用真边局部开放样式，不新增等长符号、数字或尺寸线。10原尺寸的实际归属必须一眼清楚，不能把颜色做成新条件；若只能整体边框强调则跳过。",
+      "direction_is_not_frozen_design_or_preset": true,
+      "current_authoritative_eligibility": {
+        "source_dataset": "MathVision",
+        "no_passed_accepted_record": true,
+        "no_collected_record": true,
+        "recipes_absent": true,
+        "collection_absent": true,
+        "not_delivered_or_pending_delivery": true,
+        "outside_existing_refinement_scopes": true,
+        "approval_content_sha256": "4bae32067b6dd268587f82dc71ebe5493e633d5962231e914d83abad408f9b3c",
+        "approval_matches_current": true,
+        "formal_record_canonical_sha256": "b329b1a5988996307a7899e16d43ac95d7aedbbc2a515b9c4021c7a09fec5674"
+      }
+    },
+    {
+      "question_id": "Plane322",
+      "branch": "PlaneGeometry",
+      "question": "Rings are linked as shown to form a chain of length $1.7 \\mathrm{~m}$. How many rings are in the chain?",
+      "answer": "42",
+      "prior_assessment_checkpoints": [
+        "background_04/checkpoint.json"
+      ],
+      "previous_completed_attempts": [],
+      "prior_independent_review_files": [],
+      "prior_history_summary": "首轮评估完成，当前汇总无保存设计/测试；环外半径3、内半径2，6+4(n−1)=170，n42。",
+      "new_information_binding_direction": "把首环真实标注2cm的半径段与后续环的实际重复推进特征成对，针对把内半径2当作链节推进量4（若按6+2(n−1)则83）。使用原标注线/可见圆弧的合法短段对应，不添加未提供的隐圆心、中心距尺寸、截断圈或新环。先核对内外半径标签与遮挡归属，不能以平面相交暗示链环重新连接；无具体推进接收对象则跳过。",
+      "direction_is_not_frozen_design_or_preset": true,
+      "current_authoritative_eligibility": {
+        "source_dataset": "MathVision",
+        "no_passed_accepted_record": true,
+        "no_collected_record": true,
+        "recipes_absent": true,
+        "collection_absent": true,
+        "not_delivered_or_pending_delivery": true,
+        "outside_existing_refinement_scopes": true,
+        "approval_content_sha256": "76799cd204520f1cbbfbc6e9133d9869c630a1af4908ad3b71e465ff5990d718",
+        "approval_matches_current": true,
+        "formal_record_canonical_sha256": "4f21eb815388b43e77b87f2c052a41f3cc40fe5f11afc8ae8d74e27b7d3ad80b"
+      }
+    },
+    {
+      "question_id": "Plane323",
+      "branch": "PlaneGeometry",
+      "question": "The rectangle shown on the right is divided into 7 squares. Each grey square has side length 8. What is the side length of the large white square?",
+      "answer": "18",
+      "prior_assessment_checkpoints": [
+        "background_11/checkpoint.json"
+      ],
+      "previous_completed_attempts": [],
+      "prior_independent_review_files": [],
+      "prior_history_summary": "首轮评估完成，当前汇总无保存设计/测试；三灰方边8，白底三个小方边6，大白方18。",
+      "new_information_binding_direction": "成对标注一个灰方实际宽8的水平边与一个白底小方实际宽6的水平边，将灰方的8传给底部三白方，诱导大白边长3×8=24。与单纯描大白外框不同，新映射有实际单位源/接收方。三灰分界、底部三白分界及原灰斜线纹理保持清楚；不把同色变成显式等长关系。若纹理遮挡/样式目标同时修改填充、或只能整片轮廓，则跳过。",
+      "direction_is_not_frozen_design_or_preset": true,
+      "current_authoritative_eligibility": {
+        "source_dataset": "MathVision",
+        "no_passed_accepted_record": true,
+        "no_collected_record": true,
+        "recipes_absent": true,
+        "collection_absent": true,
+        "not_delivered_or_pending_delivery": true,
+        "outside_existing_refinement_scopes": true,
+        "approval_content_sha256": "281eb402509ebf00af37649e4c1612feaf5025418080921a2998f8c2d321bceb",
+        "approval_matches_current": true,
+        "formal_record_canonical_sha256": "70c207985f40306bbd9f76e12c15660e98dc6766169f147c4bed16e2b2215c28"
+      }
+    },
+    {
+      "question_id": "Plane428",
+      "branch": "PlaneGeometry",
+      "question": "The diagram shows a shape made from six squares, each measuring $1 \\mathrm{~cm}$ by $1 \\mathrm{~cm}$. The shape has perimeter of length $14 \\mathrm{~cm}$. The zigzag shape is then continued until it has 2013 squares. What is the length, in $\\mathrm{cm}$, of the perimeter of the new shape?",
+      "answer": "4028",
+      "prior_assessment_checkpoints": [
+        "background_20/checkpoint.json"
+      ],
+      "previous_completed_attempts": [],
+      "prior_independent_review_files": [],
+      "prior_history_summary": "首轮已评估，当前汇总无保存设计/测试；2013个单位方的真实外周2n+2=4028，图给6块14。",
+      "new_information_binding_direction": "从真实连续添加方块时每步新露的两单位边抽取局部对应，强调重复的2单位净增长，使模型把2n当完整外周而漏首尾2单位常数项（4026）。原样图6块14明确保留，端部盖边不淡化/消失；新标记应有“增长边—替换共享边”归属，不能只是给所有外边统一色。先证明当前图每个对应实际存在，若靠无信息的端部隐藏或改动给定14才能错，就跳过。",
+      "direction_is_not_frozen_design_or_preset": true,
+      "current_authoritative_eligibility": {
+        "source_dataset": "MathVision",
+        "no_passed_accepted_record": true,
+        "no_collected_record": true,
+        "recipes_absent": true,
+        "collection_absent": true,
+        "not_delivered_or_pending_delivery": true,
+        "outside_existing_refinement_scopes": true,
+        "approval_content_sha256": "cfb051824a94502ef375c322baa93662673fe953291bcee03d30e858c8ac1252",
+        "approval_matches_current": true,
+        "formal_record_canonical_sha256": "00bf512ca2cb2b6df34b453b8d318e33f90077d5b9db6cbfc68f86833dfb8c51"
+      }
+    },
+    {
+      "question_id": "Plane433",
+      "branch": "PlaneGeometry",
+      "question": "The diagram shows a shape made from ten squares of side-length $1 \\mathrm{~cm}$, joined edge to edge. What is the length of its perimeter, in centimetres?",
+      "answer": "18",
+      "prior_assessment_checkpoints": [
+        "background_20/checkpoint.json"
+      ],
+      "previous_completed_attempts": [],
+      "prior_independent_review_files": [],
+      "prior_history_summary": "首轮已评估，当前汇总无保存设计/测试；十方格11个共享单位边，40−2×11=18。",
+      "new_information_binding_direction": "以真实内部单元共享边为独立接触记录，并同真外部单位边作局部面积/长度角色对应，诱导每共享边只从4×10扣1次而非两次，得到29。可把11条真共享边分组，但每条必须用于一条接触记录，没有任意标记数上限；若全标过乱可用少量代表信息，说明如何迁移。仅原有格线样式，不新增封闭分区、断开格子或将内部线假称外边。原目标总外周应始终明确。",
+      "direction_is_not_frozen_design_or_preset": true,
+      "current_authoritative_eligibility": {
+        "source_dataset": "MathVision",
+        "no_passed_accepted_record": true,
+        "no_collected_record": true,
+        "recipes_absent": true,
+        "collection_absent": true,
+        "not_delivered_or_pending_delivery": true,
+        "outside_existing_refinement_scopes": true,
+        "approval_content_sha256": "f33910b7a10e23fdba5a75b6b19ec99290f4a3c5be371843690fde0957e8f87e",
+        "approval_matches_current": true,
+        "formal_record_canonical_sha256": "5c0b6d98f9d25f51f7338670ca091dc52a3b4bc7f52e69125f0dc58cdc987c9b"
+      }
+    }
+  ],
+  "old_completed_overlap_intentional": true,
+  "new_active_scopes_disjoint": true,
+  "preparation_only_no_solver_calls": true,
+  "requires_current_recheck_before_work": true,
+  "parent_dispatch_required_before_start": true
+}

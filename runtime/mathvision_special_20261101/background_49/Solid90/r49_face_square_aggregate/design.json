@@ -1,0 +1,41 @@
+{
+  "question_id": "Solid90",
+  "variant_id": "r49_face_square_aggregate",
+  "branch": "SolidGeometry",
+  "stage": "material_refinement",
+  "created_at_utc": "2026-11-01T19:45:42.007788+00:00",
+  "expected_wrong_answer": "10*sqrt(2)",
+  "formal_correct_answer": "10",
+  "mechanism": "The complete red XYZ three-face-diagonal group supplies64+81+55=200; blue XA is the requested receiver. The proposed error takes sqrt200 as the body diagonal without the necessary division by2, incorrectly treating the face diagonals as independent orthogonal components.",
+  "material_difference": "Old design matches only XZ and XA to copy the given sqrt55. New design includes all three actual given face diagonals as one aggregate and distinguishes the body-diagonal receiver. It predicts sqrt200 before calls from a double-counting rule, not either observed old final sqrt(-17)/9.",
+  "primary_math_proof_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_49\\Solid90\\primary_math_proof.json",
+  "marker_roles": [
+    {
+      "action_index": 0,
+      "role": "XY: first real face-diagonal source, square64, in the full three-source aggregation."
+    },
+    {
+      "action_index": 1,
+      "role": "YZ: second real face-diagonal source, square81."
+    },
+    {
+      "action_index": 2,
+      "role": "XZ: third real face-diagonal source, square55; original hidden dashes retained."
+    },
+    {
+      "action_index": 3,
+      "role": "XA: requested body-diagonal receiver for the aggregate of three source squares; original hidden dashes retained."
+    }
+  ],
+  "candidate_png_sha256": "032e4dd164e80c40c8d7c7fb747265ed15115593eaecd31e3b4f8aa3efcc880b",
+  "plugin_sha256": "307097a31dbb1a6fe3ccb7ee1f696cc62775eb87de25bd27122b85b4ab7a2324",
+  "context_sha256": "e4e7db5636a6823ceedb19e3f3376aa76cdf4be6027a50ae6b97e986f4332abf",
+  "marker_path_bindings_sha256": "f9f12ea106fd74d4b0af1d960ac4a78a33b63203e7f5e231b68f94acb9654e6a",
+  "difference_audit_sha256": "31832dd5bc9829fca2ef2a1d84af6eeac0d4f57c2d0839aa417e0a11115fed91",
+  "review_level": "PRIMARY_RESEARCH_ONLY; parent NEW independent review required; no approval/Pass/Collect/publication",
+  "limits": [
+    "Two future observations do not prove mechanism, causal gain, statistics or marginal marker benefit.",
+    "No separate original controls were found; no repeated existing control is permitted.",
+    "Expected answer is immutable before both calls; incidental mentions or inconsistent final value/letter are misses."
+  ]
+}

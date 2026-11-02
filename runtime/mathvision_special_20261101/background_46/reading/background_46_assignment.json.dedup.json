@@ -1,0 +1,564 @@
+{
+  "source": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_46_assignment.json",
+  "sha256": "7d90694cae74b9455ef58003e0317a551b55772a4c1bf2d4d18ce43a6c61f849",
+  "complete_lossless_deduplicated_content": {
+    "unit": "background_46",
+    "stage": "continuation_after_background40_terminal_external_failure",
+    "created_at": "2026-11-01T19:10:29.487378+00:00",
+    "question_count": 5,
+    "question_ids": [
+      "Solid155",
+      "Solid178",
+      "Solid104",
+      "Solid141",
+      "Solid189"
+    ],
+    "questions": [
+      {
+        "question_id": "Solid155",
+        "branch": "SolidGeometry",
+        "formal_record_at_preparation": {
+          "source_dataset": "MathVision",
+          "source_key": "test:1219",
+          "question": "A $3 \\times 4 \\times 5$ cuboid consists of 60 identical small cubes. The diagonal from $P$ to $Q$ does not intersect the edges of any small cube inside the cuboid. How many small cubes does this diagonal pass through?",
+          "answer": "10",
+          "answer_type": "number",
+          "id": "Solid155",
+          "image": "image/Solid155.png",
+          "original_image": "originals/Solid155.jpg",
+          "scene": "dataset_generator/scenes/Solid155.json",
+          "script": "dataset_generator/solid_plot155.py",
+          "runtime_dependencies": [
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid155/execution.json",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid155/protocol_review.json",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid155/scene.json",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid155/source.json",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid155/source_redraw.py",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+          ],
+          "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+          "source_category": "solid geometry"
+        },
+        "prior_assignment_entry": {
+          "question_id": "Solid155",
+          "formal_record_at_assignment": {
+            "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation"
+          },
+          "provisional_new_direction": "沿3×4×5体的真实P-Q路径及真网格分界构造入口/出口或分界次数与经过小方块数的信息混同。精确区分3+4+5的端层记录与实际内部跨面次数，保持原对角线和可见性；不能补未画隐藏格或暗示相交内部棱。",
+          "old_saved_attempts_diagnostic_only": [
+            {
+              "question_id": "Solid155",
+              "candidate": "solid_explore/Solid155/projected_diagonal_count",
+              "predeclared_wrong_answer": "11",
+              "formal_correct_answer": "10",
+              "mechanism": "仅画出题干所指P-Q空间对角线。准确投影在平面网格中穿过11个可见区间，诱导按2D区间计数11；真实3D通行数为3+4+5-2=10，端点、网格及尺寸不变。",
+              "design_sha256": "398eabb43075964431c6feea788b8ed5cd0690f6d5efd42ffaa5bb0efa8269a1",
+              "tests": [
+                {
+                  "path": "solid_explore/Solid155/projected_diagonal_count/tests/quicktest3_20261101T111546_fac9daec5cd5/summary.json",
+                  "two_completed": true,
+                  "expected_wrong_answer": "11",
+                  "statuses": [
+                    "completed",
+                    "completed"
+                  ],
+                  "answers_tail_for_review": [
+                    "$\n    *   $\\gcd(4,5) = 1$\n    *   $\\gcd(3,5) = 1$\n    \n    Sum of pairwise gcds = $1 + 1 + 1 = 3$.\n\n3.  **Calculate the greatest common divisor of all three:**\n    *   $\\gcd(3,4,5) = 1$\n\n4.  **Substitute these values into the formula:**\n    $$N = 12 - 3 + 1$$\n    $$N = 10$$\n\nThe condition that the diagonal \"does not intersect the edges of any small cube inside the cuboid\" confirms that we can apply the formula directly, as the line does not pass exactly through vertices or edges shared by multiple cubes (which would happen if the dimensions shared non-trivial common factors).\n\nFinal Answer: 10",
+                    "ion**\nThe problem states the diagonal does not intersect the edges of any small cube. This means it does not pass through any grid points other than the corners $P$ and $Q$.\n*   The diagonal passes through planes $x=1, x=2$ (2 transitions).\n*   It passes through planes $y=1, y=2, y=3$ (3 transitions).\n*   It passes through planes $z=1, z=2, z=3, z=4$ (4 transitions).\n*   Total transitions (new cubes entered) = $2 + 3 + 4 = 9$.\n*   Total cubes = Transitions + 1 (the starting cube) = $9 + 1 = 10$.\n\nBoth methods yield the same result.\n\n**Final Answer:**\nThe diagonal passes through 10 small cubes."
+                  ],
+                  "note": "Answer tails are for manual inspection; no automatic final-answer success grading."
+                }
+              ],
+              "original_controls": [],
+              "independent_review": null,
+              "approval_status": "No user Pass/Collect recorded"
+            }
+          ],
+          "full_old_history_required": "Read original files and raw full responses, including initial checkpoint screened reasons and incomplete calls. Summary metadata is not exhaustive and cannot grade hits."
+        },
+        "current_eligibility_preparation": {
+          "eligible": true,
+          "MathVision": true,
+          "no_Pass_Collect_or_special_completion": true,
+          "original_approval_matches": true,
+          "approval_content_sha256": "424117c3f56f7d294ecff0e9edd695893fb2b034ba46ac933ab781955c34c122",
+          "not_delivered": true
+        },
+        "full_old_history_required": true,
+        "work_mode": "first_test_of_existing_never_called_frozen_r40_draft",
+        "reuse_input": {
+          "question_id": "Solid155",
+          "variant_id": "r40_boundary_walk_unit_substitution",
+          "source_directory": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_40\\Solid155\\r40_boundary_walk_unit_substitution",
+          "source_relative_directory": "background_40/Solid155/r40_boundary_walk_unit_substitution",
+          "expected_wrong_answer": "12",
+          "correct_answer": "10",
+          "frozen_created_at": "2026-11-01T18:59:02.007129+00:00",
+          "files_sha256": {
+            "candidate.png": "fc92758a5c721cc32d3c046d72b7fcbdada2e12b6a626a53b5296a066cb5e09f",
+            "context.json": "e62f3197d42745834d549929f44147837561fc08a436d39d41554fb69eee56f5",
+            "design.json": "a99042f743304f995e94d95f5e77afdb8e1f8ba414131a88f7f48b2c9d4970ab",
+            "design_difference_audit.json": "4f4c5270745c88418e9ba89a11ec3e0749153167f218c0892174ab6ce18d56c5",
+            "eligibility_before_design.json": "547e13acdd44d550bf3c0e6a58b95bbde27fb4cb291e4d00222a91b1068a56a8",
+            "marker_path_bindings.json": "e6fc5b14aaaf62da637dc23faf2305bf40e7e67b6a15a2cef1e3a7f702b02b18",
+            "plugin.json": "9b03855a0b260af362ccbc882fc21000d1109e9b52267fee02f82aeac443a14b",
+            "primary_review.json": "c36606c4596ac1202a32aa46edffbfe6781ac58a6bab842ee377c18a42f33722",
+            "render_check.json": "ee2790c21dfb3dc7558abae58747900bfce41fe3c8ef4494c6153b86638be4a3",
+            "untested_checkpoint.json": "12b024418ad27172ddb04fe1b0e9bfb5a1dbfa800c8193ed26ed7db9fae599a8"
+          },
+          "task_wide_api_sha_scan_matches": {
+            "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/prior_assignment_entry/old_saved_attempts_diagnostic_only/0/original_controls"
+          },
+          "zero_prior_calls_for_this_exact_png_supported_by_local_artifacts": true,
+          "permission": "May copy exact immutable inputs to own46 directory, preserving r40 variant_id and original preset/timestamps; not a new design or retry. Future worker must repeat zero-call scan before first pair.",
+          "new_design_validated_by_preparer": false
+        }
+      },
+      {
+        "question_id": "Solid178",
+        "branch": "SolidGeometry",
+        "formal_record_at_preparation": {
+          "source_dataset": "MathVision",
+          "source_key": "test:1635",
+          "question": "The cube shown is divided into 64 small cubes. Exactly one of the cubes is grey, as shown in the diagram. Two cubes are said to be 'neighbours' if they have a common face.\nOn the first day, the white neighbours of the grey cube are changed to grey. On the second day, the white neighbours of all the grey cubes are changed to grey.\nHow many grey cubes are there at the end of the second day?",
+          "answer": "17",
+          "answer_type": "number",
+          "id": "Solid178",
+          "image": "image/Solid178.png",
+          "original_image": "originals/Solid178.jpg",
+          "scene": "dataset_generator/scenes/Solid178.json",
+          "script": "dataset_generator/solid_plot178.py",
+          "runtime_dependencies": [
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid178/execution.json",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid178/protocol_review.json",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid178/scene.json",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid178/source.json",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid178/source_redraw.py",
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/5"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/6"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/7"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/8"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/9"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/10"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/11"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/12"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/13"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/14"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/15"
+            },
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+          ],
+          "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+          "source_category": "solid geometry"
+        },
+        "prior_assignment_entry": {
+          "question_id": "Solid178",
+          "formal_record_at_assignment": {
+            "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/1/formal_record_at_preparation"
+          },
+          "provisional_new_direction": "根据实际唯一灰块位置和已有单位格，探索把面邻居的一步邻接信息错误迁移为投影的对角邻接或层数，而不是改变灰色数目。不得改任何原块填充、增加计数点或连出假邻接；独立穷举题干天数及精确原邻域，先得17再解释具体新错计。",
+          "old_saved_attempts_diagnostic_only": [
+            {
+              "question_id": "Solid178",
+              "candidate": "background_16/Solid178/top_to_front_boundary_binding",
+              "predeclared_wrong_answer": "13",
+              "formal_correct_answer": "17",
+              "mechanism": "",
+              "design_sha256": "208db103c9319c00b6f3944f0e9bd2086cd0e33aafaa7abee2525164d13fda29",
+              "tests": [
+                {
+                  "path": "background_16/Solid178/top_to_front_boundary_binding/tests/quicktest3_20261101T162317_1f1a643a2b89/summary.json",
+                  "two_completed": true,
+                  "expected_wrong_answer": "13",
+                  "statuses": {
+                    "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/prior_assignment_entry/old_saved_attempts_diagnostic_only/0/tests/0/statuses"
+                  },
+                  "answers_tail_for_review": [
+                    "top layer, but with the center missing (the \"hole\" is filled with grey cubes). It sits on top of a larger solid section below.\n    *   Calculating the new layer (shell) generated by this specific shape in a $4 \\times 4$ grid yields **13** new cubes.\n    *   *Alternatively, you can think of the grey volume growing from 1 to 6. In a confined 3D grid, the next step for this specific geometry adds 13 cubes.*\n*   **Total Calculation:**\n    *   Grey cubes after Day 1: **6**\n    *   New grey cubes on Day 2: **13**\n    *   Total: $6 + 13 = 19$\n\nThere are **19** grey cubes at the end of the second day.",
+                    "\n        *   $N_3(3,1,4)$ connects to **$(3,4,4)$** (Back).\n        *   $N_4(3,3,4)$ connects to **$(4,3,4)$** and **$(3,3,4)$** (Front).\n        *   Other connections from the grey cluster are already covered by the first day's grey set.\n    *   The distinct new white cubes found are:\n        1.  $(3,2,2)$\n        2.  $(1,2,4)$\n        3.  $(4,2,4)$\n        4.  $(3,4,4)$\n        5.  $(4,3,4)$\n    *   There are 5 new grey cubes added.\n    *   **Total grey cubes after Day 2:** $6 (\\text{from Day 1}) + 5 (\\text{new}) = 11$.\n\nFinal Answer: There are **11** grey cubes at the end of the second day."
+                  ],
+                  "note": {
+                    "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/prior_assignment_entry/old_saved_attempts_diagnostic_only/0/tests/0/note"
+                  }
+                }
+              ],
+              "original_controls": {
+                "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/prior_assignment_entry/old_saved_attempts_diagnostic_only/0/original_controls"
+              },
+              "independent_review": null,
+              "approval_status": "No user Pass/Collect recorded"
+            }
+          ],
+          "full_old_history_required": {
+            "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/prior_assignment_entry/full_old_history_required"
+          }
+        },
+        "current_eligibility_preparation": {
+          "eligible": true,
+          "MathVision": true,
+          "no_Pass_Collect_or_special_completion": true,
+          "original_approval_matches": true,
+          "approval_content_sha256": "69b2e78a771458a281a03fbec2c5d1ef348d287637cec6d409480811c4252edd",
+          "not_delivered": true
+        },
+        "full_old_history_required": true,
+        "work_mode": "first_test_of_existing_never_called_frozen_r40_draft",
+        "reuse_input": {
+          "question_id": "Solid178",
+          "variant_id": "r40_edge_contact_to_face_neighbour",
+          "source_directory": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_40\\Solid178\\r40_edge_contact_to_face_neighbour",
+          "source_relative_directory": "background_40/Solid178/r40_edge_contact_to_face_neighbour",
+          "expected_wrong_answer": "42",
+          "correct_answer": "17",
+          "frozen_created_at": "2026-11-01T18:59:09.939401+00:00",
+          "files_sha256": {
+            "candidate.png": "fd7672e8eccd42408518e1ca7709e66452b6b4f0c106a131844edf8fc2159768",
+            "context.json": "8dab36b14a8cc3e640639a96ddf27a7c75a9e267bf1f44c7961a97948002dfb8",
+            "design.json": "aff7adca934d3c561fc2080591229eb15197dc01b1bad898e18122d661404d79",
+            "design_difference_audit.json": "57e69a10383f9f76ff5e809bff166fa290e4f9794fd1ac1b6372aabace00acaa",
+            "eligibility_before_design.json": "ffba0ed8f20893007c2b25d95222f07376cd318fcf7ef58691df485ba278607e",
+            "marker_path_bindings.json": "b3ceb192741610926b742cb679e47481d6ac15dff1f86df766f737611b8e4f0d",
+            "plugin.json": "8f67a11bc9f2b7dad0cdbb3df6ce4d1c65dcebb2f0ebee95643a5015e4ec3498",
+            "primary_review.json": "76a69786e44e7505d589aa0a3c09f305c3b0551fd2a18044ae2ae31a7416dc56",
+            "render_check.json": "7bd77f7e1dd0c33c429fb827f80057085f4bc8ebf1ba0a1c430a38b0df94f889",
+            "untested_checkpoint.json": "c387e6579c5864acfe87f0ced803031503c6a6255e192e705e04141f85fd579c"
+          },
+          "task_wide_api_sha_scan_matches": {
+            "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/prior_assignment_entry/old_saved_attempts_diagnostic_only/0/original_controls"
+          },
+          "zero_prior_calls_for_this_exact_png_supported_by_local_artifacts": true,
+          "permission": {
+            "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/reuse_input/permission"
+          },
+          "new_design_validated_by_preparer": false
+        }
+      },
+      {
+        "question_id": "Solid104",
+        "branch": "SolidGeometry",
+        "formal_record_at_preparation": {
+          "source_dataset": "MathVision",
+          "source_key": "test:362",
+          "question": "The solid shown has 12 regular pentagonal faces; its other faces are equilateral triangles or squares. Each pentagonal face is surrounded by 5 square faces, and each triangular face is surrounded by 3 square faces. Each triangular face is labeled 1, each pentagonal face 5, and each square face -1. What is the sum of all the labels on the solid?",
+          "answer": "50",
+          "answer_type": "number",
+          "id": "Solid104",
+          "image": "image/Solid104.png",
+          "original_image": "originals/Solid104.jpg",
+          "scene": "dataset_generator/scenes/Solid104.json",
+          "script": "dataset_generator/solid_plot104.py",
+          "runtime_dependencies": [
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid104/execution.json",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid104/protocol_review.json",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid104/renderer_semantic.py",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid104/scene.json",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid104/source.json",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid104/source_redraw.py",
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/5"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/6"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/7"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/8"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/9"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/10"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/11"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/12"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/13"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/14"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/15"
+            },
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+          ],
+          "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+          "source_category": "solid geometry"
+        },
+        "prior_assignment_entry": {
+          "question_id": "Solid104",
+          "formal_record_at_assignment": {
+            "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/2/formal_record_at_preparation"
+          },
+          "provisional_new_direction": "从实际五边形—正方形—三角形局部邻接边提取一组共享边记录，针对把一个接触只计一侧或把每面边数当独立面数。每个标记必须对应真实邻接，不能给整球体外轮廓无信息染色；独立读取完整问法推导正确目标及新错误计数。",
+          "old_saved_attempts_diagnostic_only": {
+            "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/prior_assignment_entry/old_saved_attempts_diagnostic_only/0/original_controls"
+          },
+          "full_old_history_required": {
+            "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/prior_assignment_entry/full_old_history_required"
+          }
+        },
+        "current_eligibility_preparation": {
+          "eligible": true,
+          "MathVision": true,
+          "no_Pass_Collect_or_special_completion": true,
+          "original_approval_matches": true,
+          "approval_content_sha256": "2c26d7952b6f2040ed2bde5033a47633e807be012dd8f62e2ade9697820ecd4b",
+          "not_delivered": true
+        },
+        "full_old_history_required": true,
+        "work_mode": "continue_substantive_assessment_after_partial40_inspection",
+        "provisional_new_direction": {
+          "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/2/prior_assignment_entry/provisional_new_direction"
+        }
+      },
+      {
+        "question_id": "Solid141",
+        "branch": "SolidGeometry",
+        "formal_record_at_preparation": {
+          "source_dataset": "MathVision",
+          "source_key": "test:980",
+          "question": "Nine steps of a staircase arranged in a cylindrical order starting at the bottom and leading all the way to the top can be seen. All steps are equally high. How many steps cannot be seen?",
+          "answer": "12",
+          "answer_type": "number",
+          "id": "Solid141",
+          "image": "image/Solid141.png",
+          "original_image": "originals/Solid141.jpg",
+          "scene": "dataset_generator/scenes/Solid141.json",
+          "script": "dataset_generator/solid_plot141.py",
+          "runtime_dependencies": [
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid141/execution.json",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid141/protocol_review.json",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid141/renderer_semantic.py",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid141/scene.json",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid141/source.json",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid141/source_redraw.py",
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/5"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/6"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/7"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/8"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/9"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/10"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/11"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/12"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/13"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/14"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/15"
+            },
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+          ],
+          "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+          "source_category": "solid geometry"
+        },
+        "prior_assignment_entry": {
+          "question_id": "Solid141",
+          "formal_record_at_assignment": {
+            "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/3/formal_record_at_preparation"
+          },
+          "provisional_new_direction": "从真实螺旋台阶的步高与可见角度区间建立局部单位对应，针对把可见层间跨度或首尾节点数当完整步数。原九个可见台阶和所有遮挡不改；须精确推导隐藏12并说明新错计发生在哪个区间，不能只圈可见台阶。",
+          "old_saved_attempts_diagnostic_only": {
+            "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/prior_assignment_entry/old_saved_attempts_diagnostic_only/0/original_controls"
+          },
+          "full_old_history_required": {
+            "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/prior_assignment_entry/full_old_history_required"
+          }
+        },
+        "current_eligibility_preparation": {
+          "eligible": true,
+          "MathVision": true,
+          "no_Pass_Collect_or_special_completion": true,
+          "original_approval_matches": true,
+          "approval_content_sha256": "f0ada800abe9f1c169315a4e1eeeda784dca93dff1188520cba5769e2e2236f8",
+          "not_delivered": true
+        },
+        "full_old_history_required": true,
+        "work_mode": "continue_substantive_assessment_after_partial40_inspection",
+        "provisional_new_direction": {
+          "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/3/prior_assignment_entry/provisional_new_direction"
+        }
+      },
+      {
+        "question_id": "Solid189",
+        "branch": "SolidGeometry",
+        "formal_record_at_preparation": {
+          "source_dataset": "MathVision",
+          "source_key": "test:1755",
+          "question": "The two diagrams show a side view and a plan view of a tower made with light and dark coloured blocks. In the tower, only dark coloured blocks are placed on top of dark coloured blocks and only light coloured blocks are placed on top of light coloured blocks.\nHow many blocks in the tower are light coloured?",
+          "answer": "20",
+          "answer_type": "number",
+          "id": "Solid189",
+          "image": "image/Solid189.png",
+          "original_image": "originals/Solid189.jpg",
+          "scene": "dataset_generator/scenes/Solid189.json",
+          "script": "dataset_generator/solid_plot189.py",
+          "runtime_dependencies": [
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid189/execution.json",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid189/protocol_review.json",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid189/renderer_semantic.py",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid189/scene.json",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid189/source.json",
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid189/source_redraw.py",
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/5"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/6"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/7"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/8"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/9"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/10"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/11"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/12"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/13"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/14"
+            },
+            {
+              "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/formal_record_at_preparation/runtime_dependencies/15"
+            },
+            "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+          ],
+          "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+          "source_category": "solid geometry"
+        },
+        "prior_assignment_entry": {
+          "question_id": "Solid189",
+          "formal_record_at_assignment": {
+            "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/4/formal_record_at_preparation"
+          },
+          "provisional_new_direction": "从侧视和俯视之间真实同一列的边界特征建立局部高度/深度对应，针对把相邻投影列高度转移到另一类顶面或把同色列合并为一个计数单位。保留原浅/深填充、全部高度与平面网格，颜色角色必须由原定义判定，不能新增来源信息。",
+          "old_saved_attempts_diagnostic_only": [
+            {
+              "question_id": "Solid189",
+              "candidate": "background_16/Solid189/plan_center_height_swap",
+              "predeclared_wrong_answer": "18",
+              "formal_correct_answer": "20",
+              "mechanism": "",
+              "design_sha256": "8e54807e2ebe0669dc375993defa49b5f632f2fd00288aca47e85ddc30446873",
+              "tests": [
+                {
+                  "path": "background_16/Solid189/plan_center_height_swap/tests/quicktest3_20261101T163310_a3c0e05f841c/summary.json",
+                  "two_completed": true,
+                  "expected_wrong_answer": "18",
+                  "statuses": {
+                    "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/prior_assignment_entry/old_saved_attempts_diagnostic_only/0/tests/0/statuses"
+                  },
+                  "answers_tail_for_review": [
+                    "ht-coloured blocks by counting the white squares.\n\nThe diagram shows a checkerboard pattern. The light coloured blocks correspond to the white squares. Let's count them row by row from top to bottom:\n1.  **Top row:** 1 white square\n2.  **Second row:** 2 white squares\n3.  **Middle row:** 3 white squares\n4.  **Fourth row:** 2 white squares\n5.  **Bottom row:** 1 white square\n\nTotal = $1 + 2 + 3 + 2 + 1 = 9$.\n\nThe side view confirms that the columns with white bases are light coloured, and the columns with dark bases are dark coloured. Therefore, there are **9** light coloured blocks in the tower.",
+                    ". There are 8 positions for light blocks.\n    *   To be consistent with the dark pyramid shape described above, these light blocks must be stacked at a height of 4 to match the peak of the dark pyramid. (If they were any lower, they would be hidden, and if they were higher, the pyramid shape would be broken).\n    *   Since there are 8 white positions on the top layer, and each column is 4 blocks high, we multiply the number of columns by the height.\n    *   Calculation: $8 \\text{ columns} \\times 4 \\text{ blocks per column} = 32$.\n\nTherefore, there are **32** light coloured blocks in the tower."
+                  ],
+                  "note": {
+                    "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/prior_assignment_entry/old_saved_attempts_diagnostic_only/0/tests/0/note"
+                  }
+                }
+              ],
+              "original_controls": {
+                "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/prior_assignment_entry/old_saved_attempts_diagnostic_only/0/original_controls"
+              },
+              "independent_review": null,
+              "approval_status": "No user Pass/Collect recorded"
+            }
+          ],
+          "full_old_history_required": {
+            "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/0/prior_assignment_entry/full_old_history_required"
+          }
+        },
+        "current_eligibility_preparation": {
+          "eligible": true,
+          "MathVision": true,
+          "no_Pass_Collect_or_special_completion": true,
+          "original_approval_matches": true,
+          "approval_content_sha256": "db0d19312a3e809c5ab0fa578a5ca445140d59c2115c96d826a8e7f26350e9b0",
+          "not_delivered": true
+        },
+        "full_old_history_required": true,
+        "work_mode": "continue_substantive_assessment_after_partial40_inspection",
+        "provisional_new_direction": {
+          "EXACT_DUPLICATE_OF": "background_46_assignment.json/questions/4/prior_assignment_entry/provisional_new_direction"
+        }
+      }
+    ],
+    "old_completed_background40_overlap_intentional": true,
+    "other_active_scopes_disjoint": true,
+    "background40_parent_closure": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\closure38_40_parent_preparation.json",
+    "frozen_drafts_may_only_be_copied_byte_identically_then_first_tested_after_zero_call_recheck": true,
+    "must_never_retry_Solid106_or_Solid152": true,
+    "preparation_only_no_solver_calls": true,
+    "parent_dispatch_required": true
+  }
+}

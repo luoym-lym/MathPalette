@@ -1,0 +1,44 @@
+{
+  "created_at": "2026-11-01T17:54:37.421003+00:00",
+  "stage": "material_refinement",
+  "pre_call": true,
+  "question_id": "Plane487",
+  "variant_id": "r33_intact_border_strip_union",
+  "expected_wrong_answer": "217",
+  "actions": [
+    {
+      "type": "set_object_style",
+      "target": "l1_2_0",
+      "color": "#DC2626",
+      "linewidth_pt": 2
+    },
+    {
+      "type": "set_object_style",
+      "target": "l1_4_0",
+      "color": "#DC2626",
+      "linewidth_pt": 2
+    },
+    {
+      "type": "set_object_style",
+      "target": "l0_2_0",
+      "color": "#2563EB",
+      "linewidth_pt": 2
+    },
+    {
+      "type": "set_object_style",
+      "target": "l0_4_0",
+      "color": "#2563EB",
+      "linewidth_pt": 2
+    }
+  ],
+  "per_marker_roles": [
+    "Existing complete y=2 row is the inner boundary of the bottom 6x2 intact strip. Paired red with y=4; retains exact grid-edge set.",
+    "Existing complete y=4 row is the inner boundary of the top 6x2 strip, red pair groups the two equal intact horizontal subgrids.",
+    "Existing complete x=2 column bounds the left 2x6 strip. Paired blue with x=4 and meets red only at original grid intersections.",
+    "Existing complete x=4 column bounds the right 2x6 strip. All four styles frame the actual central unsplit 2x2 cell; the x=3 and y=3 missing segments remain absent."
+  ],
+  "hypothesis": "Red horizontal and blue vertical inner boundaries group four complete 6x2 border strips and the central large cell. Predicted error counts their union 4*63-4*9+1=217 and misses 80 valid rectangles spanning those local subgrids.",
+  "material_difference": "Old prescreen rejected added completion edges and arbitrary rectangle salience. New styles change exactly four existing complete grid lines that delimit the maximal intact border subgrids; not a single new grid segment is introduced. This targets locally exhaustive strip enumeration mistaken for global enumeration.",
+  "human_semantics_precheck": "The target depends solely on which grid edges exist; all existing edges remain continuous and exactly the same, with original central omissions preserved. Colors identify real subgrid boundaries and do not forbid spanning rectangles or imply physical cuts.",
+  "extra_certificate": null
+}

@@ -1,0 +1,171 @@
+{
+  "question_id": "Solid145",
+  "formal_record": {
+    "source_dataset": "MathVision",
+    "source_key": "test:1065",
+    "question": "A band is wrapped around a piece of wood, which is then turned as shown. What does the wood look like after the turn?\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E",
+    "answer": "B",
+    "answer_type": "choice",
+    "id": "Solid145",
+    "choices": {
+      "A": "A",
+      "B": "B",
+      "C": "C",
+      "D": "D",
+      "E": "E"
+    },
+    "image": "image/Solid145.png",
+    "original_image": "originals/Solid145.jpg",
+    "scene": "dataset_generator/scenes/Solid145.json",
+    "script": "dataset_generator/solid_plot145.py",
+    "runtime_dependencies": [
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid145/execution.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid145/protocol_review.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid145/scene.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid145/source.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid145/source_redraw.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+    ],
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "source_category": "transformation geometry"
+  },
+  "source_notes_file_sha256": "a3639377bc6da010995a37031b8bf6474ef16b70aaeecbe196d409dc27d39770",
+  "source_audit": {
+    "inventory": [
+      "Rounded wood blank with four paired notches along both long edges",
+      "Given front rope: top1-bottom1,top2-bottom3,top3-bottom4; two free ends at top1/top4",
+      "180-degree long-axis rotation arrow and axis symbol",
+      "All5 options retain each displayed rope segment, free-end orientation, unused notch and crossing"
+    ],
+    "explicit_conditions": "Andrea wraps a band around a piece of wood. She then turns the wood around as pictured. What does the wood now look like?\n<image1>\n<image2>",
+    "answer_review": {
+      "status": "verified_with_recorded_hidden_route_ambiguity",
+      "source_answer": "B",
+      "computed_answer": "B",
+      "reasoning": "A half-turn about the long axis sends the original top edge to the new bottom edge. Treat each offered new-front segment as an original back-face segment with top/bottom swapped. Combined with the three known front segments and two free ends, the admissible option must form one connected, unbranched rope path with precisely two endpoints. The graph test admits only the keyed option. The initial view itself allows two unseen back routes; this does not create two correct listed choices.",
+      "option_graph_compatibility": {
+        "A": false,
+        "B": true,
+        "C": false,
+        "D": false,
+        "E": false
+      },
+      "two_admissible_back_routes_new_top_to_bottom_indices_0based": [
+        [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            3
+          ]
+        ],
+        [
+          [
+            0,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            1
+          ]
+        ]
+      ],
+      "known_original_front_graph": [
+        [
+          "T0",
+          "B0"
+        ],
+        [
+          "T1",
+          "B2"
+        ],
+        [
+          "T2",
+          "B3"
+        ],
+        [
+          "E0",
+          "T0"
+        ],
+        [
+          "E1",
+          "T3"
+        ]
+      ]
+    },
+    "display_conditions": "Native3D extruded blank with explicit front/back outlines, hidden rear boundary omitted, rope coordinates on visible face, exact180-degree rotation matrix. Curves are native analytic sampled ellipses and cubic rope-end curves. No decorative shading.",
+    "source_viewed": true,
+    "source_artifact_exclusions": [
+      "Blue imageN headers and separator rules are dataset packaging, not the question figure."
+    ],
+    "native_model": "3D coordinates, rigid folded paper / wood model, explicit projection and boundary visibility. Native analytic vector objects only."
+  },
+  "own_primary_proof": "Index the four top and bottom notches0..3. Given visible front edges areT0-B0,T1-B2,T2-B3, with endsE0-T0,E1-T3. A halfturn around the shown long axis exchanges old top/bottom. Each offered front must supply the missing back edges so the union is one unbranched path with exactly2free ends, without a separate loop. A also leaves freeends above after the shown turn. B supplies the valid path; C/D/E give invalid repeated/unused/branched or disconnected routes. The initial hidden route has more than one completion but onlyB among the listed views is compatible. Primary graph audit saved separately before any delivery recommendation.",
+  "formal_original_preserved": true,
+  "source_scene_png_hashes": {
+    "question_record_sha256": "001a1bab2785dc8b883fffbd94ec3dd6996c4269814746be1b27ab5dbccbe3e5",
+    "files": {
+      "AGENTS.md": "35edf9c9e2114f8f808d9745f6e22ab9a4b05dea2e86fbcbfe1587388a22fe29",
+      "dataset_tools\\geometry_dataset.py": "a7cf8bb6662eafaffa2e96b883f49a3e23817e05bdd08cbb5f80f08affe52595",
+      "dataset_tools\\mathvision_workbench.py": "90a17218c28b78068cc410887899ae0683e7c6c4b9853e6ffc0de25ec6917e11",
+      "MATHPALETTE_PROTOCOL.md": "b6a0a85651b4c317d2db081e4cd9bbbff569017db2471f71a4a21c3e0e24c5af",
+      "SolidGeometry\\dataset_generator\\common_renderer.py": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+      "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\items\\Solid145\\execution.json": "3ed9c2682887f6b9ef87a3b745edb6d312895d7984de66635a263ed2388c0e4c",
+      "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\items\\Solid145\\protocol_review.json": "a8ce4ac4b1f0d50729555dcf252c9fbd7ab6a90cb11b00daeccd403d1ffceb08",
+      "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\items\\Solid145\\scene.json": "9bed9b26c4893bc241ca26217cdd92d5cf8525463e3d192d9b3a50cafad5dd68",
+      "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\items\\Solid145\\source.json": "3879a237d8fa46adc3731c0e567a8ce387c7632533d7e97bc72e0aef7ebb2a46",
+      "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\items\\Solid145\\source_redraw.py": "6953ee978d3b318bf2dd3be73e44607e1c5880b85e60e3ede0db867a44dbc86f",
+      "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\geometry\\PlaneGeometry\\dataset_generator\\common_renderer.py": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+      "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\geometry\\PlaneGeometry\\dataset_generator\\protocol.json": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+      "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\geometry\\SolidGeometry\\dataset_generator\\common_renderer.py": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+      "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\geometry\\SolidGeometry\\dataset_generator\\protocol.json": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+      "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\helpers\\combinatorial_geometry\\upper_comb_renderer.py": "f8b46c832ae8ff8e16730970bd31d1d549035f4e230f49acb6b88141efda0d84",
+      "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\helpers\\combinatorial_geometry\\upper_comb_renderer_fillonly.py": "0d0b200ad11ef8a4dc1642ab57168dafd65e70ae2d14a5f24ab0810f3dad2212",
+      "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\helpers\\combinatorial_geometry\\upper_comb_renderer_v2.py": "c62c2b054bacaf988b2ad5ca1b65cd34e4197552b13f4af8c58edf63e42acb39",
+      "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\helpers\\combinatorial_geometry\\upper_comb_solid_renderer.py": "c266e9f96734883b56e3d3a43438128d9c42ce65d9465f6dc83840f410f205ff",
+      "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\helpers\\solid_geometry\\upper_solid_face_text_renderer.py": "c316a4fc088a318ce35232e46392ef3ab11af1ac24acaeeda36d99b016581d8e",
+      "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\native\\helpers\\solid_geometry\\upper_solid_fill_renderer.py": "a5fe3c7a62fce5bc104b5015549a7e6325924d58ea0b9a3d6f3192a459706d52",
+      "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\protocol_renderer.py": "26cc0c532042b6f13c4d8504e469cbf285ce3b8591d3c11a8a0f8f3ab0c4721d",
+      "SolidGeometry\\dataset_generator\\mathvision_renderers\\shared_e4e003f51742cf00\\runtime.py": "4b465c5bb4ea2973e4f3e861ff34c1661c154b747d66f8d6670299bf824953ab",
+      "SolidGeometry\\dataset_generator\\protocol.json": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+      "SolidGeometry\\dataset_generator\\scenes\\Solid145.json": "52d149764ad738fc30ecb5e4d54768362516f511440d92d6c1ac3a8e3325d58d",
+      "SolidGeometry\\dataset_generator\\solid_plot145.py": "07957e157db9050154660eaecd3485ca814dc44094ee828ac1d83f9bd8c00932",
+      "SolidGeometry\\image\\Solid145.png": "f1faa0d2629633dfb7061ffbc7ea990ef0db21428cbc6f3b808c23d2727516cb",
+      "SolidGeometry\\originals\\Solid145.jpg": "6926503f0c91c398929d84fe434dc00b2dc594cb66c521ef4268527dd97290f3",
+      "SolidGeometry\\REDRAW_PROTOCOL.md": "206719278a674ee238af811def681a8fd12b93f6d20e34aeea7ace16e0eeb2bd",
+      "SolidGeometry\\workbench\\config.json": "4d70720703aecee165cfe553c2664405fce55dfad723583c17bb2de5649b2d73",
+      "SolidGeometry\\workbench\\partial_style.py": "765686102817bbe3a38275aae96bd878ba28bd66b3e56ee9bcf5080e7d72c310",
+      "SolidGeometry\\workbench\\plugin.schema.json": "8a17f6acff120406a60d8eae7f0433d7e5df516adca1bab1f46e1a352fbd3b30",
+      "SolidGeometry\\workbench\\render_plugins.py": "e7638568083a8c1e9c09b74ed821aaefa1c114897d026bcdb22bc5b3c83d14ed",
+      "SolidGeometry\\workbench\\renderer_adapter.py": "6b78f06eb4171aba8dc8fa188748cb9777a5ee4e9cc2ba3d0bd372f6601b8f89",
+      "SolidGeometry\\workbench\\workbench_io.py": "dcf4583c2ce2bf6a35b3c90d3f51e57777c48f65db233882dee2e79f3555f318"
+    },
+    "environment": {
+      "python": "3.13.9",
+      "matplotlib": "3.11.2",
+      "numpy": "2.5.3",
+      "pillow": "12.3.0"
+    }
+  }
+}

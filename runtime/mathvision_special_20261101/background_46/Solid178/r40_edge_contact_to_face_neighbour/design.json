@@ -1,0 +1,613 @@
+{
+  "question_id": "Solid178",
+  "variant_id": "r40_edge_contact_to_face_neighbour",
+  "created_at": "2026-11-01T18:59:09.939401+00:00",
+  "expected_wrong_answer": "42",
+  "formal_correct_answer": "17",
+  "mechanism": "Pair the actual touching top corners of gray and diagonal white cubes, targeting edge-contact being counted as face-neighbour propagation.",
+  "primary_math_proof": {
+    "derivation": "Source gray top face spansx1..2,y2..3,z4, so start cube lower corner(1,2,3). Synchronous face-neighbor expansion for2 days equals Manhattan distance<=2 restricted to64cubes.",
+    "face_rule_days_0_1_2": [
+      [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      [
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          1,
+          1,
+          3
+        ],
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          3,
+          3
+        ],
+        [
+          2,
+          2,
+          3
+        ]
+      ],
+      [
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          0,
+          3,
+          3
+        ],
+        [
+          1,
+          0,
+          3
+        ],
+        [
+          1,
+          1,
+          2
+        ],
+        [
+          1,
+          1,
+          3
+        ],
+        [
+          1,
+          2,
+          1
+        ],
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          3,
+          2
+        ],
+        [
+          1,
+          3,
+          3
+        ],
+        [
+          2,
+          1,
+          3
+        ],
+        [
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          3
+        ],
+        [
+          3,
+          2,
+          3
+        ]
+      ]
+    ],
+    "correct_day2": 17,
+    "wrong_rule": "Allow edge contacts as well as face contacts: displacement components<=1 and L1<=2 per day; corner-only contacts are still excluded.",
+    "wrong_rule_days_0_1_2": [
+      [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      [
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          0,
+          3,
+          3
+        ],
+        [
+          1,
+          1,
+          2
+        ],
+        [
+          1,
+          1,
+          3
+        ],
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          3,
+          2
+        ],
+        [
+          1,
+          3,
+          3
+        ],
+        [
+          2,
+          1,
+          3
+        ],
+        [
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          3
+        ]
+      ],
+      [
+        [
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          3
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          0,
+          3,
+          1
+        ],
+        [
+          0,
+          3,
+          2
+        ],
+        [
+          0,
+          3,
+          3
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          1,
+          0,
+          3
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          2
+        ],
+        [
+          1,
+          1,
+          3
+        ],
+        [
+          1,
+          2,
+          1
+        ],
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          3,
+          1
+        ],
+        [
+          1,
+          3,
+          2
+        ],
+        [
+          1,
+          3,
+          3
+        ],
+        [
+          2,
+          0,
+          2
+        ],
+        [
+          2,
+          0,
+          3
+        ],
+        [
+          2,
+          1,
+          1
+        ],
+        [
+          2,
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          3
+        ],
+        [
+          2,
+          2,
+          1
+        ],
+        [
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          2,
+          3,
+          2
+        ],
+        [
+          2,
+          3,
+          3
+        ],
+        [
+          3,
+          0,
+          3
+        ],
+        [
+          3,
+          1,
+          2
+        ],
+        [
+          3,
+          1,
+          3
+        ],
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          2,
+          2
+        ],
+        [
+          3,
+          2,
+          3
+        ],
+        [
+          3,
+          3,
+          2
+        ],
+        [
+          3,
+          3,
+          3
+        ]
+      ]
+    ],
+    "wrong_day2": 42,
+    "wrong_derivation": "Transfer the visible top-corner contact between gray and diagonal white cube into the problem neighbor relation, then consistently apply edge-or-face adjacency for two days.",
+    "human_uniqueness": "No fill or cube count changes; all four marks coincide with genuine existing grid edges and draw no connecting fake adjacency. Explicit face-only definition excludes the highlighted edge-only contact. Colors encode comparison, not changed gray state or new givens."
+  },
+  "marker_roles": [
+    {
+      "index": 0,
+      "action": {
+        "type": "set_object_style",
+        "target": "gride36",
+        "color": "#DC2626",
+        "linewidth_pt": 2
+      },
+      "role": "True gray-cell top front boundary ending at shared vertex(2,2,4).",
+      "source_object": {
+        "id": "gride36",
+        "type": "curve",
+        "kind": "segment",
+        "role": "edge",
+        "styleable": true,
+        "source_call": {
+          "scene_object_id": "gride36",
+          "native_object_id": "gride36"
+        },
+        "geometry": {
+          "id": "gride36",
+          "type": "segment",
+          "role": "edge",
+          "points": [
+            [
+              1.0,
+              2.0,
+              4.0
+            ],
+            [
+              2.0,
+              2.0,
+              4.0
+            ]
+          ],
+          "visibility": "visible"
+        },
+        "frozen_visibility": "visible",
+        "artist_count": 1
+      }
+    },
+    {
+      "index": 1,
+      "action": {
+        "type": "set_object_style",
+        "target": "gride39",
+        "color": "#DC2626",
+        "linewidth_pt": 2
+      },
+      "role": "True gray-cell right boundary: paired red open corner identifies gray side of an actual edge-only contact.",
+      "source_object": {
+        "id": "gride39",
+        "type": "curve",
+        "kind": "segment",
+        "role": "edge",
+        "styleable": true,
+        "source_call": {
+          "scene_object_id": "gride39",
+          "native_object_id": "gride39"
+        },
+        "geometry": {
+          "id": "gride39",
+          "type": "segment",
+          "role": "edge",
+          "points": [
+            [
+              2.0,
+              2.0,
+              4.0
+            ],
+            [
+              2.0,
+              3.0,
+              4.0
+            ]
+          ],
+          "visibility": "visible"
+        },
+        "frozen_visibility": "visible",
+        "artist_count": 1
+      }
+    },
+    {
+      "index": 2,
+      "action": {
+        "type": "set_object_style",
+        "target": "gride37",
+        "color": "#2563EB",
+        "linewidth_pt": 2
+      },
+      "role": "True diagonal white-cell left boundary at the same vertex, below the gray cell in depth.",
+      "source_object": {
+        "id": "gride37",
+        "type": "curve",
+        "kind": "segment",
+        "role": "edge",
+        "styleable": true,
+        "source_call": {
+          "scene_object_id": "gride37",
+          "native_object_id": "gride37"
+        },
+        "geometry": {
+          "id": "gride37",
+          "type": "segment",
+          "role": "edge",
+          "points": [
+            [
+              2.0,
+              1.0,
+              4.0
+            ],
+            [
+              2.0,
+              2.0,
+              4.0
+            ]
+          ],
+          "visibility": "visible"
+        },
+        "frozen_visibility": "visible",
+        "artist_count": 1
+      }
+    },
+    {
+      "index": 3,
+      "action": {
+        "type": "set_object_style",
+        "target": "gride53",
+        "color": "#2563EB",
+        "linewidth_pt": 2
+      },
+      "role": "True diagonal white-cell back boundary: paired blue open corner touches gray red corner only at the top vertex. In3D the two cubes share a vertical edge, not a face.",
+      "source_object": {
+        "id": "gride53",
+        "type": "curve",
+        "kind": "segment",
+        "role": "edge",
+        "styleable": true,
+        "source_call": {
+          "scene_object_id": "gride53",
+          "native_object_id": "gride53"
+        },
+        "geometry": {
+          "id": "gride53",
+          "type": "segment",
+          "role": "edge",
+          "points": [
+            [
+              2.0,
+              2.0,
+              4.0
+            ],
+            [
+              3.0,
+              2.0,
+              4.0
+            ]
+          ],
+          "visibility": "visible"
+        },
+        "frozen_visibility": "visible",
+        "artist_count": 1
+      }
+    }
+  ],
+  "candidate_png_sha256": "fd7672e8eccd42408518e1ca7709e66452b6b4f0c106a131844edf8fc2159768",
+  "plugin_sha256": "8f67a11bc9f2b7dad0cdbb3df6ce4d1c65dcebb2f0ebee95643a5015e4ec3498",
+  "exact_path_bindings_sha256": "b3ceb192741610926b742cb679e47481d6ac15dff1f86df766f737611b8e4f0d",
+  "difference_audit_sha256": "57e69a10383f9f76ff5e809bff166fa290e4f9794fd1ac1b6372aabace00acaa",
+  "status": "FROZEN_BEFORE_CALLS; native visual primary review still required; not independently reviewed",
+  "limitations": [
+    "No causal gain or human performance claim.",
+    "No new original control calls.",
+    "Parent must create a NEW independent review for any possible candidate."
+  ]
+}

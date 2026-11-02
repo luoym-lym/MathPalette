@@ -1,0 +1,147 @@
+{
+  "question_id": "Solid239",
+  "variant_id": "endpoint_to_four_border_orbits",
+  "created_at": "2026-11-02T09:59:25.049349+00:00",
+  "expected_wrong_answer": "A",
+  "expected_wrong_value": "A",
+  "formal_correct_answer": "E",
+  "answer_semantics": "Each option letter maps to itself; a hit requires an explicit final choice with matching letter/value, no conflicting final.",
+  "mechanism_predeclared": [
+    {
+      "action_index": 0,
+      "source": "Bottom-crease endpoint half of the one original dashed cut",
+      "receiver": "A upper/lower V pairs (actions 2,3)",
+      "information": "Red distinguishes which part of the existing cut is anchored at the bottom crease. It does not add a second cut or change the straight dashed line.",
+      "necessity": "First distinct source endpoint class."
+    },
+    {
+      "action_index": 1,
+      "source": "Right-crease endpoint half of the same dashed cut",
+      "receiver": "A left/right V pairs (actions 4,5)",
+      "information": "Blue distinguishes the other original crease endpoint. Red and blue meet on the same collinear cutting instruction.",
+      "necessity": "Second distinct endpoint class; no overlap or dead action."
+    },
+    {
+      "action_index": 2,
+      "source": "The corresponding colored endpoint class of the original cutting instruction",
+      "receiver": "A bottom complete V notch, two original connected slants",
+      "information": "red groups the opposite bottom border notch with its partner as if the two cut endpoints generated two independent boundary-notch orbits.",
+      "necessity": "One complete V counterpart, retaining its exact geometry and all uncut edge portions."
+    },
+    {
+      "action_index": 3,
+      "source": "The corresponding colored endpoint class of the original cutting instruction",
+      "receiver": "A top complete V notch, two original connected slants",
+      "information": "red groups the opposite top border notch with its partner as if the two cut endpoints generated two independent boundary-notch orbits.",
+      "necessity": "One complete V counterpart, retaining its exact geometry and all uncut edge portions."
+    },
+    {
+      "action_index": 4,
+      "source": "The corresponding colored endpoint class of the original cutting instruction",
+      "receiver": "A right complete V notch, two original connected slants",
+      "information": "blue groups the opposite right border notch with its partner as if the two cut endpoints generated two independent boundary-notch orbits.",
+      "necessity": "One complete V counterpart, retaining its exact geometry and all uncut edge portions."
+    },
+    {
+      "action_index": 5,
+      "source": "The corresponding colored endpoint class of the original cutting instruction",
+      "receiver": "A left complete V notch, two original connected slants",
+      "information": "blue groups the opposite left border notch with its partner as if the two cut endpoints generated two independent boundary-notch orbits.",
+      "necessity": "One complete V counterpart, retaining its exact geometry and all uncut edge portions."
+    }
+  ],
+  "mathematics": {
+    "kind": "primary independent mathematical derivation, not independent second review",
+    "fold_assignment": "The closed packet has layered open top/left edges; bottom/right are crease edges. Gray front versus banded reverse is material-side coding retained unchanged.",
+    "normalized_setup": "Take Q=[0,1]^2 in the coincident closed stack, creases x=1 and y=0. The given cut joins P=(1/2,0) to R=(1,1/2), cutting off triangle T with third vertex C=(1,0).",
+    "unfold_maps": [
+      "(x,y)",
+      "(2-x,y)",
+      "(x,-y)",
+      "(2-x,-y)"
+    ],
+    "constructive_result": "The union of those four closed triangles has boundary vertices (1/2,0),(1,1/2),(3/2,0),(1,-1/2). Its interior is a single central diamond in the full square [0,2] x [-1,1], with area 1/2, i.e. 1/8 of the full paper. No outer boundary is reached: every diamond point has 1/2<=x<=3/2 and -1/2<=y<=1/2.",
+    "exhaustive_choices": {
+      "A": "Four outer notches modify all four sides; impossible because the removed diamond is strictly internal.",
+      "B": "Two outer notches modify top/bottom; impossible for the same internal-location invariant.",
+      "C": "Internal axis-aligned square has horizontal/vertical sides. Reflected original cut lines have slopes +1/-1; no horizontal/vertical hole edge is created.",
+      "D": "Triangle is not invariant under both crease reflections. Its horizontal base is an old crease, not a new cut, and cannot be a final hole edge.",
+      "E": "Has exactly the constructed internal diamond with the original outside square. Unique."
+    },
+    "unique_answer": "E",
+    "source_originals_viewed": true,
+    "formal_png_viewed": true,
+    "visibility_scope": "The slightly separated display layers reveal four coincident layers without changing the material fold map; all world points, projection matrix, intervals, bands and layer outlines are frozen."
+  },
+  "human_semantics": "Only the already explicit dashed cutting instruction and A invalid boundary notches are colored. Instruction color is not a paper ink condition. The bands, layer order, folds and correct uncolored E are untouched; E remains the internal diamond under either instruction/annotation reading or an intrinsic color reading of the impossible A option.",
+  "native_visual_review": "Viewed native 768px: the one original collinear dashed cut has red near its bottom endpoint and blue near its right endpoint, with no new vertex or cut. A top/bottom Vs are red, left/right Vs blue. All gray fills, layers, bands and black retained boundaries are intact; correct E remains an uncolored central diamond.",
+  "reference_transfer": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_similar24_special_20261102\\units\\u06_fold_cut\\Solid239\\endpoint_to_four_border_orbits\\reference_transfer.json",
+  "history_difference_audit": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_similar24_special_20261102\\units\\u06_fold_cut\\Solid239\\endpoint_to_four_border_orbits\\history_difference_audit.json",
+  "frozen_files": {
+    "candidate.png": "bb52fd88d2350c318659048a1184f88ed0b035702864cb35ebd1277c851cec75",
+    "plugin.json": "fea301564a5ef5c62fc1b4fa665977049576dde6ea8918cb739999c1f8f311dd",
+    "context.json": "4e859ad1a48e53d80e16da77bd02230913fba563a0c635b53afe5d502cd14bad",
+    "path_fingerprints.json": "504ca12349d1a9912ebabe3431e38f1460d9ee2fdd9e1676c09eb2f006585aa6",
+    "mathematics.json": "c60097eaf7e78d5f51b50ae692ddc51bf101625879402957525c1d447a5b6841",
+    "reference_transfer.json": "ed4e5fe5eedbcf7b4f5ec797079b3640e60a0c0db4993febc4078780fd7f3575",
+    "history_difference_audit.json": "9fbdc8d3728b85bdbd2ea4653e41aa28cd8278e2bde1019eb507967c0d76ec77",
+    "primary_review_before_calls.json": "5d691585d377895b9212c9ea1d9f6cc4edb6dc793b189e92f78c0a05e2e5a290",
+    "render_check.json": "fed93fa7428cecb00f8c3bbe14b227ae10dac7e8a42045abd5e3d3babe248e58",
+    "fresh_process_replay.json": "4058a5116c396a328ab023d821591d0c8a78f5033fd1431190c3a7bc16af6a1c",
+    "prior_input_novelty.json": "8b63c851d5ee0b194e8ff83cd25148ed220c3823655feca59693f5157419d840"
+  },
+  "formal_record": {
+    "source_dataset": "MathVision",
+    "source_key": "test:2782",
+    "question": "A square piece of paper is folded twice into four equal quarters, as shown below, then cut along the dashed line. When unfolded, the paper will match which of the following figures?\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E",
+    "answer": "E",
+    "answer_type": "choice",
+    "id": "Solid239",
+    "choices": {
+      "A": "A",
+      "B": "B",
+      "C": "C",
+      "D": "D",
+      "E": "E"
+    },
+    "image": "image/Solid239.png",
+    "original_image": "originals/Solid239.jpg",
+    "scene": "dataset_generator/scenes/Solid239.json",
+    "script": "dataset_generator/solid_plot239.py",
+    "runtime_dependencies": [
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid239/execution.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid239/protocol_review.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid239/scene.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid239/source.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Solid239/source_redraw.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+    ],
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "source_category": "transformation geometry"
+  },
+  "approval_content_sha256": "8ab573ff2946445df5e5c9667e7c2fad5ca54b83c60091a356082e3874300806",
+  "requested_runs": 2,
+  "profile": "original quicktest3 / mimo-v2.6-flash / thinking.disabled",
+  "max_tokens_sent": false,
+  "only_formal_question_and_PNG_sent": true,
+  "status": "PRIMARY_PENDING_EXACT_TWO_OBSERVATIONS",
+  "forbidden": [
+    "third call",
+    "automatic retry",
+    "post-output preset change",
+    "selecting two from more attempts",
+    "Pass/Collect",
+    "self second review"
+  ]
+}

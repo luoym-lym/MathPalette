@@ -1,0 +1,69 @@
+{
+  "checked_at": "2026-11-01T21:12:16.853585+00:00",
+  "question_id": "Solid207",
+  "proof": {
+    "answer": 864,
+    "face_metrics": "Each B is a rigid right isosceles6,6,6sqrt2 triangle. Each A is the rigid12square with a midpoint6-by6 corner removed: cyclic lengths6,12,12,6,6sqrt2 and corner angles135,90,90,90,135. The central regular hexagon has side6sqrt2. Native panel coordinates and all six attachments match these metrics.",
+    "folding_convention": "Use the stated seven rigid polygonal faces and their drawn hinges to form a closed simple polyhedron, with no additional creases, panel subdivision, overlaps or identification of distinct vertices of the hexagon. This is the ordinary net interpretation of the actual question; convexity is not used as an independent unstated given.",
+    "proof_steps": [
+      "Embed the central hexagon as the six permutations of(0,6,12) in x+y+z=18. Adjacent distances are6sqrt2 and interior angles120degrees. Alternate boundary edges have common coordinate12 (B) and common coordinate0 (A), matching the actual cyclic attachments.",
+      "Every free6edge has exactly one endpoint at a central-hexagon vertex. It cannot join a6edge in reversed endpoint order to a different hexagon vertex: that would place two distinct hexagon vertices6apart, whereas hexagon chords are6sqrt2,6sqrt6,12sqrt2. It cannot join another vertex of the hexagon in the same endpoint order because those vertices are fixed and distinct. Hence the two free6edges at each hexagon vertex join each other. A long12edge cannot be subdivided into two6seams without putting at least two distinct hexagon vertices6or12apart; neither is a hexagon chord. No new fold or seam subdivision is supplied by the actual net.",
+      "For the B edge between X=(12,6,0) and Y=(12,0,6), its third vertex P has |PX|=|PY|=6. At X the angle between XP and XY is45degrees (B), and between XP and the adjacent A hinge is135degrees. These fix the component of XP in the hexagon plane; its nonzero perpendicular component has only two signs. The two solutions are P=(12,0,0) and its reflection Pprime=(16,4,4) across x+y+z=18. Cyclically the other B apices are(0,12,0),(0,0,12), or their reflections obtained by adding(4,4,4).",
+      "Each A contains two consecutive B apices at its short-edge endpoints. Their separation inside the rigid A polygon is the original square diagonal12sqrt2, squared288. Two apices chosen on the same side of the hexagon plane have squared separation288; choosing opposite reflection signs gives336. Therefore each A forces its neighboring B signs equal, and the three A panels force all three signs equal. This rules out independent inward/outward B flips and mixed nonconvex hinge choices under the actual net closure; a bare appeal to convex rigidity would not suffice.",
+      "With the three B apices fixed, each A is rigidly fixed by its cut-edge endpoints and short-edge endpoint; three noncollinear anchors fix its plane and its polygon side. All faces therefore bound [0,12]^3 intersect{x+y+z<=18}, or its reflected congruent counterpart. The map(x,y,z)->(12-x,12-y,12-z) exchanges the two half-cubes. Thus V=12^3/2=864.",
+      "The two red open intervals compare source6 with receiver12; they are not equal-length ticks and do not alter this scale. Using6as the full cube side gives6^3/2=108, the unchanged r55 wrongpreset. Retaining red ink on edges while folding changes no numerical volume; the task asks no color-pattern output."
+    ],
+    "uniqueness": "Constructive face metrics plus forced short seams and synchronized reflection signs establish the intended closed seven-face volume without relying on convexity alone. Exotic additional cuts/folds, self-intersection or collapsing different hexagon vertices would change the given net.",
+    "old_primary_qualification": "Old r55 proof appealed only to fixed convex-face rigidity. This supplement explicitly checks closure and mixed-sign alternatives; no old proof/design file edited."
+  },
+  "numerical_checks": {
+    "same_sign_apex_distance_squared": 288,
+    "mixed_sign_apex_distance_squared": 336,
+    "cut_plane": [
+      1,
+      1,
+      1,
+      18
+    ],
+    "volume": 864,
+    "panel_edge_lengths": {
+      "0": [
+        6.000000000000001,
+        6.0,
+        8.48528137423857
+      ],
+      "1": [
+        6.000000000000001,
+        12.000000000000002,
+        12.000000000000002,
+        6.000000000000001,
+        8.485281374238571
+      ],
+      "2": [
+        6.0,
+        6.000000000000001,
+        8.485281374238571
+      ],
+      "3": [
+        5.999999999999999,
+        11.999999999999996,
+        11.999999999999996,
+        5.999999999999997,
+        8.485281374238568
+      ],
+      "4": [
+        6.0000000000000036,
+        6.000000000000002,
+        8.485281374238575
+      ],
+      "5": [
+        5.999999999999998,
+        11.999999999999998,
+        11.999999999999998,
+        6.0,
+        8.48528137423857
+      ]
+    }
+  },
+  "primary_only": true
+}

@@ -1,0 +1,66 @@
+UTF-8 transcripts copied from this unit's exec tool outputs. These are tool-output
+transcripts, not retrospectively invented API responses. No API error occurred.
+
+1. Offline inspect collision, before any API work. Exit 1.
+Traceback (most recent call last):
+  File "C:\Users\lym\Desktop\Research\MathPalette-publish\runtime\mathvision_special_20261101\background_55\tools55.py", line 97, in <module>
+    for qid in sys.argv[2:]: inspect(qid)
+                             ~~~~~~~^^^^^
+  File "C:\Users\lym\Desktop\Research\MathPalette-publish\runtime\mathvision_special_20261101\background_55\tools55.py", line 60, in inspect
+    record=e['record']; write(d/'source_hashes_initial.json',frozen_files(record)); write(d/'formal_record.json',record)
+                                                                                    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lym\Desktop\Research\MathPalette-publish\runtime\mathvision_special_20261101\background_55\tools55.py", line 16, in write
+    with p.open('x', encoding='utf-8', newline='\n') as f:
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lym\miniconda3\Lib\pathlib\_local.py", line 537, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileExistsError: [Errno 17] File exists: 'C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_55\\Solid195\\formal_record.json'
+
+2. First Solid195 launcher invocation failed during local imports; no child API
+helper was launched and no process_launch.json existed. Exit 1.
+OpenBLAS error: Memory allocation still failed after 10 retries, giving up.
+OpenBLAS error: Memory allocation still failed after 10 retries, giving up.
+OpenBLAS error: Memory allocation still failed after 10 retries, giving up.
+OpenBLAS error: Memory allocation still failed after 10 retries, giving up.
+OpenBLAS error: Memory allocation still failed after 10 retries, giving up.
+OpenBLAS error: Memory allocation still failed after 10 retries, giving up.
+OpenBLAS error: Memory allocation still failed after 10 retries, giving up.
+
+3. Solid206 launcher failed before process creation / API submission. Exit 1.
+Traceback (most recent call last):
+  File "C:\Users\lym\Desktop\Research\MathPalette-publish\runtime\mathvision_special_20261101\background_55\call55.py", line 7, in <module>
+    e=eligibility(qid);assert e['eligible'];write(d/'eligibility_at_launch.json',e)
+  File "C:\Users\lym\Desktop\Research\MathPalette-publish\runtime\mathvision_special_20261101\background_55\tools55.py", line 23, in eligibility
+    payload = content(PROJECT, BRANCH, record)
+  File "C:\Users\lym\Desktop\Research\MathPalette-publish\dataset_tools\catalog.py", line 88, in content
+    source_notes=read(notes_path) if notes_path.exists() else {}
+                 ~~~~^^^^^^^^^^^^
+  File "C:\Users\lym\Desktop\Research\MathPalette-publish\dataset_tools\catalog.py", line 29, in read
+    return json.loads(Path(path).read_text(encoding='utf-8-sig'))
+                      ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lym\miniconda3\Lib\pathlib\_local.py", line 546, in read_text
+    return PathBase.read_text(self, encoding, errors, newline)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lym\miniconda3\Lib\pathlib\_abc.py", line 633, in read_text
+    return f.read()
+           ~~~~~~^^
+  File "<frozen codecs>", line 325, in decode
+  File "C:\Users\lym\miniconda3\Lib\encodings\utf_8_sig.py", line 69, in _buffer_decode
+    return codecs.utf_8_decode(input, errors, final)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+MemoryError
+
+4. Actual OS resource snapshot immediately after failure:
+provenance/source_notes.json Length: 18192378 bytes
+FreePhysicalMemory: 279064 KiB
+FreeVirtualMemory: 237788 KiB
+TotalVisibleMemorySize: 32987452 KiB
+TotalVirtualMemorySize: 94676152 KiB
+Own Python/API processes matching background_55 at snapshot: none.
+
+5. Offline manifest-refresh shell snippet failed before any write because the
+standard-library helper prefix expected __file__ in a python -c namespace.
+NameError: name '__file__' is not defined. Did you mean: '__name__'?
+Resolution: explicitly set __file__ to this unit's finalizer path, then perform
+only own-root manifest writes. No project or API code was imported.

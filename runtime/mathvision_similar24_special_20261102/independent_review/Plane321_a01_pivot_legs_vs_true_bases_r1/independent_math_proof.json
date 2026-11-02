@@ -1,0 +1,255 @@
+{
+  "question_id": "Plane321",
+  "author": "Independent second reviewer",
+  "basis": "Formal equilateral words and actual source JPG/formal PNG layout, independently inspected. Approval answer, primary proof, and model outputs do not serve as premises.",
+  "normalized_geometry": "Translate A to origin and positively scale the shared side to length2. Actual source arrangement places B=(-2,0), C=(-1,-sqrt(3)), D=(1,-sqrt(3)); A=(0,0). This uses only the two equilateral triangles on opposite sides of AC, preserving the source orientation. The frozen x coordinates B0,A6,C3,D9 with common upper y5.196152422706632 have precisely this same placement; floating coordinates are drawing inputs, not exact-given measurements.",
+  "coverage": "Both equilateral triangles share side AC, hence have equal positive side length and area. Rigid rotation preserves area. Full containment can hold only at equality: if two compact triangles with equal area differed under containment, some nonempty open subset of the larger triangle would lie outside the smaller, contradicting equal area. First covers therefore means first whole-triangle coincidence, not first touching or partial overlap.",
+  "all_continuous_angles_exhausted": "A rotation about A fixes the vertex A, and equality of the two convex triangles must map extreme vertices to extreme vertices. Only two bijections for remaining vertices are possible. C->B and D->C both require theta=300 (mod360), since radial directions AC240, AD300, AB180. C->C would require theta=0 (mod360), whereas D->B requires theta=240 (mod360); these conditions are incompatible. These two permutations exhaust continuous rotations, not merely the answer choices.",
+  "first_positive_CCW_angle": "Exactly theta=300+360k, k integer, achieves coverage. The first positive counterclockwise angle is300 degrees, option E. Clockwise60 is a different directed motion. The equilateral120 symmetry is about its centroid; it does not provide extra symmetry about fixed vertexA.",
+  "wrong_preset": "120 degrees is the real undirected angle BAD (and BCD), not the directed angle giving whole-triangle coverage. At CCW120, neither moving nonpivot vertex lands at B or C. BAD is not straight, and no rotation about A sends distinct C to A.",
+  "exact_arithmetic": "Fraction pairs in Q(sqrt(3)); no solver, numerical tolerance, fitted geometry or approximate equality.",
+  "option_and_zero_enumeration": {
+    "0": {
+      "transformed_points": {
+        "A": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        "C": [
+          [
+            "-1",
+            "0"
+          ],
+          [
+            "0",
+            "-1"
+          ]
+        ],
+        "D": [
+          [
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "-1"
+          ]
+        ]
+      },
+      "vertex_matches": {
+        "A": "A",
+        "C": "C",
+        "D": "D"
+      },
+      "covers_target": false
+    },
+    "60": {
+      "transformed_points": {
+        "A": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        "C": [
+          [
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "-1"
+          ]
+        ],
+        "D": [
+          [
+            "2",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ]
+      },
+      "vertex_matches": {
+        "A": "A",
+        "C": "D",
+        "D": null
+      },
+      "covers_target": false
+    },
+    "120": {
+      "transformed_points": {
+        "A": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        "C": [
+          [
+            "2",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        "D": [
+          [
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ]
+        ]
+      },
+      "vertex_matches": {
+        "A": "A",
+        "C": null,
+        "D": null
+      },
+      "covers_target": false
+    },
+    "180": {
+      "transformed_points": {
+        "A": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        "C": [
+          [
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ]
+        ],
+        "D": [
+          [
+            "-1",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ]
+        ]
+      },
+      "vertex_matches": {
+        "A": "A",
+        "C": null,
+        "D": null
+      },
+      "covers_target": false
+    },
+    "240": {
+      "transformed_points": {
+        "A": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        "C": [
+          [
+            "-1",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ]
+        ],
+        "D": [
+          [
+            "-2",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ]
+      },
+      "vertex_matches": {
+        "A": "A",
+        "C": null,
+        "D": "B"
+      },
+      "covers_target": false
+    },
+    "300": {
+      "transformed_points": {
+        "A": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        "C": [
+          [
+            "-2",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        "D": [
+          [
+            "-1",
+            "0"
+          ],
+          [
+            "0",
+            "-1"
+          ]
+        ]
+      },
+      "vertex_matches": {
+        "A": "A",
+        "C": "B",
+        "D": "C"
+      },
+      "covers_target": true
+    }
+  },
+  "colored_boundary_preserved_at_300": true,
+  "literal_color_reading": "Blue source AC/AD maps to target AB/AC, red source CD maps to red BC. Treating the annotations even as intrinsic boundary colors does not change or remove the unique300 answer. Fixed printed vertex identities would prevent rotating any labelled diagram as usual; the task uses labels as location names, unchanged from original."
+}

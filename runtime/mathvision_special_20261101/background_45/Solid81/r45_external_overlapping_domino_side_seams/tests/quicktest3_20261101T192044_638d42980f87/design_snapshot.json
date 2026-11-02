@@ -1,0 +1,290 @@
+{
+  "question_id": "Solid81",
+  "variant_id": "r45_external_overlapping_domino_side_seams",
+  "created_at": "2026-11-01T19:19:57.449229+00:00",
+  "expected_wrong_answer": "A",
+  "correct_answer": "B",
+  "intent": "Two external dashed source-to-receiver links map the two given glue seams to overlapping vertical adjacent pairs in A. Mistaking this local placement for an exhaustive assembly forces a leftover foot and the wrong impossibility A; the unique actual impossibility is B.",
+  "pretest_math_proof": {
+    "method": "Fresh exhaustive face-adjacency perfect matching; no fixed cuts added.",
+    "cube_sets": {
+      "A": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          2
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "B": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ]
+      ],
+      "C": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ]
+      ],
+      "D": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "E": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          3
+        ]
+      ]
+    },
+    "matchings": {
+      "A": [
+        [
+          [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              2
+            ]
+          ]
+        ]
+      ],
+      "B": [],
+      "C": [
+        [
+          [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              1
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              1,
+              0,
+              1
+            ]
+          ]
+        ]
+      ],
+      "D": [
+        [
+          [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          [
+            [
+              1,
+              1,
+              0
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ]
+        ]
+      ],
+      "E": [
+        [
+          [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              3
+            ]
+          ]
+        ]
+      ]
+    },
+    "unique_answer": "B",
+    "proof": "B is K1,3: any first domino consumes the center and one leaf, leaving two nonadjacent leaves. A,C,D,E have witnesses listed."
+  },
+  "pretest_marker_roles": [
+    {
+      "action_index": 0,
+      "source_object": "given1e1",
+      "source_endpoint_index": 0,
+      "receiver_object": "Ae2",
+      "receiver_endpoint_index": 1,
+      "exact_endpoint_calculation": "Native full-precision3D endpoint passed through the frozen projection. No pixel estimate, geometry edit, midpoint or new point object.",
+      "role": "Link source first domino glue seam to A lower vertical-column seam."
+    },
+    {
+      "action_index": 1,
+      "source_object": "given2e1",
+      "source_endpoint_index": 0,
+      "receiver_object": "Ae6",
+      "receiver_endpoint_index": 1,
+      "exact_endpoint_calculation": "Native full-precision3D endpoint passed through the frozen projection. No pixel estimate, geometry edit, midpoint or new point object.",
+      "role": "Link source second domino glue seam to A upper vertical-column seam. These two apparent domino memberships overlap in A middle cube. Mistaking this indicated local correspondence for the only possible placement leads to wrongA; a legal A matching instead rotates one domino into the base/foot pair."
+    }
+  ],
+  "source_context": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_45\\Solid81\\context.json",
+  "frozen_png_sha256": "6b69552edcc9895fbc1091f53f48b0cb7e873e8e873c8b31f7d3891e925b3001",
+  "frozen_pixel_sha256": "2e072dff1fff758fc34030bc9c920d1e063beb9e5ca32800c1f77d5e87ce1651",
+  "approval_status": "PRIMARY ONLY; parent must create NEW independent review; no Pass/Collect"
+}

@@ -1,0 +1,9 @@
+{
+  "stage": "offline_preparation_before_any_API",
+  "question_id": "Solid238",
+  "error": "TypeError: Object of type ndarray is not JSON serializable",
+  "location": "prepare_designs.py build -> research.dump(path_bindings.json) -> json.dumps",
+  "effect": "Two identical local renders and draft PNG/plugin/context were already produced. No API, no frozen design.json, no path_bindings file was written, no formal/shared file changed.",
+  "resolution": "Own-root JSON writer now serializes NumPy arrays with their full-precision tolist representation. Offline preparation resumes with the exact same plugin and draft bytes; initial difference audit is preserved.",
+  "API_retry": false
+}

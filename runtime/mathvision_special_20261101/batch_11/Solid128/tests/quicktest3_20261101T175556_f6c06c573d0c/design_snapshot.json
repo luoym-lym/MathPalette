@@ -1,0 +1,171 @@
+{
+  "question_id": "Solid128",
+  "variant_id": "r35_corner_ownership_mixed_rims",
+  "stage": "material_refinement",
+  "expected_wrong_answer": "81",
+  "correct_answer": "64",
+  "created_at": "2026-11-01T17:51:44.082636+00:00",
+  "predeclared_hypothesis": "An open existing-edge correspondence mixes an outer wall run with an inward-offset return run; transfer the 36/4=9 corner-allocation count to interior side length and answer9^2=81.",
+  "material_difference_from_old": "Old Solid128 was screened without a saved plugin/call; it considered generic inner-versus-outer rim emphasis without a concrete mapping. This design specifically binds the outside front run (including the corner position) to the inside return run (starting one cube inward). The corner-inclusion mismatch targets dividing36 equally into four nine-cube side allocations and then treating9 as the empty interior side, giving81. No finite square outline, centerline, extension or extra corner is drawn.",
+  "primary_unique_math_proof": "The actual source depicts a one-course, one-cube-thick wall turning a right corner. Let outer side contain n cubes. The square border has4n-4 cubes, because4corner cubes are counted twice by4full side runs. 4n-4=36 gives n=10. The square strictly inside is (10-2)x(10-2)=8x8, requiring64 new cubes. Equivalently 4m+4=36 gives inner side m=8. The drawing is deliberately a partial wall; its clipped lengths are not full side measurements.",
+  "marker_roles": [
+    {
+      "action": {
+        "type": "set_object_style",
+        "target": "front_top",
+        "color": "#DC2626",
+        "linewidth_pt": 1.5
+      },
+      "role": "Actual outside upper edge of the front wall; includes the visible corner cube before the inward return begins.",
+      "stable_source_object": {
+        "id": "front_top",
+        "type": "curve",
+        "kind": "segment",
+        "role": "edge",
+        "styleable": true,
+        "source_call": {
+          "scene_object_id": "front_top",
+          "native_object_id": "front_top"
+        },
+        "geometry": {
+          "id": "front_top",
+          "type": "segment",
+          "role": "edge",
+          "points": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              5,
+              0,
+              1
+            ]
+          ],
+          "visibility": "visible"
+        },
+        "frozen_visibility": "visible",
+        "artist_count": 1
+      },
+      "full_precision_frozen_projected_controls": [
+        [
+          [
+            5.551115123125783e-17,
+            0.9999999999999994
+          ],
+          [
+            5.0,
+            -0.4000000000000005
+          ]
+        ]
+      ],
+      "frozen_path_id": "p0",
+      "frozen_path_sha256": "8f38f8cecd9b627aee17f25d3a727fd7749d36a76d83ce6c7b25abb340de29c0",
+      "closed": false,
+      "path_description": [
+        {
+          "id": "p0",
+          "sha256": "8f38f8cecd9b627aee17f25d3a727fd7749d36a76d83ce6c7b25abb340de29c0",
+          "closed": false,
+          "samples": [
+            [
+              55.120194661479744,
+              280.2544086284564,
+              0.0
+            ],
+            [
+              712.8798053385204,
+              464.4270996180278,
+              1.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "action": {
+        "type": "set_object_style",
+        "target": "return_inner_top",
+        "color": "#DC2626",
+        "linewidth_pt": 1.5
+      },
+      "role": "Actual inward upper edge of the perpendicular return, anchored one cube inward; links to the first run at the real front-top subdivision, targeting mixed corner ownership.",
+      "stable_source_object": {
+        "id": "return_inner_top",
+        "type": "curve",
+        "kind": "segment",
+        "role": "edge",
+        "styleable": true,
+        "source_call": {
+          "scene_object_id": "return_inner_top",
+          "native_object_id": "return_inner_top"
+        },
+        "geometry": {
+          "id": "return_inner_top",
+          "type": "segment",
+          "role": "edge",
+          "points": [
+            [
+              1,
+              0,
+              1
+            ],
+            [
+              1,
+              2.7,
+              1
+            ]
+          ],
+          "visibility": "visible"
+        },
+        "frozen_visibility": "visible",
+        "artist_count": 1
+      },
+      "full_precision_frozen_projected_controls": [
+        [
+          [
+            1.0,
+            0.7199999999999994
+          ],
+          [
+            3.43,
+            1.6649999999999994
+          ]
+        ]
+      ],
+      "frozen_path_id": "p0",
+      "frozen_path_sha256": "e1d950d2520a61f8a396212802728755a3695a01c41b44b9f41eee1ac5c4c1ed",
+      "closed": false,
+      "path_description": [
+        {
+          "id": "p0",
+          "sha256": "e1d950d2520a61f8a396212802728755a3695a01c41b44b9f41eee1ac5c4c1ed",
+          "closed": false,
+          "samples": [
+            [
+              186.67211679688785,
+              317.0889468263707,
+              0.0
+            ],
+            [
+              506.3432875859296,
+              192.77238040840996,
+              1.0
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "risks": [
+    "The exact image contains only a wall section; no visual measured side9 is claimed. Wrong81 follows the corner-allocation misconception, not a read-off length.",
+    "Red edge color must not be described as a newly specified physical square boundary. Existing wall thickness and separate black outer return stay visible."
+  ],
+  "png_sha256": "956035af2187349c2ade4832ad99ed16acf949f40991b63950f2ad35b6814097",
+  "pixel_sha256": "ad0c36384c32eef6ac644e53f697d7c59ea6da8ed8cf9cfd813345fe04f435d1",
+  "plugin_sha256": "3b4cdcbdcb80c786ecef6c4a4164b61f8eb1d97b144536afa22736984c9d396c",
+  "design_difference_audit_sha256": "f5e4b99ae1c8b7097268d1dd5f5e3e17f23b128d2f84986ca43e22064998f0b9",
+  "formal_question": "A wall around a square area is made from 36 identical cubes. A section of the wall is shown. How many cubes are needed to completely fill the square area?",
+  "approval_status": "UNREVIEWED primary design; parent must launch NEW independent review for any possible delivery."
+}

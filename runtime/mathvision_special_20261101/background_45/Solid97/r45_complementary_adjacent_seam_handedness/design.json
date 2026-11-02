@@ -1,0 +1,85 @@
+{
+  "question_id": "Solid97",
+  "variant_id": "r45_complementary_adjacent_seam_handedness",
+  "created_at": "2026-11-01T19:14:08.331167+00:00",
+  "expected_wrong_answer": "B",
+  "correct_answer": "A",
+  "intent": "Compare the source1/3 seam to receiver6/4 seam: infer right-face2 by reversing die handedness when transferring the complementary adjacent pair. Correct proper rotation gives5.",
+  "pretest_math_proof": {
+    "method": "Fresh full signed-axis enumeration, keeping only determinant+1 for actual rotations",
+    "first_die_normal_values": {
+      "(0, 0, 1)": 2,
+      "(0, 0, -1)": 5,
+      "(0, -1, 0)": 1,
+      "(0, 1, 0)": 6,
+      "(-1, 0, 0)": 3,
+      "(1, 0, 0)": 4
+    },
+    "rotation_and_reflection_comparison": {
+      "1": [
+        {
+          "matrix": [
+            [
+              0,
+              0,
+              -1
+            ],
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          "right_face": 5
+        }
+      ],
+      "-1": [
+        {
+          "matrix": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          "right_face": 2
+        }
+      ]
+    },
+    "unique_answer": "A = only5",
+    "predeclared_misconception": "Improper reflection instead of a proper rotation gives exactly2 (B).",
+    "red_edge_color_preserving_reading": "The two red seams bound distinct opposite edge pairs {1,3} and {4,6} on one standard die. Edge {1,3} is not visible in view2 and edge {4,6} is not visible in view1. A cube with these two actual red edges and all other shown edges black realizes BOTH views, with right face5. Thus a material edge-ink reading does not eliminate the original answer.",
+    "pip_integrity": "Only dicee6 and dicee10 are styled; no pip objects or unknown arrow are edited."
+  },
+  "pretest_marker_roles": [
+    {
+      "action_index": 0,
+      "target": "dicee6",
+      "role": "Source: actual vertical shared edge of visible1/front and3/left, showing the ordered neighboring value pair. Not a pip, extra face or invented hidden edge."
+    },
+    {
+      "action_index": 1,
+      "target": "dicee10",
+      "role": "Receiver: actual shared edge of6/top and4/front, the complements7-1 and7-3. Same red creates a local pair correspondence; the preset mistake carries the remaining2 to the right by an improper reflection, rather than the proper rotation that puts5 there."
+    }
+  ],
+  "source_context": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_45\\Solid97\\context.json",
+  "frozen_png_sha256": "5244e4905bd551734a892e648f21d4e2212e5822c6d8d8a50eeba940587c84f8",
+  "frozen_pixel_sha256": "e4f91848b7e75d28007da1ac48540eed0cd868a4a0f673bd108e41f0d3c6247e",
+  "approval_status": "PRIMARY ONLY; parent must create NEW independent review; no Pass/Collect"
+}

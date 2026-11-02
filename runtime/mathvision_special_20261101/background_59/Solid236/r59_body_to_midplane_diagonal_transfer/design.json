@@ -1,0 +1,154 @@
+{
+  "question_id": "Solid236",
+  "variant_id": "r59_body_to_midplane_diagonal_transfer",
+  "created_at": "2026-11-01T21:13:52.279026+00:00",
+  "stage": "material_refinement",
+  "expected_wrong_answer": "E",
+  "correct_answer": "C",
+  "mechanism": "Compare the two true diagonals of the section, usingCE as body-diagonal length source andJI as receiver. Target treating both diagonal lengths as sqrt3 because both span the same gray section, giving area3/2 and squared ratio9/4,E. Correct squared lengths3 and2 give R^2=3/2,C. The new diagonals are exact mathematical comparison lines, not measurements, equal ticks, right-angle conditions, or extra section cuts.",
+  "substantive_difference": "Old rhombus_to_square_edge_family_binding matched eight existing section SIDE/top-face SIDE styles (line13/12/15/10 red;line14/9/16/11 blue), presetD25/16, rawC/D. New design styles none of those sides: it adds only two exact-endpoint genuine section DIAGONALS CE andJI and transfers body-versus-midplane length in the product d1*d2/2. PresetE9/4 comes from replacing the short diagonal by the long diagonal; it is not the old side-based square-area25/16 hypothesis and neither old observed C/D is relabelled.",
+  "primary_unique_math_proof": "Use the actual source scene C=(0,0,0),B=(1,0,0),D=(0,1,0),A=(1,1,0),G=(0,0,1),F=(1,0,1),H=(0,1,1),E=(1,1,1),J=(1,0,1/2),I=(0,1,1/2). All EJCI points satisfy x+y+2z=2. Diagonals CE=(1,1,1) and JI=(-1,1,0) have dot0, squared lengths3 and2, and common midpoint(1/2,1/2,1/2). Hence area=sqrt6/2, face area1, R^2=3/2 uniquely C. An independent adjacent-side Gram determinant is(5/4)^2-(1/4)^2=3/2. The new hypothesized error substitutes the BODY diagonal length sqrt3 for the MIDPLANE face diagonal JI length sqrt2, giving wrong R=3/2 and R^2=9/4,E. Both actual diagonals remain distinct and no equal-length, angle or measured-length mark is added.",
+  "every_marker_roles": [
+    {
+      "action_index": 0,
+      "action": {
+        "type": "add_line",
+        "id": "r59_body_diagonal",
+        "endpoints": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.5,
+            1.75
+          ]
+        ],
+        "color": "#DC2626",
+        "linestyle": "dashed",
+        "linewidth_pt": 1.0,
+        "dash_pattern_pt": [
+          3.7,
+          1.6
+        ]
+      },
+      "role": "Source actual cube body diagonalCE, also the LONG diagonal of the unchanged gray section. Exact named endpointsC/E, no point inserted at its center. Its source squared length is3.",
+      "exact_original_snap_bindings": [
+        {
+          "id": "C",
+          "label": "C",
+          "xy": [
+            0.0,
+            0.0
+          ],
+          "kind": "original_point",
+          "source": "frozen_scene",
+          "reasons": [
+            "visible_face_vertex",
+            "visible_edge_endpoint",
+            "named_point"
+          ],
+          "world_xyz": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": "E",
+          "label": "E",
+          "xy": [
+            0.5,
+            1.75
+          ],
+          "kind": "original_point",
+          "source": "frozen_scene",
+          "reasons": [
+            "visible_face_vertex",
+            "visible_edge_endpoint",
+            "named_point"
+          ],
+          "world_xyz": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ]
+    },
+    {
+      "action_index": 1,
+      "action": {
+        "type": "add_line",
+        "id": "r59_midplane_diagonal",
+        "endpoints": [
+          [
+            -0.5,
+            1.0
+          ],
+          [
+            1.0,
+            0.75
+          ]
+        ],
+        "color": "#DC2626",
+        "linestyle": "dashed",
+        "linewidth_pt": 1.0,
+        "dash_pattern_pt": [
+          3.7,
+          1.6
+        ]
+      },
+      "role": "Receiver actual section diagonalJI between the two original marked midpoints. Exact named endpointsJ/I. Its true squared length2 differs fromCE; matching diagonal roles encourages transferring3 into the second factor of the diagonal-product area formula.",
+      "exact_original_snap_bindings": [
+        {
+          "id": "J",
+          "label": "J",
+          "xy": [
+            -0.5,
+            1.0
+          ],
+          "kind": "original_point",
+          "source": "frozen_scene",
+          "reasons": [
+            "visible_face_vertex",
+            "visible_edge_endpoint",
+            "named_point"
+          ],
+          "world_xyz": [
+            1.0,
+            0.0,
+            0.5
+          ]
+        },
+        {
+          "id": "I",
+          "label": "I",
+          "xy": [
+            1.0,
+            0.75
+          ],
+          "kind": "original_point",
+          "source": "frozen_scene",
+          "reasons": [
+            "visible_face_vertex",
+            "visible_edge_endpoint",
+            "named_point"
+          ],
+          "world_xyz": [
+            0.0,
+            1.0,
+            0.5
+          ]
+        }
+      ]
+    }
+  ],
+  "human_semantics": "Numerical area ratio task. The original gray plane, every dot and label, and all visible/hidden cube edges remain unchanged. Both diagonals lie in the same already specified plane x+y+2z=2. No new intersection dot, midpoint, equality tick, right-angle symbol, polygon or shaded subregion appears. A human can computeCE=sqrt3 andJI=sqrt2 from the original vertices and midpoints; shared red is not a numerical given. Dashed comparison lines are distinguishable from unchanged black edges.",
+  "image_sha256": "ea7e7ecb7ebaebc8a9105abcb1d10fb881f8b1361497536d21e6347530ed12d5",
+  "pixel_sha256": "0cf942cc285cc4caddbae991b858cf6c8c687b443672c0e6bf77728750b1aa42",
+  "plugin_sha256": "785f16f670ed27cf1036f378adc7cb6cfef6a62433d74dc07154b4265d89f62a",
+  "fresh_context_sha256": "8fdc8e4f446970a225fd266126f953a2b324bc5330fe1791054f791c94a8f663",
+  "frozen_paths_sha256": "1f91dbaba3f76dc725f4546db40a7bdcf3f31f47fd7f07e58872f7d18db32ea1",
+  "status": "FROZEN before both calls; PRIMARY only; parent NEW independent second review required; no Pass/Collect/delivery"
+}

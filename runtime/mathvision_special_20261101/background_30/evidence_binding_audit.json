@@ -1,0 +1,972 @@
+{
+  "stage": "material_refinement",
+  "all_new_candidate_bindings_verified": true,
+  "candidates": [
+    {
+      "question_id": "Plane171",
+      "variant_id": "r30_opposed_notch_unit_binding",
+      "stage": "material_refinement",
+      "status": "complete_pair_preset_missed",
+      "correct_formal_answer": "A",
+      "expected_wrong_answer_predeclared": "C",
+      "actual_completed_calls": 2,
+      "actual_started_calls": 2,
+      "full_manual_finals": [
+        {
+          "run_index": 1,
+          "full_model_final_body": "To find the lawn with the smallest area, we can analyze the shapes by counting the number of dots (vertices) and the number of distinct closed regions each shape encloses. This gives a measure of complexity and enclosed space.\n\n1.  **Shape (A):** Counting the dots on the perimeter, there are 8 dots. The red zig-zag line divides the shape into 2 separate regions.\n2.  **Shape (B):** Counting the dots, there are 10 dots. The shape forms 2 distinct closed loops.\n3.  **Shape (C):** Counting the dots, there are 9 dots. The shape is divided into 3 distinct closed regions.\n4.  **Shape (D):** Counting the dots, there are 7 dots (6 on the perimeter + 1 inside). There is only 1 single closed region.\n5.  **Shape (E):** Counting the dots, there are 10 dots. The shape forms 2 distinct closed loops.\n\nComparing the shapes, **Shape (D)** has the fewest dots (7) and only a single region. Visually, it is the most compact and simple shape without the extra internal lines or multiple loops seen in the others. Therefore, it has the smallest area.\n\nThe correct choice is **D**.",
+          "complete_final_manually_read": true,
+          "manual_final": "D",
+          "matches_immutable_preset": false,
+          "manual_note": "Final D explicitly, despite hallucinated internal regions and dots. Preset C miss.",
+          "raw_response_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane171\\r30_opposed_notch_unit_binding\\tests\\quicktest3_20261101T171520_707aa4207c3b\\run_01_response.json",
+          "raw_response_sha256": "e31f8069225daa34531b4c1907a9ec1a11080c53ecda4bf5ead385eb2fcbb84f"
+        },
+        {
+          "run_index": 2,
+          "full_model_final_body": "Based on the visual evidence in the image, we can compare the areas of the five pieces of lawn.\n\n1.  **Observe the Perimeter**: Look at the shapes (A) through (E). Notice that each shape has an identical perimeter composed of 6 segments. Each segment connects two adjacent points in the underlying hexagonal grid.\n2.  **Apply the Isoperimetric Inequality**: In geometry, for a given fixed perimeter, the shape that encloses the maximum area is the one that is most \"compact\" or convex.\n3.  **Compare Compactness**:\n    *   **Shape (B)** is a convex hexagon. It does not have any indentations or \"dents\" in its boundary. It encloses a full block of the grid points (forming a hexagon).\n    *   **Shapes (A), (C), (D), and (E)** are all concave, meaning they have \"dents\" or cutouts. Because they have the same perimeter as shape (B) but include indentations, they enclose less area. Specifically, they are missing a triangular wedge of area that shape (B) includes.\n4.  **Conclusion**: Since (B) is the most compact shape and others have indentations reducing their area, Shape (B) has the largest area, and the indented shapes have smaller areas. Among the indented shapes, Shape (D) appears to be the most \"stretched\" or least compact, visually enclosing the least amount of grass.\n\nTherefore, the piece with the smallest area of grass is (D).",
+          "complete_final_manually_read": true,
+          "manual_final": "D",
+          "matches_immutable_preset": false,
+          "manual_note": "Final D explicitly; incorrect convexity/perimeter account. Preset C miss.",
+          "raw_response_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane171\\r30_opposed_notch_unit_binding\\tests\\quicktest3_20261101T171520_707aa4207c3b\\run_02_response.json",
+          "raw_response_sha256": "cbecd4ac669b94faf5d4bfd803f98c9cede749fe4281580d2f49fa4f86483785"
+        }
+      ],
+      "exact_two_completed_same_frozen_png": true,
+      "pretest_difference_audit": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane171\\r30_opposed_notch_unit_binding\\design_difference_audit.json",
+      "old_new_difference": "Old v01 outlined only E and predicted E (actual A/B). New selects congruent local notch chains in A and C, compares two separated missing unit triangles, and predicts C before any new output. No old E contour is retained.",
+      "immutable_bindings": {
+        "branch": "PlaneGeometry",
+        "question_id": "Plane171",
+        "profile": "quicktest3",
+        "settings": {
+          "label": "Quick Test 3",
+          "provider": "mimo",
+          "model": "mimo-v2.6-flash",
+          "thinking": {
+            "type": "disabled"
+          },
+          "api_base": "https://token-plan-cn.xiaomimimo.com/v1"
+        },
+        "system_prompt": "Solve the mathematics question using the provided image. Give a clear final answer at the end. For a multiple-choice question, include the option letter in your final answer.",
+        "question": "Five pieces of lawn are shown. Which one has the smallest area of grass?\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E",
+        "image_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane171\\r30_opposed_notch_unit_binding\\candidate.png",
+        "image_sha256": "7c120a5298643906cd05bf052c23eec7035ba955e91fad903b0c1b9f181bd467",
+        "pixel_sha256": "84ca3929270dca9388ecb588fbb7cef7ca104dbaee89ae026f4cc63acd1751c1",
+        "design_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane171\\r30_opposed_notch_unit_binding\\design.json",
+        "design_sha256": "282596bc496c15d6df38eab3706a1d8eb6b5d7c9fef9ba9554bbecce5eec0dee",
+        "expected_wrong_answer": "C",
+        "question_record_sha256": "9351df926a23bcf25d857044a8f5f45d33c6a730b0b4160f347cb062888b409e",
+        "dataset_sha256": "f167f666cb1037754e9516dcf516b5c4f462c9ef3da17e867458d392e35ed2ec",
+        "request_body_sha256": "1a6d24f558c0e234b6aa543cb5b070c05bc7c45351322becdb5789fe108e63cf",
+        "reference_quick_test_sha256": "558b80e92363e17d42c51e44272a6085f44676176c1a2e5698ab6b466458967f",
+        "created_at": "2026-11-01T17:15:20.108464+00:00",
+        "requested_runs": 2,
+        "authorization": "User explicitly requested automatic exploration and two quicktest3 calls.",
+        "approval_status": "UNREVIEWED; no Pass or Collect action performed"
+      },
+      "binding_file": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane171\\r30_opposed_notch_unit_binding\\tests\\quicktest3_20261101T171520_707aa4207c3b\\binding.json",
+      "request_file": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane171\\r30_opposed_notch_unit_binding\\tests\\quicktest3_20261101T171520_707aa4207c3b\\request.json",
+      "candidate_image": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane171\\r30_opposed_notch_unit_binding\\candidate.png",
+      "plugin": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane171\\r30_opposed_notch_unit_binding\\plugin.json",
+      "math_audit": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane171\\primary_math_audit.json",
+      "marker_audit": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane171\\r30_opposed_notch_unit_binding\\per_marker_geometry_audit.json",
+      "native_visual_review": {
+        "reviewer_role": "PRIMARY research worker ONLY",
+        "native_png_viewed": true,
+        "source_jpg_and_original_png_viewed": true,
+        "dimensions": [
+          768,
+          768
+        ],
+        "reviewed_at": "2026-11-01T17:15:04.851469+00:00",
+        "human_semantics_acceptable": true,
+        "findings": "Three red open two-edge notch chains actually visible. All50 black original dots, A northeast truncation, five outlines and labels readable. Marks identify actual matching unit notches; they neither close new regions nor assert areas equal.",
+        "candidate_sha256": "7c120a5298643906cd05bf052c23eec7035ba955e91fad903b0c1b9f181bd467",
+        "all_markers_reviewed": true,
+        "original_distinctions_readable": true,
+        "limitations": [
+          "No human/per-marker/statistical or causal validation.",
+          "A new parent independent review is mandatory before delivery."
+        ]
+      },
+      "render_check": {
+        "qid": "Plane171",
+        "baseline_match": true,
+        "schema_normalized": true,
+        "two_draws_byte_identical": true,
+        "png_sha256": "7c120a5298643906cd05bf052c23eec7035ba955e91fad903b0c1b9f181bd467",
+        "pixel_sha256": "84ca3929270dca9388ecb588fbb7cef7ca104dbaee89ae026f4cc63acd1751c1",
+        "frozen_inputs": {
+          "question_record_sha256": "9351df926a23bcf25d857044a8f5f45d33c6a730b0b4160f347cb062888b409e",
+          "files": {
+            "AGENTS.md": "35edf9c9e2114f8f808d9745f6e22ab9a4b05dea2e86fbcbfe1587388a22fe29",
+            "dataset_tools/geometry_dataset.py": "a7cf8bb6662eafaffa2e96b883f49a3e23817e05bdd08cbb5f80f08affe52595",
+            "dataset_tools/mathvision_workbench.py": "90a17218c28b78068cc410887899ae0683e7c6c4b9853e6ffc0de25ec6917e11",
+            "MATHPALETTE_PROTOCOL.md": "b6a0a85651b4c317d2db081e4cd9bbbff569017db2471f71a4a21c3e0e24c5af",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane171/execution.json": "ecce3ba47c47aa774927ba428d78a167523d38351c7d4d221f63b725c2cabff9",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane171/protocol_review.json": "5defac1c6362c7f21934816a4e20a7ebf1cc8cd0958213b2950036b7692069d1",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane171/renderer.py": "bfcb78ab7bcccb74479e9983833a5beb505962db54e5cce710c571cdc85dead1",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane171/scene.json": "3e2941908e8b3635d2d3a2a0d760cc11b9b19a31d565ac7f487a144990d20925",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane171/source.json": "0d454aa2c5eb9264ab5472e6f0253a41114934b7e8676f3c89332ac15726baec",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane171/source_redraw.py": "6230a77f65d77e53d2507549bab035ace070b726232b185b0cb06a0765fa8a6b",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py": "f8b46c832ae8ff8e16730970bd31d1d549035f4e230f49acb6b88141efda0d84",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py": "0d0b200ad11ef8a4dc1642ab57168dafd65e70ae2d14a5f24ab0810f3dad2212",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py": "c62c2b054bacaf988b2ad5ca1b65cd34e4197552b13f4af8c58edf63e42acb39",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py": "c266e9f96734883b56e3d3a43438128d9c42ce65d9465f6dc83840f410f205ff",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py": "c316a4fc088a318ce35232e46392ef3ab11af1ac24acaeeda36d99b016581d8e",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py": "a5fe3c7a62fce5bc104b5015549a7e6325924d58ea0b9a3d6f3192a459706d52",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py": "26cc0c532042b6f13c4d8504e469cbf285ce3b8591d3c11a8a0f8f3ab0c4721d",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py": "4b465c5bb4ea2973e4f3e861ff34c1661c154b747d66f8d6670299bf824953ab",
+            "PlaneGeometry/dataset_generator/plane_plot171.py": "20aeb43527c9d2502b66af622f762f4880103cb06868b4dbcd78e787436ba3b0",
+            "PlaneGeometry/dataset_generator/protocol.json": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+            "PlaneGeometry/dataset_generator/scenes/Plane171.json": "878c0f6362a017bdeea6ad82f7dbc008231875ce4d24adc52fba14d8744cc177",
+            "PlaneGeometry/image/Plane171.png": "f12a3e22b6ca7b7f0189e1896ef02b034d7fae205c6b66d2966ea3a0bb8bbf5a",
+            "PlaneGeometry/originals/Plane171.jpg": "666bcee45f47ed8afbc634a640af325a700a1930278ec33ca12e675777dc29f0",
+            "PlaneGeometry/REDRAW_PROTOCOL.md": "528e7a3bc67ee300db15d562ae795e39ce43f71dd102dbe1736f12aa54fd3989",
+            "PlaneGeometry/workbench/config.json": "73bb338b43be0ab64523f2f4edca607123b195821a94486e897a779a8c5b1316",
+            "PlaneGeometry/workbench/mathvision_adapter.py": "720bab7bb7b1b428d7beaf0accc5deb7682d55de1b202a8eb2181e5fc2ee3227",
+            "PlaneGeometry/workbench/mathvision_plugins.py": "ccb42a21702027584d19c00e9cf2f71987537cbb91454be2c507aaee42cbbed1",
+            "PlaneGeometry/workbench/partial_style.py": "765686102817bbe3a38275aae96bd878ba28bd66b3e56ee9bcf5080e7d72c310",
+            "PlaneGeometry/workbench/plugin.schema.json": "1f4c6082911e6826d67ad474174474654738a337e01a4690b5255ac9d48eb3d5",
+            "PlaneGeometry/workbench/render_plugins.py": "1ccc979a7c1a6f11d37bc46af476017df8316ad5eba93d9a2d2e6085aa347084",
+            "PlaneGeometry/workbench/renderer_adapter.py": "cade4d483f9f13202ef9c5658f4fce95fadd9d2672fbb03a3ae0213d23c96c7c",
+            "PlaneGeometry/workbench/workbench_io.py": "19bd9b6590eccf8960c159c6125eae6e93c1c2eaf69aee0dff14909e203c2c5f"
+          },
+          "environment": {
+            "python": "3.13.9",
+            "matplotlib": "3.11.2",
+            "numpy": "2.5.3",
+            "pillow": "12.3.0"
+          }
+        },
+        "isolation": {
+          "temporary_root": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\render_tmp",
+          "write_guard": true,
+          "library_files_modified": false,
+          "drawing_operations_modified": false
+        },
+        "world_geometry_projection_visibility_text_fill_unchanged": true
+      },
+      "API_profile_or_timeout_overrides": false,
+      "retries": 0,
+      "original_controls": [],
+      "limits": [
+        "No original controls exist for these old attempts; none repeated.",
+        "No statistical/human/causal/per-marker study, no equal-narrative or correct-control hard gate.",
+        "Primary review only; parent NEW independent review required before any eventual delivery."
+      ]
+    },
+    {
+      "question_id": "Plane206",
+      "variant_id": "r30_greedy_corner_residue",
+      "stage": "material_refinement",
+      "status": "aborted_incomplete_pair_no_credit",
+      "correct_formal_answer": "4",
+      "expected_wrong_answer_predeclared": "3",
+      "actual_completed_calls": 0,
+      "actual_started_calls": 1,
+      "full_manual_finals": [],
+      "exact_two_completed_same_frozen_png": false,
+      "pretest_difference_audit": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane206\\r30_greedy_corner_residue\\design_difference_audit.json",
+      "old_new_difference": "Old source3 rail matched a mismatching third-pattern4 rail (finals4/1 preset3). New uses an exact two-feature rotated local fit in target4, and tests failure to backtrack from a greedy anchor. The targeted error is placement/residue, not whole-span length.",
+      "immutable_bindings": {
+        "branch": "PlaneGeometry",
+        "question_id": "Plane206",
+        "profile": "quicktest3",
+        "settings": {
+          "label": "Quick Test 3",
+          "provider": "mimo",
+          "model": "mimo-v2.6-flash",
+          "thinking": {
+            "type": "disabled"
+          },
+          "api_base": "https://token-plan-cn.xiaomimimo.com/v1"
+        },
+        "system_prompt": "Solve the mathematics question using the provided image. Give a clear final answer at the end. For a multiple-choice question, include the option letter in your final answer.",
+        "question": "Two $L$ shapes are made from 8 squares. How many of the following 4 shapes can be formed using both $L$ shapes?",
+        "image_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane206\\r30_greedy_corner_residue\\candidate.png",
+        "image_sha256": "b41e2c522ea685e9c9dc5da1eb9a35eee9cd11a2c3d7f2a3f4ddd9632b9bf79a",
+        "pixel_sha256": "d82222a488c28dfafa753549868d67a1b306977a24cad6d38ffe1fc0c2259bba",
+        "design_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane206\\r30_greedy_corner_residue\\design.json",
+        "design_sha256": "c92ebbd39adffc9b8f84d2148499fda33a9499b12c37c145ace7362c3e6caefe",
+        "expected_wrong_answer": "3",
+        "question_record_sha256": "9b2bfce80c8918f41774a9a5dce9418006e08de4456a2da430af5503e749d720",
+        "dataset_sha256": "f167f666cb1037754e9516dcf516b5c4f462c9ef3da17e867458d392e35ed2ec",
+        "request_body_sha256": "067628229a84482d0d962299b49c4f95e5c7a7cd8716c6f9bc596bb39b153813",
+        "reference_quick_test_sha256": "558b80e92363e17d42c51e44272a6085f44676176c1a2e5698ab6b466458967f",
+        "created_at": "2026-11-01T17:15:20.106639+00:00",
+        "requested_runs": 2,
+        "authorization": "User explicitly requested automatic exploration and two quicktest3 calls.",
+        "approval_status": "UNREVIEWED; no Pass or Collect action performed"
+      },
+      "binding_file": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane206\\r30_greedy_corner_residue\\tests\\quicktest3_20261101T171520_226388eaa095\\binding.json",
+      "request_file": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane206\\r30_greedy_corner_residue\\tests\\quicktest3_20261101T171520_226388eaa095\\request.json",
+      "candidate_image": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane206\\r30_greedy_corner_residue\\candidate.png",
+      "plugin": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane206\\r30_greedy_corner_residue\\plugin.json",
+      "math_audit": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane206\\primary_math_audit.json",
+      "marker_audit": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane206\\r30_greedy_corner_residue\\per_marker_geometry_audit.json",
+      "native_visual_review": {
+        "reviewer_role": "PRIMARY research worker ONLY",
+        "native_png_viewed": true,
+        "source_jpg_and_original_png_viewed": true,
+        "dimensions": [
+          768,
+          768
+        ],
+        "reviewed_at": "2026-11-01T17:15:05.352732+00:00",
+        "human_semantics_acceptable": true,
+        "findings": "Source red3/blue2 exterior spans and target4 lower-left red3/blue2 spans viewed native. The uppermost left unit remains black, showing why anchoring at the bottom can be abandoned. All unit seams and eight cells in every target are visible. No internal highlighted split or enclosed colored partition.",
+        "candidate_sha256": "b41e2c522ea685e9c9dc5da1eb9a35eee9cd11a2c3d7f2a3f4ddd9632b9bf79a",
+        "all_markers_reviewed": true,
+        "original_distinctions_readable": true,
+        "limitations": [
+          "No human/per-marker/statistical or causal validation.",
+          "A new parent independent review is mandatory before delivery."
+        ]
+      },
+      "render_check": {
+        "qid": "Plane206",
+        "baseline_match": true,
+        "schema_normalized": true,
+        "two_draws_byte_identical": true,
+        "png_sha256": "b41e2c522ea685e9c9dc5da1eb9a35eee9cd11a2c3d7f2a3f4ddd9632b9bf79a",
+        "pixel_sha256": "d82222a488c28dfafa753549868d67a1b306977a24cad6d38ffe1fc0c2259bba",
+        "frozen_inputs": {
+          "question_record_sha256": "9b2bfce80c8918f41774a9a5dce9418006e08de4456a2da430af5503e749d720",
+          "files": {
+            "AGENTS.md": "35edf9c9e2114f8f808d9745f6e22ab9a4b05dea2e86fbcbfe1587388a22fe29",
+            "dataset_tools/geometry_dataset.py": "a7cf8bb6662eafaffa2e96b883f49a3e23817e05bdd08cbb5f80f08affe52595",
+            "dataset_tools/mathvision_workbench.py": "90a17218c28b78068cc410887899ae0683e7c6c4b9853e6ffc0de25ec6917e11",
+            "MATHPALETTE_PROTOCOL.md": "b6a0a85651b4c317d2db081e4cd9bbbff569017db2471f71a4a21c3e0e24c5af",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane206/execution.json": "85a42a5d67b87d7cf751c09bda8e0ade15188e54afae042ca0e1399751816326",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane206/protocol_review.json": "105fb4ddefa2a41fc4c6f33cbcf7b7b22a6bc4306411fe2622ff77b2d8e7eb69",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane206/scene.json": "ad82dee3f5ca1016030591fe344e7689a262b6a7e8930bf646e5f1493954ba58",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane206/source.json": "05c087ca316c3f0645998fcc7c04f1051a68a13adfe9cb4715fe95f1bfa6d9b5",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane206/source_redraw.py": "8f424f592ca12a18aff83b8828a7f82287204fc121a45de11225f6e81db776ea",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py": "f8b46c832ae8ff8e16730970bd31d1d549035f4e230f49acb6b88141efda0d84",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py": "0d0b200ad11ef8a4dc1642ab57168dafd65e70ae2d14a5f24ab0810f3dad2212",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py": "c62c2b054bacaf988b2ad5ca1b65cd34e4197552b13f4af8c58edf63e42acb39",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py": "c266e9f96734883b56e3d3a43438128d9c42ce65d9465f6dc83840f410f205ff",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py": "c316a4fc088a318ce35232e46392ef3ab11af1ac24acaeeda36d99b016581d8e",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py": "a5fe3c7a62fce5bc104b5015549a7e6325924d58ea0b9a3d6f3192a459706d52",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py": "26cc0c532042b6f13c4d8504e469cbf285ce3b8591d3c11a8a0f8f3ab0c4721d",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py": "4b465c5bb4ea2973e4f3e861ff34c1661c154b747d66f8d6670299bf824953ab",
+            "PlaneGeometry/dataset_generator/plane_plot206.py": "b5c2957e1d7d7f03c862529a5cb9478da468623556442707e66e639452a2dd10",
+            "PlaneGeometry/dataset_generator/protocol.json": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+            "PlaneGeometry/dataset_generator/scenes/Plane206.json": "16947fa0165faaeacc06d8151697a4da0209f4709e14246222a30107fce82d22",
+            "PlaneGeometry/image/Plane206.png": "b5b755656152608e11a8cdf48ff52e078d3ae815a9c0c25b2d37bcc32a82f264",
+            "PlaneGeometry/originals/Plane206.jpg": "c936ee0b1a4a5687251732b42fa941d92f5fbb7f8f126ffcd31671b1cae990fa",
+            "PlaneGeometry/REDRAW_PROTOCOL.md": "528e7a3bc67ee300db15d562ae795e39ce43f71dd102dbe1736f12aa54fd3989",
+            "PlaneGeometry/workbench/config.json": "73bb338b43be0ab64523f2f4edca607123b195821a94486e897a779a8c5b1316",
+            "PlaneGeometry/workbench/mathvision_adapter.py": "720bab7bb7b1b428d7beaf0accc5deb7682d55de1b202a8eb2181e5fc2ee3227",
+            "PlaneGeometry/workbench/mathvision_plugins.py": "ccb42a21702027584d19c00e9cf2f71987537cbb91454be2c507aaee42cbbed1",
+            "PlaneGeometry/workbench/partial_style.py": "765686102817bbe3a38275aae96bd878ba28bd66b3e56ee9bcf5080e7d72c310",
+            "PlaneGeometry/workbench/plugin.schema.json": "1f4c6082911e6826d67ad474174474654738a337e01a4690b5255ac9d48eb3d5",
+            "PlaneGeometry/workbench/render_plugins.py": "1ccc979a7c1a6f11d37bc46af476017df8316ad5eba93d9a2d2e6085aa347084",
+            "PlaneGeometry/workbench/renderer_adapter.py": "cade4d483f9f13202ef9c5658f4fce95fadd9d2672fbb03a3ae0213d23c96c7c",
+            "PlaneGeometry/workbench/workbench_io.py": "19bd9b6590eccf8960c159c6125eae6e93c1c2eaf69aee0dff14909e203c2c5f"
+          },
+          "environment": {
+            "python": "3.13.9",
+            "matplotlib": "3.11.2",
+            "numpy": "2.5.3",
+            "pillow": "12.3.0"
+          }
+        },
+        "isolation": {
+          "temporary_root": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\render_tmp",
+          "write_guard": true,
+          "library_files_modified": false,
+          "drawing_operations_modified": false
+        },
+        "world_geometry_projection_visibility_text_fill_unchanged": true
+      },
+      "API_profile_or_timeout_overrides": false,
+      "retries": 0,
+      "original_controls": [],
+      "limits": [
+        "No original controls exist for these old attempts; none repeated.",
+        "No statistical/human/causal/per-marker study, no equal-narrative or correct-control hard gate.",
+        "Primary review only; parent NEW independent review required before any eventual delivery."
+      ]
+    },
+    {
+      "question_id": "Plane278",
+      "variant_id": "r30_three_side_surrogate",
+      "stage": "material_refinement",
+      "status": "complete_pair_preset_missed",
+      "correct_formal_answer": "B",
+      "expected_wrong_answer_predeclared": "E",
+      "actual_completed_calls": 2,
+      "actual_started_calls": 2,
+      "full_manual_finals": [
+        {
+          "run_index": 1,
+          "full_model_final_body": "To solve this puzzle, we need to analyze the shapes of the five pieces (A, B, C, D, E) and see which four can be arranged to form a complete square.\n\n**1. Analyze the Shapes:**\n*   **Piece A:** This piece has a **concave** (inward curving) arc on its top edge and a **convex** (outward bulging) arc on its right edge.\n*   **Piece B:** This piece has a **convex** arc on its top edge and a **concave** arc on its right edge. (Note: The bottom and left edges are straight).\n*   **Piece C:** This piece has a **convex** arc on its top edge and a **convex** arc on its right edge.\n*   **Piece D:** This piece has a **convex** arc on its top edge and a **straight** right edge.\n*   **Piece E:** This piece has a **straight** top edge and a **concave** arc on its right edge.\n\n**2. Determine the Requirements:**\nTo form a perfect square using four identical or compatible pieces, we need to match the curved edges so that they fit together perfectly. The most common way to form a square from such curved pieces is to arrange four pieces in a pinwheel pattern, where each piece is rotated 90 degrees relative to the next.\n*   If a piece is rotated 90 degrees clockwise, its original \"top\" edge becomes the new \"right\" edge.\n*   Therefore, for the pieces to fit together in a square, we need a piece where the **Top Edge** and the **Right Edge** are complementary.\n    *   **Piece A:** Top is Concave, Right is Convex. These are complements (a concave curve can fit into a convex curve).\n    *   **Piece B:** Top is Convex, Right is Concave. These are also complements.\n    *   **Piece C:** Top is Convex, Right is Convex. These do not match; they would create a gap or overlap when rotated.\n    *   **Piece D:** Top is Convex, Right is Straight. These do not match.\n    *   **Piece E:** Top is Straight, Right is Concave. These do not match.\n\n**3. Identify the Correct Set:**\nWe need a set of four pieces that have a \"Convex Top and Concave Right\" configuration to form a perfect square.\n*   We have only one such piece visible: **Piece B**.\n*   If we assume the four pieces used are all type \"B\" (or equivalent), they will fit together perfectly: the Convex top of one piece will fit into the Concave right of the next piece in the pinwheel.\n*   Pieces **A**, **C**, **D**, and **E** all have at least one edge (either top or right) that is Convex or Straight in a way that does not pair correctly with the other edge to form a square.\n    *   Specifically, **Piece C** has a Convex top and Convex right. Using it would require a different type of piece to fill the gaps, which is not the solution here. It is the \"odd one out\" in terms of having incompatible geometry for the standard square formation.\n\n**Conclusion:**\nThe four pieces that can form a square are of the type shown in **Piece B**. Therefore, Piece C (along with A, D, and E) will not be used. The question asks \"Which piece will not be used?\", and Piece C is the primary distinct outlier in the list of choices that does not fit the geometry of the forming square (Piece B).\n\nThe correct choice is Piece C.\n\nA",
+          "complete_final_manually_read": true,
+          "manual_final": "INCONSISTENT: verbal C, terminal A",
+          "matches_immutable_preset": false,
+          "manual_note": "Verbal conclusion selects C but final standalone A conflicts; neither is preset E. Do not infer a clean final from incidental letters.",
+          "raw_response_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane278\\r30_three_side_surrogate\\tests\\quicktest3_20261101T171520_36916485ac3d\\run_01_response.json",
+          "raw_response_sha256": "18f8347d294cca0dc2cfa9403d911e742dede2a83dcd4036d2abc8d63e4e33cc"
+        },
+        {
+          "run_index": 2,
+          "full_model_final_body": "**Answer:**\n\nThe problem asks which piece will **not** be used to form a square out of four given pieces. This implies there is a set of 5 pieces (A, B, C, D, E) and we must exclude one to assemble the other 4 into a square.\n\n**Analysis of the pieces:**\n1.  **Concave Pieces:**\n    *   **Piece A** has a concave right side and concave top side.\n    *   **Piece B** has a straight bottom (red) and a concave right side (blue). Its top is convex.\n    *   **Piece E** has a straight bottom (red) and a concave right side (blue). Its top is straight.\n\n2.  **Convex Pieces:**\n    *   **Piece C** has a straight bottom and a convex right side. Its top is convex.\n    *   **Piece D** has a straight bottom and straight right side. Its top is convex.\n\n**Symmetry and Assembly:**\n*   To form a square, we likely need a balanced set of pieces. We have 3 pieces with concave sides (A, B, E) and 2 pieces with straight/convex sides (C, D).\n*   Piece **A** is unique in being a \"corner\" piece (concave on two adjacent sides). A square has 4 corners. If we were to use A, we might need multiple, but we only have one.\n*   Pieces **B** and **E** are \"side\" pieces (straight bottom). They appear to form a complementary pair (E has a straight top, B has a convex top). This suggests they might go together (e.g., one on top of the other).\n*   If we choose **A, B, C, E**, we are left with **D**.\n    *   **Piece D** is a rectangle (straight sides) with a convex top. It does not have the \"concave\" properties of the others to create the curved internal boundary lines seen in a tangram-like puzzle. It looks like a solid block.\n    *   Piece C is a \"convex block\" that likely fits into the gap created by the concave sides of A and B.\n    *   Without D, the remaining set {A, B, C, E} contains all the necessary curved edges (A has 2 concave, B has 1, E has 1) and the convex mate (C).\n    *   Using D would introduce an extra straight edge and a redundant convex top, and would require excluding one of the curved pieces (like E), leaving an odd number of concave pieces or a mismatch in the curve geometry (e.g., no piece to close the gap A leaves).\n\nTherefore, **Piece D** is the odd one out and will not be used.\n\nD:D",
+          "complete_final_manually_read": true,
+          "manual_final": "D",
+          "matches_immutable_preset": false,
+          "manual_note": "Final D:D explicitly, preset E miss.",
+          "raw_response_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane278\\r30_three_side_surrogate\\tests\\quicktest3_20261101T171520_36916485ac3d\\run_02_response.json",
+          "raw_response_sha256": "ea2f1d74b3491b39576cde3b16406bff55db8bfeafa9aa54a44cc4b859e6187c"
+        }
+      ],
+      "exact_two_completed_same_frozen_png": true,
+      "pretest_difference_audit": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane278\\r30_three_side_surrogate\\design_difference_audit.json",
+      "old_new_difference": "Old convex B/D tops plus B/E concavity tested presetD and returned C/C, which remains a miss. New removes all D marks and every colored top arc, binds two straight external sides plus the right concavity of B/E, and predicts E from a three-side substitution error, not old observed C.",
+      "immutable_bindings": {
+        "branch": "PlaneGeometry",
+        "question_id": "Plane278",
+        "profile": "quicktest3",
+        "settings": {
+          "label": "Quick Test 3",
+          "provider": "mimo",
+          "model": "mimo-v2.6-flash",
+          "thinking": {
+            "type": "disabled"
+          },
+          "api_base": "https://token-plan-cn.xiaomimimo.com/v1"
+        },
+        "system_prompt": "Solve the mathematics question using the provided image. Give a clear final answer at the end. For a multiple-choice question, include the option letter in your final answer.",
+        "question": "A square can be made out of four of the given pieces. Which piece will not be used?\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E",
+        "image_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane278\\r30_three_side_surrogate\\candidate.png",
+        "image_sha256": "9fbda26e9685d7ee8a8d5efab981952e5706eb32c68835cd2f857b4bf1389ccc",
+        "pixel_sha256": "c5bf0f8a865bfa0a7662d00ee0e3c0a5bcdf75402ef8df580a8d6a56d4d70e16",
+        "design_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane278\\r30_three_side_surrogate\\design.json",
+        "design_sha256": "08c22a820e5a603dac685dd4a310aa213b4faa5a95917fa1bdf2a9b27e9940ff",
+        "expected_wrong_answer": "E",
+        "question_record_sha256": "31b90265dcc670f68a8ef6941363c59b30fd722e5bd03288561bccfa897d732b",
+        "dataset_sha256": "f167f666cb1037754e9516dcf516b5c4f462c9ef3da17e867458d392e35ed2ec",
+        "request_body_sha256": "83b4d2f6edb4be2d99c220172d1d9fa916dd0137495f37099bdb98170e145e3b",
+        "reference_quick_test_sha256": "558b80e92363e17d42c51e44272a6085f44676176c1a2e5698ab6b466458967f",
+        "created_at": "2026-11-01T17:15:20.108523+00:00",
+        "requested_runs": 2,
+        "authorization": "User explicitly requested automatic exploration and two quicktest3 calls.",
+        "approval_status": "UNREVIEWED; no Pass or Collect action performed"
+      },
+      "binding_file": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane278\\r30_three_side_surrogate\\tests\\quicktest3_20261101T171520_36916485ac3d\\binding.json",
+      "request_file": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane278\\r30_three_side_surrogate\\tests\\quicktest3_20261101T171520_36916485ac3d\\request.json",
+      "candidate_image": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane278\\r30_three_side_surrogate\\candidate.png",
+      "plugin": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane278\\r30_three_side_surrogate\\plugin.json",
+      "math_audit": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane278\\primary_math_audit.json",
+      "marker_audit": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane278\\r30_three_side_surrogate\\per_marker_geometry_audit.json",
+      "native_visual_review": {
+        "reviewer_role": "PRIMARY research worker ONLY",
+        "native_png_viewed": true,
+        "source_jpg_and_original_png_viewed": true,
+        "dimensions": [
+          768,
+          768
+        ],
+        "reviewed_at": "2026-11-01T17:15:06.533946+00:00",
+        "human_semantics_acceptable": true,
+        "findings": "B/E matching bottom-left frames red and right inward arcs blue visible. Their top edges remain unstyled: B visibly convex and E visibly straight. A,C,D contours/labels unchanged. A human can disregard appearance matches and balance curved seams. Three-side match is not a rule requiring colored edges to join.",
+        "candidate_sha256": "9fbda26e9685d7ee8a8d5efab981952e5706eb32c68835cd2f857b4bf1389ccc",
+        "all_markers_reviewed": true,
+        "original_distinctions_readable": true,
+        "limitations": [
+          "No human/per-marker/statistical or causal validation.",
+          "A new parent independent review is mandatory before delivery."
+        ]
+      },
+      "render_check": {
+        "qid": "Plane278",
+        "baseline_match": true,
+        "schema_normalized": true,
+        "two_draws_byte_identical": true,
+        "png_sha256": "9fbda26e9685d7ee8a8d5efab981952e5706eb32c68835cd2f857b4bf1389ccc",
+        "pixel_sha256": "c5bf0f8a865bfa0a7662d00ee0e3c0a5bcdf75402ef8df580a8d6a56d4d70e16",
+        "frozen_inputs": {
+          "question_record_sha256": "31b90265dcc670f68a8ef6941363c59b30fd722e5bd03288561bccfa897d732b",
+          "files": {
+            "AGENTS.md": "35edf9c9e2114f8f808d9745f6e22ab9a4b05dea2e86fbcbfe1587388a22fe29",
+            "dataset_tools/geometry_dataset.py": "a7cf8bb6662eafaffa2e96b883f49a3e23817e05bdd08cbb5f80f08affe52595",
+            "dataset_tools/mathvision_workbench.py": "90a17218c28b78068cc410887899ae0683e7c6c4b9853e6ffc0de25ec6917e11",
+            "MATHPALETTE_PROTOCOL.md": "b6a0a85651b4c317d2db081e4cd9bbbff569017db2471f71a4a21c3e0e24c5af",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane278/execution.json": "6d60f2828d7029aa503404be445ffbb5f39247c3566cc6e22fadee1ebef25e01",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane278/protocol_review.json": "6d423504f4dcab1508b8cc4ad8370b9f644db561f464861d303185fbc0e7f1d5",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane278/renderer.py": "a33cce311c7caecb1ddc6ffee9d5db386fca44d9dbf1265ddf83d4a516a7578e",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane278/scene.json": "493f96d1a3c110d40a3c15b15f56b998e327d77d6b9dbe97f46b5498504a32bb",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane278/source.json": "c05fe57a4022c362cbd73ff595d99c22bfd429bc46fa81e0cf316d45ccbe53e5",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane278/source_redraw.py": "6230a77f65d77e53d2507549bab035ace070b726232b185b0cb06a0765fa8a6b",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py": "f8b46c832ae8ff8e16730970bd31d1d549035f4e230f49acb6b88141efda0d84",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py": "0d0b200ad11ef8a4dc1642ab57168dafd65e70ae2d14a5f24ab0810f3dad2212",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py": "c62c2b054bacaf988b2ad5ca1b65cd34e4197552b13f4af8c58edf63e42acb39",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py": "c266e9f96734883b56e3d3a43438128d9c42ce65d9465f6dc83840f410f205ff",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py": "c316a4fc088a318ce35232e46392ef3ab11af1ac24acaeeda36d99b016581d8e",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py": "a5fe3c7a62fce5bc104b5015549a7e6325924d58ea0b9a3d6f3192a459706d52",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py": "26cc0c532042b6f13c4d8504e469cbf285ce3b8591d3c11a8a0f8f3ab0c4721d",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py": "4b465c5bb4ea2973e4f3e861ff34c1661c154b747d66f8d6670299bf824953ab",
+            "PlaneGeometry/dataset_generator/plane_plot278.py": "4db34acb832e14aab4353c1e071b73eae56dfc6a948cbc9be89393687ddc847b",
+            "PlaneGeometry/dataset_generator/protocol.json": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+            "PlaneGeometry/dataset_generator/scenes/Plane278.json": "ba1a7d7f3eb68fe7144f8bda8b7a96a97fc9cc2b9213e665a4c0e457931c1bd9",
+            "PlaneGeometry/image/Plane278.png": "9618b992714b50e0b2fb76a5589663beb384126795fdfc6b444cb60759f50247",
+            "PlaneGeometry/originals/Plane278.jpg": "280447be7ce8b528268fa21d1346a727bbbf21e3710a9edd69626b77af0485b7",
+            "PlaneGeometry/REDRAW_PROTOCOL.md": "528e7a3bc67ee300db15d562ae795e39ce43f71dd102dbe1736f12aa54fd3989",
+            "PlaneGeometry/workbench/config.json": "73bb338b43be0ab64523f2f4edca607123b195821a94486e897a779a8c5b1316",
+            "PlaneGeometry/workbench/mathvision_adapter.py": "720bab7bb7b1b428d7beaf0accc5deb7682d55de1b202a8eb2181e5fc2ee3227",
+            "PlaneGeometry/workbench/mathvision_plugins.py": "ccb42a21702027584d19c00e9cf2f71987537cbb91454be2c507aaee42cbbed1",
+            "PlaneGeometry/workbench/partial_style.py": "765686102817bbe3a38275aae96bd878ba28bd66b3e56ee9bcf5080e7d72c310",
+            "PlaneGeometry/workbench/plugin.schema.json": "1f4c6082911e6826d67ad474174474654738a337e01a4690b5255ac9d48eb3d5",
+            "PlaneGeometry/workbench/render_plugins.py": "1ccc979a7c1a6f11d37bc46af476017df8316ad5eba93d9a2d2e6085aa347084",
+            "PlaneGeometry/workbench/renderer_adapter.py": "cade4d483f9f13202ef9c5658f4fce95fadd9d2672fbb03a3ae0213d23c96c7c",
+            "PlaneGeometry/workbench/workbench_io.py": "19bd9b6590eccf8960c159c6125eae6e93c1c2eaf69aee0dff14909e203c2c5f"
+          },
+          "environment": {
+            "python": "3.13.9",
+            "matplotlib": "3.11.2",
+            "numpy": "2.5.3",
+            "pillow": "12.3.0"
+          }
+        },
+        "isolation": {
+          "temporary_root": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\render_tmp",
+          "write_guard": true,
+          "library_files_modified": false,
+          "drawing_operations_modified": false
+        },
+        "world_geometry_projection_visibility_text_fill_unchanged": true
+      },
+      "API_profile_or_timeout_overrides": false,
+      "retries": 0,
+      "original_controls": [],
+      "limits": [
+        "No original controls exist for these old attempts; none repeated.",
+        "No statistical/human/causal/per-marker study, no equal-narrative or correct-control hard gate.",
+        "Primary review only; parent NEW independent review required before any eventual delivery."
+      ]
+    },
+    {
+      "question_id": "Plane286",
+      "variant_id": "r30_diagonal_side_span",
+      "stage": "material_refinement",
+      "status": "complete_pair_preset_missed",
+      "correct_formal_answer": "A",
+      "expected_wrong_answer_predeclared": "C",
+      "actual_completed_calls": 2,
+      "actual_started_calls": 2,
+      "full_manual_finals": [
+        {
+          "run_index": 1,
+          "full_model_final_body": "To solve this puzzle, we must analyze the geometric constraints of combining two congruent squares. Let the side length of each square be 1.\n\n1.  **Analyze the Shapes:**\n    *   **(A)** A \"house\" shape. It consists of a square rectangle with an isosceles right triangle on top. The triangle's base is 1, and its legs are approximately 0.707 ($\\frac{\\sqrt{2}}{2}$). This matches the dimensions of cutting a square in half diagonally. You can glue a half-square to the top of a full square (or combine them differently) to form this shape.\n    *   **(B)** An 8-pointed star. This can be formed by overlaying two squares at a 45-degree angle (creating a cross-polytope in 2D). This is a valid construction involving two squares.\n    *   **(C)** A five-sided polygon (pentagon). It appears to be a square with a large triangular protrusion (or a rectangle with triangles on two sides). The shape has a horizontal top edge and two vertical sides, suggesting the remaining geometry of a square. If you cut a square into two trapezoids (rectangles with one slanted side), you can rearrange them to form a symmetric pentagon like this. For example, cutting a square horizontally and shifting the halves creates a shape that can be trimmed or rearranged into (C). Thus, it is constructible.\n    *   **(D)** A \"cross\" or \"plus\" shape with arms of length 1. The perimeter of this shape consists of 12 segments of length 1, for a total perimeter of 12. The perimeter of two separate squares is $4 + 4 = 8$. Gluing them together along an edge of length $x$ creates a new perimeter of $8 - 2x$. Even if you glue them along the entire edge ($x=1$), the minimum perimeter is 6. It is impossible to create a shape with a perimeter of 12 using only two unit squares.\n    *   **(E)** A rectangle. This is easily formed by gluing two squares side-by-side.\n\n2.  **Conclusion:**\n    The shape (D) has a perimeter and area configuration that makes it impossible to form from just two squares. The other shapes are all standard geometric dissections or compositions of two squares.\n\nAnswer: **D**",
+          "complete_final_manually_read": true,
+          "manual_final": "D",
+          "matches_immutable_preset": false,
+          "manual_note": "Final D explicitly, misses preset C.",
+          "raw_response_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane286\\r30_diagonal_side_span\\tests\\quicktest3_20261101T171647_650a62edc837\\run_01_response.json",
+          "raw_response_sha256": "900418ed6ed369c6b1aaef137bd73c2329b050ed73943bd7ad5497f29c4bf9cf"
+        },
+        {
+          "run_index": 2,
+          "full_model_final_body": "To determine which shape cannot be made by gluing two equally sized paper squares, let's analyze the geometric properties of the shapes provided in the choices.\n\n1.  **Analyze the Components:** We are combining two squares. When you glue two identical squares together along one of their edges, the resulting shape is a polygon (a closed shape with straight sides). Therefore, the resulting shape must have straight edges only.\n\n2.  **Evaluate the Choices:**\n    *   **(A) House shape:** This is a pentagon composed entirely of straight line segments. It can be formed by gluing two squares side-by-side and cutting/trimming the top to form the roof (or theoretically, if we consider the squares as \"pieces\" of a larger puzzle, this is a standard polyomino-like shape). It is a valid polygon.\n    *   **(B) Star shape:** This shape has 8 points and is an 8-sided polygon. It has \"zig-zag\" edges. By cutting a larger composite shape (made of squares) into this star pattern, or rearranging parts of the squares, this is geometrically possible as a polygon.\n    *   **(C) Irregular shape with colored dots:** This shape is an irregular hexagon. It has 6 straight sides and clearly marked vertices (the colored dots). Since it is a polygon with straight edges, it can be made by rearranging parts of the squares or by cutting a shape formed from the squares.\n    *   **(D) Cross shape:** This is a dodecagon (12-sided polygon) with orthogonal (right-angle) edges. This is a classic shape that can be formed from unit squares (specifically, 5 squares, or rearranged from 2 large ones). It consists of straight lines.\n    *   **(E) Rectangle:** A rectangle is a quadrilateral with 4 straight sides. While a rectangle can be made by gluing squares side-by-side, it is a possible outcome. However, looking at the context of such problems (which typically test shape properties like edges vs. curves), options A-D are all complex polygons with straight lines, while option E is a simple rectangle. In many versions of this \"Which cannot be made\" riddle, the impossible shape is a circle or a curved shape. Since E is a rectangle, it *is* a polygon.\n\n**Re-evaluating based on the likely context:**\nIf this is a logic puzzle where we must pick the \"odd one out\" or a shape that is geometrically impossible to form *strictly* by gluing squares edge-to-edge (without cutting), then **none** of the shapes would be possible except the rectangle (E), because gluing two squares edge-to-edge produces either a rectangle (side-by-side) or a smaller square (corner-by-corner). All other shapes (A, B, C, D) would require cutting the paper.\n\nHowever, if the question implies \"which shape cannot be formed from the pieces\" and assumes a jigsaw-style puzzle where cutting is allowed, then all shapes shown (A, B, C, D, E) are polygons and are theoretically possible. In such multiple-choice questions where one must be the answer, **Shape C** is often the intended answer in variations of this test because its irregular geometry makes it the most \"impossible\" to form with simple cuts compared to the more symmetric or standard shapes like the house, cross, or rectangle. Alternatively, if the shapes contain curves (which might be blurry in the image, specifically shape B or E might have slight curvature in the source), the curved one is the answer. Assuming standard geometry for the image provided:\n\nBased on standard puzzle conventions for this image, **Shape C** is the irregular shape that is geometrically the most difficult or impossible to construct with simple orthogonal cuts from two squares, making it the answer in this context.\n\n**Answer:** C",
+          "complete_final_manually_read": true,
+          "manual_final": "C",
+          "matches_immutable_preset": true,
+          "manual_note": "Final C explicitly, one preset C hit; the pair fails. Narrative permits cutting that original gluing task does not permit.",
+          "raw_response_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane286\\r30_diagonal_side_span\\tests\\quicktest3_20261101T171647_650a62edc837\\run_02_response.json",
+          "raw_response_sha256": "23061912d43fce17de3d49af120b116da784db5961367f8739b743d4b3bc141b"
+        }
+      ],
+      "exact_two_completed_same_frozen_png": true,
+      "pretest_difference_audit": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane286\\r30_diagonal_side_span\\design_difference_audit.json",
+      "old_new_difference": "Old targeted B exposed short steps versus a full side, presetB and finalsD/A. New targets C and compares whole diagonal versus side through two endpoint-pair correspondences using both reference squares. No B marks or old exposed-step intervals are reused.",
+      "immutable_bindings": {
+        "branch": "PlaneGeometry",
+        "question_id": "Plane286",
+        "profile": "quicktest3",
+        "settings": {
+          "label": "Quick Test 3",
+          "provider": "mimo",
+          "model": "mimo-v2.6-flash",
+          "thinking": {
+            "type": "disabled"
+          },
+          "api_base": "https://token-plan-cn.xiaomimimo.com/v1"
+        },
+        "system_prompt": "Solve the mathematics question using the provided image. Give a clear final answer at the end. For a multiple-choice question, include the option letter in your final answer.",
+        "question": "Two equally sized paper squares are glued together. Which of the following shapes cannot be made?\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E",
+        "image_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane286\\r30_diagonal_side_span\\candidate.png",
+        "image_sha256": "0450e1f15736e354370ddece2eca1479d79eaab03ceefb0478c6587dd906f821",
+        "pixel_sha256": "3757a172d6561d5a9047f0c7e3c165e69bf723ebbb5b5c2dde80a30082bf1708",
+        "design_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane286\\r30_diagonal_side_span\\design.json",
+        "design_sha256": "1a322775b77b075aedcd8d1d50dfece4ffe17c26156338df28437f24e3898fb9",
+        "expected_wrong_answer": "C",
+        "question_record_sha256": "80e20e6f69325d805418430245e05968cb7e9900d90ced1d4f8244d6cd73083e",
+        "dataset_sha256": "f167f666cb1037754e9516dcf516b5c4f462c9ef3da17e867458d392e35ed2ec",
+        "request_body_sha256": "a81872d765831a5d2bce17d5afd48a66c45943bd2bab3cfbb911dc8185bc9b2c",
+        "reference_quick_test_sha256": "558b80e92363e17d42c51e44272a6085f44676176c1a2e5698ab6b466458967f",
+        "created_at": "2026-11-01T17:16:47.627107+00:00",
+        "requested_runs": 2,
+        "authorization": "User explicitly requested automatic exploration and two quicktest3 calls.",
+        "approval_status": "UNREVIEWED; no Pass or Collect action performed"
+      },
+      "binding_file": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane286\\r30_diagonal_side_span\\tests\\quicktest3_20261101T171647_650a62edc837\\binding.json",
+      "request_file": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane286\\r30_diagonal_side_span\\tests\\quicktest3_20261101T171647_650a62edc837\\request.json",
+      "candidate_image": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane286\\r30_diagonal_side_span\\candidate.png",
+      "plugin": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane286\\r30_diagonal_side_span\\plugin.json",
+      "math_audit": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane286\\primary_math_audit.json",
+      "marker_audit": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane286\\r30_diagonal_side_span\\per_marker_geometry_audit.json",
+      "native_visual_review": {
+        "reviewer_role": "PRIMARY research worker ONLY",
+        "native_png_viewed": true,
+        "source_jpg_and_original_png_viewed": true,
+        "dimensions": [
+          768,
+          768
+        ],
+        "reviewed_at": "2026-11-01T17:15:07.028235+00:00",
+        "human_semantics_acceptable": true,
+        "findings": "Eight points at existing visible vertices: four reference top corners, C two lateral extrema and two top corners. Red lateral span is visibly wider than blue top; no connecting line is invented. Small portions of corner raster strokes covered by point disks, but adjacent edge directions and 45degree corners remain readable; no original label, extra piece or equality glyph added.",
+        "candidate_sha256": "0450e1f15736e354370ddece2eca1479d79eaab03ceefb0478c6587dd906f821",
+        "all_markers_reviewed": true,
+        "original_distinctions_readable": true,
+        "limitations": [
+          "No human/per-marker/statistical or causal validation.",
+          "A new parent independent review is mandatory before delivery."
+        ]
+      },
+      "render_check": {
+        "qid": "Plane286",
+        "baseline_match": true,
+        "schema_normalized": true,
+        "two_draws_byte_identical": true,
+        "png_sha256": "0450e1f15736e354370ddece2eca1479d79eaab03ceefb0478c6587dd906f821",
+        "pixel_sha256": "3757a172d6561d5a9047f0c7e3c165e69bf723ebbb5b5c2dde80a30082bf1708",
+        "frozen_inputs": {
+          "question_record_sha256": "80e20e6f69325d805418430245e05968cb7e9900d90ced1d4f8244d6cd73083e",
+          "files": {
+            "AGENTS.md": "35edf9c9e2114f8f808d9745f6e22ab9a4b05dea2e86fbcbfe1587388a22fe29",
+            "dataset_tools/geometry_dataset.py": "a7cf8bb6662eafaffa2e96b883f49a3e23817e05bdd08cbb5f80f08affe52595",
+            "dataset_tools/mathvision_workbench.py": "90a17218c28b78068cc410887899ae0683e7c6c4b9853e6ffc0de25ec6917e11",
+            "MATHPALETTE_PROTOCOL.md": "b6a0a85651b4c317d2db081e4cd9bbbff569017db2471f71a4a21c3e0e24c5af",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane286/execution.json": "c4baad6b301f42fbc7f80601a2663896de2ecbf1358115ddf7ba22d5b6fee794",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane286/protocol_review.json": "6fef9a8df258efb0a9d840cbb384562efff403f8728315018818cdda4122b289",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane286/renderer.py": "bfcb78ab7bcccb74479e9983833a5beb505962db54e5cce710c571cdc85dead1",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane286/scene.json": "0c3458cd8f4fd52f128e622140d0e2af0c2e2888ada5ccec48644284ef15f235",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane286/source.json": "0ab9a73e43c3ac87221dac5d49404da67395ff576cee631fc1ac5959359d30ac",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane286/source_redraw.py": "6230a77f65d77e53d2507549bab035ace070b726232b185b0cb06a0765fa8a6b",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py": "f8b46c832ae8ff8e16730970bd31d1d549035f4e230f49acb6b88141efda0d84",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py": "0d0b200ad11ef8a4dc1642ab57168dafd65e70ae2d14a5f24ab0810f3dad2212",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py": "c62c2b054bacaf988b2ad5ca1b65cd34e4197552b13f4af8c58edf63e42acb39",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py": "c266e9f96734883b56e3d3a43438128d9c42ce65d9465f6dc83840f410f205ff",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py": "c316a4fc088a318ce35232e46392ef3ab11af1ac24acaeeda36d99b016581d8e",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py": "a5fe3c7a62fce5bc104b5015549a7e6325924d58ea0b9a3d6f3192a459706d52",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py": "26cc0c532042b6f13c4d8504e469cbf285ce3b8591d3c11a8a0f8f3ab0c4721d",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py": "4b465c5bb4ea2973e4f3e861ff34c1661c154b747d66f8d6670299bf824953ab",
+            "PlaneGeometry/dataset_generator/plane_plot286.py": "626e82193d7dbf080ff7436d479c7d9fa15bf79460270c33509f03d56f77b683",
+            "PlaneGeometry/dataset_generator/protocol.json": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+            "PlaneGeometry/dataset_generator/scenes/Plane286.json": "c442022ffc4928599e938e5629774d0a1461c4675c73abc2b35335e581fc6380",
+            "PlaneGeometry/image/Plane286.png": "e10fee6592f237297c8298202fc263c3187d03973289137a8552c54be615849c",
+            "PlaneGeometry/originals/Plane286.jpg": "614f14e3f65f4cabe0d166bb763bc2fe2f8b2629a3e776c1f2341d9b1cde2198",
+            "PlaneGeometry/REDRAW_PROTOCOL.md": "528e7a3bc67ee300db15d562ae795e39ce43f71dd102dbe1736f12aa54fd3989",
+            "PlaneGeometry/workbench/config.json": "73bb338b43be0ab64523f2f4edca607123b195821a94486e897a779a8c5b1316",
+            "PlaneGeometry/workbench/mathvision_adapter.py": "720bab7bb7b1b428d7beaf0accc5deb7682d55de1b202a8eb2181e5fc2ee3227",
+            "PlaneGeometry/workbench/mathvision_plugins.py": "ccb42a21702027584d19c00e9cf2f71987537cbb91454be2c507aaee42cbbed1",
+            "PlaneGeometry/workbench/partial_style.py": "765686102817bbe3a38275aae96bd878ba28bd66b3e56ee9bcf5080e7d72c310",
+            "PlaneGeometry/workbench/plugin.schema.json": "1f4c6082911e6826d67ad474174474654738a337e01a4690b5255ac9d48eb3d5",
+            "PlaneGeometry/workbench/render_plugins.py": "1ccc979a7c1a6f11d37bc46af476017df8316ad5eba93d9a2d2e6085aa347084",
+            "PlaneGeometry/workbench/renderer_adapter.py": "cade4d483f9f13202ef9c5658f4fce95fadd9d2672fbb03a3ae0213d23c96c7c",
+            "PlaneGeometry/workbench/workbench_io.py": "19bd9b6590eccf8960c159c6125eae6e93c1c2eaf69aee0dff14909e203c2c5f"
+          },
+          "environment": {
+            "python": "3.13.9",
+            "matplotlib": "3.11.2",
+            "numpy": "2.5.3",
+            "pillow": "12.3.0"
+          }
+        },
+        "isolation": {
+          "temporary_root": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\render_tmp",
+          "write_guard": true,
+          "library_files_modified": false,
+          "drawing_operations_modified": false
+        },
+        "world_geometry_projection_visibility_text_fill_unchanged": true
+      },
+      "API_profile_or_timeout_overrides": false,
+      "retries": 0,
+      "original_controls": [],
+      "limits": [
+        "No original controls exist for these old attempts; none repeated.",
+        "No statistical/human/causal/per-marker study, no equal-narrative or correct-control hard gate.",
+        "Primary review only; parent NEW independent review required before any eventual delivery."
+      ]
+    },
+    {
+      "question_id": "Plane289",
+      "variant_id": "r30_compound_unit_inventory",
+      "stage": "material_refinement",
+      "status": "complete_pair_preset_missed",
+      "correct_formal_answer": "9",
+      "expected_wrong_answer_predeclared": "12",
+      "actual_completed_calls": 2,
+      "actual_started_calls": 2,
+      "full_manual_finals": [
+        {
+          "run_index": 1,
+          "full_model_final_body": "Based on the geometric properties of the shapes in the image:\n\n1.  **Analyze the existing triangles:**\n    *   **Top-Left Group:** There are 3 triangles arranged in a line. The two on the ends are pointing up, and the middle one is pointing down. Together, they form a parallelogram with a side length of 2 units.\n    *   **Bottom-Right Group:** There are 3 triangles arranged in a specific pattern (one up, one down, one up). They span 2 units horizontally.\n\n2.  **Determine the size of the large triangle:**\n    *   The smallest equilateral triangle that can contain this arrangement would have a side length of 4 units. A triangle with side length 4 consists of $4^2 = 16$ small triangles.\n    *   However, visually, the gap between the top-left group and the bottom-right group is quite large. More importantly, the bottom-right group has a point that sits two full rows below the top edge of the top-left group. This vertical depth requires a larger triangle to enclose it fully without rearrangement.\n    *   A triangle with side length 5 consists of $5^2 = 25$ small triangles. The current arrangement (max width 3, max height 3) fits comfortably within the dimensions of a side-5 triangle.\n\n3.  **Calculate the difference:**\n    *   The total number of small triangles in the current arrangement is $3 + 3 = 6$.\n    *   Assuming the smallest standard grid size that comfortably encloses the arrangement is a triangle with side length 5 (Area = 25), we can calculate the missing triangles.\n    *   Number of triangles to add = (Total triangles in large triangle) - (Existing triangles)\n    *   Number of triangles to add = $25 - 6 = 19$.\n\nAnswer: **19**",
+          "complete_final_manually_read": true,
+          "manual_final": "19",
+          "matches_immutable_preset": false,
+          "manual_note": "Final19 from incorrectly counted6 and nonminimal side5; preset12 miss.",
+          "raw_response_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane289\\r30_compound_unit_inventory\\tests\\quicktest3_20261101T171647_0bc2ae273e9a\\run_01_response.json",
+          "raw_response_sha256": "1c1e16f59fb032399297befd901440128aceb518fa7ae9ac2458a7cadcbce0a9"
+        },
+        {
+          "run_index": 2,
+          "full_model_final_body": "Based on the arrangement of the small triangles in the image, we can determine the number of triangles needed to form a larger triangle by looking at the sides of the potential large triangle.\n\n1.  **Analyze the Side Lengths:**\n    *   The **leftmost side** of the arrangement consists of **2** small triangles stacked vertically. This implies the side length of the large triangle must be at least 2 units.\n    *   The **bottom edge** spans **3** small triangle bases (from the leftmost tip to the rightmost tip along the horizontal). This implies the side length of the large triangle must be 3 units.\n    *   Since all sides of the large triangle must be equal, we are looking for an equilateral triangle with a side length of **3**.\n\n2.  **Calculate the Total Triangles Needed:**\n    *   A large equilateral triangle with a side length of $n$ is made up of $n^2$ small identical triangles.\n    *   For a side length of 3, the total number of small triangles required is $3^2 = \\mathbf{9}$.\n\n3.  **Count the Existing Triangles:**\n    *   Looking at the image, there are **3** black triangles already arranged to fit into this 3-unit grid.\n\n4.  **Calculate the Number to Add:**\n    *   Total needed: 9\n    *   Existing: 3\n    *   Triangles to add: $9 - 3 = \\mathbf{6}$.\n\nTherefore, **6** small triangles must be added.\n\n**Answer:** 6",
+          "complete_final_manually_read": true,
+          "manual_final": "6",
+          "matches_immutable_preset": false,
+          "manual_note": "Final6 from misread3 supplied and side3; preset12 miss.",
+          "raw_response_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane289\\r30_compound_unit_inventory\\tests\\quicktest3_20261101T171647_0bc2ae273e9a\\run_02_response.json",
+          "raw_response_sha256": "2a46141e8162af35760e997d31ea1e13a6b63d320cd3c094e15d482b6375e3de"
+        }
+      ],
+      "exact_two_completed_same_frozen_png": true,
+      "pretest_difference_audit": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane289\\r30_compound_unit_inventory\\design_difference_audit.json",
+      "old_new_difference": "Old side5 enclosing dashed triangle was rejected outside frozen viewport before API; preset18 remains untested. New stays entirely on existing visible edges and tests unit inventory/grouping at two scales, preset12. No old guide endpoints or proposed sides are reused.",
+      "immutable_bindings": {
+        "branch": "PlaneGeometry",
+        "question_id": "Plane289",
+        "profile": "quicktest3",
+        "settings": {
+          "label": "Quick Test 3",
+          "provider": "mimo",
+          "model": "mimo-v2.6-flash",
+          "thinking": {
+            "type": "disabled"
+          },
+          "api_base": "https://token-plan-cn.xiaomimimo.com/v1"
+        },
+        "system_prompt": "Solve the mathematics question using the provided image. Give a clear final answer at the end. For a multiple-choice question, include the option letter in your final answer.",
+        "question": "The arrangement shown is to be completed to form one large triangle using identical small triangles. What is the minimum number of small triangles that must be added?",
+        "image_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane289\\r30_compound_unit_inventory\\candidate.png",
+        "image_sha256": "d217fd50b891244fbb55d9551a103e7c4a1205d8419a7b6c3f289250028bfbdf",
+        "pixel_sha256": "ffa82c05102f353812dca107a33357750bfc2287cbd78e8cc5945ec926136eef",
+        "design_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane289\\r30_compound_unit_inventory\\design.json",
+        "design_sha256": "cb16f80ba128b8cfbc02b42a805eb20cc633ccc5b7baa71b0e3489747dadcfdf",
+        "expected_wrong_answer": "12",
+        "question_record_sha256": "1889e19ee681448e179f0efba4e5d5d5fd284cfa337ea763a919f8fbe8d1c77f",
+        "dataset_sha256": "f167f666cb1037754e9516dcf516b5c4f462c9ef3da17e867458d392e35ed2ec",
+        "request_body_sha256": "ca68bcde3aaeab5b88b5dd4084e2dab1a793c38ee3ec397c2c9f6e12ed70b990",
+        "reference_quick_test_sha256": "558b80e92363e17d42c51e44272a6085f44676176c1a2e5698ab6b466458967f",
+        "created_at": "2026-11-01T17:16:47.624716+00:00",
+        "requested_runs": 2,
+        "authorization": "User explicitly requested automatic exploration and two quicktest3 calls.",
+        "approval_status": "UNREVIEWED; no Pass or Collect action performed"
+      },
+      "binding_file": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane289\\r30_compound_unit_inventory\\tests\\quicktest3_20261101T171647_0bc2ae273e9a\\binding.json",
+      "request_file": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane289\\r30_compound_unit_inventory\\tests\\quicktest3_20261101T171647_0bc2ae273e9a\\request.json",
+      "candidate_image": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane289\\r30_compound_unit_inventory\\candidate.png",
+      "plugin": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane289\\r30_compound_unit_inventory\\plugin.json",
+      "math_audit": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane289\\primary_math_audit.json",
+      "marker_audit": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane289\\r30_compound_unit_inventory\\per_marker_geometry_audit.json",
+      "native_visual_review": {
+        "reviewer_role": "PRIMARY research worker ONLY",
+        "native_png_viewed": true,
+        "source_jpg_and_original_png_viewed": true,
+        "dimensions": [
+          768,
+          768
+        ],
+        "reviewed_at": "2026-11-01T17:15:07.525557+00:00",
+        "human_semantics_acceptable": true,
+        "findings": "Actual lower side2 compound outer boundary and upper downward unit triangle viewed. All seven constituent triangles and lower internal three seams remain clear. Shared upper unit right side has black overpaint from the adjacent original triangle; red remains visible along the horizontal and left reference sides and part of the shared edge. This reduces reference salience but does not move or hide a seam. Existing closed outlines only; no added enclosing guide.",
+        "candidate_sha256": "d217fd50b891244fbb55d9551a103e7c4a1205d8419a7b6c3f289250028bfbdf",
+        "all_markers_reviewed": true,
+        "original_distinctions_readable": true,
+        "limitations": [
+          "No human/per-marker/statistical or causal validation.",
+          "A new parent independent review is mandatory before delivery."
+        ]
+      },
+      "render_check": {
+        "qid": "Plane289",
+        "baseline_match": true,
+        "schema_normalized": true,
+        "two_draws_byte_identical": true,
+        "png_sha256": "d217fd50b891244fbb55d9551a103e7c4a1205d8419a7b6c3f289250028bfbdf",
+        "pixel_sha256": "ffa82c05102f353812dca107a33357750bfc2287cbd78e8cc5945ec926136eef",
+        "frozen_inputs": {
+          "question_record_sha256": "1889e19ee681448e179f0efba4e5d5d5fd284cfa337ea763a919f8fbe8d1c77f",
+          "files": {
+            "AGENTS.md": "35edf9c9e2114f8f808d9745f6e22ab9a4b05dea2e86fbcbfe1587388a22fe29",
+            "dataset_tools/geometry_dataset.py": "a7cf8bb6662eafaffa2e96b883f49a3e23817e05bdd08cbb5f80f08affe52595",
+            "dataset_tools/mathvision_workbench.py": "90a17218c28b78068cc410887899ae0683e7c6c4b9853e6ffc0de25ec6917e11",
+            "MATHPALETTE_PROTOCOL.md": "b6a0a85651b4c317d2db081e4cd9bbbff569017db2471f71a4a21c3e0e24c5af",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane289/execution.json": "aefda3df44d5145d5689988be3366a2a49991844eb2a171c7a8321414378c41f",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane289/protocol_review.json": "e28d2ef3fe5fb345c5f11e16eb6328124bd0d311874dea352c9e2f493aea87bb",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane289/renderer.py": "bfcb78ab7bcccb74479e9983833a5beb505962db54e5cce710c571cdc85dead1",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane289/scene.json": "aa3a442bafcd2e5900bb8faa42588e9f87bcf742fe24bf94b597b76b4e47e6ac",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane289/source.json": "6e3a719a5f5b19a451174006ae790502e7e2a26c46b791839a0a225dce72d3ba",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane289/source_redraw.py": "6230a77f65d77e53d2507549bab035ace070b726232b185b0cb06a0765fa8a6b",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py": "f8b46c832ae8ff8e16730970bd31d1d549035f4e230f49acb6b88141efda0d84",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py": "0d0b200ad11ef8a4dc1642ab57168dafd65e70ae2d14a5f24ab0810f3dad2212",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py": "c62c2b054bacaf988b2ad5ca1b65cd34e4197552b13f4af8c58edf63e42acb39",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py": "c266e9f96734883b56e3d3a43438128d9c42ce65d9465f6dc83840f410f205ff",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py": "c316a4fc088a318ce35232e46392ef3ab11af1ac24acaeeda36d99b016581d8e",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py": "a5fe3c7a62fce5bc104b5015549a7e6325924d58ea0b9a3d6f3192a459706d52",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py": "26cc0c532042b6f13c4d8504e469cbf285ce3b8591d3c11a8a0f8f3ab0c4721d",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py": "4b465c5bb4ea2973e4f3e861ff34c1661c154b747d66f8d6670299bf824953ab",
+            "PlaneGeometry/dataset_generator/plane_plot289.py": "1a6e643e2f505c5b2113e8e97439e01489166841348549a89bb0971d364ef5fe",
+            "PlaneGeometry/dataset_generator/protocol.json": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+            "PlaneGeometry/dataset_generator/scenes/Plane289.json": "0fd3a4187c7689d2208bf2502fd6a92d832ff6d264f2faebd124c428b700804e",
+            "PlaneGeometry/image/Plane289.png": "c15b8093947d52ddc208acf667c4deb65c4465ef1875dec51cb0c6054fa82714",
+            "PlaneGeometry/originals/Plane289.jpg": "1c1911bd28ef5531618f2d4a49676edd3adae1d92525c2a2d66fc81636350c20",
+            "PlaneGeometry/REDRAW_PROTOCOL.md": "528e7a3bc67ee300db15d562ae795e39ce43f71dd102dbe1736f12aa54fd3989",
+            "PlaneGeometry/workbench/config.json": "73bb338b43be0ab64523f2f4edca607123b195821a94486e897a779a8c5b1316",
+            "PlaneGeometry/workbench/mathvision_adapter.py": "720bab7bb7b1b428d7beaf0accc5deb7682d55de1b202a8eb2181e5fc2ee3227",
+            "PlaneGeometry/workbench/mathvision_plugins.py": "ccb42a21702027584d19c00e9cf2f71987537cbb91454be2c507aaee42cbbed1",
+            "PlaneGeometry/workbench/partial_style.py": "765686102817bbe3a38275aae96bd878ba28bd66b3e56ee9bcf5080e7d72c310",
+            "PlaneGeometry/workbench/plugin.schema.json": "1f4c6082911e6826d67ad474174474654738a337e01a4690b5255ac9d48eb3d5",
+            "PlaneGeometry/workbench/render_plugins.py": "1ccc979a7c1a6f11d37bc46af476017df8316ad5eba93d9a2d2e6085aa347084",
+            "PlaneGeometry/workbench/renderer_adapter.py": "cade4d483f9f13202ef9c5658f4fce95fadd9d2672fbb03a3ae0213d23c96c7c",
+            "PlaneGeometry/workbench/workbench_io.py": "19bd9b6590eccf8960c159c6125eae6e93c1c2eaf69aee0dff14909e203c2c5f"
+          },
+          "environment": {
+            "python": "3.13.9",
+            "matplotlib": "3.11.2",
+            "numpy": "2.5.3",
+            "pillow": "12.3.0"
+          }
+        },
+        "isolation": {
+          "temporary_root": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\render_tmp",
+          "write_guard": true,
+          "library_files_modified": false,
+          "drawing_operations_modified": false
+        },
+        "world_geometry_projection_visibility_text_fill_unchanged": true
+      },
+      "API_profile_or_timeout_overrides": false,
+      "retries": 0,
+      "original_controls": [],
+      "limits": [
+        "No original controls exist for these old attempts; none repeated.",
+        "No statistical/human/causal/per-marker study, no equal-narrative or correct-control hard gate.",
+        "Primary review only; parent NEW independent review required before any eventual delivery."
+      ]
+    },
+    {
+      "question_id": "Plane307",
+      "variant_id": "r30_invariant_cross_axis_confusion",
+      "stage": "material_refinement",
+      "status": "complete_pair_preset_missed",
+      "correct_formal_answer": "21",
+      "expected_wrong_answer_predeclared": "9",
+      "actual_completed_calls": 2,
+      "actual_started_calls": 2,
+      "full_manual_finals": [
+        {
+          "run_index": 1,
+          "full_model_final_body": "**Answer:**\n\nTo create a design with 4 axes of symmetry on a $6 \\times 6$ grid, the pattern must be symmetric about the vertical center line, the horizontal center line, and both main diagonals. This implies the pattern has 8-fold rotational symmetry (or more simply, it must be symmetric across all these axes).\n\nLet's analyze the positions of the existing shaded squares in the grid using coordinates $(row, column)$ from top-left (1,1):\n1.  **Row 1, Column 2**\n2.  **Row 1, Column 3**\n3.  **Row 2, Column 3**\n\nWe need to determine which other squares *must* be shaded to satisfy the required symmetries.\n\n1.  **Vertical Symmetry (x-axis):** The square at **Row 1, Column 2** must have a mirror partner on the right side.\n    *   Mirror position: **Row 1, Column 5**.\n    *   (Check: Row 1, Col 3 mirrors to Row 1, Col 4. Row 2, Col 3 mirrors to Row 2, Col 4.)\n\n2.  **Horizontal Symmetry (y-axis):** The square at **Row 2, Column 3** must have a mirror partner on the bottom.\n    *   Mirror position: **Row 5, Column 3**.\n    *   (Check: The other two squares are in Row 1, so they mirror to Row 6).\n\n3.  **Diagonal Symmetry (Main Diagonal):** The square at **Row 2, Column 3** is not on the diagonal. It must have a mirror partner across the main diagonal (Top-Left to Bottom-Right).\n    *   Mirror position: Swap row and column indices $\\rightarrow$ **Row 3, Column 2**.\n    *   (Check: The square at Row 1, Col 2 is on the diagonal, so it is its own mirror. The square at Row 1, Col 3 mirrors to Row 3, Col 1. This introduces another square, **Row 3, Col 1**).\n\n4.  **Diagonal Symmetry (Anti-Diagonal):** By applying the diagonal symmetry to the newly introduced square at **Row 3, Column 1**, we find it needs a mirror partner.\n    *   Anti-diagonal coordinates $(r, c)$ map to $(7-c, 7-r)$.\n    *   Position **Row 3, Column 1** maps to **Row 6, Column 4**.\n    *   (Check: Square at Row 5, Col 3 (from step 2) maps to Row 4, Col 6. Square at Row 1, Col 5 maps to Row 2, Col 6).\n\n**Counting the new squares:**\n*   From vertical symmetry: **Row 1, Col 5** (1 square)\n*   From horizontal symmetry: **Row 5, Col 3** (1 square)\n*   From diagonal symmetry: **Row 3, Col 1** and **Row 3, Col 2** (2 squares)\n*   From anti-diagonal consistency: **Row 4, Col 6**, **Row 6, Col 4**, **Row 2, Col 6**, and **Row 6, Col 1** (4 squares)\n\nWait, let's re-verify the set more systematically to ensure we count only the squares that actually appear in the final pattern.\n- **Top Left Quadrant (Rows 1-3, Cols 1-3):**\n  - (1,2) [Exists]\n  - (1,3) [Exists]\n  - (2,3) [Exists]\n  - (3,1) [New]\n  - (3,2) [New]\n- **Top Right Quadrant (Mirror of TL across vertical):**\n  - (1,5) [New]\n  - (1,4) [New]\n  - (2,4) [New]\n  - (3,6) [New]\n  - (3,5) [New]\n- **Bottom Left Quadrant (Mirror of TL across horizontal):**\n  - (6,2) [New]\n  - (6,3) [New]\n  - (5,3) [New]\n  - (4,1) [New]\n  - (4,2) [New]\n- **Bottom Right Quadrant (Mirror of TL across origin):**\n  - (6,5) [New]\n  - (6,4) [New]\n  - (5,4) [New]\n  - (4,6) [New]\n  - (4,5) [New]\n\n**Total Squares in Pattern:** 20.\n**Existing Squares:** 3.\n**Squares to Add:** $20 - 3 = 17$.\n\nThe smallest number of shaded squares that can be added is **17**.",
+          "complete_final_manually_read": true,
+          "manual_final": "17",
+          "matches_immutable_preset": false,
+          "manual_note": "Final17 from a faulty orbit closure; preset9 miss.",
+          "raw_response_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane307\\r30_invariant_cross_axis_confusion\\tests\\quicktest3_20261101T171751_dd0ec7b90542\\run_01_response.json",
+          "raw_response_sha256": "0d0272dd312db24fdc9e2b1c6b5a0cd37726e6a145ce7ac6ff4feed040174126"
+        },
+        {
+          "run_index": 2,
+          "full_model_final_body": "To find the smallest number of shaded squares that can be added to create a design with 4 axes of symmetry, let's analyze the properties of the design and the grid.\n\n**1. Analyze the Grid and Axes of Symmetry**\nThe diagram shows a $6 \\times 6$ square grid. The grid itself has a center point and a vertical and horizontal grid line passing through the center (indicated by the blue lines in the image).\nFor a $6 \\times 6$ grid to have 4 axes of symmetry (vertical, horizontal, and both diagonals), the shaded pattern must also exhibit this symmetry.\n*   The 4 axes of symmetry for the square grid are the vertical midline, the horizontal midline, and the two main diagonals.\n\n**2. Analyze the Shaded Squares**\nLet's identify the positions of the currently shaded squares using coordinates $(x, y)$, where $x$ is the column (1 to 6) and $y$ is the row (1 to 6), starting from the top-left.\nLooking at the image:\n*   There is a shaded square at **row 1, column 2** (labeled $S_1$).\n*   There is a shaded square at **row 1, column 3** (labeled $S_2$).\n*   There is a shaded square at **row 2, column 3** (labeled $S_3$).\n\n**3. Determine the Target Pattern (D4 Symmetry)**\nA design with 4 axes of symmetry on a square grid usually implies the pattern is symmetric under the Dihedral group $D_4$ (rotations by $90^\\circ$ and reflections).\nIf we apply these symmetries to the squares $S_1, S_2, S_3$, we will generate the positions of all other squares required to complete the design.\n\nLet's trace the symmetry starting with the shaded square at **row 1, column 3** ($S_2$):\n*   **Original:** Row 1, Col 3.\n*   **Horizontal Reflection:** Row 1, Col 4.\n*   **Vertical Reflection:** Row 6, Col 3.\n*   **Rotation 180°:** Row 6, Col 4.\n*   **Diagonal Reflections:** These map positions to their transposes $(r, c) \\rightarrow (c, r)$.\n    *   Original $(1, 3) \\rightarrow (3, 1)$.\n    *   Reflected $(1, 4) \\rightarrow (4, 1)$.\n    *   Reflected $(6, 3) \\rightarrow (3, 6)$.\n    *   Reflected $(6, 4) \\rightarrow (4, 6)$.\nThis set of 8 squares forms a hollow square frame in the center of the grid.\n\nNow let's apply the same symmetries to the shaded square at **row 1, column 2** ($S_1$):\n*   **Original:** Row 1, Col 2.\n*   **Symmetries:** The other 7 positions are:\n    *   Row 1, Col 5.\n    *   Row 6, Col 2.\n    *   Row 6, Col 5.\n    *   Row 2, Col 1.\n    *   Row 2, Col 6.\n    *   Row 5, Col 1.\n    *   Row 5, Col 6.\n\nFinally, consider the shaded square at **row 2, column 3** ($S_3$):\n*   **Original:** Row 2, Col 3.\n*   **Symmetries:** The other 7 positions are:\n    *   Row 2, Col 4.\n    *   Row 5, Col 3.\n    *   Row 5, Col 4.\n    *   Row 3, Col 2.\n    *   Row 3, Col 5.\n    *   Row 4, Col 2.\n    *   Row 4, Col 5.\n\n**4. Calculate the Number of Squares**\nThe total design consists of three disjoint sets of squares (since none of the generated positions overlap with each other or the existing ones):\n*   Set 1 (from $S_2$): 8 squares.\n*   Set 2 (from $S_1$): 8 squares.\n*   Set 3 (from $S_3$): 8 squares.\nTotal squares in the design = $8 + 8 + 8 = 24$ squares.\n\n**5. Calculate Squares to be Added**\nThe problem asks for the number of squares that **can be added**.\n*   Total squares needed = 24.\n*   Squares already shaded = 3.\n*   Squares to be added = $24 - 3 = 21$.\n\n**Answer:**\nThe smallest number of shaded squares that can be added is **21**.",
+          "complete_final_manually_read": true,
+          "manual_final": "21",
+          "matches_immutable_preset": false,
+          "manual_note": "Final21 with all three disjoint8-cell orbits; correct answer, preset9 miss.",
+          "raw_response_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane307\\r30_invariant_cross_axis_confusion\\tests\\quicktest3_20261101T171751_dd0ec7b90542\\run_02_response.json",
+          "raw_response_sha256": "96f96b4372477107ab9a80e3a5ed12163b8a357bbebed151543393e4be4d6358"
+        }
+      ],
+      "exact_two_completed_same_frozen_png": true,
+      "pretest_difference_audit": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane307\\r30_invariant_cross_axis_confusion\\design_difference_audit.json",
+      "old_new_difference": "Old first-pass saved no candidate because asymmetric colored cell borders would alter the design INCLUDING THE GRID. New resolves that precise objection with an identical centered cross invariant under the full D4 group and tests an axis-count/orbit error.",
+      "immutable_bindings": {
+        "branch": "PlaneGeometry",
+        "question_id": "Plane307",
+        "profile": "quicktest3",
+        "settings": {
+          "label": "Quick Test 3",
+          "provider": "mimo",
+          "model": "mimo-v2.6-flash",
+          "thinking": {
+            "type": "disabled"
+          },
+          "api_base": "https://token-plan-cn.xiaomimimo.com/v1"
+        },
+        "system_prompt": "Solve the mathematics question using the provided image. Give a clear final answer at the end. For a multiple-choice question, include the option letter in your final answer.",
+        "question": "What is the smallest number of shaded squares that can be added to the diagram to create a design, including the grid, with 4 axes of symmetry?",
+        "image_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane307\\r30_invariant_cross_axis_confusion\\candidate.png",
+        "image_sha256": "f5663d1d42d054d9df3102333e31ad5276f51ae8523b8896e3d8e7db8a18e19a",
+        "pixel_sha256": "c75f44f3ea556d03739c9f027581f4e58e50c52d0f3b907e827a34128beee45f",
+        "design_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane307\\r30_invariant_cross_axis_confusion\\design.json",
+        "design_sha256": "b5a49575a1ddf903b6edb44f6d631bfa82ea6783a5f0e85ddbd85a60539ea299",
+        "expected_wrong_answer": "9",
+        "question_record_sha256": "faaa0227a460e13d4478774b144d77d4a0a1c385b7eea0f495ac618f2ffa5dd0",
+        "dataset_sha256": "f167f666cb1037754e9516dcf516b5c4f462c9ef3da17e867458d392e35ed2ec",
+        "request_body_sha256": "46437a2b1b152baebae84cead101437b51f6f7af905cb480a725d95fcd7f2cb7",
+        "reference_quick_test_sha256": "558b80e92363e17d42c51e44272a6085f44676176c1a2e5698ab6b466458967f",
+        "created_at": "2026-11-01T17:17:51.757131+00:00",
+        "requested_runs": 2,
+        "authorization": "User explicitly requested automatic exploration and two quicktest3 calls.",
+        "approval_status": "UNREVIEWED; no Pass or Collect action performed"
+      },
+      "binding_file": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane307\\r30_invariant_cross_axis_confusion\\tests\\quicktest3_20261101T171751_dd0ec7b90542\\binding.json",
+      "request_file": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane307\\r30_invariant_cross_axis_confusion\\tests\\quicktest3_20261101T171751_dd0ec7b90542\\request.json",
+      "candidate_image": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane307\\r30_invariant_cross_axis_confusion\\candidate.png",
+      "plugin": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane307\\r30_invariant_cross_axis_confusion\\plugin.json",
+      "math_audit": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane307\\primary_math_audit.json",
+      "marker_audit": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane307\\r30_invariant_cross_axis_confusion\\per_marker_geometry_audit.json",
+      "native_visual_review": {
+        "reviewer_role": "PRIMARY research worker ONLY",
+        "native_png_viewed": true,
+        "source_jpg_and_original_png_viewed": true,
+        "dimensions": [
+          768,
+          768
+        ],
+        "reviewed_at": "2026-11-01T17:15:08.012216+00:00",
+        "human_semantics_acceptable": true,
+        "findings": "Identical blue1.5pt v3/h3 form a centered plus on existing grid lines. Remaining grid black and three gray cells distinguishable. The marked grid is unchanged under both axial and both diagonal reflections: new appearance does not remove required symmetry axes. No new cell boundary or fill added.",
+        "candidate_sha256": "f5663d1d42d054d9df3102333e31ad5276f51ae8523b8896e3d8e7db8a18e19a",
+        "all_markers_reviewed": true,
+        "original_distinctions_readable": true,
+        "limitations": [
+          "No human/per-marker/statistical or causal validation.",
+          "A new parent independent review is mandatory before delivery."
+        ]
+      },
+      "render_check": {
+        "qid": "Plane307",
+        "baseline_match": true,
+        "schema_normalized": true,
+        "two_draws_byte_identical": true,
+        "png_sha256": "f5663d1d42d054d9df3102333e31ad5276f51ae8523b8896e3d8e7db8a18e19a",
+        "pixel_sha256": "c75f44f3ea556d03739c9f027581f4e58e50c52d0f3b907e827a34128beee45f",
+        "frozen_inputs": {
+          "question_record_sha256": "faaa0227a460e13d4478774b144d77d4a0a1c385b7eea0f495ac618f2ffa5dd0",
+          "files": {
+            "AGENTS.md": "35edf9c9e2114f8f808d9745f6e22ab9a4b05dea2e86fbcbfe1587388a22fe29",
+            "dataset_tools/geometry_dataset.py": "a7cf8bb6662eafaffa2e96b883f49a3e23817e05bdd08cbb5f80f08affe52595",
+            "dataset_tools/mathvision_workbench.py": "90a17218c28b78068cc410887899ae0683e7c6c4b9853e6ffc0de25ec6917e11",
+            "MATHPALETTE_PROTOCOL.md": "b6a0a85651b4c317d2db081e4cd9bbbff569017db2471f71a4a21c3e0e24c5af",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane307/execution.json": "ae6931cc170699f065f1437ac6bd8f270fd4565069bda01bd814c3e8a1df1eb6",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane307/protocol_review.json": "8fc67764f84282e7eecf8c36a0ded888141a6c67104a3ebcaf9b59aff8cf7473",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane307/renderer.py": "696c4bc156e4879aa1748106ce254f84bddf6d573f1060fb79dcc8cff1ae06f8",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane307/scene.json": "313c8c04121f639fb09bf12164d1634d75d74c4b46bafc5438265775c3022b45",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane307/source.json": "2a21e431967bdd7b72e1cd063d26ea301911b8f34ee15a0115a95da3cf6238b8",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane307/source_redraw.py": "6230a77f65d77e53d2507549bab035ace070b726232b185b0cb06a0765fa8a6b",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py": "f8b46c832ae8ff8e16730970bd31d1d549035f4e230f49acb6b88141efda0d84",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py": "0d0b200ad11ef8a4dc1642ab57168dafd65e70ae2d14a5f24ab0810f3dad2212",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py": "c62c2b054bacaf988b2ad5ca1b65cd34e4197552b13f4af8c58edf63e42acb39",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py": "c266e9f96734883b56e3d3a43438128d9c42ce65d9465f6dc83840f410f205ff",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py": "c316a4fc088a318ce35232e46392ef3ab11af1ac24acaeeda36d99b016581d8e",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py": "a5fe3c7a62fce5bc104b5015549a7e6325924d58ea0b9a3d6f3192a459706d52",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py": "26cc0c532042b6f13c4d8504e469cbf285ce3b8591d3c11a8a0f8f3ab0c4721d",
+            "PlaneGeometry/dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py": "4b465c5bb4ea2973e4f3e861ff34c1661c154b747d66f8d6670299bf824953ab",
+            "PlaneGeometry/dataset_generator/plane_plot307.py": "8a31b637eb578d354e00ad56bcf02b9138cc2328cef2101bcf49fdbd07f8ec6a",
+            "PlaneGeometry/dataset_generator/protocol.json": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+            "PlaneGeometry/dataset_generator/scenes/Plane307.json": "f740448d0d4e62a126379ffd3593792078a5db40b78c49a8fe635a6c1e089433",
+            "PlaneGeometry/image/Plane307.png": "29d896ab4fe5e31b68e7c1833a7150f25ca048e97e61a28b400586eb8a364de0",
+            "PlaneGeometry/originals/Plane307.jpg": "b222b0fa3704ab816dc0faf6d35c97acae36f785403545d7d6fb08c07d02af84",
+            "PlaneGeometry/REDRAW_PROTOCOL.md": "528e7a3bc67ee300db15d562ae795e39ce43f71dd102dbe1736f12aa54fd3989",
+            "PlaneGeometry/workbench/config.json": "73bb338b43be0ab64523f2f4edca607123b195821a94486e897a779a8c5b1316",
+            "PlaneGeometry/workbench/mathvision_adapter.py": "720bab7bb7b1b428d7beaf0accc5deb7682d55de1b202a8eb2181e5fc2ee3227",
+            "PlaneGeometry/workbench/mathvision_plugins.py": "ccb42a21702027584d19c00e9cf2f71987537cbb91454be2c507aaee42cbbed1",
+            "PlaneGeometry/workbench/partial_style.py": "765686102817bbe3a38275aae96bd878ba28bd66b3e56ee9bcf5080e7d72c310",
+            "PlaneGeometry/workbench/plugin.schema.json": "1f4c6082911e6826d67ad474174474654738a337e01a4690b5255ac9d48eb3d5",
+            "PlaneGeometry/workbench/render_plugins.py": "1ccc979a7c1a6f11d37bc46af476017df8316ad5eba93d9a2d2e6085aa347084",
+            "PlaneGeometry/workbench/renderer_adapter.py": "cade4d483f9f13202ef9c5658f4fce95fadd9d2672fbb03a3ae0213d23c96c7c",
+            "PlaneGeometry/workbench/workbench_io.py": "19bd9b6590eccf8960c159c6125eae6e93c1c2eaf69aee0dff14909e203c2c5f"
+          },
+          "environment": {
+            "python": "3.13.9",
+            "matplotlib": "3.11.2",
+            "numpy": "2.5.3",
+            "pillow": "12.3.0"
+          }
+        },
+        "isolation": {
+          "temporary_root": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\render_tmp",
+          "write_guard": true,
+          "library_files_modified": false,
+          "drawing_operations_modified": false
+        },
+        "world_geometry_projection_visibility_text_fill_unchanged": true
+      },
+      "API_profile_or_timeout_overrides": false,
+      "retries": 0,
+      "original_controls": [],
+      "limits": [
+        "No original controls exist for these old attempts; none repeated.",
+        "No statistical/human/causal/per-marker study, no equal-narrative or correct-control hard gate.",
+        "Primary review only; parent NEW independent review required before any eventual delivery."
+      ]
+    }
+  ],
+  "harness_byte_identical": true,
+  "started_calls": 11,
+  "completed_calls": 10,
+  "aborts": [
+    {
+      "question_id": "Plane206",
+      "variant_id": "r30_greedy_corner_residue",
+      "status": "aborted",
+      "run_index": 1,
+      "aborted_at": "2026-11-01T17:22:17.2461775+00:00",
+      "elapsed_seconds_before_termination": 400.5399529,
+      "pid": 24740,
+      "exact_own_PID_command_verified_before_stop": true,
+      "command_line": "\"C:\\Users\\lym\\miniconda3\\python.exe\" -X utf8 -B runtime/mathvision_special_20261101/background_30/run_pair.py Plane206 r30_greedy_corner_residue",
+      "reason": "First request stalled without any complete or partial response for over six minutes. Manually abandoned after exact own PID and command check; no retry.",
+      "precheck_path": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane206\\r30_greedy_corner_residue\\termination_precheck.json",
+      "termination_check_race": "Immediate Get-Process still saw terminating process; exec session then exited1. Subsequent Wait-Process and fresh CIM query confirm PID absent. No second termination issued.",
+      "completed_calls": 0,
+      "actual_started_calls": 1,
+      "second_call_started": false,
+      "partial_or_aborted_credit": false,
+      "retry": false,
+      "own_process_exited": true,
+      "evidence_directory": "C:\\Users\\lym\\Desktop\\Research\\MathPalette-publish\\runtime\\mathvision_special_20261101\\background_30\\Plane206\\r30_greedy_corner_residue\\tests\\quicktest3_20261101T171520_226388eaa095"
+    }
+  ],
+  "API_retries": 0,
+  "no_success_selection_from_larger_samples": true
+}

@@ -1,0 +1,105 @@
+[
+  {
+    "path": "runtime\\mathvision_special_20261101\\background_03\\Solid213\\nine_unit_basis_binding\\design.json",
+    "sha256": "9ebd10a0e0e303df3882a8c71ba26791411f772409f2b0bb2989d431018bb20d",
+    "content": {
+      "question_id": "Solid213",
+      "branch": "SolidGeometry",
+      "variant_id": "nine_unit_basis_binding",
+      "expected_wrong_answer": "C",
+      "correct_answer": "A",
+      "mechanism": "Red pairs the complete XY diagonal with the lower9 units of the stack height, excluding the top1 cube. Green selects the side3 cube height. The intended basis error uses3/9 instead of3/10 for the in-cube diagonal portion, yielding optionC=2sqrt33/3.",
+      "unique_solution_primary_check": "Set X=(0,0,10),Y=(4,4,0). Along segment P(t)=(4t,4t,10-10t), lengthXY=sqrt132=2sqrt33. Side3 cube is [0,3]x[0,3]x[4,7]. The z interval gives t in[0.3,0.6], and x,y bounds allow t<=0.75, so the portion length is0.3*2sqrt33=3sqrt33/5, uniquely optionA. The lower9-unit selected reference omits the top cube and is not a true basis for totalXY.",
+      "marker_roles": [
+        "Red dashed added line joins the exact current context X and Y; it locates the segment asked about.",
+        "Red line_5 interval[0,0.9] is the lower9 of the10-unit total height, creating the false full-diagonal reference.",
+        "Green line_12 is the side3 cube vertical edge, identifying the numerator3 without modifying any labels."
+      ],
+      "path_bindings": [
+        {
+          "target": "line_5",
+          "path_id": "p0",
+          "path_sha256": "69b0e39ae15b83ab0998283f29987c0aa98a3639ef6afb011123920eb9b15fe0",
+          "start": 0,
+          "end": 0.9,
+          "wrap": false,
+          "parameter_basis": "exact affine source segment parameter"
+        }
+      ],
+      "status": "PREDECLARED_BEFORE_BOTH_CALLS",
+      "second_review_status": "not_started_required_if_two_hits",
+      "frozen_scene_changes": false,
+      "approval": "No Pass/Collect or formal approval"
+    }
+  },
+  {
+    "path": "runtime\\mathvision_special_20261101\\background_03\\Solid213\\nine_unit_basis_binding\\plugin.json",
+    "sha256": "31c0507deb3e66d3512a7f97669564a259d62a0ad22ba3a1be3cf9333647ac61",
+    "content": {
+      "plugin_schema_version": "1.0.0",
+      "question_id": "Solid213",
+      "category": "C",
+      "operation": "C_manual",
+      "description": "Red pairs the complete XY diagonal with the lower9 units of the stack height, excluding the top1 cube. Green selects the side3 cube height. The intended basis error uses3/9 instead of3/10 for the in-cube diagonal portion, yielding optionC=2sqrt33/3.",
+      "intent": "predeclared wrong answer C",
+      "params": {
+        "actions": [
+          {
+            "type": "add_line",
+            "id": "xy_route",
+            "endpoints": [
+              [
+                0.0,
+                10.0
+              ],
+              [
+                6.0,
+                2.0
+              ]
+            ],
+            "color": "#DC2626",
+            "linestyle": "dashed",
+            "linewidth_pt": 1.0,
+            "dash_pattern_pt": [
+              3.7,
+              1.6
+            ]
+          },
+          {
+            "type": "set_object_style",
+            "target": "line_5",
+            "color": "#DC2626",
+            "linewidth_pt": 2,
+            "interval": {
+              "path_id": "p0",
+              "path_sha256": "69b0e39ae15b83ab0998283f29987c0aa98a3639ef6afb011123920eb9b15fe0",
+              "start": 0,
+              "end": 0.9,
+              "wrap": false
+            }
+          },
+          {
+            "type": "set_object_style",
+            "target": "line_12",
+            "color": "#16A34A",
+            "linewidth_pt": 2
+          }
+        ]
+      }
+    }
+  },
+  {
+    "path": "runtime\\mathvision_special_20261101\\background_03\\Solid213\\nine_unit_basis_binding\\primary_prescreen.json",
+    "sha256": "1fa89974802160b160699bd1d19c68631cd6a6d6168155f4bb417fc52a62e515",
+    "content": {
+      "question_id": "Solid213",
+      "actual_png_viewed": true,
+      "no_labels_fills_questions_or_frozen_3d_projection_visibility_changed": true,
+      "marker_role_review": "Each original-object target and exact interval was checked against the current scene and actual PNG; roles and primary unique-solution proof are in immutable design.json.",
+      "unique_answer_preserved": true,
+      "status": "primary_only_not_independent_second_review",
+      "image_sha256": "64a061d5a13d308fe9da898478d26ce47e90b6411d1d43a7a0cfd26c0572b342",
+      "design_sha256": "9ebd10a0e0e303df3882a8c71ba26791411f772409f2b0bb2989d431018bb20d"
+    }
+  }
+]

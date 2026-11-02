@@ -1,0 +1,670 @@
+{
+  "checked_at_utc": "2026-11-01T20:14:01.046128+00:00",
+  "question_id": "Plane484",
+  "formal_record": {
+    "source_dataset": "MathVision",
+    "source_key": "test:2835",
+    "question": "Two rays with a common endpoint A0 form an angle of $1^o$. Construct a sequence of points $A_0$, $. . . $, $A_n$ such that for all $1 \\le i \\le n$, $|A_{i-1}A_i | = 1$, and $|A_iA_0| > |A_{i-1}A_0|$. Find the largest possible value of $n$.",
+    "answer": "90",
+    "answer_type": "number",
+    "id": "Plane484",
+    "image": "image/Plane484.png",
+    "original_image": "originals/Plane484.jpg",
+    "scene": "dataset_generator/scenes/Plane484.json",
+    "script": "dataset_generator/plane_plot484.py",
+    "runtime_dependencies": [
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane484/execution.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane484/protocol_review.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane484/scene.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane484/source.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane484/source_redraw.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+    ],
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "source_category": "transformation geometry"
+  },
+  "formal_record_sha256": "60d57f0396cc01cd36f9729ee6082a1be5a0c17026e2d84a9dec18e2c8b6978f",
+  "original_approval": {
+    "id": "Plane484",
+    "branch": "PlaneGeometry",
+    "reviewer": "user",
+    "instruction": "你直接帮忙把所有Math-Vision题目都加入正式题库吧（mashpalette-publish），然后如果题目里面有<image1>这种标记要删去。\n记得标记来源。",
+    "approved_at_utc": "2026-10-29T13:36:16.806995+00:00",
+    "content_sha256": "9f5e09ef8206e6a9fb3f451c1fba92e2d20df613e07b20418f61c5c705d4a0df"
+  },
+  "current_content_sha256": "9f5e09ef8206e6a9fb3f451c1fba92e2d20df613e07b20418f61c5c705d4a0df",
+  "approval_fingerprint_matches": true,
+  "accepted_records": [],
+  "collected_records": [],
+  "collection": null,
+  "eligible": true,
+  "content": {
+    "branch": "PlaneGeometry",
+    "record": {
+      "source_dataset": "MathVision",
+      "source_key": "test:2835",
+      "question": "Two rays with a common endpoint A0 form an angle of $1^o$. Construct a sequence of points $A_0$, $. . . $, $A_n$ such that for all $1 \\le i \\le n$, $|A_{i-1}A_i | = 1$, and $|A_iA_0| > |A_{i-1}A_0|$. Find the largest possible value of $n$.",
+      "answer": "90",
+      "answer_type": "number",
+      "id": "Plane484",
+      "image": "image/Plane484.png",
+      "original_image": "originals/Plane484.jpg",
+      "scene": "dataset_generator/scenes/Plane484.json",
+      "script": "dataset_generator/plane_plot484.py",
+      "runtime_dependencies": [
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane484/execution.json",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane484/protocol_review.json",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane484/scene.json",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane484/source.json",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane484/source_redraw.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py",
+        "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py"
+      ],
+      "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+      "source_category": "transformation geometry"
+    },
+    "files": {
+      "image/Plane484.png": "8c95d0d281aa875223becaa4dc934044edf1e8a83428aa58136b75c62b39b206",
+      "originals/Plane484.jpg": "a15c85a761fccf07cdcd3b089b56215672177dc1e3844fe7c7d098081dc14171",
+      "dataset_generator/plane_plot484.py": "592bf4fedadda831e19ea27a033e9491ffa1219c882e308f8cf90ebd05c0d0e8",
+      "dataset_generator/scenes/Plane484.json": "3de48071cfe4326d78a5c8148072b3f016c7c6be5ee522394ed324fb6499611e",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane484/execution.json": "4ae91308cda383ee4e5eff5282ab13006339d096d525b6732b7ba7d1aa6cf63d",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane484/protocol_review.json": "8d6309ee97c6ba56efdf7bb9315daf13c4c0df612b491b7a2a5c5209d83f83b9",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane484/scene.json": "c0d8788525cac98ea34a8383397f5f58614eb38191803d898d54f99e6e627e04",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane484/source.json": "9743e36f3cf75df7a6c73d56acd7fe2188d1d78735adfed3b6e27c18ada91948",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/items/Plane484/source_redraw.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/common_renderer.py": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/PlaneGeometry/dataset_generator/protocol.json": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/common_renderer.py": "7210ab158dcfe6b07e1f665b44c7da19c698398ad4f64ace9205e7be89c5c5a6",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/geometry/SolidGeometry/dataset_generator/protocol.json": "20c3b893e22b4fafa337acc73c697e0c9b5d9bad5b42bc0d9d61640575f1b74f",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer.py": "f8b46c832ae8ff8e16730970bd31d1d549035f4e230f49acb6b88141efda0d84",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_fillonly.py": "0d0b200ad11ef8a4dc1642ab57168dafd65e70ae2d14a5f24ab0810f3dad2212",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_renderer_v2.py": "c62c2b054bacaf988b2ad5ca1b65cd34e4197552b13f4af8c58edf63e42acb39",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/combinatorial_geometry/upper_comb_solid_renderer.py": "c266e9f96734883b56e3d3a43438128d9c42ce65d9465f6dc83840f410f205ff",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_face_text_renderer.py": "c316a4fc088a318ce35232e46392ef3ab11af1ac24acaeeda36d99b016581d8e",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/native/helpers/solid_geometry/upper_solid_fill_renderer.py": "a5fe3c7a62fce5bc104b5015549a7e6325924d58ea0b9a3d6f3192a459706d52",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/protocol_renderer.py": "26cc0c532042b6f13c4d8504e469cbf285ce3b8591d3c11a8a0f8f3ab0c4721d",
+      "dataset_generator/mathvision_renderers/shared_e4e003f51742cf00/runtime.py": "4b465c5bb4ea2973e4f3e861ff34c1661c154b747d66f8d6670299bf824953ab",
+      "dataset_generator/common_renderer.py": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+      "dataset_generator/protocol.json": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+      "../dataset_tools/geometry_dataset.py": "a7cf8bb6662eafaffa2e96b883f49a3e23817e05bdd08cbb5f80f08affe52595"
+    },
+    "source_notes": {
+      "source_dataset": "MathVision",
+      "source_key": "test:2835",
+      "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+      "source_category": "transformation geometry",
+      "original_record": {
+        "id": "2835",
+        "question": "Blahaj has two rays with a common endpoint A0 that form an angle of $1^o$. They construct a sequence of points $A_0$, $. . . $, $A_n$ such that for all $1 \\le i \\le n$, $|A_{i-1}A_i | = 1$, and $|A_iA_0| > |A_{i-1}A_0|$. Find the largest possible value of $n$.\\n<image1>",
+        "options": [],
+        "image": "images/2835.jpg",
+        "decoded_image": {
+          "path": "images/2835.jpg",
+          "original_path": "2835.jpg"
+        },
+        "answer": "90",
+        "solution": "Starting with the second, each new line segment encloses a new isosceles triangle. A simple angle chase yields successive base angles of $1^{\\circ}, 2^{\\circ}, 3^{\\circ}$, and so on in each of these triangles. We can go as far as a base angle of $89^{\\circ}$, as trying to go further will cause us to repeat points, which does not increase distance from $A_0$. The 89th triangle appears when the 90 th segment does, meaning the maximal $n$ is 90 .",
+        "level": 5,
+        "subject": "transformation geometry"
+      },
+      "source_package": "MathVision_redrawn_transformation_geometry_160_final",
+      "source_package_summary": {
+        "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+        "protocol_versions": {
+          "PlaneGeometry": "1.2.0",
+          "SolidGeometry": "1.2.0"
+        },
+        "created_utc": "2026-10-27T04:52:02.513020+00:00",
+        "complete": true,
+        "category": "transformation_geometry",
+        "source_questions": 168,
+        "retained": 160,
+        "excluded": 8,
+        "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+        "formal_user_approval": false,
+        "final_validation": {
+          "all_retained_tested": 696,
+          "two_clean_output_runs_per_item": true,
+          "all_passed": true,
+          "report": "validation/final_entrypoint_validation.json"
+        }
+      },
+      "audit": {
+        "source_viewed": true,
+        "inventory": [
+          "Twoforwardrays sharingA₀, upper/lowerzigzagunitsegments withA₁upper,A₂lower,A₃upper,A₄lower, thenunlabelleddashedcontinuation. Sourceanglevisuallyexaggerated; explicit1° priority. Pointlabels A0…A4 retainedusingmathsubscripts."
+        ],
+        "explicit_conditions": "Question transformation and pictured connectivity, options, hole types/positions; no inferred metric labels.",
+        "display_conditions": "Uniform scale and panel arrangement only.",
+        "answer_review": {
+          "status": "verified",
+          "answer": "90",
+          "reason": "Distancesr_i=sin(i°)/sin1° satisfyunitzigzagchords. Strictincreasingr_i holds throughi=90 only; r91<r90. Thusn90. Exact1° constructed even though source usesexaggeratedopening."
+        },
+        "source_artifact_exclusions": [
+          "Blue <imageN> composite headings and separators are dataset packaging, not question content."
+        ]
+      },
+      "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+      "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+      "agent_verification_is_user_approval": false,
+      "protocol_redraw": {
+        "date": "2026-10-28",
+        "baseline_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+        "protocol_version": "1.2.0",
+        "protocol_review": "protocol_review.json",
+        "verification": "verification.json",
+        "report": "redraw_report.json",
+        "original_image_unchanged": true,
+        "question_answer_choices_unchanged": true,
+        "user_approved": false,
+        "historical_package_notice": "Source package summaries describe the original imported package, not current style compliance or approval."
+      },
+      "stem_revision": {
+        "path": "review_candidates/mathvision/items/MVI2835/stem_revision.json",
+        "question_before_sha256": "f7d2b0f443cc173b5b57b27da7a13593d537124e16b8d364d97941883e3997d5",
+        "question_sha256": "05c0b86e8ca584916001fdf205474d9e944f875ffa1de1409d5c59a610687a39",
+        "reviewed_at_utc": "2026-10-29T08:28:22.239626+00:00",
+        "author": "/root/stem6",
+        "independent_reviewer": "/root/stem3",
+        "reason_zh": "删除与数学无关的人物或情境，保留原有数学条件、操作及提问。",
+        "user_approved": false,
+        "mathematical_semantics_preserved": true,
+        "answers_choices_images_geometry_unchanged": true,
+        "scope": "Text equivalence review only; not a new independent proof of the answer or user approval."
+      },
+      "environment_unification": {
+        "record": "review_candidates/mathvision/environment_unification_20261029.json",
+        "at_utc": "2026-10-29T12:38:07.174277+00:00",
+        "from_environment": {
+          "python": "3.12.14",
+          "matplotlib": "3.10.8",
+          "numpy": "2.3.5",
+          "Pillow": "12.3.0"
+        },
+        "to_environment": {
+          "python": "3.13.9",
+          "numpy": "2.5.3",
+          "matplotlib": "3.11.2",
+          "pillow": "12.3.0",
+          "freetype": "2.14.3"
+        },
+        "previous_png_sha256": "7a6714763070d79e05bd68e98cb05c57aad87fd4f247de25c41c1b37efc54d83",
+        "previous_svg_sha256": "abbce415bb188c70264d199b0ef9296210f839df69e2ba5c7de479f7d1c3fc54",
+        "scene_geometry_projection_visibility_unchanged": true,
+        "user_approval": false
+      },
+      "candidate_id": "MVI2835",
+      "verification": {
+        "reviewer": "Unified-environment machine reproduction",
+        "reviewed_utc": "2026-10-29T12:38:07.174277+00:00",
+        "verdict": "machine_reproduced_pending_user_review",
+        "user_approval": false,
+        "scope": "Two deterministic vector renders; unchanged frozen geometry and styles. Human approval remains pending.",
+        "hashes": {
+          "scene.json": "c0d8788525cac98ea34a8383397f5f58614eb38191803d898d54f99e6e627e04",
+          "image.png": "8c95d0d281aa875223becaa4dc934044edf1e8a83428aa58136b75c62b39b206",
+          "image.svg": "3ff361ac03ac10b32f888d911b91238b794533de2bd3965c019dc7203440881c",
+          "redraw_report.json": "7d300903ed3036b3a62a121cc0f0d684d93264596e9d69e23a236355081c3100",
+          "protocol_review.json": "8d6309ee97c6ba56efdf7bb9315daf13c4c0df612b491b7a2a5c5209d83f83b9",
+          "source_redraw.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
+          "execution.json": "4ae91308cda383ee4e5eff5282ab13006339d096d525b6732b7ba7d1aa6cf63d",
+          "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
+          "original.jpg": "a15c85a761fccf07cdcd3b089b56215672177dc1e3844fe7c7d098081dc14171",
+          "source.json": "9743e36f3cf75df7a6c73d56acd7fe2188d1d78735adfed3b6e27c18ada91948",
+          "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+          "protocol_renderer.py": "26cc0c532042b6f13c4d8504e469cbf285ce3b8591d3c11a8a0f8f3ab0c4721d",
+          "shared/runtime.py": "4b465c5bb4ea2973e4f3e861ff34c1661c154b747d66f8d6670299bf824953ab"
+        },
+        "explicit_inspected_facts": [],
+        "agent_visual_review": {
+          "status": "pending_environment_recheck",
+          "user_approval": false,
+          "reason": "Raster reference regenerated in the unified repository environment; previous visual findings remain historical.",
+          "source_sha256": "a15c85a761fccf07cdcd3b089b56215672177dc1e3844fe7c7d098081dc14171",
+          "scene_sha256": "c0d8788525cac98ea34a8383397f5f58614eb38191803d898d54f99e6e627e04",
+          "png_sha256": "8c95d0d281aa875223becaa4dc934044edf1e8a83428aa58136b75c62b39b206",
+          "svg_sha256": "3ff361ac03ac10b32f888d911b91238b794533de2bd3965c019dc7203440881c"
+        },
+        "checks": {
+          "two_clean_render_pixels_equal": true,
+          "two_clean_render_svg_bytes_equal": true,
+          "native_vector_geometry": true,
+          "layout": {
+            "content_bbox_px": [
+              53,
+              348,
+              714,
+              418
+            ],
+            "content_center_px": [
+              383.5,
+              383.0
+            ],
+            "longest_side_occupancy": 0.8619791666666666,
+            "opaque_768_square": true,
+            "centered_within_2px": true,
+            "occupancy_85_to_87_percent": true,
+            "minimum_5_percent_margin": true
+          },
+          "declared_native_checks_count": 4,
+          "failed_declared_checks": []
+        },
+        "ambiguities": [
+          "Explicit1°opening retained; sourceopening isvisuallyexaggerated."
+        ],
+        "needs_manual_confirmation": true,
+        "historical_evidence": {
+          "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+          "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+          "previous_verification": {
+            "reviewer": "independent /root/review_transformation_batch",
+            "source_id": "2835",
+            "category": "transformation_geometry",
+            "reviewed_utc": "2026-10-27T02:04:06.123616+00:00",
+            "verdict": "agent_verified",
+            "user_approval": false,
+            "hashes": {
+              "original.jpg": "a15c85a761fccf07cdcd3b089b56215672177dc1e3844fe7c7d098081dc14171",
+              "source.json": "9743e36f3cf75df7a6c73d56acd7fe2188d1d78735adfed3b6e27c18ada91948",
+              "scene.json": "968312a17a0c512f2d8b7e0a0aa8ddbcfb658adcfdfe60b016220d0949b4a31a",
+              "render.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
+              "image.png": "091e0c8fa4f8eda918ca5372536f8f488c699a46bdf1aab1bd114890b5fe775d",
+              "audit.json": "e5e7cdbe1e7afda84fdf8790b1fb1e5dc367505276c28bf378c05748810b3dad",
+              "redraw_report.json": "9692880d725968e3227548ca4b6609b6005e980981954fe3ae33496c75ca0b24"
+            },
+            "explicit_inspected_facts": [
+              "Individually viewed original/output: two rightward rays from A0, alternating A1 upper/A2 lower/A3 upper/A4 lower, solid first links then dashed continuation. Explicit1degree opening replaces exaggerated source angle; labels remain distinct, very shallow geometry is honest to stated constraint."
+            ],
+            "checks": {
+              "source_record_and_bytes_match": true,
+              "two_independent_renders_equal_candidate": true,
+              "opaque768": true,
+              "bbox": [
+                54,
+                349,
+                713,
+                418
+              ],
+              "occupancy": 0.859375,
+              "independent_numeric_checks": {
+                "answer": "90",
+                "r_k": "sin(k degrees)/sin(1 degree)",
+                "r89": 57.28996163075943,
+                "r90": 57.298688498550185,
+                "r91": 57.28996163075943,
+                "proof": "For alternating points on the two diagram rays, unit-step cosine rule gives r_k=2cos1° r_(k−1)−r_(k−2), hence sine formula. It strictly increases through90 and decreases at91; alternate quadratic root is previous same-ray point, also not farther."
+              },
+              "renderer_checks": [
+                {
+                  "id": "unit1",
+                  "type": "distance",
+                  "measured": 1.0,
+                  "passed": true
+                },
+                {
+                  "id": "unit2",
+                  "type": "distance",
+                  "measured": 0.9999999999999999,
+                  "passed": true
+                },
+                {
+                  "id": "unit3",
+                  "type": "distance",
+                  "measured": 1.0000000000000004,
+                  "passed": true
+                },
+                {
+                  "id": "unit4",
+                  "type": "distance",
+                  "measured": 0.9999999999999997,
+                  "passed": true
+                }
+              ],
+              "report_hashes_valid": true
+            },
+            "required_changes": [],
+            "previous_revisions": [],
+            "dependency_hashes": {
+              "renderer_sha256": "dc561a4f2a3a0318bc2810ad2554a85e0df599f8018572f56edef21a3b34f08b",
+              "protocol_sha256": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797"
+            }
+          }
+        },
+        "stem_revision": {
+          "path": "review_candidates/mathvision/items/MVI2835/stem_revision.json",
+          "question_before_sha256": "f7d2b0f443cc173b5b57b27da7a13593d537124e16b8d364d97941883e3997d5",
+          "question_sha256": "05c0b86e8ca584916001fdf205474d9e944f875ffa1de1409d5c59a610687a39",
+          "reviewed_at_utc": "2026-10-29T08:28:22.239626+00:00",
+          "author": "/root/stem6",
+          "independent_reviewer": "/root/stem3",
+          "reason_zh": "删除与数学无关的人物或情境，保留原有数学条件、操作及提问。",
+          "user_approved": false,
+          "mathematical_semantics_preserved": true,
+          "answers_choices_images_geometry_unchanged": true,
+          "scope": "Text equivalence review only; not a new independent proof of the answer or user approval."
+        },
+        "environment_history": [
+          {
+            "reviewer": "redraw_part4",
+            "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+            "verdict": "agent_protocol_reviewed",
+            "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
+            "hashes": {
+              "scene.json": "c0d8788525cac98ea34a8383397f5f58614eb38191803d898d54f99e6e627e04",
+              "image.png": "8c95d0d281aa875223becaa4dc934044edf1e8a83428aa58136b75c62b39b206",
+              "image.svg": "3ff361ac03ac10b32f888d911b91238b794533de2bd3965c019dc7203440881c",
+              "redraw_report.json": "3fd73d968d7a42b761b4b435f8ccbc1d127eebcd58f3c12c0b00de52fa52fe3d",
+              "protocol_review.json": "52372fa87fb46cfc16166b586a59dc28bf7a895fb8287b4e598150f0d79f81e7",
+              "source_redraw.py": "e06f4b1242c189e8dfa7dc5cdc2d0063de47183272ebad868b372c12d6150b19",
+              "execution.json": "4ae91308cda383ee4e5eff5282ab13006339d096d525b6732b7ba7d1aa6cf63d",
+              "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
+              "original.jpg": "a15c85a761fccf07cdcd3b089b56215672177dc1e3844fe7c7d098081dc14171",
+              "source.json": "9743e36f3cf75df7a6c73d56acd7fe2188d1d78735adfed3b6e27c18ada91948",
+              "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+              "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+              "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
+            },
+            "explicit_inspected_facts": [
+              "Frozen rays retain the actual1-degree opening from the complete question. Source raster schematic exaggerates this opening; labels A0-A4 and unit-edge zigzag sequence retained.",
+              "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
+            ],
+            "agent_visual_review": {
+              "status": "agent_viewed",
+              "reviewer": "redraw_part4",
+              "source_inspection": {
+                "status": "viewed",
+                "sheet": ".runtime/protocol_redraw/part4/source_09.jpg",
+                "complete_question_read": true
+              },
+              "new_render_viewed": true,
+              "final_png_view": {
+                "method": "final render contact sheet",
+                "path": ".runtime/protocol_redraw/part4/new_09.jpg",
+                "cell": 8,
+                "individual_zoom": false
+              },
+              "source_sha256": "a15c85a761fccf07cdcd3b089b56215672177dc1e3844fe7c7d098081dc14171",
+              "scene_sha256": "c0d8788525cac98ea34a8383397f5f58614eb38191803d898d54f99e6e627e04",
+              "png_sha256": "7a6714763070d79e05bd68e98cb05c57aad87fd4f247de25c41c1b37efc54d83",
+              "svg_sha256": "abbce415bb188c70264d199b0ef9296210f839df69e2ba5c7de479f7d1c3fc54",
+              "findings": [
+                "Frozen rays retain the actual1-degree opening from the complete question. Source raster schematic exaggerates this opening; labels A0-A4 and unit-edge zigzag sequence retained.",
+                "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
+              ],
+              "user_approved": false
+            },
+            "checks": {
+              "two_clean_render_pixels_equal": true,
+              "two_clean_render_svg_bytes_equal": true,
+              "native_vector_geometry": true,
+              "layout": {
+                "content_bbox_px": [
+                  53,
+                  348,
+                  714,
+                  418
+                ],
+                "content_center_px": [
+                  383.5,
+                  383.0
+                ],
+                "longest_side_occupancy": 0.8619791666666666,
+                "opaque_768_square": true,
+                "centered_within_2px": true,
+                "occupancy_85_to_87_percent": true,
+                "minimum_5_percent_margin": true
+              },
+              "declared_native_checks_count": 4,
+              "failed_declared_checks": []
+            },
+            "needs_manual_confirmation": false
+          }
+        ],
+        "environment_unification": {
+          "record": "review_candidates/mathvision/environment_unification_20261029.json",
+          "at_utc": "2026-10-29T12:38:07.174277+00:00",
+          "from_environment": {
+            "python": "3.12.14",
+            "matplotlib": "3.10.8",
+            "numpy": "2.3.5",
+            "Pillow": "12.3.0"
+          },
+          "to_environment": {
+            "python": "3.13.9",
+            "numpy": "2.5.3",
+            "matplotlib": "3.11.2",
+            "pillow": "12.3.0",
+            "freetype": "2.14.3"
+          },
+          "previous_png_sha256": "7a6714763070d79e05bd68e98cb05c57aad87fd4f247de25c41c1b37efc54d83",
+          "previous_svg_sha256": "abbce415bb188c70264d199b0ef9296210f839df69e2ba5c7de479f7d1c3fc54",
+          "scene_geometry_projection_visibility_unchanged": true,
+          "user_approval": false
+        }
+      },
+      "geometry_notes": {
+        "additional_model_evidence": {},
+        "execution": "Native semantic extras are retained in fingerprinted runtime dependencies; formal scene controls canonical geometry.",
+        "protocol_redraw": {
+          "schema_version": 1,
+          "candidate_id": "MVI2835",
+          "semantic_fills": [],
+          "semantic_colors": [],
+          "ambiguities": [
+            "Explicit1°opening retained; sourceopening isvisuallyexaggerated."
+          ],
+          "visual_review": {
+            "status": "pending_environment_recheck",
+            "user_approval": false,
+            "reason": "Raster reference regenerated in the unified repository environment; previous visual findings remain historical.",
+            "source_sha256": "a15c85a761fccf07cdcd3b089b56215672177dc1e3844fe7c7d098081dc14171",
+            "scene_sha256": "c0d8788525cac98ea34a8383397f5f58614eb38191803d898d54f99e6e627e04",
+            "png_sha256": "8c95d0d281aa875223becaa4dc934044edf1e8a83428aa58136b75c62b39b206",
+            "svg_sha256": "3ff361ac03ac10b32f888d911b91238b794533de2bd3965c019dc7203440881c"
+          },
+          "user_approved": false,
+          "scene_inventory": {
+            "object_types": {
+              "segment": 10,
+              "polygon": 2
+            },
+            "object_ids": [
+              "o0",
+              "o1",
+              "o2",
+              "o3",
+              "o4",
+              "o5",
+              "o6",
+              "o7",
+              "o8",
+              "o9",
+              "o10",
+              "o11"
+            ],
+            "labels": [
+              {
+                "id": "lA0",
+                "type": "vertex",
+                "text": "$A_{0}$",
+                "point": "A0"
+              },
+              {
+                "id": "lA1",
+                "type": "vertex",
+                "text": "$A_{1}$",
+                "point": "A1"
+              },
+              {
+                "id": "lA2",
+                "type": "vertex",
+                "text": "$A_{2}$",
+                "point": "A2"
+              },
+              {
+                "id": "lA3",
+                "type": "vertex",
+                "text": "$A_{3}$",
+                "point": "A3"
+              },
+              {
+                "id": "lA4",
+                "type": "vertex",
+                "text": "$A_{4}$",
+                "point": "A4"
+              }
+            ],
+            "constraints_count": 4,
+            "dimensions_count": 0,
+            "distance_markers_count": 0,
+            "projection_visibility_reviewed": false
+          },
+          "machine_review": {
+            "report": "redraw_report.json",
+            "geometry_checks_count": 4,
+            "pixel_identical_replay": true,
+            "layout_checks": {
+              "content_bbox_px": [
+                54,
+                349,
+                714,
+                418
+              ],
+              "content_center_px": [
+                384.0,
+                383.5
+              ],
+              "longest_side_occupancy": 0.8606770833333334,
+              "opaque_768_square": true,
+              "centered_within_2px": true,
+              "occupancy_85_to_87_percent": true,
+              "minimum_5_percent_margin": true
+            },
+            "scope_note": "Only declared frozen constraints are numerically checked; empty constraint lists do not establish all possible mathematical conditions."
+          },
+          "historical_visual_reviews": [
+            {
+              "status": "agent_viewed",
+              "reviewer": "redraw_part4",
+              "source_inspection": {
+                "status": "viewed",
+                "sheet": ".runtime/protocol_redraw/part4/source_09.jpg",
+                "complete_question_read": true
+              },
+              "new_render_viewed": true,
+              "final_png_view": {
+                "method": "final render contact sheet",
+                "path": ".runtime/protocol_redraw/part4/new_09.jpg",
+                "cell": 8,
+                "individual_zoom": false
+              },
+              "source_sha256": "a15c85a761fccf07cdcd3b089b56215672177dc1e3844fe7c7d098081dc14171",
+              "scene_sha256": "c0d8788525cac98ea34a8383397f5f58614eb38191803d898d54f99e6e627e04",
+              "png_sha256": "7a6714763070d79e05bd68e98cb05c57aad87fd4f247de25c41c1b37efc54d83",
+              "svg_sha256": "abbce415bb188c70264d199b0ef9296210f839df69e2ba5c7de479f7d1c3fc54",
+              "findings": [
+                "Frozen rays retain the actual1-degree opening from the complete question. Source raster schematic exaggerates this opening; labels A0-A4 and unit-edge zigzag sequence retained.",
+                "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
+              ],
+              "user_approved": false
+            }
+          ],
+          "environment_unification": {
+            "record": "review_candidates/mathvision/environment_unification_20261029.json",
+            "at_utc": "2026-10-29T12:38:07.174277+00:00",
+            "from_environment": {
+              "python": "3.12.14",
+              "matplotlib": "3.10.8",
+              "numpy": "2.3.5",
+              "Pillow": "12.3.0"
+            },
+            "to_environment": {
+              "python": "3.13.9",
+              "numpy": "2.5.3",
+              "matplotlib": "3.11.2",
+              "pillow": "12.3.0",
+              "freetype": "2.14.3"
+            },
+            "previous_png_sha256": "7a6714763070d79e05bd68e98cb05c57aad87fd4f247de25c41c1b37efc54d83",
+            "previous_svg_sha256": "abbce415bb188c70264d199b0ef9296210f839df69e2ba5c7de479f7d1c3fc54",
+            "scene_geometry_projection_visibility_unchanged": true,
+            "user_approval": false
+          },
+          "machine_checks": {
+            "two_clean_render_pixels_equal": true,
+            "layout": {
+              "content_bbox_px": [
+                53,
+                348,
+                714,
+                418
+              ],
+              "content_center_px": [
+                383.5,
+                383.0
+              ],
+              "longest_side_occupancy": 0.8619791666666666,
+              "opaque_768_square": true,
+              "centered_within_2px": true,
+              "occupancy_85_to_87_percent": true,
+              "minimum_5_percent_margin": true
+            },
+            "existing_constraint_count": 4,
+            "renderer_sha256": "26cc0c532042b6f13c4d8504e469cbf285ce3b8591d3c11a8a0f8f3ab0c4721d",
+            "scene_sha256": "c0d8788525cac98ea34a8383397f5f58614eb38191803d898d54f99e6e627e04",
+            "png_sha256": "8c95d0d281aa875223becaa4dc934044edf1e8a83428aa58136b75c62b39b206",
+            "svg_sha256": "3ff361ac03ac10b32f888d911b91238b794533de2bd3965c019dc7203440881c"
+          }
+        }
+      },
+      "image_placeholder_cleanup": {
+        "user_instruction": "你直接帮忙把所有Math-Vision题目都加入正式题库吧（mashpalette-publish），然后如果题目里面有<image1>这种标记要删去。\n记得标记来源。",
+        "approval_channel": "explicit_user_chat_bulk",
+        "before": "Two rays with a common endpoint A0 form an angle of $1^o$. Construct a sequence of points $A_0$, $. . . $, $A_n$ such that for all $1 \\le i \\le n$, $|A_{i-1}A_i | = 1$, and $|A_iA_0| > |A_{i-1}A_0|$. Find the largest possible value of $n$.\n<image1>",
+        "after": "Two rays with a common endpoint A0 form an angle of $1^o$. Construct a sequence of points $A_0$, $. . . $, $A_n$ such that for all $1 \\le i \\le n$, $|A_{i-1}A_i | = 1$, and $|A_iA_0| > |A_{i-1}A_0|$. Find the largest possible value of $n$.",
+        "removed_image_markers": [
+          "<image1>"
+        ],
+        "source_originals_preserved": true,
+        "answers_and_frozen_diagrams_unchanged": true,
+        "rationale": "Remove standalone image placeholders and their empty lines."
+      },
+      "bulk_formal_import": {
+        "record": "provenance/mathvision/imports_20261029.json",
+        "candidate_id": "MVI2835",
+        "user_instruction": "你直接帮忙把所有Math-Vision题目都加入正式题库吧（mashpalette-publish），然后如果题目里面有<image1>这种标记要删去。\n记得标记来源。",
+        "approval_channel": "explicit_user_chat_bulk",
+        "formal_id": "Plane484"
+      }
+    }
+  },
+  "authoritative_files": {
+    "PlaneGeometry\\dataset.jsonl": "f167f666cb1037754e9516dcf516b5c4f462c9ef3da17e867458d392e35ed2ec",
+    "provenance\\approvals.json": "b37d405210604311c76c9adc7e414a98e4b283201e557f32449c56265a059fec",
+    "PlaneGeometry\\special_variant\\accepted_index.jsonl": "13eb21be6ecffdc10bcb8e032d65d5dd530e68dde395743ac7ed030b2ace3a49",
+    "PlaneGeometry\\special_variant\\collected_index.jsonl": "03976671d4eefde0c22e5ae811106843c7039c211654c2e5850687432c0fb248"
+  }
+}

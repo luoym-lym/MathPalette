@@ -1,0 +1,557 @@
+{
+  "source_dataset": "MathVision",
+  "source_key": "test:1878",
+  "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+  "source_category": "combinatorial geometry",
+  "original_record": {
+    "id": "1878",
+    "question": "In triangle $P Q R$, a point $S$ is chosen on the line segment $Q R$, then a point $T$ is chosen on the line segment $P S$. Considering the nine marked angles, what is the smallest number of different values that these nine angles could take? <image1>",
+    "options": [],
+    "image": "images/1878.jpg",
+    "decoded_image": {
+      "path": "images/1878.jpg",
+      "original_path": "1878.jpg"
+    },
+    "answer": "3",
+    "solution": "Label angles $x_{1}, x_{2}, x_{3}$, as shown in the first diagram. Since an exterior angle of a triangle equals the sum of the interior opposite angles, $x_{1}$ is greater than $x_{2}$ which in turn is greater than $x_{3}$. So we must have at least three different values for the nine angles. The second diagram shows a triangle where we obtain precisely three different values. ![](https://cdn.mathpix.com/cropped/2023_12_27_0f4ed2787981bb911326g-140.jpg?height=540&width=970&top_left_y=934&top_left_x=660)",
+    "level": 3,
+    "subject": "combinatorial geometry"
+  },
+  "source_package": "MathVision_redrawn_combinatorial_geometry_296_final",
+  "source_package_summary": {
+    "mathpalette_commit": "bbbc2573f22644d5c3cde7ce4232c5716c5589b3",
+    "protocol_versions": {
+      "PlaneGeometry": "1.2.0",
+      "SolidGeometry": "1.2.0"
+    },
+    "created_utc": "2026-10-27T04:52:05.052366+00:00",
+    "complete": true,
+    "category": "combinatorial_geometry",
+    "source_questions": 308,
+    "retained": 296,
+    "excluded": 12,
+    "source_revision": "2837ddb3f13abaf6b3997c12d80753e5470bd46a",
+    "formal_user_approval": false,
+    "final_validation": {
+      "all_retained_tested": 696,
+      "two_clean_output_runs_per_item": true,
+      "all_passed": true,
+      "report": "validation/final_entrypoint_validation.json"
+    }
+  },
+  "audit": {
+    "source_viewed": true,
+    "inventory": {
+      "panels": 1,
+      "labels": [
+        "P",
+        "Q",
+        "R",
+        "S",
+        "T"
+      ],
+      "segments": "triangleboundary,PS,TQ",
+      "angle_dots": 9,
+      "dot_binding": [
+        [
+          "R",
+          "P",
+          "S"
+        ],
+        [
+          "S",
+          "P",
+          "Q"
+        ],
+        [
+          "P",
+          "R",
+          "Q"
+        ],
+        [
+          "R",
+          "S",
+          "P"
+        ],
+        [
+          "P",
+          "S",
+          "Q"
+        ],
+        [
+          "S",
+          "T",
+          "Q"
+        ],
+        [
+          "Q",
+          "T",
+          "P"
+        ],
+        [
+          "R",
+          "Q",
+          "T"
+        ],
+        [
+          "T",
+          "Q",
+          "P"
+        ]
+      ]
+    },
+    "explicit_conditions": [
+      "SonQR,TonPS",
+      "nineangleregionsmarkedbydots"
+    ],
+    "layout_only": "Frozen uniform scale and placement; source orientation retained.",
+    "answer_verification": {
+      "status": "verified",
+      "answer": "3",
+      "reason": "Exterioranglechainrequiresatleast3values. WitnessP=(0,0),Q=(sqrt3,0),R=(sqrt3,3),S=(sqrt3,1),T=(sqrt3/2,.5)yieldsonly30,60,120degrees. Sourcegeneralpositionretained,notwitness.",
+      "conditions": [
+        "SonQR,TonPS",
+        "nineangleregionsmarkedbydots"
+      ]
+    },
+    "self_review": {
+      "status": "actually_viewed",
+      "facts": "PQRtriangle,SonRQ,TonPS,PSandTQconnections retained; all9blackangle-dots remainintheirintendedregions, labels clear."
+    }
+  },
+  "representation_note": "The original question/options/answer remain verbatim in original_record and original_question. A Choices block is appended only to expose the unchanged source options in the common answer schema.",
+  "branch_mapping_note": "Formal branch follows the frozen scene geometry (2D/3D); source_category retains the upstream category.",
+  "agent_verification_is_user_approval": false,
+  "protocol_redraw": {
+    "date": "2026-10-28",
+    "baseline_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+    "protocol_version": "1.2.0",
+    "protocol_review": "protocol_review.json",
+    "verification": "verification.json",
+    "report": "redraw_report.json",
+    "original_image_unchanged": true,
+    "question_answer_choices_unchanged": true,
+    "user_approved": false,
+    "historical_package_notice": "Source package summaries describe the original imported package, not current style compliance or approval."
+  },
+  "environment_unification": {
+    "record": "review_candidates/mathvision/environment_unification_20261029.json",
+    "at_utc": "2026-10-29T12:38:07.174277+00:00",
+    "from_environment": {
+      "python": "3.12.14",
+      "matplotlib": "3.10.8",
+      "numpy": "2.3.5",
+      "Pillow": "12.3.0"
+    },
+    "to_environment": {
+      "python": "3.13.9",
+      "numpy": "2.5.3",
+      "matplotlib": "3.11.2",
+      "pillow": "12.3.0",
+      "freetype": "2.14.3"
+    },
+    "previous_png_sha256": "dbc28ca6af455f8cd6426d372ca51e1bb810bada34636f590e1547ba754a0bbf",
+    "previous_svg_sha256": "6f98806ea8ee50bed77ff5416a5ca749a1fff98158440a7aeea7921cffde6056",
+    "scene_geometry_projection_visibility_unchanged": true,
+    "user_approval": false
+  },
+  "candidate_id": "MVI1878",
+  "verification": {
+    "reviewer": "Unified-environment machine reproduction",
+    "reviewed_utc": "2026-10-29T12:38:07.174277+00:00",
+    "verdict": "machine_reproduced_pending_user_review",
+    "user_approval": false,
+    "scope": "Two deterministic vector renders; unchanged frozen geometry and styles. Human approval remains pending.",
+    "hashes": {
+      "scene.json": "70ff7996981be935f222540943453c37dbf6ebe7d627bf8480292e1e7ac754f6",
+      "image.png": "9ba1bd50b240c9e9144f65c4b5de4e25b5f9a0d38e82e89ac350c3a7926bfa66",
+      "image.svg": "5b11a15901debfadd9e0a05be64234bbc43ddac4d8baa35e2cffe370b311335e",
+      "redraw_report.json": "88b0200007bab6cc210e6ffa625c7b447b8f1b42e9e42c86f4db5c632332624d",
+      "protocol_review.json": "caefba5db20223354b6c5f1bcc5e37465b792ca1723d4baf0b7254d96e263d37",
+      "source_redraw.py": "e5733287dc63eb9d4c4febb53b278f7e2e9e0b0e46f472ba42112b3a3bcc29df",
+      "execution.json": "809df137fb5312cc3ba5ca77ecdfccbdc205c3f83e5c968c359d6112a16b19fa",
+      "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
+      "original.jpg": "3122c2cf96d98badb14c7838ee8f010f4d41bb62a69155288a71ed965438a03f",
+      "source.json": "00708b9dc869557167b3e3e08a44b45e2d64d7f36a53fe60b8b6063e2e650b08",
+      "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+      "protocol_renderer.py": "26cc0c532042b6f13c4d8504e469cbf285ce3b8591d3c11a8a0f8f3ab0c4721d",
+      "shared/runtime.py": "4b465c5bb4ea2973e4f3e861ff34c1661c154b747d66f8d6670299bf824953ab"
+    },
+    "explicit_inspected_facts": [],
+    "agent_visual_review": {
+      "status": "pending_environment_recheck",
+      "user_approval": false,
+      "reason": "Raster reference regenerated in the unified repository environment; previous visual findings remain historical.",
+      "source_sha256": "3122c2cf96d98badb14c7838ee8f010f4d41bb62a69155288a71ed965438a03f",
+      "scene_sha256": "70ff7996981be935f222540943453c37dbf6ebe7d627bf8480292e1e7ac754f6",
+      "png_sha256": "9ba1bd50b240c9e9144f65c4b5de4e25b5f9a0d38e82e89ac350c3a7926bfa66",
+      "svg_sha256": "5b11a15901debfadd9e0a05be64234bbc43ddac4d8baa35e2cffe370b311335e"
+    },
+    "checks": {
+      "two_clean_render_pixels_equal": true,
+      "two_clean_render_svg_bytes_equal": true,
+      "native_vector_geometry": true,
+      "layout": {
+        "content_bbox_px": [
+          54,
+          174,
+          713,
+          592
+        ],
+        "content_center_px": [
+          383.5,
+          383.0
+        ],
+        "longest_side_occupancy": 0.859375,
+        "opaque_768_square": true,
+        "centered_within_2px": true,
+        "occupancy_85_to_87_percent": true,
+        "minimum_5_percent_margin": true
+      },
+      "declared_native_checks_count": 0,
+      "failed_declared_checks": []
+    },
+    "ambiguities": [],
+    "needs_manual_confirmation": true,
+    "historical_evidence": {
+      "source_commit": "2e11fb1103dd976627fd0d9de957bae8973a99ca",
+      "notice": "The following is historical verification of the former redraw. Its image/style hashes and visual claims do not verify the current redraw.",
+      "previous_verification": {
+        "reviewer": "independent /root",
+        "source_id": "1878",
+        "category": "combinatorial_geometry",
+        "reviewed_utc": "2026-10-27T02:50:17.038311+00:00",
+        "verdict": "agent_verified",
+        "user_approval": false,
+        "hashes": {
+          "original.jpg": "3122c2cf96d98badb14c7838ee8f010f4d41bb62a69155288a71ed965438a03f",
+          "source.json": "00708b9dc869557167b3e3e08a44b45e2d64d7f36a53fe60b8b6063e2e650b08",
+          "scene.json": "0486b5566cc407a6e81a08cddf4c3f3f1c527b1c73d6e55322a8ccfa027bc44b",
+          "render.py": "e5733287dc63eb9d4c4febb53b278f7e2e9e0b0e46f472ba42112b3a3bcc29df",
+          "image.png": "f682f1c06578fd71ff62936f8b8b6c8a608a5456ff07210604e920148af210dd",
+          "audit.json": "c5931b334b40e91ec0a29aafafb14a9c1bbb42019ca64385a58da29965761a52",
+          "redraw_report.json": "e6f3dd481ce3fce120a37d2f8f76bbc619751427c88ad8ec0f30adc636674873",
+          "../upper_comb_renderer.py": "f8b46c832ae8ff8e16730970bd31d1d549035f4e230f49acb6b88141efda0d84"
+        },
+        "explicit_inspected_facts": [
+          "Individually viewed source/candidate: P,Q,R triangle, S onQR,T onPS, nine angle dots with2atP,2Q,1R,2S,2T. Lower-bound chain angleQTS=angleQPT+anglePQT>angleQPT and anglePSR=angleQTS+angleTQS>angleQTS proves3distinct. Achievable assignment uses36,72,108degrees: P split36+36,Qsplit36+36,R36,S108/72,T72/108, satisfying all triangle and straight-angle sums."
+        ],
+        "checks": {
+          "source_record_and_bytes_match": true,
+          "two_independent_renders_equal_candidate": true,
+          "opaque768": true,
+          "bbox": [
+            54,
+            174,
+            713,
+            593
+          ],
+          "occupancy": 0.859375,
+          "independent_numeric_checks": {
+            "angle_marks": 9,
+            "three_value_witness_degrees": [
+              36,
+              72,
+              108
+            ],
+            "triangle_sums": [
+              180,
+              180,
+              180
+            ],
+            "answer": "3"
+          },
+          "renderer_checks": []
+        },
+        "required_changes": [],
+        "previous_revisions": []
+      }
+    },
+    "environment_history": [
+      {
+        "reviewer": "redraw_part4",
+        "reviewed_utc": "2026-10-28T13:13:41.950459+00:00",
+        "verdict": "agent_protocol_reviewed",
+        "scope": "Source fidelity, protocol styles, explicit geometry and actual PNG viewing; not user approval or a new independent proof of every answer.",
+        "hashes": {
+          "scene.json": "70ff7996981be935f222540943453c37dbf6ebe7d627bf8480292e1e7ac754f6",
+          "image.png": "9ba1bd50b240c9e9144f65c4b5de4e25b5f9a0d38e82e89ac350c3a7926bfa66",
+          "image.svg": "5b11a15901debfadd9e0a05be64234bbc43ddac4d8baa35e2cffe370b311335e",
+          "redraw_report.json": "e3064b61ea5d8f3dd730ea04fb70a0e6e02ad2146a7b5dddfcc8d00fd9398cc5",
+          "protocol_review.json": "0762ce87a3296e02a114977031dea03f711b6e1103f405f6a40a4528aa84c06f",
+          "source_redraw.py": "e5733287dc63eb9d4c4febb53b278f7e2e9e0b0e46f472ba42112b3a3bcc29df",
+          "execution.json": "809df137fb5312cc3ba5ca77ecdfccbdc205c3f83e5c968c359d6112a16b19fa",
+          "redraw.py": "a648e0ded9914934175241302986e4a443c18dce3db8046adea380dc60a015fe",
+          "original.jpg": "3122c2cf96d98badb14c7838ee8f010f4d41bb62a69155288a71ed965438a03f",
+          "source.json": "00708b9dc869557167b3e3e08a44b45e2d64d7f36a53fe60b8b6063e2e650b08",
+          "machine_protocol": "66f464a1051ea17d38d42d0293cb657d42a6c3bd8433c11c534c016e865e1797",
+          "protocol_renderer.py": "37ed195c0bdee58c40af57e9734bb408df153b707c75a0cd4b668a9e8d8529f8",
+          "shared/runtime.py": "0cd87874cc216e2a66c83852934e7e3bfa4f0d83ce1812d9d53d7d2cf80c4187"
+        },
+        "explicit_inspected_facts": [
+          "Compared source and final vector redraw: source connections, region identities, point order, displayed labels and layout retained; no new solving construction introduced.",
+          "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
+        ],
+        "agent_visual_review": {
+          "status": "agent_viewed",
+          "reviewer": "redraw_part4",
+          "source_inspection": {
+            "status": "viewed",
+            "sheet": ".runtime/protocol_redraw/part4/source_01.jpg",
+            "complete_question_read": true
+          },
+          "new_render_viewed": true,
+          "final_png_view": {
+            "method": "final render contact sheet",
+            "path": ".runtime/protocol_redraw/part4/new_01.jpg",
+            "cell": 3,
+            "individual_zoom": false
+          },
+          "source_sha256": "3122c2cf96d98badb14c7838ee8f010f4d41bb62a69155288a71ed965438a03f",
+          "scene_sha256": "70ff7996981be935f222540943453c37dbf6ebe7d627bf8480292e1e7ac754f6",
+          "png_sha256": "dbc28ca6af455f8cd6426d372ca51e1bb810bada34636f590e1547ba754a0bbf",
+          "svg_sha256": "6f98806ea8ee50bed77ff5416a5ca749a1fff98158440a7aeea7921cffde6056",
+          "findings": [
+            "Compared source and final vector redraw: source connections, region identities, point order, displayed labels and layout retained; no new solving construction introduced.",
+            "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
+          ],
+          "user_approved": false
+        },
+        "checks": {
+          "two_clean_render_pixels_equal": true,
+          "two_clean_render_svg_bytes_equal": true,
+          "native_vector_geometry": true,
+          "layout": {
+            "content_bbox_px": [
+              54,
+              174,
+              713,
+              592
+            ],
+            "content_center_px": [
+              383.5,
+              383.0
+            ],
+            "longest_side_occupancy": 0.859375,
+            "opaque_768_square": true,
+            "centered_within_2px": true,
+            "occupancy_85_to_87_percent": true,
+            "minimum_5_percent_margin": true
+          },
+          "declared_native_checks_count": 0,
+          "failed_declared_checks": []
+        },
+        "needs_manual_confirmation": false
+      }
+    ],
+    "environment_unification": {
+      "record": "review_candidates/mathvision/environment_unification_20261029.json",
+      "at_utc": "2026-10-29T12:38:07.174277+00:00",
+      "from_environment": {
+        "python": "3.12.14",
+        "matplotlib": "3.10.8",
+        "numpy": "2.3.5",
+        "Pillow": "12.3.0"
+      },
+      "to_environment": {
+        "python": "3.13.9",
+        "numpy": "2.5.3",
+        "matplotlib": "3.11.2",
+        "pillow": "12.3.0",
+        "freetype": "2.14.3"
+      },
+      "previous_png_sha256": "dbc28ca6af455f8cd6426d372ca51e1bb810bada34636f590e1547ba754a0bbf",
+      "previous_svg_sha256": "6f98806ea8ee50bed77ff5416a5ca749a1fff98158440a7aeea7921cffde6056",
+      "scene_geometry_projection_visibility_unchanged": true,
+      "user_approval": false
+    }
+  },
+  "geometry_notes": {
+    "additional_model_evidence": {},
+    "execution": "Native semantic extras are retained in fingerprinted runtime dependencies; formal scene controls canonical geometry.",
+    "protocol_redraw": {
+      "schema_version": 1,
+      "candidate_id": "MVI1878",
+      "semantic_fills": [],
+      "semantic_colors": [],
+      "ambiguities": [],
+      "visual_review": {
+        "status": "pending_environment_recheck",
+        "user_approval": false,
+        "reason": "Raster reference regenerated in the unified repository environment; previous visual findings remain historical.",
+        "source_sha256": "3122c2cf96d98badb14c7838ee8f010f4d41bb62a69155288a71ed965438a03f",
+        "scene_sha256": "70ff7996981be935f222540943453c37dbf6ebe7d627bf8480292e1e7ac754f6",
+        "png_sha256": "9ba1bd50b240c9e9144f65c4b5de4e25b5f9a0d38e82e89ac350c3a7926bfa66",
+        "svg_sha256": "5b11a15901debfadd9e0a05be64234bbc43ddac4d8baa35e2cffe370b311335e"
+      },
+      "user_approved": false,
+      "scene_inventory": {
+        "object_types": {
+          "polygon": 1,
+          "segment": 2,
+          "point": 9
+        },
+        "object_ids": [
+          "triangle",
+          "PS",
+          "TQ",
+          "anglemark0",
+          "anglemark1",
+          "anglemark2",
+          "anglemark3",
+          "anglemark4",
+          "anglemark5",
+          "anglemark6",
+          "anglemark7",
+          "anglemark8"
+        ],
+        "labels": [
+          {
+            "id": "nameP",
+            "type": "vertex",
+            "point": "P"
+          },
+          {
+            "id": "nameQ",
+            "type": "vertex",
+            "point": "Q"
+          },
+          {
+            "id": "nameR",
+            "type": "vertex",
+            "point": "R"
+          },
+          {
+            "id": "nameS",
+            "type": "vertex",
+            "point": "S"
+          },
+          {
+            "id": "nameT",
+            "type": "vertex",
+            "point": "T"
+          }
+        ],
+        "constraints_count": 0,
+        "dimensions_count": 0,
+        "distance_markers_count": 0,
+        "projection_visibility_reviewed": false
+      },
+      "machine_review": {
+        "report": "redraw_report.json",
+        "geometry_checks_count": 0,
+        "pixel_identical_replay": true,
+        "layout_checks": {
+          "content_bbox_px": [
+            54,
+            175,
+            713,
+            592
+          ],
+          "content_center_px": [
+            383.5,
+            383.5
+          ],
+          "longest_side_occupancy": 0.859375,
+          "opaque_768_square": true,
+          "centered_within_2px": true,
+          "occupancy_85_to_87_percent": true,
+          "minimum_5_percent_margin": true
+        },
+        "scope_note": "Only declared frozen constraints are numerically checked; empty constraint lists do not establish all possible mathematical conditions."
+      },
+      "historical_visual_reviews": [
+        {
+          "status": "agent_viewed",
+          "reviewer": "redraw_part4",
+          "source_inspection": {
+            "status": "viewed",
+            "sheet": ".runtime/protocol_redraw/part4/source_01.jpg",
+            "complete_question_read": true
+          },
+          "new_render_viewed": true,
+          "final_png_view": {
+            "method": "final render contact sheet",
+            "path": ".runtime/protocol_redraw/part4/new_01.jpg",
+            "cell": 3,
+            "individual_zoom": false
+          },
+          "source_sha256": "3122c2cf96d98badb14c7838ee8f010f4d41bb62a69155288a71ed965438a03f",
+          "scene_sha256": "70ff7996981be935f222540943453c37dbf6ebe7d627bf8480292e1e7ac754f6",
+          "png_sha256": "dbc28ca6af455f8cd6426d372ca51e1bb810bada34636f590e1547ba754a0bbf",
+          "svg_sha256": "6f98806ea8ee50bed77ff5416a5ca749a1fff98158440a7aeea7921cffde6056",
+          "findings": [
+            "Compared source and final vector redraw: source connections, region identities, point order, displayed labels and layout retained; no new solving construction introduced.",
+            "Visual inspection is Agent review only. Native mathematical checks and layout/reproducibility checks are recorded separately in redraw_report.json."
+          ],
+          "user_approved": false
+        }
+      ],
+      "environment_unification": {
+        "record": "review_candidates/mathvision/environment_unification_20261029.json",
+        "at_utc": "2026-10-29T12:38:07.174277+00:00",
+        "from_environment": {
+          "python": "3.12.14",
+          "matplotlib": "3.10.8",
+          "numpy": "2.3.5",
+          "Pillow": "12.3.0"
+        },
+        "to_environment": {
+          "python": "3.13.9",
+          "numpy": "2.5.3",
+          "matplotlib": "3.11.2",
+          "pillow": "12.3.0",
+          "freetype": "2.14.3"
+        },
+        "previous_png_sha256": "dbc28ca6af455f8cd6426d372ca51e1bb810bada34636f590e1547ba754a0bbf",
+        "previous_svg_sha256": "6f98806ea8ee50bed77ff5416a5ca749a1fff98158440a7aeea7921cffde6056",
+        "scene_geometry_projection_visibility_unchanged": true,
+        "user_approval": false
+      },
+      "machine_checks": {
+        "two_clean_render_pixels_equal": true,
+        "layout": {
+          "content_bbox_px": [
+            54,
+            174,
+            713,
+            592
+          ],
+          "content_center_px": [
+            383.5,
+            383.0
+          ],
+          "longest_side_occupancy": 0.859375,
+          "opaque_768_square": true,
+          "centered_within_2px": true,
+          "occupancy_85_to_87_percent": true,
+          "minimum_5_percent_margin": true
+        },
+        "existing_constraint_count": 0,
+        "renderer_sha256": "26cc0c532042b6f13c4d8504e469cbf285ce3b8591d3c11a8a0f8f3ab0c4721d",
+        "scene_sha256": "70ff7996981be935f222540943453c37dbf6ebe7d627bf8480292e1e7ac754f6",
+        "png_sha256": "9ba1bd50b240c9e9144f65c4b5de4e25b5f9a0d38e82e89ac350c3a7926bfa66",
+        "svg_sha256": "5b11a15901debfadd9e0a05be64234bbc43ddac4d8baa35e2cffe370b311335e"
+      }
+    }
+  },
+  "image_placeholder_cleanup": {
+    "user_instruction": "你直接帮忙把所有Math-Vision题目都加入正式题库吧（mashpalette-publish），然后如果题目里面有<image1>这种标记要删去。\n记得标记来源。",
+    "approval_channel": "explicit_user_chat_bulk",
+    "before": "In triangle $P Q R$, a point $S$ is chosen on the line segment $Q R$, then a point $T$ is chosen on the line segment $P S$. Considering the nine marked angles, what is the smallest number of different values that these nine angles could take? <image1>",
+    "after": "In triangle $P Q R$, a point $S$ is chosen on the line segment $Q R$, then a point $T$ is chosen on the line segment $P S$. Considering the nine marked angles, what is the smallest number of different values that these nine angles could take?",
+    "removed_image_markers": [
+      "<image1>"
+    ],
+    "source_originals_preserved": true,
+    "answers_and_frozen_diagrams_unchanged": true,
+    "rationale": "Remove inline/trailing image placeholders and standalone placeholder lines; repair only whitespace adjoining the removed markers. All remaining prose and LaTeX are preserved."
+  },
+  "bulk_formal_import": {
+    "record": "provenance/mathvision/imports_20261029.json",
+    "candidate_id": "MVI1878",
+    "user_instruction": "你直接帮忙把所有Math-Vision题目都加入正式题库吧（mashpalette-publish），然后如果题目里面有<image1>这种标记要删去。\n记得标记来源。",
+    "approval_channel": "explicit_user_chat_bulk",
+    "formal_id": "Plane426"
+  }
+}

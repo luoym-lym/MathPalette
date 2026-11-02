@@ -1,0 +1,46 @@
+{
+  "question_id": "Plane194",
+  "unique_correct_answer": "E",
+  "method": "Independent exact fold-orbit enumeration, source JPG and formal PNG viewed at native scale",
+  "coordinate_setup": "Original square [-1,1]^2; perpendicular half folds leave Q=[0,1]^2, up to orientation. Every removal unfolds by (u,v)->(s*u,t*v) for s,t in {-1,+1}. A straight corner clip meets both adjacent sides at positive distances a,b. Its cut segment has two nonzero components.",
+  "exhaustive_four_cases": [
+    {
+      "quarter_corner": [
+        1,
+        1
+      ],
+      "unfolded_removal": "Four separate right triangles at all four original outer corners",
+      "sample": "A",
+      "construction": "Remove (1-u)/a+(1-v)/b<1 near (1,1), with 0<a,b<1; reflect across both axes. The outer boundary is an octagon."
+    },
+    {
+      "quarter_corner": [
+        0,
+        1
+      ],
+      "unfolded_removal": "Two V notches at opposite top and bottom side midpoints",
+      "sample": "B",
+      "construction": "Remove u/a+(1-v)/b<1 near (0,1); reflection in u=0 joins two half triangles into one V notch; reflection in v=0 creates its opposite."
+    },
+    {
+      "quarter_corner": [
+        1,
+        0
+      ],
+      "unfolded_removal": "Two V notches at opposite left and right side midpoints",
+      "sample": "D",
+      "construction": "Remove (1-u)/a+v/b<1 near (1,0); reflect in v=0, then u=0."
+    },
+    {
+      "quarter_corner": [
+        0,
+        0
+      ],
+      "unfolded_removal": "One central diamond or axis-diagonal rhombus hole",
+      "sample": "C",
+      "construction": "Remove u/a+v/b<1 near (0,0); unfolded hole |x|/a+|y|/b<1. For a=b its vertices are (+/-a,0),(0,+/-a)."
+    }
+  ],
+  "exclusion_of_E": "Only the centre-centre corner can make a bounded internal hole. That hole has four oblique sides with directions (+/-a,+/-b); no side is parallel to an original sheet edge when a,b>0. E has four axis-parallel inner sides, so is not that hole. The other three cases meet the outer boundary, and cannot make E either. All A/B/C/D have explicit constructions above. Thus E is uniquely impossible.",
+  "freedom_preserved": "The final displayed clipped corner is an illustrative possible corner, not an additional restriction to one fold-corner type. All four corners were enumerated; no annotation may choose one as a new given."
+}
