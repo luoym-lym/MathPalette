@@ -11,7 +11,7 @@ from dataset_tools.geometry_dataset import draw_question, read_json, renderer_fo
 class Plane104:
     def __init__(self):
         self.id = 'Plane104'
-        self.source_dataset = 'Author designed'
+        self.source_dataset = 'Author Designed'
         self.question = 'All outlines use the same scale. Which outline, A, B, or C, is congruent to R? Rotations and reflections are allowed.\nChoices:\nA: Outline A\nB: Outline B\nC: Outline C'
         self.query = self.question
         self.answer = 'B'

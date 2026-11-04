@@ -16,7 +16,7 @@ def build_scene():
 
 class Plane495:
     def __init__(self):
-        attributes = {'id': 'Plane495', 'source_dataset': 'Author designed', 'source_key': 'authored-extension:Plane152:ext01', 'question': 'The pattern shown is repeated exactly once more. Which labeled point lies on the resulting drawing?\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E', 'answer': 'D', 'answer_type': 'choice', 'choices': {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'}}
+        attributes = {'id': 'Plane495', 'source_dataset': 'Author Designed', 'source_key': 'authored-extension:Plane152:ext01', 'question': 'The pattern shown is repeated exactly once more. Which labeled point lies on the resulting drawing?\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E', 'answer': 'D', 'answer_type': 'choice', 'choices': {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'}}
         for key, value in attributes.items():
             setattr(self, key, value)
         self.query = self.question

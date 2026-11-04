@@ -11,7 +11,7 @@ from dataset_tools.geometry_dataset import draw_question, read_json, renderer_fo
 class Plane122:
     def __init__(self):
         self.id = 'Plane122'
-        self.source_dataset = 'Author designed'
+        self.source_dataset = 'Author Designed'
         self.question = 'Which labeled point is the reflection of P in the straight line l?\nChoices:\nA: Point A\nB: Point B\nC: Point C'
         self.query = self.question
         self.answer = 'A'

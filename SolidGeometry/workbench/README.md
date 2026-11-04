@@ -1,5 +1,7 @@
 # 立体几何 Special 工作台
 
+Solid258～Solid263 为用户授权入库的 `Author Designed` 拓展题，使用独立的 `author_expand24_v1` 冻结渲染包及 `expand24_adapter.py` / `expand24_plugins.py` / `expand24_replay.py`。三维几何、投影、原可见性和语义面色分别保持冻结；立方块拼装题只允许选择实际绘制的面轮廓，局部边段使用该轮廓的路径区间，不使用推测的隐藏边覆盖。原题来源及父题关系见 `provenance/author_expand24_20261103.json`。本批用户授权以双次 quicktest3 命中和可读性检查代为判定 Special Pass，授权不包含 Collect；测试原始响应仍只存 `.runtime/`。
+
 日常按钮只处理当前题：Pass 核对本题输入和候选文件，No Pass 不复核原题或解码 PNG，删除只备份与重排受影响的槽位。Pass 和删除只更新根索引中本题的插件列表，不再同步重建全库。画板提交复用已显示且参数、上下文一致的预览；保存响应直接带回最新状态。完整审核检查仍由启动时的输入校验及手动 `dataset_tools/catalog.py check` 执行，用户 Pass / Collect 的含义不变。
 
 在项目根目录双击或运行 `SolidGeometry/start_special_workbench.cmd`，打开 `http://127.0.0.1:8769`。也可运行：
@@ -23,6 +25,8 @@ python -X utf8 -B SolidGeometry/workbench/launch_workbench.py
 Pass 保存一份 C 变体；No Pass 拒绝本候选；Collect 结束整题，已完成列表可重新打开。删除已通过图使用可恢复事务。通过图仅在用户 Pass 后创建于 `SolidGeometry/special_variant/`；Collect 和特殊标记另存整题完成记录，每题包含 `images/`、`plugins/`、`recipes.json`、`draw_variants.py`，完成题另有 `collection.json`。保存原场景、原 PNG、绘图入口、公共 renderer、协议、插件执行器、schema 和依赖的指纹；显式线型覆盖另外记录为 `appearance_changes.rendered_visibility_style_overrides`。原三维几何、投影和冻结可见性区间保持只读。
 
 运行状态、草稿、未通过图、预览、删除备份和 Quick Test 回答只写 `.runtime/solid_special/`。清理运行缓存后，已 Pass 的 recipes 和 Collect 记录可恢复收集状态；未通过草稿仍属于临时数据。修改已审核题目须另行获得用户批准，不能用 Special 审核替代原题批准。
+
+正式题库新增题目时，已有运行缓存中缺少的题号也会从该题的 recipes 和 collection 恢复状态。已有题号的审核状态仍严格核对，不自动覆盖冲突；恢复只读取原有记录，不新增 Pass 或 Collect。其他题目的待审候选仅在本题正式记录或绘图输入改变时失效；只接受已记录的工作流程兼容变更。启动恢复回归可运行 `python -X utf8 -B SolidGeometry/workbench/test_review_restore.py`，仅使用 `.runtime/solid_workbench_tests/` 内的隔离副本。
 
 **Quick Test 1** 调用 MiniMax-M3（nonthinking），**Quick Test 2** 调用 MiniMax-M3.1-Flash-Preview（adaptive · low），**Quick Test 3** 调用 MiMo-V2.6-Flash（nonthinking，`thinking.type=disabled`），**Quick Test 4** 调用 MiMo-V2.6-Flash（thinking，`thinking.type=enabled`）。四种模式的回答、思考（如有）、用时和 token 数分别显示并保存，互不覆盖，刷新可恢复；兼容已有 Quick Test 1、2 记录。
 

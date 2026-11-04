@@ -11,7 +11,7 @@ from dataset_tools.geometry_dataset import draw_question, read_json, renderer_fo
 class Plane107:
     def __init__(self):
         self.id = 'Plane107'
-        self.source_dataset = 'Author designed'
+        self.source_dataset = 'Author Designed'
         self.question = 'All segments use the same scale. Which segment, A, B, or C, has the same length as R?\nChoices:\nA: Segment A\nB: Segment B\nC: Segment C'
         self.query = self.question
         self.answer = 'B'

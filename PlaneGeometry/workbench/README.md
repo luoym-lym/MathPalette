@@ -1,5 +1,7 @@
 # 平面几何 Special 标注工作台
 
+Plane512～Plane529 为用户授权入库的 `Author Designed` 拓展题，使用独立的 `author_expand24_v1` 冻结渲染包及 `expand24_adapter.py` / `expand24_plugins.py` / `expand24_replay.py`。绘制先执行原始程序并核对像素，变体只操作实际原对象轮廓、允许的点和辅助线；阴影格与给定点的语义填充保持冻结。原题来源及父题关系见 `provenance/author_expand24_20261103.json`。本批用户授权以双次 quicktest3 命中和可读性检查代为判定 Special Pass，授权不包含 Collect；测试原始响应仍只存 `.runtime/`。
+
 日常按钮只处理当前题：Pass 核对本题输入和候选文件，No Pass 不复核原题或解码 PNG，删除只备份与重排受影响的槽位。Pass 和删除只更新根索引中本题的插件列表，不再同步重建全库。画板提交复用已显示且参数、上下文一致的预览；保存响应直接带回最新状态。完整审核检查仍由启动时的输入校验及手动 `dataset_tools/catalog.py check` 执行，用户 Pass / Collect 的含义不变。
 
 读取正式 `PlaneGeometry/dataset.jsonl` 中的题目。工作台复制自 Analytics，使用独立端口、状态、浏览器草稿和 Agent 插件。通过图只在用户点击 Pass 后写入 `PlaneGeometry/special_variant/`，Collect 和特殊标记另存整题完成记录；不修改原题、原图、冻结场景或审核凭据。
@@ -26,7 +28,7 @@ python -X utf8 -B PlaneGeometry/workbench/launch_workbench.py
 
 ## Agent 与 CLI
 
-### Author designed 曲线题的局部改色
+### Author Designed 曲线题的局部改色
 
 曲线追踪题按所有交点切成独立的 `bezier_curve` 对象，包括自交点和端点到交点的区间。交点在冻结场景中保存为 `J01`、`J02` 等内部点，不画点、不加标签；自交的两次经过共用同一个点号。
 
@@ -80,6 +82,8 @@ PlaneGeometry/special_variant/
 
 Pass 冻结实际操作、原图/场景/协议/原脚本/geometry_dataset.py 输入哈希、插件执行器、schema、依赖版本、题目记录指纹、PNG 指纹及人工审核时间。它不替代原题审核。清理运行缓存后，可由 recipes 和 collection 恢复收集状态。
 
+正式题库新增题目时，已有运行缓存中缺少的题号也会从该题的 recipes 和 collection 恢复状态。已有题号的审核状态仍严格核对，不自动覆盖冲突；恢复只读取原有记录，不新增 Pass 或 Collect。
+
 在保留完整项目输入和工作台代码的环境中离线重绘：
 
 ```powershell
@@ -94,6 +98,8 @@ python -X utf8 -B PlaneGeometry/special_variant/Plane94/draw_variants.py C01
 python -X utf8 -B PlaneGeometry/workbench/test_geometry.py
 node PlaneGeometry/workbench/test_geometry_input.js
 python -X utf8 -B PlaneGeometry/workbench/test_quick_test.py
+python -X utf8 -B PlaneGeometry/workbench/test_review_restore.py
+python -X utf8 -B PlaneGeometry/workbench/test_author_expand24.py
 python -X utf8 -B PlaneGeometry/workbench/launch_workbench.py --check --data-dir .runtime/plane_workbench_tests/check_state --output-dir .runtime/plane_workbench_tests/check_output
 ```
 

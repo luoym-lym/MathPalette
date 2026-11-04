@@ -11,7 +11,7 @@ from dataset_tools.geometry_dataset import draw_question, read_json, renderer_fo
 class Plane105:
     def __init__(self):
         self.id = 'Plane105'
-        self.source_dataset = 'Author designed'
+        self.source_dataset = 'Author Designed'
         self.question = 'Which triangle, A, B, or C, is similar to R? All diagrams are drawn to scale. Rotations and reflections are allowed.\nChoices:\nA: Triangle A\nB: Triangle B\nC: Triangle C'
         self.query = self.question
         self.answer = 'C'

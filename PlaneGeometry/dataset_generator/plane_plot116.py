@@ -11,7 +11,7 @@ from dataset_tools.geometry_dataset import draw_question, read_json, renderer_fo
 class Plane116:
     def __init__(self):
         self.id = 'Plane116'
-        self.source_dataset = 'Author designed'
+        self.source_dataset = 'Author Designed'
         self.question = 'Which labeled segment A, B, or C is parallel to segment PQ? All segments are drawn to scale.\nChoices:\nA: Segment A\nB: Segment B\nC: Segment C'
         self.query = self.question
         self.answer = 'A'

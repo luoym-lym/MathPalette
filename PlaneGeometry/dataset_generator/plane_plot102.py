@@ -11,7 +11,7 @@ from dataset_tools.geometry_dataset import draw_question, read_json, renderer_fo
 class Plane102:
     def __init__(self):
         self.id = 'Plane102'
-        self.source_dataset = 'Author designed'
+        self.source_dataset = 'Author Designed'
         self.question = 'Find the length of the shortest path from A to B that stays outside the interiors of both disks.'
         self.query = self.question
         self.answer = '3*sqrt(3) + 2*sqrt(2) + acos(-1/3)'

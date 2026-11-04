@@ -16,7 +16,7 @@ def build_scene():
 
 class Plane505:
     def __init__(self):
-        attributes = {'id': 'Plane505', 'source_dataset': 'Author designed', 'source_key': 'authored-extension:Plane356:ext04', 'question': 'Which rectangular piece was cut from the nonuniform grid? Each candidate is shown at the same reduced scale and in the original orientation; the correct piece must restore every broken vertical and horizontal line.\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E', 'answer': 'E', 'answer_type': 'choice', 'choices': {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'}}
+        attributes = {'id': 'Plane505', 'source_dataset': 'Author Designed', 'source_key': 'authored-extension:Plane356:ext04', 'question': 'Which rectangular piece was cut from the nonuniform grid? Each candidate is shown at the same reduced scale and in the original orientation; the correct piece must restore every broken vertical and horizontal line.\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E', 'answer': 'E', 'answer_type': 'choice', 'choices': {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'}}
         for key, value in attributes.items():
             setattr(self, key, value)
         self.query = self.question

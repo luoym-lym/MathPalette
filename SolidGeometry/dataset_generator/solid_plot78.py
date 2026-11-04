@@ -8,7 +8,7 @@ from dataset_tools.geometry_dataset import read_json,renderer_for,draw_question
 class Solid78:
     def __init__(self):
         self.id = 'Solid78'
-        self.source_dataset = 'Author designed'
+        self.source_dataset = 'Author Designed'
         self.source_key = 'solid82:net-edge-endpoint-identification'
         self.question = 'The figure shows a net of a square pyramid. After folding, which of the following edges has no endpoint in common with edge AB?\nChoices:\nA: Edge DE\nB: Edge CD\nC: Edge CE\nD: None of these three edges'
         self.answer = 'A'

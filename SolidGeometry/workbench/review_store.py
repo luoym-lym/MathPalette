@@ -11,9 +11,9 @@ import threading
 import uuid
 from pathlib import Path
 
-from mathvision_plugins import PluginRenderer
+from expand24_plugins import PluginRenderer
 from workbench_io import compatible_style_renderer
-from mathvision_adapter import RendererAdapter
+from expand24_adapter import RendererAdapter
 from renderer_adapter import RENDER_LOCK
 from workbench_io import (GENERATOR_VERSION, ROOT, SCHEMA_VERSION, WorkbenchError, atomic_json,
                           atomic_write, canonical_hash, contained_path, environment_versions,
@@ -123,34 +123,25 @@ class Workbench:
         else:
             self.progress = {"signature": self.signature, "output_relative": self.output_relative.as_posix(),
                              "current_question": "Solid01", "navigation_revision": 0,
-                             "questions": {qid: {"revision": 0, "candidate_id": None, "accepted": [], "last_review": None}
-                                           for qid in self.adapter.records}, "candidates": {}}
-            # Runtime caches are disposable. Passed recipes and collection records
-            # are the durable source of truth; never reset an existing collection.
-            for qid, question in self.progress["questions"].items():
-                recipes_path = self.output / qid / "recipes.json"
-                if recipes_path.is_file():
-                    question["accepted"] = read_json(recipes_path)
-                collection_path = self.output / qid / "collection.json"
-                if collection_path.is_file():
-                    collection = read_json(collection_path)
-                    question["collected"] = collection["status"] == "collected"
-                    question["collection_record"] = collection.get("current", collection)
-                    question["collection_history"] = collection.get("history", [])
+                             "questions": {qid: self._restore_question(qid) for qid in self.adapter.records},
+                             "candidates": {}}
         # Finish an interrupted save against its original session signature first.
         current_signature = self.signature
         self.signature = self.progress["signature"]
         self._recover()
         self.signature = current_signature
         inputs_changed = self.progress["signature"].get("baseline_fingerprint") != self.signature["baseline_fingerprint"]
+        snapshot_path = self.state_dir / "dataset_snapshot.json"
+        previous_records = read_json(snapshot_path) if inputs_changed and snapshot_path.is_file() else {}
         for qid in self.adapter.records:
-            self.progress["questions"].setdefault(qid, {
-                "revision": 0, "candidate_id": None, "accepted": [], "last_review": None})
-        for question in self.progress["questions"].values():
+            if qid not in self.progress["questions"]:
+                self.progress["questions"][qid] = self._restore_question(qid)
+        for qid, question in self.progress["questions"].items():
             question.setdefault("collected", False)
             if question.get("collected"):
                 question.setdefault("collected_at", question["collection_record"]["collected_at"])
-            if inputs_changed and question["candidate_id"]:
+            if (inputs_changed and question["candidate_id"] and
+                    not self._question_inputs_match(qid, expected, previous_records)):
                 candidate = self.progress["candidates"][question["candidate_id"]]
                 candidate["status"] = "stale_input"
                 question["candidate_id"] = None
@@ -188,6 +179,34 @@ class Workbench:
         atomic_json(manifest_path, self.adapter.manifest)
         atomic_json(self.state_dir / "dataset_snapshot.json", self.adapter.records)
         atomic_json(progress_path, self.progress)
+
+    def _question_inputs_match(self, qid, previous_manifest, previous_records):
+        # A growing catalog must not discard another question's pending work.
+        # Compare its formal record and every drawing input, allowing only exact
+        # recorded workflow transitions; real input changes still invalidate it.
+        from author_compatibility import compatible_workflow_input
+        current = self.adapter.manifest
+        return bool(previous_manifest and qid in self.adapter.records and
+                    previous_manifest["environment"] == current["environment"] and
+                    previous_records.get(qid) == self.adapter.records[qid] and
+                    all(name in previous_manifest["files"] and name in current["files"] and
+                        compatible_workflow_input(name, previous_manifest["files"][name], current["files"][name])
+                        for name in self.adapter.question_dependencies(qid)))
+
+    def _restore_question(self, qid):
+        # Restore only questions absent from runtime state. Existing questions
+        # still undergo the strict state/file comparison in _validate_saved_files.
+        question = {"revision": 0, "candidate_id": None, "accepted": [], "last_review": None}
+        recipes_path = contained_path(self.output, f"{qid}/recipes.json")
+        if recipes_path.is_file():
+            question["accepted"] = read_json(recipes_path)
+        collection_path = contained_path(self.output, f"{qid}/collection.json")
+        if collection_path.is_file():
+            collection = read_json(collection_path)
+            question["collected"] = collection["status"] == "collected"
+            question["collection_record"] = collection.get("current", collection)
+            question["collection_history"] = collection.get("history", [])
+        return question
 
     def active_questions(self):
         return [qid for qid in self.adapter.records
@@ -533,6 +552,8 @@ class Workbench:
 
     def drawing_scene(self, qid):
         from drawing_board import describe_scene
+        if self.adapter.is_author(qid):
+            from author_board import describe_scene
         with RENDER_LOCK:
             self._check_open_question(qid)
             self._assert_current_inputs(qid)
@@ -742,6 +763,8 @@ class Workbench:
                           "appearance_changes": self.renderer.appearance_changes(plugin),
                           "image_path": (self.output_relative / qid / "images" / f"{slot}.png").as_posix(),
                           "plugin_path": (self.output_relative / qid / "plugins" / f"{slot}.json").as_posix()}
+                if self.adapter.is_author(qid):
+                    recipe["question_record_sha256"] = canonical_hash(self.adapter.records[qid])
                 updated["slot_id"], updated["formal_image_path"], updated["formal_plugin_path"] = slot, recipe["image_path"], recipe["plugin_path"]
                 question["accepted"].append(recipe)
                 transaction["recipe"] = recipe

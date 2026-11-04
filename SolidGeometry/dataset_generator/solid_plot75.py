@@ -8,7 +8,7 @@ from dataset_tools.geometry_dataset import read_json,renderer_for,draw_question
 class Solid75:
     def __init__(self):
         self.id = 'Solid75'
-        self.source_dataset = 'Author designed'
+        self.source_dataset = 'Author Designed'
         self.source_key = 'regular-tetrahedron-net:opposite-edge-AD'
         self.question = 'The four equilateral triangles in the net fold to form a regular tetrahedron. Which edge is opposite AD? Opposite edges have no common endpoint. Choices:\nA: Edge BE\nB: Edge BC\nC: Edge CF\nD: None of these three edges'
         self.answer = 'B'

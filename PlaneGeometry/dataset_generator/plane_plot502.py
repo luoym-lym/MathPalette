@@ -16,7 +16,7 @@ def build_scene():
 
 class Plane502:
     def __init__(self):
-        attributes = {'id': 'Plane502', 'source_dataset': 'Author designed', 'source_key': 'authored-extension:Plane264:ext04', 'question': 'Two shapes have been placed on the 5 by 5 board as shown. Which of the five pieces can be added so that none of the remaining four pieces has space to fit? Pieces may be rotated or turned over, but must cover complete squares without overlap.\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E', 'answer': 'E', 'answer_type': 'choice', 'choices': {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'}}
+        attributes = {'id': 'Plane502', 'source_dataset': 'Author Designed', 'source_key': 'authored-extension:Plane264:ext04', 'question': 'Two shapes have been placed on the 5 by 5 board as shown. Which of the five pieces can be added so that none of the remaining four pieces has space to fit? Pieces may be rotated or turned over, but must cover complete squares without overlap.\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E', 'answer': 'E', 'answer_type': 'choice', 'choices': {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'}}
         for key, value in attributes.items():
             setattr(self, key, value)
         self.query = self.question

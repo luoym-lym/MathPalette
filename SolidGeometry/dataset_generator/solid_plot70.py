@@ -21,7 +21,7 @@ def build_scene():
 
 class Solid70:
     def __init__(self):
-        self.__dict__.update({'id': 'Solid70', 'source_dataset': 'Author designed', 'question': 'The pyramid shown has a square base and volume 480. Each marked point is the midpoint of the edge on which it lies. Find the volume of the part containing vertex A after the pyramid is cut along the shaded plane.', 'answer': 60, 'answer_type': 'number', 'subject': 'SolidGeometry'})
+        self.__dict__.update({'id': 'Solid70', 'source_dataset': 'Author Designed', 'question': 'The pyramid shown has a square base and volume 480. Each marked point is the midpoint of the edge on which it lies. Find the volume of the part containing vertex A after the pyramid is cut along the shaded plane.', 'answer': 60, 'answer_type': 'number', 'subject': 'SolidGeometry'})
         self.query = self.question
         self.level = None
         self.scene_path = ROOT / "scenes" / "Solid70.json"

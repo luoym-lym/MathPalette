@@ -11,7 +11,7 @@ def build_scene():
 class Plane98:
     def __init__(self):
         self.id='Plane98'
-        self.source_dataset='Author designed'
+        self.source_dataset='Author Designed'
         self.question='Starting at B, which endpoint is reached along the same smooth curve, without switching curves at any crossing?'
         self.query=self.question
         self.answer='A'

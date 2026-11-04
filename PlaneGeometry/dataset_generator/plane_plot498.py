@@ -16,7 +16,7 @@ def build_scene():
 
 class Plane498:
     def __init__(self):
-        attributes = {'id': 'Plane498', 'source_dataset': 'Author designed', 'source_key': 'authored-extension:Plane157:ext02', 'question': 'The floor of a rectangular room is covered completely with congruent rectangular tiles, as shown. The marked short side of one tile is 3 m. How long is the room in the direction indicated by the question mark? Give the length in metres.\nChoices:\nA:12\nB:15', 'answer': 'B', 'answer_type': 'choice', 'choices': {'A': '12', 'B': '15'}}
+        attributes = {'id': 'Plane498', 'source_dataset': 'Author Designed', 'source_key': 'authored-extension:Plane157:ext02', 'question': 'The floor of a rectangular room is covered completely with congruent rectangular tiles, as shown. The marked short side of one tile is 3 m. How long is the room in the direction indicated by the question mark? Give the length in metres.\nChoices:\nA:12\nB:15', 'answer': 'B', 'answer_type': 'choice', 'choices': {'A': '12', 'B': '15'}}
         for key, value in attributes.items():
             setattr(self, key, value)
         self.query = self.question

@@ -16,7 +16,7 @@ def build_scene():
 
 class Plane497:
     def __init__(self):
-        attributes = {'id': 'Plane497', 'source_dataset': 'Author designed', 'source_key': 'authored-extension:Plane152:ext03', 'question': 'The entire unequal-step pattern shown is continued by repeating its full unit once more. Which labeled point lies on that continuation?\nChoices:\nA:A\nB:B', 'answer': 'B', 'answer_type': 'choice', 'choices': {'A': 'A', 'B': 'B'}}
+        attributes = {'id': 'Plane497', 'source_dataset': 'Author Designed', 'source_key': 'authored-extension:Plane152:ext03', 'question': 'The entire unequal-step pattern shown is continued by repeating its full unit once more. Which labeled point lies on that continuation?\nChoices:\nA:A\nB:B', 'answer': 'B', 'answer_type': 'choice', 'choices': {'A': 'A', 'B': 'B'}}
         for key, value in attributes.items():
             setattr(self, key, value)
         self.query = self.question

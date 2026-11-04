@@ -11,7 +11,7 @@ from dataset_tools.geometry_dataset import draw_question, read_json, renderer_fo
 class Plane117:
     def __init__(self):
         self.id = 'Plane117'
-        self.source_dataset = 'Author designed'
+        self.source_dataset = 'Author Designed'
         self.question = 'Which segment OA, OB, or OC is perpendicular to segment PQ? All segments are drawn to scale.\nChoices:\nA: Segment OA\nB: Segment OB\nC: Segment OC'
         self.query = self.question
         self.answer = 'C'

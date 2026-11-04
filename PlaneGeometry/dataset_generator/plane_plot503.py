@@ -16,7 +16,7 @@ def build_scene():
 
 class Plane503:
     def __init__(self):
-        attributes = {'id': 'Plane503', 'source_dataset': 'Author designed', 'source_key': 'authored-extension:Plane312:ext02', 'question': 'Which pair of the four numbered pieces can be fitted together, without gaps or overlap, to make the six-sided target at the bottom? All pieces and the target are drawn at the same scale. Pieces may be rotated or turned over.\nChoices:\nA: 1 and 2\nB: 1 and 3\nC: 2 and 3\nD: 2 and 4\nE: 1 and 4\nF: 3 and 4', 'answer': 'C', 'answer_type': 'choice', 'choices': {'A': '1 and 2', 'B': '1 and 3', 'C': '2 and 3', 'D': '2 and 4', 'E': '1 and 4', 'F': '3 and 4'}}
+        attributes = {'id': 'Plane503', 'source_dataset': 'Author Designed', 'source_key': 'authored-extension:Plane312:ext02', 'question': 'Which pair of the four numbered pieces can be fitted together, without gaps or overlap, to make the six-sided target at the bottom? All pieces and the target are drawn at the same scale. Pieces may be rotated or turned over.\nChoices:\nA: 1 and 2\nB: 1 and 3\nC: 2 and 3\nD: 2 and 4\nE: 1 and 4\nF: 3 and 4', 'answer': 'C', 'answer_type': 'choice', 'choices': {'A': '1 and 2', 'B': '1 and 3', 'C': '2 and 3', 'D': '2 and 4', 'E': '1 and 4', 'F': '3 and 4'}}
         for key, value in attributes.items():
             setattr(self, key, value)
         self.query = self.question

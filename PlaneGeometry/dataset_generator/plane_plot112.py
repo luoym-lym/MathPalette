@@ -11,7 +11,7 @@ from dataset_tools.geometry_dataset import draw_question, read_json, renderer_fo
 class Plane112:
     def __init__(self):
         self.id = 'Plane112'
-        self.source_dataset = 'Author designed'
+        self.source_dataset = 'Author Designed'
         self.question = 'What is the total number of intersection points in the diagram?'
         self.query = self.question
         self.answer = 6

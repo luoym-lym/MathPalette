@@ -11,7 +11,7 @@ from dataset_tools.geometry_dataset import draw_question, read_json, renderer_fo
 class Plane118:
     def __init__(self):
         self.id = 'Plane118'
-        self.source_dataset = 'Author designed'
+        self.source_dataset = 'Author Designed'
         self.question = 'Which labeled angle A, B, or C has the same measure as angle R? All angles are drawn to scale.\nChoices:\nA: Angle A\nB: Angle B\nC: Angle C'
         self.query = self.question
         self.answer = 'C'

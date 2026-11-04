@@ -11,7 +11,7 @@ from dataset_tools.geometry_dataset import read_json,renderer_for,draw_question
 class Solid73:
     def __init__(self):
         self.id='Solid73'
-        self.source_dataset='Author designed'
+        self.source_dataset='Author Designed'
         self.source_key='triangular-prism-net:lateral-edge-from-P'
         self.question=('The figure shows a net of a right triangular prism with equilateral triangular bases. '
                        'The three rectangles are joined along the common edges shown. '

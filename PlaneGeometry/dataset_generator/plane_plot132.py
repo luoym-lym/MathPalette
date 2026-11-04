@@ -11,7 +11,7 @@ from dataset_tools.geometry_dataset import draw_question, read_json, renderer_fo
 class Plane132:
     def __init__(self):
         self.id = 'Plane132'
-        self.source_dataset = 'Author designed'
+        self.source_dataset = 'Author Designed'
         self.question = 'A disk is centered at O with diameter AB. For a point chosen uniformly from the entire disk, find the probability of landing in the shaded sector. Give a simplified fraction.'
         self.query = self.question
         self.answer = '5/36'

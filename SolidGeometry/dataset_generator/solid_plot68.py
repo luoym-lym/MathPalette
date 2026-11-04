@@ -21,7 +21,7 @@ def build_scene():
 
 class Solid68:
     def __init__(self):
-        self.__dict__.update({'id': 'Solid68', 'source_dataset': 'Author designed', 'question': 'The tetrahedron shown has volume 216. Each marked point is the midpoint of the edge on which it lies. Find the volume of the part containing vertex A after the tetrahedron is cut along the shaded plane.', 'answer': 108, 'answer_type': 'number', 'subject': 'SolidGeometry'})
+        self.__dict__.update({'id': 'Solid68', 'source_dataset': 'Author Designed', 'question': 'The tetrahedron shown has volume 216. Each marked point is the midpoint of the edge on which it lies. Find the volume of the part containing vertex A after the tetrahedron is cut along the shaded plane.', 'answer': 108, 'answer_type': 'number', 'subject': 'SolidGeometry'})
         self.query = self.question
         self.level = None
         self.scene_path = ROOT / "scenes" / "Solid68.json"

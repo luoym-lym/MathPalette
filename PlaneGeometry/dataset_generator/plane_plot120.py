@@ -11,7 +11,7 @@ from dataset_tools.geometry_dataset import draw_question, read_json, renderer_fo
 class Plane120:
     def __init__(self):
         self.id = 'Plane120'
-        self.source_dataset = 'Author designed'
+        self.source_dataset = 'Author Designed'
         self.question = 'How many times does the direction change along the polygonal path from P to Q?'
         self.query = self.question
         self.answer = 5

@@ -16,7 +16,7 @@ def build_scene():
 
 class Plane499:
     def __init__(self):
-        attributes = {'id': 'Plane499', 'source_dataset': 'Author designed', 'source_key': 'authored-extension:Plane172:ext01', 'question': 'The rectangle on the left was divided into six pieces along the drawn lines. Five of these pieces were rearranged to make the figure on the right. Which piece is missing? Pieces may be rotated or turned over.\nChoices:\nA: A\nB: B\nC: C\nD: D\nE: E', 'answer': 'A', 'answer_type': 'choice', 'choices': {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'}}
+        attributes = {'id': 'Plane499', 'source_dataset': 'Author Designed', 'source_key': 'authored-extension:Plane172:ext01', 'question': 'The rectangle on the left was divided into six pieces along the drawn lines. Five of these pieces were rearranged to make the figure on the right. Which piece is missing? Pieces may be rotated or turned over.\nChoices:\nA: A\nB: B\nC: C\nD: D\nE: E', 'answer': 'A', 'answer_type': 'choice', 'choices': {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'}}
         for key, value in attributes.items():
             setattr(self, key, value)
         self.query = self.question

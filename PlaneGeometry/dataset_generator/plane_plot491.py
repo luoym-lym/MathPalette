@@ -16,7 +16,7 @@ def build_scene():
 
 class Plane491:
     def __init__(self):
-        attributes = {'id': 'Plane491', 'source_dataset': 'Author designed', 'source_key': 'authored-extension:Plane141:ext01', 'question': 'The source sheet and all five pieces are made of congruent unit squares. Which piece CANNOT be cut out of the source sheet as a single piece? Pieces may be rotated or turned over; a cut-out must follow the unit grid.\nChoices:\nA: A\nB: B\nC: C\nD: D\nE: E', 'answer': 'C', 'answer_type': 'choice', 'choices': {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'}}
+        attributes = {'id': 'Plane491', 'source_dataset': 'Author Designed', 'source_key': 'authored-extension:Plane141:ext01', 'question': 'The source sheet and all five pieces are made of congruent unit squares. Which piece CANNOT be cut out of the source sheet as a single piece? Pieces may be rotated or turned over; a cut-out must follow the unit grid.\nChoices:\nA: A\nB: B\nC: C\nD: D\nE: E', 'answer': 'C', 'answer_type': 'choice', 'choices': {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'}}
         for key, value in attributes.items():
             setattr(self, key, value)
         self.query = self.question

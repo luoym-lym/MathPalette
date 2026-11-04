@@ -11,7 +11,7 @@ from dataset_tools.geometry_dataset import draw_question, read_json, renderer_fo
 class Plane106:
     def __init__(self):
         self.id = 'Plane106'
-        self.source_dataset = 'Author designed'
+        self.source_dataset = 'Author Designed'
         self.question = 'All arcs use the same scale. Which arc, A, B, or C, belongs to a circle with the same radius as R?\nChoices:\nA: Arc A\nB: Arc B\nC: Arc C'
         self.query = self.question
         self.answer = 'A'

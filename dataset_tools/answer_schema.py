@@ -7,12 +7,26 @@ import re
 ANSWER_TYPES = frozenset({'choice', 'number', 'expression', 'text'})
 
 
-def extract_choices(question):
-    """Read the existing Choices: A:... or Choices: (A)... notation verbatim."""
+def extract_choices(question, *, allow_unheaded=False):
+    """Read explicit options verbatim, without inferring missing choice text.
+
+    Author-designed records may use a complete consecutive A:.. block at the
+    very end instead of a Choices: heading. Each option in that form must occupy
+    one nonempty line; validate_answer still requires the exact choices mapping.
+    """
     heading = re.search(r'\bchoices?\s*:\s*', question, flags=re.IGNORECASE)
     if heading is None:
-        return {}
-    tail = question[heading.end():].strip()
+        if not allow_unheaded:
+            return {}
+        lines = question.rstrip().splitlines()
+        start = len(lines)
+        while start and re.fullmatch(r'\s*[A-Z]\s*:\s*\S.*', lines[start - 1]):
+            start -= 1
+        if len(lines) - start < 2:
+            return {}
+        tail = '\n'.join(lines[start:]).strip()
+    else:
+        tail = question[heading.end():].strip()
     if tail.endswith(r'\]'):
         tail = tail[:-2].rstrip()
     labels = list(re.finditer(r'^\s*([A-Z])\s*:', tail, flags=re.MULTILINE))
@@ -53,7 +67,7 @@ def validate_answer(row):
             isinstance(answer, str) and not answer.strip() or
             isinstance(answer, float) and not math.isfinite(answer)):
         raise ValueError(f'{qid}: answer must be nonempty text or a finite number')
-    parsed = extract_choices(row['question'])
+    parsed = extract_choices(row['question'], allow_unheaded=row.get('source_dataset') == 'Author Designed')
     if kind == 'choice':
         if not parsed or row.get('choices') != parsed:
             raise ValueError(f'{qid}: choices must match the options in the question')

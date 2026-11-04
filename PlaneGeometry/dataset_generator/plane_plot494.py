@@ -16,7 +16,7 @@ def build_scene():
 
 class Plane494:
     def __init__(self):
-        attributes = {'id': 'Plane494', 'source_dataset': 'Author designed', 'source_key': 'authored-extension:Plane148:ext03', 'question': 'Every available piece has the T shape at the top and consists of four unit squares. Which of the five 20-square shapes below CANNOT be made using exactly 5 whole pieces, without gaps or overlap? Pieces may be rotated or turned over.\nChoices:\nA: A\nB: B\nC: C\nD: D\nE: E', 'answer': 'E', 'answer_type': 'choice', 'choices': {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'}}
+        attributes = {'id': 'Plane494', 'source_dataset': 'Author Designed', 'source_key': 'authored-extension:Plane148:ext03', 'question': 'Every available piece has the T shape at the top and consists of four unit squares. Which of the five 20-square shapes below CANNOT be made using exactly 5 whole pieces, without gaps or overlap? Pieces may be rotated or turned over.\nChoices:\nA: A\nB: B\nC: C\nD: D\nE: E', 'answer': 'E', 'answer_type': 'choice', 'choices': {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'}}
         for key, value in attributes.items():
             setattr(self, key, value)
         self.query = self.question

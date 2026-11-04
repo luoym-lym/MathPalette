@@ -21,7 +21,7 @@ def build_scene():
 
 class Solid71:
     def __init__(self):
-        self.__dict__.update({'id': 'Solid71', 'source_dataset': 'Author designed', 'question': 'The triangular prism shown has volume 504. Each marked point is the midpoint of the edge on which it lies. Find the volume of the part containing vertex A after the prism is cut along the shaded plane.', 'answer': 42, 'answer_type': 'number', 'subject': 'SolidGeometry'})
+        self.__dict__.update({'id': 'Solid71', 'source_dataset': 'Author Designed', 'question': 'The triangular prism shown has volume 504. Each marked point is the midpoint of the edge on which it lies. Find the volume of the part containing vertex A after the prism is cut along the shaded plane.', 'answer': 42, 'answer_type': 'number', 'subject': 'SolidGeometry'})
         self.query = self.question
         self.level = None
         self.scene_path = ROOT / "scenes" / "Solid71.json"

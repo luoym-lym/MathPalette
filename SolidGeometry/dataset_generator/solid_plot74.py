@@ -8,7 +8,7 @@ from dataset_tools.geometry_dataset import read_json,renderer_for,draw_question
 class Solid74:
     def __init__(self):
         self.id = 'Solid74'
-        self.source_dataset = 'Author designed'
+        self.source_dataset = 'Author Designed'
         self.source_key = 'cube-net:vertex-coincidence'
         self.question = 'The figure shows a net made of six unit squares. When it is folded into a cube, which labeled point occupies the same cube vertex as P?\nChoices:\nA: Point Q\nB: Point R\nC: Point S\nD: None of these points'
         self.answer = 'B'

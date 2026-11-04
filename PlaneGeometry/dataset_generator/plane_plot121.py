@@ -11,7 +11,7 @@ from dataset_tools.geometry_dataset import draw_question, read_json, renderer_fo
 class Plane121:
     def __init__(self):
         self.id = 'Plane121'
-        self.source_dataset = 'Author designed'
+        self.source_dataset = 'Author Designed'
         self.question = 'How many regions is the interior of the rectangle divided into by the three straight segments?'
         self.query = self.question
         self.answer = 7

@@ -11,10 +11,10 @@ import threading
 import uuid
 from pathlib import Path
 
-from mathvision_plugins import PluginRenderer
+from expand24_plugins import PluginRenderer
 from workbench_io import compatible_style_renderer
 from renderer_adapter import RENDER_LOCK
-from mathvision_adapter import RendererAdapter
+from expand24_adapter import RendererAdapter
 from workbench_io import (GENERATOR_VERSION, ROOT, SCHEMA_VERSION, WorkbenchError, atomic_json,
                           atomic_write, canonical_hash, contained_path, environment_versions,
                           file_hash, json_bytes, pixel_hash, protect_output_paths, read_json,
@@ -128,20 +128,8 @@ class Workbench:
         else:
             self.progress = {"signature": self.signature, "output_relative": self.output_relative.as_posix(),
                              "current_question": "Plane01", "navigation_revision": 0,
-                             "questions": {qid: {"revision": 0, "candidate_id": None, "accepted": [], "last_review": None}
-                                           for qid in self.adapter.records}, "candidates": {}}
-            # Runtime caches are disposable. Passed recipes and collection records
-            # are the durable source of truth; never reset an existing collection.
-            for qid, question in self.progress["questions"].items():
-                recipes_path = self.output / qid / "recipes.json"
-                if recipes_path.is_file():
-                    question["accepted"] = read_json(recipes_path)
-                collection_path = self.output / qid / "collection.json"
-                if collection_path.is_file():
-                    collection = read_json(collection_path)
-                    question["collected"] = collection["status"] == "collected"
-                    question["collection_record"] = collection.get("current", collection)
-                    question["collection_history"] = collection.get("history", [])
+                             "questions": {qid: self._restore_question(qid) for qid in self.adapter.records},
+                             "candidates": {}}
         # Finish an interrupted save against its original session signature first.
         current_signature = self.signature
         self.signature = self.progress["signature"]
@@ -152,8 +140,8 @@ class Workbench:
         workflow_update = inputs_changed and compatible_workflow_manifest(expected, self.adapter.manifest)
         inputs_changed = inputs_changed and not workflow_update
         for qid in self.adapter.records:
-            self.progress["questions"].setdefault(qid, {
-                "revision": 0, "candidate_id": None, "accepted": [], "last_review": None})
+            if qid not in self.progress["questions"]:
+                self.progress["questions"][qid] = self._restore_question(qid)
         for question in self.progress["questions"].values():
             question.setdefault("collected", False)
             if question.get("collected"):
@@ -200,6 +188,21 @@ class Workbench:
         atomic_json(manifest_path, self.adapter.manifest)
         atomic_json(self.state_dir / "dataset_snapshot.json", self.adapter.records)
         atomic_json(progress_path, self.progress)
+
+    def _restore_question(self, qid):
+        # Restore only questions absent from runtime state. Existing questions
+        # still undergo the strict state/file comparison in _validate_saved_files.
+        question = {"revision": 0, "candidate_id": None, "accepted": [], "last_review": None}
+        recipes_path = contained_path(self.output, f"{qid}/recipes.json")
+        if recipes_path.is_file():
+            question["accepted"] = read_json(recipes_path)
+        collection_path = contained_path(self.output, f"{qid}/collection.json")
+        if collection_path.is_file():
+            collection = read_json(collection_path)
+            question["collected"] = collection["status"] == "collected"
+            question["collection_record"] = collection.get("current", collection)
+            question["collection_history"] = collection.get("history", [])
+        return question
 
     def active_questions(self):
         return [qid for qid in self.adapter.records
@@ -543,6 +546,8 @@ class Workbench:
 
     def drawing_scene(self, qid):
         from drawing_board import describe_scene
+        if self.adapter.is_author(qid):
+            from author_board import describe_scene
         with RENDER_LOCK:
             self._check_open_question(qid)
             self._assert_current_inputs(qid)

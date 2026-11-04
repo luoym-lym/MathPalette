@@ -11,7 +11,7 @@ from dataset_tools.geometry_dataset import draw_question, read_json, renderer_fo
 class Plane126:
     def __init__(self):
         self.id = 'Plane126'
-        self.source_dataset = 'Author designed'
+        self.source_dataset = 'Author Designed'
         self.question = 'The shaded polygon is drawn on a square grid. Each small square has area 1. Determine the area of the polygon.'
         self.query = self.question
         self.answer = '33/2'

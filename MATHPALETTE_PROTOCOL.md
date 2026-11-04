@@ -2,8 +2,8 @@
 
 版本：3.3.0，2026-10-16。本目录只保留正式通过的数据及其必要运行依赖。
 
-1. **统一身份。** 同一道题的正式清单、图片、脚本和 Special 使用同一题号。Analytics 当前为 Ana01～Ana51 与 Ana53～Ana71（Ana52 已删除，不复用），PlaneGeometry 为 Plane01～Plane505，SolidGeometry 为 Solid01～Solid248。旧题号仅供迁移追溯。
-2. **用户通过后收集。** 当前 823 题包含用户明确确认的 20 道 DynaMath、147 道 MathVerse、56 道 MathVista、9 道 SOLIDGEO、70 道 Author designed 和 521 道 MathVision。各题保留用户通过原话与时间；Agent 数学检查、图像核验和 Special Pass 不替代原题审核。
+1. **统一身份。** 同一道题的正式清单、图片、脚本和 Special 使用同一题号。Analytics 当前为 Ana01～Ana51 与 Ana53～Ana71（Ana52 已删除，不复用），PlaneGeometry 为 Plane01～Plane529，SolidGeometry 为 Solid01～Solid263。旧题号仅供迁移追溯。
+2. **用户通过后收集。** 当前 862 题包含用户明确确认的 20 道 DynaMath、147 道 MathVerse、56 道 MathVista、9 道 SOLIDGEO、109 道 Author Designed 和 521 道 MathVision。各题保留用户通过原话与时间；Agent 数学检查、图像核验和 Special Pass 不替代原题审核。
 3. **最小正式记录。** 保留题号、来源、当前题干、答案、答案类型、重绘图、来源图、绘图程序；几何题另保留冻结场景。来源图缺失写 `null`。有改编或来源答案冲突时保留必要来源说明。
 4. **可复现依赖。** 公共绘图器、机器协议、固定坐标、投影/显隐区间、依赖版本和变体 recipes 均属于必要文件。PNG 可直接使用，SVG 可从冻结场景导出，不保留重复矢量产物。
 5. **通过记录。** `provenance/approvals.json` 保存用户原话、原通过时间和内容指纹。当前内容改变后校验失败，必须重新获得用户确认；不能自动刷新指纹冒充审核。清理迁移保留旧指纹，并核对所有原图和变体像素不变。
@@ -20,6 +20,8 @@
 ## 正式答案与场景字段（2026-10-11 统一）
 
 `source_dataset` 使用实际数据集名称，例如 `DynaMath`、`MathVerse`、`MathVista`、`SOLIDGEO`、`MathVision`；不把 split 或更细的上游题库名称拼入此字段。已有 `source_key` 保留题源定位，更细的来源记录保存在 `provenance/`。
+
+2026-11-04 按用户要求将原创来源统一为 `Author Designed`。仅迁移来源标签，原审核原话、时间及 Special recipes 保留；旧内容指纹与精确兼容映射见 [来源名称迁移记录](provenance/source_label_normalization_20261104.json)。
 
 `answer_type` 仅使用以下四种值，按答案语义分类，不按来源数据集另设命名：
 

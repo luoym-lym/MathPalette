@@ -1,0 +1,202 @@
+{
+  "authorization": {
+    "instruction": "看一下库里面来源为Author Designed但是还没有collect的题目。这些题目我需要你帮我设计一下specialvar，要求是2次quicktest3均命中预期诱导错误，并且题目不产生混淆，人类可以正常作答。你可以派多个子代理(Terra-xhigh)，要一个子代理对应一道题的深入探索设计。满足标准的直接当作pass就好，后面我会自己再看看。",
+    "scope": "Special only, two fresh Quick Test 3 calls on the same candidate plus semantic and visual review; conditional delegated Pass; no Collect",
+    "model": "gpt-6.1-terra",
+    "reasoningEffort": "xhigh"
+  },
+  "review_basis": "Explicit user delegation conditional on two Quick Test 3 hits and clear human-solvable wording and diagram; parent agent verification. No claim of personal user review of these PNGs.",
+  "passes": {
+    "Plane509": {
+      "question_id": "Plane509",
+      "action": "new_pass",
+      "slot_id": "C02",
+      "production_candidate_id": "8ce43c7e318d41a7a14c07244b457fc7",
+      "recorded_at": "2026-11-03T14:21:45.847395+00:00",
+      "selected_candidate": "Plane509/alternating_edges",
+      "pixel_sha256": "c4ac839630a465d955eec23d4ddfe4bfa2497a9829a97b710d763abb335116b3",
+      "parameter_key": "a5cff2ce537e0dcb39759f68673088f07d925c8960c7a0d380e1b554fd2aba91",
+      "formal_image": "PlaneGeometry/special_variant/Plane509/images/C02.png",
+      "expected_error": "A: treat the dashed source triangles as the requested odd- and even-numbered triangles.",
+      "mechanism": "The red and blue dashed triangles join alternating spatial positions, each mixing odd and even numbers. Their outlines and colors match option A. The model mistakes the guide lines for the prescribed parity groupings and matches the apparent star instead of verifying each vertex.",
+      "evidence_files": [
+        "Plane509/alternating_edges/quicktest3_r1.json",
+        "Plane509/alternating_edges/quicktest3_r2.json"
+      ],
+      "evidence_sha256": [
+        "0d1a87acafc7d4acb4c22997af9bea8278640b8fa1eda010e0e6e2dd4b93ae32",
+        "8c3ecf83f7ec43abc99378836daba22e4b1b3fa3971dd25f0afe428a3d4a8815"
+      ],
+      "parent_review_sha256": "c3da165820716afe37de7e1ab791477c4d32109e6ff942b1ede387e8d3facd38",
+      "collected": false
+    },
+    "Plane507": {
+      "question_id": "Plane507",
+      "action": "new_pass",
+      "slot_id": "C02",
+      "production_candidate_id": "ebac91a08a094bb2a8ce0857c01e3e32",
+      "recorded_at": "2026-11-03T14:25:26.557484+00:00",
+      "selected_candidate": "Plane507/d_contrast",
+      "pixel_sha256": "939ce0b8ae4c2f8defe1d833234a4d3356e86a57b7a375490b8a0750aff5e5d7",
+      "parameter_key": "ca1ac9d160fc21e7aaf99ea54a29b05af398301bfe2191ad694e464d798d1085",
+      "formal_image": "PlaneGeometry/special_variant/Plane507/images/C02.png",
+      "expected_error": "D: mistake the red and blue guide triangles for the odd-numbered and even-numbered triangles.",
+      "mechanism": "Dashed source guides join 1,2,3 and 5,4,6 and visually match highlighted D. The model falsely maps them to odd and even groups; the dashed, thinner correct choice C has lower visual salience.",
+      "evidence_files": [
+        "Plane507/d_contrast/quicktest3_r1.json",
+        "Plane507/d_contrast/quicktest3_r2.json"
+      ],
+      "evidence_sha256": [
+        "e95dc532f38ebfd95384e6e2d8603de6f4e87f94c74d07e4d12252f100fdee8d",
+        "289bad103f08d072384f1ad27d0a0dbaa954fa96812c8b90c65bb6cd408fc495"
+      ],
+      "parent_review_sha256": "d9931f1624e7cc1ef149f3b00531dc2efb8f1cc2c58de44a4f9cf0d9e006c476",
+      "collected": false
+    },
+    "Plane508": {
+      "question_id": "Plane508",
+      "action": "new_pass",
+      "slot_id": "C02",
+      "production_candidate_id": "37dcf53edfd14aae9a9ce3260fc0f2bc",
+      "recorded_at": "2026-11-03T14:25:30.611264+00:00",
+      "selected_candidate": "Plane508/candidate_c_swapped",
+      "pixel_sha256": "315188e1c33d081e76feb554a7723fd9bae08c6e116f17bbb4e93eda94efb62e",
+      "parameter_key": "173b7c4a7c6f8812df87ffb4213d792d609a8d6d8790092da673482836db316b",
+      "formal_image": "PlaneGeometry/special_variant/Plane508/images/C02.png",
+      "expected_error": "C：把彩色虚线的分组或形状当作奇偶两组三角形，以图形和颜色匹配代替逐一核对端点。",
+      "mechanism": "蓝虚线连接 4、6、3，红虚线连接 1、2、5；C 的两个轮廓分别同色同形。两组三角形各混入一个奇偶不同的点。模型可能错误地认为红色为 1、3、5、蓝色为 2、4、6，进而按照颜色与形状选 C。",
+      "evidence_files": [
+        "Plane508/candidate_c_swapped/quicktest3_r1.json",
+        "Plane508/candidate_c_swapped/quicktest3_r2.json"
+      ],
+      "evidence_sha256": [
+        "a904409119216505704f0e94b1da0d140c97090d527264a75ffb4de2aa777930",
+        "cfa1472025494f17ab3156db24410fb74e8600ef74ac68139493dc6e99bd76fa"
+      ],
+      "parent_review_sha256": "cd378ee2500b365ac1401df464983d970dd13978ff2bf16cd8f0ed6e14b54ec2",
+      "collected": false
+    },
+    "Solid251": {
+      "question_id": "Solid251",
+      "action": "new_pass",
+      "slot_id": "C02",
+      "production_candidate_id": "bed1475e50ea4e1db3a9ccc087048494",
+      "recorded_at": "2026-11-03T14:25:34.548173+00:00",
+      "selected_candidate": "Solid251/c_staircase",
+      "pixel_sha256": "692c6c06e58620c6d09438d2052259a4e7a8b755da7d736b808dcb86c9673140",
+      "parameter_key": "7e4e9549d87fefde1eb33edceede467693b98d449fd5cef56d74f1958cba62ca",
+      "formal_image": "SolidGeometry/special_variant/Solid251/images/C02.png",
+      "expected_error": "Choose C on the mistaken premise that C contains a solid 2-by-2 group of four squares, leading to a folding conflict.",
+      "mechanism": "The colored and thickened original C edges draw attention to the tight staggered configuration; the model misreads it as a 2-by-2 block and incorrectly rules it out, overlooking the overlapping faces in B. This is the hypothesis registered before both tests.",
+      "evidence_files": [
+        "Solid251/c_staircase/quicktest3_r1.json",
+        "Solid251/c_staircase/quicktest3_r2.json"
+      ],
+      "evidence_sha256": [
+        "675d36457a1f5de166c10f1b5eb3b3b7bcf6f870fb3105b45aebd60d6000ae3d",
+        "7830beda9880dbc7ea291f4866f1020115ac8c7ecc2de5bd35222c388b610bcb"
+      ],
+      "parent_review_sha256": "448c3d71cb4f7ae8188ffb1eea16c25ddb45288bae807f3ab18a5d332f053d4f",
+      "collected": false
+    },
+    "Plane511": {
+      "question_id": "Plane511",
+      "action": "new_pass",
+      "slot_id": "C02",
+      "production_candidate_id": "e54ea4f0371b40faa0f72c9dc3e51eca",
+      "recorded_at": "2026-11-03T14:31:29.590922+00:00",
+      "selected_candidate": "Plane511/three_targets",
+      "pixel_sha256": "b91db5ce4af37530577b0af44aebb413aa907b6b670a795ce00684188fa70060",
+      "parameter_key": "285b670f5c6aa2837a990778363ce4e29b406ab4fd6f26b6a5e8304b1f778f6b",
+      "formal_image": "PlaneGeometry/special_variant/Plane511/images/C02.png",
+      "expected_error": "3: remove the three red-boxed black dots and incorrectly assert that this removes every equilateral triangle.",
+      "mechanism": "The red squares suggest the high-coverage three-point deletion set P05, P06, P10. These points hit 17 of the 24 triangles but leave seven; assuming the highlighted set hits them all produces the pre-registered wrong answer.",
+      "evidence_files": [
+        "Plane511/three_targets/quicktest3_r1.json",
+        "Plane511/three_targets/quicktest3_r2.json"
+      ],
+      "evidence_sha256": [
+        "26987fd779163ce8f31a6b0f1ac3e81e0842665d590b3bfa0d0ae6c73b4c7aa7",
+        "efb4b994cf921b49e6a2722e5717b276c9334409c82d1bc5071d8ff5d2925215"
+      ],
+      "parent_review_sha256": "9d0486421b8d02f42100ba079ffe0f4ba73068fa9570db5918b36e46a0c5a32a",
+      "collected": false
+    },
+    "Solid252": {
+      "question_id": "Solid252",
+      "action": "new_pass",
+      "slot_id": "C02",
+      "production_candidate_id": "5911f7586b7f42c7858c87369725a38f",
+      "recorded_at": "2026-11-03T14:40:03.603409+00:00",
+      "selected_candidate": "Solid252/p2_local_c",
+      "pixel_sha256": "a2919b82322db97cde206ad48828000c23ab667cd65eefe172697a38a2852446",
+      "parameter_key": "3de59906db6dde601f6be05c0415ca659066dc288ab2ba5fed74d4d928d4103c",
+      "formal_image": "SolidGeometry/special_variant/Solid252/images/C02.png",
+      "expected_error": "The response explicitly asserts that edge x coincides with edge C after folding.",
+      "mechanism": "Short red segments on the original x and C edges emphasize their common paper corner, inviting a false whole-edge seam correspondence. The preregistered hit requires the explicit x-C pairing, not a mere wrong letter; it does not require an explicit statement that color or the common endpoint caused the judgment.",
+      "evidence_files": [
+        "Solid252/p2_local_c/quicktest3_r1.json",
+        "Solid252/p2_local_c/quicktest3_r2.json"
+      ],
+      "evidence_sha256": [
+        "e739d2cd8594e527ea2862a5d5d8fa36e5ac2c60abe546f1f747c0fd7dc77e2a",
+        "9462c623d252ec3d8409c7f933f755fb27f8ac0ecb77a8dcfd69923cf9a8e313"
+      ],
+      "parent_review_sha256": "22307bf0d00e23b9e2e94fdb8c58a7d129d4b31c856cb87b624d095896672613",
+      "assessment_file": "Solid252/phase2_result.json",
+      "assessment_sha256": "7308ac72b74ad9b6dab4dc5180901ccbc1c1110b6124206d75492195c3f4c719",
+      "collected": false
+    },
+    "Solid253": {
+      "question_id": "Solid253",
+      "action": "new_pass",
+      "slot_id": "C02",
+      "production_candidate_id": "94bd6ff2600f42908ce93983d931e424",
+      "recorded_at": "2026-11-03T14:42:31.713572+00:00",
+      "selected_candidate": "Solid253/p2_endpoint_d",
+      "pixel_sha256": "c3befe22ab092f70ff655ae2529ab0bfdd3515a47c4a68faf91b9e380d2febc9",
+      "parameter_key": "b0a889e14aff8a104eb49053dc2dd48e90d0c88fccc80b4fd1f3347d3c31ee64",
+      "formal_image": "SolidGeometry/special_variant/Solid253/images/C02.png",
+      "expected_error": "D: explicitly assert that edge x coincides with edge D after folding.",
+      "mechanism": "Two short, thick red portions emphasize the two copies of the actual folded endpoint -Z on x and D. The predicted false geometric judgment is that the entire x and D edges coincide. The preregistration does not require the response to explicitly attribute its judgment to the color or the shared endpoint.",
+      "evidence_files": [
+        "Solid253/p2_endpoint_d/quicktest3_r1.json",
+        "Solid253/p2_endpoint_d/quicktest3_r2.json"
+      ],
+      "evidence_sha256": [
+        "e8d16821ea83c6ea11bbb0b323575ed179073d89cc2ca751f205138ea56f6982",
+        "1d2354af3a59f5888d8e8003073a2d7e101053987e3a8270cc3fa8605f188474"
+      ],
+      "parent_review_sha256": "a0df74dae6125429759f7a530f30a398367e3c91055dd1c36042d9e9ff758473",
+      "assessment_file": "Solid253/phase2_result.json",
+      "assessment_sha256": "c77523363bd47d2c29601a5f5e24bf1eb20901a371778fae275ef2972ead271c",
+      "collected": false
+    },
+    "Solid254": {
+      "question_id": "Solid254",
+      "action": "new_pass",
+      "slot_id": "C02",
+      "production_candidate_id": "deb06e69be5b419b965fbcb3474d561a",
+      "recorded_at": "2026-11-03T14:45:54.712986+00:00",
+      "selected_candidate": "Solid254/p2_top_vertex",
+      "pixel_sha256": "3724734da175a4f55bb96cfd4b950dca4d79755c9d15da3bc8684376c841c37d",
+      "parameter_key": "dd49c6713f2d3cb273d7753cce6b6d0ebbc2121ee79d80f5b698e25614d1fe9b",
+      "formal_image": "SolidGeometry/special_variant/Solid254/images/C02.png",
+      "expected_error": "明确断言折叠后整条 x 与整条 E 重合，并最终选择 E；单独写 E 不算命中。",
+      "mechanism": "两枚蓝点是同一个折叠顶点在展开图中的两个位置；两条红线分别沿 x 和 E，可能使模型将一个顶点重合扩展为整个接缝重合。事前只要求实际断言 x=E，不要求明说颜色或共同端点。",
+      "evidence_files": [
+        "Solid254/p2_top_vertex/quicktest3_r1.json",
+        "Solid254/p2_top_vertex/quicktest3_r2.json"
+      ],
+      "evidence_sha256": [
+        "328d0a6661b81bcf0de4def2f89c14f16ed6484a7acb98e6319de2f1f63d8142",
+        "bf2601185269d7974a12200ec19fbd1a2abab9109bb9db25cad210fd8b6bd5ac"
+      ],
+      "parent_review_sha256": "54d089f288ac704a91c588f6337e38f8269affd3d55d5846b49942113b7d8a34",
+      "assessment_file": "Solid254/phase2_result.json",
+      "assessment_sha256": "ba683dd84b2a97a87c2c219f012098deca9ce460481f53f66f9d5019a65cb561",
+      "collected": false
+    }
+  },
+  "completed_at": "2026-11-03T15:01:28.360437+00:00"
+}
