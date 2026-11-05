@@ -28,7 +28,7 @@ SolidGeometry/
 
 新增题目时，将来源图保存在 `originals/`、PNG / SVG 保存在 `image/`、冻结场景保存在 `dataset_generator/scenes/`、核对报告保存在 `dataset_generator/reports/`，各文件按题号命名。当前正式题、场景和程序均按题号保存。
 
-数据路径相对分支根目录；场景中的 `source_image` 相对场景文件。源码导入不写文件。`source_dataset="UserProvidedImage"` 只表示当前获取方式，须同时注明原始数据集未知，不能冒称 MathVerse、DynaMath 或 Custom。
+数据路径相对分支根目录；场景中的 `source_image` 相对场景文件。源码导入不写文件。原创题的 `source_dataset` 使用 `Author Designed`。不能冒称 MathVerse、DynaMath、MathVista、SOLIDGEO、MathVision 或 Custom。历史审核原话保留在 `provenance/approvals.json`。
 
 ## 3. 三维语义与构造
 

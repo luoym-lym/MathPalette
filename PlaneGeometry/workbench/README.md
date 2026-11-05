@@ -1,6 +1,6 @@
 # 平面几何 Special 标注工作台
 
-Plane512～Plane529 为用户授权入库的 `Author Designed` 拓展题，使用独立的 `author_expand24_v1` 冻结渲染包及 `expand24_adapter.py` / `expand24_plugins.py` / `expand24_replay.py`。绘制先执行原始程序并核对像素，变体只操作实际原对象轮廓、允许的点和辅助线；阴影格与给定点的语义填充保持冻结。原题来源及父题关系见 `provenance/author_expand24_20261103.json`。本批用户授权以双次 quicktest3 命中和可读性检查代为判定 Special Pass，授权不包含 Collect；测试原始响应仍只存 `.runtime/`。
+Plane512～Plane529 为用户授权入库的 `Author Designed` 拓展题，使用独立的 `author_expand24_v1` 冻结渲染包及 `expand24_adapter.py` / `expand24_plugins.py` / `expand24_replay.py`。绘制先执行原始程序并核对像素，变体只操作实际原对象轮廓、允许的点和辅助线；阴影格与给定点的语义填充保持冻结。原题来源及父题关系见 `provenance/author_expand24_20261103.json`。本批用户授权以双次 quicktest3 命中和可读性检查代为判定 Special Pass；该自动 Pass 授权本身不包含 Collect，对应 provenance 记录的 `collect_performed` 为 false。测试原始响应仍只存 `.runtime/`。正式完成状态以各题 `collection.json` 为准：Plane512～Plane529 均为 collected，其中 Plane515、Plane518 为普通 Collect（分别 1 张、4 张），其余多为 `special_case=true` 且 `review_status=pending`。
 
 日常按钮只处理当前题：Pass 核对本题输入和候选文件，No Pass 不复核原题或解码 PNG，删除只备份与重排受影响的槽位。Pass 和删除只更新根索引中本题的插件列表，不再同步重建全库。画板提交复用已显示且参数、上下文一致的预览；保存响应直接带回最新状态。完整审核检查仍由启动时的输入校验及手动 `dataset_tools/catalog.py check` 执行，用户 Pass / Collect 的含义不变。
 
