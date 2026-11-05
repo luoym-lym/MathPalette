@@ -11,9 +11,9 @@ import threading
 import uuid
 from pathlib import Path
 
-from expand24_plugins import PluginRenderer
+from extensions95_plugins import PluginRenderer
 from workbench_io import compatible_style_renderer
-from expand24_adapter import RendererAdapter
+from extensions95_adapter import RendererAdapter
 from renderer_adapter import RENDER_LOCK
 from workbench_io import (GENERATOR_VERSION, ROOT, SCHEMA_VERSION, WorkbenchError, atomic_json,
                           atomic_write, canonical_hash, contained_path, environment_versions,

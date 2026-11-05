@@ -131,3 +131,5 @@ python -X utf8 -B PlaneGeometry/workbench/test_partial_style.py
 node PlaneGeometry/workbench/test_partial_selection.js
 node PlaneGeometry/workbench/test_partial_board.js
 ```
+
+本轮95道 Author Designed 拓展题使用 `extensions95_adapter.py` / `extensions95_plugins.py` / `extensions95_replay.py` 接入各题冻结的原生绘图器。无操作重绘必须与批准原图像素一致；只允许操作设计上下文明确列出的原轮廓及添加点线，保留语义填充、文字、投影和可见性输入。父题映射见 `provenance/author_extensions95_20261105.json`。

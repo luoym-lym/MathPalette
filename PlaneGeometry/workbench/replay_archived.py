@@ -17,6 +17,10 @@ def render_special_recipe(recipe, output_path=None, config_path=None):
     qid = recipe.get('question_id')
     if qid in adapter.records and compatible_record_hash('PlaneGeometry', recipe.get('question_record_sha256'), adapter.records[qid]):
         recipe = {**recipe, 'question_record_sha256': canonical_hash(adapter.records[qid])}
+    from extensions95_adapter import is_extensions95_record
+    if is_extensions95_record(adapter.records.get(recipe.get("question_id"))):
+        from extensions95_replay import render_special_recipe as render_extensions95
+        return render_extensions95(recipe, output_path, config_path)
     from expand24_adapter import is_expand24_record
     if is_expand24_record(adapter.records.get(recipe.get("question_id"))):
         from expand24_replay import render_special_recipe as render_expand24

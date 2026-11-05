@@ -21,6 +21,10 @@ def render_special_recipe(recipe, output_path=None, config_path=None):
     record = next((row for row in records if row["id"] == recipe["question_id"]), None)
     if record is None:
         raise WorkbenchError("不存在此立体题号。")
+    from extensions95_adapter import is_extensions95_record
+    if is_extensions95_record(record):
+        from extensions95_replay import render_special_recipe as render_extensions95
+        return render_extensions95(recipe, output_path, config_path)
     from expand24_adapter import is_expand24_record
     if is_expand24_record(record):
         from expand24_replay import render_special_recipe as render_expand24
