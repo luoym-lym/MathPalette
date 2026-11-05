@@ -1,5 +1,0 @@
-from tools_local import *
-out=HERE/'Plane247/open_stair_endcap_correspondence';e=next((out/'tests').glob('quicktest3_*'))
-s=json.loads((e/'summary.json').read_text())
-write(out/'manual_final_review.json',{'reviewed_at':now(),'review_method':'Read full answer text in both complete run JSONs manually','expected_wrong_answer':'D','actual_manual_finals':[{'run':1,'choice':'D','value':'1 and4','final_quote':'Therefore, the two figures that were cut out are **1 and 4**.','hit':True},{'run':2,'choice':'A','value':'1 and3','final_quote':'The correct choice is **A**.','hit':False}],'paired_target_hit':False,'two_completed':s['two_completed'],'evidence_dir':str(e),'mechanism_evidence':'Run1 explicitly uses both redpiece1 and bluepiece4 matches and wrongly claims completefit. Run2 privileges redpiece1 and rejects bluepiece4 as left-boundary mismatch, finalA. This supports a localized redesign of bluecorrespondence, but is not causal evidence or a paired hit.','status':'COMPLETE_PAIR_MISS_DO_NOT_RETEST_IDENTICAL_IMAGE'})
-print('Saved D/A miss.')

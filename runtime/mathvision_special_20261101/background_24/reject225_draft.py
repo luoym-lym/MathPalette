@@ -1,3 +1,0 @@
-from tools24 import *
-out=HERE/'Plane225/r24_original_animal_heading_retention'
-write(out/'primary_review.json',{'question_id':'Plane225','variant_id':out.name,'reviewed_at':now(),'actual_native_png_viewed':True,'proceed_to_API':False,'status':'REJECTED_UNTESTED_INFORMATION_COVERAGE_DEFECT','api_calls':0,'finding':'The p0 native subpaths are tiny dog-ear and dolphin-fin contours, not the main asymmetric bodies stated in the design. NativePNG shows only short accessory marks; this is insufficient to carry the predeclared heading correspondence. No calls. Preserve all files; any repair must use a new variant ID and explicitly resolve this defect, not change intensity or relabel the preset.'})

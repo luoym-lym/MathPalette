@@ -1,8 +1,0 @@
-{
-  "stage": "final_offline_preservation_audit",
-  "error": "AssertionError at finalize.py: assert all(c['unchanged'] for c in checks)",
-  "cause": "The broad audit treated continuation_brief.txt, concurrent runtime dispatch metadata, as immutable question evidence. Its current text contains additional dispatch/closure entries for other units.",
-  "resolution": "Preserve the before hash. Verify the entire old file remains an exact byte prefix of the current file, save the appended text and classify this one runtime metadata change separately. All question inputs, old evidence and renderer/protocol/harness helpers must still match exactly; no file is restored.",
-  "API_error_or_retry": false,
-  "patch_application_note": "One apply_patch attempt also failed context verification without modifying files; the corrected patch was applied only to the own-root finalizer."
-}

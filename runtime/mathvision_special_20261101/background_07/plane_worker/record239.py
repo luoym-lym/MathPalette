@@ -1,4 +1,0 @@
-from tools_local import *
-out=HERE/'Plane239/ordered_four_segment_prefix_binding';e=next((out/'tests').glob('quicktest3_*'));s=json.loads((e/'summary.json').read_text())
-write(out/'manual_final_review.json',{'reviewed_at':now(),'review_method':'Read complete answer text from both complete run JSONs manually','expected_wrong_answer':'C','actual_manual_finals':[{'run':1,'choice':'B','final_quote':'**Final Answer:** B','hit':False},{'run':2,'choice':'D','final_quote':'**Answer:**\nD','hit':False}],'paired_target_hit':False,'two_completed':s['two_completed'],'evidence_dir':str(e),'mechanism_evidence':'Both narratives hallucinate segment colors, contacts orhiddenunderbodysegments and rejecttheactualcoloredCprefix. Explicit finalchoicesB/D are bothwrong but neither matchespredeclaredC. No causalclaim.','status':'COMPLETE_PAIR_MISS_DO_NOT_RETEST_IDENTICAL_IMAGE'})
-print('Saved B/D miss.')
