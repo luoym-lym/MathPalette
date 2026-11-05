@@ -1,0 +1,246 @@
+{
+  "status": "math_verified",
+  "created_utc": "2026-11-05T10:49:50.291522+00:00",
+  "methods": [
+    "whole-pattern synchronous steps on current state",
+    "independent per-position composition of total 3-colour functions",
+    "exact comparison of all five drawn options"
+  ],
+  "initial_pattern": [
+    "B",
+    "W",
+    "G",
+    "G",
+    "W",
+    "B",
+    "W",
+    "B",
+    "G"
+  ],
+  "step_states": [
+    [
+      "B",
+      "W",
+      "G",
+      "G",
+      "W",
+      "B",
+      "W",
+      "B",
+      "G"
+    ],
+    [
+      "W",
+      "W",
+      "G",
+      "G",
+      "W",
+      "B",
+      "W",
+      "B",
+      "G"
+    ],
+    [
+      "G",
+      "G",
+      "G",
+      "G",
+      "G",
+      "B",
+      "G",
+      "B",
+      "G"
+    ],
+    [
+      "G",
+      "G",
+      "G",
+      "G",
+      "G",
+      "B",
+      "W",
+      "B",
+      "W"
+    ]
+  ],
+  "derived_final_pattern": [
+    "G",
+    "G",
+    "G",
+    "G",
+    "G",
+    "B",
+    "W",
+    "B",
+    "W"
+  ],
+  "derived_answer": "B",
+  "actual_answer_content": "Existing squares in row-major order, top to bottom and left to right, skipping empty positions: G G G G G B W B W",
+  "unique_matching_options": [
+    "B"
+  ],
+  "option_checks": {
+    "A": {
+      "matches": false,
+      "mismatch_count": 2,
+      "differences": [
+        {
+          "cell_id": "cell_r1c1",
+          "row_1_based": 1,
+          "column_1_based": 1,
+          "required": "G",
+          "shown": "W"
+        },
+        {
+          "cell_id": "cell_r3c1",
+          "row_1_based": 3,
+          "column_1_based": 1,
+          "required": "W",
+          "shown": "G"
+        }
+      ]
+    },
+    "B": {
+      "matches": true,
+      "mismatch_count": 0,
+      "differences": []
+    },
+    "C": {
+      "matches": false,
+      "mismatch_count": 3,
+      "differences": [
+        {
+          "cell_id": "cell_r1c1",
+          "row_1_based": 1,
+          "column_1_based": 1,
+          "required": "G",
+          "shown": "W"
+        },
+        {
+          "cell_id": "cell_r3c1",
+          "row_1_based": 3,
+          "column_1_based": 1,
+          "required": "W",
+          "shown": "G"
+        },
+        {
+          "cell_id": "cell_r3c3",
+          "row_1_based": 3,
+          "column_1_based": 3,
+          "required": "W",
+          "shown": "G"
+        }
+      ]
+    },
+    "D": {
+      "matches": false,
+      "mismatch_count": 2,
+      "differences": [
+        {
+          "cell_id": "cell_r3c1",
+          "row_1_based": 3,
+          "column_1_based": 1,
+          "required": "W",
+          "shown": "G"
+        },
+        {
+          "cell_id": "cell_r3c3",
+          "row_1_based": 3,
+          "column_1_based": 3,
+          "required": "W",
+          "shown": "G"
+        }
+      ]
+    },
+    "E": {
+      "matches": false,
+      "mismatch_count": 1,
+      "differences": [
+        {
+          "cell_id": "cell_r1c1",
+          "row_1_based": 1,
+          "column_1_based": 1,
+          "required": "G",
+          "shown": "B"
+        }
+      ]
+    }
+  },
+  "cell_transfer_tables": {
+    "cell_r1c1": {
+      "B": "G",
+      "G": "G",
+      "W": "G"
+    },
+    "cell_r1c2": {
+      "B": "G",
+      "G": "G",
+      "W": "G"
+    },
+    "cell_r1c3": {
+      "B": "G",
+      "G": "G",
+      "W": "G"
+    },
+    "cell_r2c1": {
+      "B": "B",
+      "G": "G",
+      "W": "G"
+    },
+    "cell_r2c2": {
+      "B": "B",
+      "G": "G",
+      "W": "G"
+    },
+    "cell_r2c3": {
+      "B": "B",
+      "G": "G",
+      "W": "G"
+    },
+    "cell_r3c1": {
+      "B": "B",
+      "G": "W",
+      "W": "W"
+    },
+    "cell_r3c2": {
+      "B": "B",
+      "G": "W",
+      "W": "W"
+    },
+    "cell_r3c3": {
+      "B": "B",
+      "G": "W",
+      "W": "W"
+    }
+  },
+  "basis_checks": 27,
+  "all_starting_patterns_covered_by_cellwise_proof": 19683,
+  "cellwise_proof": "Each rule acts on one square using only its colour and a fixed position mask. There is no dependence on neighbouring colours. The 3 input colours at each position therefore cover all possible whole-pattern inputs.",
+  "swap_checks": [],
+  "original_only_misinterpretation": [
+    "W",
+    "G",
+    "G",
+    "G",
+    "G",
+    "B",
+    "G",
+    "B",
+    "W"
+  ],
+  "original_only_differs_from_correct": true,
+  "rotation_reflection_translation_permission": "No rotation, reflection, or movement is permitted by the question. Compare fixed displayed positions.",
+  "geometry_checks": {
+    "cell_count": 9,
+    "unit_squares": true,
+    "all_six_panel_topologies_identical": true,
+    "side_adjacencies": 12,
+    "every_unique_grid_edge_drawn_once": true
+  },
+  "hashes": {
+    "question.json": "ef774460e04198c91aeda1762335447a9a70540a97a8fb820995838c7cb84485",
+    "math_spec.json": "abc5719e958da0371fc836bdb3e4a2c8f821bd2cbd0d88bd01aae5349517e496",
+    "scene.json": "6373a90590190ee0e3fd5b8c92ddaabd41d1844332136964a2c8d19090f1f58f",
+    "math_check.py": "b75bc62c62f7ce917da7837f6f589572c0af91369dcef6090c34991dea17f9e6"
+  }
+}

@@ -4,7 +4,7 @@
 
 仅用户明确确认的原题进入正式数据。三个分支 `dataset.jsonl` 都只包含正式题；根目录 `question_bank.jsonl` 是 `dataset_tools/catalog.py build` 生成的汇总。不得恢复旧候选清单或把 Special Pass/Collect 当成原题通过。
 
-正式题号统一：当前为 Ana01～Ana51、Ana53～Ana71、Plane01～Plane529、Solid01～Solid263；Ana52 已按用户要求删除，不复用。Analytics 的 DynaMath 使用 Ana01～Ana20，MathVerse 使用 Ana21～Ana45、Ana47～Ana51 与 Ana53～Ana71，MathVista 使用 Ana46；Solid17～Solid25 来自 SOLIDGEO。Plane140～Plane490 与 Solid79～Solid248 来自 MathVision。Plane491～Plane511 与 Solid249～Solid257 为 Author Designed。Plane512～Plane529 与 Solid258～Solid263 为用户授权直接入库的24道拓展题。所有原创题来源按用户最新要求统一为 `Author Designed`，历史原话保留。题源以各分支 `dataset.jsonl` 为准。新增题号继续递增，不复用、不建立另一套 formal/candidate 编号。
+正式题号统一：当前为 Ana01～Ana51、Ana53～Ana71、Plane01～Plane599、Solid01～Solid288；Ana52 已按用户要求删除，不复用。Analytics 的 DynaMath 使用 Ana01～Ana20，MathVerse 使用 Ana21～Ana45、Ana47～Ana51 与 Ana53～Ana71，MathVista 使用 Ana46；Solid17～Solid25 来自 SOLIDGEO。Plane140～Plane490 与 Solid79～Solid248 来自 MathVision。Plane491～Plane511 与 Solid249～Solid257 为 Author Designed。Plane512～Plane529 与 Solid258～Solid263 为用户授权直接入库的24道拓展题。Plane530～Plane599 与 Solid264～Solid288 为用户于2026-11-05批准入库的95道同题型拓展原题，父题映射见 `provenance/author_extensions95_20261105.json`；本轮未创建 Specialvar 或 Collect。所有原创题来源按用户最新要求统一为 `Author Designed`，历史原话保留。题源以各分支 `dataset.jsonl` 为准。新增题号继续递增，不复用、不建立另一套 formal/candidate 编号。
 
 用户通过原话、时间及当前内容指纹在 `provenance/approvals.json`。改题干、答案、绘图输入或原图时，须用户重新确认后更新记录。迁移仅在题干、答案及像素一致的核验通过后更新路径/编号指纹，保留旧指纹和原审核时间。
 

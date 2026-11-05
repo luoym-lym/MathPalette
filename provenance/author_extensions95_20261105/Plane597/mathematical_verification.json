@@ -1,0 +1,570 @@
+{
+  "status": "verified",
+  "arithmetic": "fractions.Fraction throughout",
+  "method": "Reconstruct from public ratio/intersection conditions; planar half-edge face enumeration; exact shoelace and independent vertical-slab integration; rational polygon clipping for every face pair.",
+  "computed_areas": {
+    "I": "1/3",
+    "II": "1/6",
+    "III": "1/5"
+  },
+  "all_pairwise_relations": {
+    "I vs II": ">",
+    "I vs III": ">",
+    "II vs III": "<"
+  },
+  "option_truth_values": {
+    "A": false,
+    "B": false,
+    "C": true,
+    "D": false,
+    "E": false
+  },
+  "unique_correct_choice": "C",
+  "correct_content": "$S_{II} < S_{III} < S_{I}$",
+  "panels": {
+    "I": {
+      "shaded_area": "1/3",
+      "unshaded_area": "2/3",
+      "partition_area": "1",
+      "face_count": 4,
+      "faces": [
+        {
+          "face_index": 0,
+          "vertices": [
+            [
+              "0",
+              "0"
+            ],
+            [
+              "1/3",
+              "2/3"
+            ],
+            [
+              "0",
+              "1"
+            ]
+          ],
+          "sample": [
+            "1/9",
+            "5/9"
+          ],
+          "area": "1/6",
+          "shaded": false
+        },
+        {
+          "face_index": 1,
+          "vertices": [
+            [
+              "0",
+              "0"
+            ],
+            [
+              "1",
+              "0"
+            ],
+            [
+              "1/3",
+              "2/3"
+            ]
+          ],
+          "sample": [
+            "4/9",
+            "2/9"
+          ],
+          "area": "1/3",
+          "shaded": true
+        },
+        {
+          "face_index": 2,
+          "vertices": [
+            [
+              "0",
+              "1"
+            ],
+            [
+              "1/3",
+              "2/3"
+            ],
+            [
+              "1/2",
+              "1"
+            ]
+          ],
+          "sample": [
+            "5/18",
+            "8/9"
+          ],
+          "area": "1/12",
+          "shaded": false
+        },
+        {
+          "face_index": 3,
+          "vertices": [
+            [
+              "1/3",
+              "2/3"
+            ],
+            [
+              "1",
+              "0"
+            ],
+            [
+              "1",
+              "1"
+            ],
+            [
+              "1/2",
+              "1"
+            ]
+          ],
+          "sample": [
+            "17/24",
+            "2/3"
+          ],
+          "area": "5/12",
+          "shaded": false
+        }
+      ],
+      "pairwise_overlap_checks": [
+        {
+          "a": 0,
+          "b": 1,
+          "overlap": "0"
+        },
+        {
+          "a": 0,
+          "b": 2,
+          "overlap": "0"
+        },
+        {
+          "a": 1,
+          "b": 2,
+          "overlap": "0"
+        },
+        {
+          "a": 0,
+          "b": 3,
+          "overlap": "0"
+        },
+        {
+          "a": 1,
+          "b": 3,
+          "overlap": "0"
+        },
+        {
+          "a": 2,
+          "b": 3,
+          "overlap": "0"
+        }
+      ],
+      "construction_checks": [
+        {
+          "id": "M",
+          "exact_xy": [
+            "1/2",
+            "1"
+          ],
+          "construction": {
+            "id": "M",
+            "op": "ratio",
+            "from": "D",
+            "to": "C",
+            "t": "1/2"
+          }
+        },
+        {
+          "id": "X",
+          "exact_xy": [
+            "1/3",
+            "2/3"
+          ],
+          "construction": {
+            "id": "X",
+            "op": "intersection",
+            "lines": [
+              "A",
+              "M",
+              "B",
+              "D"
+            ]
+          }
+        }
+      ],
+      "area_methods_agree": true,
+      "coverage_verified": true,
+      "all_shade_boundaries_drawn": true
+    },
+    "II": {
+      "shaded_area": "1/6",
+      "unshaded_area": "5/6",
+      "partition_area": "1",
+      "face_count": 4,
+      "faces": [
+        {
+          "face_index": 0,
+          "vertices": [
+            [
+              "0",
+              "0"
+            ],
+            [
+              "2/3",
+              "1/3"
+            ],
+            [
+              "0",
+              "1"
+            ]
+          ],
+          "sample": [
+            "2/9",
+            "4/9"
+          ],
+          "area": "1/3",
+          "shaded": false
+        },
+        {
+          "face_index": 1,
+          "vertices": [
+            [
+              "0",
+              "0"
+            ],
+            [
+              "1",
+              "0"
+            ],
+            [
+              "2/3",
+              "1/3"
+            ]
+          ],
+          "sample": [
+            "5/9",
+            "1/9"
+          ],
+          "area": "1/6",
+          "shaded": true
+        },
+        {
+          "face_index": 2,
+          "vertices": [
+            [
+              "0",
+              "1"
+            ],
+            [
+              "2/3",
+              "1/3"
+            ],
+            [
+              "1",
+              "1/2"
+            ],
+            [
+              "1",
+              "1"
+            ]
+          ],
+          "sample": [
+            "2/3",
+            "17/24"
+          ],
+          "area": "5/12",
+          "shaded": false
+        },
+        {
+          "face_index": 3,
+          "vertices": [
+            [
+              "2/3",
+              "1/3"
+            ],
+            [
+              "1",
+              "0"
+            ],
+            [
+              "1",
+              "1/2"
+            ]
+          ],
+          "sample": [
+            "8/9",
+            "5/18"
+          ],
+          "area": "1/12",
+          "shaded": false
+        }
+      ],
+      "pairwise_overlap_checks": [
+        {
+          "a": 0,
+          "b": 1,
+          "overlap": "0"
+        },
+        {
+          "a": 0,
+          "b": 2,
+          "overlap": "0"
+        },
+        {
+          "a": 1,
+          "b": 2,
+          "overlap": "0"
+        },
+        {
+          "a": 0,
+          "b": 3,
+          "overlap": "0"
+        },
+        {
+          "a": 1,
+          "b": 3,
+          "overlap": "0"
+        },
+        {
+          "a": 2,
+          "b": 3,
+          "overlap": "0"
+        }
+      ],
+      "construction_checks": [
+        {
+          "id": "R",
+          "exact_xy": [
+            "1",
+            "1/2"
+          ],
+          "construction": {
+            "id": "R",
+            "op": "ratio",
+            "from": "B",
+            "to": "C",
+            "t": "1/2"
+          }
+        },
+        {
+          "id": "X",
+          "exact_xy": [
+            "2/3",
+            "1/3"
+          ],
+          "construction": {
+            "id": "X",
+            "op": "intersection",
+            "lines": [
+              "A",
+              "R",
+              "B",
+              "D"
+            ]
+          }
+        }
+      ],
+      "area_methods_agree": true,
+      "coverage_verified": true,
+      "all_shade_boundaries_drawn": true
+    },
+    "III": {
+      "shaded_area": "1/5",
+      "unshaded_area": "4/5",
+      "partition_area": "1",
+      "face_count": 4,
+      "faces": [
+        {
+          "face_index": 0,
+          "vertices": [
+            [
+              "0",
+              "0"
+            ],
+            [
+              "2/5",
+              "1/5"
+            ],
+            [
+              "0",
+              "1"
+            ]
+          ],
+          "sample": [
+            "2/15",
+            "2/5"
+          ],
+          "area": "1/5",
+          "shaded": true
+        },
+        {
+          "face_index": 1,
+          "vertices": [
+            [
+              "0",
+              "0"
+            ],
+            [
+              "1/2",
+              "0"
+            ],
+            [
+              "2/5",
+              "1/5"
+            ]
+          ],
+          "sample": [
+            "3/10",
+            "1/15"
+          ],
+          "area": "1/20",
+          "shaded": false
+        },
+        {
+          "face_index": 2,
+          "vertices": [
+            [
+              "0",
+              "1"
+            ],
+            [
+              "2/5",
+              "1/5"
+            ],
+            [
+              "1",
+              "1/2"
+            ],
+            [
+              "1",
+              "1"
+            ]
+          ],
+          "sample": [
+            "3/5",
+            "27/40"
+          ],
+          "area": "11/20",
+          "shaded": false
+        },
+        {
+          "face_index": 3,
+          "vertices": [
+            [
+              "2/5",
+              "1/5"
+            ],
+            [
+              "1/2",
+              "0"
+            ],
+            [
+              "1",
+              "0"
+            ],
+            [
+              "1",
+              "1/2"
+            ]
+          ],
+          "sample": [
+            "29/40",
+            "7/40"
+          ],
+          "area": "1/5",
+          "shaded": false
+        }
+      ],
+      "pairwise_overlap_checks": [
+        {
+          "a": 0,
+          "b": 1,
+          "overlap": "0"
+        },
+        {
+          "a": 0,
+          "b": 2,
+          "overlap": "0"
+        },
+        {
+          "a": 1,
+          "b": 2,
+          "overlap": "0"
+        },
+        {
+          "a": 0,
+          "b": 3,
+          "overlap": "0"
+        },
+        {
+          "a": 1,
+          "b": 3,
+          "overlap": "0"
+        },
+        {
+          "a": 2,
+          "b": 3,
+          "overlap": "0"
+        }
+      ],
+      "construction_checks": [
+        {
+          "id": "R",
+          "exact_xy": [
+            "1",
+            "1/2"
+          ],
+          "construction": {
+            "id": "R",
+            "op": "ratio",
+            "from": "B",
+            "to": "C",
+            "t": "1/2"
+          }
+        },
+        {
+          "id": "E",
+          "exact_xy": [
+            "1/2",
+            "0"
+          ],
+          "construction": {
+            "id": "E",
+            "op": "ratio",
+            "from": "A",
+            "to": "B",
+            "t": "1/2"
+          }
+        },
+        {
+          "id": "X",
+          "exact_xy": [
+            "2/5",
+            "1/5"
+          ],
+          "construction": {
+            "id": "X",
+            "op": "intersection",
+            "lines": [
+              "A",
+              "R",
+              "D",
+              "E"
+            ]
+          }
+        }
+      ],
+      "area_methods_agree": true,
+      "coverage_verified": true,
+      "all_shade_boundaries_drawn": true
+    }
+  },
+  "scene_matches_reconstructed_geometry": true,
+  "independent_of_renderer": true,
+  "expected_area_constants_used": false,
+  "allowed_cases": "Fixed flat squares and stated midpoint/trisection constructions. Global scale, translation, rotation and reflection preserve every computed ratio; no hidden alternatives or folding rules.",
+  "input_sha256": {
+    "math_spec.json": "11f614a6eaef4626310c41db39e4cc699bfa54f1f9014c03db60de5d843ce858",
+    "question.json": "b0236bf6b3d9cc84bc12cc374048d5aa233088f46070ef9da26d9b52933e8d5a",
+    "scene.json": "d0c3db4f971a539f0f6f8db6aac0a10f87547164fdaf5887816394c7398dfaa6",
+    "math_check.py": "bf6c2d6515d6cb9c1919020a033373f747949c64c6541748202f0fd08f4003e0"
+  }
+}

@@ -6,7 +6,7 @@ MathPalette 研究统一渲染条件下，视觉标记如何影响视觉语言�
 
 | 内容 | 数量 / 入口 |
 | --- | --- |
-| 正式原题 | [question_bank.jsonl](question_bank.jsonl)，862 条（2026-11-04） |
+| 正式原题 | [question_bank.jsonl](question_bank.jsonl)，957 条（2026-11-05） |
 | Base | 三个分支均未启用，汇总索引中的 `base_plugins` 为空列表 |
 | 已审核 Special | 共 709 张（2026-11-05）：Analytics 116、PlaneGeometry 477、SolidGeometry 116，覆盖 208 道原题。保留原 Pass / Collect 时间；只有完成标记、没有已通过图片的题不计入变体数 |
 | 来源截图 | MathVerse 147 张、MathVista 56 张、SOLIDGEO 9 张、MathVision 521 张，另有 9 张作者提供的参考图；DynaMath 20 题的来源截图在原库中缺失 |
@@ -20,9 +20,13 @@ MathPalette 研究统一渲染条件下，视觉标记如何影响视觉语言�
 | MathVista 来源与署名 | [provenance/mathvista/README.md](provenance/mathvista/README.md)，含完整源记录与入库核验 |
 | SOLIDGEO 来源与清理记录 | [来源署名](provenance/SOLIDGEO_ATTRIBUTION.md)、[保留题目与清理核验](provenance/solidgeo_cleanup.json) |
 
-当前题号为 Ana01～Ana51、Ana53～Ana71、Plane01～Plane529、Solid01～Solid263；Ana52 已按用户要求删除，不复用。Ana01～Ana20 来自 DynaMath，Ana21～Ana45、Ana47～Ana51 与 Ana53～Ana71 来自 MathVerse，Ana46 来自 MathVista。Plane01～Plane16、Plane72～Plane93 与 Plane137～Plane139 来自 MathVerse，Plane17～Plane71 来自 MathVista，Plane94～Plane136 为 Author Designed；Solid01～Solid16 与 Solid26～Solid66 来自 MathVerse，Solid17～Solid25 来自 SOLIDGEO，Solid67～Solid78 为 Author Designed。Plane140～Plane490 与 Solid79～Solid248 来自 MathVision。Plane491～Plane529 与 Solid249～Solid263 均为 Author Designed。图片、绘图类、Special 插件和工作台使用相同题号。清理前编号仅保存在 [迁移记录](provenance/cleanup.json) 中。
+当前题号为 Ana01～Ana51、Ana53～Ana71、Plane01～Plane599、Solid01～Solid288；Ana52 已按用户要求删除，不复用。Ana01～Ana20 来自 DynaMath，Ana21～Ana45、Ana47～Ana51 与 Ana53～Ana71 来自 MathVerse，Ana46 来自 MathVista。Plane01～Plane16、Plane72～Plane93 与 Plane137～Plane139 来自 MathVerse，Plane17～Plane71 来自 MathVista，Plane94～Plane136 为 Author Designed；Solid01～Solid16 与 Solid26～Solid66 来自 MathVerse，Solid17～Solid25 来自 SOLIDGEO，Solid67～Solid78 为 Author Designed。Plane140～Plane490 与 Solid79～Solid248 来自 MathVision。Plane491～Plane529 与 Solid249～Solid263 均为 Author Designed。图片、绘图类、Special 插件和工作台使用相同题号。清理前编号仅保存在 [迁移记录](provenance/cleanup.json) 中。
 
-Plane512～Plane529 与 Solid258～Solid263 是从用户已 Collect 的8道原题各扩展3道得到的24道新题，来源按用户要求写为 `Author Designed`，经明确授权直接入库，题干、答案、冻结几何和重绘像素已核验；[入库记录](provenance/author_expand24_20261103.json) 保存父题映射，用户原话和内容指纹见审核记录。本批 Special 按用户澄清的标准判定：两次独立 quicktest3 的最终答案均错误，且均命中测试前登记的同一诱导机制；错答可以不同，并要求题意清楚、人类正常作答。按用户授权自动保存 Pass。这两次自动 Pass 记录的 `collect_performed` 均为 false，授权本身不包含 Collect。首轮保存5张 Special，图片和证据指纹见[首轮通过记录](provenance/author_expand24_special_pass_20261103.json)；原 Solid258/v013 的撤销原因也保留在该记录中。2026-11-04 再次扫描新增9张 Pass，当时这两份记录合计14张；新增项见[再次扫描通过记录](provenance/author_expand24_special_rescan_20261104.json)。逐题证据目录写在该记录的 `source_evidence_directory`（`.runtime/collect8_rescan_20261104/`，未入库）。现行正式数据中这24题共15张已通过 Special，多出的是 Plane515，它不在上述两份 variants 列表中。24题的 `collection.json` 状态均为 collected：Plane515、Plane518 为普通 Collect（分别1张、4张）；其余多为 `special_case=true` 且 `review_status=pending`。正式原题当前共862道，前述2026-10-31数字为历史快照，最新 Special 数量以 `catalog.py check` 为准。
+2026-11-05，用户以“入库吧。”批准95道同题型拓展原题：19道父题各5道，平面70道为 Plane530～Plane599，立体25道为 Solid264～Solid288，来源均为 `Author Designed`。题干、答案、选项及原题图像与暂存审核版一致；95道的正式入口重绘像素均一致。独立绘图代码按内容指纹冻结，完整构型、投影和可见性保存在正式场景中，来源图均为 `null`。父题映射和迁移核验见[入库记录](provenance/author_extensions95_20261105.json)，用户批准原话和内容指纹见[审核凭据](provenance/approvals.json)。本轮只入原题，Specialvar 留到后续，未执行 Collect。
+
+本批原题直接通过各自脚本重绘，例如 `python -X utf8 -B PlaneGeometry/dataset_generator/plane_plot530.py .runtime/reproduced/Plane530.png` 或 `python -X utf8 -B SolidGeometry/dataset_generator/solid_plot288.py .runtime/reproduced/Solid288.svg`。输出须在正式分支目录之外；PNG 逐次核对已批准像素，SVG 使用相同冻结矢量对象。`author_extensions95_v1` 中的原生代码及各题身份文件均列入正式审核依赖；运行时临时文件只写入 `.runtime/`。
+
+Plane512～Plane529 与 Solid258～Solid263 是从用户已 Collect 的8道原题各扩展3道得到的24道新题，来源按用户要求写为 `Author Designed`，经明确授权直接入库，题干、答案、冻结几何和重绘像素已核验；[入库记录](provenance/author_expand24_20261103.json) 保存父题映射，用户原话和内容指纹见审核记录。本批 Special 按用户澄清的标准判定：两次独立 quicktest3 的最终答案均错误，且均命中测试前登记的同一诱导机制；错答可以不同，并要求题意清楚、人类正常作答。按用户授权自动保存 Pass。这两次自动 Pass 记录的 `collect_performed` 均为 false，授权本身不包含 Collect。首轮保存5张 Special，图片和证据指纹见[首轮通过记录](provenance/author_expand24_special_pass_20261103.json)；原 Solid258/v013 的撤销原因也保留在该记录中。2026-11-04 再次扫描新增9张 Pass，当时这两份记录合计14张；新增项见[再次扫描通过记录](provenance/author_expand24_special_rescan_20261104.json)。逐题证据目录写在该记录的 `source_evidence_directory`（`.runtime/collect8_rescan_20261104/`，未入库）。现行正式数据中这24题共15张已通过 Special，多出的是 Plane515，它不在上述两份 variants 列表中。24题的 `collection.json` 状态均为 collected：Plane515、Plane518 为普通 Collect（分别1张、4张）；其余多为 `special_case=true` 且 `review_status=pending`。该轮入库后正式原题共862道；当前已入库957道，前述2026-10-31数字为历史快照，最新 Special 数量以 `catalog.py check` 为准。
 
 Plane491～Plane505 为用户确认入库的15道原创拓展，来源统一为 `Author Designed`。图中已有的选项均与题干核对；拼块题 Plane503 列出四块拼片的全部六种配对，答案仍为 C（2和3）。本次入库当时未加入配套 Special。其后部分题目已通过工作台保存 Special 并 Collect，现行变体以各题 recipes 与 collection 为准。编号映射、来源关系及选项补全记录见 [入库记录](provenance/authored_extensions_admission_20261031.json)。
 
