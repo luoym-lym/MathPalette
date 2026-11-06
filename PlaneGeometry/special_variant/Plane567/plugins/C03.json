@@ -1,0 +1,60 @@
+{
+  "plugin_schema_version": "1.0.0",
+  "question_id": "Plane567",
+  "category": "C",
+  "operation": "C_manual",
+  "description": "Linewidth variant of v01 (parent C01 transfer): styles option_C in green (#16A34A) with linewidth 1.5pt and adds dual dashed lines (blue #2563EB across [12.5, 2.8]-[15.5, 2.8] and red #DC2626 across [13.5, 2.8]-[14.5, 2.8]).",
+  "intent": "Enhance visual prominence of option C using thicker 1.5pt green outline paired with dual dashed auxiliary lines to direct attention to choice C.",
+  "params": {
+    "actions": [
+      {
+        "type": "set_object_style",
+        "target": "option_C",
+        "color": "#16A34A",
+        "linewidth_pt": 1.5
+      },
+      {
+        "type": "add_line",
+        "id": "board_line_1",
+        "endpoints": [
+          [
+            12.5,
+            2.8
+          ],
+          [
+            15.5,
+            2.8
+          ]
+        ],
+        "color": "#2563EB",
+        "linestyle": "dashed",
+        "linewidth_pt": 1,
+        "dash_pattern_pt": [
+          3.7,
+          1.6
+        ]
+      },
+      {
+        "type": "add_line",
+        "id": "board_line_2",
+        "endpoints": [
+          [
+            13.5,
+            2.8
+          ],
+          [
+            14.5,
+            2.8
+          ]
+        ],
+        "color": "#DC2626",
+        "linestyle": "dashed",
+        "linewidth_pt": 1,
+        "dash_pattern_pt": [
+          3.7,
+          1.6
+        ]
+      }
+    ]
+  }
+}
