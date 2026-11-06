@@ -59,6 +59,21 @@ def scene_png(scene):
     return data, digest
 
 
+def json_constants(value):
+    """Question objects keep filesystem paths; workbench context must stay JSON."""
+    if isinstance(value, Path):
+        return str(value.resolve())
+    if isinstance(value, dict):
+        return {str(key): json_constants(item) for key, item in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [json_constants(item) for item in value]
+    if isinstance(value, np.ndarray):
+        return json_constants(value.tolist())
+    if isinstance(value, np.generic):
+        return json_constants(value.item())
+    return value
+
+
 def geometry_summary(vertices):
     vertices = np.asarray(vertices, dtype=float).reshape(-1, 2)
     finite = vertices[np.isfinite(vertices).all(axis=1)]
@@ -136,7 +151,7 @@ class RendererAdapter:
                             self.questions[qid], self.modules[qid] = cls(), module
                             self.sources[qid] = {"source_file": str(path.resolve()), "source_class": qid,
                                                  "source_dataset": self.questions[qid].source_dataset,
-                                                 "constants": vars(self.questions[qid])}
+                                                 "constants": json_constants(vars(self.questions[qid]))}
             finally:
                 sys.path[:] = old_path
                 sys.dont_write_bytecode = old_bytecode

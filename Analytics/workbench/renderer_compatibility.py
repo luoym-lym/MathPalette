@@ -1,4 +1,4 @@
-"""Exact compatibility for the Ana52 catalog-gap fix; rendering is unchanged."""
+"""Allow recorded renderer hashes whose drawing behavior is unchanged."""
 from workbench_io import ROOT, file_hash, read_json, renderer_fingerprint
 
 
