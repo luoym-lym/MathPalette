@@ -33,22 +33,10 @@ def draw_C05(output_path=None):
 def draw_C06(output_path=None):
     return _draw("C06", output_path)
 
-def draw_C07(output_path=None):
-    return _draw("C07", output_path)
-
-def draw_C08(output_path=None):
-    return _draw("C08", output_path)
-
-def draw_C09(output_path=None):
-    return _draw("C09", output_path)
-
-def draw_C10(output_path=None):
-    return _draw("C10", output_path)
-
 if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser(description='确定性重绘人工通过 C 图')
-    parser.add_argument('slot_id', choices=['C01', 'C02', 'C03', 'C04', 'C05', 'C06', 'C07', 'C08', 'C09', 'C10'])
+    parser.add_argument('slot_id', choices=['C01', 'C02', 'C03', 'C04', 'C05', 'C06'])
     parser.add_argument('--output', type=Path)
     args = parser.parse_args()
     print(json.dumps(_draw(args.slot_id, args.output), ensure_ascii=False))
