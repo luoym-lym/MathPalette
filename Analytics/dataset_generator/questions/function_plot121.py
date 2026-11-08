@@ -25,7 +25,7 @@ class Ana121:
         self.id = 'Ana121'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/847'
-        self.question = 'How many of the three plotted curves intersect the horizontal line y=2 at an x-value in [1,8]?'
+        self.question = 'At x=4, how many of the three curves shown lie above the horizontal line y=1?'
         self.query = self.question
         self.answer = '2'
         self.answer_type = 'number'

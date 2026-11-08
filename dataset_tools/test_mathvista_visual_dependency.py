@@ -6,7 +6,6 @@ protect that audit's exact inputs; they are not an automated proof of semantics.
 """
 from __future__ import annotations
 
-import ast
 import hashlib
 import importlib.util
 import json
@@ -17,24 +16,11 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from dataset_tools import catalog
+from dataset_tools.visual_revision_integrity import (
+    assert_same_renderer, baseline_bytes, baseline_source,
+)
 
 MANIFEST = ROOT / 'provenance/mathvista_visual_dependency_20261108.json'
-METADATA_FIELDS = {'question', 'query', 'answer', 'answer_type', 'choices'}
-
-
-def renderer_fingerprint(source):
-    """Ignore only question/answer metadata, not any executable drawing input."""
-    tree = ast.parse(source)
-    for node in ast.walk(tree):
-        if isinstance(node, ast.FunctionDef) and node.name == '__init__':
-            node.body = [statement for statement in node.body if not (
-                isinstance(statement, ast.Assign)
-                and len(statement.targets) == 1
-                and isinstance(statement.targets[0], ast.Attribute)
-                and isinstance(statement.targets[0].value, ast.Name)
-                and statement.targets[0].value.id == 'self'
-                and statement.targets[0].attr in METADATA_FIELDS)]
-    return hashlib.sha256(ast.dump(tree, include_attributes=False).encode()).hexdigest()
 
 
 class MathVistaVisualDependencyTests(unittest.TestCase):
@@ -69,8 +55,27 @@ class MathVistaVisualDependencyTests(unittest.TestCase):
                     self.assertEqual(getattr(instance, key), value)
                 self.assertEqual(instance.query, row['question'])
                 self.assertEqual(hasattr(instance, 'choices'), row['answer_type'] == 'choice')
-                self.assertEqual(renderer_fingerprint(script.read_text(encoding='utf-8')),
-                                 revision['renderer_ast_sha256'])
+                baseline = baseline_source(ROOT, self.manifest['base_commit'],
+                                           f'Analytics/{row["script"]}')
+                assert_same_renderer(baseline, script.read_text(encoding='utf-8'), qid)
+
+    def test_renderer_comparison_ignores_only_literal_review_metadata(self):
+        before = "class Q:\n def __init__(self):\n  self.question = 'before'\n  self.query = self.question\n  self.answer = 1\n  self.scale = 2\n def draw(self):\n  return self.scale\n"
+        after = before.replace("'before'", "'after'").replace('self.answer = 1', 'self.answer = 3')
+        assert_same_renderer(before, after, 'fixture')
+        for changed in (after.replace('self.scale = 2', 'self.scale = 5'),
+                        after.replace('return self.scale', 'return -self.scale'),
+                        after.replace("'after'", 'change_renderer()')):
+            with self.subTest(source=changed), self.assertRaisesRegex(ValueError, 'rendering code changed'):
+                assert_same_renderer(before, changed, 'fixture')
+
+    def test_baseline_unavailable_or_unpinned_fails_closed(self):
+        for commit, relative in [('master', 'missing.py'),
+                                 (self.manifest['base_commit'], '../missing.py')]:
+            with self.subTest(commit=commit, relative=relative), self.assertRaises(ValueError):
+                baseline_source(ROOT, commit, relative)
+        with self.assertRaisesRegex(RuntimeError, 'fetch that commit'):
+            baseline_source(ROOT, self.manifest['base_commit'], 'missing-renderer-fixture.py')
 
     def test_visual_evidence_and_alternative_graph_for_every_item(self):
         for qid, revision in self.revisions.items():
@@ -104,10 +109,27 @@ class MathVistaVisualDependencyTests(unittest.TestCase):
             with self.subTest(qid=qid):
                 for relative, fingerprint in revision['preserved_files'].items():
                     self.assertEqual(catalog.file_hash(ROOT / relative), fingerprint)
+                for relative, change in revision.get('revised_files', {}).items():
+                    self.assertEqual(catalog.file_hash(ROOT / relative), change['current_sha256'])
+                    self.assertEqual(hashlib.sha256(baseline_bytes(
+                        ROOT, self.manifest['base_commit'], relative)).hexdigest(), change['previous_sha256'])
                 with Image.open(ROOT / 'Analytics' / self.rows[qid]['image']) as image:
                     self.assertEqual(image.size, (768, 768))
                     self.assertIn(image.mode, ('RGB', 'RGBA'))
                     self.assertEqual(image.convert('RGBA').getchannel('A').getextrema(), (255, 255))
+
+    def test_ana121_visual_revision_removes_only_formula_labels(self):
+        changed = {qid for qid, r in self.revisions.items() if r.get('render_change_expected')}
+        self.assertEqual(changed, {'Ana121'})
+        relative = 'Analytics/dataset_generator/scenes/Ana121.json'
+        before = json.loads(baseline_source(ROOT, self.manifest['base_commit'], relative))
+        after = catalog.read(ROOT / relative)
+        self.assertEqual(len(before['labels']), 3)
+        self.assertEqual(after['labels'], [])
+        before['labels'] = []
+        self.assertEqual(before, after)  # Every frozen curve sample and axis is unchanged.
+        self.assertEqual(set(self.revisions['Ana121']['revised_files']), {
+            relative, 'Analytics/image/Ana121.png'})
 
     def test_formal_index_and_explicit_reapproval_are_synchronized(self):
         bank = {row['id']: row for row in catalog.rows(ROOT / 'question_bank.jsonl')}
@@ -130,8 +152,8 @@ class MathVistaVisualDependencyTests(unittest.TestCase):
                         self.assertEqual(approvals[row['id']], revision['current_approval'])
                         self.assertEqual(current, approvals[row['id']]['content_sha256'])
                         self.assertEqual(approvals[row['id']]['instruction'], self.manifest['approval_instruction'])
-                        self.assertEqual(approvals[row['id']]['previous_content_sha256'],
-                                         revision['previous_approval']['content_sha256'])
+                        prior = (revision.get('approval_history') or [revision['previous_approval']])[-1]
+                        self.assertEqual(approvals[row['id']]['previous_content_sha256'], prior['content_sha256'])
                     else:
                         self.assertEqual(current, approvals[row['id']]['content_sha256'])
         self.assertEqual(len(bank), 1018)

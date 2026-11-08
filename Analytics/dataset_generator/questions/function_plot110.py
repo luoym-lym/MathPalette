@@ -25,9 +25,9 @@ class Ana110:
         self.id = 'Ana110'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/715'
-        self.question = 'Using the graph of f, determine all x in the interval [-4,2] for which f(x)>0.'
+        self.question = 'Using the graph of f, determine all x in the interval [-4,2] for which f(x)>0. Write your answer in interval notation (a, b).'
         self.query = self.question
-        self.answer = '(-4,-1)'
+        self.answer = '(-4, -1)'
         self.answer_type = 'expression'
         self.subject = "Analytics"
         self.level = None

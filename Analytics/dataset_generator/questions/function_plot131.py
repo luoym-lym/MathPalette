@@ -25,7 +25,7 @@ class Ana131:
         self.id = 'Ana131'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/997'
-        self.question = 'For what open interval of x-values is the curve labelled U below the line labelled E?'
+        self.question = 'For what open interval of x-values is the curve labelled U below the line labelled E? Write your answer in interval notation (a, b).'
         self.query = self.question
         self.answer = '(-2, 2)'
         self.answer_type = 'expression'

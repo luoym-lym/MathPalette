@@ -2584,8 +2584,8 @@
         }
       },
       "after": {
-        "question": "Using the graph of f, determine all x in the interval [-4,2] for which f(x)>0.",
-        "answer": "(-4,-1)",
+        "question": "Using the graph of f, determine all x in the interval [-4,2] for which f(x)>0. Write your answer in interval notation (a, b).",
+        "answer": "(-4, -1)",
         "answer_type": "expression"
       },
       "previous_approval": {
@@ -2603,28 +2603,46 @@
       "renderer_ast_sha256": "72a94b1415a07c09f18604235c2fc10bcdec99e1aa0d03b5b2d803fedd5b76ff",
       "independent_audit": {
         "text_only_unique": false,
-        "image_answer": "(-4,-1)",
+        "image_answer": "(-4, -1)",
         "agrees": true,
         "issue": null,
         "inspected_image": "Analytics/image/Ana110.png",
         "image_sha256": "7cb33905752df9bd16e495a77f3e51c4ebbd0bd835ac2c963d31cbcde0bb661e",
         "inspected_scene": "Analytics/dataset_generator/scenes/Ana110.json",
-        "visual_reasoning": "Curve above axis only between -4 and -1 in requested interval.",
-        "text_only_review": "Question and options leave the required plotted values, shape, labels or shading unspecified; no unique answer without image.",
+        "visual_reasoning": "The curve crosses the x-axis at -4, -1 and 2. Within the specified closed domain [-4,2], it is above the axis only between -4 and -1. Strict positivity excludes both endpoints. Reflecting the curve across the x-axis gives (-1,2), still one open interval, so the prompt alone cannot determine the answer.",
         "counterfactual_valid": true,
         "global_extrapolation_required": false,
-        "question_sha256": "7581f09f8c6cd4c16665040dac8eb57fcb056da9a773034755691e76e93ee43a"
+        "question_sha256": "0a4e071d8e378d047e112acc3ff8cb13f14d19ea48719f575d28bbaecacde5c5"
       },
-      "proposed_content_sha256": "2dd1df68229b54373dd35eda1cb9ece4adf4048787c43f0e42b3c9f89ff6917a",
+      "proposed_content_sha256": "55ea8cfd43ffde05bb26f1cd966f2aca5551d7683ae7f9cc3261a75ae42673b9",
       "current_approval": {
         "id": "Ana110",
         "branch": "Analytics",
         "reviewer": "user",
         "instruction": "不用审核，你就默认我审核过了。\n如果我觉得有问题我可以自己在工作台里面调整。你的题目修改之后直接提交到工作台",
-        "approved_at_utc": "2026-11-08T09:04:11.037904+00:00",
-        "content_sha256": "2dd1df68229b54373dd35eda1cb9ece4adf4048787c43f0e42b3c9f89ff6917a",
-        "previous_content_sha256": "73680781aaf006ae0af78b5df8229e7c6cbdcd3e09ea3e6c917b17dbf0886058"
-      }
+        "approved_at_utc": "2026-11-08T09:46:18.532902+00:00",
+        "content_sha256": "55ea8cfd43ffde05bb26f1cd966f2aca5551d7683ae7f9cc3261a75ae42673b9",
+        "previous_content_sha256": "2dd1df68229b54373dd35eda1cb9ece4adf4048787c43f0e42b3c9f89ff6917a"
+      },
+      "approval_history": [
+        {
+          "id": "Ana110",
+          "branch": "Analytics",
+          "approved_at_utc": "2026-11-08T09:04:11.037904+00:00",
+          "content_sha256": "2dd1df68229b54373dd35eda1cb9ece4adf4048787c43f0e42b3c9f89ff6917a",
+          "public_record_url": "https://github.com/luoym-lym/MathPalette/blob/58675d0adeac36d6ec752921349f9bfa90e2154f/provenance/approvals.json"
+        }
+      ],
+      "review_refinements": [
+        {
+          "previous_record": {
+            "question": "Using the graph of f, determine all x in the interval [-4,2] for which f(x)>0.",
+            "answer": "(-4,-1)",
+            "answer_type": "expression"
+          },
+          "reason": "Clarify interval notation and/or normalize option capitalization without changing the mathematics."
+        }
+      ]
     },
     {
       "id": "Ana111",
@@ -3279,11 +3297,11 @@
     },
     {
       "id": "Ana121",
-      "removed_shortcut": "Removed the text list of logarithm formulas and the formula-only derivative comparison.",
-      "visual_evidence": "At y=2, the upper curve crosses at x=4 and the middle curve near x=7.4; the lowest curve remains below 1 in this interval.",
-      "solution": "Two of the three curves reach the horizontal level y=2 between x=1 and x=8.",
+      "removed_shortcut": "Removed all three formula labels from the image and replaced the near-boundary y=2 crossing test with a wider-margin ordinate comparison at x=4.",
+      "visual_evidence": "At x=4 the upper and middle curves are above y=1; the lower curve is below. No function formulas appear in the image.",
+      "solution": "The three visible ordinates are about 2, 1.39, and 0.60, so exactly two exceed 1.",
       "counterfactual": {
-        "description": "Replace the lowest curve with a curve through (1,0) and (6,2), keeping the other two curves.",
+        "description": "Translate all three curves upward by 2. At x=4 all three then lie above y=1, while the question text stays identical.",
         "answer": "3"
       },
       "image_inspected": true,
@@ -3298,7 +3316,7 @@
         }
       },
       "after": {
-        "question": "How many of the three plotted curves intersect the horizontal line y=2 at an x-value in [1,8]?",
+        "question": "At x=4, how many of the three curves shown lie above the horizontal line y=1?",
         "answer": "2",
         "answer_type": "number"
       },
@@ -3310,9 +3328,7 @@
         "public_record_url": "https://github.com/luoym-lym/MathPalette/blob/00d3dbda9f314511194a21954bcedde9468e1d27/provenance/approvals.json"
       },
       "preserved_files": {
-        "Analytics/image/Ana121.png": "6226dd529adc2682f6e5643df012b31028b017b6c519aa5febe96d56c43910f7",
-        "Analytics/originals/Ana121.jpg": "e096f119e88faeeea81680cd46c55cec3748e0a24e7268b5a5ca06f7bfaffde6",
-        "Analytics/dataset_generator/scenes/Ana121.json": "f78d72cbdcf488296a65d3b8c564947fab73a80eef2d0d40edac4804833a5308"
+        "Analytics/originals/Ana121.jpg": "e096f119e88faeeea81680cd46c55cec3748e0a24e7268b5a5ca06f7bfaffde6"
       },
       "renderer_ast_sha256": "9d726bc3c0e1cad7381132f924f4178b3e1d6d2bf48211446abbefe236c14585",
       "independent_audit": {
@@ -3321,23 +3337,61 @@
         "agrees": true,
         "issue": null,
         "inspected_image": "Analytics/image/Ana121.png",
-        "image_sha256": "6226dd529adc2682f6e5643df012b31028b017b6c519aa5febe96d56c43910f7",
+        "image_sha256": "f323ff93017550263681c0d3d3048518a1e3ab23b1bfe7a045b218c54b20de46",
         "inspected_scene": "Analytics/dataset_generator/scenes/Ana121.json",
-        "visual_reasoning": "Top two curves cross y=2 before x=8; lowest does not.",
-        "text_only_review": "Question and options leave the required plotted values, shape, labels or shading unspecified; no unique answer without image.",
+        "visual_reasoning": "The displayed image contains no formula labels and scene labels/figure_labels are empty. At x=4 the three frozen curves have interpolated heights [1.9999989165753411, 1.3862936101916001, 0.6020596652194121], so exactly two are above y=1. Minimum clearance is approximately 0.386 units (about 15 pixels), substantially greater than the former ~3-pixel boundary margin. Curve points are unchanged from HEAD. Translating all three curves up by 2 makes all three heights greater than 1, giving answer 3 under the identical prompt.",
         "counterfactual_valid": true,
         "global_extrapolation_required": false,
-        "question_sha256": "62d76a7af0bf552c3937e98533e15b45de285a6f39a7389f7d526750d35847a6"
+        "question_sha256": "793e0ce225d188d0a0f46078d720e86bd384957d9921759f8ba13e7769eb0399"
       },
-      "proposed_content_sha256": "a3e26c105a5da6cbbbab880ff295d0d6b7c78b1fc570e659290fe5debe5bda6f",
+      "proposed_content_sha256": "3d9ed37f3ee604523fbee193394e42d582b846220b40eb6520981b480bc0758c",
       "current_approval": {
         "id": "Ana121",
         "branch": "Analytics",
         "reviewer": "user",
         "instruction": "不用审核，你就默认我审核过了。\n如果我觉得有问题我可以自己在工作台里面调整。你的题目修改之后直接提交到工作台",
-        "approved_at_utc": "2026-11-08T09:04:11.050694+00:00",
-        "content_sha256": "a3e26c105a5da6cbbbab880ff295d0d6b7c78b1fc570e659290fe5debe5bda6f",
-        "previous_content_sha256": "8e55ad11dca48bd83cec66f536ca1fc0784593d5ad36e86e2b2de5087d414ce7"
+        "approved_at_utc": "2026-11-08T09:46:18.535532+00:00",
+        "content_sha256": "3d9ed37f3ee604523fbee193394e42d582b846220b40eb6520981b480bc0758c",
+        "previous_content_sha256": "a3e26c105a5da6cbbbab880ff295d0d6b7c78b1fc570e659290fe5debe5bda6f"
+      },
+      "approval_history": [
+        {
+          "id": "Ana121",
+          "branch": "Analytics",
+          "approved_at_utc": "2026-11-08T09:04:11.050694+00:00",
+          "content_sha256": "a3e26c105a5da6cbbbab880ff295d0d6b7c78b1fc570e659290fe5debe5bda6f",
+          "public_record_url": "https://github.com/luoym-lym/MathPalette/blob/58675d0adeac36d6ec752921349f9bfa90e2154f/provenance/approvals.json"
+        }
+      ],
+      "review_refinements": [
+        {
+          "previous_record": {
+            "question": "How many of the three plotted curves intersect the horizontal line y=2 at an x-value in [1,8]?",
+            "answer": "2",
+            "answer_type": "number"
+          },
+          "reason": "Remove image formula labels and use a larger visual decision margin."
+        }
+      ],
+      "render_change_expected": true,
+      "render_environment": {
+        "python": "3.13.9",
+        "numpy": "2.5.3",
+        "matplotlib": "3.11.2",
+        "pillow": "12.3.0",
+        "freetype": "2.14.3"
+      },
+      "revised_files": {
+        "Analytics/dataset_generator/scenes/Ana121.json": {
+          "previous_sha256": "f78d72cbdcf488296a65d3b8c564947fab73a80eef2d0d40edac4804833a5308",
+          "current_sha256": "379c718546a0c81d257838a40c919618e1cf59999e2585c89322329725fcb330",
+          "reason": "Remove only the three formula labels; all frozen curve coordinates and axis settings are unchanged."
+        },
+        "Analytics/image/Ana121.png": {
+          "previous_sha256": "6226dd529adc2682f6e5643df012b31028b017b6c519aa5febe96d56c43910f7",
+          "current_sha256": "f323ff93017550263681c0d3d3048518a1e3ab23b1bfe7a045b218c54b20de46",
+          "reason": "Remove only the three formula labels; all frozen curve coordinates and axis settings are unchanged."
+        }
       }
     },
     {
@@ -3581,10 +3635,10 @@
         "description": "Reflect the curve across the y-axis.",
         "answer": "A",
         "choices": {
-          "A": "Positive",
-          "B": "Negative",
-          "C": "Zero",
-          "D": "Undefined"
+          "A": "positive",
+          "B": "negative",
+          "C": "zero",
+          "D": "undefined"
         }
       },
       "image_inspected": true,
@@ -3600,14 +3654,14 @@
         }
       },
       "after": {
-        "question": "What is the sign of the slope of the curve shown at x=0?\nChoices:\nA: Positive\nB: Negative\nC: Zero\nD: Undefined",
+        "question": "What is the sign of the slope of the curve shown at x=0?\nChoices:\nA: positive\nB: negative\nC: zero\nD: undefined",
         "answer": "B",
         "answer_type": "choice",
         "choices": {
-          "A": "Positive",
-          "B": "Negative",
-          "C": "Zero",
-          "D": "Undefined"
+          "A": "positive",
+          "B": "negative",
+          "C": "zero",
+          "D": "undefined"
         }
       },
       "previous_approval": {
@@ -3631,22 +3685,46 @@
         "inspected_image": "Analytics/image/Ana126.png",
         "image_sha256": "11ff7e9453f38b2d305d6aad749f9c667f52ed7bad49a722afaf5d85a75cb85b",
         "inspected_scene": "Analytics/dataset_generator/scenes/Ana126.json",
-        "visual_reasoning": "Curve decreases smoothly at x=0.",
-        "text_only_review": "Question and options leave the required plotted values, shape, labels or shading unspecified; no unique answer without image.",
+        "visual_reasoning": "The curve decreases smoothly through x=0, giving negative slope and choice B. Reflection across the y-axis gives positive slope and choice A without changing the prompt.",
         "counterfactual_valid": true,
         "global_extrapolation_required": false,
-        "question_sha256": "8b5f02bc2b11a772720906d45f06276cf479c93fdb916af9731f10f6998ecb8c"
+        "question_sha256": "dcd6aa0f811dbe3e00f20f9e5f282bf835d91d5fbb12835a3eef67be17c3fd77"
       },
-      "proposed_content_sha256": "3ead2f01c1403aaf8341eceae4be09778fc451f4d1d386e7382ecc47a5e5252c",
+      "proposed_content_sha256": "0e8a01225c4025f0d0a6a66c549f3c98df2acc6bf4416b98ae54976d807595f9",
       "current_approval": {
         "id": "Ana126",
         "branch": "Analytics",
         "reviewer": "user",
         "instruction": "不用审核，你就默认我审核过了。\n如果我觉得有问题我可以自己在工作台里面调整。你的题目修改之后直接提交到工作台",
-        "approved_at_utc": "2026-11-08T09:04:11.055616+00:00",
-        "content_sha256": "3ead2f01c1403aaf8341eceae4be09778fc451f4d1d386e7382ecc47a5e5252c",
-        "previous_content_sha256": "e45ab8dae079f90f119ad85a6cfe89776998f54d9d7f5e997fbdfd7b3dc64388"
-      }
+        "approved_at_utc": "2026-11-08T09:46:18.536531+00:00",
+        "content_sha256": "0e8a01225c4025f0d0a6a66c549f3c98df2acc6bf4416b98ae54976d807595f9",
+        "previous_content_sha256": "3ead2f01c1403aaf8341eceae4be09778fc451f4d1d386e7382ecc47a5e5252c"
+      },
+      "approval_history": [
+        {
+          "id": "Ana126",
+          "branch": "Analytics",
+          "approved_at_utc": "2026-11-08T09:04:11.055616+00:00",
+          "content_sha256": "3ead2f01c1403aaf8341eceae4be09778fc451f4d1d386e7382ecc47a5e5252c",
+          "public_record_url": "https://github.com/luoym-lym/MathPalette/blob/58675d0adeac36d6ec752921349f9bfa90e2154f/provenance/approvals.json"
+        }
+      ],
+      "review_refinements": [
+        {
+          "previous_record": {
+            "question": "What is the sign of the slope of the curve shown at x=0?\nChoices:\nA: Positive\nB: Negative\nC: Zero\nD: Undefined",
+            "answer": "B",
+            "answer_type": "choice",
+            "choices": {
+              "A": "Positive",
+              "B": "Negative",
+              "C": "Zero",
+              "D": "Undefined"
+            }
+          },
+          "reason": "Clarify interval notation and/or normalize option capitalization without changing the mathematics."
+        }
+      ]
     },
     {
       "id": "Ana127",
@@ -3657,9 +3735,9 @@
         "description": "Replace the line segment by y=8-x on [0,8].",
         "answer": "A",
         "choices": {
-          "A": "Larger than",
-          "B": "Equal to",
-          "C": "Smaller than"
+          "A": "larger than",
+          "B": "equal to",
+          "C": "smaller than"
         }
       },
       "image_inspected": true,
@@ -3674,13 +3752,13 @@
         }
       },
       "after": {
-        "question": "For the function shown, the value of y at x=1 is ____ the value at x=7.\nChoices:\nA: Larger than\nB: Equal to\nC: Smaller than",
+        "question": "For the function shown, the value of y at x=1 is ____ the value at x=7.\nChoices:\nA: larger than\nB: equal to\nC: smaller than",
         "answer": "C",
         "answer_type": "choice",
         "choices": {
-          "A": "Larger than",
-          "B": "Equal to",
-          "C": "Smaller than"
+          "A": "larger than",
+          "B": "equal to",
+          "C": "smaller than"
         }
       },
       "previous_approval": {
@@ -3704,22 +3782,45 @@
         "inspected_image": "Analytics/image/Ana127.png",
         "image_sha256": "fff13524a3a259b586bdbfb3794e68849fb3e91ac72a9d6d35c9a97d0f63e538",
         "inspected_scene": "Analytics/dataset_generator/scenes/Ana127.json",
-        "visual_reasoning": "Rising line has ordinate 1 at x=1 and 7 at x=7.",
-        "text_only_review": "Question and options leave the required plotted values, shape, labels or shading unspecified; no unique answer without image.",
+        "visual_reasoning": "At x=1 the line has y=1, and at x=7 it has y=7, so the first is smaller and choice C is correct. Replacing the visible line by y=8-x gives y=7 versus y=1 and choice A.",
         "counterfactual_valid": true,
         "global_extrapolation_required": false,
-        "question_sha256": "eee9b96c1f303a6da8b367af18a0b8f9d9aed3ffe45528f97c157a916e67656f"
+        "question_sha256": "1cbf9581ac9ad8f1eafb019966019a2288606645e3397a0d8cae2bc0e36bd353"
       },
-      "proposed_content_sha256": "b5ea39ff392937791bc206c1a8374f981a565f505c45338584af705289fc6af8",
+      "proposed_content_sha256": "036ebe79cb4074f4490a1423a50b5d35f66cdc79cd57a73f454e452ca07a69ba",
       "current_approval": {
         "id": "Ana127",
         "branch": "Analytics",
         "reviewer": "user",
         "instruction": "不用审核，你就默认我审核过了。\n如果我觉得有问题我可以自己在工作台里面调整。你的题目修改之后直接提交到工作台",
-        "approved_at_utc": "2026-11-08T09:04:11.056336+00:00",
-        "content_sha256": "b5ea39ff392937791bc206c1a8374f981a565f505c45338584af705289fc6af8",
-        "previous_content_sha256": "8a88520cadeda66fbb1b7557b143fc279be4f3dbb78de8611098d3d194c9e00e"
-      }
+        "approved_at_utc": "2026-11-08T09:46:18.537573+00:00",
+        "content_sha256": "036ebe79cb4074f4490a1423a50b5d35f66cdc79cd57a73f454e452ca07a69ba",
+        "previous_content_sha256": "b5ea39ff392937791bc206c1a8374f981a565f505c45338584af705289fc6af8"
+      },
+      "approval_history": [
+        {
+          "id": "Ana127",
+          "branch": "Analytics",
+          "approved_at_utc": "2026-11-08T09:04:11.056336+00:00",
+          "content_sha256": "b5ea39ff392937791bc206c1a8374f981a565f505c45338584af705289fc6af8",
+          "public_record_url": "https://github.com/luoym-lym/MathPalette/blob/58675d0adeac36d6ec752921349f9bfa90e2154f/provenance/approvals.json"
+        }
+      ],
+      "review_refinements": [
+        {
+          "previous_record": {
+            "question": "For the function shown, the value of y at x=1 is ____ the value at x=7.\nChoices:\nA: Larger than\nB: Equal to\nC: Smaller than",
+            "answer": "C",
+            "answer_type": "choice",
+            "choices": {
+              "A": "Larger than",
+              "B": "Equal to",
+              "C": "Smaller than"
+            }
+          },
+          "reason": "Clarify interval notation and/or normalize option capitalization without changing the mathematics."
+        }
+      ]
     },
     {
       "id": "Ana128",
@@ -3932,7 +4033,7 @@
         }
       },
       "after": {
-        "question": "For what open interval of x-values is the curve labelled U below the line labelled E?",
+        "question": "For what open interval of x-values is the curve labelled U below the line labelled E? Write your answer in interval notation (a, b).",
         "answer": "(-2, 2)",
         "answer_type": "expression"
       },
@@ -3957,25 +4058,160 @@
         "inspected_image": "Analytics/image/Ana131.png",
         "image_sha256": "edc0199b743142aff7c189ffa11c1afe771e4c2310a66349c1fe88fe5f33540e",
         "inspected_scene": "Analytics/dataset_generator/scenes/Ana131.json",
-        "visual_reasoning": "U and E intersect at x=-2 and 2; U lies below between them.",
-        "text_only_review": "Question and options leave the required plotted values, shape, labels or shading unspecified; no unique answer without image.",
+        "visual_reasoning": "Visible curve U is below horizontal E between their intersections x=-2 and x=2. Strictly below excludes both endpoints, yielding (-2, 2). Lowering E to y=0.5 gives crossings -1 and 1 and interval (-1, 1). All necessary geometry lies in the displayed window.",
         "counterfactual_valid": true,
         "global_extrapolation_required": false,
-        "question_sha256": "9fdf6432ca8ecf35fd9ecc33706e64660a8c7afa16155ac63dc830df592d3f46"
+        "question_sha256": "858e358a7e17cf4d7134b5f79bf726611d74015839a0a34531324503acf6b6b0"
       },
-      "proposed_content_sha256": "0284468a94d0e6eddf89e7ff762ba073aabb32731091dd2c85bed58cd55b2a67",
+      "proposed_content_sha256": "b2e126b6d892249310d5c1d7f72034d8516cf2079bca12835f6e395a4d2e0bd4",
       "current_approval": {
         "id": "Ana131",
         "branch": "Analytics",
         "reviewer": "user",
         "instruction": "不用审核，你就默认我审核过了。\n如果我觉得有问题我可以自己在工作台里面调整。你的题目修改之后直接提交到工作台",
-        "approved_at_utc": "2026-11-08T09:04:11.061462+00:00",
-        "content_sha256": "0284468a94d0e6eddf89e7ff762ba073aabb32731091dd2c85bed58cd55b2a67",
-        "previous_content_sha256": "ef008904e2722a3086eb3708656b379699c8561f16f57623139e2746ddb31877"
-      }
+        "approved_at_utc": "2026-11-08T09:46:18.538330+00:00",
+        "content_sha256": "b2e126b6d892249310d5c1d7f72034d8516cf2079bca12835f6e395a4d2e0bd4",
+        "previous_content_sha256": "0284468a94d0e6eddf89e7ff762ba073aabb32731091dd2c85bed58cd55b2a67"
+      },
+      "approval_history": [
+        {
+          "id": "Ana131",
+          "branch": "Analytics",
+          "approved_at_utc": "2026-11-08T09:04:11.061462+00:00",
+          "content_sha256": "0284468a94d0e6eddf89e7ff762ba073aabb32731091dd2c85bed58cd55b2a67",
+          "public_record_url": "https://github.com/luoym-lym/MathPalette/blob/58675d0adeac36d6ec752921349f9bfa90e2154f/provenance/approvals.json"
+        }
+      ],
+      "review_refinements": [
+        {
+          "previous_record": {
+            "question": "For what open interval of x-values is the curve labelled U below the line labelled E?",
+            "answer": "(-2, 2)",
+            "answer_type": "expression"
+          },
+          "reason": "Clarify interval notation and/or normalize option capitalization without changing the mathematics."
+        }
+      ]
     }
   ],
   "historical_source_notes": "Existing source notes remain byte-identical to the approved base. Earlier refinements describe the previously approved content. This manifest is the current proposed revision record.",
   "approval_instruction": "不用审核，你就默认我审核过了。\n如果我觉得有问题我可以自己在工作台里面调整。你的题目修改之后直接提交到工作台",
-  "request_summary": "The user requested repository edits and a pull request making all 61 newly admitted MathVista Analytics questions require visual evidence."
+  "request_summary": "The user requested repository edits and a pull request making all 61 newly admitted MathVista Analytics questions require visual evidence.",
+  "renderer_verification": {
+    "method": "same_interpreter_git_baseline_ast",
+    "baseline_commit": "00d3dbda9f314511194a21954bcedde9468e1d27",
+    "legacy_fingerprint_field": "renderer_ast_sha256",
+    "legacy_fingerprint_python": "3.12.14",
+    "legacy_fingerprint_role": "Historical audit information only. ast.dump serialization is version-dependent, so checks parse and compare baseline/current source with the same running interpreter.",
+    "metadata_policy": "Only literal question/query/answer/answer_type/choices assignments and self.query = self.question are excluded; executable metadata expressions remain in the comparison."
+  },
+  "followup_environment": {
+    "python": "3.13.9",
+    "numpy": "2.5.3",
+    "matplotlib": "3.11.2",
+    "pillow": "12.3.0",
+    "freetype": "2.14.3"
+  },
+  "formal_validation": {
+    "environment": {
+      "python": "3.13.9",
+      "numpy": "2.5.3",
+      "matplotlib": "3.11.2",
+      "pillow": "12.3.0",
+      "freetype": "2.14.3"
+    },
+    "published_pixel_matches": 61,
+    "baseline_pixel_matches": 60,
+    "declared_visual_change_count": 1,
+    "expected_change_pattern_matches": true,
+    "regression_tests": {
+      "visual_revision": 8,
+      "answer_schema": 7,
+      "catalog_concurrency": 3,
+      "analytics_special_cases": 7
+    },
+    "full_integrity_suite": "passed",
+    "catalog_check": "passed",
+    "analytics_special_replay": {
+      "total": 146,
+      "passed": 126,
+      "platform_blocked": 20,
+      "reason": "Frozen Windows-style runtime path is a literal nonexistent filename on Linux.",
+      "affected_slots": {
+        "Ana49": [
+          "C01",
+          "C02",
+          "C03",
+          "C04",
+          "C05"
+        ],
+        "Ana54": [
+          "C01",
+          "C02"
+        ],
+        "Ana57": [
+          "C01",
+          "C02"
+        ],
+        "Ana59": [
+          "C01",
+          "C02",
+          "C03",
+          "C04"
+        ],
+        "Ana60": [
+          "C01"
+        ],
+        "Ana67": [
+          "C01",
+          "C02"
+        ],
+        "Ana68": [
+          "C01"
+        ],
+        "Ana70": [
+          "C01",
+          "C02",
+          "C03"
+        ]
+      },
+      "preexisting_evidence": {
+        "compared_commit": "58675d0adeac36d6ec752921349f9bfa90e2154f",
+        "unchanged_owner_scripts": 8,
+        "unchanged_dependency_scene_workbench_files": 19,
+        "normalized_runtime_target_exists": true,
+        "isolated_prior_head_replay_run": false
+      },
+      "all_approved_artifacts_preserved": true,
+      "all_preexisting_baselines_preserved": true
+    }
+  },
+  "authorized_reopen": {
+    "reopened": [
+      "Ana72",
+      "Ana73",
+      "Ana74"
+    ],
+    "active_before": 58,
+    "active_after": 61,
+    "collected_before": 73,
+    "collected_after": 70,
+    "accepted_unchanged": 146,
+    "history_counts": {
+      "Ana72": [
+        0,
+        1
+      ],
+      "Ana73": [
+        0,
+        1
+      ],
+      "Ana74": [
+        0,
+        1
+      ]
+    },
+    "restart_verified": true,
+    "procedure": "Official Workbench.reopen with fresh context tokens; history retained, no accepted variant edited."
+  }
 }
