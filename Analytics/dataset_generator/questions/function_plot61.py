@@ -12,7 +12,7 @@ def build_scene():
     return _runtime().build_scene('analytics_functions',ROOT/'..\\scenes\\Ana61.json')
 class Ana61:
     def __init__(self):
-        self.__dict__.update({'source_dataset': 'MathVerse', 'question': 'Below is the graph of a trigonometric function. What is the midline equation of the function?', 'answer': 'y = 3', 'answer_type': 'expression', 'subject': 'Analytics', 'id': 'Ana61'})
+        self.__dict__.update({'source_dataset': 'MathVerse', 'question': 'A polynomial p is graphed with a positive vertical scale factor. Which expression has exactly the shown real zeros, crossing/touching behavior, and end behavior?\nChoices:\nA:(x+1)^2(2x+5)^2(x-3)^2\nB:(x+1)^2(2x+5)(x-3)^2\nC:(x+1)^2(2x+5)(x-3)\nD:(x+1)(2x+5)(x-3)^2', 'answer': 'B', 'answer_type': 'choice', 'subject': 'Analytics', 'id': 'Ana61', 'choices': {'A': '(x+1)^2(2x+5)^2(x-3)^2', 'B': '(x+1)^2(2x+5)(x-3)^2', 'C': '(x+1)^2(2x+5)(x-3)', 'D': '(x+1)(2x+5)(x-3)^2'}})
         self.query=self.question
         self.level=None
         self.scene_path=ROOT/'..\\scenes\\Ana61.json'

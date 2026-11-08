@@ -12,7 +12,7 @@ def build_scene():
     return _runtime().build_scene('analytics_functions',ROOT/'..\\scenes\\Ana65.json')
 class Ana65:
     def __init__(self):
-        self.__dict__.update({'source_dataset': 'MathVerse', 'question': 'g(x) is shown in the figure, f(x)=x^2+4x. How many roots do the functions have in common?\nChoices:\nA:$f$ and $g$ share the same root(s).\nB:$f$ and $g$ share one root in common but each have another root that is not shared.\nC:$f$ and $g$ share no roots in common.', 'answer': 'C', 'answer_type': 'choice', 'subject': 'Analytics', 'id': 'Ana65', 'choices': {'A': '$f$ and $g$ share the same root(s).', 'B': '$f$ and $g$ share one root in common but each have another root that is not shared.', 'C': '$f$ and $g$ share no roots in common.'}})
+        self.__dict__.update({'source_dataset': 'MathVerse', 'question': 'A positive vertical rescaling of a polynomial is shown. Which expression has its real roots and end behavior?\nChoices:\nA:(x+5)(2x+3)(x-2)\nB:(x-5)(2x-3)(x+2)\nC:(-5x)(-3x/2)(2x)\nD:(5x)(3x/2)(-2x)', 'answer': 'A', 'answer_type': 'choice', 'subject': 'Analytics', 'id': 'Ana65', 'choices': {'A': '(x+5)(2x+3)(x-2)', 'B': '(x-5)(2x-3)(x+2)', 'C': '(-5x)(-3x/2)(2x)', 'D': '(5x)(3x/2)(-2x)'}})
         self.query=self.question
         self.level=None
         self.scene_path=ROOT/'..\\scenes\\Ana65.json'

@@ -12,7 +12,7 @@ def build_scene():
     return _runtime().build_scene('analytics_functions',ROOT/'..\\scenes\\Ana55.json')
 class Ana55:
     def __init__(self):
-        self.__dict__.update({'source_dataset': 'MathVerse', 'question': 'Write an equation for the graphed quadratic function f.', 'answer': 'f(x)=-(x+1)^2+2', 'answer_type': 'expression', 'subject': 'Analytics', 'id': 'Ana55'})
+        self.__dict__.update({'source_dataset': 'MathVerse', 'question': 'There is a quadratic function. Determine the intervals on which the functions are increasing, decreasing, or constant.', 'answer': 'Decreasing on (-infinity,2); increasing on (2,infinity); no constant interval.', 'answer_type': 'expression', 'subject': 'Analytics', 'id': 'Ana55'})
         self.query=self.question
         self.level=None
         self.scene_path=ROOT/'..\\scenes\\Ana55.json'

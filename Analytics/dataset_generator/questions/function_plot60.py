@@ -12,7 +12,7 @@ def build_scene():
     return _runtime().build_scene('analytics_functions',ROOT/'..\\scenes\\Ana60.json')
 class Ana60:
     def __init__(self):
-        self.__dict__.update({'source_dataset': 'MathVerse', 'question': 'Below is the graph of a trigonometric function. What is the midline equation of the function?', 'answer': 'y = 2', 'answer_type': 'expression', 'subject': 'Analytics', 'id': 'Ana60'})
+        self.__dict__.update({'source_dataset': 'MathVerse', 'question': 'Below is the graph of a trigonometric function. What is the midline equation of the function?', 'answer': 'y = 3', 'answer_type': 'expression', 'subject': 'Analytics', 'id': 'Ana60'})
         self.query=self.question
         self.level=None
         self.scene_path=ROOT/'..\\scenes\\Ana60.json'

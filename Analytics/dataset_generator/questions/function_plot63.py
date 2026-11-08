@@ -12,7 +12,7 @@ def build_scene():
     return _runtime().build_scene('analytics_functions',ROOT/'..\\scenes\\Ana63.json')
 class Ana63:
     def __init__(self):
-        self.__dict__.update({'source_dataset': 'MathVerse', 'question': 'Is the discriminant of f positive, zero, or negative?\nChoices:\nA:Positive\nB:Zero\nC:Negative', 'answer': 'B', 'answer_type': 'choice', 'subject': 'Analytics', 'id': 'Ana63', 'choices': {'A': 'Positive', 'B': 'Zero', 'C': 'Negative'}})
+        self.__dict__.update({'source_dataset': 'MathVerse', 'question': 'Is the discriminant of g positive, zero, or negative?\nChoices:\nA:Positive\nB:Zero\nC:Negative', 'answer': 'B', 'answer_type': 'choice', 'subject': 'Analytics', 'id': 'Ana63', 'choices': {'A': 'Positive', 'B': 'Zero', 'C': 'Negative'}})
         self.query=self.question
         self.level=None
         self.scene_path=ROOT/'..\\scenes\\Ana63.json'

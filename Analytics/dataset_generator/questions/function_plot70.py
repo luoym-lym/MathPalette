@@ -7,12 +7,12 @@ def _runtime():
     spec=importlib.util.spec_from_file_location("mathverse_runtime",ROOT/'..\\mathverse_renderers\\runtime.py')
     module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);return module
 def finalize(fig,destination):
-    return _runtime().finalize('analytics_functions',fig,destination)
+    return _runtime().finalize('analytics_frozen',fig,destination)
 def build_scene():
-    return _runtime().build_scene('analytics_functions',ROOT/'..\\scenes\\Ana70.json')
+    return _runtime().build_scene('analytics_frozen',ROOT/'..\\scenes\\Ana70.json')
 class Ana70:
     def __init__(self):
-        self.__dict__.update({'source_dataset': 'MathVerse', 'question': 'Find the equation of the graphed line. Use exact numbers.', 'answer': 'y=x-5', 'answer_type': 'expression', 'subject': 'Analytics', 'id': 'Ana70'})
+        self.__dict__.update({'source_dataset': 'MathVerse', 'question': 'State the diameter.', 'answer': 8, 'answer_type': 'number', 'subject': 'Analytics', 'id': 'Ana70'})
         self.query=self.question
         self.level=None
         self.scene_path=ROOT/'..\\scenes\\Ana70.json'
@@ -27,7 +27,7 @@ class Ana70:
         module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
         if self.subject=="Analytics":
             fig,ax=self.build_scene();return finalize(fig,destination)
-        return module.draw('analytics_functions', self.scene_path, destination)
+        return module.draw('analytics_frozen', self.scene_path, destination)
     def redraw(self, output_path=None):
         return self.draw(output_path=output_path)
 if __name__=="__main__":

@@ -12,7 +12,7 @@ def build_scene():
     return _runtime().build_scene('analytics_functions',ROOT/'..\\scenes\\Ana62.json')
 class Ana62:
     def __init__(self):
-        self.__dict__.update({'source_dataset': 'MathVerse', 'question': 'A polynomial p is graphed with a positive vertical scale factor. Which expression has exactly the shown real zeros, crossing/touching behavior, and end behavior?\nChoices:\nA:(x+1)^2(2x+5)^2(x-3)^2\nB:(x+1)^2(2x+5)(x-3)^2\nC:(x+1)^2(2x+5)(x-3)\nD:(x+1)(2x+5)(x-3)^2', 'answer': 'B', 'answer_type': 'choice', 'subject': 'Analytics', 'id': 'Ana62', 'choices': {'A': '(x+1)^2(2x+5)^2(x-3)^2', 'B': '(x+1)^2(2x+5)(x-3)^2', 'C': '(x+1)^2(2x+5)(x-3)', 'D': '(x+1)(2x+5)(x-3)^2'}})
+        self.__dict__.update({'source_dataset': 'MathVerse', 'question': 'Is the discriminant of f positive, zero, or negative?\nChoices:\nA:Positive\nB:Zero\nC:Negative', 'answer': 'B', 'answer_type': 'choice', 'subject': 'Analytics', 'id': 'Ana62', 'choices': {'A': 'Positive', 'B': 'Zero', 'C': 'Negative'}})
         self.query=self.question
         self.level=None
         self.scene_path=ROOT/'..\\scenes\\Ana62.json'

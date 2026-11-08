@@ -12,7 +12,7 @@ def build_scene():
     return _runtime().build_scene('analytics_functions',ROOT/'..\\scenes\\Ana57.json')
 class Ana57:
     def __init__(self):
-        self.__dict__.update({'source_dataset': 'MathVerse', 'question': 'Write an equation for the transformation of f(x)=|x| as shown in the figure.', 'answer': 'f(x)=abs(x+2)/2+1', 'answer_type': 'expression', 'subject': 'Analytics', 'id': 'Ana57'})
+        self.__dict__.update({'source_dataset': 'MathVerse', 'question': 'What is the slope of the line?', 'answer': '-4', 'answer_type': 'number', 'subject': 'Analytics', 'id': 'Ana57'})
         self.query=self.question
         self.level=None
         self.scene_path=ROOT/'..\\scenes\\Ana57.json'

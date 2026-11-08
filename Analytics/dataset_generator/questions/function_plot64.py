@@ -12,7 +12,7 @@ def build_scene():
     return _runtime().build_scene('analytics_functions',ROOT/'..\\scenes\\Ana64.json')
 class Ana64:
     def __init__(self):
-        self.__dict__.update({'source_dataset': 'MathVerse', 'question': 'Is the discriminant of g positive, zero, or negative?\nChoices:\nA:Positive\nB:Zero\nC:Negative', 'answer': 'B', 'answer_type': 'choice', 'subject': 'Analytics', 'id': 'Ana64', 'choices': {'A': 'Positive', 'B': 'Zero', 'C': 'Negative'}})
+        self.__dict__.update({'source_dataset': 'MathVerse', 'question': 'g(x) is shown in the figure, f(x)=x^2+4x. How many roots do the functions have in common?\nChoices:\nA:$f$ and $g$ share the same root(s).\nB:$f$ and $g$ share one root in common but each have another root that is not shared.\nC:$f$ and $g$ share no roots in common.', 'answer': 'C', 'answer_type': 'choice', 'subject': 'Analytics', 'id': 'Ana64', 'choices': {'A': '$f$ and $g$ share the same root(s).', 'B': '$f$ and $g$ share one root in common but each have another root that is not shared.', 'C': '$f$ and $g$ share no roots in common.'}})
         self.query=self.question
         self.level=None
         self.scene_path=ROOT/'..\\scenes\\Ana64.json'

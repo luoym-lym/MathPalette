@@ -12,7 +12,7 @@ def build_scene():
     return _runtime().build_scene('analytics_functions',ROOT/'..\\scenes\\Ana66.json')
 class Ana66:
     def __init__(self):
-        self.__dict__.update({'source_dataset': 'MathVerse', 'question': 'A positive vertical rescaling of a polynomial is shown. Which expression has its real roots and end behavior?\nChoices:\nA:(x+5)(2x+3)(x-2)\nB:(x-5)(2x-3)(x+2)\nC:(-5x)(-3x/2)(2x)\nD:(5x)(3x/2)(-2x)', 'answer': 'A', 'answer_type': 'choice', 'subject': 'Analytics', 'id': 'Ana66', 'choices': {'A': '(x+5)(2x+3)(x-2)', 'B': '(x-5)(2x-3)(x+2)', 'C': '(-5x)(-3x/2)(2x)', 'D': '(5x)(3x/2)(-2x)'}})
+        self.__dict__.update({'source_dataset': 'MathVerse', 'question': 'A positive vertical rescaling of a polynomial is shown. Which expression has its roots, crossing/touching behavior, and end behavior?\nChoices:\nA:x(x-3)^2(2x+7)\nB:x^2(x-3)(2x+7)\nC:x(x-3)^2(2x+7)^2\nD:x(x-3)(2x+7)^2', 'answer': 'A', 'answer_type': 'choice', 'subject': 'Analytics', 'id': 'Ana66', 'choices': {'A': 'x(x-3)^2(2x+7)', 'B': 'x^2(x-3)(2x+7)', 'C': 'x(x-3)^2(2x+7)^2', 'D': 'x(x-3)(2x+7)^2'}})
         self.query=self.question
         self.level=None
         self.scene_path=ROOT/'..\\scenes\\Ana66.json'

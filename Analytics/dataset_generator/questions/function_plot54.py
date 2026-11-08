@@ -12,7 +12,7 @@ def build_scene():
     return _runtime().build_scene('analytics_functions',ROOT/'..\\scenes\\Ana54.json')
 class Ana54:
     def __init__(self):
-        self.__dict__.update({'source_dataset': 'MathVerse', 'question': 'Write an equation for the graphed function f.', 'answer': 'f(x)=abs(x-3)-2', 'answer_type': 'expression', 'subject': 'Analytics', 'id': 'Ana54'})
+        self.__dict__.update({'source_dataset': 'MathVerse', 'question': 'Write an equation for the graphed quadratic function f.', 'answer': 'f(x)=-(x+1)^2+2', 'answer_type': 'expression', 'subject': 'Analytics', 'id': 'Ana54'})
         self.query=self.question
         self.level=None
         self.scene_path=ROOT/'..\\scenes\\Ana54.json'

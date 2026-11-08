@@ -12,7 +12,7 @@ def build_scene():
     return _runtime().build_scene('analytics_functions',ROOT/'..\\scenes\\Ana53.json')
 class Ana53:
     def __init__(self):
-        self.__dict__.update({'source_dataset': 'MathVerse', 'question': 'Estimate the coordinates of the local maximum and local minimum of the odd function shown.', 'answer': 'Local maximum: approximately (-3,5.4); local minimum: approximately (3,-5.4).', 'answer_type': 'expression', 'subject': 'Analytics', 'id': 'Ana53'})
+        self.__dict__.update({'source_dataset': 'MathVerse', 'question': 'Write an equation for the graphed function f.', 'answer': 'f(x)=abs(x-3)-2', 'answer_type': 'expression', 'subject': 'Analytics', 'id': 'Ana53'})
         self.query=self.question
         self.level=None
         self.scene_path=ROOT/'..\\scenes\\Ana53.json'

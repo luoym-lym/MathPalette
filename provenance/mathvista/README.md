@@ -8,6 +8,8 @@
 
 后续统一数据格式时，选择题答案转为选项字母，场景中的重复题目信息和来源元数据指针已清理；逐题原始来源记录仍保留于本目录，正式数据集名称由 `dataset.jsonl` 的 `source_dataset` 保存。该表示迁移与原始通过记录之间的对应关系见 [schema_normalization.json](../schema_normalization.json)。
 
+2026-11-08，按用户指令将解析几何交付包中除已入库 `testmini/671`（保留既有 `Ana46`）外的 61 道 MathVista 题按数值 PID 升序合入解析几何工作台，编号为 `Ana71`～`Ana131`（合计 MathVista 正式题 117 道：Analytics 62 道、PlaneGeometry 55 道）。各题完整上游源记录同步保存为本目录 `Ana71.json`～`Ana131.json`，入库映射与重绘核验见 [analytics_renumber_and_mathvista61_20261108.json](../analytics_renumber_and_mathvista61_20261108.json)。
+
 ## 署名
 
 本批来源为 [MathVista testmini](https://huggingface.co/datasets/AI4Math/MathVista)。以下署名及许可通知迁自原候选包，保留与本批正式题有关的条目。

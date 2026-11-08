@@ -12,7 +12,7 @@ def build_scene():
     return _runtime().build_scene('analytics_functions',ROOT/'..\\scenes\\Ana67.json')
 class Ana67:
     def __init__(self):
-        self.__dict__.update({'source_dataset': 'MathVerse', 'question': 'A positive vertical rescaling of a polynomial is shown. Which expression has its roots, crossing/touching behavior, and end behavior?\nChoices:\nA:x(x-3)^2(2x+7)\nB:x^2(x-3)(2x+7)\nC:x(x-3)^2(2x+7)^2\nD:x(x-3)(2x+7)^2', 'answer': 'A', 'answer_type': 'choice', 'subject': 'Analytics', 'id': 'Ana67', 'choices': {'A': 'x(x-3)^2(2x+7)', 'B': 'x^2(x-3)(2x+7)', 'C': 'x(x-3)^2(2x+7)^2', 'D': 'x(x-3)(2x+7)^2'}})
+        self.__dict__.update({'source_dataset': 'MathVerse', 'question': 'The logarithmic function g is a transformation of the labeled function f. State the equation of g.', 'answer': 'g(x)=ln(x)+4', 'answer_type': 'expression', 'subject': 'Analytics', 'id': 'Ana67'})
         self.query=self.question
         self.level=None
         self.scene_path=ROOT/'..\\scenes\\Ana67.json'

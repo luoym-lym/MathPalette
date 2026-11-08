@@ -458,8 +458,10 @@ class Workbench:
             }
             if special_case:
                 question["collection_record"].update(special_case=True, review_status="pending")
-            active = [key for key in self.adapter.records if not progress["questions"][key].get("collected")]
-            later = [key for key in active if key > qid]
+            order = list(self.adapter.records)
+            current_index = order.index(qid)
+            active = [key for key in order if not progress["questions"][key].get("collected")]
+            later = [key for key in order[current_index + 1:] if not progress["questions"][key].get("collected")]
             progress["current_question"] = later[0] if later else active[0] if active else None
             progress["navigation_revision"] += 1
             self._commit({"kind": "collect", "question_id": qid, "progress": progress})
