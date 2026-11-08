@@ -235,6 +235,29 @@ class SpecialCases(unittest.TestCase):
             server.server_close()
             thread.join()
 
+    def test_external_reopen_reconciles_existing_runtime_cache(self):
+        if BRANCH != "Analytics":
+            return
+        self.store.mark_special(Q1, self.store.context_token())
+        self.store.mark_special(Q2, self.store.context_token())
+        original_runtime = self.config["runtime_dir"]
+        self.reopen_store(fresh_cache=True)
+        self.store.reopen(Q1, self.store.context_token())
+        self.store.close()
+        self.config["runtime_dir"] = original_runtime
+        self.store = Workbench(self.config)
+        self.assertEqual(self.store.active_questions(), [Q1])
+        self.assertEqual(self.store.snapshot()["collected_total"], 1)
+        # Tampering with the reopened collection file must still fail closed.
+        collection_path = self.store.output / Q1 / "collection.json"
+        tampered = read_json(collection_path)
+        tampered["history"] = []
+        atomic_json(collection_path, tampered)
+        self.store.close()
+        with self.assertRaises(WorkbenchError) as error:
+            self.store = Workbench(self.config)
+        self.assertEqual(error.exception.code, "integrity_error")
+
 
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "--serve":

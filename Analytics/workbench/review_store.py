@@ -120,22 +120,12 @@ class Workbench:
             if self.progress["output_relative"] != self.output_relative.as_posix():
                 raise WorkbenchError("正式输出目录结构与已有状态不一致。", 409, "output_changed")
         else:
-            self.progress = {"signature": self.signature, "output_relative": self.output_relative.as_posix(),
-                             "current_question": "Ana01", "navigation_revision": 0,
-                             "questions": {qid: {"revision": 0, "candidate_id": None, "accepted": [], "last_review": None}
-                                           for qid in self.adapter.records}, "candidates": {}}
             # Runtime caches are disposable. Passed recipes and collection records
             # are the durable source of truth; never reset an existing collection.
-            for qid, question in self.progress["questions"].items():
-                recipes_path = self.output / qid / "recipes.json"
-                if recipes_path.is_file():
-                    question["accepted"] = read_json(recipes_path)
-                collection_path = self.output / qid / "collection.json"
-                if collection_path.is_file():
-                    collection = read_json(collection_path)
-                    question["collected"] = collection["status"] == "collected"
-                    question["collection_record"] = collection.get("current", collection)
-                    question["collection_history"] = collection.get("history", [])
+            self.progress = {"signature": self.signature, "output_relative": self.output_relative.as_posix(),
+                             "current_question": "Ana01", "navigation_revision": 0,
+                             "questions": {qid: self._restore_question(qid) for qid in self.adapter.records},
+                             "candidates": {}}
         # Finish an interrupted save against its original session signature first.
         current_signature = self.signature
         self.signature = self.progress["signature"]
@@ -143,10 +133,11 @@ class Workbench:
         self.signature = current_signature
         inputs_changed = self.progress["signature"].get("baseline_fingerprint") != self.signature["baseline_fingerprint"]
         for qid in self.adapter.records:
-            self.progress["questions"].setdefault(qid, {
-                "revision": 0, "candidate_id": None, "accepted": [], "last_review": None})
-        for question in self.progress["questions"].values():
+            if qid not in self.progress["questions"]:
+                self.progress["questions"][qid] = self._restore_question(qid)
+        for qid, question in self.progress["questions"].items():
             question.setdefault("collected", False)
+            self._sync_reopened_question(qid, question)
             if question.get("collected"):
                 question.setdefault("collected_at", question["collection_record"]["collected_at"])
             if inputs_changed and question["candidate_id"]:
@@ -191,6 +182,42 @@ class Workbench:
         atomic_json(manifest_path, self.adapter.manifest)
         atomic_json(self.state_dir / "dataset_snapshot.json", self.adapter.records)
         atomic_json(progress_path, self.progress)
+
+    def _restore_question(self, qid):
+        question = {"revision": 0, "candidate_id": None, "accepted": [], "last_review": None}
+        recipes_path = contained_path(self.output, f"{qid}/recipes.json")
+        if recipes_path.is_file():
+            question["accepted"] = read_json(recipes_path)
+        collection_path = contained_path(self.output, f"{qid}/collection.json")
+        if collection_path.is_file():
+            collection = read_json(collection_path)
+            question["collected"] = collection["status"] == "collected"
+            question["collection_record"] = collection.get("current", collection)
+            question["collection_history"] = collection.get("history", [])
+        return question
+
+    def _sync_reopened_question(self, qid, question):
+        if not question.get("collected") or "collection_record" not in question:
+            return
+        collection_path = contained_path(self.output, f"{qid}/collection.json")
+        if not collection_path.is_file():
+            return
+        stored = read_json(collection_path)
+        if not isinstance(stored, dict) or stored.get("question_id") != qid or stored.get("status") != "reopened":
+            return
+        record = question["collection_record"]
+        prior_history = question.get("collection_history", [])
+        history = stored.get("history")
+        if (stored.get("current") != record or not isinstance(history, list) or
+                len(history) != len(prior_history) + 1 or history[:-1] != prior_history):
+            return
+        latest = history[-1]
+        if (not isinstance(latest, dict) or not isinstance(latest.get("reopened_at"), str) or
+                not latest["reopened_at"] or {k: v for k, v in latest.items() if k != "reopened_at"} != record):
+            return
+        question["collected"] = False
+        question["collection_history"] = copy.deepcopy(history)
+        question["revision"] += 1
 
     def active_questions(self):
         return [qid for qid in self.adapter.records

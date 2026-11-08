@@ -25,11 +25,11 @@ class Ana111:
         self.id = 'Ana111'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/717'
-        self.question = 'Let f be the curve bounding the shaded region. What is the sign of the definite integral of f(x) from x=1 to x=4?\nChoices:\nA: Positive\nB: Negative\nC: Zero'
+        self.question = 'Let f be the curve bounding the shaded region. What is the sign of the definite integral of f(x) from x=1 to x=4?\nChoices:\nA: positive\nB: negative\nC: zero'
         self.query = self.question
         self.answer = 'A'
         self.answer_type = 'choice'
-        self.choices = {'A': 'Positive', 'B': 'Negative', 'C': 'Zero'}
+        self.choices = {'A': 'positive', 'B': 'negative', 'C': 'zero'}
         self.subject = "Analytics"
         self.level = None
         self.scene_path = str(_SCENE_PATH)

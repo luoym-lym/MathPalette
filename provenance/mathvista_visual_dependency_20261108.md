@@ -106,9 +106,9 @@ and side-effectful metadata expressions.
 - Ana110 retains the actual condition f(x)>0 and correct answer `(-4, -1)`.
   Ana131 retains U below E and `(-2, 2)`. Both explicitly request interval
   notation; the review's alternative sign/curve-name quotations were not used.
-- Ana126's sign options and Ana127's comparison options are lowercase. Their
-  answers and mathematics are unchanged.
-- These five refinements were independently checked against the actual images
+- Ana111's and Ana126's sign options and Ana127's comparison options are lowercase.
+  Their answers and mathematics are unchanged.
+- These six refinements were independently checked against the actual images
   and recorded under the user's existing explicit task approval. Previous
   approval hashes/timestamps remain in the manifest's approval history.
 
