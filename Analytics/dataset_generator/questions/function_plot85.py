@@ -25,7 +25,7 @@ class Ana85:
         self.id = 'Ana85'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/170'
-        self.question = 'For f(x)=sin x, f(-1) is ____ f(0).\nChoices:\nA: larger than\nB: equal to\nC: smaller than'
+        self.question = 'For the function f shown in the graph, f(-1) is ____ f(0).\nChoices:\nA: larger than\nB: equal to\nC: smaller than'
         self.query = self.question
         self.answer = 'C'
         self.answer_type = 'choice'

@@ -25,7 +25,7 @@ class Ana118:
         self.id = 'Ana118'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/767'
-        self.question = 'What is the maximum y-coordinate on the circle x^2+y^2=25?'
+        self.question = 'What is the maximum y-coordinate on the circle shown?'
         self.query = self.question
         self.answer = '5'
         self.answer_type = 'number'

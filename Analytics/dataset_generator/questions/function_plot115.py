@@ -25,7 +25,7 @@ class Ana115:
         self.id = 'Ana115'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/738'
-        self.question = 'Let f(4)=4 and f(x)=0 for every x other than 4. Is this function continuous at x=4?\nChoices:\nA: Yes\nB: No'
+        self.question = 'Is the function shown continuous at x=4?\nChoices:\nA: Yes\nB: No'
         self.query = self.question
         self.answer = 'B'
         self.answer_type = 'choice'

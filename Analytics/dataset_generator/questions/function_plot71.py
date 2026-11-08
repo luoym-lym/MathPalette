@@ -25,7 +25,7 @@ class Ana71:
         self.id = 'Ana71'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/23'
-        self.question = 'The derivative of f(x)=|2x-3|+1 at x=2 is ____ that at x=4.\nChoices:\nA: larger than\nB: equal to\nC: smaller than'
+        self.question = 'For the function f shown in the graph, f′(2) is ____ f′(4).\nChoices:\nA: larger than\nB: equal to\nC: smaller than'
         self.query = self.question
         self.answer = 'B'
         self.answer_type = 'choice'

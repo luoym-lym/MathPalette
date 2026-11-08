@@ -25,11 +25,10 @@ class Ana116:
         self.id = 'Ana116'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/755'
-        self.question = 'Which type best describes the plotted function f(x)=3?\nChoices:\nA: a polynomial\nB: a trigonometric function\nC: an exponential function\nD: a logarithmic function'
+        self.question = 'For the function shown, evaluate the definite integral of f(x) from x=-2 to x=2.'
         self.query = self.question
-        self.answer = 'A'
-        self.answer_type = 'choice'
-        self.choices = {'A': 'a polynomial', 'B': 'a trigonometric function', 'C': 'an exponential function', 'D': 'a logarithmic function'}
+        self.answer = '12'
+        self.answer_type = 'number'
         self.subject = "Analytics"
         self.level = None
         self.scene_path = str(_SCENE_PATH)

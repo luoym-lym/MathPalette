@@ -25,7 +25,7 @@ class Ana106:
         self.id = 'Ana106'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/648'
-        self.question = 'What is the minimum value of the plotted function f(x)=sin(x) on [-π,π]?'
+        self.question = 'What is the minimum y-value attained by the curve shown in the graph?'
         self.query = self.question
         self.answer = '-1'
         self.answer_type = 'number'

@@ -25,7 +25,7 @@ class Ana84:
         self.id = 'Ana84'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/167'
-        self.question = 'What is the biggest zero of this function?'
+        self.question = 'What is the largest x-coordinate of an x-axis intersection visible in the graph?'
         self.query = self.question
         self.answer = '2'
         self.answer_type = 'number'

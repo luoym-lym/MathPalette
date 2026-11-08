@@ -25,7 +25,7 @@ class Ana114:
         self.id = 'Ana114'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/723'
-        self.question = 'Is f(x)=x^3/16-3x/4+3 convex on [-4,4]?\nChoices:\nA: Yes\nB: No'
+        self.question = 'Is the function shown convex throughout the interval [-4,4]?\nChoices:\nA: Yes\nB: No'
         self.query = self.question
         self.answer = 'B'
         self.answer_type = 'choice'

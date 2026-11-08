@@ -25,11 +25,10 @@ class Ana107:
         self.id = 'Ana107'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/661'
-        self.question = 'What is this function most likely be?\nChoices:\nA: a polynomial\nB: a trigonometric function\nC: an exponential function\nD: a logarithmic function'
+        self.question = 'How many intersections of the plotted curve with the horizontal θ-axis are visible in the graph?'
         self.query = self.question
-        self.answer = 'B'
-        self.answer_type = 'choice'
-        self.choices = {'A': 'a polynomial', 'B': 'a trigonometric function', 'C': 'an exponential function', 'D': 'a logarithmic function'}
+        self.answer = '3'
+        self.answer_type = 'number'
         self.subject = "Analytics"
         self.level = None
         self.scene_path = str(_SCENE_PATH)

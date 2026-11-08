@@ -25,7 +25,7 @@ class Ana75:
         self.id = 'Ana75'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/65'
-        self.question = 'For f(x)=x^3-4x^2+2x+5, is f(3)>0?\nChoices:\nA: Yes\nB: No'
+        self.question = 'For the function f shown in the graph, is f(3)>0?\nChoices:\nA: Yes\nB: No'
         self.query = self.question
         self.answer = 'A'
         self.answer_type = 'choice'

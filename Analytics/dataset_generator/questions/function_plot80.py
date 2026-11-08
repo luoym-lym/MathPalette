@@ -25,7 +25,7 @@ class Ana80:
         self.id = 'Ana80'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/137'
-        self.question = 'Is the function (f: R to R) injective?\nChoices:\nA: Yes\nB: No'
+        self.question = 'Is the plotted function one-to-one on the interval [-2,2]?\nChoices:\nA: Yes\nB: No'
         self.query = self.question
         self.answer = 'B'
         self.answer_type = 'choice'

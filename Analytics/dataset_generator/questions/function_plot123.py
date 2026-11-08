@@ -25,9 +25,9 @@ class Ana123:
         self.id = 'Ana123'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/893'
-        self.question = 'What is the limit of the plotted function f(x)=e^x as x approaches negative infinity?'
+        self.question = 'What is the y-intercept of the curve shown? Give the y-coordinate.'
         self.query = self.question
-        self.answer = '0'
+        self.answer = '1'
         self.answer_type = 'number'
         self.subject = "Analytics"
         self.level = None

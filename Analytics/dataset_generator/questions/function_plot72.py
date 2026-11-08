@@ -25,7 +25,7 @@ class Ana72:
         self.id = 'Ana72'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/34'
-        self.question = 'Is this function continuous at each point?\nChoices:\nA: Yes\nB: No'
+        self.question = 'Is the plotted function continuous at x=0?\nChoices:\nA: Yes\nB: No'
         self.query = self.question
         self.answer = 'B'
         self.answer_type = 'choice'

@@ -25,7 +25,7 @@ class Ana128:
         self.id = 'Ana128'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/963'
-        self.question = 'For the plotted function f(x)=(-8x^3+12x^2+144x+426)/125, at what x does f have a local maximum?'
+        self.question = 'At what x-coordinate does the plotted curve have its interior local maximum?'
         self.query = self.question
         self.answer = '3'
         self.answer_type = 'number'

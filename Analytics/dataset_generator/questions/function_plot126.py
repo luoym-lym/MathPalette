@@ -25,11 +25,11 @@ class Ana126:
         self.id = 'Ana126'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/950'
-        self.question = 'The slope of g(x)=0.5^x at x=0 is ____.\nChoices:\nA: positive\nB: negative\nC: zero\nD: undefined'
+        self.question = 'What is the sign of the slope of the curve shown at x=0?\nChoices:\nA: Positive\nB: Negative\nC: Zero\nD: Undefined'
         self.query = self.question
         self.answer = 'B'
         self.answer_type = 'choice'
-        self.choices = {'A': 'positive', 'B': 'negative', 'C': 'zero', 'D': 'undefined'}
+        self.choices = {'A': 'Positive', 'B': 'Negative', 'C': 'Zero', 'D': 'Undefined'}
         self.subject = "Analytics"
         self.level = None
         self.scene_path = str(_SCENE_PATH)

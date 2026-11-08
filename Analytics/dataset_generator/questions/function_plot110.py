@@ -25,11 +25,10 @@ class Ana110:
         self.id = 'Ana110'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/715'
-        self.question = 'The graph shows f(x)=(x³+3x²−6x−8)/4. Is f periodic?\nChoices:\nA: Yes\nB: No'
+        self.question = 'Using the graph of f, determine all x in the interval [-4,2] for which f(x)>0.'
         self.query = self.question
-        self.answer = 'B'
-        self.answer_type = 'choice'
-        self.choices = {'A': 'Yes', 'B': 'No'}
+        self.answer = '(-4,-1)'
+        self.answer_type = 'expression'
         self.subject = "Analytics"
         self.level = None
         self.scene_path = str(_SCENE_PATH)

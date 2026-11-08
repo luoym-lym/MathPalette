@@ -25,7 +25,7 @@ class Ana92:
         self.id = 'Ana92'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/296'
-        self.question = 'The value of f(-3) is ____ the value of f(2)\nChoices:\nA: larger than\nB: equal to\nC: smaller than'
+        self.question = 'For the function f shown in the graph, f(-3) is ____ f(2).\nChoices:\nA: larger than\nB: equal to\nC: smaller than'
         self.query = self.question
         self.answer = 'B'
         self.answer_type = 'choice'

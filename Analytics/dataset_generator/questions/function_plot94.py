@@ -25,11 +25,10 @@ class Ana94:
         self.id = 'Ana94'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/308'
-        self.question = 'What is this function most likely be?\nChoices:\nA: a polynomial\nB: a trigonometric function\nC: an exponential function\nD: a logarithmic function'
+        self.question = 'How many local maxima and local minima combined does the plotted curve have in the interval 0<x<7?'
         self.query = self.question
-        self.answer = 'B'
-        self.answer_type = 'choice'
-        self.choices = {'A': 'a polynomial', 'B': 'a trigonometric function', 'C': 'an exponential function', 'D': 'a logarithmic function'}
+        self.answer = '2'
+        self.answer_type = 'number'
         self.subject = "Analytics"
         self.level = None
         self.scene_path = str(_SCENE_PATH)

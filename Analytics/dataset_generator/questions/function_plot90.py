@@ -25,11 +25,10 @@ class Ana90:
         self.id = 'Ana90'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/260'
-        self.question = 'On (1,2), the plotted function is f(x)=-2(x-1)^3+4(x-1)^2-1. Is f′(x)>0 throughout that interval?\nChoices:\nA: Yes\nB: No'
+        self.question = 'For the function f shown in the graph, what is its average rate of change over [1,3]?'
         self.query = self.question
-        self.answer = 'A'
-        self.answer_type = 'choice'
-        self.choices = {'A': 'Yes', 'B': 'No'}
+        self.answer = '2'
+        self.answer_type = 'number'
         self.subject = "Analytics"
         self.level = None
         self.scene_path = str(_SCENE_PATH)

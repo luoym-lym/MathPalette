@@ -25,11 +25,11 @@ class Ana127:
         self.id = 'Ana127'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/962'
-        self.question = 'For the plotted function y=x, the value of y at x=1 is ____ that at x=7.\nChoices:\nA: larger than\nB: equal to\nC: smaller than'
+        self.question = 'For the function shown, the value of y at x=1 is ____ the value at x=7.\nChoices:\nA: Larger than\nB: Equal to\nC: Smaller than'
         self.query = self.question
         self.answer = 'C'
         self.answer_type = 'choice'
-        self.choices = {'A': 'larger than', 'B': 'equal to', 'C': 'smaller than'}
+        self.choices = {'A': 'Larger than', 'B': 'Equal to', 'C': 'Smaller than'}
         self.subject = "Analytics"
         self.level = None
         self.scene_path = str(_SCENE_PATH)

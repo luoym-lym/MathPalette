@@ -25,11 +25,11 @@ class Ana74:
         self.id = 'Ana74'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/39'
-        self.question = 'Is the function f(x)=2^x odd, even, or neither?\nChoices:\nA: odd\nB: even\nC: neither'
+        self.question = 'For the function f shown in the graph, f(-1) is ____ f(1).\nChoices:\nA: larger than\nB: equal to\nC: smaller than'
         self.query = self.question
         self.answer = 'C'
         self.answer_type = 'choice'
-        self.choices = {'A': 'odd', 'B': 'even', 'C': 'neither'}
+        self.choices = {'A': 'larger than', 'B': 'equal to', 'C': 'smaller than'}
         self.subject = "Analytics"
         self.level = None
         self.scene_path = str(_SCENE_PATH)

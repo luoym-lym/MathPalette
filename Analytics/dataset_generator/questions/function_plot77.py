@@ -25,11 +25,11 @@ class Ana77:
         self.id = 'Ana77'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/117'
-        self.question = 'What is the range of this function?\nChoices:\nA: [0, 2]\nB: [3, 2]\nC: [2, 4]\nD: [-3, 4]'
+        self.question = 'What is the range of the plotted function between its two filled endpoints?\nChoices:\nA: [0, 2]\nB: [-2, 0]\nC: [2, 4]\nD: [-3, 4]'
         self.query = self.question
         self.answer = 'A'
         self.answer_type = 'choice'
-        self.choices = {'A': '[0, 2]', 'B': '[3, 2]', 'C': '[2, 4]', 'D': '[-3, 4]'}
+        self.choices = {'A': '[0, 2]', 'B': '[-2, 0]', 'C': '[2, 4]', 'D': '[-3, 4]'}
         self.subject = "Analytics"
         self.level = None
         self.scene_path = str(_SCENE_PATH)

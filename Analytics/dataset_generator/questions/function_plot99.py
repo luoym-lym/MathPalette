@@ -25,7 +25,7 @@ class Ana99:
         self.id = 'Ana99'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/430'
-        self.question = 'The derivative of f(x) at x=0 is ____ that at x=5\nChoices:\nA: larger than\nB: equal to\nC: smaller than'
+        self.question = 'For the function f shown in the graph, f′(0) is ____ f′(5).\nChoices:\nA: larger than\nB: equal to\nC: smaller than'
         self.query = self.question
         self.answer = 'C'
         self.answer_type = 'choice'

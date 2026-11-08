@@ -25,11 +25,10 @@ class Ana121:
         self.id = 'Ana121'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/847'
-        self.question = 'For x>0, which plotted logarithmic function has the greatest derivative?\nChoices:\nA: log2(x)\nB: ln(x)\nC: log10(x)'
+        self.question = 'How many of the three plotted curves intersect the horizontal line y=2 at an x-value in [1,8]?'
         self.query = self.question
-        self.answer = 'A'
-        self.answer_type = 'choice'
-        self.choices = {'A': 'log2(x)', 'B': 'ln(x)', 'C': 'log10(x)'}
+        self.answer = '2'
+        self.answer_type = 'number'
         self.subject = "Analytics"
         self.level = None
         self.scene_path = str(_SCENE_PATH)

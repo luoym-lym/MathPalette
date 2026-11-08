@@ -25,7 +25,7 @@ class Ana103:
         self.id = 'Ana103'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/572'
-        self.question = 'Reading the marked points from left to right, what is the x-coordinate of the first point with y<4?'
+        self.question = 'Using the marked points in the graph, find the smallest x-coordinate of a point whose y-coordinate is less than 4.'
         self.query = self.question
         self.answer = '0'
         self.answer_type = 'number'

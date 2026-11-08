@@ -25,10 +25,11 @@ class Ana113:
         self.id = 'Ana113'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/721'
-        self.question = 'How many of the four plotted functions are odd? f1(x)=sin(x), f2(x)=x-x^3/6, f3(x)=x-x^3/6+x^5/120, and f4(x)=x-x^3/6+x^5/120-x^7/5040.'
+        self.question = 'Which labelled curve has the greatest y-value at x=4?\nChoices:\nA: f1\nB: f2\nC: f3\nD: f4'
         self.query = self.question
-        self.answer = '4'
-        self.answer_type = 'number'
+        self.answer = 'C'
+        self.answer_type = 'choice'
+        self.choices = {'A': 'f1', 'B': 'f2', 'C': 'f3', 'D': 'f4'}
         self.subject = "Analytics"
         self.level = None
         self.scene_path = str(_SCENE_PATH)

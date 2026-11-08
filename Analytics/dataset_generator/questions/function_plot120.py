@@ -25,7 +25,7 @@ class Ana120:
         self.id = 'Ana120'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/832'
-        self.question = 'What is the value of f(0)?'
+        self.question = 'For the function shown, what is f(0)?'
         self.query = self.question
         self.answer = '-2'
         self.answer_type = 'number'

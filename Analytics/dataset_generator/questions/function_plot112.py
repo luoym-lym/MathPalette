@@ -25,7 +25,7 @@ class Ana112:
         self.id = 'Ana112'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/720'
-        self.question = 'For f(x)=floor(x/2)+1, when does the function value first reach 2?'
+        self.question = 'For the step function shown, what is the smallest x in the displayed domain for which f(x)=2?'
         self.query = self.question
         self.answer = '2'
         self.answer_type = 'number'

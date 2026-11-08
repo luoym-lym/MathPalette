@@ -25,7 +25,7 @@ class Ana124:
         self.id = 'Ana124'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/926'
-        self.question = 'The curve is the upper semicircle with diameter from (0,0) to (6,0). What is the shaded area? Round to 2 decimal places.'
+        self.question = 'The curved boundary shown is a semicircle. What is the shaded area? Round to 2 decimal places.'
         self.query = self.question
         self.answer = '7.07'
         self.answer_type = 'number'

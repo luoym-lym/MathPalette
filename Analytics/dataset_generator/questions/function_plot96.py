@@ -25,7 +25,7 @@ class Ana96:
         self.id = 'Ana96'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/346'
-        self.question = 'What is the y-intercept of this function?'
+        self.question = 'Read the graph: what is the y-coordinate where the plotted curve intersects the y-axis?'
         self.query = self.question
         self.answer = '1'
         self.answer_type = 'number'

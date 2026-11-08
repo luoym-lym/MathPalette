@@ -25,7 +25,7 @@ class Ana89:
         self.id = 'Ana89'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/235'
-        self.question = 'For f(x)=(x^3-12x)/8 defined on R, is its epigraph an infinite set?\nChoices:\nA: Yes\nB: No'
+        self.question = 'Does the point (2,-1) lie in the shaded region shown in the graph?\nChoices:\nA: Yes\nB: No'
         self.query = self.question
         self.answer = 'A'
         self.answer_type = 'choice'

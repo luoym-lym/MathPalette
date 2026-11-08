@@ -25,7 +25,7 @@ class Ana81:
         self.id = 'Ana81'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/151'
-        self.question = 'At which x does f(x)=6-x attain its maximum on [0,6]?\nChoices:\nA: x=0\nB: x=2\nC: x=4\nD: x=6'
+        self.question = 'At which x does the plotted function attain its maximum on [0,6]?\nChoices:\nA: x=0\nB: x=2\nC: x=4\nD: x=6'
         self.query = self.question
         self.answer = 'A'
         self.answer_type = 'choice'

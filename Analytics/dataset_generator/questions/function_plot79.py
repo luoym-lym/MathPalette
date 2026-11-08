@@ -25,9 +25,9 @@ class Ana79:
         self.id = 'Ana79'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/120'
-        self.question = 'What is the degree of the polynomial f(x)=x^3 shown?'
+        self.question = 'For the function f shown in the graph, what is its average rate of change over [-1,1]?'
         self.query = self.question
-        self.answer = '3'
+        self.answer = '1'
         self.answer_type = 'number'
         self.subject = "Analytics"
         self.level = None

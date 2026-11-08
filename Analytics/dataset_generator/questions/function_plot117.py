@@ -25,7 +25,7 @@ class Ana117:
         self.id = 'Ana117'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/762'
-        self.question = 'What is the center of symmetry of f(x)=x^3-5x?\nChoices:\nA: (0, 0)\nB: (-1, 0)\nC: (2, 0)'
+        self.question = 'What is the center of symmetry of the cubic curve shown?\nChoices:\nA: (0, 0)\nB: (-1, 0)\nC: (2, 0)'
         self.query = self.question
         self.answer = 'A'
         self.answer_type = 'choice'

@@ -25,11 +25,10 @@ class Ana108:
         self.id = 'Ana108'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/686'
-        self.question = 'Is this function invertible?\nChoices:\nA: Yes\nB: No'
+        self.question = 'How many times does the horizontal line y=1 intersect the curve within the displayed graph?'
         self.query = self.question
-        self.answer = 'B'
-        self.answer_type = 'choice'
-        self.choices = {'A': 'Yes', 'B': 'No'}
+        self.answer = '3'
+        self.answer_type = 'number'
         self.subject = "Analytics"
         self.level = None
         self.scene_path = str(_SCENE_PATH)

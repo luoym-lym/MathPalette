@@ -25,7 +25,7 @@ class Ana98:
         self.id = 'Ana98'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/409'
-        self.question = 'What is the radius of this circle?'
+        self.question = 'Using the coordinate grid, determine the radius of the circle shown.'
         self.query = self.question
         self.answer = '5'
         self.answer_type = 'number'

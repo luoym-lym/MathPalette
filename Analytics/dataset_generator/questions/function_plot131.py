@@ -25,11 +25,10 @@ class Ana131:
         self.id = 'Ana131'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/997'
-        self.question = 'Let k=1 and E=2. Is U(x)=kx^2/2 larger than E at x=0?\nChoices:\nA: Yes\nB: No'
+        self.question = 'For what open interval of x-values is the curve labelled U below the line labelled E?'
         self.query = self.question
-        self.answer = 'B'
-        self.answer_type = 'choice'
-        self.choices = {'A': 'Yes', 'B': 'No'}
+        self.answer = '(-2, 2)'
+        self.answer_type = 'expression'
         self.subject = "Analytics"
         self.level = None
         self.scene_path = str(_SCENE_PATH)

@@ -25,7 +25,7 @@ class Ana73:
         self.id = 'Ana73'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/37'
-        self.question = 'What is the limit of the plotted function g(x) as x approaches -1?'
+        self.question = 'For the plotted function g, what is the limit of g(x) as x approaches -1 from both sides?'
         self.query = self.question
         self.answer = '3'
         self.answer_type = 'number'

@@ -25,11 +25,11 @@ class Ana93:
         self.id = 'Ana93'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/302'
-        self.question = 'What type of function is shown in the graph?\nChoices:\nA: a polynomial\nB: a trigonometric function\nC: an exponential function\nD: a logarithmic function'
+        self.question = 'On the plotted curve, how does the tangent slope at x=2 compare with the tangent slope at x=5?\nChoices:\nA: larger than\nB: equal to\nC: smaller than'
         self.query = self.question
-        self.answer = 'D'
+        self.answer = 'A'
         self.answer_type = 'choice'
-        self.choices = {'A': 'a polynomial', 'B': 'a trigonometric function', 'C': 'an exponential function', 'D': 'a logarithmic function'}
+        self.choices = {'A': 'larger than', 'B': 'equal to', 'C': 'smaller than'}
         self.subject = "Analytics"
         self.level = None
         self.scene_path = str(_SCENE_PATH)

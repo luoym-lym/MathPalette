@@ -25,11 +25,10 @@ class Ana97:
         self.id = 'Ana97'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/369'
-        self.question = 'The graph shows f(x)=x³. Is f: R to R surjective?\nChoices:\nA: Yes\nB: No'
+        self.question = 'For the function f shown in the graph, what is f(1)-f(-1)?'
         self.query = self.question
-        self.answer = 'A'
-        self.answer_type = 'choice'
-        self.choices = {'A': 'Yes', 'B': 'No'}
+        self.answer = '2'
+        self.answer_type = 'number'
         self.subject = "Analytics"
         self.level = None
         self.scene_path = str(_SCENE_PATH)

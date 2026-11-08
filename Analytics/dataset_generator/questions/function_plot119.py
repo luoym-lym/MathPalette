@@ -25,7 +25,7 @@ class Ana119:
         self.id = 'Ana119'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/770'
-        self.question = 'What is the amplitude of the plotted function y=sin(x)?'
+        self.question = 'What is the amplitude of the sinusoidal curve shown?'
         self.query = self.question
         self.answer = '1'
         self.answer_type = 'number'

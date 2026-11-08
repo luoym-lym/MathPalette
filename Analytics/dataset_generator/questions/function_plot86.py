@@ -25,9 +25,9 @@ class Ana86:
         self.id = 'Ana86'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/217'
-        self.question = 'What is the degree of f(x)=6-(2/3)(x-3)^2?'
+        self.question = 'At what x-coordinate does the plotted function attain its maximum on [0,6]?'
         self.query = self.question
-        self.answer = '2'
+        self.answer = '3'
         self.answer_type = 'number'
         self.subject = "Analytics"
         self.level = None

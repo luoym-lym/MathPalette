@@ -25,11 +25,10 @@ class Ana87:
         self.id = 'Ana87'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/223'
-        self.question = 'Is the constant function f(x)=3 an even function?\nChoices:\nA: Yes\nB: No'
+        self.question = 'For the function f shown in the graph, what is f(2)?'
         self.query = self.question
-        self.answer = 'A'
-        self.answer_type = 'choice'
-        self.choices = {'A': 'Yes', 'B': 'No'}
+        self.answer = '3'
+        self.answer_type = 'number'
         self.subject = "Analytics"
         self.level = None
         self.scene_path = str(_SCENE_PATH)

@@ -25,11 +25,10 @@ class Ana102:
         self.id = 'Ana102'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/493'
-        self.question = 'The graph shows a continuous piecewise-linear function. Is it differentiable at every interior point of its domain?\nChoices:\nA: Yes\nB: No'
+        self.question = 'How many local extrema (maxima and minima combined) occur strictly between the two marked endpoints of the plotted piecewise-linear curve?'
         self.query = self.question
-        self.answer = 'B'
-        self.answer_type = 'choice'
-        self.choices = {'A': 'Yes', 'B': 'No'}
+        self.answer = '2'
+        self.answer_type = 'number'
         self.subject = "Analytics"
         self.level = None
         self.scene_path = str(_SCENE_PATH)

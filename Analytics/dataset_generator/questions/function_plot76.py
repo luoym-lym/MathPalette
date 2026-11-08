@@ -25,7 +25,7 @@ class Ana76:
         self.id = 'Ana76'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/81'
-        self.question = 'For the function f(x)=sin x, what is f(3π/2)?'
+        self.question = 'What is the minimum value of the plotted function on the interval [4,6]?'
         self.query = self.question
         self.answer = '-1'
         self.answer_type = 'number'

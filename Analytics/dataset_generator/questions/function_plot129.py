@@ -25,7 +25,7 @@ class Ana129:
         self.id = 'Ana129'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/973'
-        self.question = 'How many real zeros does the plotted function y=log2(x), x>0, have?'
+        self.question = 'How many x-axis intersections of the curve are visible in the plotted window?'
         self.query = self.question
         self.answer = '1'
         self.answer_type = 'number'

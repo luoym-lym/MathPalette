@@ -25,11 +25,11 @@ class Ana88:
         self.id = 'Ana88'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/224'
-        self.question = 'Is the plotted function g(x)=0.5^x periodic?\nChoices:\nA: Yes\nB: No'
+        self.question = 'For the function g shown in the graph, g(-2) is ____ g(0).\nChoices:\nA: larger than\nB: equal to\nC: smaller than'
         self.query = self.question
-        self.answer = 'B'
+        self.answer = 'A'
         self.answer_type = 'choice'
-        self.choices = {'A': 'Yes', 'B': 'No'}
+        self.choices = {'A': 'larger than', 'B': 'equal to', 'C': 'smaller than'}
         self.subject = "Analytics"
         self.level = None
         self.scene_path = str(_SCENE_PATH)

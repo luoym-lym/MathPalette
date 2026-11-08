@@ -25,7 +25,7 @@ class Ana101:
         self.id = 'Ana101'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/452'
-        self.question = 'The graph shows rescaled population p=N_m/20 versus t=m/5. What is the most likely equilibrium value of p?\nChoices:\nA: 2\nB: 3\nC: 4\nD: 5'
+        self.question = 'The graph shows marked population observations with horizontal coordinate t and vertical coordinate p. To the nearest integer, what is the p-coordinate of the rightmost marked point?\nChoices:\nA: 2\nB: 3\nC: 4\nD: 5'
         self.query = self.question
         self.answer = 'C'
         self.answer_type = 'choice'

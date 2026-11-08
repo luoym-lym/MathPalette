@@ -25,7 +25,7 @@ class Ana100:
         self.id = 'Ana100'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/439'
-        self.question = 'The graph shows f(x)=4 sin(x)/x for x≠0, with f(0)=4. Is f convex on [-8,8]?\nChoices:\nA: Yes\nB: No'
+        self.question = 'Is the function shown in the graph convex on the displayed interval [-8,8]?\nChoices:\nA: Yes\nB: No'
         self.query = self.question
         self.answer = 'B'
         self.answer_type = 'choice'

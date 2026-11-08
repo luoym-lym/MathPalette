@@ -25,11 +25,11 @@ class Ana130:
         self.id = 'Ana130'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/991'
-        self.question = 'The plotted functions are f(x)=x, g(x)=x^2, h(x)=x^3, p(x)=x^4, q(x)=1/x and r(x)=1/x^2 (the last two for x≠0). Which have no real zeros?\nChoices:\nA: f and h\nB: g and p\nC: q and r'
+        self.question = 'At x=-4, which labelled curve lies below the x-axis and closest to it?\nChoices:\nA: f\nB: g\nC: q\nD: r'
         self.query = self.question
         self.answer = 'C'
         self.answer_type = 'choice'
-        self.choices = {'A': 'f and h', 'B': 'g and p', 'C': 'q and r'}
+        self.choices = {'A': 'f', 'B': 'g', 'C': 'q', 'D': 'r'}
         self.subject = "Analytics"
         self.level = None
         self.scene_path = str(_SCENE_PATH)

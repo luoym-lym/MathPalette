@@ -25,7 +25,7 @@ class Ana91:
         self.id = 'Ana91'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/287'
-        self.question = 'Which shaded region has greater area, R1 or R2?\nChoices:\nA: R1\nB: R2'
+        self.question = 'Compare the two shaded regions identified by the leader lines in the graph. Which has the greater area?\nChoices:\nA: R1\nB: R2'
         self.query = self.question
         self.answer = 'B'
         self.answer_type = 'choice'

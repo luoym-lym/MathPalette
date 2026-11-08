@@ -25,7 +25,7 @@ class Ana83:
         self.id = 'Ana83'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/156'
-        self.question = 'What is the limit of the function as x approaches 1 from the left side?'
+        self.question = 'For the plotted function, what is the limit as x approaches 1 from the left?'
         self.query = self.question
         self.answer = '4'
         self.answer_type = 'number'

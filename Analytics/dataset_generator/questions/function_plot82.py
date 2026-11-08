@@ -25,7 +25,7 @@ class Ana82:
         self.id = 'Ana82'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/154'
-        self.question = 'Is this an odd function?\nChoices:\nA: Yes\nB: No'
+        self.question = 'Does the plotted function satisfy f(-1)=-f(1)?\nChoices:\nA: Yes\nB: No'
         self.query = self.question
         self.answer = 'B'
         self.answer_type = 'choice'

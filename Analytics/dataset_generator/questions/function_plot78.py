@@ -25,7 +25,7 @@ class Ana78:
         self.id = 'Ana78'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/118'
-        self.question = 'What is the maximum value of f(x)=sin x on [-π,π]?'
+        self.question = 'What is the maximum value of the plotted function between its two filled endpoints?'
         self.query = self.question
         self.answer = '1'
         self.answer_type = 'number'

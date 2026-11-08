@@ -25,7 +25,7 @@ class Ana104:
         self.id = 'Ana104'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/592'
-        self.question = 'What is the maximum value of the function visible in the graph?'
+        self.question = 'What is the greatest y-value attained by the curve in the displayed graph?'
         self.query = self.question
         self.answer = '4'
         self.answer_type = 'number'

@@ -25,9 +25,9 @@ class Ana125:
         self.id = 'Ana125'
         self.source_dataset = "MathVista"
         self.source_key = 'testmini/942'
-        self.question = 'For f(x)=x^3-5x, what is f(0)?'
+        self.question = 'For the function shown, what is f(-1)?'
         self.query = self.question
-        self.answer = '0'
+        self.answer = '4'
         self.answer_type = 'number'
         self.subject = "Analytics"
         self.level = None
