@@ -1,0 +1,173 @@
+{
+  "verified_at_utc": "2026-11-09T05:24:18.274510+00:00",
+  "baseline_repo_commit": "55b5bc8351799c9e5c2046660097a2ccc20a4e57",
+  "scope": "Current restoration and integration validation; not a new full semantic or human review.",
+  "catalog": {
+    "questions": 1472,
+    "branches": {
+      "Analytics": 546,
+      "PlaneGeometry": 599,
+      "SolidGeometry": 327
+    },
+    "base_variants": 0,
+    "special_variants": 1132,
+    "build": "passed",
+    "check": "passed"
+  },
+  "added": {
+    "questions": 454,
+    "Analytics": 415,
+    "SolidGeometry": 39,
+    "reconstructed": 433,
+    "other_reviewed_redraws": 21,
+    "excluded": 15,
+    "special_pass_collect_performed": false
+  },
+  "package_validation": {
+    "archives": 6,
+    "archive_sha256_checks": "all matched saved manifest",
+    "internal_file_sha256_checks": 4147,
+    "source_images_preserved": 454,
+    "counterfactual_evidence_pairs": 433
+  },
+  "formal_replay": {
+    "record": "formal_entrypoint_replay_20261109.json",
+    "record_sha256": "9f6de003253b1f012614fc41ce579eef2aa99b405d5b468ac3156d10e876b076",
+    "environment": {
+      "python": "3.13.9",
+      "numpy": "2.5.3",
+      "matplotlib": "3.11.2",
+      "pillow": "12.3.0",
+      "freetype": "2.14.3"
+    },
+    "questions": 454,
+    "rounds_per_question": 2,
+    "subprocess_entrypoint_runs": 908,
+    "all_png_bytes_match": true,
+    "all_rgba_pixels_match": true,
+    "all_768_square_opaque": true
+  },
+  "preservation": {
+    "baseline_commit": "55b5bc8351799c9e5c2046660097a2ccc20a4e57",
+    "existing_tracked_files": 10976,
+    "special_files_byte_identical": 3425,
+    "existing_1018_rows_approvals_source_notes_unchanged": true,
+    "prior_jsonl_byte_prefixes_preserved": true,
+    "no_private_markers_in_new_files": true
+  },
+  "metadata_restoration": {
+    "record": "metadata_restoration_20261109.json",
+    "source_notes_rebuilt_from_archive_evidence": true,
+    "prior_hashes_retained_as_history": true,
+    "prior_note_bodies_not_claimed_restored": true,
+    "prior_1018_approval_and_source_note_objects_unchanged": true
+  },
+  "regressions": [
+    {
+      "command": "dataset_tools/test_answer_schema.py",
+      "passed": true,
+      "tests": 7
+    },
+    {
+      "command": "dataset_tools/test_catalog_concurrency.py",
+      "passed": true,
+      "tests": 3
+    },
+    {
+      "command": "dataset_tools/test_workbench_actions.py Analytics",
+      "passed": true,
+      "tests": 7,
+      "skipped": 1
+    },
+    {
+      "command": "dataset_tools/test_workbench_actions.py SolidGeometry",
+      "passed": true,
+      "tests": 7,
+      "skipped": 1
+    },
+    {
+      "command": "SolidGeometry/dataset_generator/test_renderer.py",
+      "passed": true,
+      "tests": 15
+    },
+    {
+      "command": "dataset_tools/test_integrity.py",
+      "passed": true,
+      "attempts": [
+        {
+          "result": "failed",
+          "detail": "First attempt, while full entrypoint replays and workbench startup were running concurrently, hit the existing 60-second isolated Analytics launcher timeout."
+        },
+        {
+          "result": "passed",
+          "detail": "Rerun without the full replay/startup workload, using the unchanged test and original 60-second launcher timeout. Launcher environment selection, approval rejection, isolated Pass/Collect/reopen/delete, index synchronization, and cold recovery passed."
+        }
+      ]
+    }
+  ],
+  "regression_skips": "The existing workflow-upgrade compatibility test applies only to PlaneGeometry and is skipped by the Analytics and SolidGeometry action suites.",
+  "workbenches": {
+    "Analytics": {
+      "official_launcher_startup": "passed",
+      "active_questions_noop_checked": 476
+    },
+    "SolidGeometry": {
+      "official_launcher_startup": "passed",
+      "active_questions_noop_checked": 215
+    },
+    "PlaneGeometry": {
+      "environment_selection": "passed",
+      "dynamic_noop_run": "not rerun; branch assets and records unchanged"
+    }
+  },
+  "browser_ui": {
+    "status": "partial actual Chromium acceptance passed",
+    "SolidGeometry": {
+      "counts": {
+        "pending": 215,
+        "completed": 112,
+        "total": 327
+      },
+      "verified_samples": [
+        "Solid289",
+        "Solid290",
+        "Solid308",
+        "Solid327"
+      ],
+      "checks": [
+        "source filter",
+        "Next navigation",
+        "actual image loading",
+        "question and expanded answer matched formal dataset"
+      ]
+    },
+    "Analytics": {
+      "counts": {
+        "pending": 476,
+        "completed": 70,
+        "total": 546
+      },
+      "checks": [
+        "actual workbench page loading",
+        "We-Math source filter selects Ana132"
+      ],
+      "remaining_sample_acceptance": "Not completed at freeze; no claim of full browser coverage."
+    },
+    "isolation": "UI used isolated Special copies and made no formal Pass/Collect or data changes. Initial loopback isolation was resolved for actual Chromium access."
+  },
+  "independent_checks": {
+    "archive_manifest_and_audit_binding": "passed",
+    "current_formal_metadata_asset_and_preservation_checks": "passed",
+    "all_908_render_outputs_checked_again": "passed"
+  },
+  "license": {
+    "dataset": "CC BY-NC 4.0",
+    "license_file_sha256": "41003d4a74749c0220e33dd415042164b5a1093ed401f36277234f772d22d3d0",
+    "source_license_bytes_preserved": true
+  },
+  "diff_whitespace_check": {
+    "all_files_except_upstream_license": "passed",
+    "exception": "The byte-identical upstream CC-BY-NC-4.0.txt has a trailing blank line; preserved rather than altering the license copy."
+  },
+  "publication": "Prepared for draft PR; no merge or deployment included."
+}

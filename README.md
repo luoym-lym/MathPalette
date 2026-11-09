@@ -2,13 +2,14 @@
 
 MathPalette 研究统一渲染条件下，视觉标记如何影响视觉语言模型的数学推理。原题经用户确认后收集，Special 从原图独立派生、经用户审核后保存，冻结操作以便重绘。标记方法与后续探索见 [Conclusion.md](Conclusion.md)（2026-10-17 的历史盘点）。[paper.tex](paper.tex) 是研究设计草稿，包含尚未启用的 BaseVar 设计；当前可用数据与功能以本说明和数据协议为准。编译论文还需准备 ICML 2026 模板及其参考文献文件。
 
-截至 2026-10-31，正式数据为 **823 题、408 张 Special**：Analytics 70 题 / 116 张，PlaneGeometry 505 题 / 259 张，SolidGeometry 248 题 / 33 张。Special 覆盖 101 道原题。题源为 DynaMath 20 题、MathVerse 147 题、MathVista 56 题、SOLIDGEO 9 题、Author Designed 70 题、MathVision 521 题；最新数量以 `catalog.py check` 为准。
+历史快照：截至 2026-10-31，正式数据为 **823 题、408 张 Special**：Analytics 70 题 / 116 张，PlaneGeometry 505 题 / 259 张，SolidGeometry 248 题 / 33 张。Special 覆盖 101 道原题。题源为 DynaMath 20 题、MathVerse 147 题、MathVista 56 题、SOLIDGEO 9 题、Author Designed 70 题、MathVision 521 题；最新数量以 `catalog.py check` 为准。
 
 | 内容 | 数量 / 入口 |
 | --- | --- |
-| 正式原题 | [question_bank.jsonl](question_bank.jsonl)，1018 条（2026-11-08） |
+| 正式原题 | [question_bank.jsonl](question_bank.jsonl)，1472 条（2026-11-09） |
 | Base | 三个分支均未启用，汇总索引中的 `base_plugins` 为空列表 |
 | 已审核 Special | 最新数量以 `catalog.py check` 为准（保留原 Pass / Collect 时间；只有完成标记、没有已通过图片的题不计入变体数） |
+| We-Math 来源与许可 | [454题入库说明](provenance/wemath/README.md)，数据及改编适用 CC BY-NC 4.0，保留454张来源图 |
 | 来源截图 | MathVerse 147 张、MathVista 117 张、SOLIDGEO 9 张、MathVision 521 张，另有 9 张作者提供的参考图；DynaMath 20 题的来源截图在原库中缺失 |
 | 解析几何 Special 工作台 | [Windows](Analytics/start_special_workbench.cmd) / [macOS](Analytics/start_special_workbench.command)，端口 8767 |
 | 平面几何 Special 工作台 | [Windows](PlaneGeometry/start_special_workbench.cmd) / [macOS](PlaneGeometry/start_special_workbench.command)，端口 8768 |
@@ -20,7 +21,7 @@ MathPalette 研究统一渲染条件下，视觉标记如何影响视觉语言�
 | MathVista 来源与署名 | [provenance/mathvista/README.md](provenance/mathvista/README.md)，含完整源记录与入库核验 |
 | SOLIDGEO 来源与清理记录 | [来源署名](provenance/SOLIDGEO_ATTRIBUTION.md)、[保留题目与清理核验](provenance/solidgeo_cleanup.json) |
 
-当前题号为连续无空缺的 Ana01～Ana131、Plane01～Plane599、Solid01～Solid288。Ana01～Ana20 来自 DynaMath，Ana21～Ana45 与 Ana47～Ana70 来自 MathVerse（原 Ana53～Ana71 已按用户要求前移为 Ana52～Ana70），Ana46 与 Ana71～Ana131 来自 MathVista（详见 [解析重排与 MathVista 合入记录](provenance/analytics_renumber_and_mathvista61_20261108.json)）。Plane01～Plane16、Plane72～Plane93 与 Plane137～Plane139 来自 MathVerse，Plane17～Plane71 来自 MathVista，Plane94～Plane136 为 Author Designed；Solid01～Solid16 与 Solid26～Solid66 来自 MathVerse，Solid17～Solid25 来自 SOLIDGEO，Solid67～Solid78 为 Author Designed。Plane140～Plane490 与 Solid79～Solid248 来自 MathVision。Plane491～Plane529 与 Solid249～Solid263 均为 Author Designed。图片、绘图类、Special 插件和工作台使用相同题号。清理前编号仅保存在 [迁移记录](provenance/cleanup.json) 中。
+当前题号为连续无空缺的 Ana01～Ana546、Plane01～Plane599、Solid01～Solid327。We-Math2.0-Standard 新增454题（Ana132～Ana546、Solid289～Solid327），来源图、改编说明、许可与透明元数据恢复记录见 [We-Math 入库说明](provenance/wemath/README.md)。Ana01～Ana20 来自 DynaMath，Ana21～Ana45 与 Ana47～Ana70 来自 MathVerse（原 Ana53～Ana71 已按用户要求前移为 Ana52～Ana70），Ana46 与 Ana71～Ana131 来自 MathVista（详见 [解析重排与 MathVista 合入记录](provenance/analytics_renumber_and_mathvista61_20261108.json)）。Plane01～Plane16、Plane72～Plane93 与 Plane137～Plane139 来自 MathVerse，Plane17～Plane71 来自 MathVista，Plane94～Plane136 为 Author Designed；Solid01～Solid16 与 Solid26～Solid66 来自 MathVerse，Solid17～Solid25 来自 SOLIDGEO，Solid67～Solid78 为 Author Designed。Plane140～Plane490 与 Solid79～Solid248 来自 MathVision。Plane491～Plane529 与 Solid249～Solid263 均为 Author Designed。图片、绘图类、Special 插件和工作台使用相同题号。清理前编号仅保存在 [迁移记录](provenance/cleanup.json) 中。
 
 2026-11-05，用户以“入库吧。”批准95道同题型拓展原题：19道父题各5道，平面70道为 Plane530～Plane599，立体25道为 Solid264～Solid288，来源均为 `Author Designed`。题干、答案、选项及原题图像与暂存审核版一致；95道的正式入口重绘像素均一致。独立绘图代码按内容指纹冻结，完整构型、投影和可见性保存在正式场景中，来源图均为 `null`。父题映射和迁移核验见[入库记录](provenance/author_extensions95_20261105.json)，用户批准原话和内容指纹见[审核凭据](provenance/approvals.json)。本轮只入原题，Specialvar 留到后续，未执行 Collect。
 
