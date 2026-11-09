@@ -73,7 +73,7 @@ def required_environment(config):
 def python_candidates():
     override = os.environ.get("MATHPALETTE_PYTHON")
     if override:
-        return [Path(override).expanduser()]
+        return [Path(override).expanduser().absolute()]
     candidates = [Path(sys.executable)]
     prefixes = [Path.home() / "Desktop" / "PythonEnvs" / "mathpalette-analytics",
                 PROJECT / ".venv", PROJECT / "venv"]
@@ -89,7 +89,8 @@ def python_candidates():
     for directory in os.get_exec_path():
         if directory:
             candidates.extend(Path(directory) / name for name in ("python.exe", "python3", "python"))
-    return list(dict.fromkeys(path.resolve() for path in candidates if path.is_file()))
+    # Resolving a POSIX venv symlink would probe the base interpreter instead.
+    return list(dict.fromkeys(path.absolute() for path in candidates if path.is_file()))
 
 
 def select_python(required):
@@ -106,7 +107,7 @@ def select_python(required):
             return path, environment
     raise ValueError("未找到与正式数据匹配的 Python 环境。\n需要：" +
                      json.dumps(required, ensure_ascii=False) + "\n已检查：\n" + "\n".join(checked) +
-                     "\n可将 MATHPALETTE_PYTHON 设置为匹配环境的 python.exe 完整路径。")
+                     "\n可将 MATHPALETTE_PYTHON 设置为匹配环境的 Python 解释器完整路径。")
 
 
 def main():

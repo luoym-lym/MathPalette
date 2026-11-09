@@ -125,10 +125,18 @@ function zoom(url, title) {
 function render(next) {
   const previous = state;
   state = next; connected = true;
-  $("question-total").textContent = `待标注 ${state.questions.length} 道`;
-  $("question-id").textContent = state.question_id || "全部收集完成";
+  const blocked = state.blocked_questions || [];
+  const count = $("question-total");
+  count.textContent = `待标注 ${state.questions.length} 道` +
+    (blocked.length ? ` · Mac 暂停标注 ${blocked.length} 道` : "");
+  count.title = blocked.length ? `重绘像素校验未通过：${blocked.join("、")}` : "";
+  $("question-id").textContent = state.question_id || (blocked.length ? "本机无待标注题目" : "全部收集完成");
   const hasQuestion = !!state.question_id;
-  $("all-collected").hidden = hasQuestion;
+  const emptyMessage = $("all-collected");
+  emptyMessage.hidden = hasQuestion;
+  emptyMessage.textContent = blocked.length
+    ? "本机可标注的题目已处理完。暂停标注的题号可在侧栏查看。"
+    : "所有题目都已 Collect。可从侧栏「已完成」列表重新打开。";
   document.querySelectorAll("main > .question-panel, main > .comparison, main > .review-bar, main > .object-panel, main > .collection").forEach(element => element.hidden = !hasQuestion);
   $("question-text").textContent = state.question;
   $("answer").textContent = typeof state.answer === "string" ? state.answer : JSON.stringify(state.answer, null, 2);

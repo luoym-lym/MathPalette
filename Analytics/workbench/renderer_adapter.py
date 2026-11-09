@@ -5,11 +5,12 @@ import ast
 import importlib.util
 import inspect
 import io
+import os
 import sys
 import threading
 from contextlib import contextmanager
 from dataclasses import dataclass
-from pathlib import Path
+from pathlib import Path, PureWindowsPath
 
 import matplotlib
 
@@ -23,6 +24,24 @@ from workbench_io import (WorkbenchError, canonical_hash, environment_versions,
                           file_hash, parse_json, pixel_hash, read_json)
 
 RENDER_LOCK = threading.RLock()
+
+
+def load_question_module(module, spec, path):
+    if os.name == "nt":
+        spec.loader.exec_module(module)
+        return
+    # Some approved MathVerse scripts join ROOT with a Windows relative
+    # path literal. Translate only those joins in memory, keeping the
+    # approved source and its hash intact.
+    source = path.read_bytes()
+    tree = ast.parse(source, filename=str(path))
+    for node in ast.walk(tree):
+        if (isinstance(node, ast.BinOp) and isinstance(node.op, ast.Div)
+                and isinstance(node.left, ast.Name) and node.left.id == "ROOT"
+                and isinstance(node.right, ast.Constant) and isinstance(node.right.value, str)
+                and node.right.value.startswith("..\\")):
+            node.right.value = PureWindowsPath(node.right.value).as_posix()
+    exec(compile(tree, str(path), "exec"), vars(module))
 
 
 @contextmanager
@@ -141,7 +160,7 @@ class RendererAdapter:
                 for path in self.source_files:
                     spec = importlib.util.spec_from_file_location("_special_" + path.stem.replace("-", "_"), path)
                     module = importlib.util.module_from_spec(spec)
-                    spec.loader.exec_module(module)
+                    load_question_module(module, spec, path)
                     for qid in self.records:
                         cls = getattr(module, qid, None)
                         if cls:

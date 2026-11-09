@@ -193,11 +193,15 @@ def main():
     quick_tests = None
     try:
         if args.check:
-            print(json.dumps({"questions_checked": len(workbench.active_questions()), "noop_pixels_match": True,
+            print(json.dumps({"questions_checked": len(workbench.active_questions()) + len(workbench.blocked_questions),
+                              "noop_pixels_match": not workbench.blocked_questions,
+                              "blocked_questions": workbench.blocked_questions,
                               "baseline_fingerprint": workbench.adapter.manifest["fingerprint"],
                               "collected_questions": workbench.snapshot()["collected_total"],
                               "accepted_count": workbench.snapshot()["accepted_total"], "candidates_generated": 0},
                              ensure_ascii=False, indent=2))
+            if workbench.blocked_questions:
+                raise SystemExit(1)
             return
         port = args.port if args.port is not None else config["port"]
         quick_tests = QuickTests(workbench)

@@ -10,9 +10,9 @@ MathPalette 研究统一渲染条件下，视觉标记如何影响视觉语言�
 | Base | 三个分支均未启用，汇总索引中的 `base_plugins` 为空列表 |
 | 已审核 Special | 最新数量以 `catalog.py check` 为准（保留原 Pass / Collect 时间；只有完成标记、没有已通过图片的题不计入变体数） |
 | 来源截图 | MathVerse 147 张、MathVista 117 张、SOLIDGEO 9 张、MathVision 521 张，另有 9 张作者提供的参考图；DynaMath 20 题的来源截图在原库中缺失 |
-| 解析几何 Special 工作台 | 双击 [Analytics/start_special_workbench.cmd](Analytics/start_special_workbench.cmd)，端口 8767 |
-| 平面几何 Special 工作台 | 双击 [PlaneGeometry/start_special_workbench.cmd](PlaneGeometry/start_special_workbench.cmd)，端口 8768 |
-| 立体几何 Special 工作台 | 双击 [SolidGeometry/start_special_workbench.cmd](SolidGeometry/start_special_workbench.cmd)，端口 8769 |
+| 解析几何 Special 工作台 | [Windows](Analytics/start_special_workbench.cmd) / [macOS](Analytics/start_special_workbench.command)，端口 8767 |
+| 平面几何 Special 工作台 | [Windows](PlaneGeometry/start_special_workbench.cmd) / [macOS](PlaneGeometry/start_special_workbench.command)，端口 8768 |
+| 立体几何 Special 工作台 | [Windows](SolidGeometry/start_special_workbench.cmd) / [macOS](SolidGeometry/start_special_workbench.command)，端口 8769 |
 | 工作台使用与标注范围 | [解析](Analytics/workbench/README.md)、[平面](PlaneGeometry/workbench/README.md)、[立体](SolidGeometry/workbench/README.md)；Agent 说明和插件 schema 在各工作台目录 |
 | 审核凭据 | [provenance/approvals.json](provenance/approvals.json) |
 | MathVision 来源与批量入库 | [来源与许可](provenance/mathvision/MATHVISION_ATTRIBUTION.md)、[入库和题干清理记录](provenance/mathvision/imports_20261029.json) |
@@ -92,6 +92,27 @@ SOLIDGEO 本批审核已结束，只保留用户已 Pass 的 9 道正式题。�
 `.runtime/` 不属于正式数据，存放 Special 工作台草稿、预览及本地校验输出。服务停止且没有需要保留的未提交草稿时可以清理；工作台会从正式 recipes 和 collection 记录恢复已收集状态。旧候选、历史工作台、重复备份、旧评测日志及分数已按用户要求清理。
 
 ## 使用
+
+### macOS
+
+先在项目根目录用 **Python 3.13.9** 配置虚拟环境。已有匹配的 `.venv` 可以直接使用。
+
+```sh
+python3.13 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+```
+
+在 Finder 双击相应分支的 `start_special_workbench.command`，或从项目根目录在终端运行：
+
+```sh
+./Analytics/start_special_workbench.command
+./PlaneGeometry/start_special_workbench.command
+./SolidGeometry/start_special_workbench.command
+```
+
+入口会打开本机浏览器，支持 `MATHPALETTE_PYTHON` 和 `--check`。首次启动会逐题核对重绘像素。未通过像素校验的题会从本机待标注列表暂时隐藏，题号可在启动日志、侧栏计数提示和 `--check` 输出中查看。已保存的图片和审核状态继续保留。检测到像素差异时，`--check` 返回退出码 1。
+
+### Windows
 
 在项目根目录执行：
 

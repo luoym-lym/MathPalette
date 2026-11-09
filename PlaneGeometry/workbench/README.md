@@ -12,6 +12,8 @@ Plane512～Plane529 为用户授权入库的 `Author Designed` 拓展题，使�
 python -X utf8 -B PlaneGeometry/workbench/launch_workbench.py
 ```
 
+macOS 双击 `PlaneGeometry/start_special_workbench.command`。环境安装和本机像素校验说明见[根目录 README](../../README.md#macos)。
+
 也可双击 `PlaneGeometry/start_special_workbench.cmd` 或本目录 `start_workbench.cmd`，访问 `http://127.0.0.1:8768`。启动器检查根 `requirements.txt` 和已通过 recipes 的环境版本，自动寻找匹配 Python；可用 `MATHPALETTE_PYTHON` 指定解释器。再次启动会正常停止同一状态目录的旧服务，再读取最新输入。
 
 ## 画板与审核

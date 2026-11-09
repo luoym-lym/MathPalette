@@ -10,6 +10,8 @@ Solid258～Solid263 为用户授权入库的 `Author Designed` 拓展题，使�
 python -X utf8 -B SolidGeometry/workbench/launch_workbench.py
 ```
 
+macOS 双击 `SolidGeometry/start_special_workbench.command`。环境安装和本机像素校验说明见[根目录 README](../../README.md#macos)。
+
 启动器复用既有工作台的冻结依赖检查、解释器选择、端口与重启处理；可用 `MATHPALETTE_PYTHON` 指定解释器。`requirements.txt` 和已通过 recipes 的依赖必须匹配。工作台读取 `SolidGeometry/dataset.jsonl` 中的正式题；选题、候选、浏览器草稿和审核令牌独立于平面与解析工作台。
 
 侧栏题号搜索下方的「来源」可按正式清单中的数据集筛选，默认「全部来源」；与题号搜索及已完成列表的特殊情况筛选组合生效，「上一题／下一题」遵循当前筛选。

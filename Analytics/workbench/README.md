@@ -12,6 +12,8 @@
 python -X utf8 -B Analytics/workbench/launch_workbench.py
 ```
 
+macOS 双击 `Analytics/start_special_workbench.command`。环境安装和本机像素校验说明见[根目录 README](../../README.md#macos)。
+
 启动器会检查 `requirements.txt` 和已通过 recipes 中冻结的环境版本，自动寻找匹配的 Python，并打印实际使用的路径与版本。它会检查当前 Python、项目虚拟环境、本机 Miniconda/Anaconda 和 PATH；也可用 `MATHPALETTE_PYTHON` 指定解释器完整路径。当前正式环境为 Python 3.13.9、Matplotlib 3.11.2、NumPy 2.5.3、Pillow 12.3.0。没有匹配环境时会在渲染前停止并列出版本差异，保留原图和收集记录。
 
 1. 在左侧选择题目，核对原图、题干、答案，点击“打开画板”。题号搜索下方的「来源」可按正式清单中的数据集筛选，默认「全部来源」；与题号搜索及已完成列表的特殊情况筛选组合生效，「上一题／下一题」遵循当前筛选。

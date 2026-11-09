@@ -6,6 +6,7 @@ import base64
 import hashlib
 import json
 import os
+import platform
 import secrets
 import threading
 import uuid
@@ -91,6 +92,7 @@ class Workbench:
         self.lock, self.submit_lock = threading.RLock(), threading.Lock()
         self.job, self.errors = None, {}
         self.cached_preview = None
+        self.blocked_questions = {}
         self.session_id, self.review_token = uuid.uuid4().hex, secrets.token_urlsafe(32)
         self.writer = StoreLock(self.state_dir / "workbench.lock")
         try:
@@ -153,18 +155,21 @@ class Workbench:
                 question["revision"] += 1
         self.progress["signature"] = copy.deepcopy(self.signature)
         active = self.active_questions()
-        if self.progress["current_question"] not in active:
-            self.progress["current_question"] = active[0] if active else None
-            self.progress["navigation_revision"] += 1
-        metadata_path = self.state_dir / "scene_metadata.json"
+        macos_mode = platform.system() == "Darwin" and os.environ.get("MATHPALETTE_MACOS") == "1"
+        cache_name = f"scene_metadata.macos-{platform.machine()}.json" if macos_mode else "scene_metadata.json"
+        metadata_path = self.state_dir / cache_name
         cache = read_json(metadata_path) if metadata_path.exists() else {}
         cached_signature = cache.get("signature", {})
         if workflow_update:
             cached_signature = {**cached_signature, "baseline_fingerprint": self.signature["baseline_fingerprint"]}
-        if cached_signature == self.signature and all(qid in cache.get("questions", {}) for qid in active):
+        cached_blocked = cache.get("blocked_questions", {}) if macos_mode else {}
+        if cached_signature == self.signature and all(
+                qid in cache.get("questions", {}) or qid in cached_blocked for qid in active):
             self.metadata = cache["questions"]
+            self.blocked_questions = cached_blocked
             if cache.get("signature") != self.signature:
-                atomic_json(metadata_path, {"signature": self.signature, "questions": self.metadata})
+                atomic_json(metadata_path, {"signature": self.signature, "questions": self.metadata,
+                                            "blocked_questions": self.blocked_questions})
         else:
             self.metadata = {}
             failures = []
@@ -173,10 +178,20 @@ class Workbench:
                 try:
                     self.metadata[qid] = self.adapter.inspect_question(qid)
                 except WorkbenchError as error:
-                    failures.append(str(error))
+                    if macos_mode and error.code == "baseline_mismatch":
+                        self.blocked_questions[qid] = str(error)
+                    else:
+                        failures.append(str(error))
             if failures:
                 raise WorkbenchError("原图校验失败：\n" + "\n".join(failures), 409, "baseline_mismatch")
-            atomic_json(metadata_path, {"signature": self.signature, "questions": self.metadata})
+            atomic_json(metadata_path, {"signature": self.signature, "questions": self.metadata,
+                                        "blocked_questions": self.blocked_questions})
+        if self.blocked_questions:
+            announce("macOS 像素校验未通过，已暂停这些题的标注：" + "、".join(self.blocked_questions))
+        active = self.active_questions()
+        if self.progress["current_question"] not in active:
+            self.progress["current_question"] = active[0] if active else None
+            self.progress["navigation_revision"] += 1
         self.renderer = PluginRenderer(self.config, self.adapter, self.metadata)
         for name in ("candidates", "drafts", "reproduced"):
             (self.root / name).mkdir(parents=True, exist_ok=True)
@@ -204,11 +219,17 @@ class Workbench:
             question["collection_history"] = collection.get("history", [])
         return question
 
-    def active_questions(self):
+    def active_questions(self, progress=None):
+        questions = (self.progress if progress is None else progress)["questions"]
         return [qid for qid in self.adapter.records
-                if not self.progress["questions"][qid].get("collected", False)]
+                if qid not in self.blocked_questions and not questions[qid].get("collected", False)]
+
+    def _check_renderable(self, qid):
+        if qid in self.blocked_questions:
+            raise WorkbenchError(self.blocked_questions[qid], 409, "baseline_mismatch")
 
     def _check_open_question(self, qid):
+        self._check_renderable(qid)
         if qid not in self.adapter.records:
             raise WorkbenchError("不存在此题号。", 404)
         if self.progress["questions"][qid].get("collected", False):
@@ -472,7 +493,7 @@ class Workbench:
             }
             if special_case:
                 question["collection_record"].update(special_case=True, review_status="pending")
-            active = [key for key in self.adapter.records if not progress["questions"][key].get("collected")]
+            active = self.active_questions(progress)
             later = [key for key in active if key > qid]
             progress["current_question"] = later[0] if later else active[0] if active else None
             progress["navigation_revision"] += 1
@@ -488,6 +509,7 @@ class Workbench:
             self.metadata.setdefault(qid, meta)
 
     def reopen(self, qid, token):
+        self._check_renderable(qid)
         self._ensure_metadata(qid)
         with self.lock:
             self._recover()
@@ -827,6 +849,7 @@ class Workbench:
             return {**context, "original_image_url": f"/api/original-image/{qid}?revision={context['input_revision']}" if qid else None, "status": status,
                     "error": error, "accepted": accepted, "review_token": self.review_token,
                     "poll_interval_ms": self.config["poll_interval_ms"],
+                    "blocked_questions": list(self.blocked_questions),
                     "questions": [{"id": key, "source_dataset": self.adapter.records[key]["source_dataset"],
                                    "accepted_count": len(self.progress["questions"][key]["accepted"]),
                                    "has_pending": bool(self.progress["questions"][key]["candidate_id"])}
