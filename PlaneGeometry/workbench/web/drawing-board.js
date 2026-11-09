@@ -34,7 +34,7 @@
     setTool("curve");
   }
   let undo = [], redo = [], revision = 0, preview = null, timer = null, rendering = false;
-  let saving = false, conflict = false, opening = 0, ctrl = false, shift = false;
+  let saving = false, conflict = false, opening = 0, snapModifier = false, shift = false;
   let changed = false, storageWarning = false;
   let snapped = null;
   const annotationColor = {point: "#DC2626", line: "#2563EB"};
@@ -179,7 +179,7 @@
     const points = [...scene.snap_points, ...plugin.params.actions.filter(a => a.type === "add_point")
       .map(a => ({id: a.id, xy: a.xy, kind: "added_point"}))];
     const result = MathPaletteGeometryInput.locate(pixel, scene, points, canvas.clientWidth / canvas.width,
-      ctrl || $("board-snap").checked || tool === "line", tool === "line" ? start : null, shift);
+      snapModifier || $("board-snap").checked || tool === "line", tool === "line" ? start : null, shift);
     snapped = result.target;
     return result.xy;
   }
@@ -266,7 +266,7 @@
     $("board-curve-controls").hidden = tool !== "curve";
     $("board-line-style").hidden = tool !== "line";
     $("board-mark-colors").hidden = tool === "curve";
-    $("board-tool-help").textContent = {point: "选择颜色后单击放点；Ctrl 吸附已有顶点、命名点和新增点。", line: "选择实线或虚线，再两次点选或拖动画线；靠近已有点或新增点可精确连接。Ctrl 持续吸附，Esc 取消。", curve: "点击原对象或从列表选择，再修改颜色或实虚线。青色高亮只用于定位。"}[tool];
+    $("board-tool-help").textContent = {point: "选择颜色后单击放点；Ctrl / Option（Alt）吸附已有顶点、命名点和新增点。", line: "选择实线或虚线，再两次点选或拖动画线；靠近已有点或新增点可精确连接。Ctrl / Option（Alt）持续吸附，Esc 取消。", curve: "点击原对象或从列表选择，再修改颜色或实虚线。青色高亮只用于定位。"}[tool];
     controlsBoard(); updateCursor();
   }
   function selectCurve(id) { resetRange(); selected = id; $("board-target").value = id; controlsBoard(); updateCursor(); }
@@ -313,7 +313,7 @@
     const rect = canvas.getBoundingClientRect();
     rawCursor = [(e.clientX - rect.left - canvas.clientLeft) * 768 / canvas.clientWidth,
       (e.clientY - rect.top - canvas.clientTop) * 768 / canvas.clientHeight];
-    ctrl = e.ctrlKey; shift = e.shiftKey; updateCursor();
+    snapModifier = e.ctrlKey || e.altKey; shift = e.shiftKey; updateCursor();
   }
   canvas.addEventListener("pointermove", pointer);
   canvas.addEventListener("pointerleave", () => { if (!press) { rawCursor = null; updateCursor(); } });
@@ -347,7 +347,7 @@
     clearTimeout(timer); scene = null; base = clone(state); conflict = false; saving = false;
     plugin = fromState(base); original = picture = preview = null; revision++; changed = false;
     undo = []; redo = []; resetRange(); selected = hovered = ""; cursor = rawCursor = start = null;
-    ctrl = shift = false;
+    snapModifier = shift = false;
     $("board-title").textContent = `${base.question_id} · 手动画板`;
     $("board-question-text").textContent = base.question;
     $("board-answer").textContent = typeof base.answer === "string" ? base.answer : JSON.stringify(base.answer, null, 2);
@@ -432,13 +432,13 @@
   $("board-submit").addEventListener("click", () => save(false));
   window.addEventListener("keydown", e => {
     if (!open()) return;
-    ctrl = e.ctrlKey; shift = e.shiftKey; updateCursor();
+    snapModifier = e.ctrlKey || e.altKey; shift = e.shiftKey; updateCursor();
     if (e.target.matches("input, textarea, select")) return;
     if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "z") { e.preventDefault(); history(e.shiftKey ? "redo" : "undo"); }
-    else if (!e.ctrlKey && !e.metaKey && ["1", "2", "3"].includes(e.key)) setTool({1: "point", 2: "line", 3: "curve"}[e.key]);
+    else if (!e.ctrlKey && !e.metaKey && !e.altKey && ["1", "2", "3"].includes(e.key)) setTool({1: "point", 2: "line", 3: "curve"}[e.key]);
   });
-  window.addEventListener("keyup", e => { if (open()) { ctrl = e.ctrlKey; shift = e.shiftKey; updateCursor(); } });
-  window.addEventListener("blur", () => { ctrl = shift = false; if (open()) { persist(); updateCursor(); } });
+  window.addEventListener("keyup", e => { if (open()) { snapModifier = e.ctrlKey || e.altKey; shift = e.shiftKey; updateCursor(); } });
+  window.addEventListener("blur", () => { snapModifier = shift = false; if (open()) { persist(); updateCursor(); } });
   window.addEventListener("beforeunload", () => { if (open()) persist(); });
   window.drawingBoard = {onState(next) {
     if (!open() || saving || !base) return;

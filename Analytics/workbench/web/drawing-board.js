@@ -7,7 +7,7 @@
   let scene = null, base = null, plugin = null, original = null, picture = null;
   let tool = "point", selected = "", hovered = "", cursor = null, rawCursor = null, start = null;
   let undo = [], redo = [], revision = 0, preview = null, timer = null, rendering = false;
-  let saving = false, conflict = false, opening = 0, ctrl = false, shift = false;
+  let saving = false, conflict = false, opening = 0, snapModifier = false, shift = false;
   let changed = false, storageWarning = false;
   const open = () => dialog.open;
   const key = qid => `mathpalette-c-board-v1:${qid}`;
@@ -125,7 +125,7 @@
   const round = n => Math.round(n * 1000000) / 1000000;
   function dataPoint(pixel) {
     let p = matrix(scene.pixel_to_data, pixel);
-    if (ctrl || $("board-snap").checked) p = p.map(Math.round);
+    if (snapModifier || $("board-snap").checked) p = p.map(Math.round);
     if (tool === "line" && start && shift) {
       if (Math.abs(p[0] - start[0]) >= Math.abs(p[1] - start[1])) p[1] = start[1]; else p[0] = start[0];
     }
@@ -173,7 +173,7 @@
     }
     if (cursor && tool !== "curve") {
       const [x, y] = matrix(scene.data_to_pixel, cursor);
-      ctx.strokeStyle = ctrl || $("board-snap").checked ? "#059669" : "#64748B"; ctx.lineWidth = 1;
+      ctx.strokeStyle = snapModifier || $("board-snap").checked ? "#059669" : "#64748B"; ctx.lineWidth = 1;
       ctx.beginPath(); ctx.moveTo(x - 9, y); ctx.lineTo(x + 9, y); ctx.moveTo(x, y - 9); ctx.lineTo(x, y + 9); ctx.stroke();
       ctx.beginPath(); ctx.arc(x, y, 5, 0, Math.PI * 2); ctx.stroke();
     }
@@ -183,14 +183,14 @@
     if (!scene) return;
     cursor = rawCursor && inside(rawCursor) ? dataPoint(rawCursor) : null;
     hovered = tool === "curve" && cursor ? hit(rawCursor) : "";
-    $("board-coordinates").textContent = cursor ? `x ${cursor[0]} · y ${cursor[1]}${ctrl || $("board-snap").checked ? " · 格点吸附" : ""}` : "移动指针查看坐标";
+    $("board-coordinates").textContent = cursor ? `x ${cursor[0]} · y ${cursor[1]}${snapModifier || $("board-snap").checked ? " · 格点吸附" : ""}` : "移动指针查看坐标";
     $("board-selected").textContent = hovered || selected;
     draw();
   }
   function setTool(value) {
     tool = value; start = null; hovered = "";
     $("board-curve-controls").hidden = tool !== "curve";
-    $("board-tool-help").textContent = {point: "单击放置红点；按住 Ctrl 吸附整数格点。", line: "点击起点，再点击终点（也可拖动）；Ctrl 吸附，Shift 水平 / 竖直，Esc 取消。", curve: "点击原曲线，再选择颜色或线型；青色轮廓仅用于定位。"}[tool];
+    $("board-tool-help").textContent = {point: "单击放置红点；按住 Ctrl / Option（Alt）吸附整数格点。", line: "点击起点，再点击终点（也可拖动）；Ctrl / Option（Alt）吸附，Shift 水平 / 竖直，Esc 取消。", curve: "点击原曲线，再选择颜色或线型；青色轮廓仅用于定位。"}[tool];
     controlsBoard(); updateCursor();
   }
   function selectCurve(id) { selected = id; $("board-target").value = id; controlsBoard(); updateCursor(); }
@@ -226,7 +226,7 @@
     const rect = canvas.getBoundingClientRect();
     rawCursor = [(e.clientX - rect.left - canvas.clientLeft) * 768 / canvas.clientWidth,
       (e.clientY - rect.top - canvas.clientTop) * 768 / canvas.clientHeight];
-    ctrl = e.ctrlKey; shift = e.shiftKey; updateCursor();
+    snapModifier = e.ctrlKey || e.altKey; shift = e.shiftKey; updateCursor();
   }
   canvas.addEventListener("pointermove", pointer);
   canvas.addEventListener("pointerleave", () => { if (!press) { rawCursor = null; updateCursor(); } });
@@ -248,7 +248,7 @@
     clearTimeout(timer); scene = null; base = clone(state); conflict = false; saving = false;
     plugin = fromState(base); original = picture = preview = null; revision++; changed = false;
     undo = []; redo = []; selected = hovered = ""; cursor = rawCursor = start = null;
-    ctrl = shift = false;
+    snapModifier = shift = false;
     $("board-title").textContent = `${base.question_id} · 手动画板`;
     $("board-question-text").textContent = base.question;
     $("board-answer").textContent = typeof base.answer === "string" ? base.answer : JSON.stringify(base.answer, null, 2);
@@ -319,13 +319,13 @@
   $("board-submit").addEventListener("click", () => save(false));
   window.addEventListener("keydown", e => {
     if (!open()) return;
-    ctrl = e.ctrlKey; shift = e.shiftKey; updateCursor();
+    snapModifier = e.ctrlKey || e.altKey; shift = e.shiftKey; updateCursor();
     if (e.target.matches("input, textarea, select")) return;
     if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "z") { e.preventDefault(); history(e.shiftKey ? "redo" : "undo"); }
-    else if (!e.ctrlKey && !e.metaKey && ["1", "2", "3"].includes(e.key)) setTool({1: "point", 2: "line", 3: "curve"}[e.key]);
+    else if (!e.ctrlKey && !e.metaKey && !e.altKey && ["1", "2", "3"].includes(e.key)) setTool({1: "point", 2: "line", 3: "curve"}[e.key]);
   });
-  window.addEventListener("keyup", e => { if (open()) { ctrl = e.ctrlKey; shift = e.shiftKey; updateCursor(); } });
-  window.addEventListener("blur", () => { ctrl = shift = false; if (open()) { persist(); updateCursor(); } });
+  window.addEventListener("keyup", e => { if (open()) { snapModifier = e.ctrlKey || e.altKey; shift = e.shiftKey; updateCursor(); } });
+  window.addEventListener("blur", () => { snapModifier = shift = false; if (open()) { persist(); updateCursor(); } });
   window.addEventListener("beforeunload", () => { if (open()) persist(); });
   window.drawingBoard = {onState(next) {
     if (!open() || saving || !base) return;
