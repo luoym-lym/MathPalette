@@ -20,6 +20,10 @@
 
 三个分支的 Base 均未启用。Special 分别使用各自 `workbench/`，由用户 Pass / Collect。不得伪造通过记录。
 
+2026-11-11 用户明确要求将可复用的正式评测数据集放入独立目录，并规定“正式的数据集仅包含collect且没有特殊标识的题目”。发布快照位于 `MathPalette_Dataset/`：筛选 `collection.json` 顶层及 `current.status` 均为 `collected`、`current.special_case` 缺省或为 false，排除待复审题；只附带与该次普通 Collect 的槽位完全匹配的已 Pass Special。当前快照为323题、1140张Special、1463个图文样本。保留原正式题号及已批准内容；三个分支源库与原批准记录继续作为追溯依据。更新发布集须重新按当前状态筛选，不把未 Collect 或特殊标记题追加进来。用户要求先整理正式数据集，再生成 Qwen JSONL，本轮不处理正式评测脚本。
+
+2026-11-11 用户进一步明确评测需要思考过程（“因为我要思考过程啊”）。后续模型接入须核实图像输入和对应接口实际返回的推理字段，并保存接口提供的思考内容与最终回答；须区分推理文本、思考摘要和未返回思考内容，不能把开启 thinking 参数当作已获取思考过程。百炼 Qwen Batch 明确不返回 `reasoning_content`，现有 `MathPalette_Dataset/qwen_batch/` 文件不适用于本轮需要思考过程的正式评测；数据和 OSS 图片可复用，Qwen 路线改为普通按量实时 API。本轮仍不修改正式评测脚本，也未提交模型请求。
+
 平面、立体分别使用分支 `REDRAW_PROTOCOL.md` 和 `dataset_generator/protocol.json`；立体须分别冻结三维几何、投影和可见性。Special 操作范围见各分支 `workbench/README.md`、`workbench/agent_prompt.md` 与 `workbench/plugin.schema.json`。原对象实虚线覆盖属于变体外观操作，不改写原冻结场景。
 
 未通过的新题在独立暂存区制作，不写进正式目录或清单。临时输出放 `.runtime/`；运行时缓存、日志和预览不作为正式数据。来源图片缺失时如实记录，不用重绘图冒充。

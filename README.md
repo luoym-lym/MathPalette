@@ -2,6 +2,10 @@
 
 MathPalette 研究统一渲染条件下，视觉标记如何影响视觉语言模型的数学推理。原题经用户确认后收集，Special 从原图独立派生、经用户审核后保存，冻结操作以便重绘。标记方法与后续探索见 [Conclusion.md](Conclusion.md)（2026-10-17 的历史盘点）。[paper.tex](paper.tex) 是研究设计草稿，包含尚未启用的 BaseVar 设计；当前可用数据与功能以本说明和数据协议为准。编译论文还需准备 ICML 2026 模板及其参考文献文件。
 
+用于正式评测的独立发布快照见 [MathPalette_Dataset](MathPalette_Dataset/README.md)。按用户 2026-11-11 最新要求，仅纳入**已 Collect 且当前没有特殊标识**的题目：323 道题、1,140 张 Special，共 1,463 个图文样本；题号、题干、答案和 PNG 保持原样。下文的原题总量描述工作台源库的已批准原题规模，正式评测范围以上述发布快照为准。[Qwen Batch 模板与图片上传说明](MathPalette_Dataset/qwen_batch/README.md)由该快照转换，不涉及正式评测执行脚本。
+
+用户已进一步明确评测需要保存思考过程。百炼 Qwen Batch 不返回 `reasoning_content`，已准备的 Batch 文件不适用于本轮正式评测；Qwen 应使用普通按量实时 API 保存接口提供的推理内容及最终回答，数据快照与 OSS 图片继续复用。
+
 历史快照：截至 2026-10-31，正式数据为 **823 题、408 张 Special**：Analytics 70 题 / 116 张，PlaneGeometry 505 题 / 259 张，SolidGeometry 248 题 / 33 张。Special 覆盖 101 道原题。题源为 DynaMath 20 题、MathVerse 147 题、MathVista 56 题、SOLIDGEO 9 题、Author Designed 70 题、MathVision 521 题；最新数量以 `catalog.py check` 为准。
 
 | 内容 | 数量 / 入口 |
