@@ -1,0 +1,1325 @@
+{
+  "created_at": "2026-11-11T10:24:42.113927+00:00",
+  "user_instruction": "再进行一轮。多参考已经collect的题目，观察特征再进行设计。不一定硬要和原有的题目完全不同。",
+  "authorization_type": "continuation_of_explicit_user_batch_design_admission_and_direct_pass_instruction",
+  "authorization_context": {
+    "latest_user_instruction": "再进行一轮。多参考已经collect的题目，观察特征再进行设计。不一定硬要和原有的题目完全不同。",
+    "standing_original_and_variant_instruction": "我需要初步20道题。你提出设计思路和指令，然后使用codex-gpt 6.1 sol high作为子代理来进行原题和诱导变体的同步设计，并且直接加入工作台的‘Author Designed’来源，设计的变体直接pass就好。",
+    "prior_user_integration_confirmation": "放进去吧",
+    "scope_interpretation": "本轮继续同一设计、实测、入工作台与直接Pass流程；本轮6道、7份变体，未声称逐题人工审核。"
+  },
+  "manual_per_question_review": false,
+  "source_dataset": "Author Designed",
+  "ids": [
+    "Ana573",
+    "Ana574",
+    "Ana575",
+    "Ana576",
+    "Ana577",
+    "Ana578"
+  ],
+  "original_admission_executor": "primary via dataset_tools.question_review.approve",
+  "special_pass_executor": "primary via official Workbench.submit/review transaction",
+  "pass_does_not_claim_visual_effectiveness": true,
+  "collect_performed": false,
+  "design_model": "codex gpt-6.1-sol high",
+  "parallel_groups": 3,
+  "visual_pilot": {
+    "source_dataset": "Author Designed",
+    "original_count": 6,
+    "variant_count": 7,
+    "qualified_pairs": [
+      "Ana576/v01",
+      "Ana578/v01"
+    ],
+    "evidence_scope": "MiMo-v2.6-flash thinking enabled; two completed samples per control/variant, no broad robustness claim",
+    "attempt_status_counts": {
+      "error": 5,
+      "completed": 15,
+      "timeout_120s": 8
+    },
+    "formal_write": false,
+    "pass_performed": false,
+    "collect_performed": false
+  },
+  "questions": [
+    {
+      "record": {
+        "id": "Ana573",
+        "source_dataset": "Author Designed",
+        "question": "What is the maximum value of the function f shown in the graph?",
+        "answer": "5",
+        "answer_type": "number",
+        "image": "image/Ana573.png",
+        "original_image": null,
+        "script": "dataset_generator/questions/function_plot573.py",
+        "runtime_dependencies": [
+          "dataset_generator/common_renderer.py",
+          "dataset_generator/protocol.json",
+          "dataset_generator/scenes/Ana573.json"
+        ],
+        "scene": "dataset_generator/scenes/Ana573.json",
+        "source_key": "author_collect6_20261111/Ana573"
+      },
+      "design_review": {
+        "record": {
+          "id": "Ana573",
+          "source_dataset": "Author Designed",
+          "question": "What is the maximum value of the function f shown in the graph?",
+          "answer": "5",
+          "answer_type": "number",
+          "image": "image/Ana573.png",
+          "original_image": null,
+          "script": "dataset_generator/questions/function_plot573.py",
+          "runtime_dependencies": [
+            "dataset_generator/common_renderer.py",
+            "dataset_generator/protocol.json",
+            "dataset_generator/scenes/Ana573.json"
+          ]
+        },
+        "solution": "The only turning point is (-2,5); both endpoints have y=-3. The curve rises to 5 and falls, so the maximum is 5.",
+        "reference_features": {
+          "Ana09": "Viewed original maximum (1,4), red false peak (1,5): sparse off-contour dot competes with clear contour peak. Transfer direct extreme-value readout only.",
+          "Ana05": "Viewed two parabola originals and dashed parent variant. Transfer only dashed contour as a possible single-component salience intervention; avoid translation/function-role reasoning.",
+          "Ana18": "Viewed translated parabola and parent; variant dots origin and dashes parent. Transfer point salience; avoid conceptual parent/target ambiguity entirely.",
+          "Ana36": "Viewed sinusoid original and false red midline dot (-5,0). Transfer elementary extrema-to-midline task with integer extrema, rather than supplied amplitude.",
+          "Ana02": "Inspected actual plugin only (not counted among four viewed image pairs): same-color paired points suggest a pair of readings. Transfer one true anchor and one false extreme."
+        },
+        "local_coordinates": {
+          "true_extrema": [
+            [
+              -2,
+              5
+            ]
+          ],
+          "false_markers": [
+            [
+              -2,
+              6
+            ]
+          ]
+        },
+        "wrong_readout_derivation": "Misread the red dot (-2,6) as the peak, answer 6.",
+        "novelty": "Fresh geometry; familiar task type explicitly authorized. One original contour and no printed answer-bearing formula."
+      },
+      "parent_review": {
+        "question_id": "Ana573",
+        "reviewed_at": "2026-11-11T10:06:31.797567+00:00",
+        "actual_images_viewed": [
+          "v00/candidate.png",
+          "v01/candidate.png"
+        ],
+        "visual_review": "原图峰顶(-2,5)，变体仅新增(-2,6)红点。真峰与两端点可见，新增点不覆盖刻度。",
+        "math_verified": true,
+        "summary_hashes_verified": true,
+        "frozen_inputs_verified": true,
+        "official_variant_rerender_exact_bytes": true,
+        "qualifies": false,
+        "effectiveness_status": "unverified_controls_incomplete_connection_errors",
+        "baseline_evidence": [
+          {
+            "round": 1,
+            "status": "error",
+            "final_answer": null,
+            "correct": null,
+            "final_evidence": null
+          },
+          {
+            "round": 2,
+            "status": "error",
+            "final_answer": null,
+            "correct": null,
+            "final_evidence": null
+          }
+        ],
+        "candidate_tested": false,
+        "integration_ready": true,
+        "integration_basis": "User requested continuing new original/Specialvar design, Author Designed admission and direct Pass; no claim of per-question manual review or measured success. Parent will integrate with batch.",
+        "formal_write": false,
+        "collect": false,
+        "reviewer": "parent",
+        "qualified_candidates": []
+      },
+      "staged_summary_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_collect_round_20261111/tasks/Ana573/summary.json",
+      "staged_summary_sha256": "0c49f16f6b7c7061e0a701ea3933bedc05b8765e21cb8f2520b83bc6fddf7a22"
+    },
+    {
+      "record": {
+        "id": "Ana574",
+        "source_dataset": "Author Designed",
+        "question": "The graph shows one full period of a sinusoidal function f. Its midline is y = k. Find k.",
+        "answer": "1",
+        "answer_type": "number",
+        "image": "image/Ana574.png",
+        "original_image": null,
+        "script": "dataset_generator/questions/function_plot574.py",
+        "runtime_dependencies": [
+          "dataset_generator/common_renderer.py",
+          "dataset_generator/protocol.json",
+          "dataset_generator/scenes/Ana574.json"
+        ],
+        "scene": "dataset_generator/scenes/Ana574.json",
+        "source_key": "author_collect6_20261111/Ana574"
+      },
+      "design_review": {
+        "record": {
+          "id": "Ana574",
+          "source_dataset": "Author Designed",
+          "question": "The graph shows one full period of a sinusoidal function f. Its midline is y = k. Find k.",
+          "answer": "1",
+          "answer_type": "number",
+          "image": "image/Ana574.png",
+          "original_image": null,
+          "script": "dataset_generator/questions/function_plot574.py",
+          "runtime_dependencies": [
+            "dataset_generator/common_renderer.py",
+            "dataset_generator/protocol.json",
+            "dataset_generator/scenes/Ana574.json"
+          ]
+        },
+        "solution": "The upper extreme is (-3,4) and lower extreme (3,-2). The midline is halfway between them: k=(4+(-2))/2=1. Both endpoints have y=1.",
+        "reference_features": {
+          "Ana09": "Viewed original maximum (1,4), red false peak (1,5): sparse off-contour dot competes with clear contour peak. Transfer direct extreme-value readout only.",
+          "Ana05": "Viewed two parabola originals and dashed parent variant. Transfer only dashed contour as a possible single-component salience intervention; avoid translation/function-role reasoning.",
+          "Ana18": "Viewed translated parabola and parent; variant dots origin and dashes parent. Transfer point salience; avoid conceptual parent/target ambiguity entirely.",
+          "Ana36": "Viewed sinusoid original and false red midline dot (-5,0). Transfer elementary extrema-to-midline task with integer extrema, rather than supplied amplitude.",
+          "Ana02": "Inspected actual plugin only (not counted among four viewed image pairs): same-color paired points suggest a pair of readings. Transfer one true anchor and one false extreme."
+        },
+        "local_coordinates": {
+          "true_extrema": [
+            [
+              -3,
+              4
+            ],
+            [
+              3,
+              -2
+            ]
+          ],
+          "false_markers": [
+            [
+              3,
+              -4
+            ]
+          ]
+        },
+        "wrong_readout_derivation": "Keep true maximum 4 but read minimum as -4 from false red dot; compute k=(4-4)/2=0.",
+        "novelty": "Fresh geometry; familiar task type explicitly authorized. One original contour and no printed answer-bearing formula."
+      },
+      "parent_review": {
+        "question_id": "Ana574",
+        "reviewed_at": "2026-11-11T10:06:31.891603+00:00",
+        "actual_images_viewed": [
+          "v00/candidate.png",
+          "v01/candidate.png"
+        ],
+        "visual_review": "原图极值4与-2，中线1。变体真实上极值(-3,4)与错误下标记(3,-4)成对，正确曲线完整，新增点不覆盖刻度。",
+        "math_verified": true,
+        "summary_hashes_verified": true,
+        "frozen_inputs_verified": true,
+        "official_variant_rerender_exact_bytes": true,
+        "qualifies": false,
+        "effectiveness_status": "unverified_controls_incomplete_connection_errors",
+        "baseline_evidence": [
+          {
+            "round": 1,
+            "status": "error",
+            "final_answer": null,
+            "correct": null,
+            "final_evidence": null
+          },
+          {
+            "round": 2,
+            "status": "completed",
+            "final_answer": "To find the midline \\( k \\) of a sinusoidal function, we use the average of the maximum and minimum \\( y \\)-values of the function.  \n\n1. **Identify the maximum and minimum \\( y \\)-values**:  \n   - From the graph, the maximum \\( y \\)-value (peak) is \\( 4 \\).  \n   - The minimum \\( y \\)-value (trough) is \\( -2 \\).  \n\n\n2. **Calculate the midline**:  \n   The midline is the average of the maximum and minimum values:  \n   \\[\n   k = \\frac{\\text{max} + \\text{min}}{2} = \\frac{4 + (-2)}{2} = \\frac{2}{2} = 1\n   \\]  \n\n\nThus, the midline \\( k \\) is \\(\\boldsymbol{1}\\).",
+            "correct": true,
+            "final_evidence": "To find the midline \\( k \\) of a sinusoidal function, we use the average of the maximum and minimum \\( y \\)-values of the function.  \n\n1. **Identify the maximum and minimum \\( y \\)-values**:  \n   - From the graph, the maximum \\( y \\)-value (peak) is \\( 4 \\).  \n   - The minimum \\( y \\)-value (trough) is \\( -2 \\).  \n\n\n2. **Calculate the midline**:  \n   The midline is the average of the maximum and minimum values:  \n   \\[\n   k = \\frac{\\text{max} + \\text{min}}{2} = \\frac{4 + (-2)}{2} = \\frac{2}{2} = 1\n   \\]  \n\n\nThus, the midline \\( k \\) is \\(\\boldsymbol{1}\\)."
+          }
+        ],
+        "candidate_tested": false,
+        "integration_ready": true,
+        "integration_basis": "User requested continuing new original/Specialvar design, Author Designed admission and direct Pass; no claim of per-question manual review or measured success. Parent will integrate with batch.",
+        "formal_write": false,
+        "collect": false,
+        "reviewer": "parent",
+        "qualified_candidates": []
+      },
+      "staged_summary_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_collect_round_20261111/tasks/Ana574/summary.json",
+      "staged_summary_sha256": "ebb8fea51163aa42301b566aead793c86d4d645e3e8985f9fe9e93f693ef9292"
+    },
+    {
+      "record": {
+        "id": "Ana575",
+        "source_dataset": "Author Designed",
+        "question": "The straight line shown is plotted on a unit grid. What is its slope?",
+        "answer": "1/2",
+        "answer_type": "number",
+        "image": "image/Ana575.png",
+        "original_image": null,
+        "script": "dataset_generator/questions/function_plot575.py",
+        "runtime_dependencies": [
+          "dataset_generator/common_renderer.py",
+          "dataset_generator/protocol.json",
+          "dataset_generator/scenes/Ana575.json"
+        ],
+        "scene": "dataset_generator/scenes/Ana575.json",
+        "source_key": "author_collect6_20261111/Ana575"
+      },
+      "design_review": {
+        "question_id": "Ana575",
+        "solution": "Read the line at (2,3) and (6,5). Slope=(5-3)/(6-2)=2/4=1/2. Independently its intercepts are (0,2) and (-4,0), giving 2/4=1/2.",
+        "expected_wrong_answer": "3/4",
+        "false_readout_derivation": "Treat the red pair (2,3),(6,6) as points on the line: (6-3)/(6-2)=3/4; (2,3) is genuine, but line y at x=6 is 5, not 6.",
+        "references_used": [
+          "Ana22/C04",
+          "Ana154/C03",
+          "Ana25/C05",
+          "Ana21/C05",
+          "Ana97/C03"
+        ],
+        "transfer": "Familiar grid task; genuine anchor licenses false endpoint. No forced novelty.",
+        "local_coordinates": [
+          [
+            2,
+            3
+          ],
+          [
+            6,
+            6
+          ]
+        ],
+        "human_solvability": "Original solid contour and cardinal/integer grid crossings remain clear; colored annotations do not redefine it."
+      },
+      "parent_review": {
+        "question_id": "Ana575",
+        "reviewed_at": "2026-11-11T10:10:02.456344+00:00",
+        "actual_images_viewed": [
+          "v00/candidate.png",
+          "v01/candidate.png"
+        ],
+        "visual_review": "真线y=x/2+2。红点(2,3)在真线上，(6,6)比真值5高一格。新增点不覆盖刻度或真实交点。",
+        "math_verified": true,
+        "summary_hashes_verified": true,
+        "frozen_inputs_verified": true,
+        "official_variant_rerender_exact_bytes": true,
+        "qualifies": false,
+        "effectiveness_status": "unverified_controls_incomplete_connection_errors",
+        "final_evidence": {
+          "v00": [
+            {
+              "round": 1,
+              "status": "error",
+              "final": null
+            },
+            {
+              "round": 2,
+              "status": "error",
+              "final": null
+            }
+          ]
+        },
+        "final_interpretation": "No FINAL produced; not a mathematical failure or resistance finding.",
+        "limitation": "One model profile and two completed samples; no general success-rate claim; components not independently ablated.",
+        "integration_ready": true,
+        "formal_write": false,
+        "collect": false,
+        "reviewer": "parent",
+        "qualified_candidates": []
+      },
+      "staged_summary_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_collect_round_20261111/tasks/Ana575/summary.json",
+      "staged_summary_sha256": "6f99a7254726beb283d2de8eb11fdeedac3512629b89540296b723216903ad6d"
+    },
+    {
+      "record": {
+        "id": "Ana576",
+        "source_dataset": "Author Designed",
+        "question": "The circle shown is plotted on a unit grid. What is the square of its radius?",
+        "answer": "9",
+        "answer_type": "number",
+        "image": "image/Ana576.png",
+        "original_image": null,
+        "script": "dataset_generator/questions/function_plot576.py",
+        "runtime_dependencies": [
+          "dataset_generator/common_renderer.py",
+          "dataset_generator/protocol.json",
+          "dataset_generator/scenes/Ana576.json"
+        ],
+        "scene": "dataset_generator/scenes/Ana576.json",
+        "source_key": "author_collect6_20261111/Ana576"
+      },
+      "design_review": {
+        "question_id": "Ana576",
+        "solution": "The horizontal extrema are (-1,2),(5,2), so center=(2,2) and radius=(5-(-1))/2=3. Vertical extrema (2,-1),(2,5) independently confirm this. Radius squared=9.",
+        "expected_wrong_answer": "8",
+        "false_readout_derivation": "Treat red (4,4) as a point on the circle centered at genuine (2,2). Squared radius=(4-2)^2+(4-2)^2=8. In fact (4,4) lies strictly inside the circle (8<9).",
+        "references_used": [
+          "Ana22/C04",
+          "Ana154/C03",
+          "Ana25/C05",
+          "Ana21/C05",
+          "Ana97/C03"
+        ],
+        "transfer": "Familiar grid task; genuine anchor licenses false endpoint. No forced novelty.",
+        "local_coordinates": [
+          [
+            2,
+            2
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "human_solvability": "Original solid contour and cardinal/integer grid crossings remain clear; colored annotations do not redefine it."
+      },
+      "parent_review": {
+        "question_id": "Ana576",
+        "reviewed_at": "2026-11-11T10:10:02.559751+00:00",
+        "actual_images_viewed": [
+          "v00/candidate.png",
+          "v01/candidate.png"
+        ],
+        "visual_review": "真实圆心(2,2)，上下左右极值为-1与5，半径3。红点(4,4)在圆内、邻近轮廓，蓝虚线与真实圆心连接形成半径外观。真圆轮廓和极值仍可辨。",
+        "math_verified": true,
+        "summary_hashes_verified": true,
+        "frozen_inputs_verified": true,
+        "official_variant_rerender_exact_bytes": true,
+        "qualifies": true,
+        "effectiveness_status": "qualifying_two_completed_samples",
+        "final_evidence": {
+          "v00": [
+            {
+              "round": 1,
+              "status": "completed",
+              "final": "To find the square of the radius of the circle, we first need to determine the radius itself by examining the graph.\n\n1.  **Identify the Center of the Circle:**\n    Looking at the grid, we can find the center by locating the horizontal and vertical midpoints of the circle.\n    *   The leftmost point of the circle is at $x = -1$.\n    *   The rightmost point of the circle is at $x = 5$.\n    *   The midpoint between $x = -1$ and $x = 5$ is $\\frac{-1 + 5}{2} = \\frac{4}{2} = 2$. So, the x-coordinate of the center is $2$.\n    *   The bottommost point of the circle is at $y = -1$.\n    *   The topmost point of the circle is at $y = 5$.\n    *   The midpoint between $y = -1$ and $y = 5$ is $\\frac{-1 + 5}{2} = \\frac{4}{2} = 2$. So, the y-coordinate of the center is $2$.\n    *   Therefore, the center of the circle is at the point **$(2, 2)$**.\n\n2.  **Determine the Radius:**\n    The radius is the distance from the center to any point on the circle. Let's use the topmost point we identified, which is at **$(2, 5)$**.\n    *   The horizontal distance from the center $(2, 2)$ to $(2, 5)$ is $|2 - 2| = 0$.\n    *   The vertical distance from the center $(2, 2)$ to $(2, 5)$ is $|5 - 2| = 3$.\n    *   So, the radius $r = 3$.\n\n    Alternatively, counting grid units from the center $(2, 2)$ to the right edge at $x = 5$: $5 - 2 = 3$ units.\n\n3.  **Calculate the Square of the Radius:**\n    The question asks for the square of the radius ($r^2$).\n    *   $r = 3$\n    *   $r^2 = 3^2 = 9$\n\n**Final Answer:**\nThe square of the radius is **9**."
+            },
+            {
+              "round": 2,
+              "status": "completed",
+              "final": "To find the square of the radius of the circle, we first need to determine its radius from the graph.\n\n**Step 1: Identify the center of the circle.**\nWe can find the center by looking at the horizontal and vertical diameters of the circle.\n*   **Horizontal Diameter:** The circle extends from $x = -1$ to $x = 5$.\n    *   The midpoint (x-coordinate of the center) is $\\frac{-1 + 5}{2} = \\frac{4}{2} = 2$.\n*   **Vertical Diameter:** The circle extends from $y = -1$ to $y = 5$.\n    *   The midpoint (y-coordinate of the center) is $\\frac{-1 + 5}{2} = \\frac{4}{2} = 2$.\n\nSo, the center of the circle is at $(2, 2)$.\n\n**Step 2: Determine the radius.**\nThe radius is the distance from the center to any point on the edge of the circle.\n*   Let's take the top point of the circle, which is at $(2, 5)$.\n*   The distance from the center $(2, 2)$ to the top $(2, 5)$ is $5 - 2 = 3$.\n\nWe can verify this with the rightmost point $(5, 2)$:\n*   The distance from the center $(2, 2)$ to the right $(5, 2)$ is $5 - 2 = 3$.\n\nThus, the radius $r$ is $3$.\n\n**Step 3: Calculate the square of the radius.**\nThe question asks for the square of the radius ($r^2$).\n$$r^2 = 3^2 = 9$$\n\n**Answer:**\nThe square of its radius is **9**."
+            }
+          ],
+          "v01": [
+            {
+              "round": 1,
+              "status": "completed",
+              "final": "To determine the square of the radius, we first identify the center of the circle and a point on the circle from the grid:  \n\n- The center of the circle is at \\((2, 2)\\) (the red dot).  \n- A point on the circle is at \\((4, 4)\\) (the other red dot).  \n\n\nThe radius \\( r \\) is the distance between these two points. Using the distance formula:  \n\\[\n\\text{Distance} = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}\n\\]  \n\nSubstituting \\( (x_1, y_1) = (2, 2) \\) and \\( (x_2, y_2) = (4, 4) \\):  \n\\[\nr = \\sqrt{(4 - 2)^2 + (4 - 2)^2} = \\sqrt{2^2 + 2^2} = \\sqrt{4 + 4} = \\sqrt{8}\n\\]  \n\n\nThe square of the radius is \\( r^2 = (\\sqrt{8})^2 = 8 \\).  \n\n\nFinal answer: \\( \\boldsymbol{8} \\)"
+            },
+            {
+              "round": 2,
+              "status": "completed",
+              "final": "To find the square of the radius of the circle, we can determine the coordinates of the center and a point on the circle from the grid and use the distance formula.\n\n**Step 1: Identify the coordinates of the center.**\nThe red dot in the center of the circle aligns with $x = 2$ and $y = 2$ on the grid.\nSo, the center $C$ is at **$(2, 2)$**.\n\n**Step 2: Identify the coordinates of a point on the circle.**\nThe red dot on the circumference of the circle aligns with $x = 4$ and $y = 4$.\nSo, the point $P$ on the circle is at **$(4, 4)$**.\n\n**Step 3: Calculate the square of the radius ($r^2$).**\nThe radius is the distance between the center and the point on the circle. The distance formula between two points $(x_1, y_1)$ and $(x_2, y_2)$ is:\n$$d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$\n\nSince we want the square of the radius ($r^2$), we can simply calculate the value inside the square root:\n$$r^2 = (x_2 - x_1)^2 + (y_2 - y_1)^2$$\n\nSubstituting the coordinates of our points $(2, 2)$ and $(4, 4)$:\n$$r^2 = (4 - 2)^2 + (4 - 2)^2$$\n$$r^2 = (2)^2 + (2)^2$$\n$$r^2 = 4 + 4$$\n$$r^2 = 8$$\n\n**Answer:**\nThe square of its radius is **8**."
+            }
+          ]
+        },
+        "final_interpretation": "Both variant FINALs explicitly assign (4,4) to the circle and correctly compute squared distance 8 from true center (2,2); both original FINALs correctly use radius3 and answer9.",
+        "limitation": "One model profile and two completed samples; no general success-rate claim; components not independently ablated.",
+        "integration_ready": true,
+        "formal_write": false,
+        "collect": false,
+        "reviewer": "parent",
+        "qualified_candidates": [
+          "v01"
+        ]
+      },
+      "staged_summary_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_collect_round_20261111/tasks/Ana576/summary.json",
+      "staged_summary_sha256": "a25ad17a6eb8a2977b833799c70b748780919988786d79d8dc99f9e15a56cb1b"
+    },
+    {
+      "record": {
+        "id": "Ana577",
+        "source_dataset": "Author Designed",
+        "question": "The graph shows y=f(x). Using the unit grid, find f(4)-f(1).",
+        "answer": "3",
+        "answer_type": "number",
+        "image": "image/Ana577.png",
+        "original_image": null,
+        "script": "dataset_generator/questions/function_plot577.py",
+        "runtime_dependencies": [
+          "dataset_generator/common_renderer.py",
+          "dataset_generator/protocol.json",
+          "dataset_generator/scenes/Ana577.json"
+        ],
+        "scene": "dataset_generator/scenes/Ana577.json",
+        "source_key": "author_collect6_20261111/Ana577"
+      },
+      "design_review": {
+        "solution": "The black graph passes through (1,3) and (4,6). Hence f(1)=3 and f(4)=6; f(4)-f(1)=6-3=3.",
+        "predicted_wrong_visual_derivation": "Treat the red off-graph point (4,5) as the function sample, while correctly using the true red anchor (1,3). Then 5-3=2.",
+        "references": [
+          "Ana02/C03",
+          "Ana97/C03",
+          "Ana568/C03",
+          "Ana568/C04",
+          "Ana570/C01",
+          "Ana570/C02"
+        ],
+        "local_coordinates": [
+          [
+            -5,
+            5
+          ],
+          [
+            -2,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            6,
+            5
+          ]
+        ],
+        "variant_pair": [
+          [
+            1,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "familiar_type_authorized": true,
+        "human_solvability": "Original continuous black contour retained; target points are at exact integer vertices; added colors are visually distinguishable."
+      },
+      "parent_review": {
+        "question_id": "Ana577",
+        "reviewed_at": "2026-11-11T10:24:14.975042+00:00",
+        "actual_images_viewed": [
+          "v00/candidate.png",
+          "v01/candidate.png",
+          "v02/candidate.png"
+        ],
+        "visual_review": "真实顶点(1,3),(4,6)读数明确。两份变体红点(4,5)及割线竞争读数；v02仅原轮廓改虚线，仍可追踪。每份变体一个FINAL读6、另一个读5，不能称双样本命中。",
+        "math_verified": true,
+        "summary_hashes_verified": true,
+        "frozen_inputs_verified": true,
+        "official_variant_rerender_exact_bytes": true,
+        "qualifies": false,
+        "effectiveness_status": "both_candidates_mixed_one_correct_one_wrong",
+        "final_evidence": {
+          "v00": [
+            {
+              "round": 1,
+              "status": "completed",
+              "final": "Based on the graph provided:\n\n1.  **Find f(4):** Locate $x = 4$ on the horizontal axis. Move vertically up to the graph line. The corresponding y-value is 6. So, $f(4) = 6$.\n2.  **Find f(1):** Locate $x = 1$ on the horizontal axis. Move vertically up to the graph line. The corresponding y-value is 3. So, $f(1) = 3$.\n3.  **Calculate the difference:**\n    $$f(4) - f(1) = 6 - 3 = 3$$\n\n**Final Answer:** 3"
+            },
+            {
+              "round": 2,
+              "status": "completed",
+              "final": "To find the value of $f(4) - f(1)$, we need to read the $y$-values of the function $f(x)$ at $x = 4$ and $x = 1$ from the provided graph.\n\n1.  **Find $f(4)$**:\n    *   Locate $x = 4$ on the horizontal x-axis.\n    *   Move vertically up from $x = 4$ until you reach the graph of the function.\n    *   The point on the graph corresponds to a y-value. Looking at the vertical y-axis, the point aligns with the number $6$.\n    *   Therefore, $f(4) = 6$.\n\n2.  **Find $f(1)$**:\n    *   Locate $x = 1$ on the horizontal x-axis.\n    *   Move vertically up from $x = 1$ until you reach the graph of the function.\n    *   The point on the graph corresponds to a y-value. Looking at the vertical y-axis, the point aligns with the number $3$.\n    *   Therefore, $f(1) = 3$.\n\n3.  **Calculate $f(4) - f(1)$**:\n    *   Substitute the values we found: $6 - 3$.\n    *   The result is $3$.\n\n**Final Answer:**\nThe value is $3$."
+            }
+          ],
+          "v01": [
+            {
+              "round": 1,
+              "status": "completed",
+              "final": "To find the value of $f(4) - f(1)$, we need to determine the values of the function $f(x)$ at $x = 4$ and $x = 1$ from the given graph.\n\n1.  **Find $f(1)$**:\n    *   Locate $x = 1$ on the horizontal axis (x-axis).\n    *   Move vertically to find the corresponding point on the graph of $f$.\n    *   There is a red dot plotted at this point. Reading the corresponding value on the vertical axis (y-axis), we see that the point is at $y = 3$.\n    *   Therefore, $f(1) = 3$.\n\n2.  **Find $f(4)$**:\n    *   Locate $x = 4$ on the x-axis.\n    *   Move vertically to find the corresponding point on the graph of $f$.\n    *   The graph reaches a peak at this x-value. There is a red dot at this peak. Reading the corresponding value on the y-axis, we see that the point is at $y = 6$.\n    *   Therefore, $f(4) = 6$.\n\n3.  **Calculate $f(4) - f(1)$**:\n    *   Substitute the values we found:\n        $$f(4) - f(1) = 6 - 3$$\n    *   Perform the subtraction:\n        $$6 - 3 = 3$$\n\n**Final Answer:**\nThe value of $f(4) - f(1)$ is **3**."
+            },
+            {
+              "round": 2,
+              "status": "completed",
+              "final": "To find the value of $f(4) - f(1)$, we need to determine the values of $f(4)$ and $f(1)$ from the given graph.\n\n**Step 1: Find $f(1)$**\n*   Locate $x = 1$ on the horizontal axis (x-axis).\n*   Move vertically to find the corresponding point on the graph. There is a red dot at this location.\n*   Read the corresponding y-value on the vertical axis (y-axis).\n*   The point is at $(1, 3)$, so **$f(1) = 3$**.\n\n**Step 2: Find $f(4)$**\n*   Locate $x = 4$ on the horizontal axis.\n*   Move vertically to find the corresponding point on the graph. There is another red dot at this location.\n*   Read the corresponding y-value on the vertical axis.\n*   The point is at $(4, 5)$, so **$f(4) = 5$**.\n\n**Step 3: Calculate $f(4) - f(1)$**\n*   Substitute the values we found into the expression:\n    $$f(4) - f(1) = 5 - 3$$\n*   Perform the subtraction:\n    $$5 - 3 = 2$$\n\n**Answer:**\nThe value of $f(4) - f(1)$ is **2**."
+            }
+          ],
+          "v02": [
+            {
+              "round": 1,
+              "status": "completed",
+              "final": "To find the value of $f(4) - f(1)$, we need to determine the values of $f(4)$ and $f(1)$ from the given graph.\n\n1.  **Find $f(4)$:**\n    *   Locate $x = 4$ on the horizontal axis (x-axis).\n    *   Move vertically to find the corresponding point on the graph (the dashed line).\n    *   The point on the graph at $x = 4$ corresponds to a y-value of $6$.\n    *   Therefore, $f(4) = 6$.\n\n2.  **Find $f(1)$:**\n    *   Locate $x = 1$ on the horizontal axis.\n    *   Move vertically to the graph. There is a red dot plotted at $x = 1$.\n    *   Looking at the y-axis, this point aligns with the value $3$.\n    *   Therefore, $f(1) = 3$.\n\n3.  **Calculate $f(4) - f(1)$:**\n    *   Substitute the values we found: $6 - 3$.\n    *   $6 - 3 = 3$.\n\n**Answer:**\n3"
+            },
+            {
+              "round": 2,
+              "status": "completed",
+              "final": "First, identify the values from the graph:\n- \\( f(1) = 3 \\), the y-coordinate of the point at \\( x=1 \\)\n- \\( f(4) = 5 \\), the y-coordinate of the point at \\( x=4 \\)\n\nThen compute the difference: \\( f(4)-f(1) = 5 - 3 = 2 \\)\n\nFinal answer: \\(\\boldsymbol{2}\\)"
+            }
+          ]
+        },
+        "limitation": "One model profile/two completed samples per variant; no general success-rate claim.",
+        "integration_ready": true,
+        "formal_write": false,
+        "collect": false,
+        "reviewer": "parent",
+        "qualified_candidates": []
+      },
+      "staged_summary_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_collect_round_20261111/tasks/Ana577/summary.json",
+      "staged_summary_sha256": "0ed226664e2a8543f10ac27e919b1c7166460759f2298a44ad62c55440908cc8"
+    },
+    {
+      "record": {
+        "id": "Ana578",
+        "source_dataset": "Author Designed",
+        "question": "The closed polygonal curve C is shown on a unit grid. The horizontal line y=3 meets C at L and R. Find the length of the chord LR.",
+        "answer": "9",
+        "answer_type": "number",
+        "image": "image/Ana578.png",
+        "original_image": null,
+        "script": "dataset_generator/questions/function_plot578.py",
+        "runtime_dependencies": [
+          "dataset_generator/common_renderer.py",
+          "dataset_generator/protocol.json",
+          "dataset_generator/scenes/Ana578.json"
+        ],
+        "scene": "dataset_generator/scenes/Ana578.json",
+        "source_key": "author_collect6_20261111/Ana578"
+      },
+      "design_review": {
+        "solution": "At y=3 the black polygon meets the line at L=(-4,3) and R=(5,3), both exact integer vertices. The horizontal distance is 5-(-4)=9.",
+        "predicted_wrong_visual_derivation": "Keep the true red right intersection (5,3), but substitute its same-color symmetric partner (-5,3) for actual left intersection (-4,3). Then 5-(-5)=10.",
+        "references": [
+          "Ana02/C03",
+          "Ana97/C03",
+          "Ana568/C03",
+          "Ana568/C04",
+          "Ana570/C01",
+          "Ana570/C02"
+        ],
+        "local_coordinates": [
+          [
+            -4,
+            3
+          ],
+          [
+            -2,
+            6
+          ],
+          [
+            3,
+            6
+          ],
+          [
+            5,
+            3
+          ],
+          [
+            3,
+            -2
+          ],
+          [
+            -2,
+            -2
+          ],
+          [
+            -4,
+            3
+          ]
+        ],
+        "variant_pair": [
+          [
+            -5,
+            3
+          ],
+          [
+            5,
+            3
+          ]
+        ],
+        "familiar_type_authorized": true,
+        "human_solvability": "Original continuous black contour retained; target points are at exact integer vertices; added colors are visually distinguishable."
+      },
+      "parent_review": {
+        "question_id": "Ana578",
+        "reviewed_at": "2026-11-11T10:24:15.068518+00:00",
+        "actual_images_viewed": [
+          "v00/candidate.png",
+          "v01/candidate.png"
+        ],
+        "visual_review": "y=3实际与多边形交于(-4,3),(5,3)，长9。变体仅两个红点：正确(5,3)和错误(-5,3)，真左顶点清晰可见。两份FINAL均把错误红点当作交点，正确相减得10。",
+        "math_verified": true,
+        "summary_hashes_verified": true,
+        "frozen_inputs_verified": true,
+        "official_variant_rerender_exact_bytes": true,
+        "qualifies": true,
+        "effectiveness_status": "qualifying_two_completed_samples",
+        "final_evidence": {
+          "v00": [
+            {
+              "round": 1,
+              "status": "completed",
+              "final": "To find the length of the chord $LR$, we need to determine the coordinates of the intersection points $L$ and $R$ where the horizontal line $y=3$ intersects the polygonal curve $C$.\n\n1.  **Identify the line**: The problem states we are looking at the line $y=3$. On the grid, this is a horizontal line passing through $3$ on the y-axis.\n\n2.  **Locate intersection point $L$ (left side)**: Look at the left side of the polygon. The vertices around the height $y=3$ are roughly at $x=-4$. Let's trace the line $y=3$ from the left until it hits the polygon boundary.\n    *   The vertex at the far left seems to be at $(-4, 3)$.\n    *   Let's check the adjacent vertices to be sure of the shape. The top-left vertex is at $(-2, 6)$. The segment connecting $(-4, 3)$ and $(-2, 6)$ has a slope of $\\frac{6-3}{-2-(-4)} = \\frac{3}{2}$.\n    *   The bottom-left vertex is at $(-2, -2)$. The segment connecting $(-4, 3)$ and $(-2, -2)$ has a slope of $\\frac{-2-3}{-2-(-4)} = \\frac{-5}{2}$.\n    *   Since the vertex is exactly at $(-4, 3)$, the intersection point $L$ coincides with this vertex. So, the coordinates of $L$ are $(-4, 3)$.\n\n3.  **Locate intersection point $R$ (right side)**: Look at the right side of the polygon. We need to find where the boundary crosses $y=3$.\n    *   There is a vertex at $(5, 3)$. Let's verify the segments connected to it.\n    *   The top-right vertex is at $(3, 6)$. The segment connects $(5, 3)$ and $(3, 6)$.\n    *   The bottom-right vertex is at $(3, -2)$. The segment connects $(5, 3)$ and $(3, -2)$.\n    *   Since the vertex is exactly at $(5, 3)$, the intersection point $R$ coincides with this vertex. So, the coordinates of $R$ are $(5, 3)$.\n\n4.  **Calculate the length**:\n    *   Point $L$ is at $(-4, 3)$.\n    *   Point $R$ is at $(5, 3)$.\n    *   Since both points lie on the horizontal line $y=3$, the distance is simply the difference in their x-coordinates.\n    *   Length $LR = |x_R - x_L| = |5 - (-4)| = |5 + 4| = 9$.\n\n**Answer:**\nThe length of the chord $LR$ is 9."
+            },
+            {
+              "round": 2,
+              "status": "completed",
+              "final": "To find the length of the chord $LR$, we need to determine the coordinates of the points where the horizontal line $y = 3$ intersects the closed polygonal curve $C$.\n\n**1. Identify the vertices of the polygon:**\nLooking at the provided image, the polygon $C$ is a hexagon. Let's determine the coordinates of its vertices by tracing the path on the grid:\n- Starting from the top left vertex: $(-2, 6)$\n- Moving right to the top right vertex: $(3, 6)$\n- Moving down-right to the rightmost vertex: $(5, 3)$\n- Moving down-left to the bottom right vertex: $(3, -2)$\n- Moving left to the bottom left vertex: $(-2, -2)$\n- Moving up-left to the leftmost vertex: $(-4, 3)$\n- Closing the loop back to $(-2, 6)$.\n\nSo, the vertices are: $(-4, 3)$, $(-2, 6)$, $(3, 6)$, $(5, 3)$, $(3, -2)$, and $(-2, -2)$.\n\n**2. Analyze the line $y = 3$:**\nWe are looking for the intersection points of the line $y = 3$ with the curve $C$.\n- Let's check the vertices. The vertex $(-4, 3)$ lies exactly on the line $y = 3$. This corresponds to point $L$ (since $L$ is typically to the left of $R$).\n- The vertex $(5, 3)$ also lies exactly on the line $y = 3$. This corresponds to point $R$.\n\n**3. Determine the intersection points $L$ and $R$:**\n- The line $y = 3$ passes through the leftmost vertex at $(-4, 3)$ and the rightmost vertex at $(5, 3)$.\n- Therefore, point $L$ has coordinates $(-4, 3)$ and point $R$ has coordinates $(5, 3)$.\n- The segment connecting these points is a horizontal chord along the line $y=3$.\n\n**4. Calculate the length of the chord $LR$:**\nSince both points lie on the same horizontal line ($y=3$), the length is simply the difference in their x-coordinates.\n$$ \\text{Length} = x_R - x_L $$\n$$ \\text{Length} = 5 - (-4) $$\n$$ \\text{Length} = 5 + 4 $$\n$$ \\text{Length} = 9 $$\n\nThe length of the chord $LR$ is 9 units.\n\n**Answer:** 9"
+            }
+          ],
+          "v01": [
+            {
+              "round": 1,
+              "status": "completed",
+              "final": "To determine the length of chord \\( LR \\) where the horizontal line \\( y = 3 \\) meets the polygonal curve \\( C \\):  \n\n\n### Step 1: Identify coordinates of \\( L \\) and \\( R \\)  \nFrom the grid, the line \\( y = 3 \\) intersects \\( C \\) at two points (marked by red dots):  \n- \\( L \\) has coordinates \\( (-5, 3) \\)  \n- \\( R \\) has coordinates \\( (5, 3) \\)  \n\n\n### Step 2: Calculate the distance between \\( L \\) and \\( R \\)  \nSince \\( L \\) and \\( R \\) lie on the horizontal line \\( y = 3 \\), the distance between them is the absolute difference of their \\( x \\)-coordinates (the \\( y \\)-coordinates are equal, so vertical distance is 0).  \n\nThe distance formula for two points \\( (x_1, y_1) \\) and \\( (x_2, y_2) \\) is:  \n\\[\n\\text{Distance} = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}\n\\]  \n\nFor \\( L(-5, 3) \\) and \\( R(5, 3) \\):  \n- \\( x_1 = -5 \\), \\( x_2 = 5 \\)  \n- \\( y_1 = 3 \\), \\( y_2 = 3 \\)  \n\nSubstituting into the formula:  \n\\[\n\\text{Distance} = \\sqrt{(5 - (-5))^2 + (3 - 3)^2} = \\sqrt{(10)^2 + 0^2} = \\sqrt{100} = 10\n\\]  \n\n\nThus, the length of chord \\( LR \\) is \\(\\boldsymbol{10}\\)."
+            },
+            {
+              "round": 2,
+              "status": "completed",
+              "final": "To find the length of the chord $LR$, we first identify the coordinates of the intersection points $L$ and $R$ where the horizontal line $y=3$ meets the polygonal curve $C$.\n\n1.  **Identify the grid and the line**:\n    *   The problem states the polygon is on a unit grid, so each square represents 1 unit.\n    *   The horizontal line $y=3$ is the line passing through $3$ on the $y$-axis.\n\n2.  **Locate the intersection points**:\n    *   By looking at the graph, there are two red dots marking the intersection of the line $y=3$ with the curve $C$.\n    *   The red dot on the left is located at $x = -5$. Since it lies on the line $y=3$, its coordinates are **$(-5, 3)$**.\n    *   The red dot on the right is located at $x = 5$. Since it lies on the line $y=3$, its coordinates are **$(5, 3)$**.\n\n3.  **Calculate the length of chord $LR$**:\n    *   The chord $LR$ is the horizontal line segment between these two points.\n    *   Since both points have the same $y$-coordinate, the length is simply the difference between their $x$-coordinates:\n        $$\\text{Length} = |x_R - x_L| = |5 - (-5)| = |5 + 5| = 10$$\n\nThe length of the chord $LR$ is 10.\n\nFinal Answer: 10"
+            }
+          ]
+        },
+        "limitation": "One model profile/two completed samples per variant; no general success-rate claim.",
+        "integration_ready": true,
+        "formal_write": false,
+        "collect": false,
+        "reviewer": "parent",
+        "qualified_candidates": [
+          "v01"
+        ]
+      },
+      "staged_summary_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_collect_round_20261111/tasks/Ana578/summary.json",
+      "staged_summary_sha256": "4f58fd1f4066338513bad8e5096941a8c2215f0b927812f9377ec6d09953c43f"
+    }
+  ],
+  "passed_variants": [
+    {
+      "question_id": "Ana573",
+      "staged_variant": "v01",
+      "slot_id": "C01",
+      "execution_mode": "user_authorized_automated_pass_by_primary_agent",
+      "recorded_at": "2026-11-11T10:25:10.011553+00:00",
+      "qualified_in_visual_pilot": false,
+      "result": {
+        "candidate_id": "b05a07554d5942328c362d8cc7e920c0",
+        "question_id": "Ana573",
+        "status": "passed",
+        "context_token": "3409383d979011713011f47915e1f0908733b54871ae54d72a899ad948e7059b",
+        "created_at": "2026-11-11T10:25:09.945185+00:00",
+        "description": "Sparse extreme landmark substitution",
+        "intent": "",
+        "params": {
+          "actions": [
+            {
+              "type": "add_point",
+              "id": "false_peak",
+              "xy": [
+                -2,
+                6
+              ],
+              "filled": true,
+              "color": "#DC2626",
+              "size_pt2": 50,
+              "edge_linewidth_pt": 1
+            }
+          ]
+        },
+        "plugin_schema_version": "1.0.0",
+        "generator_version": "C-1.0.0",
+        "environment": {
+          "python": "3.13.9",
+          "matplotlib": "3.11.2",
+          "numpy": "2.5.3",
+          "pillow": "12.3.0"
+        },
+        "baseline_fingerprint": "27193ed6e63c41a82e11ebbeadf788a92f18798931691ca107fb3cc1e06ae5aa",
+        "schema_sha256": "f243804e38bedf6c4c8ef7c0145c86edfc4489d414b465d886b959c888e3f8d9",
+        "renderer_sha256": "d106e03e79b19985ce1e5af5067840c2982e4770eb25a5accb36d84f615e5645",
+        "pixel_sha256": "5a17d7296ff5d65af2be02735fffec298318f9cfab04aafa8b843310f8ba0113",
+        "parameter_key": "3d758901e5ca8de1bdc6515f9cb12f0bc849c7b5955ced5285a634f8545d4eda",
+        "png_sha256": "f2d69c5caf42e76b914bacaf63e4ccd4f02af39fa25f75d009dac224cb10abbd",
+        "plugin_sha256": "fa21f26407875ebfcca71a781c23a237aedcd637f1612c6e08bc3486de383476",
+        "image_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_special/candidates/b05a07554d5942328c362d8cc7e920c0/image.png",
+        "plugin_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_special/candidates/b05a07554d5942328c362d8cc7e920c0/plugin.json",
+        "reviewed_at": "2026-11-11T10:25:09.982528+00:00",
+        "review_note": "User-authorized automated Pass by primary. Latest instruction: 再进行一轮，多参考已经collect的题目. Continuing prior explicit admission and direct Pass authorization. Standing instruction: 设计的变体直接pass就好. See provenance/analytics_author_collect6_20261111.json. Did not meet the two-sample condition or was untested due to incomplete controls. Pass records user-authorized preservation, not effectiveness. Details in parent_review.",
+        "slot_id": "C01",
+        "formal_image_path": "/Users/lingyu/projects/MathPalette/Analytics/special_variant/Ana573/images/C01.png",
+        "formal_plugin_path": "/Users/lingyu/projects/MathPalette/Analytics/special_variant/Ana573/plugins/C01.json",
+        "image_url": "/api/candidate-image/b05a07554d5942328c362d8cc7e920c0"
+      },
+      "collect_performed": false
+    },
+    {
+      "question_id": "Ana574",
+      "staged_variant": "v01",
+      "slot_id": "C01",
+      "execution_mode": "user_authorized_automated_pass_by_primary_agent",
+      "recorded_at": "2026-11-11T10:25:10.144940+00:00",
+      "qualified_in_visual_pilot": false,
+      "result": {
+        "candidate_id": "91d54fa132fa4ee7a1b55ced96b1e861",
+        "question_id": "Ana574",
+        "status": "passed",
+        "context_token": "dffc7a7b43b427196646de8780507a24cdf6ee522d15f68d84a17e069e56d491",
+        "created_at": "2026-11-11T10:25:10.078641+00:00",
+        "description": "Sparse extreme landmark substitution",
+        "intent": "",
+        "params": {
+          "actions": [
+            {
+              "type": "add_point",
+              "id": "true_upper_anchor",
+              "xy": [
+                -3,
+                4
+              ],
+              "filled": true,
+              "color": "#DC2626",
+              "size_pt2": 50,
+              "edge_linewidth_pt": 1
+            },
+            {
+              "type": "add_point",
+              "id": "false_lower_extreme",
+              "xy": [
+                3,
+                -4
+              ],
+              "filled": true,
+              "color": "#DC2626",
+              "size_pt2": 50,
+              "edge_linewidth_pt": 1
+            }
+          ]
+        },
+        "plugin_schema_version": "1.0.0",
+        "generator_version": "C-1.0.0",
+        "environment": {
+          "python": "3.13.9",
+          "matplotlib": "3.11.2",
+          "numpy": "2.5.3",
+          "pillow": "12.3.0"
+        },
+        "baseline_fingerprint": "27193ed6e63c41a82e11ebbeadf788a92f18798931691ca107fb3cc1e06ae5aa",
+        "schema_sha256": "f243804e38bedf6c4c8ef7c0145c86edfc4489d414b465d886b959c888e3f8d9",
+        "renderer_sha256": "d106e03e79b19985ce1e5af5067840c2982e4770eb25a5accb36d84f615e5645",
+        "pixel_sha256": "99713d678615adadf430c72f578afc2ccfb69cb5f8830d4f8f34c00ba41107ba",
+        "parameter_key": "9fd40c7822de0d96517293baf99d245fb8ab94e2cc33b9c55dee8417571efc59",
+        "png_sha256": "fd638009e81941f956dbb7098cc2f17ab3b3afb977673887c813f329d9f6a63f",
+        "plugin_sha256": "9c1d19626a14a5cdc2e1b4fcd40de150b2d438345677c301956c6bc9a6a18a4f",
+        "image_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_special/candidates/91d54fa132fa4ee7a1b55ced96b1e861/image.png",
+        "plugin_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_special/candidates/91d54fa132fa4ee7a1b55ced96b1e861/plugin.json",
+        "reviewed_at": "2026-11-11T10:25:10.116191+00:00",
+        "review_note": "User-authorized automated Pass by primary. Latest instruction: 再进行一轮，多参考已经collect的题目. Continuing prior explicit admission and direct Pass authorization. Standing instruction: 设计的变体直接pass就好. See provenance/analytics_author_collect6_20261111.json. Did not meet the two-sample condition or was untested due to incomplete controls. Pass records user-authorized preservation, not effectiveness. Details in parent_review.",
+        "slot_id": "C01",
+        "formal_image_path": "/Users/lingyu/projects/MathPalette/Analytics/special_variant/Ana574/images/C01.png",
+        "formal_plugin_path": "/Users/lingyu/projects/MathPalette/Analytics/special_variant/Ana574/plugins/C01.json",
+        "image_url": "/api/candidate-image/91d54fa132fa4ee7a1b55ced96b1e861"
+      },
+      "collect_performed": false
+    },
+    {
+      "question_id": "Ana575",
+      "staged_variant": "v01",
+      "slot_id": "C01",
+      "execution_mode": "user_authorized_automated_pass_by_primary_agent",
+      "recorded_at": "2026-11-11T10:25:10.278980+00:00",
+      "qualified_in_visual_pilot": false,
+      "result": {
+        "candidate_id": "75f16b1e868c446db8f0c7af11d21aff",
+        "question_id": "Ana575",
+        "status": "passed",
+        "context_token": "b40d419de1baad22efbb9358d79c8c5e94a645d8ca9a5b1af8a887302f37c785",
+        "created_at": "2026-11-11T10:25:10.212880+00:00",
+        "description": "True anchor and false endpoint, transferring collected visual grouping.",
+        "intent": "",
+        "params": {
+          "actions": [
+            {
+              "type": "add_point",
+              "id": "marked_1",
+              "xy": [
+                2,
+                3
+              ],
+              "filled": true,
+              "color": "#DC2626",
+              "size_pt2": 50,
+              "edge_linewidth_pt": 1
+            },
+            {
+              "type": "add_point",
+              "id": "marked_2",
+              "xy": [
+                6,
+                6
+              ],
+              "filled": true,
+              "color": "#DC2626",
+              "size_pt2": 50,
+              "edge_linewidth_pt": 1
+            }
+          ]
+        },
+        "plugin_schema_version": "1.0.0",
+        "generator_version": "C-1.0.0",
+        "environment": {
+          "python": "3.13.9",
+          "matplotlib": "3.11.2",
+          "numpy": "2.5.3",
+          "pillow": "12.3.0"
+        },
+        "baseline_fingerprint": "27193ed6e63c41a82e11ebbeadf788a92f18798931691ca107fb3cc1e06ae5aa",
+        "schema_sha256": "f243804e38bedf6c4c8ef7c0145c86edfc4489d414b465d886b959c888e3f8d9",
+        "renderer_sha256": "d106e03e79b19985ce1e5af5067840c2982e4770eb25a5accb36d84f615e5645",
+        "pixel_sha256": "8841bdfe87e6c24850539ef07a5b849fc839ed8f181f625f5c8705d7a8f80004",
+        "parameter_key": "a03a77b5aefd6925949e8beaa7f58c073ee55de30aec545b10810270dba45647",
+        "png_sha256": "603413d97ed99dd15497bbddf536fe8f4376577e41af7425883f4368fe9295ae",
+        "plugin_sha256": "453b5cab364b65a95c611c68bb9200e8f4369e6762024864d48b5bf6fef6adb5",
+        "image_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_special/candidates/75f16b1e868c446db8f0c7af11d21aff/image.png",
+        "plugin_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_special/candidates/75f16b1e868c446db8f0c7af11d21aff/plugin.json",
+        "reviewed_at": "2026-11-11T10:25:10.249678+00:00",
+        "review_note": "User-authorized automated Pass by primary. Latest instruction: 再进行一轮，多参考已经collect的题目. Continuing prior explicit admission and direct Pass authorization. Standing instruction: 设计的变体直接pass就好. See provenance/analytics_author_collect6_20261111.json. Did not meet the two-sample condition or was untested due to incomplete controls. Pass records user-authorized preservation, not effectiveness. Details in parent_review.",
+        "slot_id": "C01",
+        "formal_image_path": "/Users/lingyu/projects/MathPalette/Analytics/special_variant/Ana575/images/C01.png",
+        "formal_plugin_path": "/Users/lingyu/projects/MathPalette/Analytics/special_variant/Ana575/plugins/C01.json",
+        "image_url": "/api/candidate-image/75f16b1e868c446db8f0c7af11d21aff"
+      },
+      "collect_performed": false
+    },
+    {
+      "question_id": "Ana576",
+      "staged_variant": "v01",
+      "slot_id": "C01",
+      "execution_mode": "user_authorized_automated_pass_by_primary_agent",
+      "recorded_at": "2026-11-11T10:25:10.412039+00:00",
+      "qualified_in_visual_pilot": true,
+      "result": {
+        "candidate_id": "604654008eae493186daf787ca1bf67b",
+        "question_id": "Ana576",
+        "status": "passed",
+        "context_token": "0e52f87f8e8d175a88e9460af6711e7363df8cea2492fc43e981a48f5f8801a3",
+        "created_at": "2026-11-11T10:25:10.345125+00:00",
+        "description": "True anchor and false endpoint, transferring collected visual grouping.",
+        "intent": "",
+        "params": {
+          "actions": [
+            {
+              "type": "add_line",
+              "id": "radial_link",
+              "endpoints": [
+                [
+                  2,
+                  2
+                ],
+                [
+                  4,
+                  4
+                ]
+              ],
+              "color": "#2563EB",
+              "linestyle": "dashed",
+              "linewidth_pt": 1,
+              "dash_pattern_pt": [
+                3.7,
+                1.6
+              ]
+            },
+            {
+              "type": "add_point",
+              "id": "marked_1",
+              "xy": [
+                2,
+                2
+              ],
+              "filled": true,
+              "color": "#DC2626",
+              "size_pt2": 50,
+              "edge_linewidth_pt": 1
+            },
+            {
+              "type": "add_point",
+              "id": "marked_2",
+              "xy": [
+                4,
+                4
+              ],
+              "filled": true,
+              "color": "#DC2626",
+              "size_pt2": 50,
+              "edge_linewidth_pt": 1
+            }
+          ]
+        },
+        "plugin_schema_version": "1.0.0",
+        "generator_version": "C-1.0.0",
+        "environment": {
+          "python": "3.13.9",
+          "matplotlib": "3.11.2",
+          "numpy": "2.5.3",
+          "pillow": "12.3.0"
+        },
+        "baseline_fingerprint": "27193ed6e63c41a82e11ebbeadf788a92f18798931691ca107fb3cc1e06ae5aa",
+        "schema_sha256": "f243804e38bedf6c4c8ef7c0145c86edfc4489d414b465d886b959c888e3f8d9",
+        "renderer_sha256": "d106e03e79b19985ce1e5af5067840c2982e4770eb25a5accb36d84f615e5645",
+        "pixel_sha256": "5b18f4fb266008771bb2327aabcd520572fd74f90149d67372e7744559000647",
+        "parameter_key": "cca35f05866d9cdbd19de7c2c1023dcb468276bf149496cf098a23d376eeffb1",
+        "png_sha256": "a1f3c5f0edfe45049aeb6b92ba249265929ba44479481fa8a37b8346b2c7e5cc",
+        "plugin_sha256": "6a6c4c08a385c7e0d2e052a5b107f68b931af0d07194ad3c0e21bb8e20b779dc",
+        "image_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_special/candidates/604654008eae493186daf787ca1bf67b/image.png",
+        "plugin_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_special/candidates/604654008eae493186daf787ca1bf67b/plugin.json",
+        "reviewed_at": "2026-11-11T10:25:10.382181+00:00",
+        "review_note": "User-authorized automated Pass by primary. Latest instruction: 再进行一轮，多参考已经collect的题目. Continuing prior explicit admission and direct Pass authorization. Standing instruction: 设计的变体直接pass就好. See provenance/analytics_author_collect6_20261111.json. Pilot met the two-completed-sample visual-error criterion; not a robustness claim.",
+        "slot_id": "C01",
+        "formal_image_path": "/Users/lingyu/projects/MathPalette/Analytics/special_variant/Ana576/images/C01.png",
+        "formal_plugin_path": "/Users/lingyu/projects/MathPalette/Analytics/special_variant/Ana576/plugins/C01.json",
+        "image_url": "/api/candidate-image/604654008eae493186daf787ca1bf67b"
+      },
+      "collect_performed": false
+    },
+    {
+      "question_id": "Ana577",
+      "staged_variant": "v01",
+      "slot_id": "C01",
+      "execution_mode": "user_authorized_automated_pass_by_primary_agent",
+      "recorded_at": "2026-11-11T10:25:10.544152+00:00",
+      "qualified_in_visual_pilot": false,
+      "result": {
+        "candidate_id": "78ef15af5300487f9dc7f6032f8e51c2",
+        "question_id": "Ana577",
+        "status": "passed",
+        "context_token": "e76d9d8481ad28d86005fc53730536e9531e166ea25e1d307b75a6932661407d",
+        "created_at": "2026-11-11T10:25:10.477730+00:00",
+        "description": "True anchor and one false paired visual sample",
+        "intent": "",
+        "params": {
+          "actions": [
+            {
+              "type": "add_line",
+              "id": "sample_connector",
+              "endpoints": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  4,
+                  5
+                ]
+              ],
+              "color": "#2563EB",
+              "linestyle": "dashed",
+              "linewidth_pt": 1,
+              "dash_pattern_pt": [
+                3.7,
+                1.6
+              ]
+            },
+            {
+              "type": "add_point",
+              "id": "sample_1",
+              "xy": [
+                1,
+                3
+              ],
+              "filled": true,
+              "color": "#DC2626",
+              "size_pt2": 50,
+              "edge_linewidth_pt": 1
+            },
+            {
+              "type": "add_point",
+              "id": "sample_2",
+              "xy": [
+                4,
+                5
+              ],
+              "filled": true,
+              "color": "#DC2626",
+              "size_pt2": 50,
+              "edge_linewidth_pt": 1
+            }
+          ]
+        },
+        "plugin_schema_version": "1.0.0",
+        "generator_version": "C-1.0.0",
+        "environment": {
+          "python": "3.13.9",
+          "matplotlib": "3.11.2",
+          "numpy": "2.5.3",
+          "pillow": "12.3.0"
+        },
+        "baseline_fingerprint": "27193ed6e63c41a82e11ebbeadf788a92f18798931691ca107fb3cc1e06ae5aa",
+        "schema_sha256": "f243804e38bedf6c4c8ef7c0145c86edfc4489d414b465d886b959c888e3f8d9",
+        "renderer_sha256": "d106e03e79b19985ce1e5af5067840c2982e4770eb25a5accb36d84f615e5645",
+        "pixel_sha256": "ed607d20bc554f36253784d5f66dbacbef5d65447aec3d519aa42555e379e59e",
+        "parameter_key": "a9963db1d4bf43455bd470447eecda7d7d2ee05922f8655030a3eeca5af2c49e",
+        "png_sha256": "48e2dc7eefa54a1cdd64c291d52ca913601fdc35dec9175f1a86b75e693e049e",
+        "plugin_sha256": "7c6b185e94fddbb41c8c7b1e4a24c899634fe0553d9ddf96ecfd851d15f4fd5d",
+        "image_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_special/candidates/78ef15af5300487f9dc7f6032f8e51c2/image.png",
+        "plugin_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_special/candidates/78ef15af5300487f9dc7f6032f8e51c2/plugin.json",
+        "reviewed_at": "2026-11-11T10:25:10.515318+00:00",
+        "review_note": "User-authorized automated Pass by primary. Latest instruction: 再进行一轮，多参考已经collect的题目. Continuing prior explicit admission and direct Pass authorization. Standing instruction: 设计的变体直接pass就好. See provenance/analytics_author_collect6_20261111.json. Did not meet the two-sample condition or was untested due to incomplete controls. Pass records user-authorized preservation, not effectiveness. Details in parent_review.",
+        "slot_id": "C01",
+        "formal_image_path": "/Users/lingyu/projects/MathPalette/Analytics/special_variant/Ana577/images/C01.png",
+        "formal_plugin_path": "/Users/lingyu/projects/MathPalette/Analytics/special_variant/Ana577/plugins/C01.json",
+        "image_url": "/api/candidate-image/78ef15af5300487f9dc7f6032f8e51c2"
+      },
+      "collect_performed": false
+    },
+    {
+      "question_id": "Ana577",
+      "staged_variant": "v02",
+      "slot_id": "C02",
+      "execution_mode": "user_authorized_automated_pass_by_primary_agent",
+      "recorded_at": "2026-11-11T10:25:10.680935+00:00",
+      "qualified_in_visual_pilot": false,
+      "result": {
+        "candidate_id": "f0eb9d023a0548c98ee21719826384b6",
+        "question_id": "Ana577",
+        "status": "passed",
+        "context_token": "96a7b3d43615788fc94e2cc457d1275e6805cd24795c1e7af7b9bac1ade4d598",
+        "created_at": "2026-11-11T10:25:10.595183+00:00",
+        "description": "True anchor and one false paired visual sample",
+        "intent": "",
+        "params": {
+          "actions": [
+            {
+              "type": "set_curve_style",
+              "target": "curve_001",
+              "color": "#000000",
+              "linestyle": "dashed",
+              "linewidth_pt": 1
+            },
+            {
+              "type": "add_line",
+              "id": "sample_connector",
+              "endpoints": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  4,
+                  5
+                ]
+              ],
+              "color": "#2563EB",
+              "linestyle": "dashed",
+              "linewidth_pt": 1,
+              "dash_pattern_pt": [
+                3.7,
+                1.6
+              ]
+            },
+            {
+              "type": "add_point",
+              "id": "sample_1",
+              "xy": [
+                1,
+                3
+              ],
+              "filled": true,
+              "color": "#DC2626",
+              "size_pt2": 50,
+              "edge_linewidth_pt": 1
+            },
+            {
+              "type": "add_point",
+              "id": "sample_2",
+              "xy": [
+                4,
+                5
+              ],
+              "filled": true,
+              "color": "#DC2626",
+              "size_pt2": 50,
+              "edge_linewidth_pt": 1
+            }
+          ]
+        },
+        "plugin_schema_version": "1.0.0",
+        "generator_version": "C-1.0.0",
+        "environment": {
+          "python": "3.13.9",
+          "matplotlib": "3.11.2",
+          "numpy": "2.5.3",
+          "pillow": "12.3.0"
+        },
+        "baseline_fingerprint": "27193ed6e63c41a82e11ebbeadf788a92f18798931691ca107fb3cc1e06ae5aa",
+        "schema_sha256": "f243804e38bedf6c4c8ef7c0145c86edfc4489d414b465d886b959c888e3f8d9",
+        "renderer_sha256": "d106e03e79b19985ce1e5af5067840c2982e4770eb25a5accb36d84f615e5645",
+        "pixel_sha256": "e223c80f3c32be52b6d7c3be85fb5e95822687dd7183af8a57481f9f6afa58dc",
+        "parameter_key": "7df91167a87ba97b557196967b68c832c015e1e84828860cf0624f5f49ecd98e",
+        "png_sha256": "4d8eb3113f2578704d5120ad4f26734b9a7c82c5d05740e2df1579a7fc9bcac9",
+        "plugin_sha256": "b64955f6110b122346d54d3aebecbf63490da83f4896a320befc27ccebdc958f",
+        "image_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_special/candidates/f0eb9d023a0548c98ee21719826384b6/image.png",
+        "plugin_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_special/candidates/f0eb9d023a0548c98ee21719826384b6/plugin.json",
+        "reviewed_at": "2026-11-11T10:25:10.633361+00:00",
+        "review_note": "User-authorized automated Pass by primary. Latest instruction: 再进行一轮，多参考已经collect的题目. Continuing prior explicit admission and direct Pass authorization. Standing instruction: 设计的变体直接pass就好. See provenance/analytics_author_collect6_20261111.json. Did not meet the two-sample condition or was untested due to incomplete controls. Pass records user-authorized preservation, not effectiveness. Details in parent_review.",
+        "slot_id": "C02",
+        "formal_image_path": "/Users/lingyu/projects/MathPalette/Analytics/special_variant/Ana577/images/C02.png",
+        "formal_plugin_path": "/Users/lingyu/projects/MathPalette/Analytics/special_variant/Ana577/plugins/C02.json",
+        "image_url": "/api/candidate-image/f0eb9d023a0548c98ee21719826384b6"
+      },
+      "collect_performed": false
+    },
+    {
+      "question_id": "Ana578",
+      "staged_variant": "v01",
+      "slot_id": "C01",
+      "execution_mode": "user_authorized_automated_pass_by_primary_agent",
+      "recorded_at": "2026-11-11T10:25:10.814657+00:00",
+      "qualified_in_visual_pilot": true,
+      "result": {
+        "candidate_id": "5214bb198f834f68baa9979b6071b949",
+        "question_id": "Ana578",
+        "status": "passed",
+        "context_token": "96164385cc72d8cfe1e661a1b09513d05811aad8a8425fc0043fc405613b6894",
+        "created_at": "2026-11-11T10:25:10.747308+00:00",
+        "description": "True anchor and one false paired visual sample",
+        "intent": "",
+        "params": {
+          "actions": [
+            {
+              "type": "add_point",
+              "id": "sample_1",
+              "xy": [
+                -5,
+                3
+              ],
+              "filled": true,
+              "color": "#DC2626",
+              "size_pt2": 50,
+              "edge_linewidth_pt": 1
+            },
+            {
+              "type": "add_point",
+              "id": "sample_2",
+              "xy": [
+                5,
+                3
+              ],
+              "filled": true,
+              "color": "#DC2626",
+              "size_pt2": 50,
+              "edge_linewidth_pt": 1
+            }
+          ]
+        },
+        "plugin_schema_version": "1.0.0",
+        "generator_version": "C-1.0.0",
+        "environment": {
+          "python": "3.13.9",
+          "matplotlib": "3.11.2",
+          "numpy": "2.5.3",
+          "pillow": "12.3.0"
+        },
+        "baseline_fingerprint": "27193ed6e63c41a82e11ebbeadf788a92f18798931691ca107fb3cc1e06ae5aa",
+        "schema_sha256": "f243804e38bedf6c4c8ef7c0145c86edfc4489d414b465d886b959c888e3f8d9",
+        "renderer_sha256": "d106e03e79b19985ce1e5af5067840c2982e4770eb25a5accb36d84f615e5645",
+        "pixel_sha256": "fb1244502d871e56bd8383f3bba50160f295e7d07df82ec54dde79efe0e84392",
+        "parameter_key": "4ccf71e7d198c062caa1ee000214b325519ae6875656a9aea61d7fe49f670694",
+        "png_sha256": "5cc1d8cd128ada7e624899b3fa4fdd3dc1784b4ad3320b9b7c1630da74441c38",
+        "plugin_sha256": "ff0c914dbaab1c35afd6cc43c790673311ffa96daeb6d6a903d324f7c35a73a4",
+        "image_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_special/candidates/5214bb198f834f68baa9979b6071b949/image.png",
+        "plugin_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_special/candidates/5214bb198f834f68baa9979b6071b949/plugin.json",
+        "reviewed_at": "2026-11-11T10:25:10.785690+00:00",
+        "review_note": "User-authorized automated Pass by primary. Latest instruction: 再进行一轮，多参考已经collect的题目. Continuing prior explicit admission and direct Pass authorization. Standing instruction: 设计的变体直接pass就好. See provenance/analytics_author_collect6_20261111.json. Pilot met the two-completed-sample visual-error criterion; not a robustness claim.",
+        "slot_id": "C01",
+        "formal_image_path": "/Users/lingyu/projects/MathPalette/Analytics/special_variant/Ana578/images/C01.png",
+        "formal_plugin_path": "/Users/lingyu/projects/MathPalette/Analytics/special_variant/Ana578/plugins/C01.json",
+        "image_url": "/api/candidate-image/5214bb198f834f68baa9979b6071b949"
+      },
+      "collect_performed": false
+    }
+  ],
+  "originals_admitted_at": "2026-11-11T10:24:44.541026+00:00",
+  "formal_input_sha256": {
+    "Analytics/dataset_generator/scenes/Ana573.json": "39c4c1194d0f8ea67681115ce30468ebedf409a02c0415334c5d07935cea52ce",
+    "Analytics/dataset_generator/questions/function_plot573.py": "c7cb5cd6c11a375ee0e9dcb354941837f5f044797692c029612659e6c10cf2e6",
+    "Analytics/image/Ana573.png": "95401ce083e1ae832fe5ca496e4aa191f4346dc1297dc0df2fe1121afc970f2d",
+    "Analytics/dataset_generator/questions/function_plot574.py": "6ed5e1e179018fc88c0c3f0f798dd03faa77199e7cef92f27bf5582a67722a45",
+    "Analytics/dataset_generator/scenes/Ana574.json": "3ee58cad4da04bb4b952c4a743e60d9bbb44fe7f24a997962cd373f7e8670f8a",
+    "Analytics/image/Ana574.png": "cdcd882fec4e13b0a80ff976d562040cc03104b7517398c0e2e7b7f1b312e1bb",
+    "Analytics/dataset_generator/scenes/Ana575.json": "20fbda9304c9d141f6cd9b81d479c3fc0b73cc8221f45cd42b22d151e40ef8e8",
+    "Analytics/dataset_generator/questions/function_plot575.py": "e542029d57e6ab65f74d22fc65edb4b058cfa65da615021c428154f745028f74",
+    "Analytics/image/Ana575.png": "6e1054514feb16879b124d9902275403cbdc747dbe966504cba0ca4150fc98a7",
+    "Analytics/dataset_generator/scenes/Ana576.json": "cd2f35e74f67ef3ee9e37c26f02b273d969738a6a0f12350d6a73e5457fff57b",
+    "Analytics/image/Ana576.png": "e5ceaeb2edf3d0c94f01e766043ab0dca15cfc3c09a40ad7bc80a9bef0de2c4d",
+    "Analytics/dataset_generator/questions/function_plot576.py": "1f539665450285a4da6e35ad55c9ae13b1f9782da3ed5950a489dc562297c70c",
+    "Analytics/dataset_generator/questions/function_plot577.py": "eb4e7e97474a3d0f2fb2a748d311d3eadd254c7a03070e892fba1c35de950e70",
+    "Analytics/image/Ana577.png": "12b142fb925e0a1b5c31ad30ff965d883694b891b7f75105ac0208baef22a1ff",
+    "Analytics/dataset_generator/scenes/Ana577.json": "43caaa2bede64f5efcc12d550b00497bbbd91d73225b491d53a1b0617153b1ab",
+    "Analytics/dataset_generator/scenes/Ana578.json": "6846bc6f4a3a47a5e677536976ab93de1b9f13f8d23810b13b54c43cac40740c",
+    "Analytics/dataset_generator/questions/function_plot578.py": "39359a76c48cbffceb819e9b01da4b61130c0e1b703989e3c528addb2af5ffda",
+    "Analytics/image/Ana578.png": "b879ad3fdf95289922acf4914ca63dc065744fa2d01195a9052ca1e7fddc6bb0"
+  },
+  "updated_at": "2026-11-11T10:25:10.815039+00:00",
+  "final_verification": {
+    "checked_at": "2026-11-11T10:26:24.604428+00:00",
+    "originals_admitted": 6,
+    "variants_passed": 7,
+    "collects": 0,
+    "analytics_count": 578,
+    "bank_count": 1504,
+    "all_originals_and_variants_replay_byte_identical": true,
+    "previous_analytics_originals_approvals_and_variant_artifacts_unchanged": true,
+    "catalog_validation": "passed",
+    "results": [
+      {
+        "question_id": "Ana573",
+        "slot_id": "C01",
+        "staged_variant": "v01",
+        "pixel_sha256": "5a17d7296ff5d65af2be02735fffec298318f9cfab04aafa8b843310f8ba0113",
+        "exact_replay_matches_staging": true
+      },
+      {
+        "question_id": "Ana574",
+        "slot_id": "C01",
+        "staged_variant": "v01",
+        "pixel_sha256": "99713d678615adadf430c72f578afc2ccfb69cb5f8830d4f8f34c00ba41107ba",
+        "exact_replay_matches_staging": true
+      },
+      {
+        "question_id": "Ana575",
+        "slot_id": "C01",
+        "staged_variant": "v01",
+        "pixel_sha256": "8841bdfe87e6c24850539ef07a5b849fc839ed8f181f625f5c8705d7a8f80004",
+        "exact_replay_matches_staging": true
+      },
+      {
+        "question_id": "Ana576",
+        "slot_id": "C01",
+        "staged_variant": "v01",
+        "pixel_sha256": "5b18f4fb266008771bb2327aabcd520572fd74f90149d67372e7744559000647",
+        "exact_replay_matches_staging": true
+      },
+      {
+        "question_id": "Ana577",
+        "slot_id": "C01",
+        "staged_variant": "v01",
+        "pixel_sha256": "ed607d20bc554f36253784d5f66dbacbef5d65447aec3d519aa42555e379e59e",
+        "exact_replay_matches_staging": true
+      },
+      {
+        "question_id": "Ana577",
+        "slot_id": "C02",
+        "staged_variant": "v02",
+        "pixel_sha256": "e223c80f3c32be52b6d7c3be85fb5e95822687dd7183af8a57481f9f6afa58dc",
+        "exact_replay_matches_staging": true
+      },
+      {
+        "question_id": "Ana578",
+        "slot_id": "C01",
+        "staged_variant": "v01",
+        "pixel_sha256": "fb1244502d871e56bd8383f3bba50160f295e7d07df82ec54dde79efe0e84392",
+        "exact_replay_matches_staging": true
+      }
+    ]
+  },
+  "completed_at": "2026-11-11T10:26:24.604428+00:00",
+  "live_workbench_verification": {
+    "checked_at": "2026-11-11T10:27:43.853733+00:00",
+    "url": "http://127.0.0.1:8767",
+    "session_id": "043aedbbd1a443309f722c20814433f1",
+    "current_question": "Ana576",
+    "new_originals_visible": 6,
+    "accepted_images_served_byte_identically": [
+      "Ana573/C01",
+      "Ana574/C01",
+      "Ana575/C01",
+      "Ana576/C01",
+      "Ana577/C01",
+      "Ana577/C02",
+      "Ana578/C01"
+    ],
+    "no_new_collects": true
+  }
+}

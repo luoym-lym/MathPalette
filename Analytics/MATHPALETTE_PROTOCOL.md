@@ -1,10 +1,14 @@
 # Analytics 制作与变体协议
 
-版本：3.1.0。当前保留 572 道正式题，题号为连续的 Ana01～Ana572；来源与题干以 `dataset.jsonl` 为准，所有文件与插件使用同一题号。
+版本：3.1.0。当前保留 590 道正式题，题号为连续的 Ana01～Ana590；来源与题干以 `dataset.jsonl` 为准，所有文件与插件使用同一题号。
 
 Ana547～Ana566 为 2026-11-11 用户明确批量授权的 Author Designed 原题，每题包含一份同步设计并授权直接 Pass 的 C01。记录见 [`analytics_author_special20_20261111.json`](../provenance/analytics_author_special20_20261111.json)，不冒称逐题人工审核。
 
 2026-11-11 用户以“放进去吧”明确批准将已交付的 6 道 Analytics 新原创题 Ana567～Ana572 加入 Author Designed，沿用“设计的变体直接pass就好”的指令保存 7 份 Special（Ana567 为 C01、C02，其余每题 C01）。Pass 仅代表授权保存；本轮视觉实测只有 Ana567/C02 达到预设双样本条件，不代表其他变体有效或逐题人工审核。未执行 Collect。授权、设计与事务凭据见 [`analytics_author_visual6_20261111.json`](../provenance/analytics_author_visual6_20261111.json)。
+
+2026-11-11 用户要求“再进行一轮”，继续此前 Author Designed 入库与“设计的变体直接pass就好”的授权，新增 Ana573～Ana578 六道原题及七份 Special（Ana577 为 C01、C02，其余每题 C01）。本轮参考已 Collect 题目；Ana576/C01、Ana578/C01 达到预设双样本视觉误读条件，Ana577 两份变体均一对一错，Ana573～Ana575 对照因连接失败未完整，效果未验证。Pass 不代表逐题人工审核或稳定诱导效果；未执行 Collect。凭据见 [`analytics_author_collect6_20261111.json`](../provenance/analytics_author_collect6_20261111.json)。
+
+2026-11-11 用户要求“你从已经收录的题目里面进行扩展就好”“可以多做一些”，继续 Author Designed 入库和直接 Pass 授权，新增 Ana579～Ana590 共12道母题扩展，每题C01，母题为Ana576、Ana578、Ana548、Ana567。Ana579、Ana581、Ana582、Ana588、Ana590 的C01达到本轮双样本条件（Ana581有附带FINAL矛盾，已保留说明）；Ana580原图对照失误，变体未测，其余未达条件。未执行Collect，不冒称逐题人工审核或稳定有效。母题映射、授权与实测凭据见 [`analytics_author_extensions12_20261111.json`](../provenance/analytics_author_extensions12_20261111.json)。
 
 ## 原题
 
