@@ -15,13 +15,10 @@ def _draw(slot_id, output_path=None):
     recipe = next(r for r in recipes if r["slot_id"] == slot_id)
     return render_special_recipe(recipe, output_path)
 
-def draw_C01(output_path=None):
-    return _draw("C01", output_path)
-
 if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser(description='确定性重绘人工通过 C 图')
-    parser.add_argument('slot_id', choices=['C01'])
+    parser.add_argument('slot_id', choices=[])
     parser.add_argument('--output', type=Path)
     args = parser.parse_args()
     print(json.dumps(_draw(args.slot_id, args.output), ensure_ascii=False))
