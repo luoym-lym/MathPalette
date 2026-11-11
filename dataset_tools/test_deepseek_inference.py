@@ -144,6 +144,9 @@ class DeepSeekInferenceTests(unittest.TestCase):
             payload = server.requests[0]
             self.assertEqual(payload["model"], "deepseek-flash")
             self.assertEqual(payload["thinking"], {"type": "enabled"})
+            self.assertEqual(payload["reasoning_effort"], "max")
+            for parameter in ("max_tokens", "max_completion_tokens", "max_output_tokens", "thinking_budget"):
+                self.assertNotIn(parameter, payload)
             self.assertNotIn("temperature", payload)
             self.assertNotIn("answer", payload)
             self.assertNotIn("reference_answer", payload)
@@ -159,6 +162,17 @@ class DeepSeekInferenceTests(unittest.TestCase):
         self.assertEqual(record["usage"]["completion_tokens_details"]["reasoning_tokens"], 40)
         self.assertEqual(record["api_request_id"], "local-request")
         self.assertTrue(record["response_complete"])
+        config = runner.read_json(self.output / "run.json")["config"]
+        self.assertEqual(config["request_timeout_seconds"], 240)
+        self.assertEqual(config["reasoning_effort"], "max")
+        self.assertNotIn("max_tokens", config)
+
+    def test_deadline_accepts_240_and_rejects_longer_requests(self):
+        with fake_server(lambda h, n, b: emit(h)) as (server, url):
+            result = self.run_cli(url, "--limit", "1", "--timeout", "240")
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertEqual(self.run_cli(url, "--timeout", "241").returncode, 2)
+            self.assertEqual(len(server.requests), 1)
 
     def test_resume_skips_completed_and_allows_expanding_selection(self):
         with fake_server(lambda h, n, b: emit(h)) as (server, url):
@@ -167,7 +181,7 @@ class DeepSeekInferenceTests(unittest.TestCase):
             self.assertEqual(result.returncode, 0, result.stderr)
             self.assertEqual(len(server.requests), 2)
             self.assertEqual(len(runner.read_rows(self.output / "results.jsonl")), 2)
-            changed = self.run_cli(url, "--limit", "2", "--reasoning-effort", "max")
+            changed = self.run_cli(url, "--limit", "2", "--reasoning-effort", "low")
             self.assertEqual(changed.returncode, 2)
             self.assertEqual(len(server.requests), 2)
 
@@ -197,7 +211,7 @@ class DeepSeekInferenceTests(unittest.TestCase):
 
     def test_only_timed_out_trial_is_retried_and_completed_trial_is_preserved(self):
         with fake_server(lambda h, n, b: slow_stream(h) if n == 2 else emit(h)) as (server, url):
-            options = ("--limit", "1", "--trials", "2", "--timeout", "0.5", "--max-attempts", "2")
+            options = ("--limit", "1", "--trials", "2", "--timeout", "1", "--max-attempts", "2")
             result = self.run_cli(url, *options)
             self.assertEqual(result.returncode, 0, result.stderr)
             self.assertEqual(len(server.requests), 3)
@@ -210,9 +224,9 @@ class DeepSeekInferenceTests(unittest.TestCase):
     def test_timeout_is_total_despite_keepalives_and_budget_survives_resume(self):
         with fake_server(lambda h, n, b: slow_stream(h)) as (server, url):
             before = time.monotonic()
-            result = self.run_cli(url, "--limit", "1", "--timeout", "0.5", "--max-attempts", "2")
+            result = self.run_cli(url, "--limit", "1", "--timeout", "1", "--max-attempts", "2")
             self.assertEqual(result.returncode, 1, result.stderr)
-            self.assertLess(time.monotonic() - before, 5)
+            self.assertLess(time.monotonic() - before, 7)
             self.assertEqual(len(server.requests), 2)
             self.assertEqual(server.requests[0], server.requests[1])
             record = self.result()
@@ -220,7 +234,7 @@ class DeepSeekInferenceTests(unittest.TestCase):
             self.assertEqual(record["attempt_count"], 2)
             self.assertTrue(record["attempt_budget_exhausted"])
             self.assertIn("正在观察图像", record["reasoning_content"])
-            self.assertEqual(self.run_cli(url, "--limit", "1", "--timeout", "0.5", "--max-attempts", "2").returncode, 1)
+            self.assertEqual(self.run_cli(url, "--limit", "1", "--timeout", "1", "--max-attempts", "2").returncode, 1)
             self.assertEqual(len(server.requests), 2)
 
     def test_transient_retry_preserves_attempts_and_redacts_error(self):

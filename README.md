@@ -6,6 +6,8 @@ MathPalette 研究统一渲染条件下，视觉标记如何影响视觉语言�
 
 用户明确评测需要保存思考过程，并于 2026-11-12 要求先适配 DeepSeek V4.1 Flash。[推理脚本](MathPalette_Dataset/infer_deepseek.py)使用官方 `deepseek-flash` 实时接口，直接发送冻结 PNG，分别保存思考文本、最终回答和用量，支持有限重试与断点续跑，不做答案判分。[运行说明](MathPalette_Dataset/INFERENCE.md)包含预检、小规模试跑和全量命令。旧 Batch 请求文件、图片压缩包及其辅助材料已清理。
 
+新增模型各自使用新的独立脚本。Qwen3.8-Max-0902 的[脚本](MathPalette_Dataset/infer_qwen38_max_0902.py)使用用户指定的 `https://maas.qianwenaiapi.com/compatible-mode/v1` 平台，配置与命令见[说明](MathPalette_Dataset/INFERENCE_QWEN38_MAX_0902.md)。用户最新预设为 DeepSeek `max`、Qwen `xhigh`，两者单次总时限240秒，均不发送输出 Token 上限参数。
+
 历史快照：截至 2026-10-31，正式数据为 **823 题、408 张 Special**：Analytics 70 题 / 116 张，PlaneGeometry 505 题 / 259 张，SolidGeometry 248 题 / 33 张。Special 覆盖 101 道原题。题源为 DynaMath 20 题、MathVerse 147 题、MathVista 56 题、SOLIDGEO 9 题、Author Designed 70 题、MathVision 521 题；最新数量以 `catalog.py check` 为准。
 
 | 内容 | 数量 / 入口 |

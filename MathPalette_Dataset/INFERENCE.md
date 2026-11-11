@@ -4,6 +4,8 @@
 
 2026-11-12 核对的官方模型 ID 为 **`deepseek-flash`**，当时对应 **DeepSeek-V4.1-Flash-1017**，支持图片和思考模式。`deepseek-flash` 是服务别名，不能把它当作永久冻结的检查点；脚本同时保存请求模型 ID、响应中的模型名称和服务提供的 `system_fingerprint`（如有）。
 
+每个模型使用独立脚本。Qwen3.8-Max-0902 的指定平台入口见 [`INFERENCE_QWEN38_MAX_0902.md`](INFERENCE_QWEN38_MAX_0902.md)，使用独立的 Key 和输出目录。
+
 ## 准备 API Key
 
 需要 Python 3.9 或更新版本，仅使用标准库，不需要安装 OpenAI SDK 或其他推理依赖。
@@ -59,18 +61,20 @@ python3 -B MathPalette_Dataset/infer_deepseek.py
 | API | `https://api.deepseek.com/chat/completions` |
 | 模型 ID | `deepseek-flash` |
 | 思考 | `thinking.type=enabled`，要求响应中有非空 `reasoning_content` |
-| 思考强度 | `high`；`--reasoning-effort low/high/max` |
-| 输出上限 | `--max-tokens 65536` |
+| 思考强度 | `max`；`--reasoning-effort low/high/max` |
+| 输出上限 | 不发送 `max_tokens`、`max_completion_tokens` 等上限参数，使用服务端默认值 |
 | 流式 | `stream=true`，`stream_options.include_usage=true` |
 | 图像细节 | `original` |
 | top_p | `1.0`；不发送思考模式下无效的 temperature |
 | 独立次数 | `--trials 1`，原图与 Special 相同 |
 | 并发请求 | `--concurrency 4` |
 | 请求速率 | `--rpm 60`，重试也计入 |
-| 单次总时长 | `--timeout 120` 秒，可调低；包括持续收到 keep-alive 的情况 |
+| 单次总时长 | `--timeout 240` 秒，可调低；包括持续收到 keep-alive 的情况 |
 | 每个样本每轮的尝试上限 | `--max-attempts 3`，包含首次、超时、失败和续跑前已消耗的次数 |
 
 默认输出路径为项目 `.runtime/inference/deepseek_v4_1_flash/`。可用 `--output-dir` 指定另一个运行目录。
+
+2026-11-12 按用户最新要求改为 `max`、240秒总时限，并移除输出 Token 上限参数及 `--max-tokens` 选项。不设置参数不代表服务端无限输出；DeepSeek 官方文档规定，在 `max` 模式下未设置 `max_tokens` 时默认输出上限为128K。脚本不另设 `thinking_budget`。
 
 推理预设、代码或冻结数据发生改变时，脚本拒绝混入同一运行目录。运行目录保存这些内容的签名。并发和 RPM 可在续跑时调整；重复次数、最大尝试数、超时和推理参数不能在原实验中悄悄变更。
 

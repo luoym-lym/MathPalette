@@ -2,7 +2,7 @@
 
 本目录是可独立复用的数据快照。仅纳入用户已 Collect、且当前没有特殊标识的题目；保留原题号。题干、答案、选项和图像来自当前正式分支数据，不使用 Collect 历史记录中的旧题干，也不重新绘图。
 
-推理入口为 [`infer_deepseek.py`](infer_deepseek.py)，目前只适配 DeepSeek V4.1 Flash 的官方实时 API，分别保存接口提供的思考内容和最终回答。运行方式、断点续跑和输出格式见 [`INFERENCE.md`](INFERENCE.md)。此前的 Batch 请求材料已清理。
+每个模型使用独立推理脚本：DeepSeek V4.1 Flash 使用 [`infer_deepseek.py`](infer_deepseek.py)（[说明](INFERENCE.md)），Qwen3.8-Max-0902 使用 [`infer_qwen38_max_0902.py`](infer_qwen38_max_0902.py)（[说明](INFERENCE_QWEN38_MAX_0902.md)）。两者分别保存接口提供的思考内容和最终回答；默认思考强度分别为 `max` 和 `xhigh`，请求总时限均为240秒，不显式发送输出 Token 上限。此前的 Batch 请求材料已清理。
 
 ## 本次范围
 
@@ -29,6 +29,7 @@
 - `provenance/`：仅包含入选题目的批准、Collect、recipes 和来源说明快照，及源路径/指纹映射。
 - `attribution/`、`ATTRIBUTION.md`：保留的题源署名和许可通知。
 - `infer_deepseek.py`、`INFERENCE.md`：DeepSeek V4.1 Flash 推理脚本与使用说明，运行结果写入项目 `.runtime/`。
+- `infer_qwen38_max_0902.py`、`INFERENCE_QWEN38_MAX_0902.md`：Qwen3.8-Max-0902 独立推理入口与指定平台说明，使用独立的 Key 和运行目录。
 - `SHA256SUMS`：发布数据、图像、推理脚本和说明文件的 SHA256 清单。
 
 `dataset.jsonl` 的主要字段：

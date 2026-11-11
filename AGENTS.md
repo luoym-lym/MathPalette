@@ -22,7 +22,9 @@
 
 2026-11-11 用户明确要求将可复用的正式评测数据集放入独立目录，并规定“正式的数据集仅包含collect且没有特殊标识的题目”。发布快照位于 `MathPalette_Dataset/`：筛选 `collection.json` 顶层及 `current.status` 均为 `collected`、`current.special_case` 缺省或为 false，排除待复审题；只附带与该次普通 Collect 的槽位完全匹配的已 Pass Special。当前快照为323题、1140张Special、1463个图文样本。保留原正式题号及已批准内容；三个分支源库与原批准记录继续作为追溯依据。更新发布集须重新按当前状态筛选，不把未 Collect 或特殊标记题追加进来。
 
-2026-11-11 用户进一步明确评测需要思考过程（“因为我要思考过程啊”）。后续模型接入须核实图像输入和对应接口实际返回的推理字段，并保存接口提供的思考内容与最终回答；须区分推理文本、思考摘要和未返回思考内容，不能把开启 thinking 参数当作已获取思考过程。2026-11-12 用户明确要求编写推理脚本、清理此前 Batch 材料，并指定先适配 DeepSeek V4.1 Flash，后续再拓展。入口为 `MathPalette_Dataset/infer_deepseek.py`，官方 API 模型 ID 为 `deepseek-flash`（当时文档版本 DeepSeek-V4.1-Flash-1017，别名不视为永久固定快照）。直接发送本地冻结 PNG，保存 `reasoning_content`、`content`、用量、原始流和各次尝试；结果写 `.runtime/`。每次请求默认120秒总时长、每个样本每轮最多3次尝试，续跑不清零；重试不改题干、图像或推理预设，不因数学错答或截断改参重测。旧 Batch 文件及辅助材料已清理，本轮仅进行离线预检和本机模拟接口测试，不调用付费模型。
+2026-11-11 用户进一步明确评测需要思考过程（“因为我要思考过程啊”）。后续模型接入须核实图像输入和对应接口实际返回的推理字段，并保存接口提供的思考内容与最终回答；须区分推理文本、思考摘要和未返回思考内容，不能把开启 thinking 参数当作已获取思考过程。2026-11-12 用户明确要求编写推理脚本、清理此前 Batch 材料，并指定先适配 DeepSeek V4.1 Flash，后续再拓展。入口为 `MathPalette_Dataset/infer_deepseek.py`，官方 API 模型 ID 为 `deepseek-flash`（当时文档版本 DeepSeek-V4.1-Flash-1017，别名不视为永久固定快照）。直接发送本地冻结 PNG，保存 `reasoning_content`、`content`、用量、原始流和各次尝试；结果写 `.runtime/`。正式推理每次请求按最新指令默认240秒总时长、每个样本每轮最多3次尝试，续跑不清零；重试不改题干、图像或推理预设，不因数学错答或截断改参重测。旧 Batch 文件及辅助材料已清理，仅进行离线预检和本机模拟接口测试不代表已调用付费模型。
+
+2026-11-12 用户要求“新的模型用新的脚本”。Qwen3.8-Max-0902 使用独立入口 `MathPalette_Dataset/infer_qwen38_max_0902.py`，模型 ID `qwen3.8-max-0902`，平台 `https://maas.qianwenaiapi.com/compatible-mode/v1`。用户随后明确“Deepseek用max，Qwen用xhigh，然后把请求总时限改成240，输出token上限不要设置”：两份正式推理脚本默认分别为 `max` / `xhigh`，总时限240秒，不发送 `max_tokens`、`max_completion_tokens` 或显式 `thinking_budget`。服务端默认输出限制仍适用。此处240秒覆盖正式推理脚本此前的120秒设定，不改动下方工作台 Quick Test 的120秒规则。API Key 保存在用户明确要求继续由 Git 跟踪的根目录 `.env`，DeepSeek 和 Qwen 分别读取 `DEEPSEEK_API_KEY` 与 `QWEN_38_MAX_0902_API_KEY`；不得自行迁移到 `.env.local` 或修改跟踪状态。
 
 平面、立体分别使用分支 `REDRAW_PROTOCOL.md` 和 `dataset_generator/protocol.json`；立体须分别冻结三维几何、投影和可见性。Special 操作范围见各分支 `workbench/README.md`、`workbench/agent_prompt.md` 与 `workbench/plugin.schema.json`。原对象实虚线覆盖属于变体外观操作，不改写原冻结场景。
 

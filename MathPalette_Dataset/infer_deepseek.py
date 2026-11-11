@@ -185,7 +185,7 @@ def build_request(sample, root, args):
         raise ValueError("Image changed since preflight: " + sample["id"])
     body = {
         "model": MODEL, "thinking": {"type": "enabled"}, "reasoning_effort": args.reasoning_effort,
-        "max_tokens": args.max_tokens, "top_p": 1.0, "stream": True,
+        "top_p": 1.0, "stream": True,
         "stream_options": {"include_usage": True},
         "messages": [{"role": "system", "content": SYSTEM_PROMPT},
                      {"role": "user", "content": [
@@ -580,19 +580,18 @@ def main(argv=None):
     parser.add_argument("--base-url", default=os.environ.get("DEEPSEEK_BASE_URL", BASE_URL))
     parser.add_argument("--concurrency", type=int, default=4)
     parser.add_argument("--rpm", type=int, default=60, help="Request attempts per minute, including retries.")
-    parser.add_argument("--timeout", type=float, default=120, help="Total HTTP deadline, at most 120 seconds.")
+    parser.add_argument("--timeout", type=float, default=240, help="Total HTTP deadline, at most 240 seconds.")
     parser.add_argument("--max-attempts", type=int, default=3, help="Total attempts per sample/trial, including saved attempts.")
     parser.add_argument("--trials", type=int, default=1)
-    parser.add_argument("--max-tokens", type=int, default=65536)
-    parser.add_argument("--reasoning-effort", choices=("low", "high", "max"), default="high")
+    parser.add_argument("--reasoning-effort", choices=("low", "high", "max"), default="max")
     parser.add_argument("--limit", type=int)
     parser.add_argument("--sample-id", action="append", help="Select an exact sample ID; may be repeated.")
     parser.add_argument("--smoke", action="store_true", help="Select one original/Special pair from each branch (6 requests).")
     parser.add_argument("--dry-run", action="store_true", help="Validate all frozen data without a key or HTTP requests.")
     args = parser.parse_args(argv)
-    if not (1 <= args.concurrency <= 32 and args.rpm > 0 and 0 < args.timeout <= 120
-            and 1 <= args.max_attempts <= 10 and 1 <= args.trials <= 20 and 1 <= args.max_tokens <= 393216):
-        parser.error("Invalid concurrency, rate, deadline, attempt budget, trial count, or token limit")
+    if not (1 <= args.concurrency <= 32 and args.rpm > 0 and 0 < args.timeout <= 240
+            and 1 <= args.max_attempts <= 10 and 1 <= args.trials <= 20):
+        parser.error("Invalid concurrency, rate, deadline, attempt budget, or trial count")
     if args.limit is not None and args.limit <= 0:
         parser.error("--limit must be positive")
     if args.smoke and (args.limit is not None or args.sample_id):
@@ -630,7 +629,8 @@ def main(argv=None):
         "documented_version": DOCUMENTED_VERSION, "api_model_is_alias": True,
         "endpoint": args.endpoint, "system_prompt": SYSTEM_PROMPT,
         "thinking": {"type": "enabled"}, "reasoning_effort": args.reasoning_effort,
-        "max_tokens": args.max_tokens, "top_p": 1.0, "stream": True,
+        "output_token_limit_policy": "provider_default; no token-limit parameter sent",
+        "top_p": 1.0, "stream": True,
         "image_mode": "local PNG bytes as base64; detail=original",
         "request_timeout_seconds": args.timeout, "max_attempts": args.max_attempts,
         "trials_per_sample": args.trials, "require_reasoning_content": True,
