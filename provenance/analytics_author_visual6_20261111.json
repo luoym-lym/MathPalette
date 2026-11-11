@@ -1,0 +1,1824 @@
+{
+  "created_at": "2026-11-11T09:26:53.662684+00:00",
+  "user_instruction": "放进去吧",
+  "authorization_type": "explicit_user_batch_admission_of_six_delivered_originals_and_paired_variants",
+  "authorization_context": {
+    "previous_user_question": "你放进工作台了吗？",
+    "assistant_answer": "还没有。目前这 6 道新题及变体只在暂存区，尚未出现在工作台的 Author Designed 来源中，也未执行 Pass。",
+    "latest_user_confirmation": "放进去吧",
+    "standing_variant_instruction": "并且直接加入工作台的‘Author Designed’来源，设计的变体直接pass就好。"
+  },
+  "manual_per_question_review": false,
+  "source_dataset": "Author Designed",
+  "ids": [
+    "Ana567",
+    "Ana568",
+    "Ana569",
+    "Ana570",
+    "Ana571",
+    "Ana572"
+  ],
+  "original_admission_executor": "primary via dataset_tools.question_review.approve",
+  "special_pass_executor": "primary via official Workbench.submit/review transaction",
+  "pass_does_not_claim_visual_effectiveness": true,
+  "collect_performed": false,
+  "design_model": "codex gpt-6.1-sol high",
+  "parallel_groups": 3,
+  "visual_pilot": {
+    "completed_at": "2026-11-11T09:22:54.724352+00:00",
+    "originals_authored": 6,
+    "variants_rendered": 7,
+    "variants_tested": 5,
+    "qualified_variants": [
+      "Ana567/v02"
+    ],
+    "baseline_confounded": [
+      "Ana568",
+      "Ana570"
+    ],
+    "actual_http_attempts": 31,
+    "completed_responses": 22,
+    "timeout_attempts": 9,
+    "evaluation": "Quick Test4; MiMo-v2.6-flash thinking enabled",
+    "design_model": "codex gpt-6.1-sol high",
+    "concurrency_limit_used": 3,
+    "qualification": "Both original final answers correct and both completed variant final answers wrong due to same preregistered visual extraction error. Timeouts not wrong answers.",
+    "findings": [
+      {
+        "strength": "observed in two completed samples",
+        "finding": "Ana567/v02 replaces true interior ordinate2 with off-contour salient point ordinate4, while retaining correct function-evaluation operation."
+      },
+      {
+        "strength": "design hypothesis consistent with responses, not isolated causal effect",
+        "finding": "Shared blue dashed styling makes genuine curve and projection look alike, while a short red solid segment and point become salient; removing the true-value guide also changes the visual evidence."
+      },
+      {
+        "strength": "negative evidence in this pilot",
+        "finding": "Ana569 final response explicitly rejects fake joint; local continuation candidates571/572 did not meet repeated-target criterion."
+      },
+      {
+        "strength": "control limitation",
+        "finding": "Two originals568/570 already elicited wrong final readouts, so their variants were not tested."
+      }
+    ],
+    "limitations": [
+      "One profile; two completed responses per tested image. This is not a stable success-rate estimate.",
+      "Ana567/v02 changes several visual components jointly. Their individual contributions remain untested.",
+      "Proposed question IDs are staged only; six originals and seven variants are not formally admitted or passed."
+    ],
+    "formal_write": false,
+    "pass_performed": false,
+    "collect_performed": false
+  },
+  "questions": [
+    {
+      "record": {
+        "id": "Ana567",
+        "source_dataset": "Author Designed",
+        "question": "The smooth curve shown is the graph of f. Read the unit grid and find f(3).",
+        "answer": "2",
+        "answer_type": "number",
+        "image": "image/Ana567.png",
+        "original_image": null,
+        "script": "dataset_generator/questions/function_plot567.py",
+        "runtime_dependencies": [
+          "dataset_generator/common_renderer.py",
+          "dataset_generator/protocol.json",
+          "dataset_generator/scenes/Ana567.json"
+        ],
+        "scene": "dataset_generator/scenes/Ana567.json",
+        "source_key": "author_visual6_20261111/Ana567"
+      },
+      "design_review": {
+        "question_id": "Ana567",
+        "solution": "At x=3 the actual smooth black contour passes through (3,2). Therefore f(3)=2.",
+        "wrong_readout_derivation": "Assign the off-contour red mark (3,4) to f at x=3 and use its blue horizontal projection to read f(3)=4.",
+        "novelty": "Compared with Ana548, this is forward ordinate extraction from a nonmonotonic C1 contour, with no inverse and no polygonal vertex at the target. Compared with Ana87/Ana105, asymmetric smooth contour and competing mark binding replace straight-segment reconstruction. Ana568 instead extracts two abscissae from a closed relation and subtracts.",
+        "objects_and_coordinates": {
+          "true_readout": [
+            3,
+            2
+          ],
+          "false_mark": [
+            3,
+            4
+          ],
+          "hermite_knots_x_y_slope": [
+            [
+              -6,
+              -3,
+              0.5
+            ],
+            [
+              -4,
+              1,
+              1
+            ],
+            [
+              -1,
+              5,
+              0
+            ],
+            [
+              3,
+              2,
+              -0.5
+            ],
+            [
+              4.5,
+              2.5,
+              1
+            ],
+            [
+              6,
+              5,
+              1
+            ]
+          ]
+        },
+        "references": [
+          "Ana548",
+          "Ana87",
+          "Ana105",
+          "Ana521",
+          "provenance/analytics_author_special20_20261111.json"
+        ],
+        "formal_write": false
+      },
+      "parent_review": {
+        "question_id": "Ana567",
+        "reviewer": "parent",
+        "reviewed_at": "2026-11-11T09:21:38.184191+00:00",
+        "qualified_candidates": [
+          "v02"
+        ],
+        "baseline_both_correct": true,
+        "verdict": "v01 mixed4/2; v02 both finals assign ordinate4 to f atx3, second explicitly red point. Correct mathematical lookup applied to wrong visual object. Meets frozen two-completed-response criterion.",
+        "original_and_variants_visually_inspected": true,
+        "visual_qa": "Original smooth contour remains fully traceable, f label and endpoints untouched. v02 true contour blue dashed1pt; short red segment and red mark at(3,4), projections. True(3,2) still recoverable without obscuration.",
+        "math_verified": true,
+        "hashes_verified": 116,
+        "assignment_and_frozen_render_checks_passed": true,
+        "request_exact_system_question_png_verified": true,
+        "raw_final_content_matches_result": true,
+        "preregistration_precedes_requests": true,
+        "actual_http_attempts": 11,
+        "completed_response_paths": [
+          "v00/tests/5aaccdbf519c4b7ab43274fc5f40fcc2/round1/attempt01_4c30e71801ea4cf989c61c7dfee4c79e",
+          "v00/tests/5aaccdbf519c4b7ab43274fc5f40fcc2/round2/attempt01_eb5a21fd7c40494b910cb49e28e28659",
+          "v01/tests/f6328629193c467fa532e24507764092/round1/attempt01_2c108b19e28a4aabaf2f4c5a03d4b7be",
+          "v01/tests/f6328629193c467fa532e24507764092/round2/attempt01_8f7a187f83534d28b7e2fbaddc0cf4c3",
+          "v02/tests/82e19063bb7f4f309242e963bb58b835/round1/attempt01_77ec88da68634b6798c31077439d5446",
+          "v02/tests/82e19063bb7f4f309242e963bb58b835/round2/attempt06_4c728e86715b48b481d5d56a88509a7e"
+        ],
+        "timeout_seconds": [
+          120.077827,
+          120.172368,
+          120.133951,
+          120.149774,
+          120.119018
+        ],
+        "timeout_round_preservation": "v02 round1 retained once; only round2 retried after five >120s timeouts.",
+        "evidence_limit": "Single profile, two completed samples; v02 changes multiple visual components jointly, so individual causal contributions not isolated. No claim of stable success rate.",
+        "formal_write": false,
+        "pass_performed": false,
+        "collect_performed": false
+      },
+      "staged_summary_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_new_visual_20261111/tasks/Ana567/summary.json",
+      "staged_summary_sha256": "6ae205264d7373162eecb18dad744e005218c5423df6f6695ec00e1e52e12b96"
+    },
+    {
+      "record": {
+        "id": "Ana568",
+        "source_dataset": "Author Designed",
+        "question": "The closed curve C is shown on a unit grid. The horizontal line y=2 meets C at L and R. Find the length of the chord LR.",
+        "answer": "9",
+        "answer_type": "number",
+        "image": "image/Ana568.png",
+        "original_image": null,
+        "script": "dataset_generator/questions/function_plot568.py",
+        "runtime_dependencies": [
+          "dataset_generator/common_renderer.py",
+          "dataset_generator/protocol.json",
+          "dataset_generator/scenes/Ana568.json"
+        ],
+        "scene": "dataset_generator/scenes/Ana568.json",
+        "source_key": "author_visual6_20261111/Ana568"
+      },
+      "design_review": {
+        "question_id": "Ana568",
+        "solution": "The horizontal level y=2 intersects C at L=(-4,2) and R=(5,2). The horizontal chord length is 5-(-4)=9.",
+        "wrong_readout_derivation": "Treat the red off-curve marks (-5,2) and (6,2) as the two intersections with C. Correct subtraction of these false abscissae gives 6-(-5)=11.",
+        "novelty": "Ana548 reads one inverse value on an open one-to-one polyline. This uses both branches of a tilted closed contour and a horizontal distance. Ana521 uses a parabola chord and conic data. Here no conic formula or focus is supplied or required. Ana567 instead reads one ordinate of a function.",
+        "objects_and_coordinates": {
+          "true_intersections": [
+            [
+              -4,
+              2
+            ],
+            [
+              5,
+              2
+            ]
+          ],
+          "false_endpoints": [
+            [
+              -5,
+              2
+            ],
+            [
+              6,
+              2
+            ]
+          ],
+          "frozen_parametric_construction": "x=0.5+4.5*cos(t)+sin(t), y=2+4*sin(t), 0<=t<=2*pi; construction is not printed"
+        },
+        "references": [
+          "Ana548",
+          "Ana87",
+          "Ana105",
+          "Ana521",
+          "provenance/analytics_author_special20_20261111.json"
+        ],
+        "formal_write": false
+      },
+      "parent_review": {
+        "question_id": "Ana568",
+        "reviewer": "parent",
+        "reviewed_at": "2026-11-11T09:21:38.192541+00:00",
+        "qualified_candidates": [],
+        "baseline_both_correct": false,
+        "verdict": "Baseline-confounded: original second final imposes a circle centered(0,2) and reads right chord endpoint(4,2), returning8 instead of9. First final9 also contains incorrect axis-aligned ellipse interpretation, though it includes correct endpoints. No variant calls.",
+        "original_and_variants_visually_inspected": true,
+        "visual_qa": "Previously inspected original and v01; true horizontal intersections(-4,2),(5,2) recoverable.",
+        "math_verified": true,
+        "hashes_verified": 50,
+        "assignment_and_frozen_render_checks_passed": true,
+        "request_exact_system_question_png_verified": true,
+        "raw_final_content_matches_result": true,
+        "preregistration_precedes_requests": true,
+        "actual_http_attempts": 3,
+        "completed_response_paths": [
+          "v00/tests/ad8b556a3d524047bce74c36a9c451a9/round1/attempt02_46c515c19c77429e80db8a4720968940",
+          "v00/tests/ad8b556a3d524047bce74c36a9c451a9/round2/attempt01_bf4a492c18e04719aca9c53f16618e61"
+        ],
+        "timeout_seconds": [
+          120.138452
+        ],
+        "timeout_round_preservation": "Original round1 retried after one >120s timeout.",
+        "evidence_limit": "Single profile, two completed samples; v02 changes multiple visual components jointly, so individual causal contributions not isolated. No claim of stable success rate.",
+        "formal_write": false,
+        "pass_performed": false,
+        "collect_performed": false
+      },
+      "staged_summary_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_new_visual_20261111/tasks/Ana568/summary.json",
+      "staged_summary_sha256": "78200909edbf5f3113b36544392625c2793100f2aaacc90115b8d8bb6e224f59"
+    },
+    {
+      "record": {
+        "id": "Ana569",
+        "source_dataset": "Author Designed",
+        "question": "The labelled curves y=f(x) and y=g(x) intersect exactly once in the displayed graph. Read the unit grid. If their intersection is (a,b), find a+b.",
+        "answer": "5",
+        "answer_type": "number",
+        "image": "image/Ana569.png",
+        "original_image": null,
+        "script": "dataset_generator/questions/function_plot569.py",
+        "runtime_dependencies": [
+          "dataset_generator/common_renderer.py",
+          "dataset_generator/protocol.json",
+          "dataset_generator/scenes/Ana569.json"
+        ],
+        "scene": "dataset_generator/scenes/Ana569.json",
+        "source_key": "author_visual6_20261111/Ana569"
+      },
+      "design_review": {
+        "question_id": "Ana569",
+        "solution": "The two genuine contours cross at (2,3). Thus a+b=2+3=5.",
+        "independent_exact_verification": {
+          "f": "3+9(x-2)/20+(x-2)^2/20",
+          "g": "3-3(x-2)/5+3(x-2)^2/100",
+          "difference": "(x-2)(105+2(x-2))/100",
+          "roots": [
+            2,
+            -50.5
+          ],
+          "domain": [
+            -3,
+            6
+          ],
+          "intersection": [
+            2,
+            3
+          ],
+          "false_joint": [
+            3,
+            3
+          ],
+          "at_false_x": {
+            "f": 3.5,
+            "g": 2.43
+          },
+          "true_sum": 5,
+          "false_sum": 6
+        },
+        "wrong_readout_derivation": "Assign the red off-contour joint (3,3) to the intersection of the labelled f and g contours, then correctly compute a+b=3+3=6. The actual intersection is (2,3).",
+        "novelty": "Two independently labelled non-collinear smooth contours must coincide; asks the coordinate sum of their joint. Unlike Ana548 inverse lookup on one piecewise-linear curve, this requires joint ownership by both contours. Unlike Ana323-325 line pencils and Ana524-525 analytic conic solves, no formula is supplied. Unlike Ana570, there is one common point rather than two distinct ordinate samples.",
+        "references_used": [
+          ".runtime/analytics_visual_20261111/parent_summary.json",
+          ".runtime/analytics_visual_20261111/tasks/Ana548/parent_review.json",
+          "provenance/analytics_author_special20_20261111.json",
+          "Analytics/dataset.jsonl"
+        ],
+        "formal_write": false,
+        "status": "authored_and_visually_validated",
+        "actual_original_png_viewed": true,
+        "actual_schema_variant_png_viewed": true,
+        "original_curve_ids": [
+          "curve_001",
+          "curve_002"
+        ],
+        "visual_QA": "768x768 full PNGs inspected. All ticks, axis names, f/g labels and genuine endpoint markers remain clear. Guides stop above x-axis and to the right of y-axis label bands. Genuine contours remain continuously traceable; the added red point is visibly off the targeted contour(s).",
+        "local_geometry": {
+          "f": "3+9(x-2)/20+(x-2)^2/20",
+          "g": "3-3(x-2)/5+3(x-2)^2/100",
+          "difference": "(x-2)(105+2(x-2))/100",
+          "roots": [
+            2,
+            -50.5
+          ],
+          "domain": [
+            -3,
+            6
+          ],
+          "intersection": [
+            2,
+            3
+          ],
+          "false_joint": [
+            3,
+            3
+          ],
+          "at_false_x": {
+            "f": 3.5,
+            "g": 2.43
+          },
+          "true_sum": 5,
+          "false_sum": 6
+        }
+      },
+      "parent_review": {
+        "question_id": "Ana569",
+        "reviewer": "parent",
+        "reviewed_at": "2026-11-11T09:11:18.300760+00:00",
+        "qualified_candidates": [],
+        "baseline_both_correct": true,
+        "verdict": "Both controls and variants read genuine intersection(2,3), answer5. Variant round1 explicitly rejects red(3,3) as not the intersection. Preregistered false joint not adopted.",
+        "visual_and_math_review": "parent_pretest_review.json",
+        "immutable_hashes_verified": 21,
+        "assignment_and_frozen_render_checks_passed": true,
+        "request_exact_system_question_png_verified": true,
+        "raw_final_content_matches_result": true,
+        "actual_http_attempts": 4,
+        "attempts": [
+          {
+            "attempt_id": "attempt01_2ec697ca912f4f7489662ccf74d8cb88",
+            "evidence": "v00/tests/52f76fdfa9ae4ba88c3a292a91edf513/round1/attempt01_2ec697ca912f4f7489662ccf74d8cb88"
+          },
+          {
+            "attempt_id": "attempt01_c6b59588b3e144faae1657a6e0a62106",
+            "evidence": "v00/tests/52f76fdfa9ae4ba88c3a292a91edf513/round2/attempt01_c6b59588b3e144faae1657a6e0a62106"
+          },
+          {
+            "attempt_id": "attempt01_25f2ba513d1b4968bafe42b72c925927",
+            "evidence": "v01/tests/19923f3e020949949a71d9a5b76fd515/round1/attempt01_25f2ba513d1b4968bafe42b72c925927"
+          },
+          {
+            "attempt_id": "attempt01_41359552a04143fb8523a0d5d17516a5",
+            "evidence": "v01/tests/19923f3e020949949a71d9a5b76fd515/round2/attempt01_41359552a04143fb8523a0d5d17516a5"
+          }
+        ],
+        "timeouts": 0,
+        "formal_write": false,
+        "pass_performed": false,
+        "collect_performed": false
+      },
+      "staged_summary_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_new_visual_20261111/tasks/Ana569/summary.json",
+      "staged_summary_sha256": "a618f9db0c9e5def4553fafa31d11c98075fb41851c0c9a7ce158763c23640b9"
+    },
+    {
+      "record": {
+        "id": "Ana570",
+        "source_dataset": "Author Designed",
+        "question": "The graph shows y=f(x). Read the unit grid and find f(4)-f(1).",
+        "answer": "3",
+        "answer_type": "number",
+        "image": "image/Ana570.png",
+        "original_image": null,
+        "script": "dataset_generator/questions/function_plot570.py",
+        "runtime_dependencies": [
+          "dataset_generator/common_renderer.py",
+          "dataset_generator/protocol.json",
+          "dataset_generator/scenes/Ana570.json"
+        ],
+        "scene": "dataset_generator/scenes/Ana570.json",
+        "source_key": "author_visual6_20261111/Ana570"
+      },
+      "design_review": {
+        "question_id": "Ana570",
+        "solution": "On the genuine curve, x=4 has ordinate 5 and x=1 has ordinate 2. Therefore f(4)-f(1)=5-2=3.",
+        "independent_exact_verification": {
+          "f": "3/2+3x/8+x^2/8",
+          "domain": [
+            -5,
+            5
+          ],
+          "true_samples": [
+            [
+              1,
+              2
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          "false_sample": [
+            4,
+            4
+          ],
+          "true_difference": 3,
+          "false_difference": 2,
+          "off_curve_vertical_separation": 1
+        },
+        "wrong_readout_derivation": "Correctly use f(1)=2 but bind the red off-curve joint at (4,4) and its competing horizontal projection to f(4), then correctly compute 4-2=2 instead of 5-2=3. A subtraction-order error does not qualify.",
+        "novelty": "Two forward ordinate samples of a smooth curve followed by a simple difference, with one true and one false projection binding. Unlike Ana548 this does not invert a function. Ana97 also asks a difference but this original has asymmetric positive abscissae and a nonlinear contour; the mechanism is a local projection substitution rather than algebra/order or symmetry. Unlike Ana569, it has no intersection ownership task.",
+        "references_used": [
+          ".runtime/analytics_visual_20261111/parent_summary.json",
+          ".runtime/analytics_visual_20261111/tasks/Ana548/parent_review.json",
+          "provenance/analytics_author_special20_20261111.json",
+          "Analytics/dataset.jsonl"
+        ],
+        "formal_write": false,
+        "status": "authored_and_visually_validated",
+        "actual_original_png_viewed": true,
+        "actual_schema_variant_png_viewed": true,
+        "original_curve_ids": [
+          "curve_001"
+        ],
+        "visual_QA": "768x768 full PNGs inspected. All ticks, axis names, f/g labels and genuine endpoint markers remain clear. Guides stop above x-axis and to the right of y-axis label bands. Genuine contours remain continuously traceable; the added red point is visibly off the targeted contour(s).",
+        "local_geometry": {
+          "f": "3/2+3x/8+x^2/8",
+          "domain": [
+            -5,
+            5
+          ],
+          "true_samples": [
+            [
+              1,
+              2
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          "false_sample": [
+            4,
+            4
+          ],
+          "true_difference": 3,
+          "false_difference": 2,
+          "off_curve_vertical_separation": 1
+        }
+      },
+      "parent_review": {
+        "question_id": "Ana570",
+        "reviewer": "parent",
+        "reviewed_at": "2026-11-11T09:11:18.308314+00:00",
+        "qualified_candidates": [],
+        "baseline_both_correct": false,
+        "verdict": "Baseline-confounded: second original final reads f(4)=6 instead of5, then correctly subtracts2 to answer4. No variant calls, as required. Error cannot be attributed to Special.",
+        "visual_and_math_review": "parent_pretest_review.json",
+        "immutable_hashes_verified": 21,
+        "assignment_and_frozen_render_checks_passed": true,
+        "request_exact_system_question_png_verified": true,
+        "raw_final_content_matches_result": true,
+        "actual_http_attempts": 2,
+        "attempts": [
+          {
+            "attempt_id": "attempt01_78859938eacd424a93437d1f8a751137",
+            "evidence": "v00/tests/11b11b08827b4c978606d651e9b52771/round1/attempt01_78859938eacd424a93437d1f8a751137"
+          },
+          {
+            "attempt_id": "attempt01_9adabe9aa94c4bf8b5468851721ae695",
+            "evidence": "v00/tests/11b11b08827b4c978606d651e9b52771/round2/attempt01_9adabe9aa94c4bf8b5468851721ae695"
+          }
+        ],
+        "timeouts": 0,
+        "formal_write": false,
+        "pass_performed": false,
+        "collect_performed": false
+      },
+      "staged_summary_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_new_visual_20261111/tasks/Ana570/summary.json",
+      "staged_summary_sha256": "6b273caac0f532959467fa674bc4f0193c2c2301c4cef8da6a8114ee39a9727e"
+    },
+    {
+      "record": {
+        "id": "Ana571",
+        "source_dataset": "Author Designed",
+        "question": "The two labelled piecewise-linear graphs define f and g on their displayed closed domains. Read the unit grid and find f(2).",
+        "answer": "5",
+        "answer_type": "number",
+        "image": "image/Ana571.png",
+        "original_image": null,
+        "script": "dataset_generator/questions/function_plot571.py",
+        "runtime_dependencies": [
+          "dataset_generator/common_renderer.py",
+          "dataset_generator/protocol.json",
+          "dataset_generator/scenes/Ana571.json"
+        ],
+        "scene": "dataset_generator/scenes/Ana571.json",
+        "source_key": "author_visual6_20261111/Ana571"
+      },
+      "design_review": {
+        "question_id": "Ana571",
+        "solution": "Follow f from its left f label through (-1,1) and the transverse crossing (1,3), then up its solid branch to (2,5). Thus f(2)=5. The descending g branch has g(2)=5/2, so it is not the requested function. The curves have exactly one crossing, (1,3).",
+        "wrong_readout_derivation": "Continue the incoming slope-one part of f past the crossing along the short blue dashed segment and bind the salient off-contour point (2,4) to f; then correctly report f(2)=4 instead of the true ordinate 5. Mere ownership swap to g (5/2) does not qualify.",
+        "novelty": "Local continuation after a transverse crossing with a turn on f. Unlike Ana548 inverse/projection competition, this tests forward lookup and extrapolation through a junction; unlike Ana547 composition or Ana552 area it needs no multi-function operation. Unlike new567-570, the distractor is a local incoming-contour continuation rather than a generic displaced projection. Ana572 instead tests a root after a turn without another function.",
+        "coordinates": {
+          "id": "Ana571",
+          "protocol_version": "1.0.0",
+          "axes": {},
+          "objects": [
+            {
+              "type": "curve",
+              "points": [
+                [
+                  -6,
+                  1
+                ],
+                [
+                  -3,
+                  1
+                ],
+                [
+                  -1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  2,
+                  5
+                ],
+                [
+                  5,
+                  6
+                ]
+              ]
+            },
+            {
+              "type": "curve",
+              "points": [
+                [
+                  -5,
+                  6
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  5,
+                  1
+                ]
+              ]
+            },
+            {
+              "type": "points",
+              "points": [
+                [
+                  -6,
+                  1
+                ],
+                [
+                  5,
+                  6
+                ]
+              ],
+              "open": false
+            },
+            {
+              "type": "points",
+              "points": [
+                [
+                  -5,
+                  6
+                ],
+                [
+                  5,
+                  1
+                ]
+              ],
+              "open": false
+            }
+          ],
+          "labels": [
+            {
+              "x": -6.35,
+              "y": 1.35,
+              "text": "$f$"
+            },
+            {
+              "x": 5.4,
+              "y": 6.2,
+              "text": "$f$"
+            },
+            {
+              "x": -5.4,
+              "y": 6.2,
+              "text": "$g$"
+            },
+            {
+              "x": 5.4,
+              "y": 1.2,
+              "text": "$g$"
+            }
+          ],
+          "frozen": true
+        },
+        "staging_only": true,
+        "formal_write": false
+      },
+      "parent_review": {
+        "question_id": "Ana571",
+        "reviewer": "parent",
+        "reviewed_at": "2026-11-11T09:10:02.142518+00:00",
+        "qualified_candidates": [],
+        "verdict": "Both variant answers correctly identify f and read (2,5); preregistered tangent continuation to (2,4) absent.",
+        "correct_answer": "5",
+        "pre_registered_wrong_answer": "4",
+        "baseline_both_correct": true,
+        "actual_png_pair_inspected": true,
+        "visual_qa": "True contours, labels, endpoints and unit grid legible; auxiliary segment and point do not cover tick text.",
+        "math_verified": "Unique crossing of original f/g at(1,3); f(2)=5.",
+        "immutable_hashes_verified": 67,
+        "assignment_and_frozen_render_checks_passed": true,
+        "request_exact_question_png_system_verified": true,
+        "raw_final_content_matches_result": true,
+        "actual_http_attempts": 4,
+        "completed_response_paths": [
+          "v00/tests/0fbc7ce2536141a883667eb793fccae3/round1/attempt01_7142706ad7a648fbbb84f4907c0d870a",
+          "v00/tests/0fbc7ce2536141a883667eb793fccae3/round2/attempt01_5b468febf87543d8a338f2cdc033eefb",
+          "v01/tests/b3e7ecfa021f4ce99af41c01c701eeb6/round1/attempt01_8194c7a28f264558b2c824405fb69c41",
+          "v01/tests/b3e7ecfa021f4ce99af41c01c701eeb6/round2/attempt01_99423b8930b04e5a8343a1ac64887844"
+        ],
+        "timeout_seconds": [],
+        "evidence_limit": "Single model, two completed samples/image; no causal attribution of isolated unexplained error.",
+        "formal_write": false,
+        "pass_performed": false,
+        "collect_performed": false
+      },
+      "staged_summary_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_new_visual_20261111/tasks/Ana571/summary.json",
+      "staged_summary_sha256": "14668f0dfa94f75afa0ea35d1f0f80371a28cd4f78a0fde1be433213ef2b526c"
+    },
+    {
+      "record": {
+        "id": "Ana572",
+        "source_dataset": "Author Designed",
+        "question": "The entire piecewise-linear graph of f on its closed domain is shown. Read the unit grid and find the x-coordinate where f(x)=0.",
+        "answer": "5",
+        "answer_type": "number",
+        "image": "image/Ana572.png",
+        "original_image": null,
+        "script": "dataset_generator/questions/function_plot572.py",
+        "runtime_dependencies": [
+          "dataset_generator/common_renderer.py",
+          "dataset_generator/protocol.json",
+          "dataset_generator/scenes/Ana572.json"
+        ],
+        "scene": "dataset_generator/scenes/Ana572.json",
+        "source_key": "author_visual6_20261111/Ana572"
+      },
+      "design_review": {
+        "question_id": "Ana572",
+        "solution": "The true solid graph stays positive up to x=5, passes through (5,0), and is negative for 5<x<=6. Therefore its only zero is x=5. In particular the true branch from (3,1) to (5,0) has height 3/4 at x=3.5.",
+        "wrong_readout_derivation": "Extrapolate the steep incoming segment from (1,5) to (3,1) through the turn using the short blue dashed continuation, and assign the off-contour red point (3.5,0) as the root. The line extension has slope -2 and zero 3.5; mathematical zero-finding is correct conditional on that false contour extraction.",
+        "novelty": "A root from a sharply turning contour with a short local tangent extension, not inverse lookup, a whole extra curve, sqrt domain, or integration. Differs from old Ana553 disconnected-domain concept and Ana548 inverse; Ana571 has crossing-function binding and ordinate lookup, this has one function and a root shifted by premature continuation.",
+        "coordinates": {
+          "id": "Ana572",
+          "protocol_version": "1.0.0",
+          "axes": {},
+          "objects": [
+            {
+              "type": "curve",
+              "points": [
+                [
+                  -6,
+                  5
+                ],
+                [
+                  -3,
+                  4
+                ],
+                [
+                  -1,
+                  4
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  3,
+                  1
+                ],
+                [
+                  5,
+                  0
+                ],
+                [
+                  6,
+                  -2
+                ]
+              ]
+            },
+            {
+              "type": "points",
+              "points": [
+                [
+                  -6,
+                  5
+                ],
+                [
+                  6,
+                  -2
+                ]
+              ],
+              "open": false
+            }
+          ],
+          "labels": [
+            {
+              "x": -6.4,
+              "y": 5.3,
+              "text": "$f$"
+            },
+            {
+              "x": 6.35,
+              "y": -2.2,
+              "text": "$f$"
+            }
+          ],
+          "frozen": true
+        },
+        "staging_only": true,
+        "formal_write": false
+      },
+      "parent_review": {
+        "question_id": "Ana572",
+        "reviewer": "parent",
+        "reviewed_at": "2026-11-11T09:10:02.155515+00:00",
+        "qualified_candidates": [],
+        "verdict": "Variant answers 4 and 5. First response claims root x=4 without evidence identifying the tangent or marked point at3.5; cause unresolved, second correct. Does not meet repeated pre-registered visual error criterion.",
+        "correct_answer": "5",
+        "pre_registered_wrong_answer": "3.5",
+        "baseline_both_correct": true,
+        "actual_png_pair_inspected": true,
+        "visual_qa": "True contours, labels, endpoints and unit grid legible; auxiliary segment and point do not cover tick text.",
+        "math_verified": "All earlier vertices positive; first and only zero at(5,0). Incoming segment extension would reach y0 atx3.5, so target wrong readout would change answer.",
+        "immutable_hashes_verified": 81,
+        "assignment_and_frozen_render_checks_passed": true,
+        "request_exact_question_png_system_verified": true,
+        "raw_final_content_matches_result": true,
+        "actual_http_attempts": 7,
+        "completed_response_paths": [
+          "v00/tests/73900103ca8545c4b081c18f3274313e/round1/attempt01_2d830bff4e704cc1a02bd6d2c0b76583",
+          "v00/tests/73900103ca8545c4b081c18f3274313e/round2/attempt01_2ce725a39b78410b9a6345de316eadbb",
+          "v01/tests/90d13d6d32524c3a8625ca115074a9a8/round1/attempt03_bf37234938634ffcb38ea6862cfd4176",
+          "v01/tests/90d13d6d32524c3a8625ca115074a9a8/round2/attempt02_dfcf81e0c52b4b5a840b86be5bdfeb5d"
+        ],
+        "timeout_seconds": [
+          120.091565,
+          120.145982,
+          120.103091
+        ],
+        "evidence_limit": "Single model, two completed samples/image; no causal attribution of isolated unexplained error.",
+        "formal_write": false,
+        "pass_performed": false,
+        "collect_performed": false
+      },
+      "staged_summary_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_new_visual_20261111/tasks/Ana572/summary.json",
+      "staged_summary_sha256": "824d5f6b8e30f767d4eb0562e08c5889a9dc86ae809308606387bcf522ab005b"
+    }
+  ],
+  "passed_variants": [
+    {
+      "question_id": "Ana567",
+      "staged_variant": "v01",
+      "slot_id": "C01",
+      "execution_mode": "user_authorized_automated_pass_by_primary_agent",
+      "recorded_at": "2026-11-11T09:27:13.577199+00:00",
+      "qualified_in_visual_pilot": false,
+      "result": {
+        "candidate_id": "b1379a9abb7d4fb0bed381ce4fa74069",
+        "question_id": "Ana567",
+        "status": "passed",
+        "context_token": "41f997a5f7ad41b0fb8f97e66f14f37e5ad53768c99d1bec5e352354e62743b5",
+        "created_at": "2026-11-11T09:27:13.512243+00:00",
+        "description": "Competing off-contour marks and coordinate projections.",
+        "intent": "Assign the off-contour red mark (3,4) to f at x=3 and use its blue horizontal projection to read f(3)=4.",
+        "params": {
+          "actions": [
+            {
+              "type": "add_line",
+              "id": "input_projection",
+              "endpoints": [
+                [
+                  3,
+                  0.25
+                ],
+                [
+                  3,
+                  4
+                ]
+              ],
+              "color": "#2563EB",
+              "linestyle": "dashed",
+              "linewidth_pt": 1,
+              "dash_pattern_pt": [
+                3.7,
+                1.6
+              ]
+            },
+            {
+              "type": "add_line",
+              "id": "false_ordinate",
+              "endpoints": [
+                [
+                  0.12,
+                  4
+                ],
+                [
+                  3,
+                  4
+                ]
+              ],
+              "color": "#2563EB",
+              "linestyle": "dashed",
+              "linewidth_pt": 1,
+              "dash_pattern_pt": [
+                3.7,
+                1.6
+              ]
+            },
+            {
+              "type": "add_line",
+              "id": "true_ordinate",
+              "endpoints": [
+                [
+                  0.12,
+                  2
+                ],
+                [
+                  3,
+                  2
+                ]
+              ],
+              "color": "#16A34A",
+              "linestyle": "dashed",
+              "linewidth_pt": 1,
+              "dash_pattern_pt": [
+                3.7,
+                1.6
+              ]
+            },
+            {
+              "type": "add_point",
+              "id": "off_contour",
+              "xy": [
+                3,
+                4
+              ],
+              "color": "#DC2626",
+              "filled": true,
+              "size_pt2": 50,
+              "edge_linewidth_pt": 1
+            }
+          ]
+        },
+        "plugin_schema_version": "1.0.0",
+        "generator_version": "C-1.0.0",
+        "environment": {
+          "python": "3.13.9",
+          "matplotlib": "3.11.2",
+          "numpy": "2.5.3",
+          "pillow": "12.3.0"
+        },
+        "baseline_fingerprint": "29e4c975ac5186228363db31f57d0409cfc4f68405915625b51dabf59cd203d5",
+        "schema_sha256": "f243804e38bedf6c4c8ef7c0145c86edfc4489d414b465d886b959c888e3f8d9",
+        "renderer_sha256": "d106e03e79b19985ce1e5af5067840c2982e4770eb25a5accb36d84f615e5645",
+        "pixel_sha256": "3f383aebd808a99431f66db9bce9e4b75fb549cdeace33fb92c02917268ecd8b",
+        "parameter_key": "a25194cefb2c53ec82172d1dd2219d107225058a889cbd057b92be8423abacb3",
+        "png_sha256": "e2a15bf7f8d141f267434dca1093f622452eca11c7cf7218b067ceb9f18494bb",
+        "plugin_sha256": "6d2d69a0acb4646db8b2934e419cf6fb2d41943953ee389e66d28d7ba39d4277",
+        "image_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_special/candidates/b1379a9abb7d4fb0bed381ce4fa74069/image.png",
+        "plugin_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_special/candidates/b1379a9abb7d4fb0bed381ce4fa74069/plugin.json",
+        "reviewed_at": "2026-11-11T09:27:13.548328+00:00",
+        "review_note": "User-authorized automated Pass by primary. Latest instruction: 放进去吧. Standing instruction: 设计的变体直接pass就好. See provenance/analytics_author_visual6_20261111.json. Not qualified in the visual pilot (failure or baseline-confounded); Pass records user-authorized preservation, not effectiveness.",
+        "slot_id": "C01",
+        "formal_image_path": "/Users/lingyu/projects/MathPalette/Analytics/special_variant/Ana567/images/C01.png",
+        "formal_plugin_path": "/Users/lingyu/projects/MathPalette/Analytics/special_variant/Ana567/plugins/C01.json",
+        "image_url": "/api/candidate-image/b1379a9abb7d4fb0bed381ce4fa74069"
+      },
+      "collect_performed": false
+    },
+    {
+      "question_id": "Ana567",
+      "staged_variant": "v02",
+      "slot_id": "C02",
+      "execution_mode": "user_authorized_automated_pass_by_primary_agent",
+      "recorded_at": "2026-11-11T09:27:13.695276+00:00",
+      "qualified_in_visual_pilot": true,
+      "result": {
+        "candidate_id": "4e855edc19ac4e0c9cf209279319b2c4",
+        "question_id": "Ana567",
+        "status": "passed",
+        "context_token": "eb3c4edc3931acb3cc172057876b8d33a6d9b5e81c6363e0cb11ae2172f77d94",
+        "created_at": "2026-11-11T09:27:13.630532+00:00",
+        "description": "Blue dashed genuine contour with sparse red solid off-contour segment and coordinate guides.",
+        "intent": "Assign the off-contour red mark (3,4) to f at x=3 and use its blue horizontal projection to read f(3)=4.",
+        "params": {
+          "actions": [
+            {
+              "type": "set_curve_style",
+              "target": "curve_001",
+              "color": "#2563EB",
+              "linestyle": "dashed",
+              "linewidth_pt": 1
+            },
+            {
+              "type": "add_line",
+              "id": "input_projection",
+              "endpoints": [
+                [
+                  3,
+                  0.25
+                ],
+                [
+                  3,
+                  4
+                ]
+              ],
+              "color": "#2563EB",
+              "linestyle": "dashed",
+              "linewidth_pt": 1,
+              "dash_pattern_pt": [
+                3.7,
+                1.6
+              ]
+            },
+            {
+              "type": "add_line",
+              "id": "false_ordinate",
+              "endpoints": [
+                [
+                  0.12,
+                  4
+                ],
+                [
+                  3,
+                  4
+                ]
+              ],
+              "color": "#2563EB",
+              "linestyle": "dashed",
+              "linewidth_pt": 1,
+              "dash_pattern_pt": [
+                3.7,
+                1.6
+              ]
+            },
+            {
+              "type": "add_line",
+              "id": "local_false_segment",
+              "endpoints": [
+                [
+                  2.4,
+                  4
+                ],
+                [
+                  3.6,
+                  4
+                ]
+              ],
+              "color": "#DC2626",
+              "linestyle": "solid",
+              "linewidth_pt": 1
+            },
+            {
+              "type": "add_point",
+              "id": "off_contour",
+              "xy": [
+                3,
+                4
+              ],
+              "color": "#DC2626",
+              "filled": true,
+              "size_pt2": 50,
+              "edge_linewidth_pt": 1
+            }
+          ]
+        },
+        "plugin_schema_version": "1.0.0",
+        "generator_version": "C-1.0.0",
+        "environment": {
+          "python": "3.13.9",
+          "matplotlib": "3.11.2",
+          "numpy": "2.5.3",
+          "pillow": "12.3.0"
+        },
+        "baseline_fingerprint": "29e4c975ac5186228363db31f57d0409cfc4f68405915625b51dabf59cd203d5",
+        "schema_sha256": "f243804e38bedf6c4c8ef7c0145c86edfc4489d414b465d886b959c888e3f8d9",
+        "renderer_sha256": "d106e03e79b19985ce1e5af5067840c2982e4770eb25a5accb36d84f615e5645",
+        "pixel_sha256": "7943495146cd6fe8a36e9f11ab16d69792ef97ac893d1f3936ef8dd7b11572fc",
+        "parameter_key": "f06e9d9b4bfdf9703fb041fad82976cec46eaa65ea54ac63be231b6f2f20c555",
+        "png_sha256": "d6cfd93b463d7d2fb7daae6745de90d0d856fe3cfe4cdc1af6b61503ca66f4b1",
+        "plugin_sha256": "e284afdc500e19d251e5db918b5dc02e18404f409ab3b0c5a24849e9f75af058",
+        "image_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_special/candidates/4e855edc19ac4e0c9cf209279319b2c4/image.png",
+        "plugin_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_special/candidates/4e855edc19ac4e0c9cf209279319b2c4/plugin.json",
+        "reviewed_at": "2026-11-11T09:27:13.665218+00:00",
+        "review_note": "User-authorized automated Pass by primary. Latest instruction: 放进去吧. Standing instruction: 设计的变体直接pass就好. See provenance/analytics_author_visual6_20261111.json. Pilot met the two-completed-sample visual-error criterion; not a robustness claim.",
+        "slot_id": "C02",
+        "formal_image_path": "/Users/lingyu/projects/MathPalette/Analytics/special_variant/Ana567/images/C02.png",
+        "formal_plugin_path": "/Users/lingyu/projects/MathPalette/Analytics/special_variant/Ana567/plugins/C02.json",
+        "image_url": "/api/candidate-image/4e855edc19ac4e0c9cf209279319b2c4"
+      },
+      "collect_performed": false
+    },
+    {
+      "question_id": "Ana568",
+      "staged_variant": "v01",
+      "slot_id": "C01",
+      "execution_mode": "user_authorized_automated_pass_by_primary_agent",
+      "recorded_at": "2026-11-11T09:27:13.828848+00:00",
+      "qualified_in_visual_pilot": false,
+      "result": {
+        "candidate_id": "e76957e9b1704b8b822e079aae927af6",
+        "question_id": "Ana568",
+        "status": "passed",
+        "context_token": "d8fd3c5acd3146adecc183abf043da3ebb7b42ad999479d3e79de5eb05032995",
+        "created_at": "2026-11-11T09:27:13.763622+00:00",
+        "description": "Competing off-contour marks and coordinate projections.",
+        "intent": "Treat the red off-curve marks (-5,2) and (6,2) as the two intersections with C. Correct subtraction of these false abscissae gives 6-(-5)=11.",
+        "params": {
+          "actions": [
+            {
+              "type": "add_line",
+              "id": "false_span_left",
+              "endpoints": [
+                [
+                  -5,
+                  2
+                ],
+                [
+                  -0.75,
+                  2
+                ]
+              ],
+              "color": "#2563EB",
+              "linestyle": "dashed",
+              "linewidth_pt": 1,
+              "dash_pattern_pt": [
+                3.7,
+                1.6
+              ]
+            },
+            {
+              "type": "add_line",
+              "id": "false_span_right",
+              "endpoints": [
+                [
+                  0.12,
+                  2
+                ],
+                [
+                  6,
+                  2
+                ]
+              ],
+              "color": "#2563EB",
+              "linestyle": "dashed",
+              "linewidth_pt": 1,
+              "dash_pattern_pt": [
+                3.7,
+                1.6
+              ]
+            },
+            {
+              "type": "add_line",
+              "id": "left_projection",
+              "endpoints": [
+                [
+                  -5,
+                  0.25
+                ],
+                [
+                  -5,
+                  2
+                ]
+              ],
+              "color": "#2563EB",
+              "linestyle": "dashed",
+              "linewidth_pt": 1,
+              "dash_pattern_pt": [
+                3.7,
+                1.6
+              ]
+            },
+            {
+              "type": "add_line",
+              "id": "right_projection",
+              "endpoints": [
+                [
+                  6,
+                  0.25
+                ],
+                [
+                  6,
+                  2
+                ]
+              ],
+              "color": "#2563EB",
+              "linestyle": "dashed",
+              "linewidth_pt": 1,
+              "dash_pattern_pt": [
+                3.7,
+                1.6
+              ]
+            },
+            {
+              "type": "add_point",
+              "id": "false_left",
+              "xy": [
+                -5,
+                2
+              ],
+              "color": "#DC2626",
+              "filled": true,
+              "size_pt2": 50,
+              "edge_linewidth_pt": 1
+            },
+            {
+              "type": "add_point",
+              "id": "false_right",
+              "xy": [
+                6,
+                2
+              ],
+              "color": "#DC2626",
+              "filled": true,
+              "size_pt2": 50,
+              "edge_linewidth_pt": 1
+            }
+          ]
+        },
+        "plugin_schema_version": "1.0.0",
+        "generator_version": "C-1.0.0",
+        "environment": {
+          "python": "3.13.9",
+          "matplotlib": "3.11.2",
+          "numpy": "2.5.3",
+          "pillow": "12.3.0"
+        },
+        "baseline_fingerprint": "29e4c975ac5186228363db31f57d0409cfc4f68405915625b51dabf59cd203d5",
+        "schema_sha256": "f243804e38bedf6c4c8ef7c0145c86edfc4489d414b465d886b959c888e3f8d9",
+        "renderer_sha256": "d106e03e79b19985ce1e5af5067840c2982e4770eb25a5accb36d84f615e5645",
+        "pixel_sha256": "62d9cf3503664614a805ce7cbe16ed9d05081859fc1cfeab3c237d5702e4ec8d",
+        "parameter_key": "5e5504c150f7fb750e1547810215d415e85e6439ff5c33d245ab4b88a028ca95",
+        "png_sha256": "5b9bc8db652ca8953178d96166563893b17ef7bfd8410a023d188d47d01dbafd",
+        "plugin_sha256": "b825634712c6d4f44a898e90c923d753c23431d27643986e7aca18a3ee28937c",
+        "image_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_special/candidates/e76957e9b1704b8b822e079aae927af6/image.png",
+        "plugin_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_special/candidates/e76957e9b1704b8b822e079aae927af6/plugin.json",
+        "reviewed_at": "2026-11-11T09:27:13.800093+00:00",
+        "review_note": "User-authorized automated Pass by primary. Latest instruction: 放进去吧. Standing instruction: 设计的变体直接pass就好. See provenance/analytics_author_visual6_20261111.json. Not qualified in the visual pilot (failure or baseline-confounded); Pass records user-authorized preservation, not effectiveness.",
+        "slot_id": "C01",
+        "formal_image_path": "/Users/lingyu/projects/MathPalette/Analytics/special_variant/Ana568/images/C01.png",
+        "formal_plugin_path": "/Users/lingyu/projects/MathPalette/Analytics/special_variant/Ana568/plugins/C01.json",
+        "image_url": "/api/candidate-image/e76957e9b1704b8b822e079aae927af6"
+      },
+      "collect_performed": false
+    },
+    {
+      "question_id": "Ana569",
+      "staged_variant": "v01",
+      "slot_id": "C01",
+      "execution_mode": "user_authorized_automated_pass_by_primary_agent",
+      "recorded_at": "2026-11-11T09:27:13.962632+00:00",
+      "qualified_in_visual_pilot": false,
+      "result": {
+        "candidate_id": "63f8114fee55464abc744c295a2f7041",
+        "question_id": "Ana569",
+        "status": "passed",
+        "context_token": "0a9d9a6b040c1408add09c5d9c8596622cfd84b89b3e2d0f794ec39d331b9239",
+        "created_at": "2026-11-11T09:27:13.897849+00:00",
+        "description": "Competing coordinate projections with genuine contours retained.",
+        "intent": "Assign the red off-contour joint (3,3) to the intersection of the labelled f and g contours, then correctly compute a+b=3+3=6. The actual intersection is (2,3).",
+        "params": {
+          "actions": [
+            {
+              "type": "add_line",
+              "id": "joint_level",
+              "endpoints": [
+                [
+                  0.35,
+                  3
+                ],
+                [
+                  3,
+                  3
+                ]
+              ],
+              "color": "#2563EB",
+              "linestyle": "dashed",
+              "linewidth_pt": 1,
+              "dash_pattern_pt": [
+                3.7,
+                1.6
+              ]
+            },
+            {
+              "type": "add_line",
+              "id": "joint_abscissa",
+              "endpoints": [
+                [
+                  3,
+                  0.3
+                ],
+                [
+                  3,
+                  3
+                ]
+              ],
+              "color": "#2563EB",
+              "linestyle": "dashed",
+              "linewidth_pt": 1,
+              "dash_pattern_pt": [
+                3.7,
+                1.6
+              ]
+            },
+            {
+              "type": "add_point",
+              "id": "false_joint",
+              "xy": [
+                3,
+                3
+              ],
+              "color": "#DC2626",
+              "filled": true,
+              "size_pt2": 50,
+              "edge_linewidth_pt": 1
+            }
+          ]
+        },
+        "plugin_schema_version": "1.0.0",
+        "generator_version": "C-1.0.0",
+        "environment": {
+          "python": "3.13.9",
+          "matplotlib": "3.11.2",
+          "numpy": "2.5.3",
+          "pillow": "12.3.0"
+        },
+        "baseline_fingerprint": "29e4c975ac5186228363db31f57d0409cfc4f68405915625b51dabf59cd203d5",
+        "schema_sha256": "f243804e38bedf6c4c8ef7c0145c86edfc4489d414b465d886b959c888e3f8d9",
+        "renderer_sha256": "d106e03e79b19985ce1e5af5067840c2982e4770eb25a5accb36d84f615e5645",
+        "pixel_sha256": "7a2aad5e4a6d1b761270f94f7733cfd80b242ac7edab4c37a8ac4572e37eeb6d",
+        "parameter_key": "e6c66cf5b75d6b40f7add8298b098e3251251cbf03075cbc653ccd6f4f122f48",
+        "png_sha256": "8033d6a7f922940bf5852221f3998f0e249adef13716a1274b171ca6eacb3cd1",
+        "plugin_sha256": "dd67b9fe8bcea68f6fe21b37fa8e2ff6e58d4da26fdbb96b02ab5885fcccdb7d",
+        "image_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_special/candidates/63f8114fee55464abc744c295a2f7041/image.png",
+        "plugin_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_special/candidates/63f8114fee55464abc744c295a2f7041/plugin.json",
+        "reviewed_at": "2026-11-11T09:27:13.933856+00:00",
+        "review_note": "User-authorized automated Pass by primary. Latest instruction: 放进去吧. Standing instruction: 设计的变体直接pass就好. See provenance/analytics_author_visual6_20261111.json. Not qualified in the visual pilot (failure or baseline-confounded); Pass records user-authorized preservation, not effectiveness.",
+        "slot_id": "C01",
+        "formal_image_path": "/Users/lingyu/projects/MathPalette/Analytics/special_variant/Ana569/images/C01.png",
+        "formal_plugin_path": "/Users/lingyu/projects/MathPalette/Analytics/special_variant/Ana569/plugins/C01.json",
+        "image_url": "/api/candidate-image/63f8114fee55464abc744c295a2f7041"
+      },
+      "collect_performed": false
+    },
+    {
+      "question_id": "Ana570",
+      "staged_variant": "v01",
+      "slot_id": "C01",
+      "execution_mode": "user_authorized_automated_pass_by_primary_agent",
+      "recorded_at": "2026-11-11T09:27:14.094817+00:00",
+      "qualified_in_visual_pilot": false,
+      "result": {
+        "candidate_id": "db98d67ab51b4844b1d75a8088485b92",
+        "question_id": "Ana570",
+        "status": "passed",
+        "context_token": "91a3dbfcd0b5d3c6fbc7ac50dab45ef37cd154e4fb958623231aa222780bb067",
+        "created_at": "2026-11-11T09:27:14.030872+00:00",
+        "description": "Competing coordinate projections with genuine contours retained.",
+        "intent": "Correctly use f(1)=2 but bind the red off-curve joint at (4,4) and its competing horizontal projection to f(4), then correctly compute 4-2=2 instead of 5-2=3. A subtraction-order error does not qualify.",
+        "params": {
+          "actions": [
+            {
+              "type": "add_line",
+              "id": "true_x1",
+              "endpoints": [
+                [
+                  1,
+                  0.3
+                ],
+                [
+                  1,
+                  2
+                ]
+              ],
+              "color": "#2563EB",
+              "linestyle": "dashed",
+              "linewidth_pt": 1,
+              "dash_pattern_pt": [
+                3.7,
+                1.6
+              ]
+            },
+            {
+              "type": "add_line",
+              "id": "true_y2",
+              "endpoints": [
+                [
+                  0.35,
+                  2
+                ],
+                [
+                  1,
+                  2
+                ]
+              ],
+              "color": "#2563EB",
+              "linestyle": "dashed",
+              "linewidth_pt": 1,
+              "dash_pattern_pt": [
+                3.7,
+                1.6
+              ]
+            },
+            {
+              "type": "add_line",
+              "id": "false_x4",
+              "endpoints": [
+                [
+                  4,
+                  0.3
+                ],
+                [
+                  4,
+                  4
+                ]
+              ],
+              "color": "#2563EB",
+              "linestyle": "dashed",
+              "linewidth_pt": 1,
+              "dash_pattern_pt": [
+                3.7,
+                1.6
+              ]
+            },
+            {
+              "type": "add_line",
+              "id": "false_y4",
+              "endpoints": [
+                [
+                  0.35,
+                  4
+                ],
+                [
+                  4,
+                  4
+                ]
+              ],
+              "color": "#2563EB",
+              "linestyle": "dashed",
+              "linewidth_pt": 1,
+              "dash_pattern_pt": [
+                3.7,
+                1.6
+              ]
+            },
+            {
+              "type": "add_point",
+              "id": "true_readout",
+              "xy": [
+                1,
+                2
+              ],
+              "color": "#DC2626",
+              "filled": true,
+              "size_pt2": 50,
+              "edge_linewidth_pt": 1
+            },
+            {
+              "type": "add_point",
+              "id": "false_readout",
+              "xy": [
+                4,
+                4
+              ],
+              "color": "#DC2626",
+              "filled": true,
+              "size_pt2": 50,
+              "edge_linewidth_pt": 1
+            }
+          ]
+        },
+        "plugin_schema_version": "1.0.0",
+        "generator_version": "C-1.0.0",
+        "environment": {
+          "python": "3.13.9",
+          "matplotlib": "3.11.2",
+          "numpy": "2.5.3",
+          "pillow": "12.3.0"
+        },
+        "baseline_fingerprint": "29e4c975ac5186228363db31f57d0409cfc4f68405915625b51dabf59cd203d5",
+        "schema_sha256": "f243804e38bedf6c4c8ef7c0145c86edfc4489d414b465d886b959c888e3f8d9",
+        "renderer_sha256": "d106e03e79b19985ce1e5af5067840c2982e4770eb25a5accb36d84f615e5645",
+        "pixel_sha256": "44266d911456208050a33a51ae99d4e37cb2b094ffb8a2ecb653cd9b31f25767",
+        "parameter_key": "05f66b852ccafdb1c76a070e2fbf65f469e932e2cb52f959283a04a09015b35e",
+        "png_sha256": "7a9666cfca0e8c1e4aaafa81a366ad03b671c275f174497a3333257b4b4b3a04",
+        "plugin_sha256": "3fb65763ac64dce63a91c341b2baf26bba3293882e203e93f47df383708aa31b",
+        "image_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_special/candidates/db98d67ab51b4844b1d75a8088485b92/image.png",
+        "plugin_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_special/candidates/db98d67ab51b4844b1d75a8088485b92/plugin.json",
+        "reviewed_at": "2026-11-11T09:27:14.066880+00:00",
+        "review_note": "User-authorized automated Pass by primary. Latest instruction: 放进去吧. Standing instruction: 设计的变体直接pass就好. See provenance/analytics_author_visual6_20261111.json. Not qualified in the visual pilot (failure or baseline-confounded); Pass records user-authorized preservation, not effectiveness.",
+        "slot_id": "C01",
+        "formal_image_path": "/Users/lingyu/projects/MathPalette/Analytics/special_variant/Ana570/images/C01.png",
+        "formal_plugin_path": "/Users/lingyu/projects/MathPalette/Analytics/special_variant/Ana570/plugins/C01.json",
+        "image_url": "/api/candidate-image/db98d67ab51b4844b1d75a8088485b92"
+      },
+      "collect_performed": false
+    },
+    {
+      "question_id": "Ana571",
+      "staged_variant": "v01",
+      "slot_id": "C01",
+      "execution_mode": "user_authorized_automated_pass_by_primary_agent",
+      "recorded_at": "2026-11-11T09:27:14.252428+00:00",
+      "qualified_in_visual_pilot": false,
+      "result": {
+        "candidate_id": "d53133542dc444edb598891856f17778",
+        "question_id": "Ana571",
+        "status": "passed",
+        "context_token": "3e636f6a76eee496c97471321b1e6adcb6d2982addf675b8c9cc6a0082e57948",
+        "created_at": "2026-11-11T09:27:14.163504+00:00",
+        "description": "Short local continuation competes with a legible solid turn.",
+        "intent": "Continue the incoming slope-one part of f past the crossing along the short blue dashed segment and bind the salient off-contour point (2,4) to f; then correctly report f(2)=4 instead of the true ordinate 5. Mere ownership swap to g (5/2) does not qualify.",
+        "params": {
+          "actions": [
+            {
+              "type": "set_curve_style",
+              "target": "curve_001",
+              "color": "#2563EB",
+              "linestyle": "solid",
+              "linewidth_pt": 1.5
+            },
+            {
+              "type": "add_line",
+              "id": "local_tangent",
+              "endpoints": [
+                [
+                  1.12,
+                  3.12
+                ],
+                [
+                  2,
+                  4
+                ]
+              ],
+              "color": "#2563EB",
+              "linestyle": "dashed",
+              "linewidth_pt": 1,
+              "dash_pattern_pt": [
+                3.7,
+                1.6
+              ]
+            },
+            {
+              "type": "add_point",
+              "id": "false_continuation",
+              "xy": [
+                2,
+                4
+              ],
+              "color": "#DC2626",
+              "filled": true,
+              "size_pt2": 50,
+              "edge_linewidth_pt": 1
+            }
+          ]
+        },
+        "plugin_schema_version": "1.0.0",
+        "generator_version": "C-1.0.0",
+        "environment": {
+          "python": "3.13.9",
+          "matplotlib": "3.11.2",
+          "numpy": "2.5.3",
+          "pillow": "12.3.0"
+        },
+        "baseline_fingerprint": "29e4c975ac5186228363db31f57d0409cfc4f68405915625b51dabf59cd203d5",
+        "schema_sha256": "f243804e38bedf6c4c8ef7c0145c86edfc4489d414b465d886b959c888e3f8d9",
+        "renderer_sha256": "d106e03e79b19985ce1e5af5067840c2982e4770eb25a5accb36d84f615e5645",
+        "pixel_sha256": "abba40d1269bcc4cb2b098081ac58a92ba5b2339857a73a5c5ff60a690ca8b77",
+        "parameter_key": "ee7cab1a8ad0094c45ca52eabb292ee65e30a51e932c708acc209fbe2583a892",
+        "png_sha256": "5e857d1b3799a1439a487ed0e4c1522fbfc7f37fdbee4e1114ee6cbd4ab5ec21",
+        "plugin_sha256": "6fa047a4d2d8e538e201a14c69ace841620a824546f074906d902adc1afbbfa1",
+        "image_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_special/candidates/d53133542dc444edb598891856f17778/image.png",
+        "plugin_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_special/candidates/d53133542dc444edb598891856f17778/plugin.json",
+        "reviewed_at": "2026-11-11T09:27:14.198617+00:00",
+        "review_note": "User-authorized automated Pass by primary. Latest instruction: 放进去吧. Standing instruction: 设计的变体直接pass就好. See provenance/analytics_author_visual6_20261111.json. Not qualified in the visual pilot (failure or baseline-confounded); Pass records user-authorized preservation, not effectiveness.",
+        "slot_id": "C01",
+        "formal_image_path": "/Users/lingyu/projects/MathPalette/Analytics/special_variant/Ana571/images/C01.png",
+        "formal_plugin_path": "/Users/lingyu/projects/MathPalette/Analytics/special_variant/Ana571/plugins/C01.json",
+        "image_url": "/api/candidate-image/d53133542dc444edb598891856f17778"
+      },
+      "collect_performed": false
+    },
+    {
+      "question_id": "Ana572",
+      "staged_variant": "v01",
+      "slot_id": "C01",
+      "execution_mode": "user_authorized_automated_pass_by_primary_agent",
+      "recorded_at": "2026-11-11T09:27:14.382875+00:00",
+      "qualified_in_visual_pilot": false,
+      "result": {
+        "candidate_id": "454689612f2f43c7b7bd76a6c854a6f2",
+        "question_id": "Ana572",
+        "status": "passed",
+        "context_token": "aa0c2b081bcb5a72c4f5c813e80b7db760998626d116cfdf1554d14ba07a5a4b",
+        "created_at": "2026-11-11T09:27:14.318592+00:00",
+        "description": "Short local continuation competes with a legible solid turn.",
+        "intent": "Extrapolate the steep incoming segment from (1,5) to (3,1) through the turn using the short blue dashed continuation, and assign the off-contour red point (3.5,0) as the root. The line extension has slope -2 and zero 3.5; mathematical zero-finding is correct conditional on that false contour extraction.",
+        "params": {
+          "actions": [
+            {
+              "type": "set_curve_style",
+              "target": "curve_001",
+              "color": "#2563EB",
+              "linestyle": "solid",
+              "linewidth_pt": 1.5
+            },
+            {
+              "type": "add_line",
+              "id": "local_tangent",
+              "endpoints": [
+                [
+                  3.08,
+                  0.84
+                ],
+                [
+                  3.5,
+                  0
+                ]
+              ],
+              "color": "#2563EB",
+              "linestyle": "dashed",
+              "linewidth_pt": 1,
+              "dash_pattern_pt": [
+                3.7,
+                1.6
+              ]
+            },
+            {
+              "type": "add_point",
+              "id": "false_root",
+              "xy": [
+                3.5,
+                0
+              ],
+              "color": "#DC2626",
+              "filled": true,
+              "size_pt2": 50,
+              "edge_linewidth_pt": 1
+            }
+          ]
+        },
+        "plugin_schema_version": "1.0.0",
+        "generator_version": "C-1.0.0",
+        "environment": {
+          "python": "3.13.9",
+          "matplotlib": "3.11.2",
+          "numpy": "2.5.3",
+          "pillow": "12.3.0"
+        },
+        "baseline_fingerprint": "29e4c975ac5186228363db31f57d0409cfc4f68405915625b51dabf59cd203d5",
+        "schema_sha256": "f243804e38bedf6c4c8ef7c0145c86edfc4489d414b465d886b959c888e3f8d9",
+        "renderer_sha256": "d106e03e79b19985ce1e5af5067840c2982e4770eb25a5accb36d84f615e5645",
+        "pixel_sha256": "403df6ab04cc4b17ae949fcd3abb42aa4729bd1730b5a50bfa816465a0c8a3d4",
+        "parameter_key": "dc7a06f08bd68b9509842fda73f64b56f2cea4c2a9389a76079bfc8c286beef1",
+        "png_sha256": "52ee386f35d6733440c1f0364ef709e41b25f1a8a89a89e0fcced1be1ad5054d",
+        "plugin_sha256": "41375b1b27dd71b25f2c42bbf25f94dfbc86f0f385e8332c2b2eefc274f75908",
+        "image_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_special/candidates/454689612f2f43c7b7bd76a6c854a6f2/image.png",
+        "plugin_path": "/Users/lingyu/projects/MathPalette/.runtime/analytics_special/candidates/454689612f2f43c7b7bd76a6c854a6f2/plugin.json",
+        "reviewed_at": "2026-11-11T09:27:14.354808+00:00",
+        "review_note": "User-authorized automated Pass by primary. Latest instruction: 放进去吧. Standing instruction: 设计的变体直接pass就好. See provenance/analytics_author_visual6_20261111.json. Not qualified in the visual pilot (failure or baseline-confounded); Pass records user-authorized preservation, not effectiveness.",
+        "slot_id": "C01",
+        "formal_image_path": "/Users/lingyu/projects/MathPalette/Analytics/special_variant/Ana572/images/C01.png",
+        "formal_plugin_path": "/Users/lingyu/projects/MathPalette/Analytics/special_variant/Ana572/plugins/C01.json",
+        "image_url": "/api/candidate-image/454689612f2f43c7b7bd76a6c854a6f2"
+      },
+      "collect_performed": false
+    }
+  ],
+  "originals_admitted_at": "2026-11-11T09:26:56.103204+00:00",
+  "formal_input_sha256": {
+    "Analytics/dataset_generator/scenes/Ana567.json": "040e419bf7396ceeb9722708fa57e098ad283714c619745edd5ae825346c8100",
+    "Analytics/dataset_generator/questions/function_plot567.py": "b51ddd72512bd9d45d0d19dce2f0288011cc72b8dca3a858a3d10aa49ab0082f",
+    "Analytics/image/Ana567.png": "1c01b650a466dc6ef9425dbeecec4430dda52460e640810b976ffd80f9b1a73f",
+    "Analytics/dataset_generator/questions/function_plot568.py": "f130f3c759b5e3e461d9fd8655579202c7996c44e1398fccd93babbe89ff243a",
+    "Analytics/image/Ana568.png": "20678d9defc42d828749e610e34ed1957cc3a7d986b928cc24b66cfbf1b512b5",
+    "Analytics/dataset_generator/scenes/Ana568.json": "7b34ccf0fdf6b1e1d38298505ec458e55b4c77b2267a30fb2ed25e8987b3b7d6",
+    "Analytics/dataset_generator/questions/function_plot569.py": "505a3f267a1ea4a81be2b4940fd88d20064fc49e82636b7d96a5fdbb6e3eed09",
+    "Analytics/image/Ana569.png": "2bdcbfa2064c052d21046cdc857a8adb8992fe476c3cf8d9ce3a14de826df212",
+    "Analytics/dataset_generator/scenes/Ana569.json": "98ed9c6dddf10aaf8c6316fe0aac1021fd15df6712e904ac1c18771289307101",
+    "Analytics/image/Ana570.png": "38bd65566adeec04ac9ed548cc1587902320036117e9782d2521d126da0e9e2a",
+    "Analytics/dataset_generator/scenes/Ana570.json": "0776075efec033c841d62e40d9911c442545856568015b16e6a4342027563d64",
+    "Analytics/dataset_generator/questions/function_plot570.py": "524caa29bb9b0f4311e52e5ed7821e1ef102b25777463934696381e7523a2bda",
+    "Analytics/dataset_generator/scenes/Ana571.json": "6f93f08919ca5109f7a2ed4cca6f4fc4f9552667beea4fa9e290dcc18f8725c2",
+    "Analytics/dataset_generator/questions/function_plot571.py": "45bc9c09ff65e661e6c823d13d988831c749759ea2260ba1e5eb7f13298e6673",
+    "Analytics/image/Ana571.png": "fe68cd47b88ad3e1476a34d2606af34e25c128244e3219c80772175d9df30c49",
+    "Analytics/dataset_generator/scenes/Ana572.json": "1fc066497d8d510a465c044a986d63c4b37640b0cabf33c028539da650c6d6b7",
+    "Analytics/image/Ana572.png": "298041eb86ccc9842b7a2cfe0d9cf0ab0eee42ac4403149ff67cd67890dae57f",
+    "Analytics/dataset_generator/questions/function_plot572.py": "e0b8363360977cacc9ea00d12b541965005fdb40559da9bd7f381e3d35d62f7a"
+  },
+  "updated_at": "2026-11-11T09:27:14.383257+00:00",
+  "final_verification": {
+    "checked_at": "2026-11-11T09:28:47.273169+00:00",
+    "originals_admitted": 6,
+    "variants_passed": 7,
+    "collects": 0,
+    "analytics_count": 572,
+    "bank_count": 1498,
+    "all_originals_and_variants_replay_byte_identical": true,
+    "previous_analytics_originals_approvals_and_variant_artifacts_unchanged": true,
+    "catalog_validation": "passed",
+    "results": [
+      {
+        "question_id": "Ana567",
+        "slot_id": "C01",
+        "staged_variant": "v01",
+        "pixel_sha256": "3f383aebd808a99431f66db9bce9e4b75fb549cdeace33fb92c02917268ecd8b",
+        "exact_replay_matches_staging": true
+      },
+      {
+        "question_id": "Ana567",
+        "slot_id": "C02",
+        "staged_variant": "v02",
+        "pixel_sha256": "7943495146cd6fe8a36e9f11ab16d69792ef97ac893d1f3936ef8dd7b11572fc",
+        "exact_replay_matches_staging": true
+      },
+      {
+        "question_id": "Ana568",
+        "slot_id": "C01",
+        "staged_variant": "v01",
+        "pixel_sha256": "62d9cf3503664614a805ce7cbe16ed9d05081859fc1cfeab3c237d5702e4ec8d",
+        "exact_replay_matches_staging": true
+      },
+      {
+        "question_id": "Ana569",
+        "slot_id": "C01",
+        "staged_variant": "v01",
+        "pixel_sha256": "7a2aad5e4a6d1b761270f94f7733cfd80b242ac7edab4c37a8ac4572e37eeb6d",
+        "exact_replay_matches_staging": true
+      },
+      {
+        "question_id": "Ana570",
+        "slot_id": "C01",
+        "staged_variant": "v01",
+        "pixel_sha256": "44266d911456208050a33a51ae99d4e37cb2b094ffb8a2ecb653cd9b31f25767",
+        "exact_replay_matches_staging": true
+      },
+      {
+        "question_id": "Ana571",
+        "slot_id": "C01",
+        "staged_variant": "v01",
+        "pixel_sha256": "abba40d1269bcc4cb2b098081ac58a92ba5b2339857a73a5c5ff60a690ca8b77",
+        "exact_replay_matches_staging": true
+      },
+      {
+        "question_id": "Ana572",
+        "slot_id": "C01",
+        "staged_variant": "v01",
+        "pixel_sha256": "403df6ab04cc4b17ae949fcd3abb42aa4729bd1730b5a50bfa816465a0c8a3d4",
+        "exact_replay_matches_staging": true
+      }
+    ]
+  },
+  "completed_at": "2026-11-11T09:28:47.273169+00:00",
+  "live_workbench_verification": {
+    "health": {
+      "ready": true,
+      "session_id": "4bfaaf647dbf49a4b84431c8f84e1115",
+      "question_count": 572
+    },
+    "current_question": "Ana567",
+    "new_questions": [
+      {
+        "id": "Ana567",
+        "source_dataset": "Author Designed",
+        "accepted_count": 2,
+        "has_pending": false
+      },
+      {
+        "id": "Ana568",
+        "source_dataset": "Author Designed",
+        "accepted_count": 1,
+        "has_pending": false
+      },
+      {
+        "id": "Ana569",
+        "source_dataset": "Author Designed",
+        "accepted_count": 1,
+        "has_pending": false
+      },
+      {
+        "id": "Ana570",
+        "source_dataset": "Author Designed",
+        "accepted_count": 1,
+        "has_pending": false
+      },
+      {
+        "id": "Ana571",
+        "source_dataset": "Author Designed",
+        "accepted_count": 1,
+        "has_pending": false
+      },
+      {
+        "id": "Ana572",
+        "source_dataset": "Author Designed",
+        "accepted_count": 1,
+        "has_pending": false
+      }
+    ],
+    "current_accepted": [
+      {
+        "slot": "C01",
+        "image_url": "/api/accepted-image/Ana567/C01?revision=e2a15bf7f8d141f267434dca1093f622452eca11c7cf7218b067ceb9f18494bb"
+      },
+      {
+        "slot": "C02",
+        "image_url": "/api/accepted-image/Ana567/C02?revision=d6cfd93b463d7d2fb7daae6745de90d0d856fe3cfe4cdc1af6b61503ca66f4b1"
+      }
+    ],
+    "endpoint": "http://127.0.0.1:8767/api/state",
+    "served_images": [
+      {
+        "question_id": "Ana567",
+        "slot_id": "C01",
+        "live_image_matches_formal": true,
+        "sha256": "e2a15bf7f8d141f267434dca1093f622452eca11c7cf7218b067ceb9f18494bb"
+      },
+      {
+        "question_id": "Ana567",
+        "slot_id": "C02",
+        "live_image_matches_formal": true,
+        "sha256": "d6cfd93b463d7d2fb7daae6745de90d0d856fe3cfe4cdc1af6b61503ca66f4b1"
+      },
+      {
+        "question_id": "Ana568",
+        "slot_id": "C01",
+        "live_image_matches_formal": true,
+        "sha256": "5b9bc8db652ca8953178d96166563893b17ef7bfd8410a023d188d47d01dbafd"
+      },
+      {
+        "question_id": "Ana569",
+        "slot_id": "C01",
+        "live_image_matches_formal": true,
+        "sha256": "8033d6a7f922940bf5852221f3998f0e249adef13716a1274b171ca6eacb3cd1"
+      },
+      {
+        "question_id": "Ana570",
+        "slot_id": "C01",
+        "live_image_matches_formal": true,
+        "sha256": "7a9666cfca0e8c1e4aaafa81a366ad03b671c275f174497a3333257b4b4b3a04"
+      },
+      {
+        "question_id": "Ana571",
+        "slot_id": "C01",
+        "live_image_matches_formal": true,
+        "sha256": "5e857d1b3799a1439a487ed0e4c1522fbfc7f37fdbee4e1114ee6cbd4ab5ec21"
+      },
+      {
+        "question_id": "Ana572",
+        "slot_id": "C01",
+        "live_image_matches_formal": true,
+        "sha256": "52ee386f35d6733440c1f0364ef709e41b25f1a8a89a89e0fcced1be1ad5054d"
+      }
+    ]
+  }
+}

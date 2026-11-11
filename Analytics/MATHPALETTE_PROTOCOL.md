@@ -1,8 +1,10 @@
 # Analytics 制作与变体协议
 
-版本：3.1.0。当前保留 566 道正式题，题号为连续的 Ana01～Ana566；来源与题干以 `dataset.jsonl` 为准，所有文件与插件使用同一题号。
+版本：3.1.0。当前保留 572 道正式题，题号为连续的 Ana01～Ana572；来源与题干以 `dataset.jsonl` 为准，所有文件与插件使用同一题号。
 
 Ana547～Ana566 为 2026-11-11 用户明确批量授权的 Author Designed 原题，每题包含一份同步设计并授权直接 Pass 的 C01。记录见 [`analytics_author_special20_20261111.json`](../provenance/analytics_author_special20_20261111.json)，不冒称逐题人工审核。
+
+2026-11-11 用户以“放进去吧”明确批准将已交付的 6 道 Analytics 新原创题 Ana567～Ana572 加入 Author Designed，沿用“设计的变体直接pass就好”的指令保存 7 份 Special（Ana567 为 C01、C02，其余每题 C01）。Pass 仅代表授权保存；本轮视觉实测只有 Ana567/C02 达到预设双样本条件，不代表其他变体有效或逐题人工审核。未执行 Collect。授权、设计与事务凭据见 [`analytics_author_visual6_20261111.json`](../provenance/analytics_author_visual6_20261111.json)。
 
 ## 原题
 

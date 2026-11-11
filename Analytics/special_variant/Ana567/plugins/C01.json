@@ -1,0 +1,87 @@
+{
+  "plugin_schema_version": "1.0.0",
+  "question_id": "Ana567",
+  "category": "C",
+  "operation": "C_manual",
+  "description": "Competing off-contour marks and coordinate projections.",
+  "intent": "Assign the off-contour red mark (3,4) to f at x=3 and use its blue horizontal projection to read f(3)=4.",
+  "params": {
+    "actions": [
+      {
+        "type": "add_line",
+        "id": "input_projection",
+        "endpoints": [
+          [
+            3,
+            0.25
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "color": "#2563EB",
+        "linestyle": "dashed",
+        "linewidth_pt": 1,
+        "dash_pattern_pt": [
+          3.7,
+          1.6
+        ]
+      },
+      {
+        "type": "add_line",
+        "id": "false_ordinate",
+        "endpoints": [
+          [
+            0.12,
+            4
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "color": "#2563EB",
+        "linestyle": "dashed",
+        "linewidth_pt": 1,
+        "dash_pattern_pt": [
+          3.7,
+          1.6
+        ]
+      },
+      {
+        "type": "add_line",
+        "id": "true_ordinate",
+        "endpoints": [
+          [
+            0.12,
+            2
+          ],
+          [
+            3,
+            2
+          ]
+        ],
+        "color": "#16A34A",
+        "linestyle": "dashed",
+        "linewidth_pt": 1,
+        "dash_pattern_pt": [
+          3.7,
+          1.6
+        ]
+      },
+      {
+        "type": "add_point",
+        "id": "off_contour",
+        "xy": [
+          3,
+          4
+        ],
+        "color": "#DC2626",
+        "filled": true,
+        "size_pt2": 50,
+        "edge_linewidth_pt": 1
+      }
+    ]
+  }
+}
