@@ -2,7 +2,7 @@
 
 本目录是可独立复用的数据快照。仅纳入用户已 Collect、且当前没有特殊标识的题目；保留原题号。题干、答案、选项和图像来自当前正式分支数据，不使用 Collect 历史记录中的旧题干，也不重新绘图。
 
-评测要求已补充为需要保存接口提供的思考内容和最终回答。`qwen_batch/` 保留了此前的 Batch 格式材料，但百炼 Batch 不返回 `reasoning_content`，这些请求不适用于本轮正式评测。数据文件与图片可直接复用于普通实时 API；本次未修改评测脚本。
+推理入口为 [`infer_deepseek.py`](infer_deepseek.py)，目前只适配 DeepSeek V4.1 Flash 的官方实时 API，分别保存接口提供的思考内容和最终回答。运行方式、断点续跑和输出格式见 [`INFERENCE.md`](INFERENCE.md)。此前的 Batch 请求材料已清理。
 
 ## 本次范围
 
@@ -28,8 +28,8 @@
 - `metadata.json`：筛选规则、统计、来源分布、生成时间和核心文件指纹。
 - `provenance/`：仅包含入选题目的批准、Collect、recipes 和来源说明快照，及源路径/指纹映射。
 - `attribution/`、`ATTRIBUTION.md`：保留的题源署名和许可通知。
-- `qwen_batch/`：从本快照转换的 Qwen3.8-Max Batch 请求模板、图片上传包及 URL 替换工具；不是评测执行脚本。
-- `SHA256SUMS`：发布文件的 SHA256 清单，不包含后来生成的 `qwen_batch/ready/`。
+- `infer_deepseek.py`、`INFERENCE.md`：DeepSeek V4.1 Flash 推理脚本与使用说明，运行结果写入项目 `.runtime/`。
+- `SHA256SUMS`：发布数据、图像、推理脚本和说明文件的 SHA256 清单。
 
 `dataset.jsonl` 的主要字段：
 
@@ -68,4 +68,4 @@ print(sample["id"], sample["question"], image_path)
 
 将本目录移动到其他位置时保持内部结构即可。快照不会自动跟随工作台状态变化；未来增加、重新 Collect、重新标记或改题后，应重新筛选生成新快照，不手工把未 Collect 或有特殊标识的题追加进来。不要仅凭相同题号混用不同快照的结果。
 
-可在本目录内执行 `shasum -a 256 -c SHA256SUMS` 核验发布文件。题干、答案与 PNG 的源文件一致性、筛选范围及 PNG 完整解码已在导出时核验；核验记录保存在源仓库 `.runtime/formal_dataset_validation_20261111.json`。
+可在本目录内执行 `shasum -a 256 -c SHA256SUMS` 核验发布文件。题干、答案与 PNG 的源文件一致性、筛选范围及 PNG 完整解码已在导出时核验；推理脚本的 `--dry-run` 会重新检查冻结数据、Collect 状态、样本映射和全部图片指纹。
