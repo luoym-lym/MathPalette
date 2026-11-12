@@ -107,7 +107,7 @@ def contained(root, relative):
 
 
 def load_dataset(root):
-    """Validate the release and its normal Collect records, not the source workbench."""
+    """Validate the frozen collected dataset before any model request."""
     root = root.resolve()
     metadata = read_json(root / "metadata.json")
     for relative, expected in metadata["artifact_sha256"].items():
@@ -124,12 +124,9 @@ def load_dataset(root):
     expected_ids = set()
     for question in questions:
         qid = question["id"]
-        collection = read_json(root / "provenance/collections" / (qid + ".json"))
-        current = collection.get("current", {})
-        if (collection.get("question_id") != qid or current.get("question_id") != qid
-                or collection.get("status") != "collected" or current.get("status") != "collected"
-                or current.get("special_case", False) or current.get("review_status") == "pending"
-                or question.get("collection", {}).get("special_case") is not False):
+        current = question.get("collection", {})
+        if (current.get("status") != "collected" or current.get("special_case") is not False
+                or current.get("review_status") in ("pending", "pending_review")):
             raise ValueError("Not a current normal Collect: " + qid)
         slots = [row["slot_id"] for row in question["special_variants"]]
         if (len(slots) != len(set(slots)) or set(slots) != set(current.get("slots", []))
