@@ -1,60 +1,85 @@
-"""User-approved frozen original; importing this module writes no files."""
+"""Frozen question Plane541; unified protocol 2.0.0. Original metadata and PNG retained."""
 from pathlib import Path
-import importlib.util
-import json
 import sys
-ROOT = Path(__file__).resolve().parent
-ITEM = ROOT / 'author_extensions95_v1/items/Plane541'
-
-def _engine():
-    path = ROOT / 'author_extensions95_v1/engine.py'
-    spec = importlib.util.spec_from_file_location('_extensions95_Plane541', path)
-    module = importlib.util.module_from_spec(spec)
-    sys.modules[spec.name] = module
-    spec.loader.exec_module(module)
-    return module
-
-def build_scene():
-    return _engine().capture(ITEM)
-
-def draw_original(output_path):
-    target = Path(output_path).resolve()
-    if target.suffix.lower() not in ('.png', '.svg'):
-        raise ValueError('Use a PNG or SVG output')
-    if target.is_relative_to(ROOT.parent):
-        raise ValueError('Redraw outside formal source directories')
-    data = _engine().render(ITEM, vector=target.suffix.lower() == '.svg')
-    target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_bytes(data)
-    return str(target)
+import json
+import numpy as np
+_PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+from dataset_tools.drawing import Canvas, ANALYTICS, PLANE, SOLID, VectorPath, VectorTransform, VectorBox
 
 class Plane541:
+
     def __init__(self):
-        row = next(json.loads(line) for line in (ROOT.parent / 'dataset.jsonl').read_text(encoding='utf-8-sig').splitlines()
-                   if line.strip() and json.loads(line)['id'] == 'Plane541')
-        for key, value in row.items():
-            setattr(self, key, value)
+        self.id = 'Plane541'
+        self.source_dataset = 'Author Designed'
+        self.source_key = 'author-extensions95-v1:Plane180/extension_02'
+        self.question = 'A strip of paper is folded twice as shown. Determine $\\beta$ if $\\alpha=63^{\\circ}$.\nChoices:\nA:$27^{\\circ}$\nB:$63^{\\circ}$\nC:$108^{\\circ}$\nD:$54^{\\circ}$\nE:$126^{\\circ}$'
+        self.answer = 'D'
+        self.answer_type = 'choice'
+        self.choices = {'A': '$27^{\\circ}$', 'B': '$63^{\\circ}$', 'C': '$108^{\\circ}$', 'D': '$54^{\\circ}$', 'E': '$126^{\\circ}$'}
         self.query = self.question
         self.subject = 'PlaneGeometry'
         self.level = None
+        self.scene_path = _PROJECT_ROOT / 'PlaneGeometry' / 'dataset_generator/scenes/Plane541.json'
+
+    def draw(self, output_path=None, *, variant=None, _canvas=False):
+        if output_path is None and (not _canvas):
+            output_path = _PROJECT_ROOT / '.runtime/reproduced' / 'PlaneGeometry' / (self.id + ('_' + variant if variant else '') + '.png')
+        if variant is not None:
+            if _canvas:
+                raise ValueError('Canvas capture is for the original only')
+            from dataset_tools.unified_replay import draw_slot
+            return draw_slot('PlaneGeometry', self.id, variant, output_path)
+        with Canvas(PLANE, xlim=[-7.776162790697675, 7.776162790697675], ylim=[-8.123385012919897, 7.428940568475452], axes_position=[0.05, 0.05, 0.9, 0.9], coordinate_axes=False) as c:
+            c.path([[-5.404401550302465, -0.04926137182203405], [-6.04592624771809, 0.2776117879904394], [-2.5955984496975346, 7.049261371822034], [-1.9540737522819098, 6.722388212009561], [-5.404401550302465, -0.04926137182203405]], [1, 2, 2, 2, 79], id='s0_whole_strip_fill', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[1.0, 1.0, 1.0, 1.0], capstyle='butt')
+            for object_id, points in [('s0_whole_strip_edge0', [[-5.404401550302465, -0.04926137182203405], [-6.04592624771809, 0.2776117879904394]]), ('s0_whole_strip_edge1', [[-6.04592624771809, 0.2776117879904394], [-2.5955984496975346, 7.049261371822034]]), ('s0_whole_strip_edge2', [[-2.5955984496975346, 7.049261371822034], [-1.9540737522819098, 6.722388212009561]]), ('s0_whole_strip_edge3', [[-1.9540737522819098, 6.722388212009561], [-5.404401550302465, -0.04926137182203405]])]:
+                c.line(points, id=object_id)
+            c.line([[-4.4040374455483695, 3.5], [-3.59596255445163, 3.5]], id='s0_next_crease', zorder=80, linestyle=(0.0, [4.0, 3.0]))
+            c.path([[-3.8727763238202138, 3.5], [-3.8727763238202138, 3.5979675438626675], [-3.8998749743461447, 3.6940521108919153], [-3.9510628754031356, 3.7775831735923466], [-4.002250776460126, 3.861114236292778], [-4.075560222662466, 3.928880791310949], [-4.162849943402812, 3.973357125507418]], [1, 4, 4, 4, 4, 4, 4], id='alpha_arc', zorder=90, facecolor=[0.0, 0.0, 0.0, 0], capstyle='butt', fill=False)
+            c.path([[2.5955984496975346, -0.04926137182203405], [1.9540737522819098, 0.2776117879904394], [3.59596255445163, 3.5], [4.40403744554837, 3.5], [2.5955984496975346, -0.04926137182203405]], [1, 2, 2, 2, 79], id='s1_lower_after_first_fill', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[1.0, 1.0, 1.0, 1.0], capstyle='butt')
+            c.line([[2.5955984496975346, -0.04926137182203405], [1.9540737522819098, 0.2776117879904394]], id='s1_lower_after_first_edge0')
+            c.line([[1.9540737522819098, 0.2776117879904394], [3.59596255445163, 3.5]], id='s1_lower_after_first_edge1')
+            c.line([[3.59596255445163, 3.5], [4.40403744554837, 3.5]], id='s1_lower_after_first_edge2', linestyle=(0.0, [4.0, 3.0]))
+            c.line([[4.40403744554837, 3.5], [2.5955984496975346, -0.04926137182203405]], id='s1_lower_after_first_edge3')
+            c.path([[3.59596255445163, 3.5], [5.404401550302465, -0.04926137182203405], [6.04592624771809, 0.2776117879904394], [4.40403744554837, 3.5], [3.59596255445163, 3.5]], [1, 2, 2, 2, 79], id='s1_upper_after_first_fill', zorder=11, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[1.0, 1.0, 1.0, 1.0], capstyle='butt')
+            for object_id, points in [('s1_upper_after_first_edge0', [[3.59596255445163, 3.5], [5.404401550302465, -0.04926137182203405]]), ('s1_upper_after_first_edge1', [[5.404401550302465, -0.04926137182203405], [6.04592624771809, 0.2776117879904394]]), ('s1_upper_after_first_edge2', [[6.04592624771809, 0.2776117879904394], [4.40403744554837, 3.5]])]:
+                c.line(points, id=object_id, zorder=12)
+            c.line([[4.40403744554837, 3.5], [3.59596255445163, 3.5]], id='s1_upper_after_first_edge3', zorder=12, linestyle=(0.0, [4.0, 3.0]))
+            c.line([[4.40403744554837, 3.5], [4.0, 2.707031864749304]], id='s1_next_crease', zorder=80, linestyle=(0.0, [4.0, 3.0]))
+            c.path([[-1.4044015503024654, -7.749261371822034], [-2.04592624771809, -7.422388212009561], [-0.40403744554836996, -4.2], [0.40403744554836996, -4.2], [-1.4044015503024654, -7.749261371822034]], [1, 2, 2, 2, 79], id='s2_lower_after_first_fill', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[1.0, 1.0, 1.0, 1.0], capstyle='butt')
+            c.line([[-1.4044015503024654, -7.749261371822034], [-2.04592624771809, -7.422388212009561]], id='s2_lower_after_first_edge0')
+            c.line([[-2.04592624771809, -7.422388212009561], [-0.40403744554836996, -4.2]], id='s2_lower_after_first_edge1')
+            c.line([[-0.40403744554836996, -4.2], [0.40403744554836996, -4.2]], id='s2_lower_after_first_edge2', linestyle=(0.0, [4.0, 3.0]))
+            c.line([[0.40403744554836996, -4.2], [-1.4044015503024654, -7.749261371822034]], id='s2_lower_after_first_edge3')
+            c.path([[-5.551115123125783e-17, -4.992968135250696], [-3.0553745894314153, -5.476891929579599], [-3.1680074042603814, -4.7657563243511], [0.40403744554836984, -4.2], [-5.551115123125783e-17, -4.992968135250696]], [1, 2, 2, 2, 79], id='s2_upper_folded_fill', zorder=11, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[1.0, 1.0, 1.0, 1.0], capstyle='butt')
+            for object_id, points in [('s2_upper_folded_edge0', [[-5.551115123125783e-17, -4.992968135250696], [-3.0553745894314153, -5.476891929579599]]), ('s2_upper_folded_edge1', [[-3.0553745894314153, -5.476891929579599], [-3.1680074042603814, -4.7657563243511]]), ('s2_upper_folded_edge2', [[-3.1680074042603814, -4.7657563243511], [0.40403744554836984, -4.2]])]:
+                c.line(points, id=object_id, zorder=12)
+            c.line([[0.40403744554836984, -4.2], [-5.551115123125783e-17, -4.992968135250696]], id='s2_upper_folded_edge3', zorder=12, linestyle=(0.0, [4.0, 3.0]))
+            c.path([[-0.40403744554836996, -4.2], [-5.551115123125783e-17, -4.992968135250696], [0.40403744554836973, -4.200000000000001], [-0.40403744554836996, -4.2]], [1, 2, 2, 79], id='s2_upper_fixed_fill', zorder=21, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[1.0, 1.0, 1.0, 1.0], capstyle='butt')
+            c.line([[-0.40403744554836996, -4.2], [-5.551115123125783e-17, -4.992968135250696]], id='s2_upper_fixed_edge0', zorder=22)
+            c.line([[-5.551115123125783e-17, -4.992968135250696], [0.40403744554836973, -4.200000000000001]], id='s2_upper_fixed_edge1', zorder=22, linestyle=(0.0, [4.0, 3.0]))
+            c.line([[0.40403744554836973, -4.200000000000001], [-0.40403744554836996, -4.2]], id='s2_upper_fixed_edge2', zorder=22, linestyle=(0.0, [4.0, 3.0]))
+            c.path([[-0.5555863225507701, -5.0809643639998665], [-0.5417002790217894, -5.168637392363813], [-0.5072568636176409, -5.251791152966959], [-0.45508158627752765, -5.32360426139346], [-0.40290630893741447, -5.3954173698199615], [-0.3344659837655432, -5.453870929656096], [-0.2553750022717673, -5.494169797552668]], [1, 4, 4, 4, 4, 4, 4], id='beta_arc', zorder=90, facecolor=[0.0, 0.0, 0.0, 0], capstyle='butt', fill=False)
+            c.path([[-0.65, 3.075], [-0.65, 2.925], [0.44000000000000006, 2.925], [0.44000000000000006, 2.83], [0.65, 3.0], [0.44000000000000006, 3.17], [0.44000000000000006, 3.075], [-0.65, 3.075]], [1, 2, 2, 2, 2, 2, 2, 79], id='arrow_01_fill', zorder=80, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[1.0, 1.0, 1.0, 1.0], capstyle='butt')
+            for object_id, points in [('arrow_01_edge0', [[-0.65, 3.075], [-0.65, 2.925]]), ('arrow_01_edge1', [[-0.65, 2.925], [0.44000000000000006, 2.925]]), ('arrow_01_edge2', [[0.44000000000000006, 2.925], [0.44000000000000006, 2.83]]), ('arrow_01_edge3', [[0.44000000000000006, 2.83], [0.65, 3.0]]), ('arrow_01_edge4', [[0.65, 3.0], [0.44000000000000006, 3.17]]), ('arrow_01_edge5', [[0.44000000000000006, 3.17], [0.44000000000000006, 3.075]]), ('arrow_01_edge6', [[0.44000000000000006, 3.075], [-0.65, 3.075]])]:
+                c.line(points, id=object_id, zorder=81)
+            c.path([[4.3562378391523815, 0.05037837721848653], [4.243762160847618, 0.14962162278151347], [2.8827027046358555, -1.3929124275918172], [2.8114681083761717, -1.3300583720685668], [2.8, -1.6], [3.0664129792003036, -1.5550097286780944], [2.9951783829406198, -1.492155673154844], [4.3562378391523815, 0.05037837721848653]], [1, 2, 2, 2, 2, 2, 2, 79], id='arrow_12_fill', zorder=80, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[1.0, 1.0, 1.0, 1.0], capstyle='butt')
+            for object_id, points in [('arrow_12_edge0', [[4.3562378391523815, 0.05037837721848653], [4.243762160847618, 0.14962162278151347]]), ('arrow_12_edge1', [[4.243762160847618, 0.14962162278151347], [2.8827027046358555, -1.3929124275918172]]), ('arrow_12_edge2', [[2.8827027046358555, -1.3929124275918172], [2.8114681083761717, -1.3300583720685668]]), ('arrow_12_edge3', [[2.8114681083761717, -1.3300583720685668], [2.8, -1.6]]), ('arrow_12_edge4', [[2.8, -1.6], [3.0664129792003036, -1.5550097286780944]]), ('arrow_12_edge5', [[3.0664129792003036, -1.5550097286780944], [2.9951783829406198, -1.492155673154844]]), ('arrow_12_edge6', [[2.9951783829406198, -1.492155673154844], [4.3562378391523815, 0.05037837721848653]])]:
+                c.line(points, id=object_id, zorder=81)
+            c.text('A', [-5.02403744554837, 3.5], id='s0_A_label', zorder=100, fontsize=18.0, fontstyle='italic', rotation_mode='default')
+            c.text('B', [-2.97596255445163, 3.5], id='s0_B_label', zorder=100, fontsize=18.0, fontstyle='italic', rotation_mode='default')
+            c.text('α', [-3.8498213387182094, 3.839624067065367], id='alpha_label', zorder=100, rotation_mode='default')
+            for object_id, text, anchor in [('s1_A_label', 'A', [3.41596255445163, 3.92]), ('s1_B_label', 'B', [4.584037445548369, 3.92]), ('s2_A_label', 'A', [-0.5840374455483699, -3.45]), ('s2_B_label', 'B', [0.5840374455483699, -3.45])]:
+                c.text(text, anchor, id=object_id, zorder=100, fontsize=18.0, fontstyle='italic', rotation_mode='default')
+            c.text('β', [-0.62294308566871, -5.4455627795159005], id='beta_label', zorder=100, rotation_mode='default')
+            return c if _canvas else c.save(output_path)
 
     def get_scene(self):
-        return json.loads((ROOT / 'scenes/Plane541.json').read_text(encoding='utf-8'))
+        return json.loads(self.scene_path.read_text(encoding='utf-8-sig'))
 
     def build_scene(self):
-        return build_scene()
-
-    def draw(self, num=0, output_path=None):
-        if output_path is None and isinstance(num, (str, Path)):
-            output_path = num
-        if output_path is None:
-            raise ValueError('An explicit output path is required')
-        return draw_original(output_path)
-
-    def redraw(self, output_path=None):
-        return self.draw(output_path=output_path)
-
+        canvas = self.draw(_canvas=True)
+        return (canvas.fig, canvas.ax)
 if __name__ == '__main__':
-    if len(sys.argv) != 2:
-        raise SystemExit('Provide a PNG or SVG output path')
-    print(draw_original(sys.argv[1]))
+    print(Plane541().draw(sys.argv[1] if len(sys.argv) > 1 else None))

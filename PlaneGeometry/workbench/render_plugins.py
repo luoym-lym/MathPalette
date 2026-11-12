@@ -106,6 +106,8 @@ class PluginRenderer:
                 target = objects.get(action["target"])
                 if not target or not target.get("styleable"):
                     raise WorkbenchError(f"actions[{index}].target：{action['target']} 不是可修改的原对象。")
+                if target.get('kind') == 'point' and any(k in action for k in ('interval', 'linewidth_pt', 'linestyle')):
+                    raise WorkbenchError('Point targets support color only')
                 if not any(key in action for key in ("color", "linestyle", "linewidth_pt")):
                     raise WorkbenchError("原对象样式至少需要 color、linestyle 或 linewidth_pt。")
                 if "interval" in action:
@@ -204,45 +206,5 @@ class PluginRenderer:
 
 
 def render_special_recipe(recipe, output_path=None, config_path=None):
-    """Offline redraw from a reviewed, frozen recipe; never consult drafts."""
-    config = load_config(config_path)
-    protect_output_paths(config)
-    if (recipe.get("generator_version") != GENERATOR_VERSION or
-            recipe.get("plugin_schema_version") != SCHEMA_VERSION or recipe.get("status") != "passed"):
-        raise WorkbenchError("recipe 不是当前版本的人工作品；拒绝跨版本重绘。", 409, "version_mismatch")
-    if recipe.get("environment") != environment_versions():
-        raise WorkbenchError("重绘依赖版本与通过时不同。", 409, "environment_changed")
-    if (recipe.get("renderer_sha256") != renderer_fingerprint() or
-            recipe.get("schema_sha256") != file_hash(ROOT / "plugin.schema.json")):
-        if (not compatible_style_renderer(recipe) or any(
-                "interval" in a or a["type"] == "set_object_style" and "linewidth_pt" in a
-                for a in recipe["params"]["actions"])):
-            raise WorkbenchError("重绘执行器或 schema 文件与通过时不同。", 409, "renderer_changed")
-    adapter = RendererAdapter(config)
-    qid = recipe.get("question_id")
-    if qid not in adapter.records or recipe.get("question_record_sha256") != canonical_hash(adapter.records[qid]):
-        raise WorkbenchError("本题正式记录与通过时不一致。", 409, "baseline_changed")
-    if adapter.manifest["fingerprint"] != recipe["baseline_fingerprint"]:
-        raise WorkbenchError("重绘输入基线不一致。", 409, "baseline_changed")
-    plugin = {key: copy.deepcopy(recipe[key]) for key in (
-        "plugin_schema_version", "question_id", "category", "operation", "description", "intent", "params")}
-    if canonical_hash(plugin) != recipe["parameter_key"]:
-        raise WorkbenchError("recipe 参数与冻结哈希不符。", 409, "integrity_error")
-    metadata = {recipe["question_id"]: adapter.inspect_question(recipe["question_id"])}
-    renderer = PluginRenderer(config, adapter, metadata)
-    _, data, digest = renderer.render(plugin, frozen=True)
-    if digest != recipe["pixel_sha256"]:
-        raise WorkbenchError("重绘像素不等于已通过图；没有写入输出。", 409, "reproduction_mismatch")
-    target = Path(output_path).resolve() if output_path else contained_path(
-        Path(config["runtime_dir"]) / "reproduced", f"{recipe['question_id']}/{recipe['slot_id']}.png")
-    protected = [Path(config[k]).resolve() for k in ("original_image_dir", "question_class_dir", "output_dir")]
-    protected.append(Path(config["dataset_root"]) / "base_variant")
-    if any(target.is_relative_to(p) for p in protected) or target in adapter.input_files.values():
-        raise WorkbenchError("重绘不能覆盖只读输入、A/B 或正式 C 文件。", code="unsafe_path")
-    runtime = Path(config["runtime_dir"])
-    if (target.suffix.lower() != ".png" or
-            target.is_relative_to(runtime) and not target.is_relative_to(runtime / "reproduced") or
-            target.is_relative_to(ROOT) and not target.is_relative_to(ROOT / "reproduced")):
-        raise WorkbenchError("重绘须写入 PNG，且不能覆盖工作台程序、状态、草稿或候选。", code="unsafe_path")
-    atomic_write(target, data)
-    return {"image_path": str(target), "pixel_sha256": digest, "matches_accepted": True}
+    from dataset_tools.unified_replay import render_special_recipe as replay
+    return replay(recipe, output_path, config_path)

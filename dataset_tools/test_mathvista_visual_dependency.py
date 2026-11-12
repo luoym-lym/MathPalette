@@ -17,7 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from dataset_tools import catalog
 from dataset_tools.visual_revision_integrity import (
-    assert_same_renderer, baseline_bytes, baseline_source,
+    assert_same_renderer, baseline_bytes, baseline_source, historical_bytes,
 )
 
 MANIFEST = ROOT / 'provenance/mathvista_visual_dependency_20261108.json'
@@ -27,6 +27,8 @@ class MathVistaVisualDependencyTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.manifest = catalog.read(MANIFEST)
+        cls.migration = catalog.read(ROOT / 'provenance/drawing_protocol_integration_20261112.json')
+        cls.source_notes = catalog.read(ROOT / 'provenance/source_notes.json')
         cls.revisions = {item['id']: item for item in cls.manifest['revisions']}
         cls.rows = {row['id']: row for row in catalog.rows(ROOT / 'Analytics/dataset.jsonl')}
 
@@ -57,7 +59,10 @@ class MathVistaVisualDependencyTests(unittest.TestCase):
                 self.assertEqual(hasattr(instance, 'choices'), row['answer_type'] == 'choice')
                 baseline = baseline_source(ROOT, self.manifest['base_commit'],
                                            f'Analytics/{row["script"]}')
-                assert_same_renderer(baseline, script.read_text(encoding='utf-8'), qid)
+                proof = self.migration['questions'][qid]
+                previous = historical_bytes(ROOT, 'Analytics/' + row['script'], proof['previous_files'][row['script']]).decode('utf-8')
+                assert_same_renderer(baseline, previous, qid)
+                self.assertEqual(catalog.file_hash(script), proof['new_script_sha256'])
 
     def test_renderer_comparison_ignores_only_literal_review_metadata(self):
         before = "class Q:\n def __init__(self):\n  self.question = 'before'\n  self.query = self.question\n  self.answer = 1\n  self.scale = 2\n def draw(self):\n  return self.scale\n"
@@ -104,11 +109,11 @@ class MathVistaVisualDependencyTests(unittest.TestCase):
     def test_frozen_assets_unchanged_and_png_protocol(self):
         from PIL import Image
         for relative, fingerprint in self.manifest['frozen_runtime_files'].items():
-            self.assertEqual(catalog.file_hash(ROOT / relative), fingerprint)
+            self.assertEqual(hashlib.sha256(historical_bytes(ROOT, relative, fingerprint)).hexdigest(), fingerprint)
         for qid, revision in self.revisions.items():
             with self.subTest(qid=qid):
                 for relative, fingerprint in revision['preserved_files'].items():
-                    self.assertEqual(catalog.file_hash(ROOT / relative), fingerprint)
+                    self.assertEqual(hashlib.sha256(historical_bytes(ROOT, relative, fingerprint)).hexdigest(), fingerprint)
                 for relative, change in revision.get('revised_files', {}).items():
                     self.assertEqual(catalog.file_hash(ROOT / relative), change['current_sha256'])
                     self.assertEqual(hashlib.sha256(baseline_bytes(
@@ -148,15 +153,18 @@ class MathVistaVisualDependencyTests(unittest.TestCase):
                     current = catalog.digest(catalog.content(ROOT, branch, row, source_notes=source_notes))
                     if row['id'] in self.revisions:
                         revision = self.revisions[row['id']]
-                        self.assertEqual(current, revision['proposed_content_sha256'])
-                        self.assertEqual(approvals[row['id']], revision['current_approval'])
+                        proof = self.migration['questions'][row['id']]
+                        self.assertEqual(proof['previous_content_sha256'], revision['proposed_content_sha256'])
+                        retained = {k:v for k,v in approvals[row['id']].items() if k not in ('content_sha256','metadata_migrations')}
+                        expected_approval = {k:v for k,v in revision['current_approval'].items() if k != 'content_sha256'}
+                        self.assertEqual(retained, expected_approval)
                         self.assertEqual(current, approvals[row['id']]['content_sha256'])
                         self.assertEqual(approvals[row['id']]['instruction'], self.manifest['approval_instruction'])
                         prior = (revision.get('approval_history') or [revision['previous_approval']])[-1]
                         self.assertEqual(approvals[row['id']]['previous_content_sha256'], prior['content_sha256'])
                     else:
                         self.assertEqual(current, approvals[row['id']]['content_sha256'])
-        self.assertEqual(len(bank), 1018)
+        self.assertEqual(len(bank), 1516)
         self.assertEqual(catalog.catalog(ROOT), catalog.rows(ROOT / 'question_bank.jsonl'))
 
 

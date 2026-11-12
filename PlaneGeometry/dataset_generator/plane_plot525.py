@@ -1,28 +1,61 @@
-"""Frozen author-designed original; importing writes no files."""
+"""Frozen question Plane525; unified protocol 2.0.0. Original metadata and PNG retained."""
 from pathlib import Path
-import importlib.util, json, sys
-ROOT=Path(__file__).resolve().parent
-ITEM=ROOT/'author_expand24_v1/items/Plane525'
-def _engine():
-    p=ROOT/'author_expand24_v1/engine.py'
-    spec=importlib.util.spec_from_file_location('_expand24_Plane525',p)
-    m=importlib.util.module_from_spec(spec);sys.modules[spec.name]=m;spec.loader.exec_module(m);return m
-def build_scene(): return _engine().capture(ITEM)
+import sys
+import json
+import numpy as np
+_PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+from dataset_tools.drawing import Canvas, ANALYTICS, PLANE, SOLID, VectorPath, VectorTransform, VectorBox
+
 class Plane525:
+
     def __init__(self):
-        row=next(json.loads(s) for s in (ROOT.parent/'dataset.jsonl').read_text(encoding='utf-8-sig').splitlines() if s.strip() and json.loads(s)['id']=='Plane525')
-        for k,v in row.items():setattr(self,k,v)
-        self.query=self.question;self.subject='PlaneGeometry';self.level=None
-    def get_scene(self):return json.loads((ROOT/'scenes/Plane525.json').read_text(encoding='utf-8'))
-    def build_scene(self):return build_scene()
-    def draw(self,num=0,output_path=None):
-        if output_path is None and isinstance(num,(str,Path)):output_path=num
-        if output_path is None:raise ValueError('An explicit output path is required')
-        target=Path(output_path).resolve()
-        if target.suffix.lower()!='.png':raise ValueError('Use a PNG output')
-        if target.is_relative_to(ROOT.parent) or target==Path(__file__).resolve():raise ValueError('Render outside formal source directories')
-        target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(_engine().render(ITEM));return str(target)
-    def redraw(self,output_path=None):return self.draw(output_path=output_path)
-if __name__=='__main__':
-    if len(sys.argv)!=2:raise SystemExit('Provide a new output PNG path')
-    Plane525().draw(output_path=sys.argv[1])
+        self.id = 'Plane525'
+        self.source_dataset = 'Author Designed'
+        self.source_key = 'author-expand24:Plane363/extension_02'
+        self.question = 'The diagram consists of all 16 points in a square array of 4 columns and 4 rows, with equal spacing horizontally and vertically. What is the minimum number of points that must be removed so that no three of the remaining points lie on one straight line?'
+        self.answer = '8'
+        self.answer_type = 'number'
+        self.query = self.question
+        self.points = {'P00': [0, 0],
+         'P01': [0, 1],
+         'P02': [0, 2],
+         'P03': [0, 3],
+         'P10': [1, 0],
+         'P11': [1, 1],
+         'P12': [1, 2],
+         'P13': [1, 3],
+         'P20': [2, 0],
+         'P21': [2, 1],
+         'P22': [2, 2],
+         'P23': [2, 3],
+         'P30': [3, 0],
+         'P31': [3, 1],
+         'P32': [3, 2],
+         'P33': [3, 3]}
+        self.subject = 'PlaneGeometry'
+        self.level = None
+        self.scene_path = _PROJECT_ROOT / 'PlaneGeometry' / 'dataset_generator/scenes/Plane525.json'
+
+    def draw(self, output_path=None, *, variant=None, _canvas=False):
+        if output_path is None and (not _canvas):
+            output_path = _PROJECT_ROOT / '.runtime/reproduced' / 'PlaneGeometry' / (self.id + ('_' + variant if variant else '') + '.png')
+        if variant is not None:
+            if _canvas:
+                raise ValueError('Canvas capture is for the original only')
+            from dataset_tools.unified_replay import draw_slot
+            return draw_slot('PlaneGeometry', self.id, variant, output_path)
+        with Canvas(PLANE, xlim=[-0.09262672811059947, 3.0926267281105995], ylim=[-0.09262672811059947, 3.0926267281105995]) as c:
+            for object_id, points in [('dotP00', [self.points['P00']]), ('dotP01', [self.points['P01']]), ('dotP02', [self.points['P02']]), ('dotP03', [self.points['P03']]), ('dotP10', [self.points['P10']]), ('dotP11', [self.points['P11']]), ('dotP12', [self.points['P12']]), ('dotP13', [self.points['P13']]), ('dotP20', [self.points['P20']]), ('dotP21', [self.points['P21']]), ('dotP22', [self.points['P22']]), ('dotP23', [self.points['P23']]), ('dotP30', [self.points['P30']]), ('dotP31', [self.points['P31']]), ('dotP32', [self.points['P32']]), ('dotP33', [self.points['P33']])]:
+                c.point(points, id=object_id, filled=True)
+            return c if _canvas else c.save(output_path)
+
+    def get_scene(self):
+        return json.loads(self.scene_path.read_text(encoding='utf-8-sig'))
+
+    def build_scene(self):
+        canvas = self.draw(_canvas=True)
+        return (canvas.fig, canvas.ax)
+if __name__ == '__main__':
+    print(Plane525().draw(sys.argv[1] if len(sys.argv) > 1 else None))

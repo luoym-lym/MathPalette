@@ -1,31 +1,185 @@
-"""Frozen native MathVision redraw; importing does not write files."""
+"""Frozen question Plane193; unified protocol 2.0.0. Original metadata and PNG retained."""
 from pathlib import Path
-import importlib.util
+import sys
 import json
-HERE = Path(__file__).resolve().parent
+import numpy as np
+_PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+from dataset_tools.drawing import Canvas, ANALYTICS, PLANE, SOLID, VectorPath, VectorTransform, VectorBox
 
 class Plane193:
 
     def __init__(self):
-        self.__dict__.update({'id': 'Plane193', 'source_dataset': 'MathVision', 'question': 'Which piece fits together with the given piece to form a rectangle?\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E', 'answer': 'B', 'answer_type': 'choice', 'subject': 'PlaneGeometry', 'choices': {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'}, 'source_key': 'test:441', 'source_category': 'combinatorial geometry', 'source_revision': '2837ddb3f13abaf6b3997c12d80753e5470bd46a'})
+        self.id = 'Plane193'
+        self.source_dataset = 'MathVision'
+        self.source_key = 'test:441'
+        self.question = 'Which piece fits together with the given piece to form a rectangle?\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E'
+        self.answer = 'B'
+        self.answer_type = 'choice'
+        self.choices = {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'}
         self.query = self.question
+        self._geometry_01 = [('A_0', [[0.0, 0.0], [0.0, 1.0]]),
+         ('A_1', [[0.0, 0.0], [1.0, 0.0]]),
+         ('A_2', [[0.0, 1.0], [0.0, 2.0]]),
+         ('A_3', [[0.0, 1.0], [1.0, 1.0]]),
+         ('A_4', [[0.0, 2.0], [0.0, 3.0]]),
+         ('A_5', [[0.0, 2.0], [1.0, 2.0]]),
+         ('A_6', [[0.0, 3.0], [0.0, 4.0]]),
+         ('A_7', [[0.0, 3.0], [1.0, 3.0]]),
+         ('A_8', [[0.0, 4.0], [0.0, 5.0]]),
+         ('A_9', [[0.0, 4.0], [1.0, 4.0]]),
+         ('A_10', [[0.0, 5.0], [1.0, 5.0]]),
+         ('A_11', [[1.0, 0.0], [1.0, 1.0]]),
+         ('A_12', [[1.0, 0.0], [2.0, 0.0]]),
+         ('A_13', [[1.0, 1.0], [1.0, 2.0]]),
+         ('A_14', [[1.0, 1.0], [2.0, 1.0]]),
+         ('A_15', [[1.0, 2.0], [1.0, 3.0]]),
+         ('A_16', [[1.0, 2.0], [2.0, 2.0]]),
+         ('A_17', [[1.0, 3.0], [1.0, 4.0]]),
+         ('A_18', [[1.0, 4.0], [1.0, 5.0]]),
+         ('A_19', [[2.0, 0.0], [2.0, 1.0]]),
+         ('A_20', [[2.0, 0.0], [3.0, 0.0]]),
+         ('A_21', [[2.0, 1.0], [2.0, 2.0]]),
+         ('A_22', [[2.0, 1.0], [3.0, 1.0]]),
+         ('A_23', [[3.0, 0.0], [3.0, 1.0]]),
+         ('B_0', [[6.0, 0.0], [6.0, 1.0]]),
+         ('B_1', [[6.0, 0.0], [7.0, 0.0]]),
+         ('B_2', [[6.0, 1.0], [6.0, 2.0]]),
+         ('B_3', [[6.0, 1.0], [7.0, 1.0]]),
+         ('B_4', [[6.0, 2.0], [6.0, 3.0]]),
+         ('B_5', [[6.0, 2.0], [7.0, 2.0]]),
+         ('B_6', [[6.0, 3.0], [6.0, 4.0]]),
+         ('B_7', [[6.0, 3.0], [7.0, 3.0]]),
+         ('B_8', [[6.0, 4.0], [6.0, 5.0]]),
+         ('B_9', [[6.0, 4.0], [7.0, 4.0]]),
+         ('B_10', [[6.0, 5.0], [7.0, 5.0]]),
+         ('B_11', [[7.0, 0.0], [7.0, 1.0]]),
+         ('B_12', [[7.0, 0.0], [8.0, 0.0]]),
+         ('B_13', [[7.0, 1.0], [7.0, 2.0]]),
+         ('B_14', [[7.0, 1.0], [8.0, 1.0]]),
+         ('B_15', [[7.0, 2.0], [7.0, 3.0]]),
+         ('B_16', [[7.0, 2.0], [8.0, 2.0]]),
+         ('B_17', [[7.0, 3.0], [7.0, 4.0]]),
+         ('B_18', [[7.0, 3.0], [8.0, 3.0]]),
+         ('B_19', [[7.0, 4.0], [7.0, 5.0]]),
+         ('B_20', [[7.0, 4.0], [8.0, 4.0]]),
+         ('B_21', [[8.0, 0.0], [8.0, 1.0]]),
+         ('B_22', [[8.0, 0.0], [9.0, 0.0]]),
+         ('B_23', [[8.0, 1.0], [8.0, 2.0]]),
+         ('B_24', [[8.0, 1.0], [9.0, 1.0]]),
+         ('B_25', [[8.0, 2.0], [8.0, 3.0]]),
+         ('B_26', [[8.0, 3.0], [8.0, 4.0]]),
+         ('B_27', [[9.0, 0.0], [9.0, 1.0]]),
+         ('C_0', [[12.0, 0.0], [12.0, 1.0]]),
+         ('C_1', [[12.0, 0.0], [13.0, 0.0]]),
+         ('C_2', [[12.0, 1.0], [12.0, 2.0]]),
+         ('C_3', [[12.0, 1.0], [13.0, 1.0]]),
+         ('C_4', [[12.0, 2.0], [12.0, 3.0]]),
+         ('C_5', [[12.0, 2.0], [13.0, 2.0]]),
+         ('C_6', [[12.0, 3.0], [12.0, 4.0]]),
+         ('C_7', [[12.0, 3.0], [13.0, 3.0]]),
+         ('C_8', [[12.0, 4.0], [13.0, 4.0]]),
+         ('C_9', [[13.0, 0.0], [13.0, 1.0]]),
+         ('C_10', [[13.0, 0.0], [14.0, 0.0]]),
+         ('C_11', [[13.0, 1.0], [13.0, 2.0]]),
+         ('C_12', [[13.0, 1.0], [14.0, 1.0]]),
+         ('C_13', [[13.0, 2.0], [13.0, 3.0]]),
+         ('C_14', [[13.0, 2.0], [14.0, 2.0]]),
+         ('C_15', [[13.0, 3.0], [13.0, 4.0]]),
+         ('C_16', [[13.0, 3.0], [14.0, 3.0]]),
+         ('C_17', [[13.0, 4.0], [13.0, 5.0]]),
+         ('C_18', [[13.0, 4.0], [14.0, 4.0]]),
+         ('C_19', [[13.0, 5.0], [14.0, 5.0]]),
+         ('C_20', [[14.0, 0.0], [14.0, 1.0]]),
+         ('C_21', [[14.0, 1.0], [14.0, 2.0]]),
+         ('C_22', [[14.0, 2.0], [14.0, 3.0]]),
+         ('C_23', [[14.0, 3.0], [14.0, 4.0]]),
+         ('C_24', [[14.0, 4.0], [14.0, 5.0]]),
+         ('D_0', [[18.0, 4.0], [18.0, 5.0]]),
+         ('D_1', [[18.0, 4.0], [19.0, 4.0]]),
+         ('D_2', [[18.0, 5.0], [19.0, 5.0]]),
+         ('D_3', [[19.0, 3.0], [19.0, 4.0]]),
+         ('D_4', [[19.0, 3.0], [20.0, 3.0]]),
+         ('D_5', [[19.0, 4.0], [19.0, 5.0]]),
+         ('D_6', [[19.0, 4.0], [20.0, 4.0]]),
+         ('D_7', [[19.0, 5.0], [20.0, 5.0]]),
+         ('D_8', [[20.0, 2.0], [20.0, 3.0]]),
+         ('D_9', [[20.0, 2.0], [21.0, 2.0]]),
+         ('D_10', [[20.0, 3.0], [20.0, 4.0]]),
+         ('D_11', [[20.0, 3.0], [21.0, 3.0]]),
+         ('D_12', [[20.0, 4.0], [20.0, 5.0]]),
+         ('D_13', [[20.0, 4.0], [21.0, 4.0]]),
+         ('D_14', [[20.0, 5.0], [21.0, 5.0]]),
+         ('D_15', [[21.0, 2.0], [21.0, 3.0]]),
+         ('D_16', [[21.0, 3.0], [21.0, 4.0]]),
+         ('D_17', [[21.0, 4.0], [21.0, 5.0]]),
+         ('E_0', [[24.0, 4.0], [24.0, 5.0]]),
+         ('E_1', [[24.0, 4.0], [25.0, 4.0]]),
+         ('E_2', [[24.0, 5.0], [25.0, 5.0]]),
+         ('E_3', [[25.0, 2.0], [25.0, 3.0]]),
+         ('E_4', [[25.0, 2.0], [26.0, 2.0]]),
+         ('E_5', [[25.0, 3.0], [25.0, 4.0]]),
+         ('E_6', [[25.0, 3.0], [26.0, 3.0]]),
+         ('E_7', [[25.0, 4.0], [25.0, 5.0]]),
+         ('E_8', [[25.0, 4.0], [26.0, 4.0]]),
+         ('E_9', [[25.0, 5.0], [26.0, 5.0]]),
+         ('E_10', [[26.0, 0.0], [26.0, 1.0]]),
+         ('E_11', [[26.0, 0.0], [27.0, 0.0]]),
+         ('E_12', [[26.0, 1.0], [26.0, 2.0]]),
+         ('E_13', [[26.0, 1.0], [27.0, 1.0]]),
+         ('E_14', [[26.0, 2.0], [26.0, 3.0]]),
+         ('E_15', [[26.0, 2.0], [27.0, 2.0]]),
+         ('E_16', [[26.0, 3.0], [26.0, 4.0]]),
+         ('E_17', [[26.0, 3.0], [27.0, 3.0]]),
+         ('E_18', [[26.0, 4.0], [26.0, 5.0]]),
+         ('E_19', [[26.0, 4.0], [27.0, 4.0]]),
+         ('E_20', [[26.0, 5.0], [27.0, 5.0]]),
+         ('E_21', [[27.0, 0.0], [27.0, 1.0]]),
+         ('E_22', [[27.0, 1.0], [27.0, 2.0]]),
+         ('E_23', [[27.0, 2.0], [27.0, 3.0]]),
+         ('E_24', [[27.0, 3.0], [27.0, 4.0]]),
+         ('E_25', [[27.0, 4.0], [27.0, 5.0]])]
+        self.subject = 'PlaneGeometry'
         self.level = None
-        self.scene_path = HERE / 'scenes/Plane193.json'
+        self.scene_path = _PROJECT_ROOT / 'PlaneGeometry' / 'dataset_generator/scenes/Plane193.json'
+
+    def draw(self, output_path=None, *, variant=None, _canvas=False):
+        if output_path is None and (not _canvas):
+            output_path = _PROJECT_ROOT / '.runtime/reproduced' / 'PlaneGeometry' / (self.id + ('_' + variant if variant else '') + '.png')
+        if variant is not None:
+            if _canvas:
+                raise ValueError('Canvas capture is for the original only')
+            from dataset_tools.unified_replay import draw_slot
+            return draw_slot('PlaneGeometry', self.id, variant, output_path)
+        with Canvas(PLANE, xlim=(-0.656397657811695, 27.69837498518752), ylim=(-9.630328513934291, 18.724444129064924), axes_position=(0.05, 0.05, 0.9, 0.9), coordinate_axes=False) as c:
+            c.path([[10.0, 7.0], [11.0, 7.0], [11.0, 8.0], [10.0, 8.0], [10.0, 7.0]], [1, 2, 2, 2, 79], id='source0', alpha=1, zorder=1, edgecolor='none', linewidth=0.0, capstyle='butt')
+            c.path([[10.0, 7.0], [11.0, 7.0], [11.0, 8.0], [10.0, 8.0], [10.0, 7.0]], [1, 2, 2, 2, 79], id='source0', facecolor=(0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0), capstyle='butt', fill=False)
+            c.path([[11.0, 7.0], [12.0, 7.0], [12.0, 8.0], [11.0, 8.0], [11.0, 7.0]], [1, 2, 2, 2, 79], id='source1', alpha=1, zorder=1, edgecolor='none', linewidth=0.0, capstyle='butt')
+            c.path([[11.0, 7.0], [12.0, 7.0], [12.0, 8.0], [11.0, 8.0], [11.0, 7.0]], [1, 2, 2, 2, 79], id='source1', facecolor=(0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0), capstyle='butt', fill=False)
+            c.path([[12.0, 7.0], [13.0, 7.0], [13.0, 8.0], [12.0, 8.0], [12.0, 7.0]], [1, 2, 2, 2, 79], id='source2', alpha=1, zorder=1, edgecolor='none', linewidth=0.0, capstyle='butt')
+            c.path([[12.0, 7.0], [13.0, 7.0], [13.0, 8.0], [12.0, 8.0], [12.0, 7.0]], [1, 2, 2, 2, 79], id='source2', facecolor=(0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0), capstyle='butt', fill=False)
+            c.path([[13.0, 7.0], [14.0, 7.0], [14.0, 8.0], [13.0, 8.0], [13.0, 7.0]], [1, 2, 2, 2, 79], id='source3', alpha=1, zorder=1, edgecolor='none', linewidth=0.0, capstyle='butt')
+            c.path([[13.0, 7.0], [14.0, 7.0], [14.0, 8.0], [13.0, 8.0], [13.0, 7.0]], [1, 2, 2, 2, 79], id='source3', facecolor=(0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0), capstyle='butt', fill=False)
+            c.path([[14.0, 7.0], [15.0, 7.0], [15.0, 8.0], [14.0, 8.0], [14.0, 7.0]], [1, 2, 2, 2, 79], id='source4', alpha=1, zorder=1, edgecolor='none', linewidth=0.0, capstyle='butt')
+            c.path([[14.0, 7.0], [15.0, 7.0], [15.0, 8.0], [14.0, 8.0], [14.0, 7.0]], [1, 2, 2, 2, 79], id='source4', facecolor=(0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0), capstyle='butt', fill=False)
+            c.path([[13.0, 8.0], [14.0, 8.0], [14.0, 9.0], [13.0, 9.0], [13.0, 8.0]], [1, 2, 2, 2, 79], id='source5', alpha=1, zorder=1, edgecolor='none', linewidth=0.0, capstyle='butt')
+            c.path([[13.0, 8.0], [14.0, 8.0], [14.0, 9.0], [13.0, 9.0], [13.0, 8.0]], [1, 2, 2, 2, 79], id='source5', facecolor=(0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0), capstyle='butt', fill=False)
+            c.path([[14.0, 8.0], [15.0, 8.0], [15.0, 9.0], [14.0, 9.0], [14.0, 8.0]], [1, 2, 2, 2, 79], id='source6', alpha=1, zorder=1, edgecolor='none', linewidth=0.0, capstyle='butt')
+            c.path([[14.0, 8.0], [15.0, 8.0], [15.0, 9.0], [14.0, 9.0], [14.0, 8.0]], [1, 2, 2, 2, 79], id='source6', facecolor=(0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0), capstyle='butt', fill=False)
+            c.path([[14.0, 9.0], [15.0, 9.0], [15.0, 10.0], [14.0, 10.0], [14.0, 9.0]], [1, 2, 2, 2, 79], id='source7', alpha=1, zorder=1, edgecolor='none', linewidth=0.0, capstyle='butt')
+            c.path([[14.0, 9.0], [15.0, 9.0], [15.0, 10.0], [14.0, 10.0], [14.0, 9.0]], [1, 2, 2, 2, 79], id='source7', facecolor=(0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0), capstyle='butt', fill=False)
+            for object_id, points in self._geometry_01:
+                c.line(points, id=object_id)
+            for object_id, text, anchor in [('label0', 'A', (1.0, -0.7)), ('label1', 'B', (7.0, -0.7)), ('label2', 'C', (13.0, -0.7)), ('label3', 'D', (19.0, -0.7)), ('label4', 'E', (25.0, -0.7))]:
+                c.text(text, anchor, id=object_id, rotation_mode='default', offset_pt=(0, 0), annotation_clip=None)
+            return c if _canvas else c.save(output_path)
 
     def get_scene(self):
-        return json.loads(self.scene_path.read_text(encoding='utf-8'))
+        return json.loads(self.scene_path.read_text(encoding='utf-8-sig'))
 
-    def draw(self, num=0, output_path=None):
-        if output_path is None and isinstance(num, (str, Path)):
-            output_path = num
-        output = Path(output_path) if output_path else HERE.parents[1] / '.runtime/mathvision_redraw' / 'Plane193.png'
-        spec = importlib.util.spec_from_file_location('mathvision_native_runtime', HERE / 'mathvision_renderers/shared_e4e003f51742cf00/runtime.py')
-        runtime = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(runtime)
-        return runtime.draw(HERE / 'mathvision_renderers/shared_e4e003f51742cf00/items/Plane193', HERE / 'mathvision_renderers/shared_e4e003f51742cf00/native', output, formal_scene=self.scene_path, original_image=HERE / '../originals/Plane193.jpg')
-
-    def redraw(self, output_path=None):
-        return self.draw(output_path=output_path)
+    def build_scene(self):
+        canvas = self.draw(_canvas=True)
+        return (canvas.fig, canvas.ax)
 if __name__ == '__main__':
-    import sys
-    print(Plane193().draw(output_path=sys.argv[1] if len(sys.argv) > 1 else None))
+    print(Plane193().draw(sys.argv[1] if len(sys.argv) > 1 else None))

@@ -144,8 +144,8 @@ class IntegrationTests(unittest.TestCase):
         runtime=ROOT.parents[1]/'.runtime/partial_style_upgrade'
         runtime.mkdir(parents=True,exist_ok=True)
         with tempfile.TemporaryDirectory(dir=runtime) as temp:
-            result=render_special_recipe(recipe,FilePath(temp)/'test.png')
-            self.assertTrue(result['matches_accepted'])
+            with self.assertRaises(WorkbenchError):
+                render_special_recipe(recipe,FilePath(temp)/'test.png')
         self.assertEqual(before,self.adapter.make_manifest())
         self.assertEqual(self.meta['original_pixel_sha256'],self.adapter.inspect_question(self.qid)['original_pixel_sha256'])
         malformed=copy.deepcopy(p); malformed['params']['actions'][0]['interval']['start']=True
@@ -153,7 +153,7 @@ class IntegrationTests(unittest.TestCase):
         malformed=copy.deepcopy(p); malformed['params']['actions'][0]['interval']['path_sha256']='0'*64
         with self.assertRaises(WorkbenchError): self.renderer.normalize(malformed)
 
-    def test_legacy_pair_is_restricted_and_preserves_pixels(self):
+    def test_unpersisted_legacy_recipe_is_rejected(self):
         from workbench_io import GENERATOR_VERSION, SCHEMA_VERSION
         target=next(o['id'] for o in self.meta['objects'] if o['styleable'])
         plugin={'plugin_schema_version':SCHEMA_VERSION,'question_id':self.qid,'category':'C','operation':'C_manual',
@@ -169,7 +169,8 @@ class IntegrationTests(unittest.TestCase):
         runtime.mkdir(parents=True,exist_ok=True)
         with tempfile.TemporaryDirectory(dir=runtime) as temp:
             output=FilePath(temp)/'legacy-test.png'
-            self.assertTrue(render_special_recipe(recipe,output)['matches_accepted'])
+            with self.assertRaises(WorkbenchError):
+                render_special_recipe(recipe,output)
             with self.assertRaises(WorkbenchError):
                 render_special_recipe(recipe|{'renderer_sha256':'0'*64},output)
             with self.assertRaises(WorkbenchError):

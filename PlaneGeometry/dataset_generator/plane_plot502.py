@@ -1,44 +1,121 @@
-"""Frozen Author designed question; importing does not write files."""
+"""Frozen question Plane502; unified protocol 2.0.0. Original metadata and PNG retained."""
 from pathlib import Path
-import importlib.util
+import sys
 import json
-ROOT = Path(__file__).resolve().parent
-
-def _renderer():
-    path = ROOT / 'mathverse_renderers/plane_arrows/common_renderer.py'
-    spec = importlib.util.spec_from_file_location('_authored_extension_renderer', path)
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module
-
-def build_scene():
-    return _renderer().render_scene(json.loads((ROOT / 'scenes/Plane502.json').read_text(encoding='utf-8')))
+import numpy as np
+_PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+from dataset_tools.drawing import Canvas, ANALYTICS, PLANE, SOLID, VectorPath, VectorTransform, VectorBox
 
 class Plane502:
+
     def __init__(self):
-        attributes = {'id': 'Plane502', 'source_dataset': 'Author Designed', 'source_key': 'authored-extension:Plane264:ext04', 'question': 'Two shapes have been placed on the 5 by 5 board as shown. Which of the five pieces can be added so that none of the remaining four pieces has space to fit? Pieces may be rotated or turned over, but must cover complete squares without overlap.\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E', 'answer': 'E', 'answer_type': 'choice', 'choices': {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'}}
-        for key, value in attributes.items():
-            setattr(self, key, value)
+        self.id = 'Plane502'
+        self.source_dataset = 'Author Designed'
+        self.source_key = 'authored-extension:Plane264:ext04'
+        self.question = 'Two shapes have been placed on the 5 by 5 board as shown. Which of the five pieces can be added so that none of the remaining four pieces has space to fit? Pieces may be rotated or turned over, but must cover complete squares without overlap.\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E'
+        self.answer = 'E'
+        self.answer_type = 'choice'
+        self.choices = {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'}
         self.query = self.question
+        self._geometry_01 = [('opt0_0', [[1.0, 0.0], [2.0, 0.0], [2.0, 1.0], [1.0, 1.0], [1.0, 0.0]], [1, 2, 2, 2, 79]),
+         ('opt0_1', [[1.0, 1.0], [2.0, 1.0], [2.0, 2.0], [1.0, 2.0], [1.0, 1.0]], [1, 2, 2, 2, 79]),
+         ('opt0_2', [[1.0, 2.0], [2.0, 2.0], [2.0, 3.0], [1.0, 3.0], [1.0, 2.0]], [1, 2, 2, 2, 79]),
+         ('opt0_3', [[2.0, 0.0], [3.0, 0.0], [3.0, 1.0], [2.0, 1.0], [2.0, 0.0]], [1, 2, 2, 2, 79]),
+         ('opt0_4', [[2.0, 2.0], [3.0, 2.0], [3.0, 3.0], [2.0, 3.0], [2.0, 2.0]], [1, 2, 2, 2, 79]),
+         ('opt1_0', [[6.1, 1.0], [7.1, 1.0], [7.1, 2.0], [6.1, 2.0], [6.1, 1.0]], [1, 2, 2, 2, 79]),
+         ('opt1_1', [[7.1, 0.0], [8.1, 0.0], [8.1, 1.0], [7.1, 1.0], [7.1, 0.0]], [1, 2, 2, 2, 79]),
+         ('opt1_2', [[7.1, 1.0], [8.1, 1.0], [8.1, 2.0], [7.1, 2.0], [7.1, 1.0]], [1, 2, 2, 2, 79]),
+         ('opt1_3', [[7.1, 2.0], [8.1, 2.0], [8.1, 3.0], [7.1, 3.0], [7.1, 2.0]], [1, 2, 2, 2, 79]),
+         ('opt1_4', [[8.1, 1.0], [9.1, 1.0], [9.1, 2.0], [8.1, 2.0], [8.1, 1.0]], [1, 2, 2, 2, 79]),
+         ('opt2_0', [[12.7, 0.0], [13.7, 0.0], [13.7, 1.0], [12.7, 1.0], [12.7, 0.0]], [1, 2, 2, 2, 79]),
+         ('opt2_1', [[12.7, 1.0], [13.7, 1.0], [13.7, 2.0], [12.7, 2.0], [12.7, 1.0]], [1, 2, 2, 2, 79]),
+         ('opt2_2', [[12.7, 2.0], [13.7, 2.0], [13.7, 3.0], [12.7, 3.0], [12.7, 2.0]], [1, 2, 2, 2, 79]),
+         ('opt2_3', [[12.7, 3.0], [13.7, 3.0], [13.7, 4.0], [12.7, 4.0], [12.7, 3.0]], [1, 2, 2, 2, 79]),
+         ('opt2_4', [[12.7, 4.0], [13.7, 4.0], [13.7, 5.0], [12.7, 5.0], [12.7, 4.0]], [1, 2, 2, 2, 79]),
+         ('opt3_0',
+          [[17.299999999999997, 1.0],
+           [18.299999999999997, 1.0],
+           [18.299999999999997, 2.0],
+           [17.299999999999997, 2.0],
+           [17.299999999999997, 1.0]],
+          [1, 2, 2, 2, 79]),
+         ('opt3_1',
+          [[18.299999999999997, 1.0],
+           [19.299999999999997, 1.0],
+           [19.299999999999997, 2.0],
+           [18.299999999999997, 2.0],
+           [18.299999999999997, 1.0]],
+          [1, 2, 2, 2, 79]),
+         ('opt3_2',
+          [[19.299999999999997, 0.0],
+           [20.299999999999997, 0.0],
+           [20.299999999999997, 1.0],
+           [19.299999999999997, 1.0],
+           [19.299999999999997, 0.0]],
+          [1, 2, 2, 2, 79]),
+         ('opt3_3',
+          [[19.299999999999997, 1.0],
+           [20.299999999999997, 1.0],
+           [20.299999999999997, 2.0],
+           [19.299999999999997, 2.0],
+           [19.299999999999997, 1.0]],
+          [1, 2, 2, 2, 79]),
+         ('opt3_4',
+          [[19.299999999999997, 2.0],
+           [20.299999999999997, 2.0],
+           [20.299999999999997, 3.0],
+           [19.299999999999997, 3.0],
+           [19.299999999999997, 2.0]],
+          [1, 2, 2, 2, 79]),
+         ('opt4_0', [[23.4, 0.0], [24.4, 0.0], [24.4, 1.0], [23.4, 1.0], [23.4, 0.0]], [1, 2, 2, 2, 79]),
+         ('opt4_1', [[23.4, 1.0], [24.4, 1.0], [24.4, 2.0], [23.4, 2.0], [23.4, 1.0]], [1, 2, 2, 2, 79]),
+         ('opt4_2', [[24.4, 0.0], [25.4, 0.0], [25.4, 1.0], [24.4, 1.0], [24.4, 0.0]], [1, 2, 2, 2, 79]),
+         ('opt4_3', [[24.4, 1.0], [25.4, 1.0], [25.4, 2.0], [24.4, 2.0], [24.4, 1.0]], [1, 2, 2, 2, 79]),
+         ('opt4_4', [[24.4, 2.0], [25.4, 2.0], [25.4, 3.0], [24.4, 3.0], [24.4, 2.0]], [1, 2, 2, 2, 79])]
         self.subject = 'PlaneGeometry'
         self.level = None
-        self.scene_path = ROOT / 'scenes/Plane502.json'
+        self.scene_path = _PROJECT_ROOT / 'PlaneGeometry' / 'dataset_generator/scenes/Plane502.json'
+
+    def draw(self, output_path=None, *, variant=None, _canvas=False):
+        if output_path is None and (not _canvas):
+            output_path = _PROJECT_ROOT / '.runtime/reproduced' / 'PlaneGeometry' / (self.id + ('_' + variant if variant else '') + '.png')
+        if variant is not None:
+            if _canvas:
+                raise ValueError('Canvas capture is for the original only')
+            from dataset_tools.unified_replay import draw_slot
+            return draw_slot('PlaneGeometry', self.id, variant, output_path)
+        with Canvas(PLANE, xlim=[0.3644622093023262, 26.073037790697676], ylim=[-6.525294735142118, 19.18328084625323], axes_position=[0.05, 0.05000000000000006, 0.9, 0.8999999999999999], coordinate_axes=False) as c:
+            for object_id, vertices, codes in [('board0_0', [[11.0, 9.0], [12.0, 9.0], [12.0, 10.0], [11.0, 10.0], [11.0, 9.0]], [1, 2, 2, 2, 79]), ('board0_1', [[11.0, 10.0], [12.0, 10.0], [12.0, 11.0], [11.0, 11.0], [11.0, 10.0]], [1, 2, 2, 2, 79]), ('board0_2', [[11.0, 11.0], [12.0, 11.0], [12.0, 12.0], [11.0, 12.0], [11.0, 11.0]], [1, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id, facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[11.0, 12.0], [12.0, 12.0], [12.0, 13.0], [11.0, 13.0], [11.0, 12.0]], [1, 2, 2, 2, 79], id='board0_3', facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0], capstyle='butt')
+            c.path([[11.0, 13.0], [12.0, 13.0], [12.0, 14.0], [11.0, 14.0], [11.0, 13.0]], [1, 2, 2, 2, 79], id='board0_4', facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0], capstyle='butt')
+            for object_id, vertices, codes in [('board1_0', [[12.0, 9.0], [13.0, 9.0], [13.0, 10.0], [12.0, 10.0], [12.0, 9.0]], [1, 2, 2, 2, 79]), ('board1_1', [[12.0, 10.0], [13.0, 10.0], [13.0, 11.0], [12.0, 11.0], [12.0, 10.0]], [1, 2, 2, 2, 79]), ('board1_2', [[12.0, 11.0], [13.0, 11.0], [13.0, 12.0], [12.0, 12.0], [12.0, 11.0]], [1, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id, facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            for object_id, vertices, codes in [('board1_3', [[12.0, 12.0], [13.0, 12.0], [13.0, 13.0], [12.0, 13.0], [12.0, 12.0]], [1, 2, 2, 2, 79]), ('board1_4', [[12.0, 13.0], [13.0, 13.0], [13.0, 14.0], [12.0, 14.0], [12.0, 13.0]], [1, 2, 2, 2, 79]), ('board2_0', [[13.0, 9.0], [14.0, 9.0], [14.0, 10.0], [13.0, 10.0], [13.0, 9.0]], [1, 2, 2, 2, 79]), ('board2_1', [[13.0, 10.0], [14.0, 10.0], [14.0, 11.0], [13.0, 11.0], [13.0, 10.0]], [1, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id, facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0], capstyle='butt')
+            c.path([[13.0, 11.0], [14.0, 11.0], [14.0, 12.0], [13.0, 12.0], [13.0, 11.0]], [1, 2, 2, 2, 79], id='board2_2', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[13.0, 12.0], [14.0, 12.0], [14.0, 13.0], [13.0, 13.0], [13.0, 12.0]], [1, 2, 2, 2, 79], id='board2_3', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[13.0, 13.0], [14.0, 13.0], [14.0, 14.0], [13.0, 14.0], [13.0, 13.0]], [1, 2, 2, 2, 79], id='board2_4', facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0], capstyle='butt')
+            c.path([[14.0, 9.0], [15.0, 9.0], [15.0, 10.0], [14.0, 10.0], [14.0, 9.0]], [1, 2, 2, 2, 79], id='board3_0', facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0], capstyle='butt')
+            for object_id, vertices, codes in [('board3_1', [[14.0, 10.0], [15.0, 10.0], [15.0, 11.0], [14.0, 11.0], [14.0, 10.0]], [1, 2, 2, 2, 79]), ('board3_2', [[14.0, 11.0], [15.0, 11.0], [15.0, 12.0], [14.0, 12.0], [14.0, 11.0]], [1, 2, 2, 2, 79]), ('board3_3', [[14.0, 12.0], [15.0, 12.0], [15.0, 13.0], [14.0, 13.0], [14.0, 12.0]], [1, 2, 2, 2, 79]), ('board3_4', [[14.0, 13.0], [15.0, 13.0], [15.0, 14.0], [14.0, 14.0], [14.0, 13.0]], [1, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id, facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[15.0, 9.0], [16.0, 9.0], [16.0, 10.0], [15.0, 10.0], [15.0, 9.0]], [1, 2, 2, 2, 79], id='board4_0', facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0], capstyle='butt')
+            c.path([[15.0, 10.0], [16.0, 10.0], [16.0, 11.0], [15.0, 11.0], [15.0, 10.0]], [1, 2, 2, 2, 79], id='board4_1', facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0], capstyle='butt')
+            for object_id, vertices, codes in [('board4_2', [[15.0, 11.0], [16.0, 11.0], [16.0, 12.0], [15.0, 12.0], [15.0, 11.0]], [1, 2, 2, 2, 79]), ('board4_3', [[15.0, 12.0], [16.0, 12.0], [16.0, 13.0], [15.0, 13.0], [15.0, 12.0]], [1, 2, 2, 2, 79]), ('board4_4', [[15.0, 13.0], [16.0, 13.0], [16.0, 14.0], [15.0, 14.0], [15.0, 13.0]], [1, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id, facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            for object_id, vertices, codes in self._geometry_01:
+                c.path(vertices, codes, id=object_id, facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0], capstyle='butt')
+            for object_id, text, anchor in [(None, 'A', [2.0, -1.1]), (None, 'B', [7.6, -1.1]), (None, 'C', [13.2, -1.1]), (None, 'D', [18.799999999999997, -1.1]), (None, 'E', [24.4, -1.1])]:
+                c.text(text, anchor, id=object_id, rotation_mode='default')
+            return c if _canvas else c.save(output_path)
 
     def get_scene(self):
-        return json.loads(self.scene_path.read_text(encoding='utf-8'))
+        return json.loads(self.scene_path.read_text(encoding='utf-8-sig'))
 
     def build_scene(self):
-        return build_scene()
-
-    def draw(self, num=0, output_path=None):
-        if output_path is None and isinstance(num, (str, Path)):
-            output_path = num
-        destination = Path(output_path) if output_path else ROOT.parents[1] / '.runtime/author_designed_redraw/Plane502.png'
-        return _renderer().draw(self.scene_path, destination)
-
-    def redraw(self, output_path=None):
-        return self.draw(output_path=output_path)
-
+        canvas = self.draw(_canvas=True)
+        return (canvas.fig, canvas.ax)
 if __name__ == '__main__':
-    import sys
-    print(Plane502().draw(output_path=sys.argv[1] if len(sys.argv) > 1 else None))
+    print(Plane502().draw(sys.argv[1] if len(sys.argv) > 1 else None))

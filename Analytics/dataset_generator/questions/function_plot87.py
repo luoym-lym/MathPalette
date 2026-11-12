@@ -1,76 +1,44 @@
-"""Deterministic frozen-scene MathVista redraw. Importing does not write files."""
+"""Frozen question Ana87; unified protocol 2.0.0. Original metadata and PNG retained."""
 from pathlib import Path
-import json
 import sys
+import json
 import numpy as np
-
-_HELPERS = Path(__file__).resolve().parents[1]
-if str(_HELPERS) not in sys.path:
-    sys.path.insert(0, str(_HELPERS))
-from common_renderer import (
-    open_canvas,
-    plot_curve,
-    scatter_points,
-    fill_region,
-    label,
-    figure_label,
-    finalize,
-)
-
-_SCENE_PATH = _HELPERS / "scenes" / "Ana87.json"
-
+_PROJECT_ROOT = Path(__file__).resolve().parents[3]
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+from dataset_tools.drawing import Canvas, ANALYTICS, PLANE, SOLID, VectorPath, VectorTransform, VectorBox
 
 class Ana87:
+
     def __init__(self):
         self.id = 'Ana87'
-        self.source_dataset = "MathVista"
+        self.source_dataset = 'MathVista'
         self.source_key = 'testmini/223'
         self.question = 'For the function f shown in the graph, what is f(2)?'
-        self.query = self.question
         self.answer = '3'
         self.answer_type = 'number'
-        self.subject = "Analytics"
+        self.query = self.question
+        self.subject = 'Analytics'
         self.level = None
-        self.scene_path = str(_SCENE_PATH)
+        self.scene_path = _PROJECT_ROOT / 'Analytics' / 'dataset_generator/scenes/Ana87.json'
+
+    def draw(self, output_path=None, *, variant=None, _canvas=False):
+        if output_path is None and (not _canvas):
+            output_path = _PROJECT_ROOT / '.runtime/reproduced' / 'Analytics' / (self.id + ('_' + variant if variant else '') + '.png')
+        if variant is not None:
+            if _canvas:
+                raise ValueError('Canvas capture is for the original only')
+            from dataset_tools.unified_replay import draw_slot
+            return draw_slot('Analytics', self.id, variant, output_path)
+        with Canvas(ANALYTICS, xlim=[-8, 8], ylim=[-8, 8], xlabel='x', ylabel='y') as c:
+            c.line([[-8, 3], [8, 3]], id='object_000', solid_capstyle='butt')
+            return c if _canvas else c.save(output_path)
 
     def get_scene(self):
-        return json.loads(_SCENE_PATH.read_text(encoding="utf-8"))
+        return json.loads(self.scene_path.read_text(encoding='utf-8-sig'))
 
-    def draw(self, num=0, output_path=None):
-        if output_path is None and isinstance(num, (str, Path)):
-            output_path = num
-        scene = self.get_scene()
-        fig, ax = open_canvas(**scene["axes"])
-        for obj in scene["objects"]:
-            kind = obj["type"]
-            if kind == "curve":
-                points = np.asarray(obj["points"])
-                if len(points):
-                    plot_curve(ax, points[:, 0], points[:, 1])
-            elif kind == "points":
-                points = np.asarray(obj["points"])
-                if len(points):
-                    scatter_points(ax, points[:, 0], points[:, 1], open_marker=obj["open"])
-                    ax.collections[-1].set_clip_on(obj["clip_on"])
-            elif kind == "region":
-                fill_region(ax, obj["x"], obj["y1"], obj["y2"])
-            else:
-                raise ValueError(f"Unsupported frozen analytic object: {kind}")
-        for entry in scene["labels"]:
-            label(ax, entry["x"], entry["y"], entry["text"], ha=entry["ha"], va=entry["va"])
-        for text in scene["figure_labels"]:
-            figure_label(fig, text)
-        target = (
-            Path(output_path)
-            if output_path
-            else _HELPERS.parents[1] / ".runtime" / "reproduced" / "Analytics" / f"{self.id}.png"
-        )
-        return finalize(fig, target)
-
-
-def draw(num=0, output_path=None):
-    return Ana87().draw(num=num, output_path=output_path)
-
-
-if __name__ == "__main__":
-    print(draw(output_path=sys.argv[1] if len(sys.argv) > 1 else None))
+    def build_scene(self):
+        canvas = self.draw(_canvas=True)
+        return (canvas.fig, canvas.ax)
+if __name__ == '__main__':
+    print(Ana87().draw(sys.argv[1] if len(sys.argv) > 1 else None))

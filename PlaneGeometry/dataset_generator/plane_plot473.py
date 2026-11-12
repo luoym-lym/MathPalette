@@ -1,31 +1,56 @@
-"""Frozen native MathVision redraw; importing does not write files."""
+"""Frozen question Plane473; unified protocol 2.0.0. Original metadata and PNG retained."""
 from pathlib import Path
-import importlib.util
+import sys
 import json
-HERE = Path(__file__).resolve().parent
+import numpy as np
+_PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+from dataset_tools.drawing import Canvas, ANALYTICS, PLANE, SOLID, VectorPath, VectorTransform, VectorBox
 
 class Plane473:
 
     def __init__(self):
-        self.__dict__.update({'id': 'Plane473', 'source_dataset': 'MathVision', 'question': 'In the figure, what is the ratio of the area of the gray squares to the area of the white squares?\nChoices:\nA:3:10\nB:3:8\nC:3:7\nD:3:5\nE:1:1', 'answer': 'D', 'answer_type': 'choice', 'subject': 'PlaneGeometry', 'choices': {'A': '3:10', 'B': '3:8', 'C': '3:7', 'D': '3:5', 'E': '1:1'}, 'source_key': 'test:2687', 'source_category': 'combinatorial geometry', 'source_revision': '2837ddb3f13abaf6b3997c12d80753e5470bd46a'})
+        self.id = 'Plane473'
+        self.source_dataset = 'MathVision'
+        self.source_key = 'test:2687'
+        self.question = 'In the figure, what is the ratio of the area of the gray squares to the area of the white squares?\nChoices:\nA:3:10\nB:3:8\nC:3:7\nD:3:5\nE:1:1'
+        self.answer = 'D'
+        self.answer_type = 'choice'
+        self.choices = {'A': '3:10', 'B': '3:8', 'C': '3:7', 'D': '3:5', 'E': '1:1'}
         self.query = self.question
+        self.subject = 'PlaneGeometry'
         self.level = None
-        self.scene_path = HERE / 'scenes/Plane473.json'
+        self.scene_path = _PROJECT_ROOT / 'PlaneGeometry' / 'dataset_generator/scenes/Plane473.json'
+
+    def draw(self, output_path=None, *, variant=None, _canvas=False):
+        if output_path is None and (not _canvas):
+            output_path = _PROJECT_ROOT / '.runtime/reproduced' / 'PlaneGeometry' / (self.id + ('_' + variant if variant else '') + '.png')
+        if variant is not None:
+            if _canvas:
+                raise ValueError('Canvas capture is for the original only')
+            from dataset_tools.unified_replay import draw_slot
+            return draw_slot('PlaneGeometry', self.id, variant, output_path)
+        with Canvas(PLANE, xlim=[-2.967547037306861, 2.967547037306861], ylim=[-0.13911991256067102, 5.795974162053051], axes_position=[0.050000000000000114, 0.05, 0.8999999999999998, 0.9], coordinate_axes=False) as c:
+            for object_id, vertices, codes in [('c00', [[0.0, 0.0], [0.7071067811865475, 0.7071067811865475], [0.0, 1.414213562373095], [-0.7071067811865475, 0.7071067811865475], [0.0, 0.0]], [1, 2, 2, 2, 79]), ('c01', [[-0.7071067811865475, 0.7071067811865475], [0.0, 1.414213562373095], [-0.7071067811865475, 2.1213203435596424], [-1.414213562373095, 1.414213562373095], [-0.7071067811865475, 0.7071067811865475]], [1, 2, 2, 2, 79]), ('c02', [[-1.414213562373095, 1.414213562373095], [-0.7071067811865475, 2.1213203435596424], [-1.414213562373095, 2.82842712474619], [-2.1213203435596424, 2.1213203435596424], [-1.414213562373095, 1.414213562373095]], [1, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id, facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[-2.1213203435596424, 2.1213203435596424], [-1.414213562373095, 2.82842712474619], [-2.1213203435596424, 3.5355339059327373], [-2.82842712474619, 2.82842712474619], [-2.1213203435596424, 2.1213203435596424]], [1, 2, 2, 2, 79], id='c03', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 0.45], linewidth=0.0, capstyle='butt')
+            c.path([[-2.1213203435596424, 2.1213203435596424], [-1.414213562373095, 2.82842712474619], [-2.1213203435596424, 3.5355339059327373], [-2.82842712474619, 2.82842712474619], [-2.1213203435596424, 2.1213203435596424]], [1, 2, 2, 2, 79], id='c03', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            for object_id, vertices, codes in [('c10', [[0.7071067811865475, 0.7071067811865475], [1.414213562373095, 1.414213562373095], [0.7071067811865475, 2.1213203435596424], [0.0, 1.414213562373095], [0.7071067811865475, 0.7071067811865475]], [1, 2, 2, 2, 79]), ('c13', [[-1.414213562373095, 2.82842712474619], [-0.7071067811865475, 3.5355339059327373], [-1.414213562373095, 4.242640687119285], [-2.1213203435596424, 3.5355339059327373], [-1.414213562373095, 2.82842712474619]], [1, 2, 2, 2, 79]), ('c20', [[1.414213562373095, 1.414213562373095], [2.1213203435596424, 2.1213203435596424], [1.414213562373095, 2.82842712474619], [0.7071067811865475, 2.1213203435596424], [1.414213562373095, 1.414213562373095]], [1, 2, 2, 2, 79]), ('c23', [[-0.7071067811865475, 3.5355339059327373], [0.0, 4.242640687119285], [-0.7071067811865475, 4.949747468305833], [-1.414213562373095, 4.242640687119285], [-0.7071067811865475, 3.5355339059327373]], [1, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id, facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[2.1213203435596424, 2.1213203435596424], [2.82842712474619, 2.82842712474619], [2.1213203435596424, 3.5355339059327373], [1.414213562373095, 2.82842712474619], [2.1213203435596424, 2.1213203435596424]], [1, 2, 2, 2, 79], id='c30', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 0.45], linewidth=0.0, capstyle='butt')
+            c.path([[2.1213203435596424, 2.1213203435596424], [2.82842712474619, 2.82842712474619], [2.1213203435596424, 3.5355339059327373], [1.414213562373095, 2.82842712474619], [2.1213203435596424, 2.1213203435596424]], [1, 2, 2, 2, 79], id='c30', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            for object_id, vertices, codes in [('c31', [[1.414213562373095, 2.82842712474619], [2.1213203435596424, 3.5355339059327373], [1.414213562373095, 4.242640687119285], [0.7071067811865475, 3.5355339059327373], [1.414213562373095, 2.82842712474619]], [1, 2, 2, 2, 79]), ('c32', [[0.7071067811865475, 3.5355339059327373], [1.414213562373095, 4.242640687119285], [0.7071067811865475, 4.949747468305833], [0.0, 4.242640687119285], [0.7071067811865475, 3.5355339059327373]], [1, 2, 2, 2, 79]), ('c33', [[0.0, 4.242640687119285], [0.7071067811865475, 4.949747468305833], [0.0, 5.65685424949238], [-0.7071067811865475, 4.949747468305833], [0.0, 4.242640687119285]], [1, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id, facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[0.0, 1.414213562373095], [1.414213562373095, 2.82842712474619], [0.0, 4.242640687119285], [-1.414213562373095, 2.82842712474619], [0.0, 1.414213562373095]], [1, 2, 2, 2, 79], id='center', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 0.45], linewidth=0.0, capstyle='butt')
+            c.path([[0.0, 1.414213562373095], [1.414213562373095, 2.82842712474619], [0.0, 4.242640687119285], [-1.414213562373095, 2.82842712474619], [0.0, 1.414213562373095]], [1, 2, 2, 2, 79], id='center', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            return c if _canvas else c.save(output_path)
 
     def get_scene(self):
-        return json.loads(self.scene_path.read_text(encoding='utf-8'))
+        return json.loads(self.scene_path.read_text(encoding='utf-8-sig'))
 
-    def draw(self, num=0, output_path=None):
-        if output_path is None and isinstance(num, (str, Path)):
-            output_path = num
-        output = Path(output_path) if output_path else HERE.parents[1] / '.runtime/mathvision_redraw' / 'Plane473.png'
-        spec = importlib.util.spec_from_file_location('mathvision_native_runtime', HERE / 'mathvision_renderers/shared_e4e003f51742cf00/runtime.py')
-        runtime = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(runtime)
-        return runtime.draw(HERE / 'mathvision_renderers/shared_e4e003f51742cf00/items/Plane473', HERE / 'mathvision_renderers/shared_e4e003f51742cf00/native', output, formal_scene=self.scene_path, original_image=HERE / '../originals/Plane473.jpg')
-
-    def redraw(self, output_path=None):
-        return self.draw(output_path=output_path)
+    def build_scene(self):
+        canvas = self.draw(_canvas=True)
+        return (canvas.fig, canvas.ax)
 if __name__ == '__main__':
-    import sys
-    print(Plane473().draw(output_path=sys.argv[1] if len(sys.argv) > 1 else None))
+    print(Plane473().draw(sys.argv[1] if len(sys.argv) > 1 else None))

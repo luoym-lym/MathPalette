@@ -69,6 +69,15 @@ HTTP 请求直接发送顶层 `enable_thinking` 和 `reasoning_effort`，不发�
 
 每个请求是独立新对话，仅发送统一解题提示、原题题干和一张图。同题原图与 Special 使用相同题干和设置。标准答案及变体操作不进入请求，标准答案只作为本地 `reference_answer` 保存。
 
+按用户确认采用 lmms-eval MathVision 的通用指令。请求只包含一条 user 消息，文本内容为下列指令、一个换行及原题题干；所有题型使用相同前缀，选择题沿用原题选项，不追加选择题指令。
+
+```text
+Please solve the problem step by step and put your answer in one "\boxed{}".
+{question}
+```
+
+指令来源为 [lmms-eval 固定版本 c26b6b2 的 MathVision 模板](https://github.com/EvolvingLMMs-Lab/lmms-eval/blob/c26b6b2713c3ec155962ff990f956bf78e0efe45/lmms_eval/tasks/mathvision/utils.py)。运行配置保存 `system_prompt=null` 和实际的 `user_prompt_prefix`。
+
 分别保存接口提供的 `reasoning_content` 与最终 `content`，以及用量、返回模型、请求 ID、原始 SSE 和所有尝试。只有正常结束、两个字段都非空才算完整成功；不将最终回答中的解题说明冒充接口思考字段。`reasoning_content` 表示接口提供的推理文本，不额外声称它完整反映模型内部计算。
 
 输出结构与 [DeepSeek 输出文件说明](INFERENCE.md#输出文件)一致，但位于独立的 `.runtime/inference/qwen3_8_max_0902/`：
@@ -78,7 +87,7 @@ HTTP 请求直接发送顶层 `enable_thinking` 和 `reasoning_effort`，不发�
 - `summary.json`：进度与尝试次数，不计算正确率。
 - `samples/<样本ID>/trial_01/`：持久化结果及各次请求的原始流、起止时间、传输状态。
 
-超时从 HTTP 实际发出时计时，通过独立子进程控制总时长。超时、网络失败、暂时性 HTTP 错误或未结束的流可在剩余预算内重试，沿用完全相同的请求与图像。每次尝试单独保存，续跑不清零；已完成的另一轮不重测。
+HTTP 子进程发出请求开始信号，父进程使用自身的单调时钟执行总时限，完整响应的耗时由子进程自身的起止时间计算。超时、网络失败、暂时性 HTTP 错误或未结束的流可在剩余预算内重试，沿用完全相同的请求与图像。每次尝试单独保存，续跑不清零；已完成的另一轮不重测。
 
 Ctrl+C 会关闭本地连接并保留已收到的片段；重新执行相同命令即可续跑。关闭本地连接不代表服务端已停止计算或计费。缺少思考或回答、认证错误等会明确失败并停止后续调用；数学错答和输出截断不会触发重测或自动改参。
 

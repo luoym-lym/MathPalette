@@ -1,60 +1,139 @@
-"""User-approved frozen original; importing this module writes no files."""
+"""Frozen question Solid274; unified protocol 2.0.0. Original metadata and PNG retained."""
 from pathlib import Path
-import importlib.util
-import json
 import sys
-ROOT = Path(__file__).resolve().parent
-ITEM = ROOT / 'author_extensions95_v1/items/Solid274'
-
-def _engine():
-    path = ROOT / 'author_extensions95_v1/engine.py'
-    spec = importlib.util.spec_from_file_location('_extensions95_Solid274', path)
-    module = importlib.util.module_from_spec(spec)
-    sys.modules[spec.name] = module
-    spec.loader.exec_module(module)
-    return module
-
-def build_scene():
-    return _engine().capture(ITEM)
-
-def draw_original(output_path):
-    target = Path(output_path).resolve()
-    if target.suffix.lower() not in ('.png', '.svg'):
-        raise ValueError('Use a PNG or SVG output')
-    if target.is_relative_to(ROOT.parent):
-        raise ValueError('Redraw outside formal source directories')
-    data = _engine().render(ITEM, vector=target.suffix.lower() == '.svg')
-    target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_bytes(data)
-    return str(target)
+import json
+import numpy as np
+_PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+from dataset_tools.drawing import Canvas, ANALYTICS, PLANE, SOLID, VectorPath, VectorTransform, VectorBox
 
 class Solid274:
+
     def __init__(self):
-        row = next(json.loads(line) for line in (ROOT.parent / 'dataset.jsonl').read_text(encoding='utf-8-sig').splitlines()
-                   if line.strip() and json.loads(line)['id'] == 'Solid274')
-        for key, value in row.items():
-            setattr(self, key, value)
+        self.id = 'Solid274'
+        self.source_dataset = 'Author Designed'
+        self.source_key = 'author-extensions95-v1:Solid190/extension_01'
+        self.question = 'The cuboid shown has been built using three shapes, each made from four small cubes. The dark one is only partly visible. Which of the following shapes could be the dark one? Shapes may be rotated but not reflected.\nChoices:\nA: Shape A\nB: Shape B\nC: Shape C\nD: Shape D\nE: Shape E'
+        self.answer = 'B'
+        self.answer_type = 'choice'
+        self.choices = {'A': 'Shape A', 'B': 'Shape B', 'C': 'Shape C', 'D': 'Shape D', 'E': 'Shape E'}
         self.query = self.question
+        self._geometry_01 = [('native_d9ce702bc58a3aa12c866d25e35e3657641faa24407bf454', [[6.1, 11.8], [7.1, 11.8]]),
+         ('native_6de49e3d06d401a415fc8c6d88d997447f455a7ac3dbc2ea', [[7.1, 11.8], [7.1, 12.8]]),
+         ('native_502130efd3af157b1fd62ffa5dca9663bbd4a9d857af6947', [[7.1, 12.8], [6.1, 12.8]]),
+         ('native_decb89976199be44cb3a8362219127f758b6a5ed5b484a04', [[6.1, 12.8], [6.1, 11.8]]),
+         ('native_e3ab90b28f5ebf921f8e04a8db78afa3cd5b702aad26b759', [[7.1, 12.8], [7.1, 13.8]]),
+         ('native_db28a5bd489926d24e9d441821c9a31245ef0ca9f97c00dc', [[7.1, 13.8], [6.1, 13.8]]),
+         ('native_d69ac63bab6c85d833db3bc3577899ec4658b1a9f6453577', [[6.1, 13.8], [6.1, 12.8]]),
+         ('native_3227b018a27c3909bc2a9821674b9e0ebb1e8537f796969a',
+          [[7.1, 13.8], [7.5, 14.200000000000001]]),
+         ('native_6dafa6101ede7f290ceb4b16103cfbd1beee26d516a962e5',
+          [[7.5, 14.200000000000001], [6.5, 14.200000000000001]]),
+         ('native_a4839b2e036fd9395e2cfd2d8ef9a94efe77141e5ecf762d',
+          [[6.5, 14.200000000000001], [6.1, 13.8]]),
+         ('native_3cfd0af9f263990ef46b13b496ca886899a298ae9ca3b8e7',
+          [[7.5, 14.200000000000001], [7.8999999999999995, 14.600000000000001]]),
+         ('native_86fa46468a582676902c3f4fe046f7aed576d26e990e9cc8',
+          [[7.8999999999999995, 14.600000000000001], [6.8999999999999995, 14.600000000000001]]),
+         ('native_baea3607cc01a0ec966caac0e5b68f4beea456f260483ad7',
+          [[6.8999999999999995, 14.600000000000001], [6.5, 14.200000000000001]]),
+         ('native_087372ffc1c9802fa5d79744fc0e65592d11cf790db6d59f', [[7.1, 11.8], [8.1, 11.8]]),
+         ('native_81e06ca037d375605b283956fc7abf1371a77c331994fae8', [[8.1, 11.8], [8.1, 12.8]]),
+         ('native_8e64f49bb0bc6c3a587772e88bf51b54f353c4c77c67e591', [[8.1, 12.8], [7.1, 12.8]]),
+         ('native_4595c60db16e22445ce3fd1bf1a70a8e96260adf07d184ab', [[8.1, 12.8], [8.1, 13.8]]),
+         ('native_7bfcd7badbe0ffd3b0b600a3e62fcebcb0d3a04d7caaea0d', [[8.1, 13.8], [7.1, 13.8]]),
+         ('native_2f8da5027dbe6b4634bbd6af30af1424faa7ef014ae410e0',
+          [[8.1, 13.8], [8.5, 14.200000000000001]]),
+         ('native_32be194380234954b20afbae2801a35ef88a834a61a12d67',
+          [[8.5, 14.200000000000001], [7.5, 14.200000000000001]]),
+         ('native_2e6bdaf8e78a27561a37d1f13164714dfb26473694b4db90',
+          [[8.5, 14.200000000000001], [8.899999999999999, 14.600000000000001]]),
+         ('native_8f7229e0701dd551917c527ff0c9debce9f3333e3378d94a',
+          [[8.899999999999999, 14.600000000000001], [7.8999999999999995, 14.600000000000001]]),
+         ('native_3b0542e57c3b81a6bf89a9f545a265a05dd23d0c80110afd',
+          [[9.1, 11.8], [9.5, 12.200000000000001]]),
+         ('native_f8ff77f0b5487dec363c684584aae3db11d3b4d88ce9ff81',
+          [[9.5, 12.200000000000001], [9.5, 13.200000000000001]]),
+         ('native_7afe0349951930b93775fed5b571d5ab040a58de5eb6a78a',
+          [[9.5, 13.200000000000001], [9.1, 12.8]]),
+         ('native_7cf78764795ec6be3cef4ce11e050a9ee581ab49b6b112e6', [[9.1, 12.8], [9.1, 11.8]]),
+         ('native_0cf25ed043b01b1ad52da6c4ac670a0d79388a8c753b1204', [[8.1, 11.8], [9.1, 11.8]]),
+         ('native_478cf2d751f4562d9d8847357b970b00a2ba8a302192caa6', [[9.1, 12.8], [8.1, 12.8]]),
+         ('native_5874f5a2302f48307cc89d83f14804e8bdb349ac37e4c2af',
+          [[9.5, 13.200000000000001], [9.5, 14.200000000000001]]),
+         ('native_9a619fede5cbb522dbb596411eeb51ba2edf5387871be7a5',
+          [[9.5, 14.200000000000001], [9.1, 13.8]]),
+         ('native_bc085115143b82a55a93eb843cb2d5ea80b7d599162cf566', [[9.1, 13.8], [9.1, 12.8]]),
+         ('native_d1fc5f3d42cbb36207ec88730f07e6bc0d7975841b09e821', [[9.1, 13.8], [8.1, 13.8]]),
+         ('native_4dd8e9bc9a1f9171df8365d0faec01d49866926231c3df9f',
+          [[9.5, 14.200000000000001], [8.5, 14.200000000000001]]),
+         ('native_ced460d72c7fe1a5c27b7ada25553f9985914e8c77f1ce62',
+          [[9.5, 12.200000000000001], [9.899999999999999, 12.600000000000001]]),
+         ('native_998d6b42cb08ad53453cf649531aa46cf57e6a79742f29c3',
+          [[9.899999999999999, 12.600000000000001], [9.899999999999999, 13.600000000000001]]),
+         ('native_6734203f8f40799d3c6757ad96fa75993201f4dcade07121',
+          [[9.899999999999999, 13.600000000000001], [9.5, 13.200000000000001]]),
+         ('native_1fb6e6453ad5079108235138c39668a0a8fdac03f45af3b0',
+          [[9.899999999999999, 13.600000000000001], [9.899999999999999, 14.600000000000001]]),
+         ('native_8e7d3e23261f64e5fe75a45d999e14d8ef16131ff54ea73c',
+          [[9.899999999999999, 14.600000000000001], [9.5, 14.200000000000001]]),
+         ('native_95b15240bf468c5ac1fee0b562d49ea82c13b77afe2aa8ae',
+          [[9.899999999999999, 14.600000000000001], [8.899999999999999, 14.600000000000001]])]
         self.subject = 'SolidGeometry'
         self.level = None
+        self.scene_path = _PROJECT_ROOT / 'SolidGeometry' / 'dataset_generator/scenes/Solid274.json'
+
+    def draw(self, output_path=None, *, variant=None, _canvas=False):
+        if output_path is None and (not _canvas):
+            output_path = _PROJECT_ROOT / '.runtime/reproduced' / 'SolidGeometry' / (self.id + ('_' + variant if variant else '') + '.png')
+        if variant is not None:
+            if _canvas:
+                raise ValueError('Canvas capture is for the original only')
+            from dataset_tools.unified_replay import draw_slot
+            return draw_slot('SolidGeometry', self.id, variant, output_path)
+        with Canvas(SOLID, xlim=(0.4430541001892898, 15.55694589981071), ylim=(-0.16119311395799496, 14.952698685663425), axes_position=(0.05, 0.05, 0.9, 0.9), coordinate_axes=False) as c:
+            c.path([[6.1, 11.8], [7.1, 11.8], [7.1, 12.8], [6.1, 12.8], [6.1, 11.8]], [1, 2, 2, 2, 79], id='assembly.cube_0_0_0.face_1_-1.fragment_0', zorder=1, edgecolor='none', facecolor=(0.3333333333333333, 0.3333333333333333, 0.3333333333333333, 1.0), linewidth=0.0, capstyle='butt', antialiased=False)
+            for object_id, vertices, codes in [('assembly.cube_0_0_1.face_1_-1.fragment_0', [[6.1, 12.8], [7.1, 12.8], [7.1, 13.8], [6.1, 13.8], [6.1, 12.8]], [1, 2, 2, 2, 79]), ('assembly.cube_0_0_1.face_2_1.fragment_0', [[6.1, 13.8], [7.1, 13.8], [7.5, 14.200000000000001], [6.5, 14.200000000000001], [6.1, 13.8]], [1, 2, 2, 2, 79]), ('assembly.cube_0_1_1.face_2_1.fragment_0', [[6.5, 14.200000000000001], [7.5, 14.200000000000001], [7.8999999999999995, 14.600000000000001], [6.8999999999999995, 14.600000000000001], [6.5, 14.200000000000001]], [1, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id, zorder=1, facecolor=(1.0, 1.0, 1.0, 1.0), linewidth=0.0, capstyle='butt', antialiased=False, hatch='xx', hatch_linewidth=0.6)
+            c.path([[7.1, 11.8], [8.1, 11.8], [8.1, 12.8], [7.1, 12.8], [7.1, 11.8]], [1, 2, 2, 2, 79], id='assembly.cube_1_0_0.face_1_-1.fragment_0', zorder=1, edgecolor='none', facecolor=(0.3333333333333333, 0.3333333333333333, 0.3333333333333333, 1.0), linewidth=0.0, capstyle='butt', antialiased=False)
+            for object_id, vertices, codes in [('assembly.cube_1_0_1.face_1_-1.fragment_0', [[7.1, 12.8], [8.1, 12.8], [8.1, 13.8], [7.1, 13.8], [7.1, 12.8]], [1, 2, 2, 2, 79]), ('assembly.cube_1_0_1.face_2_1.fragment_0', [[7.1, 13.8], [8.1, 13.8], [8.5, 14.200000000000001], [7.5, 14.200000000000001], [7.1, 13.8]], [1, 2, 2, 2, 79]), ('assembly.cube_1_1_1.face_2_1.fragment_0', [[7.5, 14.200000000000001], [8.5, 14.200000000000001], [8.899999999999999, 14.600000000000001], [7.8999999999999995, 14.600000000000001], [7.5, 14.200000000000001]], [1, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id, zorder=1, facecolor=(1.0, 1.0, 1.0, 1.0), linewidth=0.0, capstyle='butt', antialiased=False, hatch='xx', hatch_linewidth=0.6)
+            c.path([[9.1, 11.8], [9.5, 12.200000000000001], [9.5, 13.200000000000001], [9.1, 12.8], [9.1, 11.8]], [1, 2, 2, 2, 79], id='assembly.cube_2_0_0.face_0_1.fragment_0', zorder=1, edgecolor='none', facecolor=(0.3333333333333333, 0.3333333333333333, 0.3333333333333333, 1.0), linewidth=0.0, capstyle='butt', antialiased=False)
+            c.path([[8.1, 11.8], [9.1, 11.8], [9.1, 12.8], [8.1, 12.8], [8.1, 11.8]], [1, 2, 2, 2, 79], id='assembly.cube_2_0_0.face_1_-1.fragment_0', zorder=1, edgecolor='none', facecolor=(0.3333333333333333, 0.3333333333333333, 0.3333333333333333, 1.0), linewidth=0.0, capstyle='butt', antialiased=False)
+            for object_id, vertices, codes in [('assembly.cube_2_0_1.face_0_1.fragment_0', [[9.1, 12.8], [9.5, 13.200000000000001], [9.5, 14.200000000000001], [9.1, 13.8], [9.1, 12.8]], [1, 2, 2, 2, 79]), ('assembly.cube_2_0_1.face_1_-1.fragment_0', [[8.1, 12.8], [9.1, 12.8], [9.1, 13.8], [8.1, 13.8], [8.1, 12.8]], [1, 2, 2, 2, 79]), ('assembly.cube_2_0_1.face_2_1.fragment_0', [[8.1, 13.8], [9.1, 13.8], [9.5, 14.200000000000001], [8.5, 14.200000000000001], [8.1, 13.8]], [1, 2, 2, 2, 79]), ('assembly.cube_2_1_0.face_0_1.fragment_0', [[9.5, 12.200000000000001], [9.899999999999999, 12.600000000000001], [9.899999999999999, 13.600000000000001], [9.5, 13.200000000000001], [9.5, 12.200000000000001]], [1, 2, 2, 2, 79]), ('assembly.cube_2_1_1.face_0_1.fragment_0', [[9.5, 13.200000000000001], [9.899999999999999, 13.600000000000001], [9.899999999999999, 14.600000000000001], [9.5, 14.200000000000001], [9.5, 13.200000000000001]], [1, 2, 2, 2, 79]), ('assembly.cube_2_1_1.face_2_1.fragment_0', [[8.5, 14.200000000000001], [9.5, 14.200000000000001], [9.899999999999999, 14.600000000000001], [8.899999999999999, 14.600000000000001], [8.5, 14.200000000000001]], [1, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id, zorder=1, edgecolor='none', facecolor=(1.0, 1.0, 1.0, 1.0), linewidth=0.0, capstyle='butt', antialiased=False)
+            for object_id, points in self._geometry_01:
+                c.line(points, id=object_id)
+            for object_id, vertices, codes in [('option_A.cube_0_0_1.face_1_-1.fragment_0', [[1.3, 7.4], [2.3, 7.4], [2.3, 8.4], [1.3, 8.4], [1.3, 7.4]], [1, 2, 2, 2, 79]), ('option_A.cube_0_0_2.face_0_1.fragment_0', [[2.7, 8.8], [2.7, 9.8], [2.3, 9.4], [2.3, 8.8], [2.7, 8.8]], [1, 2, 2, 2, 79]), ('option_A.cube_0_0_2.face_0_1.fragment_1', [[2.3, 8.4], [2.7, 8.8], [2.3, 8.8], [2.3, 8.4]], [1, 2, 2, 79]), ('option_A.cube_0_0_2.face_1_-1.fragment_0', [[1.3, 8.4], [2.3, 8.4], [2.3, 9.4], [1.3, 9.4], [1.3, 8.4]], [1, 2, 2, 2, 79]), ('option_A.cube_0_0_2.face_2_1.fragment_0', [[1.3, 9.4], [2.3, 9.4], [2.7, 9.8], [1.7000000000000002, 9.8], [1.3, 9.4]], [1, 2, 2, 2, 79]), ('option_A.cube_1_0_0.face_0_1.fragment_0', [[3.3, 6.4], [3.7, 6.800000000000001], [3.7, 7.800000000000001], [3.3, 7.4], [3.3, 6.4]], [1, 2, 2, 2, 79]), ('option_A.cube_1_0_0.face_1_-1.fragment_0', [[2.3, 6.4], [3.3, 6.4], [3.3, 7.4], [2.3, 7.4], [2.3, 6.4]], [1, 2, 2, 2, 79]), ('option_A.cube_1_0_1.face_0_1.fragment_0', [[3.3, 7.4], [3.7, 7.800000000000001], [3.7, 8.8], [3.3, 8.4], [3.3, 7.4]], [1, 2, 2, 2, 79]), ('option_A.cube_1_0_1.face_1_-1.fragment_0', [[2.3, 7.4], [3.3, 7.4], [3.3, 8.4], [2.3, 8.4], [2.3, 7.4]], [1, 2, 2, 2, 79]), ('option_A.cube_1_0_1.face_2_1.fragment_0', [[2.3, 8.4], [3.3, 8.4], [3.7, 8.8], [2.7, 8.8], [2.3, 8.4]], [1, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id, zorder=1, edgecolor='none', facecolor=(0.3333333333333333, 0.3333333333333333, 0.3333333333333333, 1.0), linewidth=0.0, capstyle='butt', antialiased=False)
+            for object_id, points in [('native_361bc8b483f72f7829190120d110af98498a9b513ce0457f', [[1.3, 7.4], [2.3, 7.4]]), ('native_44399a818f49d98f10439a17075e8f70b0612bc01ccfe38a', [[2.3, 7.4], [2.3, 8.4]]), ('native_f225745973cb78e6caad85feefa2ad30233291e25931c85d', [[2.3, 8.4], [1.3, 8.4]]), ('native_43937e67cf9f1b172daa5f0c24cb9d4ece889110fa277301', [[1.3, 8.4], [1.3, 7.4]]), ('native_5e20a89d27a1eb65fa8f19b52014c33e99e297cb407d94af', [[2.7, 8.8], [2.7, 9.8]]), ('native_07455cc11ff8f48975a778bc1eb6c7416622f973d113b2c0', [[2.7, 9.8], [2.3, 9.4]]), ('native_064c03a904a6006e8dff3d3b6b6086b61dd129b6cc542977', [[2.3, 9.4], [2.3, 8.4]]), ('native_d79b3cf45da6a9b5e98d644a301149fa80f8ec30631b5ab3', [[2.3, 9.4], [1.3, 9.4]]), ('native_6782b956e0d7cffd21969e5b459dce2e128a415352dd2a70', [[1.3, 9.4], [1.3, 8.4]]), ('native_01c5c729ba994651103e7e1dbf09c04fa1e650338c1647e6', [[2.7, 9.8], [1.7000000000000002, 9.8]]), ('native_f604d31d7945e7701a503e7ef3e971b4e3df9322839adae3', [[1.7000000000000002, 9.8], [1.3, 9.4]]), ('native_f6de4330f8245e9c7b7fdb6350bdedfb63e2c597d5f9e831', [[3.3, 6.4], [3.7, 6.800000000000001]]), ('native_7ebfe9e57c4d4a0d808fd7f50693ec2bd69eebf835ae1587', [[3.7, 6.800000000000001], [3.7, 7.800000000000001]]), ('native_7806ea0ed1704bc093ad8085ed51b34e5a4fa1fffc3ec2f3', [[3.7, 7.800000000000001], [3.3, 7.4]]), ('native_0f6e740bd36f5523a9119279959052caa6b7edcb76583eaa', [[3.3, 7.4], [3.3, 6.4]]), ('native_1c54553a821708eec18d9b53ffba548a7fc4e3e4e3bf3592', [[2.3, 6.4], [3.3, 6.4]]), ('native_cb42d90f95ea570261f87a13662facbb582066cb7129375b', [[3.3, 7.4], [2.3, 7.4]]), ('native_33021dc4358d824a39a1e6681fe65845f5d403b697f6ab4e', [[2.3, 7.4], [2.3, 6.4]]), ('native_313219c39448b2d507576f5e7b2801df2f7cb3e1ef71d502', [[3.7, 7.800000000000001], [3.7, 8.8]]), ('native_8679ef03dbfc902341cde20ff04849b569e9707e42c96d95', [[3.7, 8.8], [3.3, 8.4]]), ('native_88c8d73bd66bdd04a1fa17a2bd56e1fc2fb1bc021e90b92f', [[3.3, 8.4], [3.3, 7.4]]), ('native_b993e2ba707d44c5650285244ffb526bfa004e23a0296026', [[3.3, 8.4], [2.3, 8.4]]), ('native_133e8e1aacb7efa504535ce552dbf7d24cf3b6656711dd8a', [[3.7, 8.8], [2.7, 8.8]])]:
+                c.line(points, id=object_id)
+            for object_id, vertices, codes in [('option_B.cube_0_0_0.face_1_-1.fragment_0', [[6.8, 6.4], [7.8, 6.4], [7.8, 7.4], [6.8, 7.4], [6.8, 6.4]], [1, 2, 2, 2, 79]), ('option_B.cube_0_0_1.face_0_1.fragment_0', [[8.2, 7.800000000000001], [8.2, 8.8], [7.8, 8.4], [7.8, 7.800000000000001], [8.2, 7.800000000000001]], [1, 2, 2, 2, 79]), ('option_B.cube_0_0_1.face_0_1.fragment_1', [[7.8, 7.4], [8.2, 7.800000000000001], [7.8, 7.800000000000001], [7.8, 7.4]], [1, 2, 2, 79]), ('option_B.cube_0_0_1.face_1_-1.fragment_0', [[6.8, 7.4], [7.8, 7.4], [7.8, 8.4], [6.8, 8.4], [6.8, 7.4]], [1, 2, 2, 2, 79]), ('option_B.cube_0_0_2.face_0_1.fragment_0', [[7.8, 8.4], [8.2, 8.8], [8.2, 9.8], [7.8, 9.4], [7.8, 8.4]], [1, 2, 2, 2, 79]), ('option_B.cube_0_0_2.face_1_-1.fragment_0', [[6.8, 8.4], [7.8, 8.4], [7.8, 9.4], [6.8, 9.4], [6.8, 8.4]], [1, 2, 2, 2, 79]), ('option_B.cube_0_0_2.face_2_1.fragment_0', [[6.8, 9.4], [7.8, 9.4], [8.2, 9.8], [7.2, 9.8], [6.8, 9.4]], [1, 2, 2, 2, 79]), ('option_B.cube_1_0_0.face_0_1.fragment_0', [[8.8, 6.4], [9.2, 6.800000000000001], [9.2, 7.800000000000001], [8.8, 7.4], [8.8, 6.4]], [1, 2, 2, 2, 79]), ('option_B.cube_1_0_0.face_1_-1.fragment_0', [[7.8, 6.4], [8.8, 6.4], [8.8, 7.4], [7.8, 7.4], [7.8, 6.4]], [1, 2, 2, 2, 79]), ('option_B.cube_1_0_0.face_2_1.fragment_0', [[7.8, 7.4], [8.8, 7.4], [9.2, 7.800000000000001], [8.2, 7.800000000000001], [7.8, 7.4]], [1, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id, zorder=1, edgecolor='none', facecolor=(0.3333333333333333, 0.3333333333333333, 0.3333333333333333, 1.0), linewidth=0.0, capstyle='butt', antialiased=False)
+            for object_id, points in [('native_b3fedeacc68f12cfe31675c6c4e7374b4f4036c6b7693790', [[6.8, 6.4], [7.8, 6.4]]), ('native_bce68a4cf8ee82e4f9f5f899cc30a47734a4b2784576e5db', [[7.8, 6.4], [7.8, 7.4]]), ('native_7fd30aedea5822fce41a31703f986c5b98dad1c4f36a518a', [[7.8, 7.4], [6.8, 7.4]]), ('native_e917be68150f2cab9cf1cc8ba27bb67e970fb12d151539e5', [[6.8, 7.4], [6.8, 6.4]]), ('native_9f82f9cacb8923cb55eecf119234d1bf672ed2dd3aa1bfe2', [[8.2, 7.800000000000001], [8.2, 8.8]]), ('native_556d9ce124326e31cc8bbf1627a6fc54a443b867ec99013e', [[8.2, 8.8], [7.8, 8.4]]), ('native_d7ef2694e6468d514524513015cc3ae017f5c7a473b1f675', [[7.8, 8.4], [7.8, 7.4]]), ('native_a6f104562e3fdcd06ecf8e8cbb87d523741995d42fdf82ad', [[7.8, 8.4], [6.8, 8.4]]), ('native_d541d070b0c54c8d1a54393df0d03bd5c4bffd2360cb75e9', [[6.8, 8.4], [6.8, 7.4]]), ('native_ee7bd2bd31b7f88e8c3283b2e337ec7b3205cd6569d20b4a', [[8.2, 8.8], [8.2, 9.8]]), ('native_d1df29347ef2fefa6eb6d5ef320cba2a2586c605cf2f7f37', [[8.2, 9.8], [7.8, 9.4]]), ('native_f272b60a82786e39a37ae8dfe5bc231f3f1eede4b0e0dd16', [[7.8, 9.4], [7.8, 8.4]]), ('native_c9821cbb5dbe05f0b7e2df123aa75d4430a0371750ae28b1', [[7.8, 9.4], [6.8, 9.4]]), ('native_46262048eaf5b0ba4825f487d7495529c9aad6061579cd12', [[6.8, 9.4], [6.8, 8.4]]), ('native_2e57a8b87355df7d922282b76ba75015c0d9f57df21f1a35', [[8.2, 9.8], [7.2, 9.8]]), ('native_0394077c17e1efb8f67811ea9d1cb0761bafe52c95fc0ee6', [[7.2, 9.8], [6.8, 9.4]]), ('native_2eeea7755aeb9cf389228559be78347c40141a26bbb73fc0', [[8.8, 6.4], [9.2, 6.800000000000001]]), ('native_366b20ec81b87dca07cc26668240d38103d3f0e6e93bd213', [[9.2, 6.800000000000001], [9.2, 7.800000000000001]]), ('native_05cda962da94e649fbba803dccdda3826109dfb0fd77188a', [[9.2, 7.800000000000001], [8.8, 7.4]]), ('native_8367d0f211bcd76dbc480754005d46549289db87480b2480', [[8.8, 7.4], [8.8, 6.4]]), ('native_191a44e1c55980996ce139c495877797d614b835d1f4747b', [[7.8, 6.4], [8.8, 6.4]]), ('native_f432b1847b5ef105073888d1e812e380899a9088912c33c2', [[8.8, 7.4], [7.8, 7.4]]), ('native_2ea2a94b282ef727cd78273e9e5ca83b02cd36460bade1f9', [[9.2, 7.800000000000001], [8.2, 7.800000000000001]])]:
+                c.line(points, id=object_id)
+            for object_id, vertices, codes in [('option_C.cube_0_0_0.face_1_-1.fragment_0', [[12.3, 6.4], [13.3, 6.4], [13.3, 7.4], [12.3, 7.4], [12.3, 6.4]], [1, 2, 2, 2, 79]), ('option_C.cube_0_0_1.face_0_1.fragment_0', [[13.700000000000001, 7.800000000000001], [13.700000000000001, 8.8], [13.3, 8.4], [13.3, 7.800000000000001], [13.700000000000001, 7.800000000000001]], [1, 2, 2, 2, 79]), ('option_C.cube_0_0_1.face_0_1.fragment_1', [[13.3, 7.4], [13.700000000000001, 7.800000000000001], [13.3, 7.800000000000001], [13.3, 7.4]], [1, 2, 2, 79]), ('option_C.cube_0_0_1.face_1_-1.fragment_0', [[12.3, 7.4], [13.3, 7.4], [13.3, 8.4], [12.3, 8.4], [12.3, 7.4]], [1, 2, 2, 2, 79]), ('option_C.cube_0_0_1.face_2_1.fragment_0', [[12.3, 8.4], [13.3, 8.4], [13.700000000000001, 8.8], [12.700000000000001, 8.8], [12.3, 8.4]], [1, 2, 2, 2, 79]), ('option_C.cube_0_1_0.face_0_1.fragment_0', [[14.100000000000001, 7.800000000000001], [14.100000000000001, 8.200000000000001], [13.700000000000001, 7.800000000000001], [14.100000000000001, 7.800000000000001]], [1, 2, 2, 79]), ('option_C.cube_0_1_0.face_2_1.fragment_0', [[13.700000000000001, 7.800000000000001], [14.100000000000001, 8.200000000000001], [13.700000000000001, 8.200000000000001], [13.700000000000001, 7.800000000000001]], [1, 2, 2, 79]), ('option_C.cube_1_0_0.face_0_1.fragment_0', [[14.3, 6.4], [14.700000000000001, 6.800000000000001], [14.700000000000001, 7.800000000000001], [14.3, 7.4], [14.3, 6.4]], [1, 2, 2, 2, 79]), ('option_C.cube_1_0_0.face_1_-1.fragment_0', [[13.3, 6.4], [14.3, 6.4], [14.3, 7.4], [13.3, 7.4], [13.3, 6.4]], [1, 2, 2, 2, 79]), ('option_C.cube_1_0_0.face_2_1.fragment_0', [[13.3, 7.4], [14.3, 7.4], [14.700000000000001, 7.800000000000001], [13.700000000000001, 7.800000000000001], [13.3, 7.4]], [1, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id, zorder=1, edgecolor='none', facecolor=(0.3333333333333333, 0.3333333333333333, 0.3333333333333333, 1.0), linewidth=0.0, capstyle='butt', antialiased=False)
+            for object_id, points in [('native_e102a945b7a9dc9236bfc856990721ab490a5ae62d33c11a', [[12.3, 6.4], [13.3, 6.4]]), ('native_e41d708508b7f01c0cccc14341aecf49c28e2a1a02e906a7', [[13.3, 6.4], [13.3, 7.4]]), ('native_a70f564ec3a691077c3dd1b11065448208284a36501bb18c', [[13.3, 7.4], [12.3, 7.4]]), ('native_ddc4306169aefbac8e0e9b77dd14d0935ab5f053a1406c72', [[12.3, 7.4], [12.3, 6.4]]), ('native_0da1fb00693ce63aadd2ec815cc317b6cd5cb2c00919c3fb', [[13.700000000000001, 7.800000000000001], [13.700000000000001, 8.8]]), ('native_2dd89db7a779f9ef462ad55976f352156aea86e0548f9270', [[13.700000000000001, 8.8], [13.3, 8.4]]), ('native_90108d6557e144a90b3534bfecaea3f5893bb590d797868d', [[13.3, 8.4], [13.3, 7.4]]), ('native_91176dd268c4482df0a906f95d9cc1cba28446553b4bb2ea', [[13.3, 8.4], [12.3, 8.4]]), ('native_18a2285d6332227d84523185ac0e943c15109ae4e170538f', [[12.3, 8.4], [12.3, 7.4]]), ('native_53a87779ce4380b075ac3afde3d99d50f350aa3a2c22719d', [[13.700000000000001, 8.8], [12.700000000000001, 8.8]]), ('native_28c7997eb1b3a3576109b04e41e6fe1eca70bd297a5b4387', [[12.700000000000001, 8.8], [12.3, 8.4]]), ('native_5eadb649d3d7cc20a8c622060574db388032e91c39633e44', [[14.100000000000001, 7.800000000000001], [14.100000000000001, 8.200000000000001]]), ('native_02b411f8c573645b8974aed5afd603d350edf6d7c402fbc4', [[14.100000000000001, 8.200000000000001], [13.700000000000001, 7.800000000000001]]), ('native_c7a3bf525f26c771093de88b6f9f76af19a7df51ccd6e8c2', [[14.100000000000001, 8.200000000000001], [13.700000000000001, 8.200000000000001]]), ('native_3c7938c08a36c8490160a582050c86affe8c4289ca7cb49c', [[14.3, 6.4], [14.700000000000001, 6.800000000000001]]), ('native_767af3ab9cffd018846684bd28284f3e939eb9d1136a389c', [[14.700000000000001, 6.800000000000001], [14.700000000000001, 7.800000000000001]]), ('native_6f565a3a5b71c0f70afdb029ecf93a300e8508ee106ee193', [[14.700000000000001, 7.800000000000001], [14.3, 7.4]]), ('native_41ba5dc4a56a60d67b93cbbd49bb86a7a40706625fe788bd', [[14.3, 7.4], [14.3, 6.4]]), ('native_ab1c21ca2e3ba709aebb1d943776b87d99d032d2ba1999ca', [[13.3, 6.4], [14.3, 6.4]]), ('native_46deef750cba391b5fa0b31aafd26db535560fb743f557f8', [[14.3, 7.4], [13.3, 7.4]]), ('native_e795cc51c9d31e66693ae8400145e1a0f4fe370bf7426062', [[14.700000000000001, 7.800000000000001], [13.700000000000001, 7.800000000000001]])]:
+                c.line(points, id=object_id)
+            for object_id, vertices, codes in [('option_D.cube_0_0_0.face_0_1.fragment_0', [[5.05, 1.0], [5.449999999999999, 1.4], [5.449999999999999, 2.0], [5.05, 2.0], [5.05, 1.0]], [1, 2, 2, 2, 79]), ('option_D.cube_0_0_0.face_1_-1.fragment_0', [[4.05, 1.0], [5.05, 1.0], [5.05, 2.0], [4.05, 2.0], [4.05, 1.0]], [1, 2, 2, 2, 79]), ('option_D.cube_0_0_1.face_1_-1.fragment_0', [[4.05, 2.0], [5.05, 2.0], [5.05, 3.0], [4.05, 3.0], [4.05, 2.0]], [1, 2, 2, 2, 79]), ('option_D.cube_0_0_2.face_0_1.fragment_0', [[5.449999999999999, 3.4], [5.449999999999999, 4.4], [5.05, 4.0], [5.05, 3.4], [5.449999999999999, 3.4]], [1, 2, 2, 2, 79]), ('option_D.cube_0_0_2.face_0_1.fragment_1', [[5.05, 3.0], [5.449999999999999, 3.4], [5.05, 3.4], [5.05, 3.0]], [1, 2, 2, 79]), ('option_D.cube_0_0_2.face_1_-1.fragment_0', [[4.05, 3.0], [5.05, 3.0], [5.05, 4.0], [4.05, 4.0], [4.05, 3.0]], [1, 2, 2, 2, 79]), ('option_D.cube_0_0_2.face_2_1.fragment_0', [[4.05, 4.0], [5.05, 4.0], [5.449999999999999, 4.4], [4.45, 4.4], [4.05, 4.0]], [1, 2, 2, 2, 79]), ('option_D.cube_1_0_1.face_0_1.fragment_0', [[6.05, 2.0], [6.449999999999999, 2.4], [6.449999999999999, 3.4], [6.05, 3.0], [6.05, 2.0]], [1, 2, 2, 2, 79]), ('option_D.cube_1_0_1.face_1_-1.fragment_0', [[5.05, 2.0], [6.05, 2.0], [6.05, 3.0], [5.05, 3.0], [5.05, 2.0]], [1, 2, 2, 2, 79]), ('option_D.cube_1_0_1.face_2_1.fragment_0', [[5.05, 3.0], [6.05, 3.0], [6.449999999999999, 3.4], [5.449999999999999, 3.4], [5.05, 3.0]], [1, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id, zorder=1, edgecolor='none', facecolor=(0.3333333333333333, 0.3333333333333333, 0.3333333333333333, 1.0), linewidth=0.0, capstyle='butt', antialiased=False)
+            for object_id, points in [('native_e2872a4a11248c331525f712476f9c06e7657adea2ac7f84', [[5.05, 1.0], [5.449999999999999, 1.4]]), ('native_bb790a4049bde1433f5ed9c8008bab27ef18e2cbc0064628', [[5.449999999999999, 1.4], [5.449999999999999, 2.0]]), ('native_35248633e1303da3ee975e53b765f5b79ce486d57deb6ee7', [[5.05, 2.0], [5.05, 1.0]]), ('native_a008196305b39637ba2c7bdf652e705692fc691aa639abf1', [[4.05, 1.0], [5.05, 1.0]]), ('native_2c3a03c91f11991a9b3758bdfb8c2d7946c366b22c9132e7', [[5.05, 2.0], [4.05, 2.0]]), ('native_1250f3479055bf700d00a7253dcc42189657b8fb95adf423', [[4.05, 2.0], [4.05, 1.0]]), ('native_492587b713eda7ce813f87ee3a921a22071c22b252123723', [[5.05, 2.0], [5.05, 3.0]]), ('native_5eb170817a6b1dcd1325e906b72fd6ee79dfdd0ee33c4077', [[5.05, 3.0], [4.05, 3.0]]), ('native_863a5c96bfee15df770ed250efcc253ea1a5fabe0004b50d', [[4.05, 3.0], [4.05, 2.0]]), ('native_26dc3ab05f8a2ee6e251fae1b4bf02f4610653618018e5d1', [[5.449999999999999, 3.4], [5.449999999999999, 4.4]]), ('native_7b8148ffc8679104516ec175eb95f6c4379cbf5d16885d36', [[5.449999999999999, 4.4], [5.05, 4.0]]), ('native_12e04743fabb3f1bab3f4f1e9d2c9156478dd7ed8f71f0fd', [[5.05, 4.0], [5.05, 3.0]]), ('native_04595c7052b3912076bcdd7187eb3313a1e77cc04d62f262', [[5.05, 4.0], [4.05, 4.0]]), ('native_44c2b1228172dfdeccfcc4b746d960ac876869672da9ffb1', [[4.05, 4.0], [4.05, 3.0]]), ('native_a0f24136f27b32c6e70d47262813febd72c222d33dbb9eff', [[5.449999999999999, 4.4], [4.45, 4.4]]), ('native_6591c56ae0d07f4d337783e395fbfc076766fc09a8629c2e', [[4.45, 4.4], [4.05, 4.0]]), ('native_28308f69666fa60440ec6403aed3ebffb881684b6aee5f9b', [[6.05, 2.0], [6.449999999999999, 2.4]]), ('native_263ebd78dce1ae568fdd0a95eeda8092f8758c058d710239', [[6.449999999999999, 2.4], [6.449999999999999, 3.4]]), ('native_2a08afc44be05dcd9dce6d30a801ddb58dedf5a860e05a80', [[6.449999999999999, 3.4], [6.05, 3.0]]), ('native_3094dc838a5409dd0761b96f3e9075114418d994c84c2d1f', [[6.05, 3.0], [6.05, 2.0]]), ('native_330268ce37b9850cde3499155a1f1b142d7e358d85712e95', [[5.05, 2.0], [6.05, 2.0]]), ('native_133c1bab678e71bc26950396131eec34bb14598c7aed3e3a', [[6.05, 3.0], [5.05, 3.0]]), ('native_20d6ac5d1daeff3c86db18f2426a52c7e968c8ed314d34ec', [[6.449999999999999, 3.4], [5.449999999999999, 3.4]])]:
+                c.line(points, id=object_id)
+            for object_id, vertices, codes in [('option_E.cube_0_0_0.face_1_-1.fragment_0', [[9.55, 1.0], [10.55, 1.0], [10.55, 2.0], [9.55, 2.0], [9.55, 1.0]], [1, 2, 2, 2, 79]), ('option_E.cube_0_0_0.face_2_1.fragment_0', [[9.55, 2.0], [10.55, 2.0], [10.55, 2.4], [9.950000000000001, 2.4], [9.55, 2.0]], [1, 2, 2, 2, 79]), ('option_E.cube_0_1_0.face_2_1.fragment_0', [[9.950000000000001, 2.4], [10.55, 2.4], [10.55, 2.8], [10.350000000000001, 2.8], [9.950000000000001, 2.4]], [1, 2, 2, 2, 79]), ('option_E.cube_1_0_0.face_0_1.fragment_0', [[11.55, 1.0], [11.950000000000001, 1.4], [11.950000000000001, 2.4], [11.55, 2.0], [11.55, 1.0]], [1, 2, 2, 2, 79]), ('option_E.cube_1_0_0.face_1_-1.fragment_0', [[10.55, 1.0], [11.55, 1.0], [11.55, 2.0], [10.55, 2.0], [10.55, 1.0]], [1, 2, 2, 2, 79]), ('option_E.cube_1_0_1.face_0_1.fragment_0', [[11.55, 2.0], [11.950000000000001, 2.4], [11.950000000000001, 3.4], [11.55, 3.0], [11.55, 2.0]], [1, 2, 2, 2, 79]), ('option_E.cube_1_0_1.face_1_-1.fragment_0', [[10.55, 2.0], [11.55, 2.0], [11.55, 3.0], [10.55, 3.0], [10.55, 2.0]], [1, 2, 2, 2, 79]), ('option_E.cube_1_0_1.face_2_1.fragment_0', [[10.55, 3.0], [11.55, 3.0], [11.950000000000001, 3.4], [10.950000000000001, 3.4], [10.55, 3.0]], [1, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id, zorder=1, edgecolor='none', facecolor=(0.3333333333333333, 0.3333333333333333, 0.3333333333333333, 1.0), linewidth=0.0, capstyle='butt', antialiased=False)
+            for object_id, points in [('native_160f6fa1463569337ebd44e4ddfa19b19f92c9412e7b9791', [[9.55, 1.0], [10.55, 1.0]]), ('native_06c344b17526fa5aafa68a79a28debaf5453a065376cbc26', [[10.55, 1.0], [10.55, 2.0]]), ('native_d24c3d7439896e9b77b03fe8921034f521c6ece0a73bd0fd', [[10.55, 2.0], [9.55, 2.0]]), ('native_5811b7fe8281b8ee16ff061f6de4f2d807f190f2152b0844', [[9.55, 2.0], [9.55, 1.0]]), ('native_137fbae99c4791bd4c96c5255c60f15accb42ffea6b8da38', [[10.55, 2.4], [9.950000000000001, 2.4]]), ('native_aef4f392a71372ed3375a2131019c4074cb9cb9eee99f7cd', [[9.950000000000001, 2.4], [9.55, 2.0]]), ('native_1b4d20d1bb18a7092dd1d036b97511b5aa3f452bbe7e0b4a', [[10.55, 2.8], [10.350000000000001, 2.8]]), ('native_bdef90a60e733f9d8739d01db67482fa270a69e8b234c6e9', [[10.350000000000001, 2.8], [9.950000000000001, 2.4]]), ('native_b72e8fcb75c7441ce65dd6e014a801345aa1632650e55458', [[11.55, 1.0], [11.950000000000001, 1.4]]), ('native_dbe2630c85587a428d7ece31c32f809f837671edbf965aaa', [[11.950000000000001, 1.4], [11.950000000000001, 2.4]]), ('native_00490dc290b3a34f35b85034b0b9da4ca9606ac32fd7b1ca', [[11.950000000000001, 2.4], [11.55, 2.0]]), ('native_cecda54b2db12964fd3f8a6a2d627f15212d1556cac34c9f', [[11.55, 2.0], [11.55, 1.0]]), ('native_cba53d1426e237efa461745612de51289bab3cf496ac6481', [[10.55, 1.0], [11.55, 1.0]]), ('native_b6010ad2b5b03a805ea49069255b79c6c22428d20728a476', [[11.55, 2.0], [10.55, 2.0]]), ('native_2b6fe368ea91401debb4174e9647d8a6c724d1e965b1f47d', [[11.950000000000001, 2.4], [11.950000000000001, 3.4]]), ('native_d7087fc11cc843af65c890a08d49f44649152cfa5655b323', [[11.950000000000001, 3.4], [11.55, 3.0]]), ('native_6e8e3e3bb24cd05008f52753a1dd312dab720d20bdbd2dbe', [[11.55, 3.0], [11.55, 2.0]]), ('native_8b205aedad29dfb1a9572373696643ee8dc1f92f4829ef4e', [[11.55, 3.0], [10.55, 3.0]]), ('native_25e4095addab69d9c35222a39cb40e9d8cf7c12ab62b1d00', [[10.55, 3.0], [10.55, 2.0]]), ('native_6b5dcd5217bd3185164cab8426447d3159c65b86fdcb14c6', [[11.950000000000001, 3.4], [10.950000000000001, 3.4]]), ('native_5a551c387dcfffd684e8ce8222f30770a4a352b3611c5616', [[10.950000000000001, 3.4], [10.55, 3.0]])]:
+                c.line(points, id=object_id)
+            for object_id, text, anchor in [('label_option_A', 'A', (2.5, 5.95)), ('label_option_B', 'B', (8.0, 5.95)), ('label_option_C', 'C', (13.5, 5.95)), ('label_option_D', 'D', (5.25, 0.55)), ('label_option_E', 'E', (10.75, 0.55))]:
+                c.text(text, anchor, id=object_id, zorder=3, va='top', rotation_mode='default')
+            return c if _canvas else c.save(output_path)
 
     def get_scene(self):
-        return json.loads((ROOT / 'scenes/Solid274.json').read_text(encoding='utf-8'))
+        return json.loads(self.scene_path.read_text(encoding='utf-8-sig'))
 
     def build_scene(self):
-        return build_scene()
-
-    def draw(self, num=0, output_path=None):
-        if output_path is None and isinstance(num, (str, Path)):
-            output_path = num
-        if output_path is None:
-            raise ValueError('An explicit output path is required')
-        return draw_original(output_path)
-
-    def redraw(self, output_path=None):
-        return self.draw(output_path=output_path)
-
+        canvas = self.draw(_canvas=True)
+        return (canvas.fig, canvas.ax)
 if __name__ == '__main__':
-    if len(sys.argv) != 2:
-        raise SystemExit('Provide a PNG or SVG output path')
-    print(draw_original(sys.argv[1]))
+    print(Solid274().draw(sys.argv[1] if len(sys.argv) > 1 else None))

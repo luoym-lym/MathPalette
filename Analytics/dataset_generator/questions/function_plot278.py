@@ -1,79 +1,170 @@
-"""Frozen We-Math original; user batch admission is recorded in provenance. Importing writes no artifacts."""
+"""Frozen question Ana278; unified protocol 2.0.0. Original metadata and PNG retained."""
 from pathlib import Path
-import json
-import importlib.util
-import platform
 import sys
+import json
 import numpy as np
-import matplotlib
-from matplotlib import ft2font
-import PIL
-
-_HELPERS = Path(__file__).resolve().parents[1]
-_RENDERER = _HELPERS / "wemath_renderers" / '39d623eb465b9f92ec7f6e38382de08883a6f995e44990c0e9026c665bce00b2' / "common_renderer.py"
-_SPEC = importlib.util.spec_from_file_location("_wemath_frozen_renderer_Ana278", _RENDERER)
-_RENDER = importlib.util.module_from_spec(_SPEC)
-_SPEC.loader.exec_module(_RENDER)
-open_canvas = _RENDER.open_canvas
-plot_curve = _RENDER.plot_curve
-scatter_points = _RENDER.scatter_points
-fill_region = _RENDER.fill_region
-fill_polygon = _RENDER.fill_polygon
-label = _RENDER.label
-figure_label = _RENDER.figure_label
-finalize = _RENDER.finalize
-_SCENE_PATH = _HELPERS / "scenes" / 'Ana278.json'
+_PROJECT_ROOT = Path(__file__).resolve().parents[3]
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+from dataset_tools.drawing import Canvas, ANALYTICS, PLANE, SOLID, VectorPath, VectorTransform, VectorBox
 
 class Ana278:
+
     def __init__(self):
+        self.id = 'Ana278'
         self.source_dataset = 'We-Math2.0-Standard'
         self.source_key = 'standard/5406'
         self.question = 'The straight segment AC is tangent to the hill profile at B. Read the unit grid and find the slope of the hill at B as a decimal.'
         self.answer = '-0.5'
         self.answer_type = 'number'
-        self.id = 'Ana278'
-        self.query = 'The straight segment AC is tangent to the hill profile at B. Read the unit grid and find the slope of the hill at B as a decimal.'
+        self.query = self.question
+        self._geometry_01 = [[-2.0, 1.25],
+         [-1.95, 1.299375],
+         [-1.9, 1.3475000000000001],
+         [-1.85, 1.3943749999999997],
+         [-1.8, 1.4400000000000002],
+         [-1.75, 1.484375],
+         [-1.7, 1.5274999999999999],
+         [-1.65, 1.5693750000000002],
+         [-1.6, 1.6099999999999997],
+         [-1.55, 1.649375],
+         [-1.5, 1.6875],
+         [-1.45, 1.7243749999999998],
+         [-1.4, 1.7600000000000002],
+         [-1.35, 1.7943749999999996],
+         [-1.2999999999999998, 1.8275000000000001],
+         [-1.25, 1.859375],
+         [-1.2, 1.89],
+         [-1.15, 1.9193750000000003],
+         [-1.1, 1.9474999999999998],
+         [-1.0499999999999998, 1.974375],
+         [-1.0, 2.0],
+         [-0.95, 2.024375],
+         [-0.8999999999999999, 2.0475000000000003],
+         [-0.8499999999999999, 2.069375],
+         [-0.7999999999999998, 2.09],
+         [-0.75, 2.109375],
+         [-0.7, 2.1275000000000004],
+         [-0.6499999999999999, 2.144375],
+         [-0.5999999999999999, 2.16],
+         [-0.5499999999999998, 2.174375],
+         [-0.5, 2.1875],
+         [-0.44999999999999996, 2.199375],
+         [-0.3999999999999999, 2.2100000000000004],
+         [-0.34999999999999987, 2.219375],
+         [-0.2999999999999998, 2.2275],
+         [-0.25, 2.234375],
+         [-0.19999999999999996, 2.24],
+         [-0.1499999999999999, 2.2443750000000002],
+         [-0.09999999999999987, 2.2475],
+         [-0.04999999999999982, 2.249375],
+         [0.0, 2.25],
+         [0.050000000000000266, 2.2493749999999997],
+         [0.10000000000000009, 2.2475],
+         [0.1499999999999999, 2.244375],
+         [0.20000000000000018, 2.24],
+         [0.25, 2.234375],
+         [0.30000000000000027, 2.2274999999999996],
+         [0.3500000000000001, 2.2193750000000003],
+         [0.40000000000000036, 2.21],
+         [0.4500000000000002, 2.199375],
+         [0.5, 2.1875],
+         [0.5500000000000003, 2.1743749999999995],
+         [0.6000000000000001, 2.16],
+         [0.6500000000000004, 2.1443749999999997],
+         [0.7000000000000002, 2.1275],
+         [0.75, 2.109375],
+         [0.8000000000000003, 2.09],
+         [0.8500000000000001, 2.069375],
+         [0.9000000000000004, 2.0475],
+         [0.9500000000000002, 2.024375],
+         [1.0, 2.0],
+         [1.0500000000000003, 1.9743749999999998],
+         [1.1, 1.9475],
+         [1.1500000000000004, 1.9193749999999998],
+         [1.2000000000000002, 1.89],
+         [1.25, 1.859375],
+         [1.3000000000000003, 1.8275],
+         [1.35, 1.7943749999999998],
+         [1.4000000000000004, 1.7599999999999998],
+         [1.4500000000000002, 1.7243749999999998],
+         [1.5, 1.6875],
+         [1.5500000000000003, 1.6493749999999998],
+         [1.6, 1.6099999999999999],
+         [1.6500000000000004, 1.5693749999999997],
+         [1.7000000000000002, 1.5274999999999999],
+         [1.75, 1.484375],
+         [1.8000000000000003, 1.4399999999999997],
+         [1.85, 1.394375],
+         [1.9000000000000004, 1.3474999999999997],
+         [1.9500000000000002, 1.299375],
+         [2.0, 1.25],
+         [2.05, 1.1993750000000003],
+         [2.1000000000000005, 1.1474999999999995],
+         [2.1500000000000004, 1.0943749999999997],
+         [2.2, 1.0399999999999998],
+         [2.25, 0.984375],
+         [2.3, 0.9275000000000002],
+         [2.3500000000000005, 0.8693749999999993],
+         [2.4000000000000004, 0.8099999999999996],
+         [2.45, 0.7493749999999998],
+         [2.5, 0.6875],
+         [2.55, 0.6243750000000002],
+         [2.6000000000000005, 0.5599999999999993],
+         [2.6500000000000004, 0.49437499999999956],
+         [2.7, 0.42749999999999977],
+         [2.75, 0.359375],
+         [2.8000000000000007, 0.28999999999999904],
+         [2.8500000000000005, 0.2193749999999992],
+         [2.9000000000000004, 0.14749999999999952],
+         [2.95, 0.07437499999999975],
+         [3.0, 0.0],
+         [3.0500000000000007, -0.07562500000000116],
+         [3.1000000000000005, -0.15250000000000075],
+         [3.1500000000000004, -0.23062500000000052],
+         [3.2, -0.3100000000000003],
+         [3.25, -0.390625],
+         [3.3000000000000007, -0.47250000000000125],
+         [3.3500000000000005, -0.5556250000000009],
+         [3.4000000000000004, -0.6400000000000006],
+         [3.45, -0.7256250000000004],
+         [3.5, -0.8125],
+         [3.5500000000000007, -0.9006250000000013],
+         [3.6000000000000005, -0.9900000000000009],
+         [3.6500000000000004, -1.0806250000000006],
+         [3.7, -1.1725000000000003],
+         [3.75, -1.265625],
+         [3.8000000000000007, -1.3600000000000014],
+         [3.8500000000000005, -1.4556250000000008],
+         [3.9000000000000004, -1.5525000000000007],
+         [3.95, -1.6506250000000002],
+         [4.0, -1.75]]
         self.subject = 'Analytics'
         self.level = None
-        self.scene_path = str(_SCENE_PATH)
+        self.scene_path = _PROJECT_ROOT / 'Analytics' / 'dataset_generator/scenes/Ana278.json'
+
+    def draw(self, output_path=None, *, variant=None, _canvas=False):
+        if output_path is None and (not _canvas):
+            output_path = _PROJECT_ROOT / '.runtime/reproduced' / 'Analytics' / (self.id + ('_' + variant if variant else '') + '.png')
+        if variant is not None:
+            if _canvas:
+                raise ValueError('Canvas capture is for the original only')
+            from dataset_tools.unified_replay import draw_slot
+            return draw_slot('Analytics', self.id, variant, output_path)
+        with Canvas(ANALYTICS, xlim=[-8, 8], ylim=[-8, 8], xlabel='x', ylabel='y') as c:
+            c.line([[-1, 3.0], [1, 2], [3, 1.0]], id='object_000', solid_capstyle='butt')
+            c.line(self._geometry_01, id='object_001', solid_capstyle='butt')
+            for object_id, points in [('object_002', [[-1, 3.0]]), ('object_003', [[1, 2]]), ('object_004', [[3, 1.0]])]:
+                c.point(points, id=object_id, filled=True)
+            for object_id, text, anchor in [(None, 'A', [-0.77, 3.37]), (None, 'B', [1.23, 2.37]), (None, 'C', [3.23, 1.37])]:
+                c.text(text, anchor, id=object_id, ha='left', va='bottom')
+            return c if _canvas else c.save(output_path)
 
     def get_scene(self):
-        return json.loads(_SCENE_PATH.read_text(encoding="utf-8"))
+        return json.loads(self.scene_path.read_text(encoding='utf-8-sig'))
 
-    def draw(self, num=0, output_path=None):
-        actual = (platform.python_version(), np.__version__, matplotlib.__version__, PIL.__version__, ft2font.__freetype_version__)
-        if actual != ("3.13.9", "2.5.3", "3.11.2", "12.3.0", "2.14.3"):
-            raise RuntimeError(f"Frozen rendering environment required; got {actual}")
-        if output_path is None and isinstance(num, (str, Path)):
-            output_path = num
-        scene = self.get_scene()
-        fig, ax = open_canvas(**scene.get("axes", {}))
-        for obj in scene["objects"]:
-            kind = obj["type"]
-            if kind in ("curve", "points"):
-                points = np.asarray(obj["points"], dtype=float)
-                if kind == "curve":
-                    plot_curve(ax, points[:, 0], points[:, 1])
-                else:
-                    scatter_points(ax, points[:, 0], points[:, 1], open_marker=obj.get("open", False))
-                    ax.collections[-1].set_clip_on(obj.get("clip_on", True))
-            elif kind == "region":
-                fill_region(ax, obj["x"], obj["y1"], obj.get("y2", 0))
-            elif kind == "polygon_region":
-                fill_polygon(ax, obj["x"], obj["y"])
-            else:
-                raise ValueError(f"Unsupported frozen object: {kind}")
-        for entry in scene.get("labels", []):
-            label(ax, entry["x"], entry["y"], entry["text"], ha=entry.get("ha", "center"), va=entry.get("va", "center"))
-        for text in scene.get("figure_labels", []):
-            figure_label(fig, text)
-        target = Path(output_path) if output_path else _HELPERS.parents[1] / ".runtime" / "reproduced" / "Analytics" / f"{self.id}.png"
-        return finalize(fig, target)
-
-
-def draw(num=0, output_path=None):
-    return Ana278().draw(num=num, output_path=output_path)
-
-
-if __name__ == "__main__":
-    print(draw(output_path=sys.argv[1] if len(sys.argv) > 1 else None))
+    def build_scene(self):
+        canvas = self.draw(_canvas=True)
+        return (canvas.fig, canvas.ax)
+if __name__ == '__main__':
+    print(Ana278().draw(sys.argv[1] if len(sys.argv) > 1 else None))

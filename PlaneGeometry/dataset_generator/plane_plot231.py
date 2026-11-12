@@ -1,31 +1,106 @@
-"""Frozen native MathVision redraw; importing does not write files."""
+"""Frozen question Plane231; unified protocol 2.0.0. Original metadata and PNG retained."""
 from pathlib import Path
-import importlib.util
+import sys
 import json
-HERE = Path(__file__).resolve().parent
+import numpy as np
+_PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+from dataset_tools.drawing import Canvas, ANALYTICS, PLANE, SOLID, VectorPath, VectorTransform, VectorBox
 
 class Plane231:
 
     def __init__(self):
-        self.__dict__.update({'id': 'Plane231', 'source_dataset': 'MathVision', 'question': 'Which of the following pictures cannot be made using all the pieces shown?\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E', 'answer': 'C', 'answer_type': 'choice', 'subject': 'PlaneGeometry', 'choices': {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'}, 'source_key': 'test:622', 'source_category': 'combinatorial geometry', 'source_revision': '2837ddb3f13abaf6b3997c12d80753e5470bd46a'})
+        self.id = 'Plane231'
+        self.source_dataset = 'MathVision'
+        self.source_key = 'test:622'
+        self.question = 'Which of the following pictures cannot be made using all the pieces shown?\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E'
+        self.answer = 'C'
+        self.answer_type = 'choice'
+        self.choices = {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'}
         self.query = self.question
+        self.subject = 'PlaneGeometry'
         self.level = None
-        self.scene_path = HERE / 'scenes/Plane231.json'
+        self.scene_path = _PROJECT_ROOT / 'PlaneGeometry' / 'dataset_generator/scenes/Plane231.json'
+
+    def draw(self, output_path=None, *, variant=None, _canvas=False):
+        if output_path is None and (not _canvas):
+            output_path = _PROJECT_ROOT / '.runtime/reproduced' / 'PlaneGeometry' / (self.id + ('_' + variant if variant else '') + '.png')
+        if variant is not None:
+            if _canvas:
+                raise ValueError('Canvas capture is for the original only')
+            from dataset_tools.unified_replay import draw_slot
+            return draw_slot('PlaneGeometry', self.id, variant, output_path)
+        with Canvas(PLANE, xlim=[-2.6540994761191854, 21.518291119009653], ylim=[-8.589036805648327, 15.583353789480512], axes_position=[0.05, 0.05, 0.9, 0.9], coordinate_axes=False) as c:
+            c.path([[9.1, 7.41], [10.9, 7.41], [10.9, 7.59], [9.1, 7.59], [9.1, 7.41]], [1, 2, 2, 2, 79], id='-1_bar', edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[9.1, 7.41], [10.9, 7.41], [10.9, 7.59], [9.1, 7.59], [9.1, 7.41]], [1, 2, 2, 2, 79], id='-1_bar', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[8.8, 7.1], [8.8, 6.449999999999999], [9.200000000000001, 7.1], [8.8, 7.1]], [1, 2, 2, 79], id='-1_red', edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[8.8, 7.1], [8.8, 6.449999999999999], [9.200000000000001, 7.1], [8.8, 7.1]], [1, 2, 2, 79], id='-1_red', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[10.45, 5.65], [10.039575828009196, 6.77763114494309], [9.471614419750033, 6.145238989134475], [10.45, 5.65]], [1, 2, 2, 79], id='-1_yellow', edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[10.45, 5.65], [10.039575828009196, 6.77763114494309], [9.471614419750033, 6.145238989134475], [10.45, 5.65]], [1, 2, 2, 79], id='-1_yellow', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[10.7, 5.2], [11.6, 5.2], [11.149999999999999, 5.9794228634], [10.7, 5.2]], [1, 2, 2, 79], id='-1_blue', edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[10.7, 5.2], [11.6, 5.2], [11.149999999999999, 5.9794228634], [10.7, 5.2]], [1, 2, 2, 79], id='-1_blue', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.circle([8.8, 5.45], 0.5, id='-1_pink', facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0])
+            c.circle([11.25, 6.65], 0.5, id='-1_green', facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0])
+            c.path([[-0.2, 0.0], [0.7, 0.0], [0.25, 0.7794228634], [-0.2, 0.0]], [1, 2, 2, 79], id='0_blue', edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[-0.2, 0.0], [0.7, 0.0], [0.25, 0.7794228634], [-0.2, 0.0]], [1, 2, 2, 79], id='0_blue', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[0.55, 1.05], [-0.6499999999999999, 1.0500000000000003], [-0.2500000000000001, 0.30000000000000004], [0.55, 1.05]], [1, 2, 2, 79], id='0_yellow', edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[0.55, 1.05], [-0.6499999999999999, 1.0500000000000003], [-0.2500000000000001, 0.30000000000000004], [0.55, 1.05]], [1, 2, 2, 79], id='0_yellow', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[-0.02205771365940068, 2.3755771365940053], [0.8779422863405995, 3.9344228634059952], [0.7220577136594006, 4.024422863405995], [-0.1779422863405996, 2.465577136594005], [-0.02205771365940068, 2.3755771365940053]], [1, 2, 2, 2, 79], id='0_bar', edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[-0.02205771365940068, 2.3755771365940053], [0.8779422863405995, 3.9344228634059952], [0.7220577136594006, 4.024422863405995], [-0.1779422863405996, 2.465577136594005], [-0.02205771365940068, 2.3755771365940053]], [1, 2, 2, 2, 79], id='0_bar', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[-0.3, 3.55], [-0.02529812986854535, 2.960899938426177], [0.06252311481466, 3.7190473046962795], [-0.3, 3.55]], [1, 2, 2, 79], id='0_red', edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[-0.3, 3.55], [-0.02529812986854535, 2.960899938426177], [0.06252311481466, 3.7190473046962795], [-0.3, 3.55]], [1, 2, 2, 79], id='0_red', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.circle([0.0, 1.6], 0.5, id='0_pink', facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0])
+            c.circle([0.0, 2.6], 0.5, id='0_green', facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0])
+            c.path([[6.313710381404017, 1.1718606648281071], [5.757479791529112, 2.8837623941593833], [5.586289618595983, 2.828139335171893], [6.142520208470889, 1.1162376058406165], [6.313710381404017, 1.1718606648281071]], [1, 2, 2, 2, 79], id='1_bar', edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[6.313710381404017, 1.1718606648281071], [5.757479791529112, 2.8837623941593833], [5.586289618595983, 2.828139335171893], [6.142520208470889, 1.1162376058406165], [6.313710381404017, 1.1718606648281071]], [1, 2, 2, 2, 79], id='1_bar', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.circle([3.9, 1.1], 0.5, id='1_pink', facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0])
+            c.circle([6.05, 1.1], 0.5, id='1_green', facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0])
+            c.path([[4.05, 2.1], [4.7, 2.1], [4.05, 1.7000000000000002], [4.05, 2.1]], [1, 2, 2, 79], id='1_red', edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[4.05, 2.1], [4.7, 2.1], [4.05, 1.7000000000000002], [4.05, 2.1]], [1, 2, 2, 79], id='1_red', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[3.95, 1.1], [4.8500000000000005, 1.1], [4.4, 1.8794228634], [3.95, 1.1]], [1, 2, 2, 79], id='1_blue', edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[3.95, 1.1], [4.8500000000000005, 1.1], [4.4, 1.8794228634], [3.95, 1.1]], [1, 2, 2, 79], id='1_blue', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[5.6, 1.85], [4.3999999999999995, 1.8500000000000003], [4.8, 1.1], [5.6, 1.85]], [1, 2, 2, 79], id='1_yellow', edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[5.6, 1.85], [4.3999999999999995, 1.8500000000000003], [4.8, 1.1], [5.6, 1.85]], [1, 2, 2, 79], id='1_yellow', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[10.45, 1.05], [9.549999999999999, 1.05], [10.0, 0.27057713660000005], [10.45, 1.05]], [1, 2, 2, 79], id='2_blue', edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[10.45, 1.05], [9.549999999999999, 1.05], [10.0, 0.27057713660000005], [10.45, 1.05]], [1, 2, 2, 79], id='2_blue', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[9.95, 2.2], [9.44285808591116, 3.2875693444439804], [8.932174550329952, 2.6080825333237954], [9.95, 2.2]], [1, 2, 2, 79], id='2_yellow', edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[9.95, 2.2], [9.44285808591116, 3.2875693444439804], [8.932174550329952, 2.6080825333237954], [9.95, 2.2]], [1, 2, 2, 79], id='2_yellow', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[9.95, 2.2], [10.75, 2.2], [10.75, 3.0], [9.95, 3.0], [9.95, 2.2]], [1, 2, 2, 2, 79], id='2_red', edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[9.95, 2.2], [10.75, 2.2], [10.75, 3.0], [9.95, 3.0], [9.95, 2.2]], [1, 2, 2, 2, 79], id='2_red', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[9.049999999999999, 2.0100000000000002], [10.85, 2.0100000000000002], [10.85, 2.19], [9.049999999999999, 2.19], [9.049999999999999, 2.0100000000000002]], [1, 2, 2, 2, 79], id='2_bar', edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[9.049999999999999, 2.0100000000000002], [10.85, 2.0100000000000002], [10.85, 2.19], [9.049999999999999, 2.19], [9.049999999999999, 2.0100000000000002]], [1, 2, 2, 2, 79], id='2_bar', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.circle([9.35, 1.55], 0.5, id='2_pink', facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0])
+            c.circle([10.55, 1.55], 0.5, id='2_green', facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0])
+            c.path([[15.3, 2.4], [15.862916512459886, 2.075], [15.5, 2.7464101615137753], [15.3, 2.4]], [1, 2, 2, 79], id='3_red', edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[15.3, 2.4], [15.862916512459886, 2.075], [15.5, 2.7464101615137753], [15.3, 2.4]], [1, 2, 2, 79], id='3_red', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[15.95, 2.1], [15.049999999999999, 2.1], [15.5, 1.3205771366], [15.95, 2.1]], [1, 2, 2, 79], id='3_blue', edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[15.95, 2.1], [15.049999999999999, 2.1], [15.5, 1.3205771366], [15.95, 2.1]], [1, 2, 2, 79], id='3_blue', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[14.35, 1.35], [15.549999999999999, 1.35], [15.15, 2.1], [14.35, 1.35]], [1, 2, 2, 79], id='3_yellow', edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[14.35, 1.35], [15.549999999999999, 1.35], [15.15, 2.1], [14.35, 1.35]], [1, 2, 2, 79], id='3_yellow', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[14.15, 1.16], [15.950000000000001, 1.16], [15.950000000000001, 1.34], [14.15, 1.34], [14.15, 1.16]], [1, 2, 2, 2, 79], id='3_bar', edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[14.15, 1.16], [15.950000000000001, 1.16], [15.950000000000001, 1.34], [14.15, 1.34], [14.15, 1.16]], [1, 2, 2, 2, 79], id='3_bar', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.circle([13.6, 1.25], 0.5, id='3_pink', facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0])
+            c.circle([16.4, 1.25], 0.5, id='3_green', facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0])
+            c.path([[19.4, 0.0], [20.599999999999998, 0.0], [20.2, 0.75], [19.4, 0.0]], [1, 2, 2, 79], id='4_yellow', edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[19.4, 0.0], [20.599999999999998, 0.0], [20.2, 0.75], [19.4, 0.0]], [1, 2, 2, 79], id='4_yellow', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[19.2, 2.1], [19.81080020351084, 1.8776869068383153], [19.336808057330266, 2.4758770483143637], [19.2, 2.1]], [1, 2, 2, 79], id='4_red', edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[19.2, 2.1], [19.81080020351084, 1.8776869068383153], [19.336808057330266, 2.4758770483143637], [19.2, 2.1]], [1, 2, 2, 79], id='4_red', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.circle([20.0, 1.25], 0.5, id='4_pink', facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0])
+            c.circle([20.0, 2.25], 0.5, id='4_green', facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0])
+            c.path([[19.55, 2.9], [20.45, 2.9], [20.0, 3.6794228634], [19.55, 2.9]], [1, 2, 2, 79], id='4_blue', edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[19.55, 2.9], [20.45, 2.9], [20.0, 3.6794228634], [19.55, 2.9]], [1, 2, 2, 79], id='4_blue', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[19.1, 2.7600000000000002], [20.9, 2.7600000000000002], [20.9, 2.94], [19.1, 2.94], [19.1, 2.7600000000000002]], [1, 2, 2, 2, 79], id='4_bar', edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[19.1, 2.7600000000000002], [20.9, 2.7600000000000002], [20.9, 2.94], [19.1, 2.94], [19.1, 2.7600000000000002]], [1, 2, 2, 2, 79], id='4_bar', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            for object_id, text, anchor in [('label0', '(A)', [-1.6, -0.3]), ('label1', '(B)', [3.4, -0.3]), ('label2', '(C)', [8.4, -0.3]), ('label3', '(D)', [13.4, -0.3]), ('label4', '(E)', [18.4, -0.3])]:
+                c.text(text, anchor, id=object_id, rotation_mode='default', offset_pt=[0, 0], annotation_clip=None)
+            return c if _canvas else c.save(output_path)
 
     def get_scene(self):
-        return json.loads(self.scene_path.read_text(encoding='utf-8'))
+        return json.loads(self.scene_path.read_text(encoding='utf-8-sig'))
 
-    def draw(self, num=0, output_path=None):
-        if output_path is None and isinstance(num, (str, Path)):
-            output_path = num
-        output = Path(output_path) if output_path else HERE.parents[1] / '.runtime/mathvision_redraw' / 'Plane231.png'
-        spec = importlib.util.spec_from_file_location('mathvision_native_runtime', HERE / 'mathvision_renderers/shared_e4e003f51742cf00/runtime.py')
-        runtime = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(runtime)
-        return runtime.draw(HERE / 'mathvision_renderers/shared_e4e003f51742cf00/items/Plane231', HERE / 'mathvision_renderers/shared_e4e003f51742cf00/native', output, formal_scene=self.scene_path, original_image=HERE / '../originals/Plane231.jpg')
-
-    def redraw(self, output_path=None):
-        return self.draw(output_path=output_path)
+    def build_scene(self):
+        canvas = self.draw(_canvas=True)
+        return (canvas.fig, canvas.ax)
 if __name__ == '__main__':
-    import sys
-    print(Plane231().draw(output_path=sys.argv[1] if len(sys.argv) > 1 else None))
+    print(Plane231().draw(sys.argv[1] if len(sys.argv) > 1 else None))

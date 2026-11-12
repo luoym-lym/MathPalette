@@ -50,6 +50,15 @@ python3 -B MathPalette_Dataset/infer_deepseek.py
 
 模型接收统一解题提示、正式题干和该输入的一张图片。标准答案、题源、Collect 状态、变体操作及诱导意图不进入请求正文。同题原图与 Special 使用相同题干和推理设置，每个请求都是独立的新对话。
 
+按用户确认采用 lmms-eval MathVision 的通用指令。请求只包含一条 user 消息，文本内容为下列指令、一个换行及原题题干；所有题型使用相同前缀，选择题沿用原题选项，不追加选择题指令。
+
+```text
+Please solve the problem step by step and put your answer in one "\boxed{}".
+{question}
+```
+
+指令来源为 [lmms-eval 固定版本 c26b6b2 的 MathVision 模板](https://github.com/EvolvingLMMs-Lab/lmms-eval/blob/c26b6b2713c3ec155962ff990f956bf78e0efe45/lmms_eval/tasks/mathvision/utils.py)。运行配置保存 `system_prompt=null` 和实际的 `user_prompt_prefix`。
+
 请求记录保留题干、设置、本地图像路径、图片指纹及完整请求体指纹，不在记录中重复保存 Base64 图像。标准答案以 `reference_answer` 保存在本地推理结果中，方便后续另行判分。
 
 ## 预设与重试
@@ -78,7 +87,7 @@ python3 -B MathPalette_Dataset/infer_deepseek.py
 
 推理预设、代码或冻结数据发生改变时，脚本拒绝混入同一运行目录。运行目录保存这些内容的签名。并发和 RPM 可在续跑时调整；重复次数、最大尝试数、超时和推理参数不能在原实验中悄悄变更。
 
-网络失败、HTTP 408/409/425/429/5xx、未完整结束的流以及总时长超时可以在剩余预算内重试；每次都沿用完全相同的请求体与图像，保留独立尝试 ID、起止时间和已收到的内容。通过独立 HTTP 子进程和实际请求发出时间控制总时长，不只依赖 socket 读取间隔超时。
+网络失败、HTTP 408/409/425/429/5xx、未完整结束的流以及总时长超时可以在剩余预算内重试；每次都沿用完全相同的请求体与图像，保留独立尝试 ID、起止时间和已收到的内容。HTTP 子进程发出请求开始信号，父进程使用自身的单调时钟执行总时限，完整响应的耗时由子进程自身的起止时间计算。
 
 本地取消仅表示关闭本地连接，不能确认服务端已取消计算或停止计费。重复调用仍可能产生费用。达到尝试上限即停止该输入，续跑不会绕过上限。
 

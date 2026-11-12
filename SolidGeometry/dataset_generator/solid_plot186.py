@@ -1,31 +1,46 @@
-"""Frozen native MathVision redraw; importing does not write files."""
+"""Frozen question Solid186; unified protocol 2.0.0. Original metadata and PNG retained."""
 from pathlib import Path
-import importlib.util
+import sys
 import json
-HERE = Path(__file__).resolve().parent
+import numpy as np
+_PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+from dataset_tools.drawing import Canvas, ANALYTICS, PLANE, SOLID, VectorPath, VectorTransform, VectorBox
 
 class Solid186:
 
     def __init__(self):
-        self.__dict__.update({'id': 'Solid186', 'source_dataset': 'MathVision', 'question': 'It takes 9 litres of paint to cover the surface of the cube on the left.\nHow much paint would it take to cover the surface of the shape on the right?\nChoices:\nA:9 litres\nB:8 litres\nC:6 litres\nD:4 litres\nE:2 litres', 'answer': 'A', 'answer_type': 'choice', 'subject': 'SolidGeometry', 'choices': {'A': '9 litres', 'B': '8 litres', 'C': '6 litres', 'D': '4 litres', 'E': '2 litres'}, 'source_key': 'test:1727', 'source_category': 'solid geometry', 'source_revision': '2837ddb3f13abaf6b3997c12d80753e5470bd46a'})
+        self.id = 'Solid186'
+        self.source_dataset = 'MathVision'
+        self.source_key = 'test:1727'
+        self.question = 'It takes 9 litres of paint to cover the surface of the cube on the left.\nHow much paint would it take to cover the surface of the shape on the right?\nChoices:\nA:9 litres\nB:8 litres\nC:6 litres\nD:4 litres\nE:2 litres'
+        self.answer = 'A'
+        self.answer_type = 'choice'
+        self.choices = {'A': '9 litres', 'B': '8 litres', 'C': '6 litres', 'D': '4 litres', 'E': '2 litres'}
         self.query = self.question
+        self.subject = 'SolidGeometry'
         self.level = None
-        self.scene_path = HERE / 'scenes/Solid186.json'
+        self.scene_path = _PROJECT_ROOT / 'SolidGeometry' / 'dataset_generator/scenes/Solid186.json'
+
+    def draw(self, output_path=None, *, variant=None, _canvas=False):
+        if output_path is None and (not _canvas):
+            output_path = _PROJECT_ROOT / '.runtime/reproduced' / 'SolidGeometry' / (self.id + ('_' + variant if variant else '') + '.png')
+        if variant is not None:
+            if _canvas:
+                raise ValueError('Canvas capture is for the original only')
+            from dataset_tools.unified_replay import draw_slot
+            return draw_slot('SolidGeometry', self.id, variant, output_path)
+        with Canvas(SOLID, xlim=[-0.23784426406473358, 9.802303445266283], ylim=[-2.777303445266284, 7.262844264064732], projection=[[1, 0.35, 0], [0, 0.5, 1]], origin=[0, 0, 0], offset=[0, 0]) as c:
+            for object_id, points in [('panel0e0', c.project([[0.0, 0.0, 0.0], [1.0, 0.0, 0.0]])), ('panel0e1', c.project([[0.0, 0.0, 1.0], [1.0, 0.0, 1.0]])), ('panel0e2', c.project([[0.0, 0.0, 0.0], [0.0, 0.0, 1.0]])), ('panel0e3', c.project([[1.0, 0.0, 0.0], [1.0, 0.0, 1.0]])), ('panel0e4', c.project([[0.0, 0.0, 2.0], [1.0, 0.0, 2.0]])), ('panel0e5', c.project([[0.0, 0.0, 1.0], [0.0, 0.0, 2.0]])), ('panel0e6', c.project([[1.0, 0.0, 1.0], [1.0, 0.0, 2.0]])), ('panel0e7', c.project([[0.0, 0.0, 3.0], [1.0, 0.0, 3.0]])), ('panel0e8', c.project([[0.0, 1.0, 3.0], [1.0, 1.0, 3.0]])), ('panel0e9', c.project([[0.0, 0.0, 3.0], [0.0, 1.0, 3.0]])), ('panel0e10', c.project([[1.0, 0.0, 3.0], [1.0, 1.0, 3.0]])), ('panel0e11', c.project([[0.0, 0.0, 2.0], [0.0, 0.0, 3.0]])), ('panel0e12', c.project([[1.0, 0.0, 2.0], [1.0, 0.0, 3.0]])), ('panel0e13', c.project([[0.0, 2.0, 3.0], [1.0, 2.0, 3.0]])), ('panel0e14', c.project([[0.0, 1.0, 3.0], [0.0, 2.0, 3.0]])), ('panel0e15', c.project([[1.0, 1.0, 3.0], [1.0, 2.0, 3.0]])), ('panel0e16', c.project([[0.0, 3.0, 3.0], [1.0, 3.0, 3.0]])), ('panel0e17', c.project([[0.0, 2.0, 3.0], [0.0, 3.0, 3.0]])), ('panel0e18', c.project([[1.0, 2.0, 3.0], [1.0, 3.0, 3.0]])), ('panel0e19', c.project([[1.0, 0.0, 0.0], [2.0, 0.0, 0.0]])), ('panel0e20', c.project([[1.0, 0.0, 1.0], [2.0, 0.0, 1.0]])), ('panel0e21', c.project([[2.0, 0.0, 0.0], [2.0, 0.0, 1.0]])), ('panel0e22', c.project([[1.0, 0.0, 2.0], [2.0, 0.0, 2.0]])), ('panel0e23', c.project([[2.0, 0.0, 1.0], [2.0, 0.0, 2.0]])), ('panel0e24', c.project([[1.0, 0.0, 3.0], [2.0, 0.0, 3.0]])), ('panel0e25', c.project([[1.0, 1.0, 3.0], [2.0, 1.0, 3.0]])), ('panel0e26', c.project([[2.0, 0.0, 3.0], [2.0, 1.0, 3.0]])), ('panel0e27', c.project([[2.0, 0.0, 2.0], [2.0, 0.0, 3.0]])), ('panel0e28', c.project([[1.0, 2.0, 3.0], [2.0, 2.0, 3.0]])), ('panel0e29', c.project([[2.0, 1.0, 3.0], [2.0, 2.0, 3.0]])), ('panel0e30', c.project([[1.0, 3.0, 3.0], [2.0, 3.0, 3.0]])), ('panel0e31', c.project([[2.0, 2.0, 3.0], [2.0, 3.0, 3.0]])), ('panel0e32', c.project([[2.0, 0.0, 0.0], [3.0, 0.0, 0.0]])), ('panel0e33', c.project([[2.0, 0.0, 1.0], [3.0, 0.0, 1.0]])), ('panel0e34', c.project([[3.0, 0.0, 0.0], [3.0, 1.0, 0.0]])), ('panel0e35', c.project([[3.0, 0.0, 1.0], [3.0, 1.0, 1.0]])), ('panel0e36', c.project([[3.0, 0.0, 0.0], [3.0, 0.0, 1.0]])), ('panel0e37', c.project([[3.0, 1.0, 0.0], [3.0, 1.0, 1.0]])), ('panel0e38', c.project([[2.0, 0.0, 2.0], [3.0, 0.0, 2.0]])), ('panel0e39', c.project([[3.0, 0.0, 2.0], [3.0, 1.0, 2.0]])), ('panel0e40', c.project([[3.0, 0.0, 1.0], [3.0, 0.0, 2.0]])), ('panel0e41', c.project([[3.0, 1.0, 1.0], [3.0, 1.0, 2.0]])), ('panel0e42', c.project([[2.0, 0.0, 3.0], [3.0, 0.0, 3.0]])), ('panel0e43', c.project([[2.0, 1.0, 3.0], [3.0, 1.0, 3.0]])), ('panel0e44', c.project([[3.0, 0.0, 3.0], [3.0, 1.0, 3.0]])), ('panel0e45', c.project([[3.0, 0.0, 2.0], [3.0, 0.0, 3.0]])), ('panel0e46', c.project([[3.0, 1.0, 2.0], [3.0, 1.0, 3.0]])), ('panel0e47', c.project([[3.0, 1.0, 0.0], [3.0, 2.0, 0.0]])), ('panel0e48', c.project([[3.0, 1.0, 1.0], [3.0, 2.0, 1.0]])), ('panel0e49', c.project([[3.0, 2.0, 0.0], [3.0, 2.0, 1.0]])), ('panel0e50', c.project([[3.0, 1.0, 2.0], [3.0, 2.0, 2.0]])), ('panel0e51', c.project([[3.0, 2.0, 1.0], [3.0, 2.0, 2.0]])), ('panel0e52', c.project([[2.0, 2.0, 3.0], [3.0, 2.0, 3.0]])), ('panel0e53', c.project([[3.0, 1.0, 3.0], [3.0, 2.0, 3.0]])), ('panel0e54', c.project([[3.0, 2.0, 2.0], [3.0, 2.0, 3.0]])), ('panel0e55', c.project([[3.0, 2.0, 0.0], [3.0, 3.0, 0.0]])), ('panel0e56', c.project([[3.0, 2.0, 1.0], [3.0, 3.0, 1.0]])), ('panel0e57', c.project([[3.0, 3.0, 0.0], [3.0, 3.0, 1.0]])), ('panel0e58', c.project([[3.0, 2.0, 2.0], [3.0, 3.0, 2.0]])), ('panel0e59', c.project([[3.0, 3.0, 1.0], [3.0, 3.0, 2.0]])), ('panel0e60', c.project([[2.0, 3.0, 3.0], [3.0, 3.0, 3.0]])), ('panel0e61', c.project([[3.0, 2.0, 3.0], [3.0, 3.0, 3.0]])), ('panel0e62', c.project([[3.0, 3.0, 2.0], [3.0, 3.0, 3.0]])), ('panel1e0', c.project([[5.5, 0.0, 0.0], [6.5, 0.0, 0.0]])), ('panel1e1', c.project([[5.5, 0.0, 1.0], [6.5, 0.0, 1.0]])), ('panel1e2', c.project([[6.5, 0.0, 1.0], [6.5, 1.0, 1.0]])), ('panel1e3', c.project([[5.5, 0.0, 0.0], [5.5, 0.0, 1.0]])), ('panel1e4', c.project([[6.5, 0.0, 0.0], [6.5, 0.0, 1.0]])), ('panel1e5', c.project([[5.5, 0.0, 2.0], [6.5, 0.0, 2.0]])), ('panel1e6', c.project([[6.5, 0.0, 2.0], [6.5, 1.0, 2.0]])), ('panel1e7', c.project([[5.5, 0.0, 1.0], [5.5, 0.0, 2.0]])), ('panel1e8', c.project([[6.5, 0.0, 1.0], [6.5, 0.0, 2.0]])), ('panel1e9', c.project([[6.5, 1.0, 1.0], [6.5, 1.0, 2.0]])), ('panel1e10', c.project([[5.5, 0.0, 3.0], [6.5, 0.0, 3.0]])), ('panel1e11', c.project([[5.5, 1.0, 3.0], [6.5, 1.0, 3.0]])), ('panel1e12', c.project([[5.5, 0.0, 3.0], [5.5, 1.0, 3.0]])), ('panel1e13', c.project([[6.5, 0.0, 3.0], [6.5, 1.0, 3.0]])), ('panel1e14', c.project([[5.5, 0.0, 2.0], [5.5, 0.0, 3.0]])), ('panel1e15', c.project([[6.5, 0.0, 2.0], [6.5, 0.0, 3.0]])), ('panel1e16', c.project([[6.5, 1.0, 2.0], [6.5, 1.0, 3.0]])), ('panel1e17', c.project([[6.5, 1.0, 1.0], [6.5, 2.0, 1.0]])), ('panel1e18', c.project([[6.5, 1.0, 2.0], [6.5, 2.0, 2.0]])), ('panel1e19', c.project([[6.5, 2.0, 1.0], [6.5, 2.0, 2.0]])), ('panel1e20', c.project([[5.5, 2.0, 3.0], [6.5, 2.0, 3.0]])), ('panel1e21', c.project([[5.5, 1.0, 3.0], [5.5, 2.0, 3.0]])), ('panel1e22', c.project([[6.5, 1.0, 3.0], [6.5, 2.0, 3.0]])), ('panel1e23', c.project([[6.5, 2.0, 2.0], [6.5, 2.0, 3.0]])), ('panel1e24', c.project([[5.5, 3.0, 3.0], [6.5, 3.0, 3.0]])), ('panel1e25', c.project([[5.5, 2.0, 3.0], [5.5, 3.0, 3.0]])), ('panel1e26', c.project([[6.5, 2.0, 3.0], [6.5, 3.0, 3.0]])), ('panel1e27', c.project([[6.5, 0.0, 0.0], [7.5, 0.0, 0.0]])), ('panel1e28', c.project([[6.5, 0.0, 1.0], [7.5, 0.0, 1.0]])), ('panel1e29', c.project([[6.5, 1.0, 1.0], [7.5, 1.0, 1.0]])), ('panel1e30', c.project([[7.5, 0.0, 1.0], [7.5, 1.0, 1.0]])), ('panel1e31', c.project([[7.5, 0.0, 0.0], [7.5, 0.0, 1.0]])), ('panel1e32', c.project([[6.5, 2.0, 1.0], [7.5, 2.0, 1.0]])), ('panel1e33', c.project([[7.5, 1.0, 1.0], [7.5, 2.0, 1.0]])), ('panel1e34', c.project([[6.5, 2.0, 2.0], [7.5, 2.0, 2.0]])), ('panel1e35', c.project([[7.5, 2.0, 1.0], [7.5, 2.0, 2.0]])), ('panel1e36', c.project([[6.5, 2.0, 3.0], [7.5, 2.0, 3.0]])), ('panel1e37', c.project([[6.5, 3.0, 3.0], [7.5, 3.0, 3.0]])), ('panel1e38', c.project([[7.5, 2.0, 3.0], [7.5, 3.0, 3.0]])), ('panel1e39', c.project([[7.5, 2.0, 2.0], [7.5, 2.0, 3.0]])), ('panel1e40', c.project([[7.5, 0.0, 0.0], [8.5, 0.0, 0.0]])), ('panel1e41', c.project([[7.5, 0.0, 1.0], [8.5, 0.0, 1.0]])), ('panel1e42', c.project([[7.5, 1.0, 1.0], [8.5, 1.0, 1.0]])), ('panel1e43', c.project([[8.5, 0.0, 0.0], [8.5, 1.0, 0.0]])), ('panel1e44', c.project([[8.5, 0.0, 1.0], [8.5, 1.0, 1.0]])), ('panel1e45', c.project([[8.5, 0.0, 0.0], [8.5, 0.0, 1.0]])), ('panel1e46', c.project([[8.5, 1.0, 0.0], [8.5, 1.0, 1.0]])), ('panel1e47', c.project([[7.5, 2.0, 1.0], [8.5, 2.0, 1.0]])), ('panel1e48', c.project([[8.5, 1.0, 0.0], [8.5, 2.0, 0.0]])), ('panel1e49', c.project([[8.5, 1.0, 1.0], [8.5, 2.0, 1.0]])), ('panel1e50', c.project([[8.5, 2.0, 0.0], [8.5, 2.0, 1.0]])), ('panel1e51', c.project([[8.5, 2.0, 0.0], [8.5, 3.0, 0.0]])), ('panel1e52', c.project([[8.5, 2.0, 1.0], [8.5, 3.0, 1.0]])), ('panel1e53', c.project([[8.5, 3.0, 0.0], [8.5, 3.0, 1.0]])), ('panel1e54', c.project([[7.5, 2.0, 2.0], [8.5, 2.0, 2.0]])), ('panel1e55', c.project([[8.5, 2.0, 2.0], [8.5, 3.0, 2.0]])), ('panel1e56', c.project([[8.5, 2.0, 1.0], [8.5, 2.0, 2.0]])), ('panel1e57', c.project([[8.5, 3.0, 1.0], [8.5, 3.0, 2.0]])), ('panel1e58', c.project([[7.5, 2.0, 3.0], [8.5, 2.0, 3.0]])), ('panel1e59', c.project([[7.5, 3.0, 3.0], [8.5, 3.0, 3.0]])), ('panel1e60', c.project([[8.5, 2.0, 3.0], [8.5, 3.0, 3.0]])), ('panel1e61', c.project([[8.5, 2.0, 2.0], [8.5, 2.0, 3.0]])), ('panel1e62', c.project([[8.5, 3.0, 2.0], [8.5, 3.0, 3.0]]))]:
+                c.line(points, id=object_id, clip_on=False, zorder=3)
+            return c if _canvas else c.save(output_path)
 
     def get_scene(self):
-        return json.loads(self.scene_path.read_text(encoding='utf-8'))
+        return json.loads(self.scene_path.read_text(encoding='utf-8-sig'))
 
-    def draw(self, num=0, output_path=None):
-        if output_path is None and isinstance(num, (str, Path)):
-            output_path = num
-        output = Path(output_path) if output_path else HERE.parents[1] / '.runtime/mathvision_redraw' / 'Solid186.png'
-        spec = importlib.util.spec_from_file_location('mathvision_native_runtime', HERE / 'mathvision_renderers/shared_e4e003f51742cf00/runtime.py')
-        runtime = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(runtime)
-        return runtime.draw(HERE / 'mathvision_renderers/shared_e4e003f51742cf00/items/Solid186', HERE / 'mathvision_renderers/shared_e4e003f51742cf00/native', output, formal_scene=self.scene_path, original_image=HERE / '../originals/Solid186.jpg')
-
-    def redraw(self, output_path=None):
-        return self.draw(output_path=output_path)
+    def build_scene(self):
+        canvas = self.draw(_canvas=True)
+        return (canvas.fig, canvas.ax)
 if __name__ == '__main__':
-    import sys
-    print(Solid186().draw(output_path=sys.argv[1] if len(sys.argv) > 1 else None))
+    print(Solid186().draw(sys.argv[1] if len(sys.argv) > 1 else None))

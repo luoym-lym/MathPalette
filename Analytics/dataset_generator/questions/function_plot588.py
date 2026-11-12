@@ -1,47 +1,46 @@
-"""Frozen Author Designed original. Importing writes no artifacts."""
+"""Frozen question Ana588; unified protocol 2.0.0. Original metadata and PNG retained."""
 from pathlib import Path
-import json
 import sys
+import json
 import numpy as np
-_HELPERS = Path(__file__).resolve().parents[1]
-if str(_HELPERS) not in sys.path:
-    sys.path.insert(0, str(_HELPERS))
-from common_renderer import open_canvas, plot_curve, scatter_points, label, finalize
-_SCENE_PATH = _HELPERS / "scenes" / "Ana588.json"
+_PROJECT_ROOT = Path(__file__).resolve().parents[3]
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+from dataset_tools.drawing import Canvas, ANALYTICS, PLANE, SOLID, VectorPath, VectorTransform, VectorBox
 
 class Ana588:
+
     def __init__(self):
         self.id = 'Ana588'
-        self.source_dataset = "Author Designed"
+        self.source_dataset = 'Author Designed'
+        self.source_key = 'author_extensions12_20261111/Ana588'
         self.question = 'The graph shows a one-to-one function f on its displayed closed domain. Find f^(-1)(4).'
-        self.query = self.question
         self.answer = '-2'
         self.answer_type = 'number'
-        self.subject = "Analytics"
+        self.query = self.question
+        self.subject = 'Analytics'
         self.level = None
-        self.scene_path = str(_SCENE_PATH)
+        self.scene_path = _PROJECT_ROOT / 'Analytics' / 'dataset_generator/scenes/Ana588.json'
+
+    def draw(self, output_path=None, *, variant=None, _canvas=False):
+        if output_path is None and (not _canvas):
+            output_path = _PROJECT_ROOT / '.runtime/reproduced' / 'Analytics' / (self.id + ('_' + variant if variant else '') + '.png')
+        if variant is not None:
+            if _canvas:
+                raise ValueError('Canvas capture is for the original only')
+            from dataset_tools.unified_replay import draw_slot
+            return draw_slot('Analytics', self.id, variant, output_path)
+        with Canvas(ANALYTICS, xlim=[-8, 8], ylim=[-8, 8]) as c:
+            c.line([[6, -4], [3, -1], [1, 3], [-2, 4], [-5, 7]], id='object_000', solid_capstyle='butt')
+            c.point([[6, -4], [-5, 7]], filled=True, id='object_001')
+            c.text('$f$', [-5.4, 7.2])
+            return c if _canvas else c.save(output_path)
 
     def get_scene(self):
-        return json.loads(_SCENE_PATH.read_text(encoding="utf-8"))
+        return json.loads(self.scene_path.read_text(encoding='utf-8-sig'))
 
-    def draw(self, num=0, output_path=None):
-        if output_path is None and isinstance(num, (str, Path)):
-            output_path = num
-        scene = self.get_scene()
-        fig, ax = open_canvas(**scene["axes"])
-        for obj in scene["objects"]:
-            coords = np.asarray(obj["points"], dtype=float)
-            if obj["type"] == "curve":
-                plot_curve(ax, coords[:, 0], coords[:, 1])
-            else:
-                scatter_points(ax, coords[:, 0], coords[:, 1], open_marker=obj["open"])
-        for entry in scene["labels"]:
-            label(ax, **entry)
-        target = Path(output_path) if output_path else _HELPERS.parents[2] / "reproduced" / (self.id + ".png")
-        return finalize(fig, target)
-
-def draw(num=0, output_path=None):
-    return Ana588().draw(num=num, output_path=output_path)
-
-if __name__ == "__main__":
-    print(draw(output_path=sys.argv[1] if len(sys.argv) > 1 else None))
+    def build_scene(self):
+        canvas = self.draw(_canvas=True)
+        return (canvas.fig, canvas.ax)
+if __name__ == '__main__':
+    print(Ana588().draw(sys.argv[1] if len(sys.argv) > 1 else None))

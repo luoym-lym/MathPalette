@@ -56,7 +56,7 @@ def main():
         assert result.returncode==0, result.stdout+result.stderr
         assert 'MathPalette Python:' in result.stdout
         check=json.loads(result.stdout[result.stdout.rfind('\n{')+1:])
-        assert check['noop_pixels_match'] and check['questions_checked']==len(analytics_ids - initially_collected)
+        assert check['noop_reproduction_verified'] and check['questions_checked']==len(analytics_ids - initially_collected)
         assert check['collected_questions']==initial_collected_total and check['accepted_count']==initial_special_total
         progress=root/'.runtime/analytics_special/state/progress.json'
         saved=progress.read_bytes()

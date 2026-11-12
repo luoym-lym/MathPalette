@@ -1,35 +1,44 @@
-"""Deterministic frozen-scene redraw. Importing does not write files."""
+"""Frozen question Ana48; unified protocol 2.0.0. Original metadata and PNG retained."""
 from pathlib import Path
-import importlib.util
+import sys
 import json
-ROOT=Path(__file__).resolve().parent
-def _runtime():
-    spec=importlib.util.spec_from_file_location("mathverse_runtime",ROOT/'..\\mathverse_renderers\\runtime.py')
-    module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);return module
-def finalize(fig,destination):
-    return _runtime().finalize('analytics_frozen',fig,destination)
-def build_scene():
-    return _runtime().build_scene('analytics_frozen',ROOT/'..\\scenes\\Ana48.json')
+import numpy as np
+_PROJECT_ROOT = Path(__file__).resolve().parents[3]
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+from dataset_tools.drawing import Canvas, ANALYTICS, PLANE, SOLID, VectorPath, VectorTransform, VectorBox
+
 class Ana48:
+
     def __init__(self):
-        self.__dict__.update({'source_dataset': 'MathVerse', 'question': 'State the coordinates of the centre of the figure in the form $(a, b)$.', 'answer': '(0,0)', 'answer_type': 'expression', 'subject': 'Analytics', 'id': 'Ana48'})
-        self.query=self.question
-        self.level=None
-        self.scene_path=ROOT/'..\\scenes\\Ana48.json'
+        self.id = 'Ana48'
+        self.source_dataset = 'MathVerse'
+        self.source_key = 'testmini:2264'
+        self.question = 'State the coordinates of the centre of the figure in the form $(a, b)$.'
+        self.answer = '(0,0)'
+        self.answer_type = 'expression'
+        self.query = self.question
+        self.subject = 'Analytics'
+        self.level = None
+        self.scene_path = _PROJECT_ROOT / 'Analytics' / 'dataset_generator/scenes/Ana48.json'
+
+    def draw(self, output_path=None, *, variant=None, _canvas=False):
+        if output_path is None and (not _canvas):
+            output_path = _PROJECT_ROOT / '.runtime/reproduced' / 'Analytics' / (self.id + ('_' + variant if variant else '') + '.png')
+        if variant is not None:
+            if _canvas:
+                raise ValueError('Canvas capture is for the original only')
+            from dataset_tools.unified_replay import draw_slot
+            return draw_slot('Analytics', self.id, variant, output_path)
+        with Canvas(ANALYTICS, xlim=[-8, 8], ylim=[-8, 8]) as c:
+            c.circle([0, 0], 2, id='o1')
+            return c if _canvas else c.save(output_path)
+
     def get_scene(self):
-        return json.loads(self.scene_path.read_text(encoding="utf-8"))
+        return json.loads(self.scene_path.read_text(encoding='utf-8-sig'))
+
     def build_scene(self):
-        return build_scene()
-    def draw(self, num=0, output_path=None):
-        if output_path is None and isinstance(num,(str,Path)): output_path=num
-        destination=Path(output_path) if output_path else (ROOT/'..\\..\\..'/".runtime"/"mathverse_redraw"/'Ana48.png').resolve()
-        spec=importlib.util.spec_from_file_location("mathverse_runtime",ROOT/'..\\mathverse_renderers\\runtime.py')
-        module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
-        if self.subject=="Analytics":
-            fig,ax=self.build_scene();return finalize(fig,destination)
-        return module.draw('analytics_frozen', self.scene_path, destination)
-    def redraw(self, output_path=None):
-        return self.draw(output_path=output_path)
-if __name__=="__main__":
-    import sys
-    print(Ana48().draw(output_path=sys.argv[1] if len(sys.argv)>1 else None))
+        canvas = self.draw(_canvas=True)
+        return (canvas.fig, canvas.ax)
+if __name__ == '__main__':
+    print(Ana48().draw(sys.argv[1] if len(sys.argv) > 1 else None))

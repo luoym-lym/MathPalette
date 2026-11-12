@@ -1,31 +1,206 @@
-"""Frozen native MathVision redraw; importing does not write files."""
+"""Frozen question Plane141; unified protocol 2.0.0. Original metadata and PNG retained."""
 from pathlib import Path
-import importlib.util
+import sys
 import json
-HERE = Path(__file__).resolve().parent
+import numpy as np
+_PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+from dataset_tools.drawing import Canvas, ANALYTICS, PLANE, SOLID, VectorPath, VectorTransform, VectorBox
 
 class Plane141:
 
     def __init__(self):
-        self.__dict__.update({'id': 'Plane141', 'source_dataset': 'MathVision', 'question': 'Which of the figures shown below cannot be cut out of the figure illustrated nearby?\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E', 'answer': 'C', 'answer_type': 'choice', 'subject': 'PlaneGeometry', 'choices': {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'}, 'source_key': 'test:21', 'source_category': 'combinatorial geometry', 'source_revision': '2837ddb3f13abaf6b3997c12d80753e5470bd46a'})
+        self.id = 'Plane141'
+        self.source_dataset = 'MathVision'
+        self.source_key = 'test:21'
+        self.question = 'Which of the figures shown below cannot be cut out of the figure illustrated nearby?\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E'
+        self.answer = 'C'
+        self.answer_type = 'choice'
+        self.choices = {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'}
         self.query = self.question
+        self._geometry_01 = [('source_0', [[9, 10], [9, 11]]),
+         ('source_1', [[9, 10], [10, 10]]),
+         ('source_2', [[9, 11], [10, 11]]),
+         ('source_3', [[10, 7], [10, 8]]),
+         ('source_4', [[10, 7], [11, 7]]),
+         ('source_5', [[10, 8], [10, 9]]),
+         ('source_6', [[10, 8], [11, 8]]),
+         ('source_7', [[10, 9], [10, 10]]),
+         ('source_8', [[10, 9], [11, 9]]),
+         ('source_9', [[10, 10], [10, 11]]),
+         ('source_10', [[10, 10], [11, 10]]),
+         ('source_11', [[10, 11], [10, 12]]),
+         ('source_12', [[10, 11], [11, 11]]),
+         ('source_13', [[10, 12], [11, 12]]),
+         ('source_14', [[11, 7], [11, 8]]),
+         ('source_15', [[11, 7], [12, 7]]),
+         ('source_16', [[11, 8], [11, 9]]),
+         ('source_17', [[11, 8], [12, 8]]),
+         ('source_18', [[11, 9], [11, 10]]),
+         ('source_19', [[11, 10], [11, 11]]),
+         ('source_20', [[11, 10], [12, 10]]),
+         ('source_21', [[11, 11], [11, 12]]),
+         ('source_22', [[11, 11], [12, 11]]),
+         ('source_23', [[11, 12], [12, 12]]),
+         ('source_24', [[12, 7], [12, 8]]),
+         ('source_25', [[12, 7], [13, 7]]),
+         ('source_26', [[12, 8], [13, 8]]),
+         ('source_27', [[12, 10], [12, 11]]),
+         ('source_28', [[12, 11], [12, 12]]),
+         ('source_29', [[12, 11], [13, 11]]),
+         ('source_30', [[12, 12], [13, 12]]),
+         ('source_31', [[13, 7], [13, 8]]),
+         ('source_32', [[13, 11], [13, 12]]),
+         ('A_0', [[0, 0], [0, 1]]),
+         ('A_1', [[0, 0], [1, 0]]),
+         ('A_2', [[0, 1], [0, 2]]),
+         ('A_3', [[0, 1], [1, 1]]),
+         ('A_4', [[0, 2], [0, 3]]),
+         ('A_5', [[0, 2], [1, 2]]),
+         ('A_6', [[0, 3], [0, 4]]),
+         ('A_7', [[0, 3], [1, 3]]),
+         ('A_8', [[0, 4], [0, 5]]),
+         ('A_9', [[0, 4], [1, 4]]),
+         ('A_10', [[0, 5], [1, 5]]),
+         ('A_11', [[1, 0], [1, 1]]),
+         ('A_12', [[1, 0], [2, 0]]),
+         ('A_13', [[1, 1], [1, 2]]),
+         ('A_14', [[1, 1], [2, 1]]),
+         ('A_15', [[1, 2], [1, 3]]),
+         ('A_16', [[1, 3], [1, 4]]),
+         ('A_17', [[1, 4], [1, 5]]),
+         ('A_18', [[1, 4], [2, 4]]),
+         ('A_19', [[1, 5], [2, 5]]),
+         ('A_20', [[2, 0], [2, 1]]),
+         ('A_21', [[2, 0], [3, 0]]),
+         ('A_22', [[2, 1], [3, 1]]),
+         ('A_23', [[2, 4], [2, 5]]),
+         ('A_24', [[2, 4], [3, 4]]),
+         ('A_25', [[2, 5], [3, 5]]),
+         ('A_26', [[3, 0], [3, 1]]),
+         ('A_27', [[3, 4], [3, 5]]),
+         ('B_0', [[5, 3], [5, 4]]),
+         ('B_1', [[5, 3], [6, 3]]),
+         ('B_2', [[5, 4], [6, 4]]),
+         ('B_3', [[6, 0], [6, 1]]),
+         ('B_4', [[6, 0], [7, 0]]),
+         ('B_5', [[6, 1], [6, 2]]),
+         ('B_6', [[6, 1], [7, 1]]),
+         ('B_7', [[6, 2], [6, 3]]),
+         ('B_8', [[6, 2], [7, 2]]),
+         ('B_9', [[6, 3], [6, 4]]),
+         ('B_10', [[6, 3], [7, 3]]),
+         ('B_11', [[6, 4], [7, 4]]),
+         ('B_12', [[7, 0], [7, 1]]),
+         ('B_13', [[7, 0], [8, 0]]),
+         ('B_14', [[7, 1], [7, 2]]),
+         ('B_15', [[7, 1], [8, 1]]),
+         ('B_16', [[7, 2], [7, 3]]),
+         ('B_17', [[7, 3], [7, 4]]),
+         ('B_18', [[7, 3], [8, 3]]),
+         ('B_19', [[7, 4], [8, 4]]),
+         ('B_20', [[8, 0], [8, 1]]),
+         ('B_21', [[8, 0], [9, 0]]),
+         ('B_22', [[8, 1], [9, 1]]),
+         ('B_23', [[8, 3], [8, 4]]),
+         ('B_24', [[9, 0], [9, 1]]),
+         ('C_0', [[10, 2], [10, 3]]),
+         ('C_1', [[10, 2], [11, 2]]),
+         ('C_2', [[10, 3], [11, 3]]),
+         ('C_3', [[11, 0], [11, 1]]),
+         ('C_4', [[11, 0], [12, 0]]),
+         ('C_5', [[11, 1], [11, 2]]),
+         ('C_6', [[11, 1], [12, 1]]),
+         ('C_7', [[11, 2], [11, 3]]),
+         ('C_8', [[11, 2], [12, 2]]),
+         ('C_9', [[11, 3], [11, 4]]),
+         ('C_10', [[11, 3], [12, 3]]),
+         ('C_11', [[11, 4], [12, 4]]),
+         ('C_12', [[12, 0], [12, 1]]),
+         ('C_13', [[12, 0], [13, 0]]),
+         ('C_14', [[12, 1], [12, 2]]),
+         ('C_15', [[12, 1], [13, 1]]),
+         ('C_16', [[12, 2], [12, 3]]),
+         ('C_17', [[12, 2], [13, 2]]),
+         ('C_18', [[12, 3], [12, 4]]),
+         ('C_19', [[12, 3], [13, 3]]),
+         ('C_20', [[13, 0], [13, 1]]),
+         ('C_21', [[13, 2], [13, 3]]),
+         ('D_0', [[15, 3], [15, 4]]),
+         ('D_1', [[15, 3], [16, 3]]),
+         ('D_2', [[15, 4], [16, 4]]),
+         ('D_3', [[16, 0], [16, 1]]),
+         ('D_4', [[16, 0], [17, 0]]),
+         ('D_5', [[16, 1], [16, 2]]),
+         ('D_6', [[16, 1], [17, 1]]),
+         ('D_7', [[16, 2], [16, 3]]),
+         ('D_8', [[16, 2], [17, 2]]),
+         ('D_9', [[16, 3], [16, 4]]),
+         ('D_10', [[16, 3], [17, 3]]),
+         ('D_11', [[16, 4], [16, 5]]),
+         ('D_12', [[16, 4], [17, 4]]),
+         ('D_13', [[16, 5], [17, 5]]),
+         ('D_14', [[17, 0], [17, 1]]),
+         ('D_15', [[17, 0], [18, 0]]),
+         ('D_16', [[17, 1], [17, 2]]),
+         ('D_17', [[17, 1], [18, 1]]),
+         ('D_18', [[17, 2], [17, 3]]),
+         ('D_19', [[17, 3], [17, 4]]),
+         ('D_20', [[17, 4], [17, 5]]),
+         ('D_21', [[17, 4], [18, 4]]),
+         ('D_22', [[17, 5], [18, 5]]),
+         ('D_23', [[18, 0], [18, 1]]),
+         ('D_24', [[18, 4], [18, 5]]),
+         ('E_0', [[20, 0], [20, 1]]),
+         ('E_1', [[20, 0], [21, 0]]),
+         ('E_2', [[20, 1], [21, 1]]),
+         ('E_3', [[20, 3], [20, 4]]),
+         ('E_4', [[20, 3], [21, 3]]),
+         ('E_5', [[20, 4], [21, 4]]),
+         ('E_6', [[21, 0], [21, 1]]),
+         ('E_7', [[21, 0], [22, 0]]),
+         ('E_8', [[21, 1], [21, 2]]),
+         ('E_9', [[21, 1], [22, 1]]),
+         ('E_10', [[21, 2], [21, 3]]),
+         ('E_11', [[21, 2], [22, 2]]),
+         ('E_12', [[21, 3], [21, 4]]),
+         ('E_13', [[21, 3], [22, 3]]),
+         ('E_14', [[21, 4], [21, 5]]),
+         ('E_15', [[21, 4], [22, 4]]),
+         ('E_16', [[21, 5], [22, 5]]),
+         ('E_17', [[22, 0], [22, 1]]),
+         ('E_18', [[22, 1], [22, 2]]),
+         ('E_19', [[22, 2], [22, 3]]),
+         ('E_20', [[22, 3], [22, 4]]),
+         ('E_21', [[22, 3], [23, 3]]),
+         ('E_22', [[22, 4], [22, 5]]),
+         ('E_23', [[22, 4], [23, 4]]),
+         ('E_24', [[23, 3], [23, 4]])]
+        self.subject = 'PlaneGeometry'
         self.level = None
-        self.scene_path = HERE / 'scenes/Plane141.json'
+        self.scene_path = _PROJECT_ROOT / 'PlaneGeometry' / 'dataset_generator/scenes/Plane141.json'
+
+    def draw(self, output_path=None, *, variant=None, _canvas=False):
+        if output_path is None and (not _canvas):
+            output_path = _PROJECT_ROOT / '.runtime/reproduced' / 'PlaneGeometry' / (self.id + ('_' + variant if variant else '') + '.png')
+        if variant is not None:
+            if _canvas:
+                raise ValueError('Canvas capture is for the original only')
+            from dataset_tools.unified_replay import draw_slot
+            return draw_slot('PlaneGeometry', self.id, variant, output_path)
+        with Canvas(PLANE, xlim=[-1.4187750210056507, 23.62679774075869], ylim=[-6.54338784020244, 18.5021849215619]) as c:
+            for object_id, points in self._geometry_01:
+                c.line(points, id=object_id)
+            for object_id, text, anchor in [('label0', 'A', [-0.6, 4.7]), ('label1', 'B', [4.4, 4.7]), ('label2', 'C', [9.4, 4.7]), ('label3', 'D', [14.4, 4.7]), ('label4', 'E', [19.4, 4.7])]:
+                c.text(text, anchor, id=object_id, offset_pt=[0, 0], vertex=False)
+            return c if _canvas else c.save(output_path)
 
     def get_scene(self):
-        return json.loads(self.scene_path.read_text(encoding='utf-8'))
+        return json.loads(self.scene_path.read_text(encoding='utf-8-sig'))
 
-    def draw(self, num=0, output_path=None):
-        if output_path is None and isinstance(num, (str, Path)):
-            output_path = num
-        output = Path(output_path) if output_path else HERE.parents[1] / '.runtime/mathvision_redraw' / 'Plane141.png'
-        spec = importlib.util.spec_from_file_location('mathvision_native_runtime', HERE / 'mathvision_renderers/shared_e4e003f51742cf00/runtime.py')
-        runtime = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(runtime)
-        return runtime.draw(HERE / 'mathvision_renderers/shared_e4e003f51742cf00/items/Plane141', HERE / 'mathvision_renderers/shared_e4e003f51742cf00/native', output, formal_scene=self.scene_path, original_image=HERE / '../originals/Plane141.jpg')
-
-    def redraw(self, output_path=None):
-        return self.draw(output_path=output_path)
+    def build_scene(self):
+        canvas = self.draw(_canvas=True)
+        return (canvas.fig, canvas.ax)
 if __name__ == '__main__':
-    import sys
-    print(Plane141().draw(output_path=sys.argv[1] if len(sys.argv) > 1 else None))
+    print(Plane141().draw(sys.argv[1] if len(sys.argv) > 1 else None))

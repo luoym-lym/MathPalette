@@ -1,60 +1,57 @@
-"""User-approved frozen original; importing this module writes no files."""
+"""Frozen question Plane556; unified protocol 2.0.0. Original metadata and PNG retained."""
 from pathlib import Path
-import importlib.util
-import json
 import sys
-ROOT = Path(__file__).resolve().parent
-ITEM = ROOT / 'author_extensions95_v1/items/Plane556'
-
-def _engine():
-    path = ROOT / 'author_extensions95_v1/engine.py'
-    spec = importlib.util.spec_from_file_location('_extensions95_Plane556', path)
-    module = importlib.util.module_from_spec(spec)
-    sys.modules[spec.name] = module
-    spec.loader.exec_module(module)
-    return module
-
-def build_scene():
-    return _engine().capture(ITEM)
-
-def draw_original(output_path):
-    target = Path(output_path).resolve()
-    if target.suffix.lower() not in ('.png', '.svg'):
-        raise ValueError('Use a PNG or SVG output')
-    if target.is_relative_to(ROOT.parent):
-        raise ValueError('Redraw outside formal source directories')
-    data = _engine().render(ITEM, vector=target.suffix.lower() == '.svg')
-    target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_bytes(data)
-    return str(target)
+import json
+import numpy as np
+_PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+from dataset_tools.drawing import Canvas, ANALYTICS, PLANE, SOLID, VectorPath, VectorTransform, VectorBox
 
 class Plane556:
+
     def __init__(self):
-        row = next(json.loads(line) for line in (ROOT.parent / 'dataset.jsonl').read_text(encoding='utf-8-sig').splitlines()
-                   if line.strip() and json.loads(line)['id'] == 'Plane556')
-        for key, value in row.items():
-            setattr(self, key, value)
+        self.id = 'Plane556'
+        self.source_dataset = 'Author Designed'
+        self.source_key = 'author-extensions95-v1:Plane236/extension_02'
+        self.question = 'If a laser beam hits a mirror it changes its direction as shown. Each solid mirror has mirrored sides on both sides; dashed lines do not reflect. At which letter does the laser beam end?\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E'
+        self.answer = 'B'
+        self.answer_type = 'choice'
+        self.choices = {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'}
         self.query = self.question
         self.subject = 'PlaneGeometry'
         self.level = None
+        self.scene_path = _PROJECT_ROOT / 'PlaneGeometry' / 'dataset_generator/scenes/Plane556.json'
+
+    def draw(self, output_path=None, *, variant=None, _canvas=False):
+        if output_path is None and (not _canvas):
+            output_path = _PROJECT_ROOT / '.runtime/reproduced' / 'PlaneGeometry' / (self.id + ('_' + variant if variant else '') + '.png')
+        if variant is not None:
+            if _canvas:
+                raise ValueError('Canvas capture is for the original only')
+            from dataset_tools.unified_replay import draw_slot
+            return draw_slot('PlaneGeometry', self.id, variant, output_path)
+        with Canvas(PLANE, xlim=(-0.8693559656263625, 5.390103818198229), ylim=(-1.6062200539493332, 4.653239729875258), axes_position=(0.05, 0.05, 0.9, 0.9), coordinate_axes=False) as c:
+            for object_id, points in [('boundary_1', [[0.0, 0.0], [5.0, 0.0]]), ('boundary_2', [[5.0, 0.0], [5.0, 3.0]]), ('boundary_3', [[5.0, 3.0], [0.0, 3.0]]), ('boundary_4', [[0.0, 3.0], [0.0, 0.0]])]:
+                c.line(points, id=object_id, zorder=3, simplify=False)
+            for object_id, points in [('grid_column_1', [[1.0, 0.0], [1.0, 3.0]]), ('grid_column_2', [[2.0, 0.0], [2.0, 3.0]]), ('grid_column_3', [[3.0, 0.0], [3.0, 3.0]]), ('grid_column_4', [[4.0, 0.0], [4.0, 3.0]]), ('grid_row_1', [[0.0, 1.0], [5.0, 1.0]]), ('grid_row_2', [[0.0, 2.0], [5.0, 2.0]])]:
+                c.line(points, id=object_id, zorder=1, color='#999999', linestyle=(0.0, [4.0, 3.0]), simplify=False)
+            for object_id, points in [('mirror_c1_r1', [[0.66, 1.34], [1.34, 0.66]]), ('mirror_c1_r2', [[0.66, 2.34], [1.34, 1.66]]), ('mirror_c2_r1', [[1.66, 0.66], [2.34, 1.34]]), ('mirror_c2_r2', [[1.66, 1.66], [2.34, 2.34]]), ('mirror_c3_r1', [[2.66, 1.34], [3.34, 0.66]]), ('mirror_c3_r2', [[2.66, 2.34], [3.34, 1.66]]), ('mirror_c4_r1', [[3.66, 0.66], [4.34, 1.34]]), ('mirror_c4_r2', [[3.66, 2.34], [4.34, 1.66]])]:
+                c.line(points, id=object_id, zorder=3, simplify=False)
+            c.path([[54.892612303016406, 436.6163616948369], [123.35602844436198, 436.6163616948369], [190.26661960133268, 436.6163616948369]], [1, 3, 3], coordinates='pixels', id='incident_arrow', zorder=4, joinstyle='round', simplify=False)
+            c.path([[183.59995293466602, 439.9496950281702], [190.26661960133268, 436.6163616948369], [183.59995293466602, 433.28302836150357], [0.0, 0.0]], [1, 2, 2, 79], coordinates='pixels', id='incident_arrow', zorder=4, facecolor=(0.0, 0.0, 0.0, 1.0), joinstyle='round', simplify=False)
+            c.text('A', (2, 0), id='exit_label_A', fontsize=18.0, rotation_mode='default', offset_pt=(0, -15), annotation_clip=None)
+            c.text('B', (3, 3), id='exit_label_B', fontsize=18.0, rotation_mode='default', offset_pt=(0, 15), annotation_clip=None)
+            c.text('C', (3, 0), id='exit_label_C', fontsize=18.0, rotation_mode='default', offset_pt=(0, -15), annotation_clip=None)
+            c.text('D', (4, 3), id='exit_label_D', fontsize=18.0, rotation_mode='default', offset_pt=(0, 15), annotation_clip=None)
+            c.text('E', (5, 2), id='exit_label_E', fontsize=18.0, rotation_mode='default', offset_pt=(15, 0), annotation_clip=None)
+            return c if _canvas else c.save(output_path)
 
     def get_scene(self):
-        return json.loads((ROOT / 'scenes/Plane556.json').read_text(encoding='utf-8'))
+        return json.loads(self.scene_path.read_text(encoding='utf-8-sig'))
 
     def build_scene(self):
-        return build_scene()
-
-    def draw(self, num=0, output_path=None):
-        if output_path is None and isinstance(num, (str, Path)):
-            output_path = num
-        if output_path is None:
-            raise ValueError('An explicit output path is required')
-        return draw_original(output_path)
-
-    def redraw(self, output_path=None):
-        return self.draw(output_path=output_path)
-
+        canvas = self.draw(_canvas=True)
+        return (canvas.fig, canvas.ax)
 if __name__ == '__main__':
-    if len(sys.argv) != 2:
-        raise SystemExit('Provide a PNG or SVG output path')
-    print(draw_original(sys.argv[1]))
+    print(Plane556().draw(sys.argv[1] if len(sys.argv) > 1 else None))

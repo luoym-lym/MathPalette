@@ -1,5 +1,9 @@
 # Analytics 制作与变体协议
 
+## 当前绘图接口 2.0（2026-11-12）
+
+使用根目录 [绘图协议 2.0](../DRAWING_PROTOCOL.md)：每道题的类直接用 `Canvas(ANALYTICS)` 构图，统一接口为 `draw(output_path=None, *, variant=None)`；旧 `draw(num=0, ...)` 接口退出使用。来源渲染器不再参与运行。原图、题干答案、Pass 和 Collect 保留。
+
 版本：3.1.0。当前保留 590 道正式题，题号为连续的 Ana01～Ana590；来源与题干以 `dataset.jsonl` 为准，所有文件与插件使用同一题号。
 
 Ana547～Ana566 为 2026-11-11 用户明确批量授权的 Author Designed 原题，每题包含一份同步设计并授权直接 Pass 的 C01。记录见 [`analytics_author_special20_20261111.json`](../provenance/analytics_author_special20_20261111.json)，不冒称逐题人工审核。
@@ -14,7 +18,7 @@ Ana547～Ana566 为 2026-11-11 用户明确批量授权的 Author Designed 原�
 
 原题必须经用户明确确认。正式清单为本目录 `dataset.jsonl`，根目录清单为自动汇总。未通过新题在独立暂存区制作。每题 class 记录真实 `source_dataset`、题干、答案和答案类型，绘图参数冻结，不在导入或重绘时随机。
 
-原图沿用 `dataset_generator/protocol.json`：768×768、不透明白底、等比例坐标 `[-8,8]²`。题目脚本在 `dataset_generator/questions/function_plotNN.py`，公共绘图器在上一级。使用 `draw(num=0, output_path=None)`；正式输入不得被临时重绘覆盖。
+原图沿用 `dataset_generator/protocol.json`：768×768、不透明白底、等比例坐标 `[-8,8]²`。题目脚本在 `dataset_generator/questions/function_plotNN.py`，公共绘图器在上一级。使用 `draw(output_path=None, *, variant=None)`；正式输入不得被临时重绘覆盖。
 
 `provenance/approvals.json`（项目根目录）保存用户通过原话、时间及内容指纹。内容改变须重新审核。来源截图在 `originals/`；旧 DynaMath 来源截图缺失，不使用重绘图冒充。
 

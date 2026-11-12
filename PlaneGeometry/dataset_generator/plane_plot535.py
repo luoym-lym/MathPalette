@@ -1,60 +1,59 @@
-"""User-approved frozen original; importing this module writes no files."""
+"""Frozen question Plane535; unified protocol 2.0.0. Original metadata and PNG retained."""
 from pathlib import Path
-import importlib.util
-import json
 import sys
-ROOT = Path(__file__).resolve().parent
-ITEM = ROOT / 'author_extensions95_v1/items/Plane535'
-
-def _engine():
-    path = ROOT / 'author_extensions95_v1/engine.py'
-    spec = importlib.util.spec_from_file_location('_extensions95_Plane535', path)
-    module = importlib.util.module_from_spec(spec)
-    sys.modules[spec.name] = module
-    spec.loader.exec_module(module)
-    return module
-
-def build_scene():
-    return _engine().capture(ITEM)
-
-def draw_original(output_path):
-    target = Path(output_path).resolve()
-    if target.suffix.lower() not in ('.png', '.svg'):
-        raise ValueError('Use a PNG or SVG output')
-    if target.is_relative_to(ROOT.parent):
-        raise ValueError('Redraw outside formal source directories')
-    data = _engine().render(ITEM, vector=target.suffix.lower() == '.svg')
-    target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_bytes(data)
-    return str(target)
+import json
+import numpy as np
+_PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+from dataset_tools.drawing import Canvas, ANALYTICS, PLANE, SOLID, VectorPath, VectorTransform, VectorBox
 
 class Plane535:
+
     def __init__(self):
-        row = next(json.loads(line) for line in (ROOT.parent / 'dataset.jsonl').read_text(encoding='utf-8-sig').splitlines()
-                   if line.strip() and json.loads(line)['id'] == 'Plane535')
-        for key, value in row.items():
-            setattr(self, key, value)
+        self.id = 'Plane535'
+        self.source_dataset = 'Author Designed'
+        self.source_key = 'author-extensions95-v1:Plane177/extension_01'
+        self.question = 'The billiard ball meets the board under $45^{\\circ}$ as shown. Which pocket will it fall into?\nChoices:\nA: Pocket A\nB: Pocket B\nC: Pocket C\nD: Pocket D\nE: None of the pockets (the motion continues forever)'
+        self.answer = 'A'
+        self.answer_type = 'choice'
+        self.choices = {'A': 'Pocket A', 'B': 'Pocket B', 'C': 'Pocket C', 'D': 'Pocket D', 'E': 'None of the pockets (the motion continues forever)'}
         self.query = self.question
         self.subject = 'PlaneGeometry'
         self.level = None
+        self.scene_path = _PROJECT_ROOT / 'PlaneGeometry' / 'dataset_generator/scenes/Plane535.json'
+
+    def draw(self, output_path=None, *, variant=None, _canvas=False):
+        if output_path is None and (not _canvas):
+            output_path = _PROJECT_ROOT / '.runtime/reproduced' / 'PlaneGeometry' / (self.id + ('_' + variant if variant else '') + '.png')
+        if variant is not None:
+            if _canvas:
+                raise ValueError('Canvas capture is for the original only')
+            from dataset_tools.unified_replay import draw_slot
+            return draw_slot('PlaneGeometry', self.id, variant, output_path)
+        with Canvas(PLANE, xlim=[-0.71963068, 9.70400568], ylim=[-2.17275568, 8.25088068], axes_position=[0.05, 0.05, 0.9, 0.9], coordinate_axes=False) as c:
+            for object_id, points in [('rail_left_0', [[0.0, 0.21], [0.0, 5.79]]), ('rail_right_0', [[9.0, 0.21], [9.0, 5.79]]), ('rail_bottom_0', [[0.21, 0.0], [8.79, 0.0]]), ('rail_top_0', [[0.21, 6.0], [8.79, 6.0]]), ('grid_v_1', [[1.0, 0.0], [1.0, 6.0]]), ('grid_v_2', [[2.0, 0.0], [2.0, 6.0]]), ('grid_v_3', [[3.0, 0.0], [3.0, 6.0]]), ('grid_v_4', [[4.0, 0.0], [4.0, 6.0]]), ('grid_v_5', [[5.0, 0.0], [5.0, 6.0]]), ('grid_v_6', [[6.0, 0.0], [6.0, 6.0]]), ('grid_v_7', [[7.0, 0.0], [7.0, 6.0]]), ('grid_v_8', [[8.0, 0.0], [8.0, 6.0]]), ('grid_h_1', [[0.0, 1.0], [9.0, 1.0]]), ('grid_h_2', [[0.0, 2.0], [9.0, 2.0]]), ('grid_h_3', [[0.0, 3.0], [9.0, 3.0]]), ('grid_h_4', [[0.0, 4.0], [9.0, 4.0]]), ('grid_h_5', [[0.0, 5.0], [9.0, 5.0]])]:
+                c.line(points, id=object_id)
+            for object_id, center, radius in [('pocket_A', [9, 0], 0.21), ('pocket_B', [9, 6], 0.21), ('pocket_C', [0, 6], 0.21), ('pocket_D', [0, 0], 0.21)]:
+                c.circle(center, radius, id=object_id, zorder=3, facecolor=[0.0, 0.0, 0.0, 0.0])
+            c.line([[1.5, 1.5], [0.0, 3.0]], id='incoming_path')
+            c.line([[0.0, 3.0], [2.6, 5.6]], id='outgoing_path')
+            c.circle([1.5, 1.5], 0.09, id='ball_symbol', zorder=4, facecolor=[0.0, 0.0, 0.0, 1.0])
+            c.path([[2.6, 5.6], [2.324228355, 5.451507576], [2.451507576, 5.324228355], [2.6, 5.6]], [1, 2, 2, 79], id='outgoing_arrowhead', zorder=4, facecolor=[0.0, 0.0, 0.0, 1.0], capstyle='butt')
+            c.path([[0.32582973051120945, 3.3258297305112094], [0.2830421623364028, 3.368617298686016], [0.23224243139867845, 3.4025605937106516], [0.17633777946435292, 3.4257170587415966], [0.12043312753002736, 3.4488735237725416], [0.060510759213775106, 3.460792823913323], [2.821542284377605e-17, 3.460792823913323]], [1, 4, 4, 4, 4, 4, 4], id='incidence_arc', zorder=4, facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.text('A', [9, 0], id='label_A', clip_on=True, fontsize=18.0, fontstyle='italic', rotation_mode='default', offset_pt=[16, -15], annotation_clip=False)
+            c.text('B', [9, 6], id='label_B', clip_on=True, fontsize=18.0, fontstyle='italic', rotation_mode='default', offset_pt=[16, 15], annotation_clip=False)
+            c.text('C', [0, 6], id='label_C', clip_on=True, fontsize=18.0, fontstyle='italic', rotation_mode='default', offset_pt=[-16, 15], annotation_clip=False)
+            c.text('D', [0, 0], id='label_D', clip_on=True, fontsize=18.0, fontstyle='italic', rotation_mode='default', offset_pt=[-16, -15], annotation_clip=False)
+            c.text('45°', [0, 3], id='angle_label', clip_on=True, rotation_mode='default', offset_pt=[15.3073373, 36.9551813], annotation_clip=False)
+            c.text('P', [0, 3], id='label_P', clip_on=True, fontsize=18.0, fontstyle='italic', rotation_mode='default', offset_pt=[-17, 0], annotation_clip=False)
+            return c if _canvas else c.save(output_path)
 
     def get_scene(self):
-        return json.loads((ROOT / 'scenes/Plane535.json').read_text(encoding='utf-8'))
+        return json.loads(self.scene_path.read_text(encoding='utf-8-sig'))
 
     def build_scene(self):
-        return build_scene()
-
-    def draw(self, num=0, output_path=None):
-        if output_path is None and isinstance(num, (str, Path)):
-            output_path = num
-        if output_path is None:
-            raise ValueError('An explicit output path is required')
-        return draw_original(output_path)
-
-    def redraw(self, output_path=None):
-        return self.draw(output_path=output_path)
-
+        canvas = self.draw(_canvas=True)
+        return (canvas.fig, canvas.ax)
 if __name__ == '__main__':
-    if len(sys.argv) != 2:
-        raise SystemExit('Provide a PNG or SVG output path')
-    print(draw_original(sys.argv[1]))
+    print(Plane535().draw(sys.argv[1] if len(sys.argv) > 1 else None))

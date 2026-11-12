@@ -1,60 +1,179 @@
-"""User-approved frozen original; importing this module writes no files."""
+"""Frozen question Solid273; unified protocol 2.0.0. Original metadata and PNG retained."""
 from pathlib import Path
-import importlib.util
-import json
 import sys
-ROOT = Path(__file__).resolve().parent
-ITEM = ROOT / 'author_extensions95_v1/items/Solid273'
-
-def _engine():
-    path = ROOT / 'author_extensions95_v1/engine.py'
-    spec = importlib.util.spec_from_file_location('_extensions95_Solid273', path)
-    module = importlib.util.module_from_spec(spec)
-    sys.modules[spec.name] = module
-    spec.loader.exec_module(module)
-    return module
-
-def build_scene():
-    return _engine().capture(ITEM)
-
-def draw_original(output_path):
-    target = Path(output_path).resolve()
-    if target.suffix.lower() not in ('.png', '.svg'):
-        raise ValueError('Use a PNG or SVG output')
-    if target.is_relative_to(ROOT.parent):
-        raise ValueError('Redraw outside formal source directories')
-    data = _engine().render(ITEM, vector=target.suffix.lower() == '.svg')
-    target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_bytes(data)
-    return str(target)
+import json
+import numpy as np
+_PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+from dataset_tools.drawing import Canvas, ANALYTICS, PLANE, SOLID, VectorPath, VectorTransform, VectorBox
 
 class Solid273:
+
     def __init__(self):
-        row = next(json.loads(line) for line in (ROOT.parent / 'dataset.jsonl').read_text(encoding='utf-8-sig').splitlines()
-                   if line.strip() and json.loads(line)['id'] == 'Solid273')
-        for key, value in row.items():
-            setattr(self, key, value)
+        self.id = 'Solid273'
+        self.source_dataset = 'Author Designed'
+        self.source_key = 'author-extensions95-v1:Solid188/extension_05'
+        self.question = 'A cube has diagonals drawn on three adjacent faces as shown in the diagram. Which of the following nets could be used to make the cube shown, allowing rotation but not reflection?\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E'
+        self.answer = 'C'
+        self.answer_type = 'choice'
+        self.choices = {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'}
         self.query = self.question
+        self._geometry_01 = [('cube_edge__m1_m1_m1___m1_m1_1', [[39.875, 73.875], [39.875, 88.875]]),
+         ('cube_edge__m1_m1_m1___1_m1_m1', [[39.875, 73.875], [54.875, 73.875]]),
+         ('cube_edge__m1_m1_1___m1_1_1', [[39.875, 88.875], [45.125, 94.125]]),
+         ('cube_edge__m1_m1_1___1_m1_1', [[39.875, 88.875], [54.875, 88.875]]),
+         ('cube_edge__m1_1_1___1_1_1', [[45.125, 94.125], [60.125, 94.125]]),
+         ('cube_edge__1_m1_m1___1_m1_1', [[54.875, 73.875], [54.875, 88.875]]),
+         ('cube_edge__1_m1_m1___1_1_m1', [[54.875, 73.875], [60.125, 79.125]]),
+         ('cube_edge__1_m1_1___1_1_1', [[54.875, 88.875], [60.125, 94.125]]),
+         ('cube_edge__1_1_m1___1_1_1', [[60.125, 79.125], [60.125, 94.125]]),
+         ('cube_front_diagonal_0', [[39.875, 73.875], [54.875, 88.875]]),
+         ('cube_front_diagonal_1', [[39.875, 88.875], [54.875, 73.875]]),
+         ('cube_right_diagonal_0', [[54.875, 73.875], [60.125, 94.125]]),
+         ('cube_top_diagonal_0', [[39.875, 88.875], [60.125, 94.125]]),
+         ('A_face_0_diagonal_0', [[7.4, 39.3], [13.2, 45.099999999999994]]),
+         ('A_face_1_diagonal_0', [[7.4, 45.099999999999994], [13.2, 50.9]]),
+         ('A_face_5_diagonal_0', [[24.799999999999997, 45.099999999999994], [30.6, 50.9]]),
+         ('A_face_5_diagonal_1', [[30.6, 45.099999999999994], [24.799999999999997, 50.9]]),
+         ('A_paper_edge_0', [[7.4, 39.3], [7.4, 45.099999999999994]]),
+         ('A_paper_edge_1', [[7.4, 39.3], [13.2, 39.3]]),
+         ('A_paper_edge_2', [[7.4, 45.099999999999994], [7.4, 50.9]]),
+         ('A_paper_edge_3', [[7.4, 45.099999999999994], [13.2, 45.099999999999994]]),
+         ('A_paper_edge_4', [[7.4, 50.9], [13.2, 50.9]]),
+         ('A_paper_edge_5', [[13.2, 39.3], [13.2, 45.099999999999994]]),
+         ('A_paper_edge_6', [[13.2, 45.099999999999994], [13.2, 50.9]]),
+         ('A_paper_edge_7', [[13.2, 45.099999999999994], [19.0, 45.099999999999994]]),
+         ('A_paper_edge_8', [[13.2, 50.9], [19.0, 50.9]]),
+         ('A_paper_edge_9', [[19.0, 45.099999999999994], [19.0, 50.9]]),
+         ('A_paper_edge_10', [[19.0, 45.099999999999994], [24.799999999999997, 45.099999999999994]]),
+         ('A_paper_edge_11', [[19.0, 50.9], [19.0, 56.699999999999996]]),
+         ('A_paper_edge_12', [[19.0, 50.9], [24.799999999999997, 50.9]]),
+         ('A_paper_edge_13', [[19.0, 56.699999999999996], [24.799999999999997, 56.699999999999996]]),
+         ('A_paper_edge_14', [[24.799999999999997, 45.099999999999994], [24.799999999999997, 50.9]]),
+         ('A_paper_edge_15', [[24.799999999999997, 45.099999999999994], [30.6, 45.099999999999994]]),
+         ('A_paper_edge_16', [[24.799999999999997, 50.9], [24.799999999999997, 56.699999999999996]]),
+         ('A_paper_edge_17', [[24.799999999999997, 50.9], [30.6, 50.9]]),
+         ('A_paper_edge_18', [[30.6, 45.099999999999994], [30.6, 50.9]]),
+         ('B_face_3_diagonal_0', [[44.199999999999996, 50.9], [50.0, 56.699999999999996]]),
+         ('B_face_3_diagonal_1', [[50.0, 50.9], [44.199999999999996, 56.699999999999996]]),
+         ('B_face_4_diagonal_0', [[50.0, 45.099999999999994], [55.8, 50.9]]),
+         ('B_face_5_diagonal_0', [[55.8, 45.099999999999994], [61.599999999999994, 50.9]]),
+         ('B_paper_edge_0', [[38.4, 45.099999999999994], [38.4, 50.9]]),
+         ('B_paper_edge_1', [[38.4, 45.099999999999994], [44.199999999999996, 45.099999999999994]]),
+         ('B_paper_edge_2', [[38.4, 50.9], [44.199999999999996, 50.9]]),
+         ('B_paper_edge_3', [[44.199999999999996, 39.3], [44.199999999999996, 45.099999999999994]]),
+         ('B_paper_edge_4', [[44.199999999999996, 39.3], [50.0, 39.3]]),
+         ('B_paper_edge_5', [[44.199999999999996, 45.099999999999994], [44.199999999999996, 50.9]]),
+         ('B_paper_edge_6', [[44.199999999999996, 45.099999999999994], [50.0, 45.099999999999994]]),
+         ('B_paper_edge_7', [[44.199999999999996, 50.9], [44.199999999999996, 56.699999999999996]]),
+         ('B_paper_edge_8', [[44.199999999999996, 50.9], [50.0, 50.9]]),
+         ('B_paper_edge_9', [[44.199999999999996, 56.699999999999996], [50.0, 56.699999999999996]]),
+         ('B_paper_edge_10', [[50.0, 39.3], [50.0, 45.099999999999994]]),
+         ('B_paper_edge_11', [[50.0, 45.099999999999994], [50.0, 50.9]]),
+         ('B_paper_edge_12', [[50.0, 45.099999999999994], [55.8, 45.099999999999994]]),
+         ('B_paper_edge_13', [[50.0, 50.9], [50.0, 56.699999999999996]]),
+         ('B_paper_edge_14', [[50.0, 50.9], [55.8, 50.9]]),
+         ('B_paper_edge_15', [[55.8, 45.099999999999994], [55.8, 50.9]]),
+         ('B_paper_edge_16', [[55.8, 45.099999999999994], [61.599999999999994, 45.099999999999994]]),
+         ('B_paper_edge_17', [[55.8, 50.9], [61.599999999999994, 50.9]]),
+         ('B_paper_edge_18', [[61.599999999999994, 45.099999999999994], [61.599999999999994, 50.9]]),
+         ('C_face_3_diagonal_0', [[86.80000000000001, 45.099999999999994], [81.0, 50.9]]),
+         ('C_face_4_diagonal_0', [[86.80000000000001, 45.099999999999994], [92.60000000000001, 50.9]]),
+         ('C_face_4_diagonal_1', [[92.60000000000001, 45.099999999999994], [86.80000000000001, 50.9]]),
+         ('C_face_5_diagonal_0', [[92.60000000000001, 50.9], [86.80000000000001, 56.699999999999996]]),
+         ('C_paper_edge_0', [[69.4, 39.3], [69.4, 45.099999999999994]]),
+         ('C_paper_edge_1', [[69.4, 39.3], [75.2, 39.3]]),
+         ('C_paper_edge_2', [[69.4, 45.099999999999994], [75.2, 45.099999999999994]]),
+         ('C_paper_edge_3', [[75.2, 39.3], [75.2, 45.099999999999994]]),
+         ('C_paper_edge_4', [[75.2, 39.3], [81.0, 39.3]]),
+         ('C_paper_edge_5', [[75.2, 45.099999999999994], [75.2, 50.9]]),
+         ('C_paper_edge_6', [[75.2, 45.099999999999994], [81.0, 45.099999999999994]]),
+         ('C_paper_edge_7', [[75.2, 50.9], [81.0, 50.9]]),
+         ('C_paper_edge_8', [[81.0, 39.3], [81.0, 45.099999999999994]]),
+         ('C_paper_edge_9', [[81.0, 45.099999999999994], [81.0, 50.9]]),
+         ('C_paper_edge_10', [[81.0, 45.099999999999994], [86.80000000000001, 45.099999999999994]]),
+         ('C_paper_edge_11', [[81.0, 50.9], [86.80000000000001, 50.9]]),
+         ('C_paper_edge_12', [[86.80000000000001, 45.099999999999994], [86.80000000000001, 50.9]]),
+         ('C_paper_edge_13',
+          [[86.80000000000001, 45.099999999999994], [92.60000000000001, 45.099999999999994]]),
+         ('C_paper_edge_14', [[86.80000000000001, 50.9], [86.80000000000001, 56.699999999999996]]),
+         ('C_paper_edge_15', [[86.80000000000001, 50.9], [92.60000000000001, 50.9]]),
+         ('C_paper_edge_16',
+          [[86.80000000000001, 56.699999999999996], [92.60000000000001, 56.699999999999996]]),
+         ('C_paper_edge_17', [[92.60000000000001, 45.099999999999994], [92.60000000000001, 50.9]]),
+         ('C_paper_edge_18', [[92.60000000000001, 50.9], [92.60000000000001, 56.699999999999996]]),
+         ('D_face_1_diagonal_0', [[34.5, 7.300000000000001], [28.7, 13.100000000000001]]),
+         ('D_face_4_diagonal_0', [[34.5, 13.100000000000001], [40.3, 18.9]]),
+         ('D_face_4_diagonal_1', [[40.3, 13.100000000000001], [34.5, 18.9]]),
+         ('D_face_5_diagonal_0', [[40.3, 13.100000000000001], [46.099999999999994, 18.9]]),
+         ('D_paper_edge_0', [[22.9, 7.300000000000001], [22.9, 13.100000000000001]]),
+         ('D_paper_edge_1', [[22.9, 7.300000000000001], [28.7, 7.300000000000001]]),
+         ('D_paper_edge_2', [[22.9, 13.100000000000001], [28.7, 13.100000000000001]]),
+         ('D_paper_edge_3', [[28.7, 7.300000000000001], [28.7, 13.100000000000001]]),
+         ('D_paper_edge_4', [[28.7, 7.300000000000001], [34.5, 7.300000000000001]]),
+         ('D_paper_edge_5', [[28.7, 13.100000000000001], [28.7, 18.9]]),
+         ('D_paper_edge_6', [[28.7, 13.100000000000001], [34.5, 13.100000000000001]]),
+         ('D_paper_edge_7', [[28.7, 18.9], [28.7, 24.7]]),
+         ('D_paper_edge_8', [[28.7, 18.9], [34.5, 18.9]]),
+         ('D_paper_edge_9', [[28.7, 24.7], [34.5, 24.7]]),
+         ('D_paper_edge_10', [[34.5, 7.300000000000001], [34.5, 13.100000000000001]]),
+         ('D_paper_edge_11', [[34.5, 13.100000000000001], [34.5, 18.9]]),
+         ('D_paper_edge_12', [[34.5, 13.100000000000001], [40.3, 13.100000000000001]]),
+         ('D_paper_edge_13', [[34.5, 18.9], [34.5, 24.7]]),
+         ('D_paper_edge_14', [[34.5, 18.9], [40.3, 18.9]]),
+         ('D_paper_edge_15', [[40.3, 13.100000000000001], [40.3, 18.9]]),
+         ('D_paper_edge_16', [[40.3, 13.100000000000001], [46.099999999999994, 13.100000000000001]]),
+         ('D_paper_edge_17', [[40.3, 18.9], [46.099999999999994, 18.9]]),
+         ('D_paper_edge_18', [[46.099999999999994, 13.100000000000001], [46.099999999999994, 18.9]]),
+         ('E_face_1_diagonal_0', [[65.5, 7.300000000000001], [59.699999999999996, 13.100000000000001]]),
+         ('E_face_2_diagonal_0', [[65.5, 13.100000000000001], [59.699999999999996, 18.9]]),
+         ('E_face_5_diagonal_0', [[71.3, 18.9], [77.1, 24.7]]),
+         ('E_face_5_diagonal_1', [[77.1, 18.9], [71.3, 24.7]]),
+         ('E_paper_edge_0', [[53.9, 7.300000000000001], [53.9, 13.100000000000001]]),
+         ('E_paper_edge_1', [[53.9, 7.300000000000001], [59.699999999999996, 7.300000000000001]]),
+         ('E_paper_edge_2', [[53.9, 13.100000000000001], [59.699999999999996, 13.100000000000001]]),
+         ('E_paper_edge_3',
+          [[59.699999999999996, 7.300000000000001], [59.699999999999996, 13.100000000000001]]),
+         ('E_paper_edge_4', [[59.699999999999996, 7.300000000000001], [65.5, 7.300000000000001]]),
+         ('E_paper_edge_5', [[59.699999999999996, 13.100000000000001], [59.699999999999996, 18.9]]),
+         ('E_paper_edge_6', [[59.699999999999996, 13.100000000000001], [65.5, 13.100000000000001]]),
+         ('E_paper_edge_7', [[59.699999999999996, 18.9], [65.5, 18.9]]),
+         ('E_paper_edge_8', [[65.5, 7.300000000000001], [65.5, 13.100000000000001]]),
+         ('E_paper_edge_9', [[65.5, 13.100000000000001], [65.5, 18.9]]),
+         ('E_paper_edge_10', [[65.5, 13.100000000000001], [71.3, 13.100000000000001]]),
+         ('E_paper_edge_11', [[65.5, 18.9], [71.3, 18.9]]),
+         ('E_paper_edge_12', [[71.3, 13.100000000000001], [71.3, 18.9]]),
+         ('E_paper_edge_13', [[71.3, 13.100000000000001], [77.1, 13.100000000000001]]),
+         ('E_paper_edge_14', [[71.3, 18.9], [71.3, 24.7]]),
+         ('E_paper_edge_15', [[71.3, 18.9], [77.1, 18.9]]),
+         ('E_paper_edge_16', [[71.3, 24.7], [77.1, 24.7]]),
+         ('E_paper_edge_17', [[77.1, 13.100000000000001], [77.1, 18.9]]),
+         ('E_paper_edge_18', [[77.1, 18.9], [77.1, 24.7]])]
         self.subject = 'SolidGeometry'
         self.level = None
+        self.scene_path = _PROJECT_ROOT / 'SolidGeometry' / 'dataset_generator/scenes/Solid273.json'
+
+    def draw(self, output_path=None, *, variant=None, _canvas=False):
+        if output_path is None and (not _canvas):
+            output_path = _PROJECT_ROOT / '.runtime/reproduced' / 'SolidGeometry' / (self.id + ('_' + variant if variant else '') + '.png')
+        if variant is not None:
+            if _canvas:
+                raise ValueError('Canvas capture is for the original only')
+            from dataset_tools.unified_replay import draw_slot
+            return draw_slot('SolidGeometry', self.id, variant, output_path)
+        with Canvas(SOLID, xlim=[2.05643351541395, 98.08332571474892], ylim=[0.4416336195234365, 96.46852581885841], axes_position=[0.05, 0.05, 0.9, 0.9], coordinate_axes=False) as c:
+            for object_id, points in self._geometry_01:
+                c.line(points, id=object_id, clip_on=False)
+            for object_id, text, anchor in [('option_label_A', 'A', [19, 35.5]), ('option_label_B', 'B', [50, 35.5]), ('option_label_C', 'C', [81, 35.5]), ('option_label_D', 'D', [34.5, 3.500000000000001]), ('option_label_E', 'E', [65.5, 3.500000000000001])]:
+                c.text(text, anchor, id=object_id, zorder=3, rotation_mode='default')
+            return c if _canvas else c.save(output_path)
 
     def get_scene(self):
-        return json.loads((ROOT / 'scenes/Solid273.json').read_text(encoding='utf-8'))
+        return json.loads(self.scene_path.read_text(encoding='utf-8-sig'))
 
     def build_scene(self):
-        return build_scene()
-
-    def draw(self, num=0, output_path=None):
-        if output_path is None and isinstance(num, (str, Path)):
-            output_path = num
-        if output_path is None:
-            raise ValueError('An explicit output path is required')
-        return draw_original(output_path)
-
-    def redraw(self, output_path=None):
-        return self.draw(output_path=output_path)
-
+        canvas = self.draw(_canvas=True)
+        return (canvas.fig, canvas.ax)
 if __name__ == '__main__':
-    if len(sys.argv) != 2:
-        raise SystemExit('Provide a PNG or SVG output path')
-    print(draw_original(sys.argv[1]))
+    print(Solid273().draw(sys.argv[1] if len(sys.argv) > 1 else None))

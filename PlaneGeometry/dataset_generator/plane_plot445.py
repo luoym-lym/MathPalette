@@ -1,31 +1,51 @@
-"""Frozen native MathVision redraw; importing does not write files."""
+"""Frozen question Plane445; unified protocol 2.0.0. Original metadata and PNG retained."""
 from pathlib import Path
-import importlib.util
+import sys
 import json
-HERE = Path(__file__).resolve().parent
+import numpy as np
+_PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+from dataset_tools.drawing import Canvas, ANALYTICS, PLANE, SOLID, VectorPath, VectorTransform, VectorBox
 
 class Plane445:
 
     def __init__(self):
-        self.__dict__.update({'id': 'Plane445', 'source_dataset': 'MathVision', 'question': 'A paper triangle with sides of lengths 3, 4, and 5 inches, as shown, is folded so that point $A$ falls on point $B$. What is the length in inches of the crease?\nChoices:\nA:$1+\\frac{1}{2} \\sqrt{2}$\nB:$\\sqrt{3}$\nC:$\\frac{7}{4}$\nD:$\\frac{15}{8}$\nE:$2$', 'answer': 'D', 'answer_type': 'choice', 'subject': 'PlaneGeometry', 'choices': {'A': '$1+\\frac{1}{2} \\sqrt{2}$', 'B': '$\\sqrt{3}$', 'C': '$\\frac{7}{4}$', 'D': '$\\frac{15}{8}$', 'E': '$2$'}, 'source_key': 'test:2215', 'source_category': 'transformation geometry', 'source_revision': '2837ddb3f13abaf6b3997c12d80753e5470bd46a'})
+        self.id = 'Plane445'
+        self.source_dataset = 'MathVision'
+        self.source_key = 'test:2215'
+        self.question = 'A paper triangle with sides of lengths 3, 4, and 5 inches, as shown, is folded so that point $A$ falls on point $B$. What is the length in inches of the crease?\nChoices:\nA:$1+\\frac{1}{2} \\sqrt{2}$\nB:$\\sqrt{3}$\nC:$\\frac{7}{4}$\nD:$\\frac{15}{8}$\nE:$2$'
+        self.answer = 'D'
+        self.answer_type = 'choice'
+        self.choices = {'A': '$1+\\frac{1}{2} \\sqrt{2}$', 'B': '$\\sqrt{3}$', 'C': '$\\frac{7}{4}$', 'D': '$\\frac{15}{8}$', 'E': '$2$'}
         self.query = self.question
+        self.subject = 'PlaneGeometry'
         self.level = None
-        self.scene_path = HERE / 'scenes/Plane445.json'
+        self.scene_path = _PROJECT_ROOT / 'PlaneGeometry' / 'dataset_generator/scenes/Plane445.json'
+
+    def draw(self, output_path=None, *, variant=None, _canvas=False):
+        if output_path is None and (not _canvas):
+            output_path = _PROJECT_ROOT / '.runtime/reproduced' / 'PlaneGeometry' / (self.id + ('_' + variant if variant else '') + '.png')
+        if variant is not None:
+            if _canvas:
+                raise ValueError('Canvas capture is for the original only')
+            from dataset_tools.unified_replay import draw_slot
+            return draw_slot('PlaneGeometry', self.id, variant, output_path)
+        with Canvas(PLANE, xlim=(-0.3028634565273767, 4.368243037285634), ylim=(-0.9038288943422521, 3.767277599470758), axes_position=(0.05, 0.05, 0.9, 0.9), coordinate_axes=False) as c:
+            c.path([[0.0, 0.0], [4.0, 0.0], [4.0, 3.0], [0.0, 0.0]], [1, 2, 2, 79], id='o0', alpha=1, zorder=1, edgecolor='none', linewidth=0.0, capstyle='butt')
+            c.path([[0.0, 0.0], [4.0, 0.0], [4.0, 3.0], [0.0, 0.0]], [1, 2, 2, 79], id='o0', facecolor=(0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0), capstyle='butt', fill=False)
+            c.text('A', (0.0, 0.0), id='labelA', fontsize=18.0, fontstyle='italic', rotation_mode='default', offset_pt=(-14, -12), annotation_clip=None)
+            c.text('C', (4.0, 0.0), id='labelC', fontsize=18.0, fontstyle='italic', rotation_mode='default', offset_pt=(12, -12), annotation_clip=None)
+            c.text('B', (4.0, 3.0), id='labelB', fontsize=18.0, fontstyle='italic', rotation_mode='default', offset_pt=(13, 12), annotation_clip=None)
+            for object_id, text, anchor in [('t3', '4', (2.0, -0.28)), ('t4', '3', (4.22, 1.5)), ('t5', '5', (1.85, 1.75))]:
+                c.text(text, anchor, id=object_id, rotation_mode='default', offset_pt=(0, 0), annotation_clip=None)
+            return c if _canvas else c.save(output_path)
 
     def get_scene(self):
-        return json.loads(self.scene_path.read_text(encoding='utf-8'))
+        return json.loads(self.scene_path.read_text(encoding='utf-8-sig'))
 
-    def draw(self, num=0, output_path=None):
-        if output_path is None and isinstance(num, (str, Path)):
-            output_path = num
-        output = Path(output_path) if output_path else HERE.parents[1] / '.runtime/mathvision_redraw' / 'Plane445.png'
-        spec = importlib.util.spec_from_file_location('mathvision_native_runtime', HERE / 'mathvision_renderers/shared_e4e003f51742cf00/runtime.py')
-        runtime = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(runtime)
-        return runtime.draw(HERE / 'mathvision_renderers/shared_e4e003f51742cf00/items/Plane445', HERE / 'mathvision_renderers/shared_e4e003f51742cf00/native', output, formal_scene=self.scene_path, original_image=HERE / '../originals/Plane445.jpg')
-
-    def redraw(self, output_path=None):
-        return self.draw(output_path=output_path)
+    def build_scene(self):
+        canvas = self.draw(_canvas=True)
+        return (canvas.fig, canvas.ax)
 if __name__ == '__main__':
-    import sys
-    print(Plane445().draw(output_path=sys.argv[1] if len(sys.argv) > 1 else None))
+    print(Plane445().draw(sys.argv[1] if len(sys.argv) > 1 else None))

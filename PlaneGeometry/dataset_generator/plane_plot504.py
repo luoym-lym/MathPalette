@@ -1,44 +1,148 @@
-"""Frozen Author designed question; importing does not write files."""
+"""Frozen question Plane504; unified protocol 2.0.0. Original metadata and PNG retained."""
 from pathlib import Path
-import importlib.util
+import sys
 import json
-ROOT = Path(__file__).resolve().parent
-
-def _renderer():
-    path = ROOT / 'mathverse_renderers/plane_arrows/common_renderer.py'
-    spec = importlib.util.spec_from_file_location('_authored_extension_renderer', path)
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module
-
-def build_scene():
-    return _renderer().render_scene(json.loads((ROOT / 'scenes/Plane504.json').read_text(encoding='utf-8')))
+import numpy as np
+_PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+from dataset_tools.drawing import Canvas, ANALYTICS, PLANE, SOLID, VectorPath, VectorTransform, VectorBox
 
 class Plane504:
+
     def __init__(self):
-        attributes = {'id': 'Plane504', 'source_dataset': 'Author Designed', 'source_key': 'authored-extension:Plane356:ext02', 'question': 'A rectangular piece has been cut from the nonuniform grid. Which piece A–E exactly restores every broken vertical and horizontal line? The five candidate pieces are shown at the same reduced scale and in the same orientation.\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E', 'answer': 'C', 'answer_type': 'choice', 'choices': {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'}}
-        for key, value in attributes.items():
-            setattr(self, key, value)
+        self.id = 'Plane504'
+        self.source_dataset = 'Author Designed'
+        self.source_key = 'authored-extension:Plane356:ext02'
+        self.question = 'A rectangular piece has been cut from the nonuniform grid. Which piece A–E exactly restores every broken vertical and horizontal line? The five candidate pieces are shown at the same reduced scale and in the same orientation.\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E'
+        self.answer = 'C'
+        self.answer_type = 'choice'
+        self.choices = {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'}
         self.query = self.question
+        self.points = {'P0001': [7, 9.3],
+         'P0002': [7, 21],
+         'P0003': [8.8, 9.3],
+         'P0004': [8.8, 21],
+         'P0005': [11.4, 9.3],
+         'P0006': [11.4, 21],
+         'P0007': [14.9, 9.3],
+         'P0008': [14.9, 13.0],
+         'P0009': [14.9, 17.8],
+         'P0010': [14.9, 21],
+         'P0011': [16.6, 9.3],
+         'P0012': [16.6, 13.0],
+         'P0013': [16.6, 17.8],
+         'P0014': [16.6, 21],
+         'P0015': [18.5, 9.3],
+         'P0016': [18.5, 13.0],
+         'P0017': [18.5, 17.8],
+         'P0018': [18.5, 21],
+         'P0019': [20.4, 9.3],
+         'P0020': [20.4, 21],
+         'P0021': [6.3, 10],
+         'P0022': [21.1, 10],
+         'P0023': [6.3, 12.2],
+         'P0024': [21.1, 12.2],
+         'P0025': [6.3, 13.7],
+         'P0026': [11.8, 13.7],
+         'P0027': [18.9, 13.7],
+         'P0028': [21.1, 13.7],
+         'P0029': [6.3, 15.8],
+         'P0030': [11.8, 15.8],
+         'P0031': [18.9, 15.8],
+         'P0032': [21.1, 15.8],
+         'P0033': [6.3, 17.2],
+         'P0034': [11.8, 17.2],
+         'P0035': [18.9, 17.2],
+         'P0036': [21.1, 17.2],
+         'P0037': [6.3, 18.5],
+         'P0038': [21.1, 18.5],
+         'P0039': [6.3, 20.3],
+         'P0040': [21.1, 20.3],
+         'P0041': [2.196478873239437, 0],
+         'P0042': [2.196478873239437, 2.7042253521126773],
+         'P0043': [2.8042253521126774, 0],
+         'P0044': [2.8042253521126774, 2.7042253521126773],
+         'P0045': [3.8746478873239445, 0],
+         'P0046': [3.8746478873239445, 2.7042253521126773],
+         'P0047': [0.1, 0.3943661971830983],
+         'P0048': [4.1, 0.3943661971830983],
+         'P0049': [0.1, 1.5774647887323952],
+         'P0050': [4.1, 1.5774647887323952],
+         'P0051': [0.1, 2.366197183098592],
+         'P0052': [4.1, 2.366197183098592],
+         'P0053': [7.446478873239436, 0],
+         'P0054': [7.446478873239436, 2.7042253521126773],
+         'P0055': [8.404225352112677, 0],
+         'P0056': [8.404225352112677, 2.7042253521126773],
+         'P0057': [9.474647887323943, 0],
+         'P0058': [9.474647887323943, 2.7042253521126773],
+         'P0059': [5.699999999999999, 0.3943661971830983],
+         'P0060': [9.7, 0.3943661971830983],
+         'P0061': [5.699999999999999, 1.5774647887323952],
+         'P0062': [9.7, 1.5774647887323952],
+         'P0063': [5.699999999999999, 2.066197183098592],
+         'P0064': [9.7, 2.066197183098592],
+         'P0065': [13.046478873239437, 0],
+         'P0066': [13.046478873239437, 2.7042253521126773],
+         'P0067': [14.004225352112677, 0],
+         'P0068': [14.004225352112677, 2.7042253521126773],
+         'P0069': [15.074647887323943, 0],
+         'P0070': [15.074647887323943, 2.7042253521126773],
+         'P0071': [11.299999999999999, 0.3943661971830983],
+         'P0072': [15.299999999999999, 0.3943661971830983],
+         'P0073': [11.299999999999999, 1.5774647887323952],
+         'P0074': [15.299999999999999, 1.5774647887323952],
+         'P0075': [11.299999999999999, 2.366197183098592],
+         'P0076': [15.299999999999999, 2.366197183098592],
+         'P0077': [18.646478873239435, 0],
+         'P0078': [18.646478873239435, 2.7042253521126773],
+         'P0079': [19.604225352112675, 0],
+         'P0080': [19.604225352112675, 2.7042253521126773],
+         'P0081': [20.424647887323943, 0],
+         'P0082': [20.424647887323943, 2.7042253521126773],
+         'P0083': [16.9, 0.3943661971830983],
+         'P0084': [20.9, 0.3943661971830983],
+         'P0085': [16.9, 1.5774647887323952],
+         'P0086': [20.9, 1.5774647887323952],
+         'P0087': [16.9, 2.366197183098592],
+         'P0088': [20.9, 2.366197183098592],
+         'P0089': [24.246478873239436, 0],
+         'P0090': [24.246478873239436, 2.7042253521126773],
+         'P0091': [25.204225352112676, 0],
+         'P0092': [25.204225352112676, 2.7042253521126773],
+         'P0093': [26.274647887323944, 0],
+         'P0094': [26.274647887323944, 2.7042253521126773],
+         'P0095': [22.5, 0.7943661971830983],
+         'P0096': [26.5, 0.7943661971830983],
+         'P0097': [22.5, 1.5774647887323952],
+         'P0098': [26.5, 1.5774647887323952],
+         'P0099': [22.5, 2.366197183098592],
+         'P0100': [26.5, 2.366197183098592]}
         self.subject = 'PlaneGeometry'
         self.level = None
-        self.scene_path = ROOT / 'scenes/Plane504.json'
+        self.scene_path = _PROJECT_ROOT / 'PlaneGeometry' / 'dataset_generator/scenes/Plane504.json'
+
+    def draw(self, output_path=None, *, variant=None, _canvas=False):
+        if output_path is None and (not _canvas):
+            output_path = _PROJECT_ROOT / '.runtime/reproduced' / 'PlaneGeometry' / (self.id + ('_' + variant if variant else '') + '.png')
+        if variant is not None:
+            if _canvas:
+                raise ValueError('Canvas capture is for the original only')
+            from dataset_tools.unified_replay import draw_slot
+            return draw_slot('PlaneGeometry', self.id, variant, output_path)
+        with Canvas(PLANE, xlim=[-0.5490148578811365, 27.203528746770026], ylim=[-4.008216246770026, 23.744327357881136]) as c:
+            for object_id, points in [('mainv0', [self.points['P0001'], self.points['P0002']]), ('mainv1', [self.points['P0003'], self.points['P0004']]), ('mainv2', [self.points['P0005'], self.points['P0006']]), ('mainv3a', [self.points['P0007'], self.points['P0008']]), ('mainv3b', [self.points['P0009'], self.points['P0010']]), ('mainv4a', [self.points['P0011'], self.points['P0012']]), ('mainv4b', [self.points['P0013'], self.points['P0014']]), ('mainv5a', [self.points['P0015'], self.points['P0016']]), ('mainv5b', [self.points['P0017'], self.points['P0018']]), ('mainv6', [self.points['P0019'], self.points['P0020']]), ('mainh0', [self.points['P0021'], self.points['P0022']]), ('mainh1', [self.points['P0023'], self.points['P0024']]), ('mainh2a', [self.points['P0025'], self.points['P0026']]), ('mainh2b', [self.points['P0027'], self.points['P0028']]), ('mainh3a', [self.points['P0029'], self.points['P0030']]), ('mainh3b', [self.points['P0031'], self.points['P0032']]), ('mainh4a', [self.points['P0033'], self.points['P0034']]), ('mainh4b', [self.points['P0035'], self.points['P0036']]), ('mainh5', [self.points['P0037'], self.points['P0038']]), ('mainh6', [self.points['P0039'], self.points['P0040']]), ('opt0v0', [self.points['P0041'], self.points['P0042']]), ('opt0v1', [self.points['P0043'], self.points['P0044']]), ('opt0v2', [self.points['P0045'], self.points['P0046']]), ('opt0h0', [self.points['P0047'], self.points['P0048']]), ('opt0h1', [self.points['P0049'], self.points['P0050']]), ('opt0h2', [self.points['P0051'], self.points['P0052']]), ('opt1v0', [self.points['P0053'], self.points['P0054']]), ('opt1v1', [self.points['P0055'], self.points['P0056']]), ('opt1v2', [self.points['P0057'], self.points['P0058']]), ('opt1h0', [self.points['P0059'], self.points['P0060']]), ('opt1h1', [self.points['P0061'], self.points['P0062']]), ('opt1h2', [self.points['P0063'], self.points['P0064']]), ('opt2v0', [self.points['P0065'], self.points['P0066']]), ('opt2v1', [self.points['P0067'], self.points['P0068']]), ('opt2v2', [self.points['P0069'], self.points['P0070']]), ('opt2h0', [self.points['P0071'], self.points['P0072']]), ('opt2h1', [self.points['P0073'], self.points['P0074']]), ('opt2h2', [self.points['P0075'], self.points['P0076']]), ('opt3v0', [self.points['P0077'], self.points['P0078']]), ('opt3v1', [self.points['P0079'], self.points['P0080']]), ('opt3v2', [self.points['P0081'], self.points['P0082']]), ('opt3h0', [self.points['P0083'], self.points['P0084']]), ('opt3h1', [self.points['P0085'], self.points['P0086']]), ('opt3h2', [self.points['P0087'], self.points['P0088']]), ('opt4v0', [self.points['P0089'], self.points['P0090']]), ('opt4v1', [self.points['P0091'], self.points['P0092']]), ('opt4v2', [self.points['P0093'], self.points['P0094']]), ('opt4h0', [self.points['P0095'], self.points['P0096']]), ('opt4h1', [self.points['P0097'], self.points['P0098']]), ('opt4h2', [self.points['P0099'], self.points['P0100']])]:
+                c.line(points, id=object_id)
+            for object_id, text, anchor in [('label0', 'A', [2.1, -1]), ('label1', 'B', [7.699999999999999, -1]), ('label2', 'C', [13.299999999999999, -1]), ('label3', 'D', [18.9, -1]), ('label4', 'E', [24.5, -1])]:
+                c.text(text, anchor, id=object_id, offset_pt=[0, 0], vertex=False)
+            return c if _canvas else c.save(output_path)
 
     def get_scene(self):
-        return json.loads(self.scene_path.read_text(encoding='utf-8'))
+        return json.loads(self.scene_path.read_text(encoding='utf-8-sig'))
 
     def build_scene(self):
-        return build_scene()
-
-    def draw(self, num=0, output_path=None):
-        if output_path is None and isinstance(num, (str, Path)):
-            output_path = num
-        destination = Path(output_path) if output_path else ROOT.parents[1] / '.runtime/author_designed_redraw/Plane504.png'
-        return _renderer().draw(self.scene_path, destination)
-
-    def redraw(self, output_path=None):
-        return self.draw(output_path=output_path)
-
+        canvas = self.draw(_canvas=True)
+        return (canvas.fig, canvas.ax)
 if __name__ == '__main__':
-    import sys
-    print(Plane504().draw(output_path=sys.argv[1] if len(sys.argv) > 1 else None))
+    print(Plane504().draw(sys.argv[1] if len(sys.argv) > 1 else None))

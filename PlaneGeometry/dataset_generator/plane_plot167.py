@@ -1,31 +1,85 @@
-"""Frozen native MathVision redraw; importing does not write files."""
+"""Frozen question Plane167; unified protocol 2.0.0. Original metadata and PNG retained."""
 from pathlib import Path
-import importlib.util
+import sys
 import json
-HERE = Path(__file__).resolve().parent
+import numpy as np
+_PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+from dataset_tools.drawing import Canvas, ANALYTICS, PLANE, SOLID, VectorPath, VectorTransform, VectorBox
 
 class Plane167:
 
     def __init__(self):
-        self.__dict__.update({'id': 'Plane167', 'source_dataset': 'MathVision', 'question': 'The mushroom picture is cut into two halves as shown.\nThe two pieces are then arranged together to form a new picture. Which picture could result?\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E', 'answer': 'E', 'answer_type': 'choice', 'subject': 'PlaneGeometry', 'choices': {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'}, 'source_key': 'test:139', 'source_category': 'combinatorial geometry', 'source_revision': '2837ddb3f13abaf6b3997c12d80753e5470bd46a'})
+        self.id = 'Plane167'
+        self.source_dataset = 'MathVision'
+        self.source_key = 'test:139'
+        self.question = 'The mushroom picture is cut into two halves as shown.\nThe two pieces are then arranged together to form a new picture. Which picture could result?\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E'
+        self.answer = 'E'
+        self.answer_type = 'choice'
+        self.choices = {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'}
         self.query = self.question
+        self.subject = 'PlaneGeometry'
         self.level = None
-        self.scene_path = HERE / 'scenes/Plane167.json'
+        self.scene_path = _PROJECT_ROOT / 'PlaneGeometry' / 'dataset_generator/scenes/Plane167.json'
+
+    def draw(self, output_path=None, *, variant=None, _canvas=False):
+        if output_path is None and (not _canvas):
+            output_path = _PROJECT_ROOT / '.runtime/reproduced' / 'PlaneGeometry' / (self.id + ('_' + variant if variant else '') + '.png')
+        if variant is not None:
+            if _canvas:
+                raise ValueError('Canvas capture is for the original only')
+            from dataset_tools.unified_replay import draw_slot
+            return draw_slot('PlaneGeometry', self.id, variant, output_path)
+        with Canvas(PLANE, xlim=[-1.970620740437198, 27.150672786450414], ylim=[-11.20875649957286, 17.91253702731475], axes_position=[0.05, 0.05, 0.9, 0.9], coordinate_axes=False) as c:
+            c.path([[11.5, 5.2], [10.85, 5.2], [10.7, 5.2], [10.7, 5.6], [10.7, 5.9], [10.85, 6.2], [11.0, 6.3], [12.0, 6.3], [12.15, 6.2], [12.3, 5.9], [12.3, 5.6], [12.3, 5.2], [12.15, 5.2], [11.5, 5.2], [11.5, 5.2]], [1, 4, 4, 4, 4, 4, 4, 2, 4, 4, 4, 4, 4, 4, 79], id='given_stem', facecolor=[1.0, 1.0, 1.0, 1.0], capstyle='butt')
+            c.path([[11.5, 7.1], [10.6, 7.1], [10.15, 6.65], [10.15, 6.4], [10.15, 6.3], [10.8, 6.3], [11.5, 6.3], [12.2, 6.3], [12.85, 6.3], [12.85, 6.4], [12.85, 6.65], [12.4, 7.1], [11.5, 7.1], [11.5, 7.1]], [1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 79], id='given_cap', facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 0.45], capstyle='butt')
+            c.path([[9.9, 5.0], [13.1, 5.0], [13.1, 7.3], [9.9, 7.3], [9.9, 5.0]], [1, 2, 2, 2, 79], id='given_frame', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.line([[11.5, 5.0], [11.5, 7.3]], id='cut', linestyle=(0.0, [4.0, 3.0]))
+            c.circle([11.39, 4.43], 0.075, id='scissor_handle0', facecolor=[0.0, 0.0, 0.0, 0], fill=False)
+            c.circle([11.61, 4.43], 0.075, id='scissor_handle1', facecolor=[0.0, 0.0, 0.0, 0], fill=False)
+            c.line([[11.39, 4.5], [11.64, 4.94]], id='blade0')
+            c.line([[11.61, 4.5], [11.36, 4.94]], id='blade1')
+            c.circle([11.5, 4.7], 0.025, id='pivot', facecolor=[0.0, 0.0, 0.0, 0.0])
+            c.path([[1.6, 0.2], [0.9500000000000001, 0.2], [0.8, 0.2], [0.8, 0.6], [0.8, 0.9], [0.9500000000000001, 1.2], [1.1, 1.3], [1.6, 1.3], [1.6, 0.2], [1.6, 0.2]], [1, 4, 4, 4, 4, 4, 4, 2, 2, 79], id='0_0stem', facecolor=[1.0, 1.0, 1.0, 1.0], capstyle='butt')
+            c.path([[1.6, 2.1], [0.7000000000000001, 2.1], [0.25, 1.65], [0.25, 1.4], [0.25, 1.3], [0.9000000000000001, 1.3], [1.6, 1.3], [1.6, 2.1], [1.6, 2.1]], [1, 4, 4, 4, 4, 4, 4, 2, 79], id='0_0cap', facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 0.45], capstyle='butt')
+            c.path([[0.0, 0.0], [1.6, 0.0], [1.6, 2.3], [0.0, 2.3], [0.0, 0.0]], [1, 2, 2, 2, 79], id='0_0frame', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[3.2, 0.2], [2.5500000000000003, 0.2], [2.4000000000000004, 0.2], [2.4000000000000004, 0.6], [2.4000000000000004, 0.9], [2.5500000000000003, 1.2], [2.7, 1.3], [3.2, 1.3], [3.2, 0.2], [3.2, 0.2]], [1, 4, 4, 4, 4, 4, 4, 2, 2, 79], id='0_1stem', facecolor=[1.0, 1.0, 1.0, 1.0], capstyle='butt')
+            c.path([[3.2, 2.1], [2.3000000000000003, 2.1], [1.85, 1.65], [1.85, 1.4], [1.85, 1.3], [2.5, 1.3], [3.2, 1.3], [3.2, 2.1], [3.2, 2.1]], [1, 4, 4, 4, 4, 4, 4, 2, 79], id='0_1cap', facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 0.45], capstyle='butt')
+            c.path([[1.6, 0.0], [3.2, 0.0], [3.2, 2.3], [1.6, 2.3], [1.6, 0.0]], [1, 2, 2, 2, 79], id='0_1frame', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[7.4, 0.2], [6.75, 0.2], [6.6000000000000005, 0.2], [6.6000000000000005, 0.6], [6.6000000000000005, 0.9], [6.75, 1.2], [6.9, 1.3], [7.4, 1.3], [7.4, 0.2], [7.4, 0.2]], [1, 4, 4, 4, 4, 4, 4, 2, 2, 79], id='1_0stem', facecolor=[1.0, 1.0, 1.0, 1.0], capstyle='butt')
+            c.path([[7.4, 2.1], [6.5, 2.1], [6.050000000000001, 1.65], [6.050000000000001, 1.4], [6.050000000000001, 1.3], [6.7, 1.3], [7.4, 1.3], [7.4, 2.1], [7.4, 2.1]], [1, 4, 4, 4, 4, 4, 4, 2, 79], id='1_0cap', facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 0.45], capstyle='butt')
+            c.path([[5.8, 0.0], [7.4, 0.0], [7.4, 2.3], [5.8, 2.3], [5.8, 0.0]], [1, 2, 2, 2, 79], id='1_0frame', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[7.4, 2.0999999999999996], [8.05, 2.0999999999999996], [8.200000000000001, 2.0999999999999996], [8.200000000000001, 1.6999999999999997], [8.200000000000001, 1.4], [8.05, 1.0999999999999999], [7.9, 0.9999999999999998], [7.4, 0.9999999999999998], [7.4, 2.0999999999999996], [7.4, 2.0999999999999996]], [1, 4, 4, 4, 4, 4, 4, 2, 2, 79], id='1_1stem', facecolor=[1.0, 1.0, 1.0, 1.0], capstyle='butt')
+            c.path([[7.4, 0.19999999999999973], [8.3, 0.19999999999999973], [8.75, 0.6499999999999999], [8.75, 0.8999999999999999], [8.75, 0.9999999999999998], [8.1, 0.9999999999999998], [7.4, 0.9999999999999998], [7.4, 0.19999999999999973], [7.4, 0.19999999999999973]], [1, 4, 4, 4, 4, 4, 4, 2, 79], id='1_1cap', facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 0.45], capstyle='butt')
+            c.path([[7.4, 0.0], [9.0, 0.0], [9.0, 2.3], [7.4, 2.3], [7.4, 0.0]], [1, 2, 2, 2, 79], id='1_1frame', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[11.6, 2.0999999999999996], [12.25, 2.0999999999999996], [12.4, 2.0999999999999996], [12.4, 1.6999999999999997], [12.4, 1.4], [12.25, 1.0999999999999999], [12.1, 0.9999999999999998], [11.6, 0.9999999999999998], [11.6, 2.0999999999999996], [11.6, 2.0999999999999996]], [1, 4, 4, 4, 4, 4, 4, 2, 2, 79], id='2_0stem', facecolor=[1.0, 1.0, 1.0, 1.0], capstyle='butt')
+            c.path([[11.6, 0.19999999999999973], [12.5, 0.19999999999999973], [12.95, 0.6499999999999999], [12.95, 0.8999999999999999], [12.95, 0.9999999999999998], [12.299999999999999, 0.9999999999999998], [11.6, 0.9999999999999998], [11.6, 0.19999999999999973], [11.6, 0.19999999999999973]], [1, 4, 4, 4, 4, 4, 4, 2, 79], id='2_0cap', facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 0.45], capstyle='butt')
+            c.path([[11.6, 0.0], [13.2, 0.0], [13.2, 2.3], [11.6, 2.3], [11.6, 0.0]], [1, 2, 2, 2, 79], id='2_0frame', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[14.799999999999999, 0.2], [14.149999999999999, 0.2], [13.999999999999998, 0.2], [13.999999999999998, 0.6], [13.999999999999998, 0.9], [14.149999999999999, 1.2], [14.299999999999999, 1.3], [14.799999999999999, 1.3], [14.799999999999999, 0.2], [14.799999999999999, 0.2]], [1, 4, 4, 4, 4, 4, 4, 2, 2, 79], id='2_1stem', facecolor=[1.0, 1.0, 1.0, 1.0], capstyle='butt')
+            c.path([[14.799999999999999, 2.1], [13.899999999999999, 2.1], [13.45, 1.65], [13.45, 1.4], [13.45, 1.3], [14.1, 1.3], [14.799999999999999, 1.3], [14.799999999999999, 2.1], [14.799999999999999, 2.1]], [1, 4, 4, 4, 4, 4, 4, 2, 79], id='2_1cap', facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 0.45], capstyle='butt')
+            c.path([[13.2, 0.0], [14.799999999999999, 0.0], [14.799999999999999, 2.3], [13.2, 2.3], [13.2, 0.0]], [1, 2, 2, 2, 79], id='2_1frame', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[17.4, 2.0999999999999996], [18.049999999999997, 2.0999999999999996], [18.2, 2.0999999999999996], [18.2, 1.6999999999999997], [18.2, 1.4], [18.049999999999997, 1.0999999999999999], [17.9, 0.9999999999999998], [17.4, 0.9999999999999998], [17.4, 2.0999999999999996], [17.4, 2.0999999999999996]], [1, 4, 4, 4, 4, 4, 4, 2, 2, 79], id='3_0stem', facecolor=[1.0, 1.0, 1.0, 1.0], capstyle='butt')
+            c.path([[17.4, 0.19999999999999973], [18.299999999999997, 0.19999999999999973], [18.75, 0.6499999999999999], [18.75, 0.8999999999999999], [18.75, 0.9999999999999998], [18.099999999999998, 0.9999999999999998], [17.4, 0.9999999999999998], [17.4, 0.19999999999999973], [17.4, 0.19999999999999973]], [1, 4, 4, 4, 4, 4, 4, 2, 79], id='3_0cap', facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 0.45], capstyle='butt')
+            c.path([[17.4, 0.0], [19.0, 0.0], [19.0, 2.3], [17.4, 2.3], [17.4, 0.0]], [1, 2, 2, 2, 79], id='3_0frame', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[19.0, 2.0999999999999996], [19.65, 2.0999999999999996], [19.8, 2.0999999999999996], [19.8, 1.6999999999999997], [19.8, 1.4], [19.65, 1.0999999999999999], [19.5, 0.9999999999999998], [19.0, 0.9999999999999998], [19.0, 2.0999999999999996], [19.0, 2.0999999999999996]], [1, 4, 4, 4, 4, 4, 4, 2, 2, 79], id='3_1stem', facecolor=[1.0, 1.0, 1.0, 1.0], capstyle='butt')
+            c.path([[19.0, 0.19999999999999973], [19.9, 0.19999999999999973], [20.35, 0.6499999999999999], [20.35, 0.8999999999999999], [20.35, 0.9999999999999998], [19.7, 0.9999999999999998], [19.0, 0.9999999999999998], [19.0, 0.19999999999999973], [19.0, 0.19999999999999973]], [1, 4, 4, 4, 4, 4, 4, 2, 79], id='3_1cap', facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 0.45], capstyle='butt')
+            c.path([[19.0, 0.0], [20.6, 0.0], [20.6, 2.3], [19.0, 2.3], [19.0, 0.0]], [1, 2, 2, 2, 79], id='3_1frame', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[24.8, 0.2], [24.150000000000002, 0.2], [24.0, 0.2], [24.0, 0.6], [24.0, 0.9], [24.150000000000002, 1.2], [24.3, 1.3], [24.8, 1.3], [24.8, 0.2], [24.8, 0.2]], [1, 4, 4, 4, 4, 4, 4, 2, 2, 79], id='4_0stem', facecolor=[1.0, 1.0, 1.0, 1.0], capstyle='butt')
+            c.path([[24.8, 2.1], [23.900000000000002, 2.1], [23.45, 1.65], [23.45, 1.4], [23.45, 1.3], [24.1, 1.3], [24.8, 1.3], [24.8, 2.1], [24.8, 2.1]], [1, 4, 4, 4, 4, 4, 4, 2, 79], id='4_0cap', facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 0.45], capstyle='butt')
+            c.path([[23.2, 0.0], [24.8, 0.0], [24.8, 2.3], [23.2, 2.3], [23.2, 0.0]], [1, 2, 2, 2, 79], id='4_0frame', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[26.400000000000002, 2.0999999999999996], [25.750000000000004, 2.0999999999999996], [25.6, 2.0999999999999996], [25.6, 1.6999999999999997], [25.6, 1.4], [25.750000000000004, 1.0999999999999999], [25.900000000000002, 0.9999999999999998], [26.400000000000002, 0.9999999999999998], [26.400000000000002, 2.0999999999999996], [26.400000000000002, 2.0999999999999996]], [1, 4, 4, 4, 4, 4, 4, 2, 2, 79], id='4_1stem', facecolor=[1.0, 1.0, 1.0, 1.0], capstyle='butt')
+            c.path([[26.400000000000002, 0.19999999999999973], [25.500000000000004, 0.19999999999999973], [25.05, 0.6499999999999999], [25.05, 0.8999999999999999], [25.05, 0.9999999999999998], [25.700000000000003, 0.9999999999999998], [26.400000000000002, 0.9999999999999998], [26.400000000000002, 0.19999999999999973], [26.400000000000002, 0.19999999999999973]], [1, 4, 4, 4, 4, 4, 4, 2, 79], id='4_1cap', facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 0.45], capstyle='butt')
+            c.path([[24.8, 0.0], [26.400000000000002, 0.0], [26.400000000000002, 2.3], [24.8, 2.3], [24.8, 0.0]], [1, 2, 2, 2, 79], id='4_1frame', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            for object_id, text, anchor in [('label0', '(A)', [-0.7, -0.25]), ('label1', '(B)', [5.1, -0.25]), ('label2', '(C)', [10.9, -0.25]), ('label3', '(D)', [16.7, -0.25]), ('label4', '(E)', [22.5, -0.25])]:
+                c.text(text, anchor, id=object_id, rotation_mode='default', offset_pt=[0, 0], annotation_clip=None)
+            return c if _canvas else c.save(output_path)
 
     def get_scene(self):
-        return json.loads(self.scene_path.read_text(encoding='utf-8'))
+        return json.loads(self.scene_path.read_text(encoding='utf-8-sig'))
 
-    def draw(self, num=0, output_path=None):
-        if output_path is None and isinstance(num, (str, Path)):
-            output_path = num
-        output = Path(output_path) if output_path else HERE.parents[1] / '.runtime/mathvision_redraw' / 'Plane167.png'
-        spec = importlib.util.spec_from_file_location('mathvision_native_runtime', HERE / 'mathvision_renderers/shared_e4e003f51742cf00/runtime.py')
-        runtime = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(runtime)
-        return runtime.draw(HERE / 'mathvision_renderers/shared_e4e003f51742cf00/items/Plane167', HERE / 'mathvision_renderers/shared_e4e003f51742cf00/native', output, formal_scene=self.scene_path, original_image=HERE / '../originals/Plane167.jpg')
-
-    def redraw(self, output_path=None):
-        return self.draw(output_path=output_path)
+    def build_scene(self):
+        canvas = self.draw(_canvas=True)
+        return (canvas.fig, canvas.ax)
 if __name__ == '__main__':
-    import sys
-    print(Plane167().draw(output_path=sys.argv[1] if len(sys.argv) > 1 else None))
+    print(Plane167().draw(sys.argv[1] if len(sys.argv) > 1 else None))

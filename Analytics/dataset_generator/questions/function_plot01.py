@@ -1,66 +1,44 @@
-"""Frozen analytic-geometry questions.
-
-Each class is one sampled instance. Numbers in __init__ are constants from
-that sample. draw() does not choose parameters.
-"""
-
-from __future__ import annotations
-
-import sys
+"""Frozen question Ana01; unified protocol 2.0.0. Original metadata and PNG retained."""
 from pathlib import Path
-
+import sys
+import json
 import numpy as np
-from matplotlib.patches import Circle, Ellipse, Polygon
-
-_ROOT = Path(__file__).resolve().parents[1]
-_DATASET_ROOT = _ROOT.parent
-if str(_ROOT) not in sys.path:
-    sys.path.insert(0, str(_ROOT))
-
-from common_renderer import (  # noqa: E402
-    add_styled_patch,
-    aux_hline,
-    aux_vline,
-    build_expression,
-    domain_linspace,
-    figure_label,
-    fill_polygon,
-    fill_region,
-    finalize,
-    label,
-    open_canvas,
-    plot_curve,
-    scatter_points,
-    slope_segments,
-)
+_PROJECT_ROOT = Path(__file__).resolve().parents[3]
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+from dataset_tools.drawing import Canvas, ANALYTICS, PLANE, SOLID, VectorPath, VectorTransform, VectorBox
 
 class Ana01:
-    """Sampled instance from DynaMath. Values are constants."""
 
     def __init__(self):
         self.id = 'Ana01'
         self.source_dataset = 'DynaMath'
-        self.a = 1
-        self.b = 1
-        self.c = -2
-        self.d = -4
-        self.e = 2
-        self.query = 'What is the limit of the function as x approaches 1 from the left side?'
+        self.question = 'What is the limit of the function as x approaches 1 from the left side?'
         self.answer = 0
         self.answer_type = 'number'
-        self.subject = 'analytic geometry'
-        self.level = 'undergraduate'
+        self.query = self.question
+        self.subject = 'Analytics'
+        self.level = None
 
-    def draw(self, num=0, output_path=None):
-        """Draw this instance. The image is image/Ana01.png."""
-        fig, ax = open_canvas()
-        x1 = domain_linspace(-10, 1, 200, endpoint=True)
-        x2 = domain_linspace(1, 10, 200, endpoint=True)
-        f1 = self.a * x1 ** 2 + self.b * x1 + self.c
-        f2 = self.d * x2 + self.e
-        plot_curve(ax, x1, f1)
-        plot_curve(ax, x2, f2)
-        scatter_points(ax, 1, self.a + self.b + self.c, open_marker=True)
-        scatter_points(ax, 1, self.d + self.e)
-        destination = Path(output_path) if output_path is not None else _DATASET_ROOT / "image" / f"{self.id}.png"
-        return finalize(fig, destination)
+    def draw(self, output_path=None, *, variant=None, _canvas=False):
+        if output_path is None and (not _canvas):
+            output_path = _PROJECT_ROOT / '.runtime/reproduced' / 'Analytics' / (self.id + ('_' + variant if variant else '') + '.png')
+        if variant is not None:
+            if _canvas:
+                raise ValueError('Canvas capture is for the original only')
+            from dataset_tools.unified_replay import draw_slot
+            return draw_slot('Analytics', self.id, variant, output_path)
+        with Canvas(ANALYTICS) as c:
+            x = np.linspace(-8, 1, 200)
+            c.line(np.column_stack((x, x * x + x - 2)), id='curve_001', solid_capstyle='butt')
+            x = np.linspace(1, 8, 200)
+            c.line(np.column_stack((x, -4 * x + 2)), id='curve_002', solid_capstyle='butt')
+            c.point([[1, 0]], filled=False, id='point_001')
+            c.point([[1, -2]], id='point_002')
+            return c if _canvas else c.save(output_path)
+
+    def build_scene(self):
+        canvas = self.draw(_canvas=True)
+        return (canvas.fig, canvas.ax)
+if __name__ == '__main__':
+    print(Ana01().draw(sys.argv[1] if len(sys.argv) > 1 else None))

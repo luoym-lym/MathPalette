@@ -1,31 +1,47 @@
-"""Frozen native MathVision redraw; importing does not write files."""
+"""Frozen question Solid117; unified protocol 2.0.0. Original metadata and PNG retained."""
 from pathlib import Path
-import importlib.util
+import sys
 import json
-HERE = Path(__file__).resolve().parent
+import numpy as np
+_PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+from dataset_tools.drawing import Canvas, ANALYTICS, PLANE, SOLID, VectorPath, VectorTransform, VectorBox
 
 class Solid117:
 
     def __init__(self):
-        self.__dict__.update({'id': 'Solid117', 'source_dataset': 'MathVision', 'question': 'Picture 1 shows a large cube built from small cubes. How many small cubes must be added to the arrangement in picture 2 to complete this large cube?', 'answer': '7', 'answer_type': 'number', 'subject': 'SolidGeometry', 'source_key': 'test:502', 'source_category': 'solid geometry', 'source_revision': '2837ddb3f13abaf6b3997c12d80753e5470bd46a'})
+        self.id = 'Solid117'
+        self.source_dataset = 'MathVision'
+        self.source_key = 'test:502'
+        self.question = 'Picture 1 shows a large cube built from small cubes. How many small cubes must be added to the arrangement in picture 2 to complete this large cube?'
+        self.answer = '7'
+        self.answer_type = 'number'
         self.query = self.question
+        self.subject = 'SolidGeometry'
         self.level = None
-        self.scene_path = HERE / 'scenes/Solid117.json'
+        self.scene_path = _PROJECT_ROOT / 'SolidGeometry' / 'dataset_generator/scenes/Solid117.json'
+
+    def draw(self, output_path=None, *, variant=None, _canvas=False):
+        if output_path is None and (not _canvas):
+            output_path = _PROJECT_ROOT / '.runtime/reproduced' / 'SolidGeometry' / (self.id + ('_' + variant if variant else '') + '.png')
+        if variant is not None:
+            if _canvas:
+                raise ValueError('Canvas capture is for the original only')
+            from dataset_tools.unified_replay import draw_slot
+            return draw_slot('SolidGeometry', self.id, variant, output_path)
+        with Canvas(SOLID, xlim=[-0.298861902489719, 12.317030507140881], ylim=[-5.042321169604825, 7.5735712400257755], projection=[[1, 0.8, 0], [-0.25, 0.3, 1]], origin=[0, 0, 0], offset=[0, 0]) as c:
+            for object_id, points in [('fulle0', c.project([[0.0, 0.0, 0.0], [1.0, 0.0, 0.0]])), ('fulle1', c.project([[0.0, 0.0, 1.0], [1.0, 0.0, 1.0]])), ('fulle2', c.project([[0.0, 0.0, 0.0], [0.0, 0.0, 1.0]])), ('fulle3', c.project([[1.0, 0.0, 0.0], [1.0, 0.0, 1.0]])), ('fulle4', c.project([[0.0, 0.0, 2.0], [1.0, 0.0, 2.0]])), ('fulle5', c.project([[0.0, 0.0, 1.0], [0.0, 0.0, 2.0]])), ('fulle6', c.project([[1.0, 0.0, 1.0], [1.0, 0.0, 2.0]])), ('fulle7', c.project([[0.0, 0.0, 3.0], [1.0, 0.0, 3.0]])), ('fulle8', c.project([[0.0, 1.0, 3.0], [1.0, 1.0, 3.0]])), ('fulle9', c.project([[0.0, 0.0, 3.0], [0.0, 1.0, 3.0]])), ('fulle10', c.project([[1.0, 0.0, 3.0], [1.0, 1.0, 3.0]])), ('fulle11', c.project([[0.0, 0.0, 2.0], [0.0, 0.0, 3.0]])), ('fulle12', c.project([[1.0, 0.0, 2.0], [1.0, 0.0, 3.0]])), ('fulle13', c.project([[0.0, 2.0, 3.0], [1.0, 2.0, 3.0]])), ('fulle14', c.project([[0.0, 1.0, 3.0], [0.0, 2.0, 3.0]])), ('fulle15', c.project([[1.0, 1.0, 3.0], [1.0, 2.0, 3.0]])), ('fulle16', c.project([[0.0, 3.0, 3.0], [1.0, 3.0, 3.0]])), ('fulle17', c.project([[0.0, 2.0, 3.0], [0.0, 3.0, 3.0]])), ('fulle18', c.project([[1.0, 2.0, 3.0], [1.0, 3.0, 3.0]])), ('fulle19', c.project([[1.0, 0.0, 0.0], [2.0, 0.0, 0.0]])), ('fulle20', c.project([[1.0, 0.0, 1.0], [2.0, 0.0, 1.0]])), ('fulle21', c.project([[2.0, 0.0, 0.0], [2.0, 0.0, 1.0]])), ('fulle22', c.project([[1.0, 0.0, 2.0], [2.0, 0.0, 2.0]])), ('fulle23', c.project([[2.0, 0.0, 1.0], [2.0, 0.0, 2.0]])), ('fulle24', c.project([[1.0, 0.0, 3.0], [2.0, 0.0, 3.0]])), ('fulle25', c.project([[1.0, 1.0, 3.0], [2.0, 1.0, 3.0]])), ('fulle26', c.project([[2.0, 0.0, 3.0], [2.0, 1.0, 3.0]])), ('fulle27', c.project([[2.0, 0.0, 2.0], [2.0, 0.0, 3.0]])), ('fulle28', c.project([[1.0, 2.0, 3.0], [2.0, 2.0, 3.0]])), ('fulle29', c.project([[2.0, 1.0, 3.0], [2.0, 2.0, 3.0]])), ('fulle30', c.project([[1.0, 3.0, 3.0], [2.0, 3.0, 3.0]])), ('fulle31', c.project([[2.0, 2.0, 3.0], [2.0, 3.0, 3.0]])), ('fulle32', c.project([[2.0, 0.0, 0.0], [3.0, 0.0, 0.0]])), ('fulle33', c.project([[2.0, 0.0, 1.0], [3.0, 0.0, 1.0]])), ('fulle34', c.project([[3.0, 0.0, 0.0], [3.0, 1.0, 0.0]])), ('fulle35', c.project([[3.0, 0.0, 1.0], [3.0, 1.0, 1.0]])), ('fulle36', c.project([[3.0, 0.0, 0.0], [3.0, 0.0, 1.0]])), ('fulle37', c.project([[3.0, 1.0, 0.0], [3.0, 1.0, 1.0]])), ('fulle38', c.project([[2.0, 0.0, 2.0], [3.0, 0.0, 2.0]])), ('fulle39', c.project([[3.0, 0.0, 2.0], [3.0, 1.0, 2.0]])), ('fulle40', c.project([[3.0, 0.0, 1.0], [3.0, 0.0, 2.0]])), ('fulle41', c.project([[3.0, 1.0, 1.0], [3.0, 1.0, 2.0]])), ('fulle42', c.project([[2.0, 0.0, 3.0], [3.0, 0.0, 3.0]])), ('fulle43', c.project([[2.0, 1.0, 3.0], [3.0, 1.0, 3.0]])), ('fulle44', c.project([[3.0, 0.0, 3.0], [3.0, 1.0, 3.0]])), ('fulle45', c.project([[3.0, 0.0, 2.0], [3.0, 0.0, 3.0]])), ('fulle46', c.project([[3.0, 1.0, 2.0], [3.0, 1.0, 3.0]])), ('fulle47', c.project([[3.0, 1.0, 0.0], [3.0, 2.0, 0.0]])), ('fulle48', c.project([[3.0, 1.0, 1.0], [3.0, 2.0, 1.0]])), ('fulle49', c.project([[3.0, 2.0, 0.0], [3.0, 2.0, 1.0]])), ('fulle50', c.project([[3.0, 1.0, 2.0], [3.0, 2.0, 2.0]])), ('fulle51', c.project([[3.0, 2.0, 1.0], [3.0, 2.0, 2.0]])), ('fulle52', c.project([[2.0, 2.0, 3.0], [3.0, 2.0, 3.0]])), ('fulle53', c.project([[3.0, 1.0, 3.0], [3.0, 2.0, 3.0]])), ('fulle54', c.project([[3.0, 2.0, 2.0], [3.0, 2.0, 3.0]])), ('fulle55', c.project([[3.0, 2.0, 0.0], [3.0, 3.0, 0.0]])), ('fulle56', c.project([[3.0, 2.0, 1.0], [3.0, 3.0, 1.0]])), ('fulle57', c.project([[3.0, 3.0, 0.0], [3.0, 3.0, 1.0]])), ('fulle58', c.project([[3.0, 2.0, 2.0], [3.0, 3.0, 2.0]])), ('fulle59', c.project([[3.0, 3.0, 1.0], [3.0, 3.0, 2.0]])), ('fulle60', c.project([[2.0, 3.0, 3.0], [3.0, 3.0, 3.0]])), ('fulle61', c.project([[3.0, 2.0, 3.0], [3.0, 3.0, 3.0]])), ('fulle62', c.project([[3.0, 3.0, 2.0], [3.0, 3.0, 3.0]])), ('partiale0', c.project([[6.6, 0.0, 1.65], [7.6, 0.0, 1.65]])), ('partiale1', c.project([[6.6, 0.0, 2.65], [7.6, 0.0, 2.65]])), ('partiale2', c.project([[6.6, 0.0, 1.65], [6.6, 0.0, 2.65]])), ('partiale3', c.project([[7.6, 0.0, 1.65], [7.6, 0.0, 2.65]])), ('partiale4', c.project([[6.6, 0.0, 3.65], [7.6, 0.0, 3.65]])), ('partiale5', c.project([[7.6, 0.0, 3.65], [7.6, 1.0, 3.65]])), ('partiale6', c.project([[6.6, 0.0, 2.65], [6.6, 0.0, 3.65]])), ('partiale7', c.project([[7.6, 0.0, 2.65], [7.6, 0.0, 3.65]])), ('partiale8', c.project([[6.6, 0.0, 4.65], [7.6, 0.0, 4.65]])), ('partiale9', c.project([[6.6, 1.0, 4.65], [7.6, 1.0, 4.65]])), ('partiale10', c.project([[6.6, 0.0, 4.65], [6.6, 1.0, 4.65]])), ('partiale11', c.project([[7.6, 0.0, 4.65], [7.6, 1.0, 4.65]])), ('partiale12', c.project([[6.6, 0.0, 3.65], [6.6, 0.0, 4.65]])), ('partiale13', c.project([[7.6, 0.0, 3.65], [7.6, 0.0, 4.65]])), ('partiale14', c.project([[7.6, 1.0, 3.65], [7.6, 1.0, 4.65]])), ('partiale15', c.project([[7.6, 0.0, 1.65], [8.6, 0.0, 1.65]])), ('partiale16', c.project([[7.6, 0.0, 2.65], [8.6, 0.0, 2.65]])), ('partiale17', c.project([[8.6, 0.0, 2.65], [8.6, 1.0, 2.65]])), ('partiale18', c.project([[8.6, 0.0, 1.65], [8.6, 0.0, 2.65]])), ('partiale19', c.project([[7.6, 0.0, 3.65], [8.6, 0.0, 3.65]])), ('partiale20', c.project([[7.6, 1.0, 3.65], [8.6, 1.0, 3.65]])), ('partiale21', c.project([[8.6, 0.0, 3.65], [8.6, 1.0, 3.65]])), ('partiale22', c.project([[8.6, 0.0, 2.65], [8.6, 0.0, 3.65]])), ('partiale23', c.project([[8.6, 1.0, 2.65], [8.6, 1.0, 3.65]])), ('partiale24', c.project([[8.6, 0.0, 1.65], [9.6, 0.0, 1.65]])), ('partiale25', c.project([[8.6, 0.0, 2.65], [9.6, 0.0, 2.65]])), ('partiale26', c.project([[8.6, 1.0, 2.65], [9.6, 1.0, 2.65]])), ('partiale27', c.project([[9.6, 0.0, 1.65], [9.6, 1.0, 1.65]])), ('partiale28', c.project([[9.6, 0.0, 2.65], [9.6, 1.0, 2.65]])), ('partiale29', c.project([[9.6, 0.0, 1.65], [9.6, 0.0, 2.65]])), ('partiale30', c.project([[9.6, 1.0, 1.65], [9.6, 1.0, 2.65]])), ('partiale31', c.project([[7.6, 1.0, 3.65], [7.6, 2.0, 3.65]])), ('partiale32', c.project([[6.6, 2.0, 4.65], [7.6, 2.0, 4.65]])), ('partiale33', c.project([[6.6, 1.0, 4.65], [6.6, 2.0, 4.65]])), ('partiale34', c.project([[7.6, 1.0, 4.65], [7.6, 2.0, 4.65]])), ('partiale35', c.project([[7.6, 2.0, 3.65], [7.6, 2.0, 4.65]])), ('partiale36', c.project([[8.6, 1.0, 2.65], [8.6, 2.0, 2.65]])), ('partiale37', c.project([[7.6, 2.0, 3.65], [8.6, 2.0, 3.65]])), ('partiale38', c.project([[8.6, 1.0, 3.65], [8.6, 2.0, 3.65]])), ('partiale39', c.project([[8.6, 2.0, 2.65], [8.6, 2.0, 3.65]])), ('partiale40', c.project([[8.6, 2.0, 2.65], [9.6, 2.0, 2.65]])), ('partiale41', c.project([[9.6, 1.0, 1.65], [9.6, 2.0, 1.65]])), ('partiale42', c.project([[9.6, 1.0, 2.65], [9.6, 2.0, 2.65]])), ('partiale43', c.project([[9.6, 2.0, 1.65], [9.6, 2.0, 2.65]])), ('partiale44', c.project([[6.6, 3.0, 4.65], [7.6, 3.0, 4.65]])), ('partiale45', c.project([[6.6, 2.0, 4.65], [6.6, 3.0, 4.65]])), ('partiale46', c.project([[7.6, 2.0, 4.65], [7.6, 3.0, 4.65]])), ('partiale47', c.project([[8.6, 2.0, 3.65], [8.6, 3.0, 3.65]])), ('partiale48', c.project([[7.6, 2.0, 4.65], [8.6, 2.0, 4.65]])), ('partiale49', c.project([[7.6, 3.0, 4.65], [8.6, 3.0, 4.65]])), ('partiale50', c.project([[8.6, 2.0, 4.65], [8.6, 3.0, 4.65]])), ('partiale51', c.project([[8.6, 2.0, 3.65], [8.6, 2.0, 4.65]])), ('partiale52', c.project([[8.6, 3.0, 3.65], [8.6, 3.0, 4.65]])), ('partiale53', c.project([[9.6, 2.0, 1.65], [9.6, 3.0, 1.65]])), ('partiale54', c.project([[9.6, 2.0, 2.65], [9.6, 3.0, 2.65]])), ('partiale55', c.project([[9.6, 3.0, 1.65], [9.6, 3.0, 2.65]])), ('partiale56', c.project([[8.6, 2.0, 3.65], [9.6, 2.0, 3.65]])), ('partiale57', c.project([[8.6, 3.0, 3.65], [9.6, 3.0, 3.65]])), ('partiale58', c.project([[9.6, 2.0, 3.65], [9.6, 3.0, 3.65]])), ('partiale59', c.project([[9.6, 2.0, 2.65], [9.6, 2.0, 3.65]])), ('partiale60', c.project([[9.6, 3.0, 2.65], [9.6, 3.0, 3.65]]))]:
+                c.line(points, id=object_id, clip_on=False, zorder=3)
+            c.text('Picture 1', c.project([2.7, 0, -0.3]), offset_pt=[0, -12], vertex=False, id='caption0')
+            c.text('Picture 2', c.project([9.3, 0, 1.3499999999999999]), offset_pt=[0, -12], vertex=False, id='caption1')
+            return c if _canvas else c.save(output_path)
 
     def get_scene(self):
-        return json.loads(self.scene_path.read_text(encoding='utf-8'))
+        return json.loads(self.scene_path.read_text(encoding='utf-8-sig'))
 
-    def draw(self, num=0, output_path=None):
-        if output_path is None and isinstance(num, (str, Path)):
-            output_path = num
-        output = Path(output_path) if output_path else HERE.parents[1] / '.runtime/mathvision_redraw' / 'Solid117.png'
-        spec = importlib.util.spec_from_file_location('mathvision_native_runtime', HERE / 'mathvision_renderers/shared_e4e003f51742cf00/runtime.py')
-        runtime = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(runtime)
-        return runtime.draw(HERE / 'mathvision_renderers/shared_e4e003f51742cf00/items/Solid117', HERE / 'mathvision_renderers/shared_e4e003f51742cf00/native', output, formal_scene=self.scene_path, original_image=HERE / '../originals/Solid117.jpg')
-
-    def redraw(self, output_path=None):
-        return self.draw(output_path=output_path)
+    def build_scene(self):
+        canvas = self.draw(_canvas=True)
+        return (canvas.fig, canvas.ax)
 if __name__ == '__main__':
-    import sys
-    print(Solid117().draw(output_path=sys.argv[1] if len(sys.argv) > 1 else None))
+    print(Solid117().draw(sys.argv[1] if len(sys.argv) > 1 else None))

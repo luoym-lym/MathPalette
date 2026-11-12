@@ -171,13 +171,9 @@ class ActionTests(unittest.TestCase):
             server.server_close()
             thread.join(5)
 
-    @unittest.skipUnless(BRANCH == 'PlaneGeometry', 'Plane workflow baseline compatibility')
-    def test_workflow_upgrade_keeps_pending_candidate_and_metadata_cache(self):
+    def test_same_protocol_restart_keeps_pending_candidate_and_metadata_cache(self):
         candidate = self.submit()
         old = copy.deepcopy(self.adapter.manifest)
-        known = read_json(PROJECT / BRANCH / 'workbench/workflow_compatibility.json')
-        for name, pair in known['files'].items():
-            old['files'][name] = pair['previous_sha256']
         old['fingerprint'] = canonical_hash({'files': old['files'], 'environment': old['environment']})
         progress = copy.deepcopy(self.bench.progress)
         progress['signature']['baseline_fingerprint'] = old['fingerprint']

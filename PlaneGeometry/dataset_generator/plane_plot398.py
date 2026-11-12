@@ -1,31 +1,162 @@
-"""Frozen native MathVision redraw; importing does not write files."""
+"""Frozen question Plane398; unified protocol 2.0.0. Original metadata and PNG retained."""
 from pathlib import Path
-import importlib.util
+import sys
 import json
-HERE = Path(__file__).resolve().parent
+import numpy as np
+_PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+from dataset_tools.drawing import Canvas, ANALYTICS, PLANE, SOLID, VectorPath, VectorTransform, VectorBox
 
 class Plane398:
 
     def __init__(self):
-        self.__dict__.update({'id': 'Plane398', 'source_dataset': 'MathVision', 'question': 'Which of the following $4 \\times 4$ tiles cannot be formed by combining the two given pieces?\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E', 'answer': 'E', 'answer_type': 'choice', 'subject': 'PlaneGeometry', 'choices': {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'}, 'source_key': 'test:1667', 'source_category': 'combinatorial geometry', 'source_revision': '2837ddb3f13abaf6b3997c12d80753e5470bd46a'})
+        self.id = 'Plane398'
+        self.source_dataset = 'MathVision'
+        self.source_key = 'test:1667'
+        self.question = 'Which of the following $4 \\times 4$ tiles cannot be formed by combining the two given pieces?\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E'
+        self.answer = 'E'
+        self.answer_type = 'choice'
+        self.choices = {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'}
         self.query = self.question
+        self.subject = 'PlaneGeometry'
         self.level = None
-        self.scene_path = HERE / 'scenes/Plane398.json'
+        self.scene_path = _PROJECT_ROOT / 'PlaneGeometry' / 'dataset_generator/scenes/Plane398.json'
+
+    def draw(self, output_path=None, *, variant=None, _canvas=False):
+        if output_path is None and (not _canvas):
+            output_path = _PROJECT_ROOT / '.runtime/reproduced' / 'PlaneGeometry' / (self.id + ('_' + variant if variant else '') + '.png')
+        if variant is not None:
+            if _canvas:
+                raise ValueError('Canvas capture is for the original only')
+            from dataset_tools.unified_replay import draw_slot
+            return draw_slot('PlaneGeometry', self.id, variant, output_path)
+        with Canvas(PLANE, xlim=[-0.5948005587501974, 24.634759827518273], ylim=[-8.198791188483519, 17.030769197784952], axes_position=[0.05, 0.05, 0.9, 0.9], coordinate_axes=False) as c:
+            c.path([[12.0, 7.5], [13.0, 7.5], [13.0, 8.5], [12.0, 8.5], [12.0, 7.5]], [1, 2, 2, 2, 79], id='cellpiece100', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[13.0, 7.5], [14.0, 7.5], [14.0, 8.5], [13.0, 8.5], [13.0, 7.5]], [1, 2, 2, 2, 79], id='cellpiece101', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[13.0, 7.5], [14.0, 7.5], [14.0, 8.5], [13.0, 8.5], [13.0, 7.5]], [1, 2, 2, 2, 79], id='cellpiece101', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[14.0, 7.5], [15.0, 7.5], [15.0, 8.5], [14.0, 8.5], [14.0, 7.5]], [1, 2, 2, 2, 79], id='cellpiece102', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[12.0, 6.5], [13.0, 6.5], [13.0, 7.5], [12.0, 7.5], [12.0, 6.5]], [1, 2, 2, 2, 79], id='cellpiece110', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[13.0, 6.5], [14.0, 6.5], [14.0, 7.5], [13.0, 7.5], [13.0, 6.5]], [1, 2, 2, 2, 79], id='cellpiece111', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[13.0, 6.5], [14.0, 6.5], [14.0, 7.5], [13.0, 7.5], [13.0, 6.5]], [1, 2, 2, 2, 79], id='cellpiece111', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[14.0, 6.5], [15.0, 6.5], [15.0, 7.5], [14.0, 7.5], [14.0, 6.5]], [1, 2, 2, 2, 79], id='cellpiece112', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[12.0, 5.5], [13.0, 5.5], [13.0, 6.5], [12.0, 6.5], [12.0, 5.5]], [1, 2, 2, 2, 79], id='cellpiece120', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[12.0, 5.5], [13.0, 5.5], [13.0, 6.5], [12.0, 6.5], [12.0, 5.5]], [1, 2, 2, 2, 79], id='cellpiece120', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[13.0, 5.5], [14.0, 5.5], [14.0, 6.5], [13.0, 6.5], [13.0, 5.5]], [1, 2, 2, 2, 79], id='cellpiece121', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[14.0, 5.5], [15.0, 5.5], [15.0, 6.5], [14.0, 6.5], [14.0, 5.5]], [1, 2, 2, 2, 79], id='cellpiece122', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[7.0, 9.0], [8.0, 9.0], [8.0, 10.0], [7.0, 10.0], [7.0, 9.0]], [1, 2, 2, 2, 79], id='cellpiece200', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[7.0, 9.0], [8.0, 9.0], [8.0, 10.0], [7.0, 10.0], [7.0, 9.0]], [1, 2, 2, 2, 79], id='cellpiece200', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[8.0, 9.0], [9.0, 9.0], [9.0, 10.0], [8.0, 10.0], [8.0, 9.0]], [1, 2, 2, 2, 79], id='cellpiece201', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[9.0, 9.0], [10.0, 9.0], [10.0, 10.0], [9.0, 10.0], [9.0, 9.0]], [1, 2, 2, 2, 79], id='cellpiece202', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[9.0, 9.0], [10.0, 9.0], [10.0, 10.0], [9.0, 10.0], [9.0, 9.0]], [1, 2, 2, 2, 79], id='cellpiece202', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[10.0, 9.0], [11.0, 9.0], [11.0, 10.0], [10.0, 10.0], [10.0, 9.0]], [1, 2, 2, 2, 79], id='cellpiece203', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[7.0, 8.0], [8.0, 8.0], [8.0, 9.0], [7.0, 9.0], [7.0, 8.0]], [1, 2, 2, 2, 79], id='cellpiece210', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[7.0, 7.0], [8.0, 7.0], [8.0, 8.0], [7.0, 8.0], [7.0, 7.0]], [1, 2, 2, 2, 79], id='cellpiece220', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[7.0, 7.0], [8.0, 7.0], [8.0, 8.0], [7.0, 8.0], [7.0, 7.0]], [1, 2, 2, 2, 79], id='cellpiece220', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[7.0, 6.0], [8.0, 6.0], [8.0, 7.0], [7.0, 7.0], [7.0, 6.0]], [1, 2, 2, 2, 79], id='cellpiece230', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[0.0, 3.0], [1.0, 3.0], [1.0, 4.0], [0.0, 4.0], [0.0, 3.0]], [1, 2, 2, 2, 79], id='cellA00', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[1.0, 3.0], [2.0, 3.0], [2.0, 4.0], [1.0, 4.0], [1.0, 3.0]], [1, 2, 2, 2, 79], id='cellA01', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[1.0, 3.0], [2.0, 3.0], [2.0, 4.0], [1.0, 4.0], [1.0, 3.0]], [1, 2, 2, 2, 79], id='cellA01', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[2.0, 3.0], [3.0, 3.0], [3.0, 4.0], [2.0, 4.0], [2.0, 3.0]], [1, 2, 2, 2, 79], id='cellA02', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[3.0, 3.0], [4.0, 3.0], [4.0, 4.0], [3.0, 4.0], [3.0, 3.0]], [1, 2, 2, 2, 79], id='cellA03', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[3.0, 3.0], [4.0, 3.0], [4.0, 4.0], [3.0, 4.0], [3.0, 3.0]], [1, 2, 2, 2, 79], id='cellA03', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[0.0, 2.0], [1.0, 2.0], [1.0, 3.0], [0.0, 3.0], [0.0, 2.0]], [1, 2, 2, 2, 79], id='cellA10', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[0.0, 2.0], [1.0, 2.0], [1.0, 3.0], [0.0, 3.0], [0.0, 2.0]], [1, 2, 2, 2, 79], id='cellA10', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            for object_id, vertices, codes in [('cellA11', [[1.0, 2.0], [2.0, 2.0], [2.0, 3.0], [1.0, 3.0], [1.0, 2.0]], [1, 2, 2, 2, 79]), ('cellA12', [[2.0, 2.0], [3.0, 2.0], [3.0, 3.0], [2.0, 3.0], [2.0, 2.0]], [1, 2, 2, 2, 79]), ('cellA13', [[3.0, 2.0], [4.0, 2.0], [4.0, 3.0], [3.0, 3.0], [3.0, 2.0]], [1, 2, 2, 2, 79]), ('cellA20', [[0.0, 1.0], [1.0, 1.0], [1.0, 2.0], [0.0, 2.0], [0.0, 1.0]], [1, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id, facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[1.0, 1.0], [2.0, 1.0], [2.0, 2.0], [1.0, 2.0], [1.0, 1.0]], [1, 2, 2, 2, 79], id='cellA21', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[1.0, 1.0], [2.0, 1.0], [2.0, 2.0], [1.0, 2.0], [1.0, 1.0]], [1, 2, 2, 2, 79], id='cellA21', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[2.0, 1.0], [3.0, 1.0], [3.0, 2.0], [2.0, 2.0], [2.0, 1.0]], [1, 2, 2, 2, 79], id='cellA22', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[2.0, 1.0], [3.0, 1.0], [3.0, 2.0], [2.0, 2.0], [2.0, 1.0]], [1, 2, 2, 2, 79], id='cellA22', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[3.0, 1.0], [4.0, 1.0], [4.0, 2.0], [3.0, 2.0], [3.0, 1.0]], [1, 2, 2, 2, 79], id='cellA23', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[3.0, 1.0], [4.0, 1.0], [4.0, 2.0], [3.0, 2.0], [3.0, 1.0]], [1, 2, 2, 2, 79], id='cellA23', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            for object_id, vertices, codes in [('cellA30', [[0.0, 0.0], [1.0, 0.0], [1.0, 1.0], [0.0, 1.0], [0.0, 0.0]], [1, 2, 2, 2, 79]), ('cellA31', [[1.0, 0.0], [2.0, 0.0], [2.0, 1.0], [1.0, 1.0], [1.0, 0.0]], [1, 2, 2, 2, 79]), ('cellA32', [[2.0, 0.0], [3.0, 0.0], [3.0, 1.0], [2.0, 1.0], [2.0, 0.0]], [1, 2, 2, 2, 79]), ('cellA33', [[3.0, 0.0], [4.0, 0.0], [4.0, 1.0], [3.0, 1.0], [3.0, 0.0]], [1, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id, facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[5.0, 3.0], [6.0, 3.0], [6.0, 4.0], [5.0, 4.0], [5.0, 3.0]], [1, 2, 2, 2, 79], id='cellB00', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[5.0, 3.0], [6.0, 3.0], [6.0, 4.0], [5.0, 4.0], [5.0, 3.0]], [1, 2, 2, 2, 79], id='cellB00', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[6.0, 3.0], [7.0, 3.0], [7.0, 4.0], [6.0, 4.0], [6.0, 3.0]], [1, 2, 2, 2, 79], id='cellB01', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[7.0, 3.0], [8.0, 3.0], [8.0, 4.0], [7.0, 4.0], [7.0, 3.0]], [1, 2, 2, 2, 79], id='cellB02', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[7.0, 3.0], [8.0, 3.0], [8.0, 4.0], [7.0, 4.0], [7.0, 3.0]], [1, 2, 2, 2, 79], id='cellB02', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[8.0, 3.0], [9.0, 3.0], [9.0, 4.0], [8.0, 4.0], [8.0, 3.0]], [1, 2, 2, 2, 79], id='cellB03', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[5.0, 2.0], [6.0, 2.0], [6.0, 3.0], [5.0, 3.0], [5.0, 2.0]], [1, 2, 2, 2, 79], id='cellB10', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[6.0, 2.0], [7.0, 2.0], [7.0, 3.0], [6.0, 3.0], [6.0, 2.0]], [1, 2, 2, 2, 79], id='cellB11', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[6.0, 2.0], [7.0, 2.0], [7.0, 3.0], [6.0, 3.0], [6.0, 2.0]], [1, 2, 2, 2, 79], id='cellB11', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[7.0, 2.0], [8.0, 2.0], [8.0, 3.0], [7.0, 3.0], [7.0, 2.0]], [1, 2, 2, 2, 79], id='cellB12', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[8.0, 2.0], [9.0, 2.0], [9.0, 3.0], [8.0, 3.0], [8.0, 2.0]], [1, 2, 2, 2, 79], id='cellB13', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[5.0, 1.0], [6.0, 1.0], [6.0, 2.0], [5.0, 2.0], [5.0, 1.0]], [1, 2, 2, 2, 79], id='cellB20', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[5.0, 1.0], [6.0, 1.0], [6.0, 2.0], [5.0, 2.0], [5.0, 1.0]], [1, 2, 2, 2, 79], id='cellB20', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[6.0, 1.0], [7.0, 1.0], [7.0, 2.0], [6.0, 2.0], [6.0, 1.0]], [1, 2, 2, 2, 79], id='cellB21', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[7.0, 1.0], [8.0, 1.0], [8.0, 2.0], [7.0, 2.0], [7.0, 1.0]], [1, 2, 2, 2, 79], id='cellB22', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[7.0, 1.0], [8.0, 1.0], [8.0, 2.0], [7.0, 2.0], [7.0, 1.0]], [1, 2, 2, 2, 79], id='cellB22', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[8.0, 1.0], [9.0, 1.0], [9.0, 2.0], [8.0, 2.0], [8.0, 1.0]], [1, 2, 2, 2, 79], id='cellB23', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[8.0, 1.0], [9.0, 1.0], [9.0, 2.0], [8.0, 2.0], [8.0, 1.0]], [1, 2, 2, 2, 79], id='cellB23', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            for object_id, vertices, codes in [('cellB30', [[5.0, 0.0], [6.0, 0.0], [6.0, 1.0], [5.0, 1.0], [5.0, 0.0]], [1, 2, 2, 2, 79]), ('cellB31', [[6.0, 0.0], [7.0, 0.0], [7.0, 1.0], [6.0, 1.0], [6.0, 0.0]], [1, 2, 2, 2, 79]), ('cellB32', [[7.0, 0.0], [8.0, 0.0], [8.0, 1.0], [7.0, 1.0], [7.0, 0.0]], [1, 2, 2, 2, 79]), ('cellB33', [[8.0, 0.0], [9.0, 0.0], [9.0, 1.0], [8.0, 1.0], [8.0, 0.0]], [1, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id, facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[10.0, 3.0], [11.0, 3.0], [11.0, 4.0], [10.0, 4.0], [10.0, 3.0]], [1, 2, 2, 2, 79], id='cellC00', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[10.0, 3.0], [11.0, 3.0], [11.0, 4.0], [10.0, 4.0], [10.0, 3.0]], [1, 2, 2, 2, 79], id='cellC00', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[11.0, 3.0], [12.0, 3.0], [12.0, 4.0], [11.0, 4.0], [11.0, 3.0]], [1, 2, 2, 2, 79], id='cellC01', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[12.0, 3.0], [13.0, 3.0], [13.0, 4.0], [12.0, 4.0], [12.0, 3.0]], [1, 2, 2, 2, 79], id='cellC02', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[12.0, 3.0], [13.0, 3.0], [13.0, 4.0], [12.0, 4.0], [12.0, 3.0]], [1, 2, 2, 2, 79], id='cellC02', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            for object_id, vertices, codes in [('cellC03', [[13.0, 3.0], [14.0, 3.0], [14.0, 4.0], [13.0, 4.0], [13.0, 3.0]], [1, 2, 2, 2, 79]), ('cellC10', [[10.0, 2.0], [11.0, 2.0], [11.0, 3.0], [10.0, 3.0], [10.0, 2.0]], [1, 2, 2, 2, 79]), ('cellC11', [[11.0, 2.0], [12.0, 2.0], [12.0, 3.0], [11.0, 3.0], [11.0, 2.0]], [1, 2, 2, 2, 79]), ('cellC12', [[12.0, 2.0], [13.0, 2.0], [13.0, 3.0], [12.0, 3.0], [12.0, 2.0]], [1, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id, facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[13.0, 2.0], [14.0, 2.0], [14.0, 3.0], [13.0, 3.0], [13.0, 2.0]], [1, 2, 2, 2, 79], id='cellC13', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[13.0, 2.0], [14.0, 2.0], [14.0, 3.0], [13.0, 3.0], [13.0, 2.0]], [1, 2, 2, 2, 79], id='cellC13', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[10.0, 1.0], [11.0, 1.0], [11.0, 2.0], [10.0, 2.0], [10.0, 1.0]], [1, 2, 2, 2, 79], id='cellC20', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[10.0, 1.0], [11.0, 1.0], [11.0, 2.0], [10.0, 2.0], [10.0, 1.0]], [1, 2, 2, 2, 79], id='cellC20', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[11.0, 1.0], [12.0, 1.0], [12.0, 2.0], [11.0, 2.0], [11.0, 1.0]], [1, 2, 2, 2, 79], id='cellC21', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[12.0, 1.0], [13.0, 1.0], [13.0, 2.0], [12.0, 2.0], [12.0, 1.0]], [1, 2, 2, 2, 79], id='cellC22', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[12.0, 1.0], [13.0, 1.0], [13.0, 2.0], [12.0, 2.0], [12.0, 1.0]], [1, 2, 2, 2, 79], id='cellC22', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            for object_id, vertices, codes in [('cellC23', [[13.0, 1.0], [14.0, 1.0], [14.0, 2.0], [13.0, 2.0], [13.0, 1.0]], [1, 2, 2, 2, 79]), ('cellC30', [[10.0, 0.0], [11.0, 0.0], [11.0, 1.0], [10.0, 1.0], [10.0, 0.0]], [1, 2, 2, 2, 79]), ('cellC31', [[11.0, 0.0], [12.0, 0.0], [12.0, 1.0], [11.0, 1.0], [11.0, 0.0]], [1, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id, facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[12.0, 0.0], [13.0, 0.0], [13.0, 1.0], [12.0, 1.0], [12.0, 0.0]], [1, 2, 2, 2, 79], id='cellC32', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[12.0, 0.0], [13.0, 0.0], [13.0, 1.0], [12.0, 1.0], [12.0, 0.0]], [1, 2, 2, 2, 79], id='cellC32', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[13.0, 0.0], [14.0, 0.0], [14.0, 1.0], [13.0, 1.0], [13.0, 0.0]], [1, 2, 2, 2, 79], id='cellC33', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[15.0, 3.0], [16.0, 3.0], [16.0, 4.0], [15.0, 4.0], [15.0, 3.0]], [1, 2, 2, 2, 79], id='cellD00', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[15.0, 3.0], [16.0, 3.0], [16.0, 4.0], [15.0, 4.0], [15.0, 3.0]], [1, 2, 2, 2, 79], id='cellD00', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[16.0, 3.0], [17.0, 3.0], [17.0, 4.0], [16.0, 4.0], [16.0, 3.0]], [1, 2, 2, 2, 79], id='cellD01', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[17.0, 3.0], [18.0, 3.0], [18.0, 4.0], [17.0, 4.0], [17.0, 3.0]], [1, 2, 2, 2, 79], id='cellD02', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[17.0, 3.0], [18.0, 3.0], [18.0, 4.0], [17.0, 4.0], [17.0, 3.0]], [1, 2, 2, 2, 79], id='cellD02', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            for object_id, vertices, codes in [('cellD03', [[18.0, 3.0], [19.0, 3.0], [19.0, 4.0], [18.0, 4.0], [18.0, 3.0]], [1, 2, 2, 2, 79]), ('cellD10', [[15.0, 2.0], [16.0, 2.0], [16.0, 3.0], [15.0, 3.0], [15.0, 2.0]], [1, 2, 2, 2, 79]), ('cellD11', [[16.0, 2.0], [17.0, 2.0], [17.0, 3.0], [16.0, 3.0], [16.0, 2.0]], [1, 2, 2, 2, 79]), ('cellD12', [[17.0, 2.0], [18.0, 2.0], [18.0, 3.0], [17.0, 3.0], [17.0, 2.0]], [1, 2, 2, 2, 79]), ('cellD13', [[18.0, 2.0], [19.0, 2.0], [19.0, 3.0], [18.0, 3.0], [18.0, 2.0]], [1, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id, facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[15.0, 1.0], [16.0, 1.0], [16.0, 2.0], [15.0, 2.0], [15.0, 1.0]], [1, 2, 2, 2, 79], id='cellD20', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[15.0, 1.0], [16.0, 1.0], [16.0, 2.0], [15.0, 2.0], [15.0, 1.0]], [1, 2, 2, 2, 79], id='cellD20', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[16.0, 1.0], [17.0, 1.0], [17.0, 2.0], [16.0, 2.0], [16.0, 1.0]], [1, 2, 2, 2, 79], id='cellD21', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[16.0, 1.0], [17.0, 1.0], [17.0, 2.0], [16.0, 2.0], [16.0, 1.0]], [1, 2, 2, 2, 79], id='cellD21', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[17.0, 1.0], [18.0, 1.0], [18.0, 2.0], [17.0, 2.0], [17.0, 1.0]], [1, 2, 2, 2, 79], id='cellD22', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[17.0, 1.0], [18.0, 1.0], [18.0, 2.0], [17.0, 2.0], [17.0, 1.0]], [1, 2, 2, 2, 79], id='cellD22', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            for object_id, vertices, codes in [('cellD23', [[18.0, 1.0], [19.0, 1.0], [19.0, 2.0], [18.0, 2.0], [18.0, 1.0]], [1, 2, 2, 2, 79]), ('cellD30', [[15.0, 0.0], [16.0, 0.0], [16.0, 1.0], [15.0, 1.0], [15.0, 0.0]], [1, 2, 2, 2, 79]), ('cellD31', [[16.0, 0.0], [17.0, 0.0], [17.0, 1.0], [16.0, 1.0], [16.0, 0.0]], [1, 2, 2, 2, 79]), ('cellD32', [[17.0, 0.0], [18.0, 0.0], [18.0, 1.0], [17.0, 1.0], [17.0, 0.0]], [1, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id, facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[18.0, 0.0], [19.0, 0.0], [19.0, 1.0], [18.0, 1.0], [18.0, 0.0]], [1, 2, 2, 2, 79], id='cellD33', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[18.0, 0.0], [19.0, 0.0], [19.0, 1.0], [18.0, 1.0], [18.0, 0.0]], [1, 2, 2, 2, 79], id='cellD33', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[20.0, 3.0], [21.0, 3.0], [21.0, 4.0], [20.0, 4.0], [20.0, 3.0]], [1, 2, 2, 2, 79], id='cellE00', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[21.0, 3.0], [22.0, 3.0], [22.0, 4.0], [21.0, 4.0], [21.0, 3.0]], [1, 2, 2, 2, 79], id='cellE01', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[22.0, 3.0], [23.0, 3.0], [23.0, 4.0], [22.0, 4.0], [22.0, 3.0]], [1, 2, 2, 2, 79], id='cellE02', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[22.0, 3.0], [23.0, 3.0], [23.0, 4.0], [22.0, 4.0], [22.0, 3.0]], [1, 2, 2, 2, 79], id='cellE02', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[23.0, 3.0], [24.0, 3.0], [24.0, 4.0], [23.0, 4.0], [23.0, 3.0]], [1, 2, 2, 2, 79], id='cellE03', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[20.0, 2.0], [21.0, 2.0], [21.0, 3.0], [20.0, 3.0], [20.0, 2.0]], [1, 2, 2, 2, 79], id='cellE10', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[20.0, 2.0], [21.0, 2.0], [21.0, 3.0], [20.0, 3.0], [20.0, 2.0]], [1, 2, 2, 2, 79], id='cellE10', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[21.0, 2.0], [22.0, 2.0], [22.0, 3.0], [21.0, 3.0], [21.0, 2.0]], [1, 2, 2, 2, 79], id='cellE11', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[21.0, 2.0], [22.0, 2.0], [22.0, 3.0], [21.0, 3.0], [21.0, 2.0]], [1, 2, 2, 2, 79], id='cellE11', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            for object_id, vertices, codes in [('cellE12', [[22.0, 2.0], [23.0, 2.0], [23.0, 3.0], [22.0, 3.0], [22.0, 2.0]], [1, 2, 2, 2, 79]), ('cellE13', [[23.0, 2.0], [24.0, 2.0], [24.0, 3.0], [23.0, 3.0], [23.0, 2.0]], [1, 2, 2, 2, 79]), ('cellE20', [[20.0, 1.0], [21.0, 1.0], [21.0, 2.0], [20.0, 2.0], [20.0, 1.0]], [1, 2, 2, 2, 79]), ('cellE21', [[21.0, 1.0], [22.0, 1.0], [22.0, 2.0], [21.0, 2.0], [21.0, 1.0]], [1, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id, facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[22.0, 1.0], [23.0, 1.0], [23.0, 2.0], [22.0, 2.0], [22.0, 1.0]], [1, 2, 2, 2, 79], id='cellE22', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[22.0, 1.0], [23.0, 1.0], [23.0, 2.0], [22.0, 2.0], [22.0, 1.0]], [1, 2, 2, 2, 79], id='cellE22', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[23.0, 1.0], [24.0, 1.0], [24.0, 2.0], [23.0, 2.0], [23.0, 1.0]], [1, 2, 2, 2, 79], id='cellE23', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[20.0, 0.0], [21.0, 0.0], [21.0, 1.0], [20.0, 1.0], [20.0, 0.0]], [1, 2, 2, 2, 79], id='cellE30', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[20.0, 0.0], [21.0, 0.0], [21.0, 1.0], [20.0, 1.0], [20.0, 0.0]], [1, 2, 2, 2, 79], id='cellE30', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[21.0, 0.0], [22.0, 0.0], [22.0, 1.0], [21.0, 1.0], [21.0, 0.0]], [1, 2, 2, 2, 79], id='cellE31', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[22.0, 0.0], [23.0, 0.0], [23.0, 1.0], [22.0, 1.0], [22.0, 0.0]], [1, 2, 2, 2, 79], id='cellE32', facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.path([[23.0, 0.0], [24.0, 0.0], [24.0, 1.0], [23.0, 1.0], [23.0, 0.0]], [1, 2, 2, 2, 79], id='cellE33', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[23.0, 0.0], [24.0, 0.0], [24.0, 1.0], [23.0, 1.0], [23.0, 0.0]], [1, 2, 2, 2, 79], id='cellE33', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            for object_id, text, anchor in [('label0', '(A)', [2.0, 0.0]), ('label1', '(B)', [7.0, 0.0]), ('label2', '(C)', [12.0, 0.0]), ('label3', '(D)', [17.0, 0.0]), ('label4', '(E)', [22.0, 0.0])]:
+                c.text(text, anchor, id=object_id, rotation_mode='default', offset_pt=[0, -17], annotation_clip=None)
+            return c if _canvas else c.save(output_path)
 
     def get_scene(self):
-        return json.loads(self.scene_path.read_text(encoding='utf-8'))
+        return json.loads(self.scene_path.read_text(encoding='utf-8-sig'))
 
-    def draw(self, num=0, output_path=None):
-        if output_path is None and isinstance(num, (str, Path)):
-            output_path = num
-        output = Path(output_path) if output_path else HERE.parents[1] / '.runtime/mathvision_redraw' / 'Plane398.png'
-        spec = importlib.util.spec_from_file_location('mathvision_native_runtime', HERE / 'mathvision_renderers/shared_e4e003f51742cf00/runtime.py')
-        runtime = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(runtime)
-        return runtime.draw(HERE / 'mathvision_renderers/shared_e4e003f51742cf00/items/Plane398', HERE / 'mathvision_renderers/shared_e4e003f51742cf00/native', output, formal_scene=self.scene_path, original_image=HERE / '../originals/Plane398.jpg')
-
-    def redraw(self, output_path=None):
-        return self.draw(output_path=output_path)
+    def build_scene(self):
+        canvas = self.draw(_canvas=True)
+        return (canvas.fig, canvas.ax)
 if __name__ == '__main__':
-    import sys
-    print(Plane398().draw(output_path=sys.argv[1] if len(sys.argv) > 1 else None))
+    print(Plane398().draw(sys.argv[1] if len(sys.argv) > 1 else None))

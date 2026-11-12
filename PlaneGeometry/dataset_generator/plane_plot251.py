@@ -1,31 +1,131 @@
-"""Frozen native MathVision redraw; importing does not write files."""
+"""Frozen question Plane251; unified protocol 2.0.0. Original metadata and PNG retained."""
 from pathlib import Path
-import importlib.util
+import sys
 import json
-HERE = Path(__file__).resolve().parent
+import numpy as np
+_PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+from dataset_tools.drawing import Canvas, ANALYTICS, PLANE, SOLID, VectorPath, VectorTransform, VectorBox
 
 class Plane251:
 
     def __init__(self):
-        self.__dict__.update({'id': 'Plane251', 'source_dataset': 'MathVision', 'question': 'In the picture the small equilateral triangles have an area of 1 unit. What is the area of the shaded region?', 'answer': '22.5', 'answer_type': 'number', 'subject': 'PlaneGeometry', 'source_key': 'test:727', 'source_category': 'combinatorial geometry', 'source_revision': '2837ddb3f13abaf6b3997c12d80753e5470bd46a'})
+        self.id = 'Plane251'
+        self.source_dataset = 'MathVision'
+        self.source_key = 'test:727'
+        self.question = 'In the picture the small equilateral triangles have an area of 1 unit. What is the area of the shaded region?'
+        self.answer = '22.5'
+        self.answer_type = 'number'
         self.query = self.question
+        self._geometry_01 = [('grid0', [[0.0, 0.0], [0.5, 0.8660254037844386]]),
+         ('grid1', [[0.0, 0.0], [1.0, 0.0]]),
+         ('grid2', [[0.5, 0.8660254037844386], [1.0, 0.0]]),
+         ('grid3', [[0.5, 0.8660254037844386], [1.0, 1.7320508075688772]]),
+         ('grid4', [[0.5, 0.8660254037844386], [1.5, 0.8660254037844386]]),
+         ('grid5', [[1.0, 0.0], [1.5, 0.8660254037844386]]),
+         ('grid6', [[1.0, 0.0], [2.0, 0.0]]),
+         ('grid7', [[1.0, 1.7320508075688772], [1.5, 0.8660254037844386]]),
+         ('grid8', [[1.0, 1.7320508075688772], [1.5, 2.598076211353316]]),
+         ('grid9', [[1.0, 1.7320508075688772], [2.0, 1.7320508075688772]]),
+         ('grid10', [[1.5, 0.8660254037844386], [2.0, 0.0]]),
+         ('grid11', [[1.5, 0.8660254037844386], [2.0, 1.7320508075688772]]),
+         ('grid12', [[1.5, 0.8660254037844386], [2.5, 0.8660254037844386]]),
+         ('grid13', [[1.5, 2.598076211353316], [2.0, 1.7320508075688772]]),
+         ('grid14', [[1.5, 2.598076211353316], [2.0, 3.4641016151377544]]),
+         ('grid15', [[1.5, 2.598076211353316], [2.5, 2.598076211353316]]),
+         ('grid16', [[2.0, 0.0], [2.5, 0.8660254037844386]]),
+         ('grid17', [[2.0, 0.0], [3.0, 0.0]]),
+         ('grid18', [[2.0, 1.7320508075688772], [2.5, 0.8660254037844386]]),
+         ('grid19', [[2.0, 1.7320508075688772], [2.5, 2.598076211353316]]),
+         ('grid20', [[2.0, 1.7320508075688772], [3.0, 1.7320508075688772]]),
+         ('grid21', [[2.0, 3.4641016151377544], [2.5, 2.598076211353316]]),
+         ('grid22', [[2.0, 3.4641016151377544], [2.5, 4.330127018922193]]),
+         ('grid23', [[2.0, 3.4641016151377544], [3.0, 3.4641016151377544]]),
+         ('grid24', [[2.5, 0.8660254037844386], [3.0, 0.0]]),
+         ('grid25', [[2.5, 0.8660254037844386], [3.0, 1.7320508075688772]]),
+         ('grid26', [[2.5, 0.8660254037844386], [3.5, 0.8660254037844386]]),
+         ('grid27', [[2.5, 2.598076211353316], [3.0, 1.7320508075688772]]),
+         ('grid28', [[2.5, 2.598076211353316], [3.0, 3.4641016151377544]]),
+         ('grid29', [[2.5, 2.598076211353316], [3.5, 2.598076211353316]]),
+         ('grid30', [[2.5, 4.330127018922193], [3.0, 3.4641016151377544]]),
+         ('grid31', [[2.5, 4.330127018922193], [3.0, 5.196152422706632]]),
+         ('grid32', [[2.5, 4.330127018922193], [3.5, 4.330127018922193]]),
+         ('grid33', [[3.0, 0.0], [3.5, 0.8660254037844386]]),
+         ('grid34', [[3.0, 0.0], [4.0, 0.0]]),
+         ('grid35', [[3.0, 1.7320508075688772], [3.5, 0.8660254037844386]]),
+         ('grid36', [[3.0, 1.7320508075688772], [3.5, 2.598076211353316]]),
+         ('grid37', [[3.0, 1.7320508075688772], [4.0, 1.7320508075688772]]),
+         ('grid38', [[3.0, 3.4641016151377544], [3.5, 2.598076211353316]]),
+         ('grid39', [[3.0, 3.4641016151377544], [3.5, 4.330127018922193]]),
+         ('grid40', [[3.0, 3.4641016151377544], [4.0, 3.4641016151377544]]),
+         ('grid41', [[3.0, 5.196152422706632], [3.5, 4.330127018922193]]),
+         ('grid42', [[3.0, 5.196152422706632], [3.5, 6.06217782649107]]),
+         ('grid43', [[3.0, 5.196152422706632], [4.0, 5.196152422706632]]),
+         ('grid44', [[3.5, 0.8660254037844386], [4.0, 0.0]]),
+         ('grid45', [[3.5, 0.8660254037844386], [4.0, 1.7320508075688772]]),
+         ('grid46', [[3.5, 0.8660254037844386], [4.5, 0.8660254037844386]]),
+         ('grid47', [[3.5, 2.598076211353316], [4.0, 1.7320508075688772]]),
+         ('grid48', [[3.5, 2.598076211353316], [4.0, 3.4641016151377544]]),
+         ('grid49', [[3.5, 2.598076211353316], [4.5, 2.598076211353316]]),
+         ('grid50', [[3.5, 4.330127018922193], [4.0, 3.4641016151377544]]),
+         ('grid51', [[3.5, 4.330127018922193], [4.0, 5.196152422706632]]),
+         ('grid52', [[3.5, 4.330127018922193], [4.5, 4.330127018922193]]),
+         ('grid53', [[3.5, 6.06217782649107], [4.0, 5.196152422706632]]),
+         ('grid54', [[4.0, 0.0], [4.5, 0.8660254037844386]]),
+         ('grid55', [[4.0, 0.0], [5.0, 0.0]]),
+         ('grid56', [[4.0, 1.7320508075688772], [4.5, 0.8660254037844386]]),
+         ('grid57', [[4.0, 1.7320508075688772], [4.5, 2.598076211353316]]),
+         ('grid58', [[4.0, 1.7320508075688772], [5.0, 1.7320508075688772]]),
+         ('grid59', [[4.0, 3.4641016151377544], [4.5, 2.598076211353316]]),
+         ('grid60', [[4.0, 3.4641016151377544], [4.5, 4.330127018922193]]),
+         ('grid61', [[4.0, 3.4641016151377544], [5.0, 3.4641016151377544]]),
+         ('grid62', [[4.0, 5.196152422706632], [4.5, 4.330127018922193]]),
+         ('grid63', [[4.5, 0.8660254037844386], [5.0, 0.0]]),
+         ('grid64', [[4.5, 0.8660254037844386], [5.0, 1.7320508075688772]]),
+         ('grid65', [[4.5, 0.8660254037844386], [5.5, 0.8660254037844386]]),
+         ('grid66', [[4.5, 2.598076211353316], [5.0, 1.7320508075688772]]),
+         ('grid67', [[4.5, 2.598076211353316], [5.0, 3.4641016151377544]]),
+         ('grid68', [[4.5, 2.598076211353316], [5.5, 2.598076211353316]]),
+         ('grid69', [[4.5, 4.330127018922193], [5.0, 3.4641016151377544]]),
+         ('grid70', [[5.0, 0.0], [5.5, 0.8660254037844386]]),
+         ('grid71', [[5.0, 0.0], [6.0, 0.0]]),
+         ('grid72', [[5.0, 1.7320508075688772], [5.5, 0.8660254037844386]]),
+         ('grid73', [[5.0, 1.7320508075688772], [5.5, 2.598076211353316]]),
+         ('grid74', [[5.0, 1.7320508075688772], [6.0, 1.7320508075688772]]),
+         ('grid75', [[5.0, 3.4641016151377544], [5.5, 2.598076211353316]]),
+         ('grid76', [[5.5, 0.8660254037844386], [6.0, 0.0]]),
+         ('grid77', [[5.5, 0.8660254037844386], [6.0, 1.7320508075688772]]),
+         ('grid78', [[5.5, 0.8660254037844386], [6.5, 0.8660254037844386]]),
+         ('grid79', [[5.5, 2.598076211353316], [6.0, 1.7320508075688772]]),
+         ('grid80', [[6.0, 0.0], [6.5, 0.8660254037844386]]),
+         ('grid81', [[6.0, 0.0], [7.0, 0.0]]),
+         ('grid82', [[6.0, 1.7320508075688772], [6.5, 0.8660254037844386]]),
+         ('grid83', [[6.5, 0.8660254037844386], [7.0, 0.0]])]
+        self.subject = 'PlaneGeometry'
         self.level = None
-        self.scene_path = HERE / 'scenes/Plane251.json'
+        self.scene_path = _PROJECT_ROOT / 'PlaneGeometry' / 'dataset_generator/scenes/Plane251.json'
+
+    def draw(self, output_path=None, *, variant=None, _canvas=False):
+        if output_path is None and (not _canvas):
+            output_path = _PROJECT_ROOT / '.runtime/reproduced' / 'PlaneGeometry' / (self.id + ('_' + variant if variant else '') + '.png')
+        if variant is not None:
+            if _canvas:
+                raise ValueError('Canvas capture is for the original only')
+            from dataset_tools.unified_replay import draw_slot
+            return draw_slot('PlaneGeometry', self.id, variant, output_path)
+        with Canvas(PLANE, xlim=[-0.17816449494246278, 7.183140911323928], ylim=[-0.6495168768711377, 6.711788529395253], axes_position=[0.05, 0.05, 0.9, 0.9], coordinate_axes=False) as c:
+            c.path([[2.0, 0.0], [4.5, 0.0], [4.5, 4.330127018922193], [2.0, 3.4641016151377544], [2.0, 0.0]], [1, 2, 2, 2, 79], id='gray_quadrilateral', zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 0.45], linewidth=0.0, capstyle='butt')
+            c.path([[2.0, 0.0], [4.5, 0.0], [4.5, 4.330127018922193], [2.0, 3.4641016151377544], [2.0, 0.0]], [1, 2, 2, 2, 79], id='gray_quadrilateral', facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            for object_id, points in self._geometry_01:
+                c.line(points, id=object_id)
+            return c if _canvas else c.save(output_path)
 
     def get_scene(self):
-        return json.loads(self.scene_path.read_text(encoding='utf-8'))
+        return json.loads(self.scene_path.read_text(encoding='utf-8-sig'))
 
-    def draw(self, num=0, output_path=None):
-        if output_path is None and isinstance(num, (str, Path)):
-            output_path = num
-        output = Path(output_path) if output_path else HERE.parents[1] / '.runtime/mathvision_redraw' / 'Plane251.png'
-        spec = importlib.util.spec_from_file_location('mathvision_native_runtime', HERE / 'mathvision_renderers/shared_e4e003f51742cf00/runtime.py')
-        runtime = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(runtime)
-        return runtime.draw(HERE / 'mathvision_renderers/shared_e4e003f51742cf00/items/Plane251', HERE / 'mathvision_renderers/shared_e4e003f51742cf00/native', output, formal_scene=self.scene_path, original_image=HERE / '../originals/Plane251.jpg')
-
-    def redraw(self, output_path=None):
-        return self.draw(output_path=output_path)
+    def build_scene(self):
+        canvas = self.draw(_canvas=True)
+        return (canvas.fig, canvas.ax)
 if __name__ == '__main__':
-    import sys
-    print(Plane251().draw(output_path=sys.argv[1] if len(sys.argv) > 1 else None))
+    print(Plane251().draw(sys.argv[1] if len(sys.argv) > 1 else None))

@@ -1,60 +1,102 @@
-"""User-approved frozen original; importing this module writes no files."""
+"""Frozen question Plane565; unified protocol 2.0.0. Original metadata and PNG retained."""
 from pathlib import Path
-import importlib.util
-import json
 import sys
-ROOT = Path(__file__).resolve().parent
-ITEM = ROOT / 'author_extensions95_v1/items/Plane565'
-
-def _engine():
-    path = ROOT / 'author_extensions95_v1/engine.py'
-    spec = importlib.util.spec_from_file_location('_extensions95_Plane565', path)
-    module = importlib.util.module_from_spec(spec)
-    sys.modules[spec.name] = module
-    spec.loader.exec_module(module)
-    return module
-
-def build_scene():
-    return _engine().capture(ITEM)
-
-def draw_original(output_path):
-    target = Path(output_path).resolve()
-    if target.suffix.lower() not in ('.png', '.svg'):
-        raise ValueError('Use a PNG or SVG output')
-    if target.is_relative_to(ROOT.parent):
-        raise ValueError('Redraw outside formal source directories')
-    data = _engine().render(ITEM, vector=target.suffix.lower() == '.svg')
-    target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_bytes(data)
-    return str(target)
+import json
+import numpy as np
+_PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+from dataset_tools.drawing import Canvas, ANALYTICS, PLANE, SOLID, VectorPath, VectorTransform, VectorBox
 
 class Plane565:
+
     def __init__(self):
-        row = next(json.loads(line) for line in (ROOT.parent / 'dataset.jsonl').read_text(encoding='utf-8-sig').splitlines()
-                   if line.strip() and json.loads(line)['id'] == 'Plane565')
-        for key, value in row.items():
-            setattr(self, key, value)
+        self.id = 'Plane565'
+        self.source_dataset = 'Author Designed'
+        self.source_key = 'author-extensions95-v1:Plane248/extension_01'
+        self.question = 'Two identical pieces may be rotated but may not be turned upside down. Which of the following pictures cannot be made with these two pieces?\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E'
+        self.answer = 'C'
+        self.answer_type = 'choice'
+        self.choices = {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'}
         self.query = self.question
+        self.points = {'source0.v00': [10.5, 8.5],
+         'source0.v01': [12.5, 8.5],
+         'source0.v02': [12.5, 9.5],
+         'source0.v03': [11.5, 9.5],
+         'source0.v04': [11.5, 11.5],
+         'source0.v05': [10.5, 11.5],
+         'source1.v00': [15.5, 8.5],
+         'source1.v01': [17.5, 8.5],
+         'source1.v02': [17.5, 9.5],
+         'source1.v03': [16.5, 9.5],
+         'source1.v04': [16.5, 11.5],
+         'source1.v05': [15.5, 11.5],
+         'option_A.v00': [-1.0, 0.7999999999999998],
+         'option_A.v01': [1.0, 0.7999999999999998],
+         'option_A.v02': [1.0, 4.8],
+         'option_A.v03': [-1.0, 4.8],
+         'option_B.v00': [4.0, 2.3],
+         'option_B.v01': [7.0, 2.3],
+         'option_B.v02': [7.0, 1.2999999999999998],
+         'option_B.v03': [8.0, 1.2999999999999998],
+         'option_B.v04': [8.0, 2.3],
+         'option_B.v05': [10.0, 2.3],
+         'option_B.v06': [10.0, 3.3],
+         'option_B.v07': [7.0, 3.3],
+         'option_B.v08': [7.0, 4.3],
+         'option_B.v09': [6.0, 4.3],
+         'option_B.v10': [6.0, 3.3],
+         'option_B.v11': [4.0, 3.3],
+         'option_C.v00': [12.5, 0.7999999999999998],
+         'option_C.v01': [13.5, 0.7999999999999998],
+         'option_C.v02': [13.5, 1.7999999999999998],
+         'option_C.v03': [15.5, 1.7999999999999998],
+         'option_C.v04': [15.5, 3.8],
+         'option_C.v05': [13.5, 3.8],
+         'option_C.v06': [13.5, 4.8],
+         'option_C.v07': [12.5, 4.8],
+         'option_D.v00': [20.0, -0.20000000000000018],
+         'option_D.v01': [22.0, -0.20000000000000018],
+         'option_D.v02': [22.0, 0.7999999999999998],
+         'option_D.v03': [21.0, 0.7999999999999998],
+         'option_D.v04': [21.0, 2.8],
+         'option_D.v05': [22.0, 2.8],
+         'option_D.v06': [22.0, 3.8],
+         'option_D.v07': [21.0, 3.8],
+         'option_D.v08': [21.0, 5.8],
+         'option_D.v09': [20.0, 5.8],
+         'option_E.v00': [26.0, 1.2999999999999998],
+         'option_E.v01': [29.0, 1.2999999999999998],
+         'option_E.v02': [29.0, 3.3],
+         'option_E.v03': [30.0, 3.3],
+         'option_E.v04': [30.0, 4.3],
+         'option_E.v05': [27.0, 4.3],
+         'option_E.v06': [27.0, 2.3],
+         'option_E.v07': [26.0, 2.3]}
         self.subject = 'PlaneGeometry'
         self.level = None
+        self.scene_path = _PROJECT_ROOT / 'PlaneGeometry' / 'dataset_generator/scenes/Plane565.json'
+
+    def draw(self, output_path=None, *, variant=None, _canvas=False):
+        if output_path is None and (not _canvas):
+            output_path = _PROJECT_ROOT / '.runtime/reproduced' / 'PlaneGeometry' / (self.id + ('_' + variant if variant else '') + '.png')
+        if variant is not None:
+            if _canvas:
+                raise ValueError('Canvas capture is for the original only')
+            from dataset_tools.unified_replay import draw_slot
+            return draw_slot('PlaneGeometry', self.id, variant, output_path)
+        with Canvas(PLANE, xlim=[-1.7553862960490427, 30.755386296049043], ylim=[-10.605386296049042, 21.905386296049045]) as c:
+            for object_id, vertices, codes in [('source0', [self.points['source0.v00'], self.points['source0.v01'], self.points['source0.v02'], self.points['source0.v03'], self.points['source0.v04'], self.points['source0.v05'], self.points['source0.v00']], [1, 2, 2, 2, 2, 2, 79]), ('source1', [self.points['source1.v00'], self.points['source1.v01'], self.points['source1.v02'], self.points['source1.v03'], self.points['source1.v04'], self.points['source1.v05'], self.points['source1.v00']], [1, 2, 2, 2, 2, 2, 79]), ('option_A', [self.points['option_A.v00'], self.points['option_A.v01'], self.points['option_A.v02'], self.points['option_A.v03'], self.points['option_A.v00']], [1, 2, 2, 2, 79]), ('option_B', [self.points['option_B.v00'], self.points['option_B.v01'], self.points['option_B.v02'], self.points['option_B.v03'], self.points['option_B.v04'], self.points['option_B.v05'], self.points['option_B.v06'], self.points['option_B.v07'], self.points['option_B.v08'], self.points['option_B.v09'], self.points['option_B.v10'], self.points['option_B.v11'], self.points['option_B.v00']], [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 79]), ('option_C', [self.points['option_C.v00'], self.points['option_C.v01'], self.points['option_C.v02'], self.points['option_C.v03'], self.points['option_C.v04'], self.points['option_C.v05'], self.points['option_C.v06'], self.points['option_C.v07'], self.points['option_C.v00']], [1, 2, 2, 2, 2, 2, 2, 2, 79]), ('option_D', [self.points['option_D.v00'], self.points['option_D.v01'], self.points['option_D.v02'], self.points['option_D.v03'], self.points['option_D.v04'], self.points['option_D.v05'], self.points['option_D.v06'], self.points['option_D.v07'], self.points['option_D.v08'], self.points['option_D.v09'], self.points['option_D.v00']], [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 79]), ('option_E', [self.points['option_E.v00'], self.points['option_E.v01'], self.points['option_E.v02'], self.points['option_E.v03'], self.points['option_E.v04'], self.points['option_E.v05'], self.points['option_E.v06'], self.points['option_E.v07'], self.points['option_E.v00']], [1, 2, 2, 2, 2, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id)
+            for object_id, text, anchor in [('label_A', 'A', [0, 6.6]), ('label_B', 'B', [7, 6.6]), ('label_C', 'C', [14, 6.6]), ('label_D', 'D', [21, 6.6]), ('label_E', 'E', [28, 6.6])]:
+                c.text(text, anchor, id=object_id, offset_pt=[0, 0], vertex=False)
+            return c if _canvas else c.save(output_path)
 
     def get_scene(self):
-        return json.loads((ROOT / 'scenes/Plane565.json').read_text(encoding='utf-8'))
+        return json.loads(self.scene_path.read_text(encoding='utf-8-sig'))
 
     def build_scene(self):
-        return build_scene()
-
-    def draw(self, num=0, output_path=None):
-        if output_path is None and isinstance(num, (str, Path)):
-            output_path = num
-        if output_path is None:
-            raise ValueError('An explicit output path is required')
-        return draw_original(output_path)
-
-    def redraw(self, output_path=None):
-        return self.draw(output_path=output_path)
-
+        canvas = self.draw(_canvas=True)
+        return (canvas.fig, canvas.ax)
 if __name__ == '__main__':
-    if len(sys.argv) != 2:
-        raise SystemExit('Provide a PNG or SVG output path')
-    print(draw_original(sys.argv[1]))
+    print(Plane565().draw(sys.argv[1] if len(sys.argv) > 1 else None))

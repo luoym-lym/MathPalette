@@ -12,9 +12,9 @@ import threading
 import uuid
 from pathlib import Path
 
-from extensions95_plugins import PluginRenderer
+from render_plugins import PluginRenderer
 from workbench_io import compatible_style_renderer
-from extensions95_adapter import RendererAdapter
+from renderer_adapter import RendererAdapter
 from renderer_adapter import RENDER_LOCK
 from workbench_io import (GENERATOR_VERSION, ROOT, SCHEMA_VERSION, WorkbenchError, atomic_json,
                           atomic_write, canonical_hash, contained_path, environment_versions,
@@ -784,8 +784,7 @@ class Workbench:
                           "appearance_changes": self.renderer.appearance_changes(plugin),
                           "image_path": (self.output_relative / qid / "images" / f"{slot}.png").as_posix(),
                           "plugin_path": (self.output_relative / qid / "plugins" / f"{slot}.json").as_posix()}
-                if self.adapter.is_author(qid):
-                    recipe["question_record_sha256"] = canonical_hash(self.adapter.records[qid])
+                recipe["question_record_sha256"] = canonical_hash(self.adapter.records[qid])
                 updated["slot_id"], updated["formal_image_path"], updated["formal_plugin_path"] = slot, recipe["image_path"], recipe["plugin_path"]
                 question["accepted"].append(recipe)
                 transaction["recipe"] = recipe

@@ -81,6 +81,9 @@ def content(root, branch, row, *, source_notes=None):
     paths += dependencies
     paths += ['dataset_generator/common_renderer.py', 'dataset_generator/protocol.json']
     files = {p:file_hash(contained(root/branch,p)) for p in paths}
+    if row.get('drawing_protocol_version') == '2.0.0':
+        for name in ('drawing.py', 'draw_question.py'):
+            files['../dataset_tools/' + name] = file_hash(root/'dataset_tools'/name)
     if branch != 'Analytics':
         files['../dataset_tools/geometry_dataset.py'] = file_hash(root/'dataset_tools/geometry_dataset.py')
     if source_notes is None:

@@ -1,31 +1,54 @@
-"""Frozen native MathVision redraw; importing does not write files."""
+"""Frozen question Plane424; unified protocol 2.0.0. Original metadata and PNG retained."""
 from pathlib import Path
-import importlib.util
+import sys
 import json
-HERE = Path(__file__).resolve().parent
+import numpy as np
+_PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+from dataset_tools.drawing import Canvas, ANALYTICS, PLANE, SOLID, VectorPath, VectorTransform, VectorBox
 
 class Plane424:
 
     def __init__(self):
-        self.__dict__.update({'id': 'Plane424', 'source_dataset': 'MathVision', 'question': 'A triangular piece of paper is folded along the dotted line shown in the left-hand diagram to form the heptagon shown in the right-hand diagram. The total area of the shaded parts of the heptagon is $1 \\mathrm{~cm}^{2}$. The area of the original triangle is $1 \\frac{1}{2}$ times the area of the heptagon. What is the area of the original triangle, in $\\mathrm{cm}^{2}$?', 'answer': '3', 'answer_type': 'number', 'subject': 'PlaneGeometry', 'source_key': 'test:1864', 'source_category': 'transformation geometry', 'source_revision': '2837ddb3f13abaf6b3997c12d80753e5470bd46a'})
+        self.id = 'Plane424'
+        self.source_dataset = 'MathVision'
+        self.source_key = 'test:1864'
+        self.question = 'A triangular piece of paper is folded along the dotted line shown in the left-hand diagram to form the heptagon shown in the right-hand diagram. The total area of the shaded parts of the heptagon is $1 \\mathrm{~cm}^{2}$. The area of the original triangle is $1 \\frac{1}{2}$ times the area of the heptagon. What is the area of the original triangle, in $\\mathrm{cm}^{2}$?'
+        self.answer = '3'
+        self.answer_type = 'number'
         self.query = self.question
+        self.subject = 'PlaneGeometry'
         self.level = None
-        self.scene_path = HERE / 'scenes/Plane424.json'
+        self.scene_path = _PROJECT_ROOT / 'PlaneGeometry' / 'dataset_generator/scenes/Plane424.json'
+
+    def draw(self, output_path=None, *, variant=None, _canvas=False):
+        if output_path is None and (not _canvas):
+            output_path = _PROJECT_ROOT / '.runtime/reproduced' / 'PlaneGeometry' / (self.id + ('_' + variant if variant else '') + '.png')
+        if variant is not None:
+            if _canvas:
+                raise ValueError('Canvas capture is for the original only')
+            from dataset_tools.unified_replay import draw_slot
+            return draw_slot('PlaneGeometry', self.id, variant, output_path)
+        with Canvas(PLANE, xlim=[-0.21339226425196145, 8.733920132198598], ylim=[-3.82521869822528, 5.12209369822528], axes_position=[0.05, 0.05, 0.9, 0.9], coordinate_axes=False) as c:
+            c.path([[0.0, 0.0], [3.1622776601683795, 0.0], [2.2135943621178655, 1.8973665961010275], [0.0, 0.0]], [1, 2, 2, 79], id='o0', zorder=1, facecolor=[0.0, 0.0, 0.0, 0.0], capstyle='butt')
+            c.line([[2.2099931049490764, -0.4269074841227312], [1.5121734126066786, 1.9210836785522905]], id='o1', linestyle=(0.0, [4.0, 3.0]))
+            c.path([[6.783116797250459, 0.0], [7.862277660168379, 0.0], [6.913594362117866, 1.8973665961010275], [6.360195771588399, 1.4230249470757708], [6.783116797250459, 0.0]], [1, 2, 2, 2, 79], id='o2', edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 0.45], linewidth=0.0, capstyle='butt')
+            c.path([[6.783116797250459, 0.0], [7.862277660168379, 0.0], [6.913594362117866, 1.8973665961010275], [6.360195771588399, 1.4230249470757708], [6.783116797250459, 0.0]], [1, 2, 2, 2, 79], id='o2', zorder=3, facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[6.783116797250459, 0.0], [6.360195771588399, 1.4230249470757708], [8.528108241992495, 1.137708419923185], [6.783116797250459, 0.0]], [1, 2, 2, 79], id='o3', zorder=4, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.8156862745098039, 0.8156862745098039, 0.8156862745098039, 0.45], linewidth=0.0, capstyle='butt')
+            c.path([[6.783116797250459, 0.0], [6.360195771588399, 1.4230249470757708], [8.528108241992495, 1.137708419923185], [6.783116797250459, 0.0]], [1, 2, 2, 79], id='o3', zorder=5, facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.path([[6.783116797250459, 0.0], [7.596968174702602, 0.5306189709315545], [7.20645264532393, 1.3116500296888987], [6.360195771588399, 1.4230249470757708], [6.783116797250459, 0.0]], [1, 2, 2, 2, 79], id='o4', zorder=6, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[1.0, 1.0, 1.0, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[6.783116797250459, 0.0], [7.596968174702602, 0.5306189709315545], [7.20645264532393, 1.3116500296888987], [6.360195771588399, 1.4230249470757708], [6.783116797250459, 0.0]], [1, 2, 2, 2, 79], id='o4', zorder=7, facecolor=[0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0], capstyle='butt', fill=False)
+            c.line([[4.7, 0.0], [6.783116797250459, 0.0]], id='o5', linestyle=(0.0, [4.0, 3.0]))
+            c.line([[4.7, 0.0], [6.360195771588399, 1.4230249470757708]], id='o6', linestyle=(0.0, [4.0, 3.0]))
+            c.text('diagram not to scale', [6.5, -0.5], id='t0', rotation_mode='default', offset_pt=[0, 0], annotation_clip=None)
+            return c if _canvas else c.save(output_path)
 
     def get_scene(self):
-        return json.loads(self.scene_path.read_text(encoding='utf-8'))
+        return json.loads(self.scene_path.read_text(encoding='utf-8-sig'))
 
-    def draw(self, num=0, output_path=None):
-        if output_path is None and isinstance(num, (str, Path)):
-            output_path = num
-        output = Path(output_path) if output_path else HERE.parents[1] / '.runtime/mathvision_redraw' / 'Plane424.png'
-        spec = importlib.util.spec_from_file_location('mathvision_native_runtime', HERE / 'mathvision_renderers/shared_e4e003f51742cf00/runtime.py')
-        runtime = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(runtime)
-        return runtime.draw(HERE / 'mathvision_renderers/shared_e4e003f51742cf00/items/Plane424', HERE / 'mathvision_renderers/shared_e4e003f51742cf00/native', output, formal_scene=self.scene_path, original_image=HERE / '../originals/Plane424.jpg')
-
-    def redraw(self, output_path=None):
-        return self.draw(output_path=output_path)
+    def build_scene(self):
+        canvas = self.draw(_canvas=True)
+        return (canvas.fig, canvas.ax)
 if __name__ == '__main__':
-    import sys
-    print(Plane424().draw(output_path=sys.argv[1] if len(sys.argv) > 1 else None))
+    print(Plane424().draw(sys.argv[1] if len(sys.argv) > 1 else None))

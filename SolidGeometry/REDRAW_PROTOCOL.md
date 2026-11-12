@@ -1,5 +1,9 @@
 # MathPalette 立体几何重绘协议
 
+## 当前绘图接口 2.0（2026-11-12）
+
+运行接口升级为根目录 [绘图协议 2.0](../DRAWING_PROTOCOL.md)。每题类的 `draw()` 直接用共享图元构图；`dataset_generator/common_renderer.py` 只保留兼容入口，`protocol.json` 声明 2.0.0。下文的几何语义、标注、投影和冻结要求继续作为构造与审核规则；原 1.2.0 场景保留为历史审计依据，不再由来源 renderer 执行。旧实现及其测试已归档，当前测试入口核验统一协议。
+
 版本：1.2.0（2026-10-10）。适用于 `MathPalette/SolidGeometry/`。沿用平面几何的统一画布、冻结输入、代码重绘与核对报告，独立规定三维几何、投影、可见性和空间标注。机器样式以 [protocol.json](dataset_generator/protocol.json) 为准。
 
 ## 1. 每道图示的流程

@@ -1,5 +1,11 @@
 # MathPalette 工作说明
 
+## 绘图协议整合（2026-11-12）
+
+后续绘图按根目录 `DRAWING_PROTOCOL.md`：每题一个 Python 类，`draw()` 直接使用 `dataset_tools/drawing.py`；解析、平面、立体分别用 `ANALYTICS`、`PLANE`、`SOLID` 配置，不增加来源 renderer。原 JSON 几何场景保留作审核依据，运行对象别名在 `dataset_generator/contexts/`。旧绘图器及校验源码退出运行依赖，原字节保留在 `provenance/drawing_protocol_v1.tar.gz`。
+
+用户本轮明确授权整合且允许复核后的微小差异。现存 PNG 字节及原批准文字和时间均保留，2813 个重绘中 2754 个 RGBA 一致，59 个最多相差 2/255；具体迁移指纹见 `provenance/drawing_protocol_integration_20261112.json`。这是本轮表示迁移记录，不是新原题审核或新的 Special Pass/Collect；后续内容改动仍须依原规则重新确认，不对其他像素差异通用放宽。
+
 创建或修改题目、变体和数据流程前，阅读根目录 `MATHPALETTE_PROTOCOL.md` 以及对应分支协议。
 
 仅用户明确确认的原题进入正式数据。三个分支 `dataset.jsonl` 都只包含正式题；根目录 `question_bank.jsonl` 是 `dataset_tools/catalog.py build` 生成的汇总。不得恢复旧候选清单或把 Special Pass/Collect 当成原题通过。
@@ -25,6 +31,8 @@
 2026-11-11 用户进一步明确评测需要思考过程（“因为我要思考过程啊”）。后续模型接入须核实图像输入和对应接口实际返回的推理字段，并保存接口提供的思考内容与最终回答；须区分推理文本、思考摘要和未返回思考内容，不能把开启 thinking 参数当作已获取思考过程。2026-11-12 用户明确要求编写推理脚本、清理此前 Batch 材料，并指定先适配 DeepSeek V4.1 Flash，后续再拓展。入口为 `MathPalette_Dataset/infer_deepseek.py`，官方 API 模型 ID 为 `deepseek-flash`（当时文档版本 DeepSeek-V4.1-Flash-1017，别名不视为永久固定快照）。直接发送本地冻结 PNG，保存 `reasoning_content`、`content`、用量、原始流和各次尝试；结果写 `.runtime/`。正式推理每次请求按最新指令默认240秒总时长、每个样本每轮最多3次尝试，续跑不清零；重试不改题干、图像或推理预设，不因数学错答或截断改参重测。旧 Batch 文件及辅助材料已清理，仅进行离线预检和本机模拟接口测试不代表已调用付费模型。
 
 2026-11-12 用户要求“新的模型用新的脚本”。Qwen3.8-Max-0902 使用独立入口 `MathPalette_Dataset/infer_qwen38_max_0902.py`，模型 ID `qwen3.8-max-0902`，平台 `https://maas.qianwenaiapi.com/compatible-mode/v1`。用户随后明确“Deepseek用max，Qwen用xhigh，然后把请求总时限改成240，输出token上限不要设置”：两份正式推理脚本默认分别为 `max` / `xhigh`，总时限240秒，不发送 `max_tokens`、`max_completion_tokens` 或显式 `thinking_budget`。服务端默认输出限制仍适用。此处240秒覆盖正式推理脚本此前的120秒设定，不改动下方工作台 Quick Test 的120秒规则。API Key 保存在用户明确要求继续由 Git 跟踪的根目录 `.env`，DeepSeek 和 Qwen 分别读取 `DEEPSEEK_API_KEY` 与 `QWEN_38_MAX_0902_API_KEY`；不得自行迁移到 `.env.local` 或修改跟踪状态。
+
+2026-11-12 用户明确确认正式推理仅使用 lmms-eval MathVision 通用指令 `Please solve the problem step by step and put your answer in one "\boxed{}".`，在 user 文本最前面拼接该指令、一个换行和原题题干。所有来源、题型、原图与 Special 使用相同前缀，不追加选择题指令。两份推理脚本均省略原自行编写的 system 消息。来源固定为 lmms-eval 提交 `c26b6b2713c3ec155962ff990f956bf78e0efe45` 的 `lmms_eval/tasks/mathvision/utils.py`。
 
 平面、立体分别使用分支 `REDRAW_PROTOCOL.md` 和 `dataset_generator/protocol.json`；立体须分别冻结三维几何、投影和可见性。Special 操作范围见各分支 `workbench/README.md`、`workbench/agent_prompt.md` 与 `workbench/plugin.schema.json`。原对象实虚线覆盖属于变体外观操作，不改写原冻结场景。
 

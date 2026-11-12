@@ -12,6 +12,7 @@ import tempfile
 import threading
 import time
 import unittest
+from unittest import mock
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
@@ -137,6 +138,20 @@ class DeepSeekInferenceTests(unittest.TestCase):
     def result(self):
         return runner.read_rows(self.output / "results.jsonl")[0]
 
+    def test_parent_clock_epoch_does_not_make_a_completed_request_time_out(self):
+        directory = self.base / "clock_epoch_attempt"
+        directory.mkdir()
+        clock = time.monotonic
+        with fake_server(lambda h, n, b: emit(h)) as (server, url):
+            with mock.patch.object(runner.time, "monotonic", side_effect=lambda: clock() + 1000000):
+                response = runner.request_once(
+                    url + "/chat/completions", b"{}", TEST_KEY, directory, 2, threading.Event(),
+                )
+            self.assertEqual(response["status"], "completed")
+            self.assertEqual(len(server.requests), 1)
+            self.assertGreaterEqual(response["elapsed_seconds"], 0)
+            self.assertLess(response["elapsed_seconds"], 2)
+
     def test_capture_reasoning_answer_usage_and_frozen_image_without_ground_truth(self):
         with fake_server(lambda h, n, b: emit(h)) as (server, url):
             result = self.run_cli(url, "--limit", "1")
@@ -151,8 +166,22 @@ class DeepSeekInferenceTests(unittest.TestCase):
             self.assertNotIn("answer", payload)
             self.assertNotIn("reference_answer", payload)
             self.assertNotIn("tools", payload)
-            image = payload["messages"][1]["content"][1]["image_url"]
+            self.assertEqual([message["role"] for message in payload["messages"]], ["user"])
+            image = payload["messages"][0]["content"][1]["image_url"]
             sample = runner.read_rows(self.data / "samples.jsonl")[0]
+            expected_text = (
+                r'Please solve the problem step by step and put your answer in one "\boxed{}".'
+                + "\n" + sample["question"]
+            )
+            self.assertEqual(payload["messages"][0]["content"][0]["text"], expected_text)
+            from types import SimpleNamespace
+            for answer_type in ("choice", "number", "expression", "text"):
+                body, saved = runner.build_request(
+                    {**sample, "answer_type": answer_type}, self.data,
+                    SimpleNamespace(reasoning_effort="max"),
+                )
+                self.assertEqual(json.loads(body)["messages"][0]["content"][0]["text"], expected_text)
+                self.assertEqual(saved["messages"][0]["content"][1]["image_url"]["url"], sample["image"])
             self.assertEqual(image["detail"], "original")
             import base64
             self.assertEqual(base64.b64decode(image["url"].split(",", 1)[1]), (self.data / sample["image"]).read_bytes())

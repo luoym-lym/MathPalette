@@ -1,31 +1,123 @@
-"""Frozen native MathVision redraw; importing does not write files."""
+"""Frozen question Plane262; unified protocol 2.0.0. Original metadata and PNG retained."""
 from pathlib import Path
-import importlib.util
+import sys
 import json
-HERE = Path(__file__).resolve().parent
+import numpy as np
+_PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+from dataset_tools.drawing import Canvas, ANALYTICS, PLANE, SOLID, VectorPath, VectorTransform, VectorBox
 
 class Plane262:
 
     def __init__(self):
-        self.__dict__.update({'id': 'Plane262', 'source_dataset': 'MathVision', 'question': 'A shape is made by fitting together the four pieces of card with no overlaps. Which of the following shapes is not possible?\nChoices:\nA:A)\nB:B)\nC:C)\nD:D)\nE:E)', 'answer': 'E', 'answer_type': 'choice', 'subject': 'PlaneGeometry', 'choices': {'A': 'A)', 'B': 'B)', 'C': 'C)', 'D': 'D)', 'E': 'E)'}, 'source_key': 'test:796', 'source_category': 'combinatorial geometry', 'source_revision': '2837ddb3f13abaf6b3997c12d80753e5470bd46a'})
+        self.id = 'Plane262'
+        self.source_dataset = 'MathVision'
+        self.source_key = 'test:796'
+        self.question = 'A shape is made by fitting together the four pieces of card with no overlaps. Which of the following shapes is not possible?\nChoices:\nA:A)\nB:B)\nC:C)\nD:D)\nE:E)'
+        self.answer = 'E'
+        self.answer_type = 'choice'
+        self.choices = {'A': 'A)', 'B': 'B)', 'C': 'C)', 'D': 'D)', 'E': 'E)'}
         self.query = self.question
+        self._geometry_01 = [[15.0, 1.0],
+         [16.0, 1.0],
+         [16.0, 0.0],
+         [17.0, 0.0],
+         [17.0, 1.0],
+         [17.0, 0.7238576250846033],
+         [17.2238576250846, 0.5],
+         [17.5, 0.5],
+         [17.7761423749154, 0.49999999999999994],
+         [18.0, 0.7238576250846032],
+         [18.0, 0.9999999999999999],
+         [18.0, 0.0],
+         [18.0, 0.2761423749153968],
+         [18.2238576250846, 0.5],
+         [18.5, 0.5],
+         [18.7761423749154, 0.5],
+         [19.0, 0.2761423749153967],
+         [19.0, 0.0],
+         [19.0, 2.0],
+         [19.0, 1.7238576250846034],
+         [18.7761423749154, 1.5],
+         [18.5, 1.5],
+         [18.2238576250846, 1.5],
+         [18.0, 1.7238576250846034],
+         [18.0, 2.0],
+         [18.0, 2.2761423749153966],
+         [17.7761423749154, 2.5],
+         [17.5, 2.5],
+         [17.2238576250846, 2.5],
+         [17.0, 2.2761423749153966],
+         [17.0, 2.0],
+         [17.0, 1.7238576250846034],
+         [16.7761423749154, 1.5],
+         [16.5, 1.5],
+         [16.2238576250846, 1.5],
+         [16.0, 1.7238576250846034],
+         [16.0, 2.0],
+         [16.0, 2.2761423749153966],
+         [15.776142374915397, 2.5],
+         [15.5, 2.5],
+         [15.223857625084603, 2.5],
+         [15.0, 2.2761423749153966],
+         [15.0, 2.0],
+         [15.0, 1.0],
+         [15.0, 1.0]]
+        self._geometry_02 = [1, 2, 2, 2, 2, 4, 4, 4, 4, 4, 4, 2, 4, 4, 4, 4, 4, 4, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 2, 79]
+        self._geometry_03 = [[20.0, 0.0],
+         [23.0, 0.0],
+         [22.7238576250846, -1.6908843777454448e-17],
+         [22.5, 0.22385762508460322],
+         [22.5, 0.49999999999999994],
+         [22.5, 0.7761423749153966],
+         [22.7238576250846, 1.0],
+         [23.0, 1.0],
+         [23.2761423749154, 1.0],
+         [23.5, 1.2238576250846034],
+         [23.5, 1.5],
+         [23.5, 1.7761423749153966],
+         [23.2761423749154, 2.0],
+         [23.0, 2.0],
+         [20.0, 2.0],
+         [19.7238576250846, 2.0],
+         [19.5, 1.7761423749153966],
+         [19.5, 1.5],
+         [19.5, 1.2238576250846034],
+         [19.7238576250846, 1.0],
+         [20.0, 1.0],
+         [19.7238576250846, 1.0],
+         [19.5, 0.7761423749153968],
+         [19.5, 0.5000000000000001],
+         [19.5, 0.22385762508460338],
+         [19.7238576250846, 5.072653133236334e-17],
+         [20.0, 0.0],
+         [20.0, 0.0]]
+        self._geometry_04 = [1, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 79]
+        self.subject = 'PlaneGeometry'
         self.level = None
-        self.scene_path = HERE / 'scenes/Plane262.json'
+        self.scene_path = _PROJECT_ROOT / 'PlaneGeometry' / 'dataset_generator/scenes/Plane262.json'
+
+    def draw(self, output_path=None, *, variant=None, _canvas=False):
+        if output_path is None and (not _canvas):
+            output_path = _PROJECT_ROOT / '.runtime/reproduced' / 'PlaneGeometry' / (self.id + ('_' + variant if variant else '') + '.png')
+        if variant is not None:
+            if _canvas:
+                raise ValueError('Canvas capture is for the original only')
+            from dataset_tools.unified_replay import draw_slot
+            return draw_slot('PlaneGeometry', self.id, variant, output_path)
+        with Canvas(PLANE, xlim=[-1.1011637986628386, 24.091372756534547], ylim=[-8.09570594700389, 17.096830608193496], axes_position=[0.05, 0.05, 0.9, 0.9], coordinate_axes=False) as c:
+            for object_id, vertices, codes in [('given0', [[6.0, 8.0], [7.0, 8.0], [7.0, 9.0], [7.0, 9.276142374915397], [6.776142374915397, 9.5], [6.5, 9.5], [6.223857625084603, 9.5], [6.0, 9.276142374915397], [6.0, 9.0], [6.0, 8.0], [6.0, 8.0]], [1, 2, 2, 4, 4, 4, 4, 4, 4, 2, 79]), ('given1', [[8.0, 8.0], [8.0, 8.276142374915397], [8.223857625084603, 8.5], [8.5, 8.5], [8.776142374915397, 8.5], [9.0, 8.276142374915397], [9.0, 8.0], [9.0, 10.0], [8.0, 10.0], [8.0, 8.0], [8.0, 8.0]], [1, 4, 4, 4, 4, 4, 4, 2, 2, 2, 79]), ('given2', [[10.5, 8.0], [11.5, 8.0], [11.776142374915397, 8.0], [12.0, 8.223857625084603], [12.0, 8.5], [12.0, 8.776142374915397], [11.776142374915397, 9.0], [11.5, 9.0], [10.5, 9.0], [10.223857625084603, 9.0], [10.0, 8.776142374915397], [10.0, 8.5], [10.0, 8.223857625084603], [10.223857625084603, 8.0], [10.5, 8.0], [10.5, 8.0]], [1, 2, 4, 4, 4, 4, 4, 4, 2, 4, 4, 4, 4, 4, 4, 79]), ('given3', [[14.0, 8.0], [16.0, 8.0], [15.723857625084603, 8.0], [15.5, 8.223857625084603], [15.5, 8.5], [15.5, 8.776142374915397], [15.723857625084603, 9.0], [16.0, 9.0], [14.0, 9.0], [14.276142374915397, 9.0], [14.5, 8.776142374915397], [14.5, 8.5], [14.5, 8.223857625084603], [14.276142374915397, 8.0], [14.0, 8.0], [14.0, 8.0]], [1, 2, 4, 4, 4, 4, 4, 4, 2, 4, 4, 4, 4, 4, 4, 79]), ('option0', [[0.0, 0.0], [3.0, 0.0], [3.0, 1.0], [2.7238576250846034, 1.0], [2.5, 1.2238576250846034], [2.5, 1.5], [2.5, 1.7761423749153966], [2.7238576250846034, 2.0], [3.0, 2.0], [0.0, 2.0], [0.0, 1.0], [-0.27614237491539667, 1.0], [-0.49999999999999994, 0.7761423749153968], [-0.5, 0.5000000000000001], [-0.5, 0.22385762508460338], [-0.27614237491539684, 5.072653133236334e-17], [-9.184850993605148e-17, 0.0], [0.0, 0.0]], [1, 2, 2, 4, 4, 4, 4, 4, 4, 2, 2, 4, 4, 4, 4, 4, 4, 79]), ('option1', [[5.0, 0.0], [6.0, 0.0], [6.0, 6.0], [5.0, 6.0], [5.0, 0.0], [5.0, 0.0]], [1, 2, 2, 2, 2, 79]), ('option2', [[10.0, 0.0], [10.0, 0.2761423749153968], [10.223857625084603, 0.5], [10.5, 0.5], [10.776142374915397, 0.5], [11.0, 0.2761423749153967], [11.0, 0.0], [11.0, 3.0], [13.0, 3.0], [13.276142374915397, 3.0], [13.5, 3.2238576250846034], [13.5, 3.5], [13.5, 3.7761423749153966], [13.276142374915397, 4.0], [13.0, 4.0], [10.0, 4.0], [10.0, 0.0], [10.0, 0.0]], [1, 4, 4, 4, 4, 4, 4, 2, 2, 4, 4, 4, 4, 4, 4, 2, 2, 79]), ('option3', self._geometry_01, self._geometry_02), ('option4', self._geometry_03, self._geometry_04)]:
+                c.path(vertices, codes, id=object_id, facecolor=[1.0, 1.0, 1.0, 1.0], capstyle='butt')
+            for object_id, text, anchor in [('label0', '(A)', [1.0, -0.7]), ('label1', '(B)', [6.0, -0.7]), ('label2', '(C)', [11.0, -0.7]), ('label3', '(D)', [16.0, -0.7]), ('label4', '(E)', [21.0, -0.7])]:
+                c.text(text, anchor, id=object_id, rotation_mode='default', offset_pt=[0, 0], annotation_clip=None)
+            return c if _canvas else c.save(output_path)
 
     def get_scene(self):
-        return json.loads(self.scene_path.read_text(encoding='utf-8'))
+        return json.loads(self.scene_path.read_text(encoding='utf-8-sig'))
 
-    def draw(self, num=0, output_path=None):
-        if output_path is None and isinstance(num, (str, Path)):
-            output_path = num
-        output = Path(output_path) if output_path else HERE.parents[1] / '.runtime/mathvision_redraw' / 'Plane262.png'
-        spec = importlib.util.spec_from_file_location('mathvision_native_runtime', HERE / 'mathvision_renderers/shared_e4e003f51742cf00/runtime.py')
-        runtime = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(runtime)
-        return runtime.draw(HERE / 'mathvision_renderers/shared_e4e003f51742cf00/items/Plane262', HERE / 'mathvision_renderers/shared_e4e003f51742cf00/native', output, formal_scene=self.scene_path, original_image=HERE / '../originals/Plane262.jpg')
-
-    def redraw(self, output_path=None):
-        return self.draw(output_path=output_path)
+    def build_scene(self):
+        canvas = self.draw(_canvas=True)
+        return (canvas.fig, canvas.ax)
 if __name__ == '__main__':
-    import sys
-    print(Plane262().draw(output_path=sys.argv[1] if len(sys.argv) > 1 else None))
+    print(Plane262().draw(sys.argv[1] if len(sys.argv) > 1 else None))

@@ -1,25 +1,40 @@
-"""Strict redraw for Ana21."""
-from __future__ import annotations
-import sys
+"""Frozen question Ana21; unified protocol 2.0.0. Original metadata and PNG retained."""
 from pathlib import Path
+import sys
+import json
 import numpy as np
-from matplotlib.patches import Circle, Rectangle, Ellipse
-_ROOT=Path(__file__).resolve().parents[1]
-_DATASET_ROOT=_ROOT.parent
-if str(_ROOT) not in sys.path: sys.path.insert(0,str(_ROOT))
-from common_renderer import open_canvas, plot_curve, scatter_points, label, finalize, lock_view
-def _finish(fig,ax,destination):
-    result=finalize(fig,destination)
-    if fig.number in __import__("matplotlib.pyplot",fromlist=["plt"]).get_fignums(): lock_view(ax)
-    return result
-def _dest(qid,output_path):
-    return Path(output_path) if output_path is not None else _DATASET_ROOT/"image"/f"{qid}.png"
+_PROJECT_ROOT = Path(__file__).resolve().parents[3]
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+from dataset_tools.drawing import Canvas, ANALYTICS, PLANE, SOLID, VectorPath, VectorTransform, VectorBox
+
 class Ana21:
+
     def __init__(self):
-        self.id="Ana21"; self.source_dataset="MathVerse"
-        self.query='Find the coordinates of the midpoint of the rectangle diagonals.'; self.answer='(2,2)'; self.answer_type='expression'; self.subject="analytic geometry" if 21<32 else "functions"; self.level="high school"
-    def draw(self,num=0,output_path=None):
-        fig,ax=open_canvas()
-        xs=[-2,6,6,-2]; ys=[6,6,-2,-2]
-        ax.plot(xs+[xs[0]],ys+[ys[0]],color="black")
-        return _finish(fig,ax,_dest(self.id,output_path))
+        self.id = 'Ana21'
+        self.source_dataset = 'MathVerse'
+        self.source_key = 's2164'
+        self.question = 'Find the coordinates of the midpoint of the rectangle diagonals.'
+        self.answer = '(2,2)'
+        self.answer_type = 'expression'
+        self.query = self.question
+        self.subject = 'Analytics'
+        self.level = None
+
+    def draw(self, output_path=None, *, variant=None, _canvas=False):
+        if output_path is None and (not _canvas):
+            output_path = _PROJECT_ROOT / '.runtime/reproduced' / 'Analytics' / (self.id + ('_' + variant if variant else '') + '.png')
+        if variant is not None:
+            if _canvas:
+                raise ValueError('Canvas capture is for the original only')
+            from dataset_tools.unified_replay import draw_slot
+            return draw_slot('Analytics', self.id, variant, output_path)
+        with Canvas(ANALYTICS, xlim=[-8.0, 8.0], ylim=[-8.0, 8.0], axes_position=[0.12, 0.12, 0.8, 0.8], coordinate_axes=True) as c:
+            c.line([[-2, 6], [6, 6], [6, -2], [-2, -2], [-2, 6]], id='curve_001', solid_capstyle='projecting')
+            return c if _canvas else c.save(output_path)
+
+    def build_scene(self):
+        canvas = self.draw(_canvas=True)
+        return (canvas.fig, canvas.ax)
+if __name__ == '__main__':
+    print(Ana21().draw(sys.argv[1] if len(sys.argv) > 1 else None))

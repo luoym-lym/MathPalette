@@ -1,34 +1,51 @@
-"""Frozen Author designed curve question; no writes on import."""
+"""Frozen question Plane95; unified protocol 2.0.0. Original metadata and PNG retained."""
 from pathlib import Path
-import importlib.util
+import sys
 import json
-ROOT=Path(__file__).resolve().parent
-def _renderer():
-    spec=importlib.util.spec_from_file_location('_author_curves',ROOT/'author_curves/common_renderer.py')
-    module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);return module
-def build_scene():
-    return _renderer().render_scene(json.loads((ROOT/'scenes/Plane95.json').read_text(encoding='utf-8')))
+import numpy as np
+_PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+from dataset_tools.drawing import Canvas, ANALYTICS, PLANE, SOLID, VectorPath, VectorTransform, VectorBox
+
 class Plane95:
+
     def __init__(self):
-        self.id='Plane95'
-        self.source_dataset='Author Designed'
-        self.question='Starting at E, which endpoint is reached along the same smooth curve, without switching curves at any crossing?'
-        self.query=self.question
-        self.answer='B'
-        self.answer_type='text'
-        self.subject='PlaneGeometry'
-        self.level=None
-        self.scene_path=ROOT/'scenes/Plane95.json'
+        self.id = 'Plane95'
+        self.source_dataset = 'Author Designed'
+        self.source_key = 'smooth-curve:03'
+        self.question = 'Starting at E, which endpoint is reached along the same smooth curve, without switching curves at any crossing?'
+        self.answer = 'B'
+        self.answer_type = 'text'
+        self.query = self.question
+        self.subject = 'PlaneGeometry'
+        self.level = None
+        self.scene_path = _PROJECT_ROOT / 'PlaneGeometry' / 'dataset_generator/scenes/Plane95.json'
+
+    def draw(self, output_path=None, *, variant=None, _canvas=False):
+        if output_path is None and (not _canvas):
+            output_path = _PROJECT_ROOT / '.runtime/reproduced' / 'PlaneGeometry' / (self.id + ('_' + variant if variant else '') + '.png')
+        if variant is not None:
+            if _canvas:
+                raise ValueError('Canvas capture is for the original only')
+            from dataset_tools.unified_replay import draw_slot
+            return draw_slot('PlaneGeometry', self.id, variant, output_path)
+        with Canvas(PLANE, xlim=(-1.3031531348617127, 1.4559416874053246), ylim=(-1.082671309092469, 1.6764235131745684), axes_position=(0.05, 0.05, 0.9, 0.9), coordinate_axes=False) as c:
+            for object_id, vertices, codes in [('AF_s01_A_J01', [[-1.1266441094285184, -0.3011196617459923], [-1.0330523901605406, -0.25549778454855643], [-0.9394606708925629, -0.20987590735112044], [-0.8458689516245854, -0.16425403015368467]], [1, 4, 4, 4]), ('AF_s02_J01_J02', [[-0.8458689516245854, -0.16425403015368467], [-0.5363488988346902, -0.013376517175291203], [-0.22682884604479525, 0.1375009958031022], [0.08269120674509975, 0.28837850878149557]], [1, 4, 4, 4]), ('AF_s03_J02_F', [[0.08269120674509975, 0.28837850878149557], [0.4858029788029725, 0.484877898957325], [0.8889147508608453, 0.6813772891331543], [1.292026522918718, 0.8778766793089836]], [1, 4, 4, 4]), ('CD_s01_C_J02', [[-0.6304968689579199, 1.4291513909429818], [-0.5753025012141075, 1.3408657898298066], [-0.5201081334702952, 1.2525801887166312], [-0.46491376572648274, 1.164294587603456], [-0.28237877490262187, 0.8723225613294692], [-0.09984378407876103, 0.5803505350554824], [0.08269120674509975, 0.28837850878149557]], [1, 4, 4, 4, 4, 4, 4]), ('CD_s02_J02_J03', [[0.08269120674509975, 0.28837850878149557], [0.2652261975689606, -0.0035935174924912883], [0.4477611883928214, -0.2955655437664781], [0.6302961792166821, -0.587537570040465]], [1, 4, 4, 4]), ('CD_s03_J03_D', [[0.6302961792166821, -0.587537570040465], [0.6854905469604946, -0.6758231711536401], [0.740684914704307, -0.7641087722668154], [0.7958792824481193, -0.8523943733799906]], [1, 4, 4, 4]), ('EB_s01_E_J01', [[-1.0577347704742686, -0.060804237761412416], [-0.9876080993599474, -0.0970147084204611], [-0.9169861597433864, -0.1314979725512186], [-0.8458689516245854, -0.16425403015368467]], [1, 4, 4, 4]), ('EB_s02_J01_J03', [[-0.8458689516245854, -0.16425403015368467], [-0.3754811398957604, -0.38091116088283644], [0.11657390371799553, -0.5220056741784297], [0.6302961792166821, -0.587537570040465]], [1, 4, 4, 4]), ('EB_s03_J03_B', [[0.6302961792166821, -0.587537570040465], [0.7079650581096713, -0.5974452363537381], [0.7861292055049003, -0.6056256961387201], [0.8647886214023692, -0.6120789493954107]], [1, 4, 4, 4])]:
+                c.path(vertices, codes, id=object_id, zorder=1, capstyle='butt', simplify=False)
+            c.text('A', (-1.1266441094285184, -0.3011196617459923), zorder=3, clip_on=True, fontsize=18.0, fontstyle='italic', ha='right', va='bottom', rotation_mode='default', offset_pt=(-7.690093567506551, 2.2050988465359933), annotation_clip=False)
+            c.text('F', (1.292026522918718, 0.8778766793089836), zorder=3, clip_on=True, fontsize=18.0, fontstyle='italic', ha='left', va='top', rotation_mode='default', offset_pt=(7.690093567506551, -2.2050988465359933), annotation_clip=False)
+            c.text('C', (-0.6304968689579199, 1.4291513909429818), zorder=3, clip_on=True, fontsize=18.0, fontstyle='italic', ha='right', va='bottom', rotation_mode='default', offset_pt=(-7.690093567506551, 2.2050988465359933), annotation_clip=False)
+            c.text('D', (0.7958792824481193, -0.8523943733799906), zorder=3, clip_on=True, fontsize=18.0, fontstyle='italic', ha='left', va='top', rotation_mode='default', offset_pt=(7.690093567506551, -2.2050988465359933), annotation_clip=False)
+            c.text('E', (-1.0577347704742686, -0.060804237761412416), zorder=3, clip_on=True, fontsize=18.0, fontstyle='italic', ha='right', va='bottom', rotation_mode='default', offset_pt=(-7.690093567506551, 2.2050988465359933), annotation_clip=False)
+            c.text('B', (0.8647886214023692, -0.6120789493954107), zorder=3, clip_on=True, fontsize=18.0, fontstyle='italic', ha='left', va='top', rotation_mode='default', offset_pt=(7.690093567506551, -2.2050988465359933), annotation_clip=False)
+            return c if _canvas else c.save(output_path)
+
     def get_scene(self):
-        return json.loads(self.scene_path.read_text(encoding='utf-8'))
+        return json.loads(self.scene_path.read_text(encoding='utf-8-sig'))
+
     def build_scene(self):
-        return build_scene()
-    def draw(self,num=0,output_path=None):
-        if output_path is None and isinstance(num,(str,Path)):output_path=num
-        destination=Path(output_path) if output_path else ROOT.parents[1]/'.runtime/author_designed_redraw/Plane95.png'
-        return _renderer().draw(self.scene_path,destination)
-    def redraw(self,output_path=None):
-        return self.draw(output_path=output_path)
-if __name__=='__main__':
-    import sys
-    print(Plane95().draw(output_path=sys.argv[1] if len(sys.argv)>1 else None))
+        canvas = self.draw(_canvas=True)
+        return (canvas.fig, canvas.ax)
+if __name__ == '__main__':
+    print(Plane95().draw(sys.argv[1] if len(sys.argv) > 1 else None))

@@ -1,60 +1,267 @@
-"""User-approved frozen original; importing this module writes no files."""
+"""Frozen question Plane573; unified protocol 2.0.0. Original metadata and PNG retained."""
 from pathlib import Path
-import importlib.util
-import json
 import sys
-ROOT = Path(__file__).resolve().parent
-ITEM = ROOT / 'author_extensions95_v1/items/Plane573'
-
-def _engine():
-    path = ROOT / 'author_extensions95_v1/engine.py'
-    spec = importlib.util.spec_from_file_location('_extensions95_Plane573', path)
-    module = importlib.util.module_from_spec(spec)
-    sys.modules[spec.name] = module
-    spec.loader.exec_module(module)
-    return module
-
-def build_scene():
-    return _engine().capture(ITEM)
-
-def draw_original(output_path):
-    target = Path(output_path).resolve()
-    if target.suffix.lower() not in ('.png', '.svg'):
-        raise ValueError('Use a PNG or SVG output')
-    if target.is_relative_to(ROOT.parent):
-        raise ValueError('Redraw outside formal source directories')
-    data = _engine().render(ITEM, vector=target.suffix.lower() == '.svg')
-    target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_bytes(data)
-    return str(target)
+import json
+import numpy as np
+_PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+from dataset_tools.drawing import Canvas, ANALYTICS, PLANE, SOLID, VectorPath, VectorTransform, VectorBox
 
 class Plane573:
+
     def __init__(self):
-        row = next(json.loads(line) for line in (ROOT.parent / 'dataset.jsonl').read_text(encoding='utf-8-sig').splitlines()
-                   if line.strip() and json.loads(line)['id'] == 'Plane573')
-        for key, value in row.items():
-            setattr(self, key, value)
+        self.id = 'Plane573'
+        self.source_dataset = 'Author Designed'
+        self.source_key = 'author-extensions95-v1:Plane278/extension_04'
+        self.question = 'A square can be made out of four of the given pieces, with both straight sides of each piece on the outside. Pieces may be rotated or turned over. Which piece will not be used?\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E'
+        self.answer = 'D'
+        self.answer_type = 'choice'
+        self.choices = {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'}
         self.query = self.question
+        self._geometry_01 = [[0.0, 0.0],
+         [400.0, 0.0],
+         [800.0, 0.0],
+         [1200.0, 0.0],
+         [1200.0, 120.0],
+         [1380.0, 240.0],
+         [1380.0, 360.0],
+         [1380.0, 440.0],
+         [1200.0, 520.0],
+         [1200.0, 600.0],
+         [1200.0, 680.0],
+         [1020.0, 760.0],
+         [1020.0, 840.0],
+         [1020.0, 960.0],
+         [1200.0, 1080.0],
+         [1200.0, 1200.0],
+         [1150.0, 1200.0],
+         [1100.0, 1119.0],
+         [1050.0, 1119.0],
+         [1000.0, 1119.0],
+         [950.0, 1200.0],
+         [900.0, 1200.0],
+         [850.0, 1200.0],
+         [800.0, 1281.0],
+         [750.0, 1281.0],
+         [700.0, 1281.0],
+         [650.0, 1200.0],
+         [600.0, 1200.0],
+         [550.0, 1200.0],
+         [500.0, 1119.0],
+         [450.0, 1119.0],
+         [400.0, 1119.0],
+         [350.0, 1200.0],
+         [300.0, 1200.0],
+         [250.0, 1200.0],
+         [200.0, 1281.0],
+         [150.0, 1281.0],
+         [100.0, 1281.0],
+         [50.0, 1200.0],
+         [0.0, 1200.0],
+         [0.0, 800.0],
+         [0.0, 400.0],
+         [0.0, 0.0],
+         [0.0, 0.0]]
+        self._geometry_02 = [1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 79]
+        self._geometry_03 = [[1850.0, 0.0],
+         [2250.0, 0.0],
+         [2650.0, 0.0],
+         [3050.0, 0.0],
+         [3050.0, 120.0],
+         [3230.0, 240.0],
+         [3230.0, 360.0],
+         [3230.0, 440.0],
+         [3050.0, 520.0],
+         [3050.0, 600.0],
+         [3050.0, 680.0],
+         [2870.0, 760.0],
+         [2870.0, 840.0],
+         [2870.0, 960.0],
+         [3050.0, 1080.0],
+         [3050.0, 1200.0],
+         [2970.0, 1200.0],
+         [2890.0, 1296.0],
+         [2810.0, 1296.0],
+         [2750.0, 1296.0],
+         [2690.0, 1350.0],
+         [2630.0, 1350.0],
+         [2570.0, 1350.0],
+         [2510.0, 1200.0],
+         [2450.0, 1200.0],
+         [2390.0, 1200.0],
+         [2330.0, 1050.0],
+         [2270.0, 1050.0],
+         [2210.0, 1050.0],
+         [2150.0, 1104.0],
+         [2090.0, 1104.0],
+         [2010.0, 1104.0],
+         [1930.0, 1200.0],
+         [1850.0, 1200.0],
+         [1850.0, 800.0],
+         [1850.0, 400.0],
+         [1850.0, 0.0],
+         [1850.0, 0.0]]
+        self._geometry_04 = [1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 79]
+        self._geometry_05 = [[3700.0, 0.0],
+         [4100.0, 0.0],
+         [4500.0, 0.0],
+         [4900.0, 0.0],
+         [4900.0, 80.0],
+         [4996.0, 160.0],
+         [4996.0, 240.0],
+         [4996.0, 300.0],
+         [5050.0, 360.0],
+         [5050.0, 420.0],
+         [5050.0, 480.0],
+         [4900.0, 540.0],
+         [4900.0, 600.0],
+         [4900.0, 660.0],
+         [4750.0, 720.0],
+         [4750.0, 780.0],
+         [4750.0, 840.0],
+         [4804.0, 900.0],
+         [4804.0, 960.0],
+         [4804.0, 1040.0],
+         [4900.0, 1120.0],
+         [4900.0, 1200.0],
+         [4780.0, 1200.0],
+         [4660.0, 1380.0],
+         [4540.0, 1380.0],
+         [4460.0, 1380.0],
+         [4380.0, 1200.0],
+         [4300.0, 1200.0],
+         [4220.0, 1200.0],
+         [4140.0, 1020.0],
+         [4060.0, 1020.0],
+         [3940.0, 1020.0],
+         [3820.0, 1200.0],
+         [3700.0, 1200.0],
+         [3700.0, 800.0],
+         [3700.0, 400.0],
+         [3700.0, 0.0],
+         [3700.0, 0.0]]
+        self._geometry_06 = [1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 79]
+        self._geometry_07 = [[5550.0, 0.0],
+         [5950.0, 0.0],
+         [6350.0, 0.0],
+         [6750.0, 0.0],
+         [6750.0, 50.0],
+         [6831.0, 100.0],
+         [6831.0, 150.0],
+         [6831.0, 200.0],
+         [6750.0, 250.0],
+         [6750.0, 300.0],
+         [6750.0, 350.0],
+         [6669.0, 400.0],
+         [6669.0, 450.0],
+         [6669.0, 500.0],
+         [6750.0, 550.0],
+         [6750.0, 600.0],
+         [6750.0, 650.0],
+         [6831.0, 700.0],
+         [6831.0, 750.0],
+         [6831.0, 800.0],
+         [6750.0, 850.0],
+         [6750.0, 900.0],
+         [6750.0, 950.0],
+         [6669.0, 1000.0],
+         [6669.0, 1050.0],
+         [6669.0, 1100.0],
+         [6750.0, 1150.0],
+         [6750.0, 1200.0],
+         [6670.0, 1200.0],
+         [6590.0, 1104.0],
+         [6510.0, 1104.0],
+         [6450.0, 1104.0],
+         [6390.0, 1050.0],
+         [6330.0, 1050.0],
+         [6270.0, 1050.0],
+         [6210.0, 1200.0],
+         [6150.0, 1200.0],
+         [6090.0, 1200.0],
+         [6030.0, 1350.0],
+         [5970.0, 1350.0],
+         [5910.0, 1350.0],
+         [5850.0, 1296.0],
+         [5790.0, 1296.0],
+         [5710.0, 1296.0],
+         [5630.0, 1200.0],
+         [5550.0, 1200.0],
+         [5550.0, 800.0],
+         [5550.0, 400.0],
+         [5550.0, 0.0],
+         [5550.0, 0.0]]
+        self._geometry_08 = [1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 79]
+        self._geometry_09 = [[7400.0, 0.0],
+         [7800.0, 0.0],
+         [8200.0, 0.0],
+         [8600.0, 0.0],
+         [8600.0, 50.0],
+         [8519.0, 100.0],
+         [8519.0, 150.0],
+         [8519.0, 200.0],
+         [8600.0, 250.0],
+         [8600.0, 300.0],
+         [8600.0, 350.0],
+         [8681.0, 400.0],
+         [8681.0, 450.0],
+         [8681.0, 500.0],
+         [8600.0, 550.0],
+         [8600.0, 600.0],
+         [8600.0, 650.0],
+         [8519.0, 700.0],
+         [8519.0, 750.0],
+         [8519.0, 800.0],
+         [8600.0, 850.0],
+         [8600.0, 900.0],
+         [8600.0, 950.0],
+         [8681.0, 1000.0],
+         [8681.0, 1050.0],
+         [8681.0, 1100.0],
+         [8600.0, 1150.0],
+         [8600.0, 1200.0],
+         [8480.0, 1200.0],
+         [8360.0, 1380.0],
+         [8240.0, 1380.0],
+         [8160.0, 1380.0],
+         [8080.0, 1200.0],
+         [8000.0, 1200.0],
+         [7920.0, 1200.0],
+         [7840.0, 1020.0],
+         [7760.0, 1020.0],
+         [7640.0, 1020.0],
+         [7520.0, 1200.0],
+         [7400.0, 1200.0],
+         [7400.0, 800.0],
+         [7400.0, 400.0],
+         [7400.0, 0.0],
+         [7400.0, 0.0]]
+        self._geometry_10 = [1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 79]
         self.subject = 'PlaneGeometry'
         self.level = None
+        self.scene_path = _PROJECT_ROOT / 'PlaneGeometry' / 'dataset_generator/scenes/Plane573.json'
+
+    def draw(self, output_path=None, *, variant=None, _canvas=False):
+        if output_path is None and (not _canvas):
+            output_path = _PROJECT_ROOT / '.runtime/reproduced' / 'PlaneGeometry' / (self.id + ('_' + variant if variant else '') + '.png')
+        if variant is not None:
+            if _canvas:
+                raise ValueError('Canvas capture is for the original only')
+            from dataset_tools.unified_replay import draw_slot
+            return draw_slot('PlaneGeometry', self.id, variant, output_path)
+        with Canvas(PLANE, xlim=(-213.97771317829483, 8899.394379844962), ylim=(-4104.654796511628, 5008.717296511628), axes_position=(0.05, 0.05, 0.9, 0.9), coordinate_axes=False) as c:
+            for object_id, vertices, codes in [('piece_A', self._geometry_01, self._geometry_02), ('piece_B', self._geometry_03, self._geometry_04), ('piece_C', self._geometry_05, self._geometry_06), ('piece_D', self._geometry_07, self._geometry_08), ('piece_E', self._geometry_09, self._geometry_10)]:
+                c.path(vertices, codes, id=object_id, zorder=1, joinstyle='round', simplify=False)
+            for object_id, text, anchor in [('label_A', 'A', (600, 600)), ('choice_label_A', '(A) A', (600, -360)), ('label_B', 'B', (2450, 600)), ('choice_label_B', '(B) B', (2450, -360)), ('label_C', 'C', (4300, 600)), ('choice_label_C', '(C) C', (4300, -360)), ('label_D', 'D', (6150, 600)), ('choice_label_D', '(D) D', (6150, -360)), ('label_E', 'E', (8000, 600)), ('choice_label_E', '(E) E', (8000, -360))]:
+                c.text(text, anchor, id=object_id, zorder=3, rotation_mode='default')
+            return c if _canvas else c.save(output_path)
 
     def get_scene(self):
-        return json.loads((ROOT / 'scenes/Plane573.json').read_text(encoding='utf-8'))
+        return json.loads(self.scene_path.read_text(encoding='utf-8-sig'))
 
     def build_scene(self):
-        return build_scene()
-
-    def draw(self, num=0, output_path=None):
-        if output_path is None and isinstance(num, (str, Path)):
-            output_path = num
-        if output_path is None:
-            raise ValueError('An explicit output path is required')
-        return draw_original(output_path)
-
-    def redraw(self, output_path=None):
-        return self.draw(output_path=output_path)
-
+        canvas = self.draw(_canvas=True)
+        return (canvas.fig, canvas.ax)
 if __name__ == '__main__':
-    if len(sys.argv) != 2:
-        raise SystemExit('Provide a PNG or SVG output path')
-    print(draw_original(sys.argv[1]))
+    print(Plane573().draw(sys.argv[1] if len(sys.argv) > 1 else None))

@@ -1,31 +1,164 @@
-"""Frozen native MathVision redraw; importing does not write files."""
+"""Frozen question Solid222; unified protocol 2.0.0. Original metadata and PNG retained."""
 from pathlib import Path
-import importlib.util
+import sys
 import json
-HERE = Path(__file__).resolve().parent
+import numpy as np
+_PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+from dataset_tools.drawing import Canvas, ANALYTICS, PLANE, SOLID, VectorPath, VectorTransform, VectorBox
 
 class Solid222:
 
     def __init__(self):
-        self.__dict__.update({'id': 'Solid222', 'source_dataset': 'MathVision', 'question': 'The large cube shown is made up of $27$ identical smaller cubes.  For each face of the large cube, the opposite face is shaded the same way.  The total number of smaller cubes that must have at least one face shaded is', 'answer': '20', 'answer_type': 'number', 'subject': 'SolidGeometry', 'source_key': 'test:2517', 'source_category': 'solid geometry', 'source_revision': '2837ddb3f13abaf6b3997c12d80753e5470bd46a'})
+        self.id = 'Solid222'
+        self.source_dataset = 'MathVision'
+        self.source_key = 'test:2517'
+        self.question = 'The large cube shown is made up of $27$ identical smaller cubes.  For each face of the large cube, the opposite face is shaded the same way.  The total number of smaller cubes that must have at least one face shaded is'
+        self.answer = '20'
+        self.answer_type = 'number'
         self.query = self.question
+        self._geometry_01 = [('line_0', [[0.0, 0.0], [3.0, 0.0]]),
+         ('line_1', [[0.0, 3.0], [3.0, 3.0]]),
+         ('line_2', [[2.16, 4.41], [5.16, 4.41]]),
+         ('line_3', [[0.0, 3.0], [2.16, 4.41]]),
+         ('line_4', [[3.0, 0.0], [5.16, 1.41]]),
+         ('line_5', [[3.0, 3.0], [5.16, 4.41]]),
+         ('line_6', [[0.0, 0.0], [0.0, 3.0]]),
+         ('line_7', [[3.0, 0.0], [3.0, 3.0]]),
+         ('line_8', [[5.16, 1.41], [5.16, 4.41]]),
+         ('line_10', [[0.0, 0.0], [1.0, 0.0]]),
+         ('line_11', [[1.0, 0.0], [1.0, 1.0]]),
+         ('line_12', [[1.0, 1.0], [0.0, 1.0]]),
+         ('line_13', [[0.0, 1.0], [0.0, 0.0]]),
+         ('line_14', [[0.0, 1.0], [1.0, 1.0]]),
+         ('line_15', [[1.0, 1.0], [1.0, 2.0]]),
+         ('line_16', [[1.0, 2.0], [0.0, 2.0]]),
+         ('line_17', [[0.0, 2.0], [0.0, 1.0]]),
+         ('line_19', [[0.0, 2.0], [1.0, 2.0]]),
+         ('line_20', [[1.0, 2.0], [1.0, 3.0]]),
+         ('line_21', [[1.0, 3.0], [0.0, 3.0]]),
+         ('line_22', [[0.0, 3.0], [0.0, 2.0]]),
+         ('line_23', [[1.0, 0.0], [2.0, 0.0]]),
+         ('line_24', [[2.0, 0.0], [2.0, 1.0]]),
+         ('line_25', [[2.0, 1.0], [1.0, 1.0]]),
+         ('line_26', [[1.0, 1.0], [1.0, 0.0]]),
+         ('line_28', [[1.0, 1.0], [2.0, 1.0]]),
+         ('line_29', [[2.0, 1.0], [2.0, 2.0]]),
+         ('line_30', [[2.0, 2.0], [1.0, 2.0]]),
+         ('line_31', [[1.0, 2.0], [1.0, 1.0]]),
+         ('line_32', [[1.0, 2.0], [2.0, 2.0]]),
+         ('line_33', [[2.0, 2.0], [2.0, 3.0]]),
+         ('line_34', [[2.0, 3.0], [1.0, 3.0]]),
+         ('line_35', [[1.0, 3.0], [1.0, 2.0]]),
+         ('line_37', [[2.0, 0.0], [3.0, 0.0]]),
+         ('line_38', [[3.0, 0.0], [3.0, 1.0]]),
+         ('line_39', [[3.0, 1.0], [2.0, 1.0]]),
+         ('line_40', [[2.0, 1.0], [2.0, 0.0]]),
+         ('line_41', [[2.0, 1.0], [3.0, 1.0]]),
+         ('line_42', [[3.0, 1.0], [3.0, 2.0]]),
+         ('line_43', [[3.0, 2.0], [2.0, 2.0]]),
+         ('line_44', [[2.0, 2.0], [2.0, 1.0]]),
+         ('line_46', [[2.0, 2.0], [3.0, 2.0]]),
+         ('line_47', [[3.0, 2.0], [3.0, 3.0]]),
+         ('line_48', [[3.0, 3.0], [2.0, 3.0]]),
+         ('line_49', [[2.0, 3.0], [2.0, 2.0]]),
+         ('line_50', [[3.0, 0.0], [3.7199999999999998, 0.47]]),
+         ('line_51', [[3.7199999999999998, 0.47], [3.7199999999999998, 1.47]]),
+         ('line_52', [[3.7199999999999998, 1.47], [3.0, 1.0]]),
+         ('line_53', [[3.0, 1.0], [3.0, 0.0]]),
+         ('line_55', [[3.0, 1.0], [3.7199999999999998, 1.47]]),
+         ('line_56', [[3.7199999999999998, 1.47], [3.7199999999999998, 2.4699999999999998]]),
+         ('line_57', [[3.7199999999999998, 2.4699999999999998], [3.0, 2.0]]),
+         ('line_58', [[3.0, 2.0], [3.0, 1.0]]),
+         ('line_59', [[3.0, 2.0], [3.7199999999999998, 2.4699999999999998]]),
+         ('line_60', [[3.7199999999999998, 2.4699999999999998], [3.7199999999999998, 3.4699999999999998]]),
+         ('line_61', [[3.7199999999999998, 3.4699999999999998], [3.0, 3.0]]),
+         ('line_62', [[3.0, 3.0], [3.0, 2.0]]),
+         ('line_64', [[3.7199999999999998, 0.47], [4.4399999999999995, 0.94]]),
+         ('line_65', [[4.4399999999999995, 0.94], [4.4399999999999995, 1.94]]),
+         ('line_66', [[4.4399999999999995, 1.94], [3.7199999999999998, 1.47]]),
+         ('line_67', [[3.7199999999999998, 1.47], [3.7199999999999998, 0.47]]),
+         ('line_68', [[3.7199999999999998, 1.47], [4.4399999999999995, 1.94]]),
+         ('line_69', [[4.4399999999999995, 1.94], [4.4399999999999995, 2.94]]),
+         ('line_70', [[4.4399999999999995, 2.94], [3.7199999999999998, 2.4699999999999998]]),
+         ('line_71', [[3.7199999999999998, 2.4699999999999998], [3.7199999999999998, 1.47]]),
+         ('line_73', [[3.7199999999999998, 2.4699999999999998], [4.4399999999999995, 2.94]]),
+         ('line_74', [[4.4399999999999995, 2.94], [4.4399999999999995, 3.94]]),
+         ('line_75', [[4.4399999999999995, 3.94], [3.7199999999999998, 3.4699999999999998]]),
+         ('line_76', [[3.7199999999999998, 3.4699999999999998], [3.7199999999999998, 2.4699999999999998]]),
+         ('line_77', [[4.4399999999999995, 0.94], [5.16, 1.41]]),
+         ('line_78', [[5.16, 1.41], [5.16, 2.41]]),
+         ('line_79', [[5.16, 2.41], [4.4399999999999995, 1.94]]),
+         ('line_80', [[4.4399999999999995, 1.94], [4.4399999999999995, 0.94]]),
+         ('line_82', [[4.4399999999999995, 1.94], [5.16, 2.41]]),
+         ('line_83', [[5.16, 2.41], [5.16, 3.41]]),
+         ('line_84', [[5.16, 3.41], [4.4399999999999995, 2.94]]),
+         ('line_85', [[4.4399999999999995, 2.94], [4.4399999999999995, 1.94]]),
+         ('line_86', [[4.4399999999999995, 2.94], [5.16, 3.41]]),
+         ('line_87', [[5.16, 3.41], [5.16, 4.41]]),
+         ('line_88', [[5.16, 4.41], [4.4399999999999995, 3.94]]),
+         ('line_89', [[4.4399999999999995, 3.94], [4.4399999999999995, 2.94]]),
+         ('line_90', [[0.0, 3.0], [1.0, 3.0]]),
+         ('line_91', [[1.0, 3.0], [1.72, 3.4699999999999998]]),
+         ('line_92', [[1.72, 3.4699999999999998], [0.72, 3.4699999999999998]]),
+         ('line_93', [[0.72, 3.4699999999999998], [0.0, 3.0]]),
+         ('line_94', [[0.72, 3.4699999999999998], [1.72, 3.4699999999999998]]),
+         ('line_95', [[1.72, 3.4699999999999998], [2.44, 3.94]]),
+         ('line_96', [[2.44, 3.94], [1.44, 3.94]]),
+         ('line_97', [[1.44, 3.94], [0.72, 3.4699999999999998]]),
+         ('line_98', [[1.44, 3.94], [2.44, 3.94]]),
+         ('line_99', [[2.44, 3.94], [3.16, 4.41]]),
+         ('line_100', [[3.16, 4.41], [2.16, 4.41]]),
+         ('line_101', [[2.16, 4.41], [1.44, 3.94]]),
+         ('line_102', [[1.0, 3.0], [2.0, 3.0]]),
+         ('line_103', [[2.0, 3.0], [2.7199999999999998, 3.4699999999999998]]),
+         ('line_104', [[2.7199999999999998, 3.4699999999999998], [1.72, 3.4699999999999998]]),
+         ('line_105', [[1.72, 3.4699999999999998], [1.0, 3.0]]),
+         ('line_107', [[1.72, 3.4699999999999998], [2.7199999999999998, 3.4699999999999998]]),
+         ('line_108', [[2.7199999999999998, 3.4699999999999998], [3.44, 3.94]]),
+         ('line_109', [[3.44, 3.94], [2.44, 3.94]]),
+         ('line_110', [[2.44, 3.94], [1.72, 3.4699999999999998]]),
+         ('line_111', [[2.44, 3.94], [3.44, 3.94]]),
+         ('line_112', [[3.44, 3.94], [4.16, 4.41]]),
+         ('line_113', [[4.16, 4.41], [3.16, 4.41]]),
+         ('line_114', [[3.16, 4.41], [2.44, 3.94]]),
+         ('line_115', [[2.0, 3.0], [3.0, 3.0]]),
+         ('line_116', [[3.0, 3.0], [3.7199999999999998, 3.4699999999999998]]),
+         ('line_117', [[3.7199999999999998, 3.4699999999999998], [2.7199999999999998, 3.4699999999999998]]),
+         ('line_118', [[2.7199999999999998, 3.4699999999999998], [2.0, 3.0]]),
+         ('line_119', [[2.7199999999999998, 3.4699999999999998], [3.7199999999999998, 3.4699999999999998]]),
+         ('line_120', [[3.7199999999999998, 3.4699999999999998], [4.4399999999999995, 3.94]]),
+         ('line_121', [[4.4399999999999995, 3.94], [3.44, 3.94]]),
+         ('line_122', [[3.44, 3.94], [2.7199999999999998, 3.4699999999999998]]),
+         ('line_123', [[3.44, 3.94], [4.4399999999999995, 3.94]]),
+         ('line_124', [[4.4399999999999995, 3.94], [5.16, 4.41]]),
+         ('line_125', [[5.16, 4.41], [4.16, 4.41]]),
+         ('line_126', [[4.16, 4.41], [3.44, 3.94]])]
+        self.subject = 'SolidGeometry'
         self.level = None
-        self.scene_path = HERE / 'scenes/Solid222.json'
+        self.scene_path = _PROJECT_ROOT / 'SolidGeometry' / 'dataset_generator/scenes/Solid222.json'
+
+    def draw(self, output_path=None, *, variant=None, _canvas=False):
+        if output_path is None and (not _canvas):
+            output_path = _PROJECT_ROOT / '.runtime/reproduced' / 'SolidGeometry' / (self.id + ('_' + variant if variant else '') + '.png')
+        if variant is not None:
+            if _canvas:
+                raise ValueError('Canvas capture is for the original only')
+            from dataset_tools.unified_replay import draw_slot
+            return draw_slot('SolidGeometry', self.id, variant, output_path)
+        with Canvas(SOLID, xlim=[-0.1287965359209693, 5.299230302096819], ylim=[-0.5103156783544183, 4.91771115966337], axes_position=[0.05, 0.05, 0.9, 0.9], coordinate_axes=False) as c:
+            for object_id, vertices, codes in [('paint_top_1_1', [[1.72, 3.4699999999999998], [2.7199999999999998, 3.4699999999999998], [3.44, 3.94], [2.44, 3.94], [1.72, 3.4699999999999998]], [1, 2, 2, 2, 79]), ('paint_right_2_1', [[4.4399999999999995, 1.94], [5.16, 2.41], [5.16, 3.41], [4.4399999999999995, 2.94], [4.4399999999999995, 1.94]], [1, 2, 2, 2, 79]), ('paint_right_1_2', [[3.7199999999999998, 2.4699999999999998], [4.4399999999999995, 2.94], [4.4399999999999995, 3.94], [3.7199999999999998, 3.4699999999999998], [3.7199999999999998, 2.4699999999999998]], [1, 2, 2, 2, 79]), ('paint_right_1_0', [[3.7199999999999998, 0.47], [4.4399999999999995, 0.94], [4.4399999999999995, 1.94], [3.7199999999999998, 1.47], [3.7199999999999998, 0.47]], [1, 2, 2, 2, 79]), ('paint_right_0_1', [[3.0, 1.0], [3.7199999999999998, 1.47], [3.7199999999999998, 2.4699999999999998], [3.0, 2.0], [3.0, 1.0]], [1, 2, 2, 2, 79]), ('paint_front_2_2', [[2.0, 2.0], [3.0, 2.0], [3.0, 3.0], [2.0, 3.0], [2.0, 2.0]], [1, 2, 2, 2, 79]), ('paint_front_2_0', [[2.0, 0.0], [3.0, 0.0], [3.0, 1.0], [2.0, 1.0], [2.0, 0.0]], [1, 2, 2, 2, 79]), ('paint_front_1_1', [[1.0, 1.0], [2.0, 1.0], [2.0, 2.0], [1.0, 2.0], [1.0, 1.0]], [1, 2, 2, 2, 79]), ('paint_front_0_2', [[0.0, 2.0], [1.0, 2.0], [1.0, 3.0], [0.0, 3.0], [0.0, 2.0]], [1, 2, 2, 2, 79]), ('paint_front_0_0', [[0.0, 0.0], [1.0, 0.0], [1.0, 1.0], [0.0, 1.0], [0.0, 0.0]], [1, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id, zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            for object_id, points in self._geometry_01:
+                c.line(points, id=object_id, zorder=3, clip_on=False)
+            return c if _canvas else c.save(output_path)
 
     def get_scene(self):
-        return json.loads(self.scene_path.read_text(encoding='utf-8'))
+        return json.loads(self.scene_path.read_text(encoding='utf-8-sig'))
 
-    def draw(self, num=0, output_path=None):
-        if output_path is None and isinstance(num, (str, Path)):
-            output_path = num
-        output = Path(output_path) if output_path else HERE.parents[1] / '.runtime/mathvision_redraw' / 'Solid222.png'
-        spec = importlib.util.spec_from_file_location('mathvision_native_runtime', HERE / 'mathvision_renderers/shared_e4e003f51742cf00/runtime.py')
-        runtime = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(runtime)
-        return runtime.draw(HERE / 'mathvision_renderers/shared_e4e003f51742cf00/items/Solid222', HERE / 'mathvision_renderers/shared_e4e003f51742cf00/native', output, formal_scene=self.scene_path, original_image=HERE / '../originals/Solid222.jpg')
-
-    def redraw(self, output_path=None):
-        return self.draw(output_path=output_path)
+    def build_scene(self):
+        canvas = self.draw(_canvas=True)
+        return (canvas.fig, canvas.ax)
 if __name__ == '__main__':
-    import sys
-    print(Solid222().draw(output_path=sys.argv[1] if len(sys.argv) > 1 else None))
+    print(Solid222().draw(sys.argv[1] if len(sys.argv) > 1 else None))

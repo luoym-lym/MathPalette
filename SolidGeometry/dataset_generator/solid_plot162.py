@@ -1,31 +1,212 @@
-"""Frozen native MathVision redraw; importing does not write files."""
+"""Frozen question Solid162; unified protocol 2.0.0. Original metadata and PNG retained."""
 from pathlib import Path
-import importlib.util
+import sys
 import json
-HERE = Path(__file__).resolve().parent
+import numpy as np
+_PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+from dataset_tools.drawing import Canvas, ANALYTICS, PLANE, SOLID, VectorPath, VectorTransform, VectorBox
 
 class Solid162:
 
     def __init__(self):
-        self.__dict__.update({'id': 'Solid162', 'source_dataset': 'MathVision', 'question': 'A cuboid is formed from 3 pieces (see picture). Each piece is made from 4 cubes of the same colour. What shape does the white piece have?\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E', 'answer': 'D', 'answer_type': 'choice', 'subject': 'SolidGeometry', 'choices': {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'}, 'source_key': 'test:1357', 'source_category': 'combinatorial geometry', 'source_revision': '2837ddb3f13abaf6b3997c12d80753e5470bd46a'})
+        self.id = 'Solid162'
+        self.source_dataset = 'MathVision'
+        self.source_key = 'test:1357'
+        self.question = 'A cuboid is formed from 3 pieces (see picture). Each piece is made from 4 cubes of the same colour. What shape does the white piece have?\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E'
+        self.answer = 'D'
+        self.answer_type = 'choice'
+        self.choices = {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'}
         self.query = self.question
+        self._geometry_01 = [('maine0', [[10.0, 5.0], [11.0, 5.0]]),
+         ('maine1', [[10.0, 6.0], [11.0, 6.0]]),
+         ('maine2', [[10.0, 5.0], [10.0, 6.0]]),
+         ('maine3', [[11.0, 5.0], [11.0, 6.0]]),
+         ('maine4', [[10.0, 7.0], [11.0, 7.0]]),
+         ('maine5', [[10.4, 7.4], [11.4, 7.4]]),
+         ('maine6', [[10.0, 7.0], [10.4, 7.4]]),
+         ('maine7', [[11.0, 7.0], [11.4, 7.4]]),
+         ('maine8', [[10.0, 6.0], [10.0, 7.0]]),
+         ('maine9', [[11.0, 6.0], [11.0, 7.0]]),
+         ('maine10', [[10.8, 7.8], [11.8, 7.8]]),
+         ('maine11', [[10.4, 7.4], [10.8, 7.8]]),
+         ('maine12', [[11.4, 7.4], [11.8, 7.8]]),
+         ('maine13', [[11.0, 5.0], [12.0, 5.0]]),
+         ('maine14', [[11.0, 6.0], [12.0, 6.0]]),
+         ('maine15', [[12.0, 5.0], [12.0, 6.0]]),
+         ('maine16', [[11.0, 7.0], [12.0, 7.0]]),
+         ('maine17', [[11.4, 7.4], [12.4, 7.4]]),
+         ('maine18', [[12.0, 7.0], [12.4, 7.4]]),
+         ('maine19', [[12.0, 6.0], [12.0, 7.0]]),
+         ('maine20', [[11.8, 7.8], [12.8, 7.8]]),
+         ('maine21', [[12.4, 7.4], [12.8, 7.8]]),
+         ('maine22', [[12.0, 5.0], [13.0, 5.0]]),
+         ('maine23', [[12.0, 6.0], [13.0, 6.0]]),
+         ('maine24', [[13.0, 5.0], [13.4, 5.4]]),
+         ('maine25', [[13.0, 6.0], [13.4, 6.4]]),
+         ('maine26', [[13.0, 5.0], [13.0, 6.0]]),
+         ('maine27', [[13.4, 5.4], [13.4, 6.4]]),
+         ('maine28', [[12.0, 7.0], [13.0, 7.0]]),
+         ('maine29', [[12.4, 7.4], [13.4, 7.4]]),
+         ('maine30', [[13.0, 7.0], [13.4, 7.4]]),
+         ('maine31', [[13.0, 6.0], [13.0, 7.0]]),
+         ('maine32', [[13.4, 6.4], [13.4, 7.4]]),
+         ('maine33', [[13.4, 5.4], [13.8, 5.8]]),
+         ('maine34', [[13.4, 6.4], [13.8, 6.8]]),
+         ('maine35', [[13.8, 5.8], [13.8, 6.8]]),
+         ('maine36', [[12.8, 7.8], [13.8, 7.8]]),
+         ('maine37', [[13.4, 7.4], [13.8, 7.8]]),
+         ('maine38', [[13.8, 6.8], [13.8, 7.8]]),
+         ('Ae0', [[0.0, 0.0], [1.0, 0.0]]),
+         ('Ae1', [[0.0, 1.0], [1.0, 1.0]]),
+         ('Ae2', [[0.4, 1.4], [1.4, 1.4]]),
+         ('Ae3', [[0.0, 1.0], [0.4, 1.4]]),
+         ('Ae4', [[1.0, 1.0], [1.4, 1.4]]),
+         ('Ae5', [[0.0, 0.0], [0.0, 1.0]]),
+         ('Ae6', [[1.0, 0.0], [1.0, 1.0]]),
+         ('Ae7', [[1.0, 0.0], [2.0, 0.0]]),
+         ('Ae8', [[1.0, 1.0], [2.0, 1.0]]),
+         ('Ae9', [[1.4, 1.4], [2.0, 1.4]]),
+         ('Ae10', [[2.0, 0.0], [2.0, 1.0]]),
+         ('Ae11', [[2.0, 0.0], [3.0, 0.0]]),
+         ('Ae12', [[2.0, 1.0], [3.0, 1.0]]),
+         ('Ae13', [[3.0, 0.0], [3.4, 0.4]]),
+         ('Ae14', [[3.0, 1.0], [3.4, 1.4]]),
+         ('Ae15', [[3.0, 0.0], [3.0, 1.0]]),
+         ('Ae16', [[3.4, 0.4], [3.4, 1.4]]),
+         ('Ae17', [[2.0, 2.0], [3.0, 2.0]]),
+         ('Ae18', [[2.4, 2.4], [3.4, 2.4]]),
+         ('Ae19', [[2.0, 2.0], [2.4, 2.4]]),
+         ('Ae20', [[3.0, 2.0], [3.4, 2.4]]),
+         ('Ae21', [[2.0, 1.0], [2.0, 2.0]]),
+         ('Ae22', [[3.0, 1.0], [3.0, 2.0]]),
+         ('Ae23', [[3.4, 1.4], [3.4, 2.4]]),
+         ('Be0', [[5.0, 0.0], [6.0, 0.0]]),
+         ('Be1', [[5.0, 1.0], [6.0, 1.0]]),
+         ('Be2', [[5.4, 1.4], [6.4, 1.4]]),
+         ('Be3', [[5.0, 1.0], [5.4, 1.4]]),
+         ('Be4', [[6.0, 1.0], [6.4, 1.4]]),
+         ('Be5', [[5.0, 0.0], [5.0, 1.0]]),
+         ('Be6', [[6.0, 0.0], [6.0, 1.0]]),
+         ('Be7', [[6.0, 0.0], [7.0, 0.0]]),
+         ('Be8', [[6.0, 1.0], [7.0, 1.0]]),
+         ('Be9', [[6.4, 1.4], [7.4, 1.4]]),
+         ('Be10', [[7.0, 0.0], [7.4, 0.4]]),
+         ('Be11', [[7.0, 1.0], [7.4, 1.4]]),
+         ('Be12', [[7.0, 0.0], [7.0, 1.0]]),
+         ('Be13', [[7.4, 0.4], [7.4, 1.4]]),
+         ('Be14', [[6.8, 1.8], [7.8, 1.8]]),
+         ('Be15', [[6.4, 1.4], [6.8, 1.8]]),
+         ('Be16', [[7.4, 1.4], [7.8, 1.8]]),
+         ('Be17', [[7.4, 0.4], [8.4, 0.4]]),
+         ('Be18', [[7.4, 1.4], [8.4, 1.4]]),
+         ('Be19', [[7.8, 1.8], [8.8, 1.8]]),
+         ('Be20', [[8.4, 0.4], [8.8, 0.8]]),
+         ('Be21', [[8.4, 1.4], [8.8, 1.8]]),
+         ('Be22', [[8.4, 0.4], [8.4, 1.4]]),
+         ('Be23', [[8.8, 0.8], [8.8, 1.8]]),
+         ('Ce0', [[10.0, 0.0], [11.0, 0.0]]),
+         ('Ce1', [[10.0, 1.0], [11.0, 1.0]]),
+         ('Ce2', [[11.0, 0.0], [11.4, 0.4]]),
+         ('Ce3', [[11.0, 1.0], [11.4, 1.4]]),
+         ('Ce4', [[10.0, 0.0], [10.0, 1.0]]),
+         ('Ce5', [[11.0, 0.0], [11.0, 1.0]]),
+         ('Ce6', [[11.4, 0.4], [11.4, 1.4]]),
+         ('Ce7', [[10.0, 2.0], [11.0, 2.0]]),
+         ('Ce8', [[10.4, 2.4], [11.4, 2.4]]),
+         ('Ce9', [[10.0, 2.0], [10.4, 2.4]]),
+         ('Ce10', [[11.0, 2.0], [11.4, 2.4]]),
+         ('Ce11', [[10.0, 1.0], [10.0, 2.0]]),
+         ('Ce12', [[11.0, 1.0], [11.0, 2.0]]),
+         ('Ce13', [[11.4, 1.4], [11.4, 2.4]]),
+         ('Ce14', [[11.4, 1.8], [11.8, 1.8]]),
+         ('Ce15', [[11.4, 0.4], [11.8, 0.8]]),
+         ('Ce16', [[11.4, 1.4], [11.8, 1.8]]),
+         ('Ce17', [[11.8, 0.8], [11.8, 1.8]]),
+         ('Ce18', [[11.399999999999999, 2.2], [12.2, 2.2]]),
+         ('Ce19', [[11.8, 0.8], [12.2, 1.2000000000000002]]),
+         ('Ce20', [[11.8, 1.8], [12.2, 2.2]]),
+         ('Ce21', [[12.2, 1.2000000000000002], [12.2, 2.2]]),
+         ('De0', [[15.0, 0.0], [16.0, 0.0]]),
+         ('De1', [[15.0, 1.0], [16.0, 1.0]]),
+         ('De2', [[15.4, 1.4], [16.0, 1.4]]),
+         ('De3', [[15.0, 1.0], [15.4, 1.4]]),
+         ('De4', [[15.0, 0.0], [15.0, 1.0]]),
+         ('De5', [[16.0, 0.0], [16.0, 1.0]]),
+         ('De6', [[16.0, 0.0], [17.0, 0.0]]),
+         ('De7', [[16.0, 1.0], [17.0, 1.0]]),
+         ('De8', [[17.0, 1.0], [17.4, 1.4]]),
+         ('De9', [[17.0, 0.0], [17.0, 1.0]]),
+         ('De10', [[17.0, 0.0], [18.0, 0.0]]),
+         ('De11', [[17.0, 1.0], [18.0, 1.0]]),
+         ('De12', [[17.4, 1.4], [18.4, 1.4]]),
+         ('De13', [[18.0, 0.0], [18.4, 0.4]]),
+         ('De14', [[18.0, 1.0], [18.4, 1.4]]),
+         ('De15', [[18.0, 0.0], [18.0, 1.0]]),
+         ('De16', [[18.4, 0.4], [18.4, 1.4]]),
+         ('De17', [[16.0, 2.0], [17.0, 2.0]]),
+         ('De18', [[16.4, 2.4], [17.4, 2.4]]),
+         ('De19', [[16.0, 2.0], [16.4, 2.4]]),
+         ('De20', [[17.0, 2.0], [17.4, 2.4]]),
+         ('De21', [[16.0, 1.0], [16.0, 2.0]]),
+         ('De22', [[17.0, 1.0], [17.0, 2.0]]),
+         ('De23', [[17.4, 1.4], [17.4, 2.4]]),
+         ('Ee0', [[20.0, 0.0], [21.0, 0.0]]),
+         ('Ee1', [[20.0, 1.0], [21.0, 1.0]]),
+         ('Ee2', [[20.4, 1.4], [21.0, 1.4]]),
+         ('Ee3', [[20.0, 1.0], [20.4, 1.4]]),
+         ('Ee4', [[20.0, 0.0], [20.0, 1.0]]),
+         ('Ee5', [[21.0, 0.0], [21.0, 1.0]]),
+         ('Ee6', [[21.0, 0.0], [22.0, 0.0]]),
+         ('Ee7', [[21.0, 1.0], [22.0, 1.0]]),
+         ('Ee8', [[22.0, 0.0], [22.4, 0.4]]),
+         ('Ee9', [[22.0, 1.0], [22.4, 1.4]]),
+         ('Ee10', [[22.0, 0.0], [22.0, 1.0]]),
+         ('Ee11', [[22.4, 0.4], [22.4, 1.4]]),
+         ('Ee12', [[21.0, 2.0], [22.0, 2.0]]),
+         ('Ee13', [[21.4, 2.4], [22.4, 2.4]]),
+         ('Ee14', [[21.0, 2.0], [21.4, 2.4]]),
+         ('Ee15', [[22.0, 2.0], [22.4, 2.4]]),
+         ('Ee16', [[21.0, 1.0], [21.0, 2.0]]),
+         ('Ee17', [[22.0, 1.0], [22.0, 2.0]]),
+         ('Ee18', [[22.4, 1.4], [22.4, 2.4]]),
+         ('Ee19', [[22.400000000000002, 1.8], [22.8, 1.8]]),
+         ('Ee20', [[22.4, 0.4], [22.8, 0.8]]),
+         ('Ee21', [[22.4, 1.4], [22.8, 1.8]]),
+         ('Ee22', [[22.8, 0.8], [22.8, 1.8]])]
+        self.subject = 'SolidGeometry'
         self.level = None
-        self.scene_path = HERE / 'scenes/Solid162.json'
+        self.scene_path = _PROJECT_ROOT / 'SolidGeometry' / 'dataset_generator/scenes/Solid162.json'
+
+    def draw(self, output_path=None, *, variant=None, _canvas=False):
+        if output_path is None and (not _canvas):
+            output_path = _PROJECT_ROOT / '.runtime/reproduced' / 'SolidGeometry' / (self.id + ('_' + variant if variant else '') + '.png')
+        if variant is not None:
+            if _canvas:
+                raise ValueError('Canvas capture is for the original only')
+            from dataset_tools.unified_replay import draw_slot
+            return draw_slot('SolidGeometry', self.id, variant, output_path)
+        with Canvas(SOLID, xlim=[-0.5850439204651696, 23.39328956735156], ylim=[-8.609732687419957, 15.36860080039677], axes_position=[0.05, 0.05, 0.9, 0.9], coordinate_axes=False) as c:
+            for object_id, vertices, codes in [('mainfront00', [[10.0, 5.0], [11.0, 5.0], [11.0, 6.0], [10.0, 6.0], [10.0, 5.0]], [1, 2, 2, 2, 79]), ('mainfront01', [[10.0, 6.0], [11.0, 6.0], [11.0, 7.0], [10.0, 7.0], [10.0, 6.0]], [1, 2, 2, 2, 79]), ('mainfront10', [[11.0, 5.0], [12.0, 5.0], [12.0, 6.0], [11.0, 6.0], [11.0, 5.0]], [1, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id, alpha=1.0, zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.7333333333333333, 0.7333333333333333, 0.7333333333333333, 1.0], linewidth=0.0, capstyle='butt')
+            for object_id, vertices, codes in [('mainfront11', [[11.0, 6.0], [12.0, 6.0], [12.0, 7.0], [11.0, 7.0], [11.0, 6.0]], [1, 2, 2, 2, 79]), ('mainfront20', [[12.0, 5.0], [13.0, 5.0], [13.0, 6.0], [12.0, 6.0], [12.0, 5.0]], [1, 2, 2, 2, 79]), ('mainfront21', [[12.0, 6.0], [13.0, 6.0], [13.0, 7.0], [12.0, 7.0], [12.0, 6.0]], [1, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id, alpha=1.0, zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.3333333333333333, 0.3333333333333333, 0.3333333333333333, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[10.0, 7.0], [11.0, 7.0], [11.4, 7.4], [10.4, 7.4], [10.0, 7.0]], [1, 2, 2, 2, 79], id='maintop00', alpha=1.0, zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.7333333333333333, 0.7333333333333333, 0.7333333333333333, 1.0], linewidth=0.0, capstyle='butt')
+            c.path([[10.4, 7.4], [11.4, 7.4], [11.8, 7.8], [10.8, 7.8], [10.4, 7.4]], [1, 2, 2, 2, 79], id='maintop01', alpha=1.0, zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.7333333333333333, 0.7333333333333333, 0.7333333333333333, 1.0], linewidth=0.0, capstyle='butt')
+            for object_id, vertices, codes in [('maintop10', [[11.0, 7.0], [12.0, 7.0], [12.4, 7.4], [11.4, 7.4], [11.0, 7.0]], [1, 2, 2, 2, 79]), ('maintop20', [[12.0, 7.0], [13.0, 7.0], [13.4, 7.4], [12.4, 7.4], [12.0, 7.0]], [1, 2, 2, 2, 79]), ('maintop21', [[12.4, 7.4], [13.4, 7.4], [13.8, 7.8], [12.8, 7.8], [12.4, 7.4]], [1, 2, 2, 2, 79]), ('mainright00', [[13.0, 5.0], [13.4, 5.4], [13.4, 6.4], [13.0, 6.0], [13.0, 5.0]], [1, 2, 2, 2, 79]), ('mainright01', [[13.0, 6.0], [13.4, 6.4], [13.4, 7.4], [13.0, 7.0], [13.0, 6.0]], [1, 2, 2, 2, 79]), ('mainright11', [[13.4, 6.4], [13.8, 6.8], [13.8, 7.8], [13.4, 7.4], [13.4, 6.4]], [1, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id, alpha=1.0, zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.3333333333333333, 0.3333333333333333, 0.3333333333333333, 1.0], linewidth=0.0, capstyle='butt')
+            for object_id, points in self._geometry_01:
+                c.line(points, id=object_id, zorder=3, clip_on=False)
+            for object_id, text, anchor in [('optionA', 'A', [1.0, -0.4]), ('optionB', 'B', [6.0, -0.4]), ('optionC', 'C', [11.0, -0.4]), ('optionD', 'D', [16.0, -0.4]), ('optionE', 'E', [21.0, -0.4])]:
+                c.text(text, anchor, id=object_id, rotation_mode='default', offset_pt=[0, -10], annotation_clip=None)
+            return c if _canvas else c.save(output_path)
 
     def get_scene(self):
-        return json.loads(self.scene_path.read_text(encoding='utf-8'))
+        return json.loads(self.scene_path.read_text(encoding='utf-8-sig'))
 
-    def draw(self, num=0, output_path=None):
-        if output_path is None and isinstance(num, (str, Path)):
-            output_path = num
-        output = Path(output_path) if output_path else HERE.parents[1] / '.runtime/mathvision_redraw' / 'Solid162.png'
-        spec = importlib.util.spec_from_file_location('mathvision_native_runtime', HERE / 'mathvision_renderers/shared_e4e003f51742cf00/runtime.py')
-        runtime = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(runtime)
-        return runtime.draw(HERE / 'mathvision_renderers/shared_e4e003f51742cf00/items/Solid162', HERE / 'mathvision_renderers/shared_e4e003f51742cf00/native', output, formal_scene=self.scene_path, original_image=HERE / '../originals/Solid162.jpg')
-
-    def redraw(self, output_path=None):
-        return self.draw(output_path=output_path)
+    def build_scene(self):
+        canvas = self.draw(_canvas=True)
+        return (canvas.fig, canvas.ax)
 if __name__ == '__main__':
-    import sys
-    print(Solid162().draw(output_path=sys.argv[1] if len(sys.argv) > 1 else None))
+    print(Solid162().draw(sys.argv[1] if len(sys.argv) > 1 else None))

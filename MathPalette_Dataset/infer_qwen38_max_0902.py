@@ -31,11 +31,7 @@ DATASET = Path(__file__).resolve().parent
 MODEL = "qwen3.8-max-0902"
 DOCUMENTED_VERSION = "qwen3.8-max-0902"
 BASE_URL = "https://maas.qianwenaiapi.com/compatible-mode/v1"
-SYSTEM_PROMPT = (
-    "Solve the mathematics question using the provided image. "
-    "Give a clear final answer at the end. For a multiple-choice question, "
-    "include the option letter in your final answer."
-)
+USER_PROMPT_PREFIX = r'Please solve the problem step by step and put your answer in one "\boxed{}".' + "\n"
 MAX_RESPONSE_BYTES = 16 * 1024 * 1024
 
 
@@ -187,14 +183,13 @@ def build_request(sample, root, args):
         "model": MODEL, "enable_thinking": True, "reasoning_effort": args.reasoning_effort,
         "stream": True,
         "stream_options": {"include_usage": True},
-        "messages": [{"role": "system", "content": SYSTEM_PROMPT},
-                     {"role": "user", "content": [
-                         {"type": "text", "text": sample["question"]},
+        "messages": [{"role": "user", "content": [
+                         {"type": "text", "text": USER_PROMPT_PREFIX + sample["question"]},
                          {"type": "image_url", "image_url": {
                              "url": "data:image/png;base64," + base64.b64encode(data).decode("ascii")}}]}],
     }
     saved = copy.deepcopy(body)
-    saved["messages"][1]["content"][1]["image_url"]["url"] = sample["image"]
+    saved["messages"][0]["content"][1]["image_url"]["url"] = sample["image"]
     return encode(body), saved
 
 
@@ -321,15 +316,18 @@ def request_once(endpoint, body, key, directory, timeout, stop):
                                     "--_http-worker"], stdin=source, stdout=subprocess.DEVNULL,
                                    stderr=subprocess.DEVNULL, env=environment)
     started = None
+    observed_start = None
     local_status = None
     try:
         while process.poll() is None:
             if started is None and (directory / "request_started.json").exists():
                 started = read_json(directory / "request_started.json")
+                # Monotonic epochs can differ across processes; use the parent's own clock.
+                observed_start = time.monotonic()
             if stop.is_set():
                 local_status = "interrupted"
                 break
-            if started and time.monotonic() >= started["monotonic"] + timeout:
+            if observed_start is not None and time.monotonic() >= observed_start + timeout:
                 local_status = "timeout"
                 break
             if started is None and time.monotonic() - spawned > 15:
@@ -344,12 +342,13 @@ def request_once(endpoint, body, key, directory, timeout, stop):
         started = read_json(directory / "request_started.json")
     if local_status is None and started and (directory / "transport.json").exists():
         ended = read_json(directory / "transport.json").get("finished_monotonic")
-        if ended is not None and ended > started["monotonic"] + timeout:
+        if ended is not None and ended - started["monotonic"] > timeout:
             local_status = "timeout"
-    return capture_response(directory, key, local_status, started)
+    local_elapsed = time.monotonic() - observed_start if observed_start is not None else None
+    return capture_response(directory, key, local_status, started, local_elapsed_seconds=local_elapsed)
 
 
-def capture_response(directory, key, local_status=None, started=None, recovered=False):
+def capture_response(directory, key, local_status=None, started=None, recovered=False, local_elapsed_seconds=None):
     if started is None and (directory / "request_started.json").exists():
         started = read_json(directory / "request_started.json")
     if local_status:
@@ -397,11 +396,13 @@ def capture_response(directory, key, local_status=None, started=None, recovered=
         fatal = True
     ended = transport.get("finished_monotonic")
     finished_at = transport.get("finished_at_utc")
+    elapsed = (ended - started["monotonic"]
+               if not local_status and started and ended is not None else local_elapsed_seconds)
     if not recovered and ended is None:
-        ended, finished_at = time.monotonic(), now()
+        finished_at = now()
     return {**parsed, "transport": transport, "status": status, "retryable": retryable, "fatal": fatal,
             "request_started_at_utc": started["at_utc"] if started else None,
-            "elapsed_seconds": round(ended - started["monotonic"], 3) if started and ended is not None else None,
+            "elapsed_seconds": round(elapsed, 3) if elapsed is not None else None,
             "finished_at_utc": finished_at, "response_complete": status == "completed",
             "usage_missing": parsed["usage"] is None}
 
@@ -627,7 +628,7 @@ def main(argv=None):
         "provider": "user-specified Qwen-compatible gateway", "requested_model": MODEL,
         "documented_version": DOCUMENTED_VERSION, "api_model_is_alias": False,
         "gateway_model_mapping_verified": False,
-        "endpoint": args.endpoint, "system_prompt": SYSTEM_PROMPT,
+        "endpoint": args.endpoint, "system_prompt": None, "user_prompt_prefix": USER_PROMPT_PREFIX,
         "enable_thinking": True, "reasoning_effort": args.reasoning_effort,
         "output_token_limit_policy": "provider_default; no token-limit parameter sent",
         "stream": True,

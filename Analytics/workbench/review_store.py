@@ -789,6 +789,7 @@ class Workbench:
                           "created_at": candidate["created_at"], "reviewed_at": reviewed_at, "status": "passed",
                           "image_path": (self.output_relative / qid / "images" / f"{slot}.png").as_posix(),
                           "plugin_path": (self.output_relative / qid / "plugins" / f"{slot}.json").as_posix()}
+                recipe["question_record_sha256"] = canonical_hash(self.adapter.records[qid])
                 updated["slot_id"], updated["formal_image_path"], updated["formal_plugin_path"] = slot, recipe["image_path"], recipe["plugin_path"]
                 question["accepted"].append(recipe)
                 transaction["recipe"] = recipe
@@ -833,8 +834,7 @@ class Workbench:
             source_name = Path(self.adapter.sources[qid]["source_file"]).name
             files = self.adapter.manifest["files"]
             input_revision = canonical_hash({"record": self.adapter.records[qid], "files": {
-                name: files[name] for name in ("common_renderer.py", "protocol.json", f"image/{qid}.png",
-                                              f"question_classes/{source_name}")}})
+                name: files[name] for name in self.adapter.dependencies(qid)}})
             return {"session_id": self.session_id, "question_id": qid, "context_token": self.context_token(),
                     "input_revision": input_revision,
                     "question": self.adapter.records[qid]["question"], "answer": self.adapter.records[qid]["answer"],

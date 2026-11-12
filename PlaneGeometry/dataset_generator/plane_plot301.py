@@ -1,31 +1,66 @@
-"""Frozen native MathVision redraw; importing does not write files."""
+"""Frozen question Plane301; unified protocol 2.0.0. Original metadata and PNG retained."""
 from pathlib import Path
-import importlib.util
+import sys
 import json
-HERE = Path(__file__).resolve().parent
+import numpy as np
+_PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+from dataset_tools.drawing import Canvas, ANALYTICS, PLANE, SOLID, VectorPath, VectorTransform, VectorBox
 
 class Plane301:
 
     def __init__(self):
-        self.__dict__.update({'id': 'Plane301', 'source_dataset': 'MathVision', 'question': 'Which of the following rigid pieces of wire can be combined with an identical copy, joining their ends, to form a closed shape without crossings?\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E', 'answer': 'B', 'answer_type': 'choice', 'subject': 'PlaneGeometry', 'choices': {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'}, 'source_key': 'test:926', 'source_category': 'combinatorial geometry', 'source_revision': '2837ddb3f13abaf6b3997c12d80753e5470bd46a'})
+        self.id = 'Plane301'
+        self.source_dataset = 'MathVision'
+        self.source_key = 'test:926'
+        self.question = 'Which of the following rigid pieces of wire can be combined with an identical copy, joining their ends, to form a closed shape without crossings?\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E'
+        self.answer = 'B'
+        self.answer_type = 'choice'
+        self.choices = {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'}
         self.query = self.question
+        self.subject = 'PlaneGeometry'
         self.level = None
-        self.scene_path = HERE / 'scenes/Plane301.json'
+        self.scene_path = _PROJECT_ROOT / 'PlaneGeometry' / 'dataset_generator/scenes/Plane301.json'
+
+    def draw(self, output_path=None, *, variant=None, _canvas=False):
+        if output_path is None and (not _canvas):
+            output_path = _PROJECT_ROOT / '.runtime/reproduced' / 'PlaneGeometry' / (self.id + ('_' + variant if variant else '') + '.png')
+        if variant is not None:
+            if _canvas:
+                raise ValueError('Canvas capture is for the original only')
+            from dataset_tools.unified_replay import draw_slot
+            return draw_slot('PlaneGeometry', self.id, variant, output_path)
+        with Canvas(PLANE, xlim=[-2.3178967481021218, 28.78384518088098], ylim=[-14.217392114093188, 16.884349814889916], axes_position=[0.05, 0.05, 0.9, 0.9], coordinate_axes=False) as c:
+            for object_id, points in [('wire0_0', [[3.0, 2.0], [2.0, 2.0]]), ('wire0_1', [[2.0, 2.0], [1.0, 2.0]]), ('wire0_2', [[1.0, 2.0], [0.0, 2.0]]), ('wire0_3', [[0.0, 2.0], [0.0, 1.0]]), ('wire0_4', [[0.0, 1.0], [0.0, 0.0]]), ('wire0_5', [[0.0, 0.0], [1.0, 0.0]]), ('wire0_6', [[1.0, 0.0], [2.0, 0.0]]), ('wire0_7', [[2.0, 0.0], [2.0, 1.0]]), ('wire0_8', [[2.0, 1.0], [1.0, 1.0]])]:
+                c.line(points, id=object_id)
+            for object_id, center, radius in [('joint0_0', [3.0, 2.0], 0.055), ('joint0_1', [2.0, 2.0], 0.055), ('joint0_2', [1.0, 2.0], 0.055), ('joint0_3', [0.0, 2.0], 0.055), ('joint0_4', [0.0, 1.0], 0.055), ('joint0_5', [0.0, 0.0], 0.055), ('joint0_6', [1.0, 0.0], 0.055), ('joint0_7', [2.0, 0.0], 0.055), ('joint0_8', [2.0, 1.0], 0.055), ('joint0_9', [1.0, 1.0], 0.055)]:
+                c.circle(center, radius, id=object_id, facecolor=[0.0, 0.0, 0.0, 1.0])
+            for object_id, points in [('wire1_0', [[6.0, 0.0], [6.0, 1.0]]), ('wire1_1', [[6.0, 1.0], [6.0, 2.0]]), ('wire1_2', [[6.0, 2.0], [7.0, 2.0]]), ('wire1_3', [[7.0, 2.0], [7.0, 1.0]]), ('wire1_4', [[7.0, 1.0], [8.0, 1.0]]), ('wire1_5', [[8.0, 1.0], [8.0, 2.0]]), ('wire1_6', [[8.0, 2.0], [9.0, 2.0]]), ('wire1_7', [[9.0, 2.0], [9.0, 1.0]])]:
+                c.line(points, id=object_id)
+            for object_id, center, radius in [('joint1_0', [6.0, 0.0], 0.055), ('joint1_1', [6.0, 1.0], 0.055), ('joint1_2', [6.0, 2.0], 0.055), ('joint1_3', [7.0, 2.0], 0.055), ('joint1_4', [7.0, 1.0], 0.055), ('joint1_5', [8.0, 1.0], 0.055), ('joint1_6', [8.0, 2.0], 0.055), ('joint1_7', [9.0, 2.0], 0.055), ('joint1_8', [9.0, 1.0], 0.055)]:
+                c.circle(center, radius, id=object_id, facecolor=[0.0, 0.0, 0.0, 1.0])
+            for object_id, points in [('wire2_0', [[12.0, 2.0], [12.0, 3.0]]), ('wire2_1', [[12.0, 3.0], [13.0, 3.0]]), ('wire2_2', [[13.0, 3.0], [14.0, 3.0]]), ('wire2_3', [[14.0, 3.0], [15.0, 3.0]]), ('wire2_4', [[15.0, 3.0], [15.0, 2.0]]), ('wire2_5', [[15.0, 2.0], [15.0, 1.0]]), ('wire2_6', [[15.0, 1.0], [15.0, 0.0]]), ('wire2_7', [[15.0, 0.0], [14.0, 0.0]]), ('wire2_8', [[14.0, 0.0], [13.0, 0.0]]), ('wire2_9', [[13.0, 0.0], [13.0, 1.0]]), ('wire2_10', [[13.0, 1.0], [14.0, 1.0]]), ('wire2_11', [[14.0, 1.0], [14.0, 2.0]])]:
+                c.line(points, id=object_id)
+            for object_id, center, radius in [('joint2_0', [12.0, 2.0], 0.055), ('joint2_1', [12.0, 3.0], 0.055), ('joint2_2', [13.0, 3.0], 0.055), ('joint2_3', [14.0, 3.0], 0.055), ('joint2_4', [15.0, 3.0], 0.055), ('joint2_5', [15.0, 2.0], 0.055), ('joint2_6', [15.0, 1.0], 0.055), ('joint2_7', [15.0, 0.0], 0.055), ('joint2_8', [14.0, 0.0], 0.055), ('joint2_9', [13.0, 0.0], 0.055), ('joint2_10', [13.0, 1.0], 0.055), ('joint2_11', [14.0, 1.0], 0.055), ('joint2_12', [14.0, 2.0], 0.055)]:
+                c.circle(center, radius, id=object_id, facecolor=[0.0, 0.0, 0.0, 1.0])
+            for object_id, points in [('wire3_0', [[19.0, 2.0], [19.0, 3.0]]), ('wire3_1', [[19.0, 3.0], [20.0, 3.0]]), ('wire3_2', [[20.0, 3.0], [21.0, 3.0]]), ('wire3_3', [[21.0, 3.0], [21.0, 2.0]]), ('wire3_4', [[21.0, 2.0], [21.0, 1.0]]), ('wire3_5', [[21.0, 1.0], [21.0, 0.0]]), ('wire3_6', [[21.0, 0.0], [20.0, 0.0]]), ('wire3_7', [[20.0, 0.0], [19.0, 0.0]]), ('wire3_8', [[19.0, 0.0], [18.0, 0.0]]), ('wire3_9', [[18.0, 0.0], [18.0, 1.0]]), ('wire3_10', [[18.0, 1.0], [19.0, 1.0]]), ('wire3_11', [[19.0, 1.0], [20.0, 1.0]]), ('wire3_12', [[20.0, 1.0], [20.0, 2.0]])]:
+                c.line(points, id=object_id)
+            for object_id, center, radius in [('joint3_0', [19.0, 2.0], 0.055), ('joint3_1', [19.0, 3.0], 0.055), ('joint3_2', [20.0, 3.0], 0.055), ('joint3_3', [21.0, 3.0], 0.055), ('joint3_4', [21.0, 2.0], 0.055), ('joint3_5', [21.0, 1.0], 0.055), ('joint3_6', [21.0, 0.0], 0.055), ('joint3_7', [20.0, 0.0], 0.055), ('joint3_8', [19.0, 0.0], 0.055), ('joint3_9', [18.0, 0.0], 0.055), ('joint3_10', [18.0, 1.0], 0.055), ('joint3_11', [19.0, 1.0], 0.055), ('joint3_12', [20.0, 1.0], 0.055), ('joint3_13', [20.0, 2.0], 0.055)]:
+                c.circle(center, radius, id=object_id, facecolor=[0.0, 0.0, 0.0, 1.0])
+            for object_id, points in [('wire4_0', [[24.0, 2.0], [24.0, 1.0]]), ('wire4_1', [[24.0, 1.0], [24.0, 0.0]]), ('wire4_2', [[24.0, 0.0], [25.0, 0.0]]), ('wire4_3', [[25.0, 0.0], [25.0, 1.0]]), ('wire4_4', [[25.0, 1.0], [25.0, 2.0]]), ('wire4_5', [[25.0, 2.0], [26.0, 2.0]]), ('wire4_6', [[26.0, 2.0], [26.0, 1.0]]), ('wire4_7', [[26.0, 1.0], [27.0, 1.0]]), ('wire4_8', [[27.0, 1.0], [28.0, 1.0]]), ('wire4_9', [[28.0, 1.0], [28.0, 0.0]])]:
+                c.line(points, id=object_id)
+            for object_id, center, radius in [('joint4_0', [24.0, 2.0], 0.055), ('joint4_1', [24.0, 1.0], 0.055), ('joint4_2', [24.0, 0.0], 0.055), ('joint4_3', [25.0, 0.0], 0.055), ('joint4_4', [25.0, 1.0], 0.055), ('joint4_5', [25.0, 2.0], 0.055), ('joint4_6', [26.0, 2.0], 0.055), ('joint4_7', [26.0, 1.0], 0.055), ('joint4_8', [27.0, 1.0], 0.055), ('joint4_9', [28.0, 1.0], 0.055), ('joint4_10', [28.0, 0.0], 0.055)]:
+                c.circle(center, radius, id=object_id, facecolor=[0.0, 0.0, 0.0, 1.0])
+            for object_id, text, anchor in [('label0', '(A)', [-1.0, 0.0]), ('label1', '(B)', [5.0, 0.0]), ('label2', '(C)', [11.0, 0.0]), ('label3', '(D)', [17.0, 0.0]), ('label4', '(E)', [23.0, 0.0])]:
+                c.text(text, anchor, id=object_id, rotation_mode='default', offset_pt=[0, 0], annotation_clip=None)
+            return c if _canvas else c.save(output_path)
 
     def get_scene(self):
-        return json.loads(self.scene_path.read_text(encoding='utf-8'))
+        return json.loads(self.scene_path.read_text(encoding='utf-8-sig'))
 
-    def draw(self, num=0, output_path=None):
-        if output_path is None and isinstance(num, (str, Path)):
-            output_path = num
-        output = Path(output_path) if output_path else HERE.parents[1] / '.runtime/mathvision_redraw' / 'Plane301.png'
-        spec = importlib.util.spec_from_file_location('mathvision_native_runtime', HERE / 'mathvision_renderers/shared_e4e003f51742cf00/runtime.py')
-        runtime = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(runtime)
-        return runtime.draw(HERE / 'mathvision_renderers/shared_e4e003f51742cf00/items/Plane301', HERE / 'mathvision_renderers/shared_e4e003f51742cf00/native', output, formal_scene=self.scene_path, original_image=HERE / '../originals/Plane301.jpg')
-
-    def redraw(self, output_path=None):
-        return self.draw(output_path=output_path)
+    def build_scene(self):
+        canvas = self.draw(_canvas=True)
+        return (canvas.fig, canvas.ax)
 if __name__ == '__main__':
-    import sys
-    print(Plane301().draw(output_path=sys.argv[1] if len(sys.argv) > 1 else None))
+    print(Plane301().draw(sys.argv[1] if len(sys.argv) > 1 else None))

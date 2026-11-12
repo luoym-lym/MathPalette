@@ -1,60 +1,66 @@
-"""User-approved frozen original; importing this module writes no files."""
+"""Frozen question Plane580; unified protocol 2.0.0. Original metadata and PNG retained."""
 from pathlib import Path
-import importlib.util
-import json
 import sys
-ROOT = Path(__file__).resolve().parent
-ITEM = ROOT / 'author_extensions95_v1/items/Plane580'
-
-def _engine():
-    path = ROOT / 'author_extensions95_v1/engine.py'
-    spec = importlib.util.spec_from_file_location('_extensions95_Plane580', path)
-    module = importlib.util.module_from_spec(spec)
-    sys.modules[spec.name] = module
-    spec.loader.exec_module(module)
-    return module
-
-def build_scene():
-    return _engine().capture(ITEM)
-
-def draw_original(output_path):
-    target = Path(output_path).resolve()
-    if target.suffix.lower() not in ('.png', '.svg'):
-        raise ValueError('Use a PNG or SVG output')
-    if target.is_relative_to(ROOT.parent):
-        raise ValueError('Redraw outside formal source directories')
-    data = _engine().render(ITEM, vector=target.suffix.lower() == '.svg')
-    target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_bytes(data)
-    return str(target)
+import json
+import numpy as np
+_PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+from dataset_tools.drawing import Canvas, ANALYTICS, PLANE, SOLID, VectorPath, VectorTransform, VectorBox
 
 class Plane580:
+
     def __init__(self):
-        row = next(json.loads(line) for line in (ROOT.parent / 'dataset.jsonl').read_text(encoding='utf-8-sig').splitlines()
-                   if line.strip() and json.loads(line)['id'] == 'Plane580')
-        for key, value in row.items():
-            setattr(self, key, value)
+        self.id = 'Plane580'
+        self.source_dataset = 'Author Designed'
+        self.source_key = 'author-extensions95-v1:Plane301/extension_01'
+        self.question = 'Which of the following rigid pieces of wire can be combined with an identical copy, joining their ends, to form a closed shape without crossings or other contacts? The pieces may be rotated but not turned over.\nChoices:\nA: Wire A\nB: Wire B\nC: Wire C\nD: Wire D\nE: Wire E'
+        self.answer = 'B'
+        self.answer_type = 'choice'
+        self.choices = {'A': 'Wire A', 'B': 'Wire B', 'C': 'Wire C', 'D': 'Wire D', 'E': 'Wire E'}
         self.query = self.question
         self.subject = 'PlaneGeometry'
         self.level = None
+        self.scene_path = _PROJECT_ROOT / 'PlaneGeometry' / 'dataset_generator/scenes/Plane580.json'
+
+    def draw(self, output_path=None, *, variant=None, _canvas=False):
+        if output_path is None and (not _canvas):
+            output_path = _PROJECT_ROOT / '.runtime/reproduced' / 'PlaneGeometry' / (self.id + ('_' + variant if variant else '') + '.png')
+        if variant is not None:
+            if _canvas:
+                raise ValueError('Canvas capture is for the original only')
+            from dataset_tools.unified_replay import draw_slot
+            return draw_slot('PlaneGeometry', self.id, variant, output_path)
+        with Canvas(PLANE, xlim=[-2.4788050512052635, 30.978805051205264], ylim=[-17.53147862502604, 15.926131477384487], axes_position=[0.05, 0.05, 0.9, 0.9], coordinate_axes=False) as c:
+            for object_id, points in [('A_dot_00', [[-1.5, -1.5]]), ('A_dot_01', [[-0.5, -1.5]]), ('A_dot_02', [[-0.5, -0.5]]), ('A_dot_03', [[-1.5, -0.5]]), ('A_dot_04', [[-1.5, 0.5]]), ('A_dot_05', [[-1.5, 1.5]]), ('A_dot_06', [[-0.5, 1.5]]), ('A_dot_07', [[0.5, 1.5]]), ('A_dot_08', [[0.5, 0.5]]), ('A_dot_09', [[0.5, -0.5]]), ('A_dot_10', [[0.5, -1.5]]), ('A_dot_11', [[1.5, -1.5]]), ('A_dot_12', [[1.5, -0.5]])]:
+                c.point(points, id=object_id)
+            for object_id, points in [('A_edge_00', [[-1.5, -1.5], [-0.5, -1.5]]), ('A_edge_01', [[-0.5, -1.5], [-0.5, -0.5]]), ('A_edge_02', [[-0.5, -0.5], [-1.5, -0.5]]), ('A_edge_03', [[-1.5, -0.5], [-1.5, 0.5]]), ('A_edge_04', [[-1.5, 0.5], [-1.5, 1.5]]), ('A_edge_05', [[-1.5, 1.5], [-0.5, 1.5]]), ('A_edge_06', [[-0.5, 1.5], [0.5, 1.5]]), ('A_edge_07', [[0.5, 1.5], [0.5, 0.5]]), ('A_edge_08', [[0.5, 0.5], [0.5, -0.5]]), ('A_edge_09', [[0.5, -0.5], [0.5, -1.5]]), ('A_edge_10', [[0.5, -1.5], [1.5, -1.5]]), ('A_edge_11', [[1.5, -1.5], [1.5, -0.5]])]:
+                c.line(points, id=object_id)
+            for object_id, points in [('B_dot_00', [[5.5, -1.0]]), ('B_dot_01', [[5.5, -2.0]]), ('B_dot_02', [[6.5, -2.0]]), ('B_dot_03', [[6.5, -1.0]]), ('B_dot_04', [[7.5, -1.0]]), ('B_dot_05', [[8.5, -1.0]]), ('B_dot_06', [[8.5, 0.0]]), ('B_dot_07', [[8.5, 1.0]]), ('B_dot_08', [[8.5, 2.0]]), ('B_dot_09', [[7.5, 2.0]])]:
+                c.point(points, id=object_id)
+            for object_id, points in [('B_edge_00', [[5.5, -1.0], [5.5, -2.0]]), ('B_edge_01', [[5.5, -2.0], [6.5, -2.0]]), ('B_edge_02', [[6.5, -2.0], [6.5, -1.0]]), ('B_edge_03', [[6.5, -1.0], [7.5, -1.0]]), ('B_edge_04', [[7.5, -1.0], [8.5, -1.0]]), ('B_edge_05', [[8.5, -1.0], [8.5, 0.0]]), ('B_edge_06', [[8.5, 0.0], [8.5, 1.0]]), ('B_edge_07', [[8.5, 1.0], [8.5, 2.0]]), ('B_edge_08', [[8.5, 2.0], [7.5, 2.0]])]:
+                c.line(points, id=object_id)
+            for object_id, points in [('C_dot_00', [[12.0, 1.5]]), ('C_dot_01', [[12.0, 0.5]]), ('C_dot_02', [[12.0, -0.5]]), ('C_dot_03', [[13.0, -0.5]]), ('C_dot_04', [[13.0, -1.5]]), ('C_dot_05', [[14.0, -1.5]]), ('C_dot_06', [[14.0, -0.5]]), ('C_dot_07', [[14.0, 0.5]]), ('C_dot_08', [[15.0, 0.5]]), ('C_dot_09', [[16.0, 0.5]]), ('C_dot_10', [[16.0, -0.5]]), ('C_dot_11', [[15.0, -0.5]])]:
+                c.point(points, id=object_id)
+            for object_id, points in [('C_edge_00', [[12.0, 1.5], [12.0, 0.5]]), ('C_edge_01', [[12.0, 0.5], [12.0, -0.5]]), ('C_edge_02', [[12.0, -0.5], [13.0, -0.5]]), ('C_edge_03', [[13.0, -0.5], [13.0, -1.5]]), ('C_edge_04', [[13.0, -1.5], [14.0, -1.5]]), ('C_edge_05', [[14.0, -1.5], [14.0, -0.5]]), ('C_edge_06', [[14.0, -0.5], [14.0, 0.5]]), ('C_edge_07', [[14.0, 0.5], [15.0, 0.5]]), ('C_edge_08', [[15.0, 0.5], [16.0, 0.5]]), ('C_edge_09', [[16.0, 0.5], [16.0, -0.5]]), ('C_edge_10', [[16.0, -0.5], [15.0, -0.5]])]:
+                c.line(points, id=object_id)
+            for object_id, points in [('D_dot_00', [[20.5, 1.5]]), ('D_dot_01', [[19.5, 1.5]]), ('D_dot_02', [[19.5, 0.5]]), ('D_dot_03', [[20.5, 0.5]]), ('D_dot_04', [[20.5, -0.5]]), ('D_dot_05', [[21.5, -0.5]]), ('D_dot_06', [[21.5, 0.5]]), ('D_dot_07', [[22.5, 0.5]]), ('D_dot_08', [[22.5, -0.5]]), ('D_dot_09', [[22.5, -1.5]])]:
+                c.point(points, id=object_id)
+            for object_id, points in [('D_edge_00', [[20.5, 1.5], [19.5, 1.5]]), ('D_edge_01', [[19.5, 1.5], [19.5, 0.5]]), ('D_edge_02', [[19.5, 0.5], [20.5, 0.5]]), ('D_edge_03', [[20.5, 0.5], [20.5, -0.5]]), ('D_edge_04', [[20.5, -0.5], [21.5, -0.5]]), ('D_edge_05', [[21.5, -0.5], [21.5, 0.5]]), ('D_edge_06', [[21.5, 0.5], [22.5, 0.5]]), ('D_edge_07', [[22.5, 0.5], [22.5, -0.5]]), ('D_edge_08', [[22.5, -0.5], [22.5, -1.5]])]:
+                c.line(points, id=object_id)
+            for object_id, points in [('E_dot_00', [[26.0, 0.0]]), ('E_dot_01', [[27.0, 0.0]]), ('E_dot_02', [[27.0, -1.0]]), ('E_dot_03', [[27.0, -2.0]]), ('E_dot_04', [[28.0, -2.0]]), ('E_dot_05', [[28.0, -1.0]]), ('E_dot_06', [[28.0, 0.0]]), ('E_dot_07', [[29.0, 0.0]]), ('E_dot_08', [[29.0, 1.0]]), ('E_dot_09', [[29.0, 2.0]]), ('E_dot_10', [[30.0, 2.0]])]:
+                c.point(points, id=object_id)
+            for object_id, points in [('E_edge_00', [[26.0, 0.0], [27.0, 0.0]]), ('E_edge_01', [[27.0, 0.0], [27.0, -1.0]]), ('E_edge_02', [[27.0, -1.0], [27.0, -2.0]]), ('E_edge_03', [[27.0, -2.0], [28.0, -2.0]]), ('E_edge_04', [[28.0, -2.0], [28.0, -1.0]]), ('E_edge_05', [[28.0, -1.0], [28.0, 0.0]]), ('E_edge_06', [[28.0, 0.0], [29.0, 0.0]]), ('E_edge_07', [[29.0, 0.0], [29.0, 1.0]]), ('E_edge_08', [[29.0, 1.0], [29.0, 2.0]]), ('E_edge_09', [[29.0, 2.0], [30.0, 2.0]])]:
+                c.line(points, id=object_id)
+            for object_id, text, anchor in [('choice_A', '(A)', [0, -3.3]), ('choice_B', '(B)', [7, -3.3]), ('choice_C', '(C)', [14, -3.3]), ('choice_D', '(D)', [21, -3.3]), ('choice_E', '(E)', [28, -3.3])]:
+                c.text(text, anchor, id=object_id, rotation_mode='default')
+            return c if _canvas else c.save(output_path)
 
     def get_scene(self):
-        return json.loads((ROOT / 'scenes/Plane580.json').read_text(encoding='utf-8'))
+        return json.loads(self.scene_path.read_text(encoding='utf-8-sig'))
 
     def build_scene(self):
-        return build_scene()
-
-    def draw(self, num=0, output_path=None):
-        if output_path is None and isinstance(num, (str, Path)):
-            output_path = num
-        if output_path is None:
-            raise ValueError('An explicit output path is required')
-        return draw_original(output_path)
-
-    def redraw(self, output_path=None):
-        return self.draw(output_path=output_path)
-
+        canvas = self.draw(_canvas=True)
+        return (canvas.fig, canvas.ax)
 if __name__ == '__main__':
-    if len(sys.argv) != 2:
-        raise SystemExit('Provide a PNG or SVG output path')
-    print(draw_original(sys.argv[1]))
+    print(Plane580().draw(sys.argv[1] if len(sys.argv) > 1 else None))

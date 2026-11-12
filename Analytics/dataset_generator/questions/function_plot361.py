@@ -1,79 +1,50 @@
-"""Frozen We-Math original; user batch admission is recorded in provenance. Importing writes no artifacts."""
+"""Frozen question Ana361; unified protocol 2.0.0. Original metadata and PNG retained."""
 from pathlib import Path
-import json
-import importlib.util
-import platform
 import sys
+import json
 import numpy as np
-import matplotlib
-from matplotlib import ft2font
-import PIL
-
-_HELPERS = Path(__file__).resolve().parents[1]
-_RENDERER = _HELPERS / "wemath_renderers" / '39d623eb465b9f92ec7f6e38382de08883a6f995e44990c0e9026c665bce00b2' / "common_renderer.py"
-_SPEC = importlib.util.spec_from_file_location("_wemath_frozen_renderer_Ana361", _RENDERER)
-_RENDER = importlib.util.module_from_spec(_SPEC)
-_SPEC.loader.exec_module(_RENDER)
-open_canvas = _RENDER.open_canvas
-plot_curve = _RENDER.plot_curve
-scatter_points = _RENDER.scatter_points
-fill_region = _RENDER.fill_region
-fill_polygon = _RENDER.fill_polygon
-label = _RENDER.label
-figure_label = _RENDER.figure_label
-finalize = _RENDER.finalize
-_SCENE_PATH = _HELPERS / "scenes" / 'Ana361.json'
+_PROJECT_ROOT = Path(__file__).resolve().parents[3]
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+from dataset_tools.drawing import Canvas, ANALYTICS, PLANE, SOLID, VectorPath, VectorTransform, VectorBox
 
 class Ana361:
+
     def __init__(self):
+        self.id = 'Ana361'
         self.source_dataset = 'We-Math2.0-Standard'
         self.source_key = 'standard/3893'
         self.question = 'Read the unit grid. Find the area of quadrilateral ABCD in square units.'
         self.answer = '11'
         self.answer_type = 'number'
-        self.id = 'Ana361'
-        self.query = 'Read the unit grid. Find the area of quadrilateral ABCD in square units.'
+        self.query = self.question
         self.subject = 'Analytics'
         self.level = None
-        self.scene_path = str(_SCENE_PATH)
+        self.scene_path = _PROJECT_ROOT / 'Analytics' / 'dataset_generator/scenes/Ana361.json'
+
+    def draw(self, output_path=None, *, variant=None, _canvas=False):
+        if output_path is None and (not _canvas):
+            output_path = _PROJECT_ROOT / '.runtime/reproduced' / 'Analytics' / (self.id + ('_' + variant if variant else '') + '.png')
+        if variant is not None:
+            if _canvas:
+                raise ValueError('Canvas capture is for the original only')
+            from dataset_tools.unified_replay import draw_slot
+            return draw_slot('Analytics', self.id, variant, output_path)
+        with Canvas(ANALYTICS, xlim=[-8, 8], ylim=[-8, 8], xlabel='x', ylabel='y') as c:
+            c.line([[1, 1], [5, 2], [6, 5], [2, 4], [1, 1]], id='object_000', solid_capstyle='butt')
+            for object_id, points in [('object_001', [[1, 1]]), ('object_002', [[5, 2]]), ('object_003', [[6, 5]]), ('object_004', [[2, 4]])]:
+                c.point(points, id=object_id, filled=True)
+            c.text('A', [0.7, 0.65], ha='right', va='top')
+            c.text('B', [5.3, 1.7], ha='left', va='top')
+            c.text('C', [6.3, 5.3], ha='left', va='bottom')
+            c.text('D', [1.7, 4.3], ha='right', va='bottom')
+            return c if _canvas else c.save(output_path)
 
     def get_scene(self):
-        return json.loads(_SCENE_PATH.read_text(encoding="utf-8"))
+        return json.loads(self.scene_path.read_text(encoding='utf-8-sig'))
 
-    def draw(self, num=0, output_path=None):
-        actual = (platform.python_version(), np.__version__, matplotlib.__version__, PIL.__version__, ft2font.__freetype_version__)
-        if actual != ("3.13.9", "2.5.3", "3.11.2", "12.3.0", "2.14.3"):
-            raise RuntimeError(f"Frozen rendering environment required; got {actual}")
-        if output_path is None and isinstance(num, (str, Path)):
-            output_path = num
-        scene = self.get_scene()
-        fig, ax = open_canvas(**scene.get("axes", {}))
-        for obj in scene["objects"]:
-            kind = obj["type"]
-            if kind in ("curve", "points"):
-                points = np.asarray(obj["points"], dtype=float)
-                if kind == "curve":
-                    plot_curve(ax, points[:, 0], points[:, 1])
-                else:
-                    scatter_points(ax, points[:, 0], points[:, 1], open_marker=obj.get("open", False))
-                    ax.collections[-1].set_clip_on(obj.get("clip_on", True))
-            elif kind == "region":
-                fill_region(ax, obj["x"], obj["y1"], obj.get("y2", 0))
-            elif kind == "polygon_region":
-                fill_polygon(ax, obj["x"], obj["y"])
-            else:
-                raise ValueError(f"Unsupported frozen object: {kind}")
-        for entry in scene.get("labels", []):
-            label(ax, entry["x"], entry["y"], entry["text"], ha=entry.get("ha", "center"), va=entry.get("va", "center"))
-        for text in scene.get("figure_labels", []):
-            figure_label(fig, text)
-        target = Path(output_path) if output_path else _HELPERS.parents[1] / ".runtime" / "reproduced" / "Analytics" / f"{self.id}.png"
-        return finalize(fig, target)
-
-
-def draw(num=0, output_path=None):
-    return Ana361().draw(num=num, output_path=output_path)
-
-
-if __name__ == "__main__":
-    print(draw(output_path=sys.argv[1] if len(sys.argv) > 1 else None))
+    def build_scene(self):
+        canvas = self.draw(_canvas=True)
+        return (canvas.fig, canvas.ax)
+if __name__ == '__main__':
+    print(Ana361().draw(sys.argv[1] if len(sys.argv) > 1 else None))

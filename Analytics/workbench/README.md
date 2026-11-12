@@ -1,5 +1,11 @@
 # 二次收集 special_variant 工作台
 
+## 统一绘图器 2.0（2026-11-12）
+
+工作台已接入同一个题目类和根目录 [绘图协议](../../DRAWING_PROTOCOL.md)，不再按来源选择适配器。历史 Special 使用相同协议的冻结矢量构图重放；原插件、PNG、Pass/Collect 原样保留。`--check` 的 `noop_pixels_match` 表示严格像素相等，`noop_reproduction_verified` 表示全部原题重绘命中核验指纹，微小历史灰阶差异单列于 `rounding_difference_questions`。未命中核验指纹仍会阻止继续操作。
+
+迁移前的未提交草稿与运行缓存保存在项目 `.runtime/drawing_protocol_previous_runtime/<分支>/`；工作台从正式 recipes 和 collection 恢复进度。旧缓存不直接当成新协议预览或审核。下面如有来源适配器说明，属于 v1 历史实现，已退出当前运行路径。
+
 日常按钮只处理当前题：Pass 核对本题输入和候选文件，No Pass 不复核原题或解码 PNG，删除只备份与重排受影响的槽位。Pass 和删除只更新根索引中本题的插件列表，不再同步重建全库。画板提交复用已显示且参数、上下文一致的预览；保存响应直接带回最新状态。完整审核检查仍由启动时的输入校验及手动 `dataset_tools/catalog.py check` 执行，用户 Pass / Collect 的含义不变。
 
 此工作台读取 `..`，人工 Pass 后保存到 `../special_variant`。Collect 保存整道题的完成状态并从待标注列表隐藏。备份或移动时，将这两个文件夹一起保留。

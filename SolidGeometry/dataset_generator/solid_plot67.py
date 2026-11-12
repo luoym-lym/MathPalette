@@ -1,47 +1,52 @@
-"""Frozen original Solid67; redraw with the canonical solid renderer."""
+"""Frozen question Solid67; unified protocol 2.0.0. Original metadata and PNG retained."""
 from pathlib import Path
-import importlib.util
+import sys
 import json
-
-ROOT = Path(__file__).resolve().parent
-
-
-def _renderer():
-    spec = importlib.util.spec_from_file_location("_solid67_renderer", ROOT / "common_renderer.py")
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module
-
-
-def build_scene():
-    scene = json.loads((ROOT / "scenes" / "Solid67.json").read_text(encoding="utf-8"))
-    fig, _ = _renderer().render_scene(scene)
-    return fig, fig.axes[0]
-
+import numpy as np
+_PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+from dataset_tools.drawing import Canvas, ANALYTICS, PLANE, SOLID, VectorPath, VectorTransform, VectorBox
 
 class Solid67:
+
     def __init__(self):
-        self.__dict__.update({'id': 'Solid67', 'source_dataset': 'Author Designed', 'question': 'The tetrahedron shown has volume 120. Each marked point is the midpoint of the edge on which it lies. Find the volume of the part containing vertex A after the tetrahedron is cut along the shaded plane.', 'answer': 30, 'answer_type': 'number', 'subject': 'SolidGeometry'})
+        self.id = 'Solid67'
+        self.source_dataset = 'Author Designed'
+        self.source_key = 'midpoint-cut:original'
+        self.question = 'The tetrahedron shown has volume 120. Each marked point is the midpoint of the edge on which it lies. Find the volume of the part containing vertex A after the tetrahedron is cut along the shaded plane.'
+        self.answer = 30
+        self.answer_type = 'number'
         self.query = self.question
+        self.points = {'A': [0, 0, 0], 'B': [8, 0, 0], 'C': [0, 9, 0], 'T': [0, 0, 10], 'M': [4, 0, 0], 'N': [0, 4.5, 0]}
+        self.subject = 'SolidGeometry'
         self.level = None
-        self.scene_path = ROOT / "scenes" / "Solid67.json"
+        self.scene_path = _PROJECT_ROOT / 'SolidGeometry' / 'dataset_generator/scenes/Solid67.json'
+
+    def draw(self, output_path=None, *, variant=None, _canvas=False):
+        if output_path is None and (not _canvas):
+            output_path = _PROJECT_ROOT / '.runtime/reproduced' / 'SolidGeometry' / (self.id + ('_' + variant if variant else '') + '.png')
+        if variant is not None:
+            if _canvas:
+                raise ValueError('Canvas capture is for the original only')
+            from dataset_tools.unified_replay import draw_slot
+            return draw_slot('SolidGeometry', self.id, variant, output_path)
+        with Canvas(SOLID, xlim=[-5.457778918154196, 4.429207489582769], ylim=[-0.6605827211024282, 9.226403686634537], projection=[[-0.6285714285714286, 0.4444444444444444, 0.0], [0.375, 0.15079365079365079, 0.8985714285714286]], origin=[0, 0, 0], offset=[0, 0]) as c:
+            c.fill(c.project([self.points['T'], self.points['M'], self.points['N']]), facecolor='#E6E6E6', alpha=1, id='cut_fill')
+            c.line(c.project([self.points['B'], self.points['C']]), id='edge_BC', linestyle=(0, [4, 3]), clip_on=False)
+            c.line(c.project([self.points['M'], self.points['N']]), id='section_MN', linestyle=(0, [4, 3]), clip_on=False)
+            for object_id, points in [('edge_TB', c.project([self.points['T'], self.points['B']])), ('edge_TC', c.project([self.points['T'], self.points['C']])), ('edge_AB', c.project([self.points['A'], self.points['B']])), ('edge_AC', c.project([self.points['A'], self.points['C']])), ('edge_TA', c.project([self.points['T'], self.points['A']])), ('section_TM', c.project([self.points['T'], self.points['M']])), ('section_TN', c.project([self.points['T'], self.points['N']]))]:
+                c.line(points, id=object_id, clip_on=False, zorder=3)
+            c.point(c.project([self.points['M']]), filled=True, id='midpoint_M')
+            c.point(c.project([self.points['N']]), filled=True, id='midpoint_N')
+            c.text('A', c.project(self.points['A']), offset_pt=[0, -8], vertex=True, va='top', id='label_A')
+            return c if _canvas else c.save(output_path)
 
     def get_scene(self):
-        return json.loads(self.scene_path.read_text(encoding="utf-8"))
+        return json.loads(self.scene_path.read_text(encoding='utf-8-sig'))
 
     def build_scene(self):
-        return build_scene()
-
-    def draw(self, num=0, output_path=None):
-        if output_path is None and isinstance(num, (str, Path)):
-            output_path = num
-        target = Path(output_path) if output_path else ROOT.parents[1] / ".runtime" / "reproduced" / "SolidGeometry" / "Solid67.png"
-        return _renderer().draw(self.scene_path, target)
-
-    def redraw(self, output_path=None):
-        return self.draw(output_path=output_path)
-
-
-if __name__ == "__main__":
-    import sys
-    print(Solid67().draw(output_path=sys.argv[1] if len(sys.argv) > 1 else None))
+        canvas = self.draw(_canvas=True)
+        return (canvas.fig, canvas.ax)
+if __name__ == '__main__':
+    print(Solid67().draw(sys.argv[1] if len(sys.argv) > 1 else None))

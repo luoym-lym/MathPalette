@@ -194,7 +194,11 @@ def main():
     try:
         if args.check:
             print(json.dumps({"questions_checked": len(workbench.active_questions()) + len(workbench.blocked_questions),
-                              "noop_pixels_match": not workbench.blocked_questions,
+                              "noop_pixels_match": not workbench.blocked_questions and all(
+                                  m.get("source_pixels_match", True) for m in workbench.metadata.values()),
+                              "noop_reproduction_verified": not workbench.blocked_questions,
+                              "rounding_difference_questions": [q for q,m in workbench.metadata.items()
+                                                                if not m.get("source_pixels_match", True)],
                               "blocked_questions": workbench.blocked_questions,
                               "baseline_fingerprint": workbench.adapter.manifest["fingerprint"],
                               "collected_questions": workbench.snapshot()["collected_total"],

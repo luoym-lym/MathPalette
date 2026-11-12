@@ -1,31 +1,86 @@
-"""Frozen native MathVision redraw; importing does not write files."""
+"""Frozen question Solid151; unified protocol 2.0.0. Original metadata and PNG retained."""
 from pathlib import Path
-import importlib.util
+import sys
 import json
-HERE = Path(__file__).resolve().parent
+import numpy as np
+_PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+from dataset_tools.drawing import Canvas, ANALYTICS, PLANE, SOLID, VectorPath, VectorTransform, VectorBox
 
 class Solid151:
 
     def __init__(self):
-        self.__dict__.update({'id': 'Solid151', 'source_dataset': 'MathVision', 'question': 'A cube of side length 3 consists of 15 black and 12 white unit cubes. In the diagram five of the six faces of the big cube can be seen. Which of the regions shown below is the 6th face of the big cube?\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E', 'answer': 'A', 'answer_type': 'choice', 'subject': 'SolidGeometry', 'choices': {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'}, 'source_key': 'test:1144', 'source_category': 'solid geometry', 'source_revision': '2837ddb3f13abaf6b3997c12d80753e5470bd46a'})
+        self.id = 'Solid151'
+        self.source_dataset = 'MathVision'
+        self.source_key = 'test:1144'
+        self.question = 'A cube of side length 3 consists of 15 black and 12 white unit cubes. In the diagram five of the six faces of the big cube can be seen. Which of the regions shown below is the 6th face of the big cube?\nChoices:\nA:A\nB:B\nC:C\nD:D\nE:E'
+        self.answer = 'A'
+        self.answer_type = 'choice'
+        self.choices = {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'}
         self.query = self.question
+        self.subject = 'SolidGeometry'
         self.level = None
-        self.scene_path = HERE / 'scenes/Solid151.json'
+        self.scene_path = _PROJECT_ROOT / 'SolidGeometry' / 'dataset_generator/scenes/Solid151.json'
+
+    def draw(self, output_path=None, *, variant=None, _canvas=False):
+        if output_path is None and (not _canvas):
+            output_path = _PROJECT_ROOT / '.runtime/reproduced' / 'SolidGeometry' / (self.id + ('_' + variant if variant else '') + '.png')
+        if variant is not None:
+            if _canvas:
+                raise ValueError('Canvas capture is for the original only')
+            from dataset_tools.unified_replay import draw_slot
+            return draw_slot('SolidGeometry', self.id, variant, output_path)
+        with Canvas(SOLID, xlim=[-0.572818646438634, 23.607641805353353], ylim=[-8.43899509723536, 15.741465354556627], axes_position=[0.05, 0.05, 0.9, 0.9], coordinate_axes=False) as c:
+            for object_id, vertices, codes in [('cell0000', [[0.0, 7.5], [1.0, 7.5], [1.0, 8.5], [0.0, 8.5], [0.0, 7.5]], [1, 2, 2, 2, 79]), ('cell0001', [[1.0, 7.5], [2.0, 7.5], [2.0, 8.5], [1.0, 8.5], [1.0, 7.5]], [1, 2, 2, 2, 79]), ('cell0011', [[1.0, 6.5], [2.0, 6.5], [2.0, 7.5], [1.0, 7.5], [1.0, 6.5]], [1, 2, 2, 2, 79]), ('cell0012', [[2.0, 6.5], [3.0, 6.5], [3.0, 7.5], [2.0, 7.5], [2.0, 6.5]], [1, 2, 2, 2, 79]), ('cell0020', [[0.0, 5.5], [1.0, 5.5], [1.0, 6.5], [0.0, 6.5], [0.0, 5.5]], [1, 2, 2, 2, 79]), ('cell0021', [[1.0, 5.5], [2.0, 5.5], [2.0, 6.5], [1.0, 6.5], [1.0, 5.5]], [1, 2, 2, 2, 79]), ('cell0022', [[2.0, 5.5], [3.0, 5.5], [3.0, 6.5], [2.0, 6.5], [2.0, 5.5]], [1, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id, zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            for object_id, points in [('gridv000', [[0.0, 5.5], [0.0, 8.5]]), ('gridh000', [[0.0, 5.5], [3.0, 5.5]]), ('gridv001', [[1.0, 5.5], [1.0, 8.5]]), ('gridh001', [[0.0, 6.5], [3.0, 6.5]]), ('gridv002', [[2.0, 5.5], [2.0, 8.5]]), ('gridh002', [[0.0, 7.5], [3.0, 7.5]]), ('gridv003', [[3.0, 5.5], [3.0, 8.5]]), ('gridh003', [[0.0, 8.5], [3.0, 8.5]])]:
+                c.line(points, id=object_id, zorder=3, clip_on=False)
+            for object_id, vertices, codes in [('cell0100', [[5.0, 7.5], [6.0, 7.5], [6.0, 8.5], [5.0, 8.5], [5.0, 7.5]], [1, 2, 2, 2, 79]), ('cell0101', [[6.0, 7.5], [7.0, 7.5], [7.0, 8.5], [6.0, 8.5], [6.0, 7.5]], [1, 2, 2, 2, 79]), ('cell0102', [[7.0, 7.5], [8.0, 7.5], [8.0, 8.5], [7.0, 8.5], [7.0, 7.5]], [1, 2, 2, 2, 79]), ('cell0111', [[6.0, 6.5], [7.0, 6.5], [7.0, 7.5], [6.0, 7.5], [6.0, 6.5]], [1, 2, 2, 2, 79]), ('cell0112', [[7.0, 6.5], [8.0, 6.5], [8.0, 7.5], [7.0, 7.5], [7.0, 6.5]], [1, 2, 2, 2, 79]), ('cell0120', [[5.0, 5.5], [6.0, 5.5], [6.0, 6.5], [5.0, 6.5], [5.0, 5.5]], [1, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id, zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            for object_id, points in [('gridv010', [[5.0, 5.5], [5.0, 8.5]]), ('gridh010', [[5.0, 5.5], [8.0, 5.5]]), ('gridv011', [[6.0, 5.5], [6.0, 8.5]]), ('gridh011', [[5.0, 6.5], [8.0, 6.5]]), ('gridv012', [[7.0, 5.5], [7.0, 8.5]]), ('gridh012', [[5.0, 7.5], [8.0, 7.5]]), ('gridv013', [[8.0, 5.5], [8.0, 8.5]]), ('gridh013', [[5.0, 8.5], [8.0, 8.5]])]:
+                c.line(points, id=object_id, zorder=3, clip_on=False)
+            for object_id, vertices, codes in [('cell0200', [[10.0, 7.5], [11.0, 7.5], [11.0, 8.5], [10.0, 8.5], [10.0, 7.5]], [1, 2, 2, 2, 79]), ('cell0202', [[12.0, 7.5], [13.0, 7.5], [13.0, 8.5], [12.0, 8.5], [12.0, 7.5]], [1, 2, 2, 2, 79]), ('cell0220', [[10.0, 5.5], [11.0, 5.5], [11.0, 6.5], [10.0, 6.5], [10.0, 5.5]], [1, 2, 2, 2, 79]), ('cell0222', [[12.0, 5.5], [13.0, 5.5], [13.0, 6.5], [12.0, 6.5], [12.0, 5.5]], [1, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id, zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            for object_id, points in [('gridv020', [[10.0, 5.5], [10.0, 8.5]]), ('gridh020', [[10.0, 5.5], [13.0, 5.5]]), ('gridv021', [[11.0, 5.5], [11.0, 8.5]]), ('gridh021', [[10.0, 6.5], [13.0, 6.5]]), ('gridv022', [[12.0, 5.5], [12.0, 8.5]]), ('gridh022', [[10.0, 7.5], [13.0, 7.5]]), ('gridv023', [[13.0, 5.5], [13.0, 8.5]]), ('gridh023', [[10.0, 8.5], [13.0, 8.5]])]:
+                c.line(points, id=object_id, zorder=3, clip_on=False)
+            for object_id, vertices, codes in [('cell0300', [[15.0, 7.5], [16.0, 7.5], [16.0, 8.5], [15.0, 8.5], [15.0, 7.5]], [1, 2, 2, 2, 79]), ('cell0301', [[16.0, 7.5], [17.0, 7.5], [17.0, 8.5], [16.0, 8.5], [16.0, 7.5]], [1, 2, 2, 2, 79]), ('cell0302', [[17.0, 7.5], [18.0, 7.5], [18.0, 8.5], [17.0, 8.5], [17.0, 7.5]], [1, 2, 2, 2, 79]), ('cell0311', [[16.0, 6.5], [17.0, 6.5], [17.0, 7.5], [16.0, 7.5], [16.0, 6.5]], [1, 2, 2, 2, 79]), ('cell0322', [[17.0, 5.5], [18.0, 5.5], [18.0, 6.5], [17.0, 6.5], [17.0, 5.5]], [1, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id, zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            for object_id, points in [('gridv030', [[15.0, 5.5], [15.0, 8.5]]), ('gridh030', [[15.0, 5.5], [18.0, 5.5]]), ('gridv031', [[16.0, 5.5], [16.0, 8.5]]), ('gridh031', [[15.0, 6.5], [18.0, 6.5]]), ('gridv032', [[17.0, 5.5], [17.0, 8.5]]), ('gridh032', [[15.0, 7.5], [18.0, 7.5]]), ('gridv033', [[18.0, 5.5], [18.0, 8.5]]), ('gridh033', [[15.0, 8.5], [18.0, 8.5]])]:
+                c.line(points, id=object_id, zorder=3, clip_on=False)
+            for object_id, vertices, codes in [('cell0402', [[22.0, 7.5], [23.0, 7.5], [23.0, 8.5], [22.0, 8.5], [22.0, 7.5]], [1, 2, 2, 2, 79]), ('cell0410', [[20.0, 6.5], [21.0, 6.5], [21.0, 7.5], [20.0, 7.5], [20.0, 6.5]], [1, 2, 2, 2, 79]), ('cell0411', [[21.0, 6.5], [22.0, 6.5], [22.0, 7.5], [21.0, 7.5], [21.0, 6.5]], [1, 2, 2, 2, 79]), ('cell0420', [[20.0, 5.5], [21.0, 5.5], [21.0, 6.5], [20.0, 6.5], [20.0, 5.5]], [1, 2, 2, 2, 79]), ('cell0421', [[21.0, 5.5], [22.0, 5.5], [22.0, 6.5], [21.0, 6.5], [21.0, 5.5]], [1, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id, zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            for object_id, points in [('gridv040', [[20.0, 5.5], [20.0, 8.5]]), ('gridh040', [[20.0, 5.5], [23.0, 5.5]]), ('gridv041', [[21.0, 5.5], [21.0, 8.5]]), ('gridh041', [[20.0, 6.5], [23.0, 6.5]]), ('gridv042', [[22.0, 5.5], [22.0, 8.5]]), ('gridh042', [[20.0, 7.5], [23.0, 7.5]]), ('gridv043', [[23.0, 5.5], [23.0, 8.5]]), ('gridh043', [[20.0, 8.5], [23.0, 8.5]])]:
+                c.line(points, id=object_id, zorder=3, clip_on=False)
+            for object_id, vertices, codes in [('cell1000', [[0.0, 2.0], [1.0, 2.0], [1.0, 3.0], [0.0, 3.0], [0.0, 2.0]], [1, 2, 2, 2, 79]), ('cell1002', [[2.0, 2.0], [3.0, 2.0], [3.0, 3.0], [2.0, 3.0], [2.0, 2.0]], [1, 2, 2, 2, 79]), ('cell1010', [[0.0, 1.0], [1.0, 1.0], [1.0, 2.0], [0.0, 2.0], [0.0, 1.0]], [1, 2, 2, 2, 79]), ('cell1012', [[2.0, 1.0], [3.0, 1.0], [3.0, 2.0], [2.0, 2.0], [2.0, 1.0]], [1, 2, 2, 2, 79]), ('cell1022', [[2.0, 0.0], [3.0, 0.0], [3.0, 1.0], [2.0, 1.0], [2.0, 0.0]], [1, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id, zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            for object_id, points in [('gridv100', [[0.0, 0.0], [0.0, 3.0]]), ('gridh100', [[0.0, 0.0], [3.0, 0.0]]), ('gridv101', [[1.0, 0.0], [1.0, 3.0]]), ('gridh101', [[0.0, 1.0], [3.0, 1.0]]), ('gridv102', [[2.0, 0.0], [2.0, 3.0]]), ('gridh102', [[0.0, 2.0], [3.0, 2.0]]), ('gridv103', [[3.0, 0.0], [3.0, 3.0]]), ('gridh103', [[0.0, 3.0], [3.0, 3.0]])]:
+                c.line(points, id=object_id, zorder=3, clip_on=False)
+            for object_id, vertices, codes in [('cell1100', [[5.0, 2.0], [6.0, 2.0], [6.0, 3.0], [5.0, 3.0], [5.0, 2.0]], [1, 2, 2, 2, 79]), ('cell1102', [[7.0, 2.0], [8.0, 2.0], [8.0, 3.0], [7.0, 3.0], [7.0, 2.0]], [1, 2, 2, 2, 79]), ('cell1111', [[6.0, 1.0], [7.0, 1.0], [7.0, 2.0], [6.0, 2.0], [6.0, 1.0]], [1, 2, 2, 2, 79]), ('cell1112', [[7.0, 1.0], [8.0, 1.0], [8.0, 2.0], [7.0, 2.0], [7.0, 1.0]], [1, 2, 2, 2, 79]), ('cell1120', [[5.0, 0.0], [6.0, 0.0], [6.0, 1.0], [5.0, 1.0], [5.0, 0.0]], [1, 2, 2, 2, 79]), ('cell1122', [[7.0, 0.0], [8.0, 0.0], [8.0, 1.0], [7.0, 1.0], [7.0, 0.0]], [1, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id, zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            for object_id, points in [('gridv110', [[5.0, 0.0], [5.0, 3.0]]), ('gridh110', [[5.0, 0.0], [8.0, 0.0]]), ('gridv111', [[6.0, 0.0], [6.0, 3.0]]), ('gridh111', [[5.0, 1.0], [8.0, 1.0]]), ('gridv112', [[7.0, 0.0], [7.0, 3.0]]), ('gridh112', [[5.0, 2.0], [8.0, 2.0]]), ('gridv113', [[8.0, 0.0], [8.0, 3.0]]), ('gridh113', [[5.0, 3.0], [8.0, 3.0]])]:
+                c.line(points, id=object_id, zorder=3, clip_on=False)
+            for object_id, vertices, codes in [('cell1200', [[10.0, 2.0], [11.0, 2.0], [11.0, 3.0], [10.0, 3.0], [10.0, 2.0]], [1, 2, 2, 2, 79]), ('cell1202', [[12.0, 2.0], [13.0, 2.0], [13.0, 3.0], [12.0, 3.0], [12.0, 2.0]], [1, 2, 2, 2, 79]), ('cell1211', [[11.0, 1.0], [12.0, 1.0], [12.0, 2.0], [11.0, 2.0], [11.0, 1.0]], [1, 2, 2, 2, 79]), ('cell1220', [[10.0, 0.0], [11.0, 0.0], [11.0, 1.0], [10.0, 1.0], [10.0, 0.0]], [1, 2, 2, 2, 79]), ('cell1222', [[12.0, 0.0], [13.0, 0.0], [13.0, 1.0], [12.0, 1.0], [12.0, 0.0]], [1, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id, zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            for object_id, points in [('gridv120', [[10.0, 0.0], [10.0, 3.0]]), ('gridh120', [[10.0, 0.0], [13.0, 0.0]]), ('gridv121', [[11.0, 0.0], [11.0, 3.0]]), ('gridh121', [[10.0, 1.0], [13.0, 1.0]]), ('gridv122', [[12.0, 0.0], [12.0, 3.0]]), ('gridh122', [[10.0, 2.0], [13.0, 2.0]]), ('gridv123', [[13.0, 0.0], [13.0, 3.0]]), ('gridh123', [[10.0, 3.0], [13.0, 3.0]])]:
+                c.line(points, id=object_id, zorder=3, clip_on=False)
+            for object_id, vertices, codes in [('cell1301', [[16.0, 2.0], [17.0, 2.0], [17.0, 3.0], [16.0, 3.0], [16.0, 2.0]], [1, 2, 2, 2, 79]), ('cell1302', [[17.0, 2.0], [18.0, 2.0], [18.0, 3.0], [17.0, 3.0], [17.0, 2.0]], [1, 2, 2, 2, 79]), ('cell1320', [[15.0, 0.0], [16.0, 0.0], [16.0, 1.0], [15.0, 1.0], [15.0, 0.0]], [1, 2, 2, 2, 79]), ('cell1321', [[16.0, 0.0], [17.0, 0.0], [17.0, 1.0], [16.0, 1.0], [16.0, 0.0]], [1, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id, zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            for object_id, points in [('gridv130', [[15.0, 0.0], [15.0, 3.0]]), ('gridh130', [[15.0, 0.0], [18.0, 0.0]]), ('gridv131', [[16.0, 0.0], [16.0, 3.0]]), ('gridh131', [[15.0, 1.0], [18.0, 1.0]]), ('gridv132', [[17.0, 0.0], [17.0, 3.0]]), ('gridh132', [[15.0, 2.0], [18.0, 2.0]]), ('gridv133', [[18.0, 0.0], [18.0, 3.0]]), ('gridh133', [[15.0, 3.0], [18.0, 3.0]])]:
+                c.line(points, id=object_id, zorder=3, clip_on=False)
+            for object_id, vertices, codes in [('cell1400', [[20.0, 2.0], [21.0, 2.0], [21.0, 3.0], [20.0, 3.0], [20.0, 2.0]], [1, 2, 2, 2, 79]), ('cell1402', [[22.0, 2.0], [23.0, 2.0], [23.0, 3.0], [22.0, 3.0], [22.0, 2.0]], [1, 2, 2, 2, 79]), ('cell1410', [[20.0, 1.0], [21.0, 1.0], [21.0, 2.0], [20.0, 2.0], [20.0, 1.0]], [1, 2, 2, 2, 79]), ('cell1411', [[21.0, 1.0], [22.0, 1.0], [22.0, 2.0], [21.0, 2.0], [21.0, 1.0]], [1, 2, 2, 2, 79]), ('cell1412', [[22.0, 1.0], [23.0, 1.0], [23.0, 2.0], [22.0, 2.0], [22.0, 1.0]], [1, 2, 2, 2, 79]), ('cell1422', [[22.0, 0.0], [23.0, 0.0], [23.0, 1.0], [22.0, 1.0], [22.0, 0.0]], [1, 2, 2, 2, 79])]:
+                c.path(vertices, codes, id=object_id, zorder=1, edgecolor=[0.0, 0.0, 0.0, 0.0], facecolor=[0.0, 0.0, 0.0, 1.0], linewidth=0.0, capstyle='butt')
+            for object_id, points in [('gridv140', [[20.0, 0.0], [20.0, 3.0]]), ('gridh140', [[20.0, 0.0], [23.0, 0.0]]), ('gridv141', [[21.0, 0.0], [21.0, 3.0]]), ('gridh141', [[20.0, 1.0], [23.0, 1.0]]), ('gridv142', [[22.0, 0.0], [22.0, 3.0]]), ('gridh142', [[20.0, 2.0], [23.0, 2.0]]), ('gridv143', [[23.0, 0.0], [23.0, 3.0]]), ('gridh143', [[20.0, 3.0], [23.0, 3.0]])]:
+                c.line(points, id=object_id, zorder=3, clip_on=False)
+            for object_id, text, anchor in [('option0', '(A)', [1.5, 0.0]), ('option1', '(B)', [6.5, 0.0]), ('option2', '(C)', [11.5, 0.0]), ('option3', '(D)', [16.5, 0.0]), ('option4', '(E)', [21.5, 0.0])]:
+                c.text(text, anchor, id=object_id, rotation_mode='default', offset_pt=[0, -19], annotation_clip=None)
+            return c if _canvas else c.save(output_path)
 
     def get_scene(self):
-        return json.loads(self.scene_path.read_text(encoding='utf-8'))
+        return json.loads(self.scene_path.read_text(encoding='utf-8-sig'))
 
-    def draw(self, num=0, output_path=None):
-        if output_path is None and isinstance(num, (str, Path)):
-            output_path = num
-        output = Path(output_path) if output_path else HERE.parents[1] / '.runtime/mathvision_redraw' / 'Solid151.png'
-        spec = importlib.util.spec_from_file_location('mathvision_native_runtime', HERE / 'mathvision_renderers/shared_e4e003f51742cf00/runtime.py')
-        runtime = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(runtime)
-        return runtime.draw(HERE / 'mathvision_renderers/shared_e4e003f51742cf00/items/Solid151', HERE / 'mathvision_renderers/shared_e4e003f51742cf00/native', output, formal_scene=self.scene_path, original_image=HERE / '../originals/Solid151.jpg')
-
-    def redraw(self, output_path=None):
-        return self.draw(output_path=output_path)
+    def build_scene(self):
+        canvas = self.draw(_canvas=True)
+        return (canvas.fig, canvas.ax)
 if __name__ == '__main__':
-    import sys
-    print(Solid151().draw(output_path=sys.argv[1] if len(sys.argv) > 1 else None))
+    print(Solid151().draw(sys.argv[1] if len(sys.argv) > 1 else None))

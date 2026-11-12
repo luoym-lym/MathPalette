@@ -74,3 +74,22 @@ def assert_same_renderer(baseline, current, identity):
     """Compare both parsed sources using the caller's interpreter and schema."""
     if renderer_fingerprint(baseline) != renderer_fingerprint(current):
         raise ValueError(f'{identity}: rendering code changed relative to the Git baseline')
+
+@lru_cache(maxsize=128)
+def historical_bytes(root, relative, expected_sha256):
+    """Read a pinned pre-integration source from active files or the v1 archive."""
+    import json,tarfile
+    root=Path(root)
+    path=root/relative
+    if path.is_file():
+        data=path.read_bytes()
+        if hashlib.sha256(data).hexdigest()==expected_sha256:return data
+    manifest=json.loads((root/'provenance/drawing_protocol_v1.json').read_text())
+    archive=root/manifest['archive']
+    if (manifest['files'].get(relative)!=expected_sha256 or
+            hashlib.sha256(archive.read_bytes()).hexdigest()!=manifest['archive_sha256']):
+        raise ValueError('Historical drawing archive does not match pinned source')
+    with tarfile.open(archive,'r:gz') as tar:data=tar.extractfile(relative).read()
+    if hashlib.sha256(data).hexdigest()!=expected_sha256:
+        raise ValueError('Historical drawing source changed: '+relative)
+    return data
