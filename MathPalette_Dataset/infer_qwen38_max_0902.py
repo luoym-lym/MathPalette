@@ -39,7 +39,7 @@ async def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--limit", type=int, help="Process only the first N samples")
     parser.add_argument("--output-dir", type=Path,
-                        default=DATASET.parent / ".runtime" / 'qwen')
+                        default=DATASET.parent / "results" / 'qwen')
     args = parser.parse_args()
     if args.limit is not None and args.limit < 1:
         parser.error("--limit must be positive")

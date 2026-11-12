@@ -12,4 +12,4 @@ Read README.md and DRAWING_PROTOCOL.md before making changes.
 - Defaults are DeepSeek max and Qwen xhigh, a 240-second total request deadline, and at most three attempts per input across restarts. Do not set an output token limit. Save the actual reasoning_content and content fields; never substitute the answer for missing reasoning.
 - Use only this instruction plus a newline and the original question: Please solve the problem step by step and put your answer in one "\boxed{}". Do not add a system message or question-type-specific prompts.
 - Keep the existing tracked .env unchanged. Do not expose credentials or modify Git history.
-- Write temporary outputs and model results to .runtime/. Local mocks do not count as real provider validation. Do not call paid models unless the user requests a run.
+- Write temporary outputs to .runtime/ and model results to the Git-tracked results/ directory. Local mocks do not count as real provider validation. Do not call paid models unless the user requests a run.

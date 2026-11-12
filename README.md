@@ -35,7 +35,7 @@ Remove `--limit 1` to process all samples. Each script reads a PNG and its quest
 
 DeepSeek uses `deepseek-flash` with thinking enabled and effort `max`. Qwen uses `qwen3.8-max-0902` with thinking enabled and effort `xhigh` at `https://maas.qianwenaiapi.com/compatible-mode/v1`. Neither script sends an output token limit. Both use the same English MathVision instruction followed by the original question, without a system message.
 
-Results are individual JSON files in `.runtime/deepseek/` or `.runtime/qwen/`. Use `--output-dir PATH` for another run. Received responses are skipped on restart. Each input has at most three recorded attempts, including earlier runs; each request has a 240-second total deadline. Use a new output directory after changing the data or model settings.
+Results are individual JSON files in `results/deepseek/` or `results/qwen/`. The root `results/` directory and its result files are included in Git version control. Use `--output-dir PATH` for another run. Received responses are skipped on restart. Each input has at most three recorded attempts, including earlier runs; each request has a 240-second total deadline. Use a new output directory after changing the data or model settings.
 
 Missing reasoning or answer content is saved as missing, reported in the terminal, and stops the run. Returned reasoning and answers are stored without translation or rewriting. A local timeout does not confirm that the provider stopped computing or billing.
 
