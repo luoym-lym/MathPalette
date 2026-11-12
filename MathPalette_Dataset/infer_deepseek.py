@@ -14,8 +14,9 @@ load_dotenv(DATASET.parent / ".env")
 MODEL = 'deepseek-flash'
 BASE_URL = os.getenv('DEEPSEEK_BASE_URL', 'https://api.deepseek.com').rstrip("/")
 KEY_NAME = 'DEEPSEEK_API_KEY'
-TIMEOUT = 240
+TIMEOUT = 640
 MAX_ATTEMPTS = 3
+CONCURRENCY = 5
 PROMPT = r'Please solve the problem step by step and put your answer in one "\boxed{}".'
 
 
@@ -51,42 +52,60 @@ async def main():
     samples = [json.loads(line) for line in (DATASET / "samples.jsonl").read_text(encoding="utf-8").splitlines() if line.strip()]
     args.output_dir.mkdir(parents=True, exist_ok=True)
     async with httpx.AsyncClient(timeout=TIMEOUT) as client:
-        for sample in samples[:args.limit]:
-            path = args.output_dir / (sample["id"] + ".json")
-            result = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {"id": sample["id"], "attempts": []}
-            if result.get("status") == "received" or result.get("retryable") is False:
-                continue
-            payload = make_payload(sample)
-            while len(result["attempts"]) < MAX_ATTEMPTS:
-                attempt = {"number": len(result["attempts"]) + 1, "status": "started"}
-                result["attempts"].append(attempt)
-                save(path, result)
-                try:
-                    async with asyncio.timeout(TIMEOUT):
-                        response = await client.post(BASE_URL + "/chat/completions",
-                            headers={"Authorization": "Bearer " + key}, json=payload)
-                    response.raise_for_status()
-                    data = response.json()
-                    message = data["choices"][0]["message"]
-                    result.update(status="received", reasoning_content=message.get("reasoning_content"),
-                                  content=message.get("content"), usage=data.get("usage"),
-                                  model=data.get("model"), finish_reason=data["choices"][0].get("finish_reason"))
-                    attempt["status"] = "received"
-                except Exception as error:
-                    retryable = isinstance(error, (httpx.RequestError, TimeoutError)) or (
-                        isinstance(error, httpx.HTTPStatusError) and (
-                            error.response.status_code in (408, 409, 425, 429) or error.response.status_code >= 500))
-                    result.update(status="error", retryable=retryable)
-                    attempt.update(status="error", error=str(error).replace(key, "[REDACTED]"))
-                save(path, result)
-                print(sample["id"], result["status"], flush=True)
-                if result["status"] == "received":
-                    if not result["reasoning_content"] or not result["content"]:
-                        print("Missing reasoning_content or content for " + sample["id"], flush=True)
-                        return
-                    break
-                if not result["retryable"]:
+        pending = iter(samples[:args.limit])
+        stop = asyncio.Event()
+
+        async def worker():
+            for sample in pending:
+                if stop.is_set():
                     return
+                path = args.output_dir / (sample["id"] + ".json")
+                result = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {"id": sample["id"], "attempts": []}
+                if result.get("status") == "received" or result.get("retryable") is False:
+                    continue
+                payload = make_payload(sample)
+                while len(result["attempts"]) < MAX_ATTEMPTS:
+                    if stop.is_set():
+                        return
+                    attempt = {"number": len(result["attempts"]) + 1, "status": "started"}
+                    result["attempts"].append(attempt)
+                    save(path, result)
+                    try:
+                        async with asyncio.timeout(TIMEOUT):
+                            response = await client.post(BASE_URL + "/chat/completions",
+                                headers={"Authorization": "Bearer " + key}, json=payload)
+                        response.raise_for_status()
+                        data = response.json()
+                        message = data["choices"][0]["message"]
+                        result.update(status="received", reasoning_content=message.get("reasoning_content"),
+                                      content=message.get("content"), usage=data.get("usage"),
+                                      model=data.get("model"), finish_reason=data["choices"][0].get("finish_reason"))
+                        attempt["status"] = "received"
+                    except Exception as error:
+                        timed_out = isinstance(error, (TimeoutError, httpx.TimeoutException))
+                        retryable = not timed_out and (isinstance(error, httpx.RequestError) or (
+                            isinstance(error, httpx.HTTPStatusError) and (
+                                error.response.status_code in (408, 409, 425, 429) or error.response.status_code >= 500)))
+                        result.update(status="error", retryable=retryable)
+                        attempt.update(status="error", error=str(error).replace(key, "[REDACTED]"),
+                                       error_type=type(error).__name__, timed_out=timed_out)
+                    save(path, result)
+                    print(sample["id"], result["status"], flush=True)
+                    if result["status"] == "received":
+                        if not result["reasoning_content"] or not result["content"]:
+                            print("Missing reasoning_content or content for " + sample["id"], flush=True)
+                            stop.set()
+                            return
+                        break
+                    if not result["retryable"]:
+                        if attempt.get("timed_out"):
+                            break
+                        stop.set()
+                        return
+
+        async with asyncio.TaskGroup() as group:
+            for _ in range(CONCURRENCY):
+                group.create_task(worker())
 
 
 if __name__ == "__main__":

@@ -31,6 +31,6 @@ print(sample["id"], sample["question"], root / sample["image"])
 
 Each file in `questions/` contains one class with original and Special draw methods. All figures use `drawing.py`; temporary output stays outside the formal dataset directory. See the [drawing protocol](../DRAWING_PROTOCOL.md).
 
-The two inference scripts independently load samples, call their model endpoint, and save reasoning and answers. `check_api_key.py` is the only additional API utility. Usage is in the [project README](../README.md).
+The three inference scripts independently load samples, call their model endpoint, and save reasoning and answers. `check_api_key.py` is the only additional API utility. Usage is in the [project README](../README.md).
 
 Verify file integrity from this directory with `shasum -a 256 -c SHA256SUMS`. Source notices and retained licenses are listed in [ATTRIBUTION.md](ATTRIBUTION.md).

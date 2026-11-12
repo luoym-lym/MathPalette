@@ -8,10 +8,12 @@ import httpx
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("provider", choices=("deepseek", "qwen"))
+    parser.add_argument("provider", choices=("deepseek", "qwen", "minimax"))
     args = parser.parse_args()
-    module = importlib.import_module(
-        "infer_deepseek" if args.provider == "deepseek" else "infer_qwen38_max_0902")
+    module = importlib.import_module({
+        "deepseek": "infer_deepseek", "qwen": "infer_qwen38_max_0902",
+        "minimax": "infer_minimax",
+    }[args.provider])
     key = os.getenv(module.KEY_NAME)
     if not key:
         parser.error("Set " + module.KEY_NAME + " in the environment or the project .env")
