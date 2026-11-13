@@ -1,46 +1,39 @@
 """Collected question Ana583; construction on the shared drawing protocol."""
 from pathlib import Path
 import sys
-import numpy as np
 _PROJECT_ROOT = Path(__file__).resolve().parents[2]
 if str(_PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(_PROJECT_ROOT))
-from MathPalette_Dataset.drawing import Canvas, ANALYTICS, PLANE, SOLID, VectorPath, VectorTransform, VectorBox
+from MathPalette_Dataset.drawing import Canvas, ANALYTICS
 
 class Ana583:
     variants = ('C01',)
 
-    def __init__(self):
-        self.id = 'Ana583'
-        self.source_dataset = 'Author Designed'
-        self.source_key = 'author_extensions12_20261111/Ana583'
-        self.question = 'The closed polygonal curve C is shown on a unit grid. The horizontal line y=2 meets C at P and Q. Find the length of the chord PQ.'
-        self.answer = '9'
-        self.answer_type = 'number'
-        self.query = self.question
+    def _draw_base(self, c):
+        c.line([[-5, 2], [-3, 5], [2, 5], [4, 2], [2, -3], [-3, -3], [-5, 2]], id='object_000', solid_capstyle='butt')
+        c.text('$C$', [2.6, 5.4])
 
     def draw(self, output_path=None, *, variant=None):
         if output_path is None:
-            output_path = _PROJECT_ROOT / '.runtime/reproduced' / (self.id + ('_' + variant if variant else '') + '.png')
+            output_path = _PROJECT_ROOT / '.runtime/reproduced' / (self.__class__.__name__ + ('_' + variant if variant else '') + '.png')
         if variant is not None:
             if variant not in self.variants:
                 raise ValueError('Unknown Special variant: ' + str(variant))
             return getattr(self, 'draw_' + variant)(output_path)
-        with Canvas(ANALYTICS, xlim=[-8, 8], ylim=[-8, 8]) as c:
-            c.line([[-5, 2], [-3, 5], [2, 5], [4, 2], [2, -3], [-3, -3], [-5, 2]], id='object_000', solid_capstyle='butt')
-            c.text('$C$', [2.6, 5.4])
+        with Canvas(ANALYTICS) as c:
+            self._draw_base(c)
             return c.save(output_path)
 
     def draw_C01(self, output_path=None):
         if output_path is None:
             output_path = _PROJECT_ROOT / '.runtime/reproduced' / 'Ana583_C01.png'
-        with Canvas(ANALYTICS, xlim=(-8.0, 8.0), ylim=(-8.0, 8.0), axes_position=(0.12, 0.12, 0.8, 0.8), coordinate_axes=True) as c:
-            c.line([[-5.0, 2.0], [-3.0, 5.0], [2.0, 5.0], [4.0, 2.0], [2.0, -3.0], [-3.0, -3.0], [-5.0, 2.0]], id='curve_001', solid_capstyle='butt')
-            c.text('$C$', (2.6, 5.4), id='text_001', rotation_mode='default')
+        with Canvas(ANALYTICS) as c:
+            self._draw_base(c)
             c.line([[-8, 2], [8, 2]], zorder=9, color='#2563EB', linestyle=(0.0, [3.7, 1.6]), solid_capstyle='butt')
-            c.point([[4.0, 2.0]], zorder=10, s=[50], facecolors=[[0.8627450980392157, 0.14901960784313725, 0.14901960784313725, 1.0]], edgecolors=[[0.8627450980392157, 0.14901960784313725, 0.14901960784313725, 1.0]])
-            c.point([[-6.0, 2.0]], zorder=10, s=[50], facecolors=[[0.8627450980392157, 0.14901960784313725, 0.14901960784313725, 1.0]], edgecolors=[[0.8627450980392157, 0.14901960784313725, 0.14901960784313725, 1.0]])
+            c.point([[4.0, 2.0]], zorder=10, s=50, facecolors='#DC2626', edgecolors='#DC2626')
+            c.point([[-6.0, 2.0]], zorder=10, s=50, facecolors='#DC2626', edgecolors='#DC2626')
             return c.save(output_path)
+
 if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser(description='Ana583')

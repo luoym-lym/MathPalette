@@ -6,6 +6,8 @@
 
 - `MathPalette_Dataset/dataset.jsonl`: one record per question.
 - `MathPalette_Dataset/samples.jsonl`: one record per model input.
+- `MathPalette_Dataset/metadata.json`: dataset counts, branches, sources, and rendering environment.
+- `MathPalette_Dataset/SHA256SUMS`: hashes of all formal dataset files except the checksum list itself.
 - `MathPalette_Dataset/images/`: 1,456 distinct PNG files shared by the samples.
 - `MathPalette_Dataset/questions/`: one Python class per question, including its Special drawings.
 - `MathPalette_Dataset/drawing.py`: shared drawing tools.
@@ -58,4 +60,28 @@ The check uses `GET /models`. A gateway that does not implement that route may r
 .venv/bin/python MathPalette_Dataset/questions/Plane25.py .runtime/Plane25_C01.png --variant C01
 ```
 
-All formal PNGs were rendered from these classes. Drawing details are in [DRAWING_PROTOCOL.md](DRAWING_PROTOCOL.md); data fields and licenses are described in the [dataset README](MathPalette_Dataset/README.md) and [attribution notice](MathPalette_Dataset/ATTRIBUTION.md).
+All formal PNGs were rendered from these classes. Drawing details are in [DRAWING_PROTOCOL.md](DRAWING_PROTOCOL.md); source notices and licenses are in [MathPalette_Dataset/ATTRIBUTION.md](MathPalette_Dataset/ATTRIBUTION.md).
+
+## Dataset schema and integrity
+
+Only normal Collect records (`status="collected"`, `special_case=false`, no pending review) are included. Special slots and counts match the retained Collect record, and original question IDs are preserved.
+
+- `dataset.jsonl`: one question per line (`id`, `source_dataset`, `question`, `answer`, `answer_type`, `choices` where applicable, `branch`, `script`, `approval`, `collection`, `special_variants`, `image`).
+- `samples.jsonl`: one model input per line. IDs such as `Ana01_original` and `Ana01_C01` share `question_id`, `question`, `answer`, and `choices`; shared image files do not merge sample identities.
+- `answer_type` is `choice`, `number`, `expression`, or `text`. Choice answers use option letters; other answers retain their approved values and units.
+
+```python
+import json
+from pathlib import Path
+
+root = Path("MathPalette_Dataset")
+samples = [json.loads(line) for line in (root / "samples.jsonl").read_text(encoding="utf-8").splitlines()]
+sample = samples[0]
+print(sample["id"], sample["question"], root / sample["image"])
+```
+
+Verify file integrity with:
+
+```sh
+(cd MathPalette_Dataset && shasum -a 256 -c SHA256SUMS)
+```
