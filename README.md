@@ -43,6 +43,8 @@ Results are individual JSON files in `results/deepseek/`, `results/qwen/`, or `r
 
 The published MiniMax snapshot in `results/minimax/` contains one final response for each of the 1,463 sample IDs: 1,462 responses contain both reasoning and an answer; `Plane563_original` retains its original `finish_reason="length"` response with `content=null`. Historical attempts and retry flags have been removed from this final snapshot. The original response fields and token usage are preserved.
 
+The published Qwen snapshot in `results/qwen/` contains all 1,463 responses from `qwen3.8-max-0902`. Every response includes reasoning and an answer with `finish_reason="stop"`, including `Plane178_original`. Original response fields, token usage, and attempt histories are preserved.
+
 Missing reasoning or answer content is saved as missing, reported in the terminal, and stops new requests; requests already in flight finish and are saved. Nonretryable provider errors also stop new requests, while a timeout only skips the affected sample. Returned reasoning and answers are stored without translation or rewriting. A local timeout does not confirm that the provider stopped computing or billing.
 
 Optional authentication check, without model inference:
