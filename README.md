@@ -41,9 +41,20 @@ DeepSeek uses `deepseek-flash` with thinking enabled and effort `max`. Qwen uses
 
 Results are individual JSON files in `results/deepseek/`, `results/qwen/`, or `results/minimax/`. The root `results/` directory is tracked by Git and also contains the existing Gemini results in `results/gemini/`. Use `--output-dir PATH` for another run. Received responses are skipped on restart. Each request has a 640-second total deadline. A timeout is recorded and the sample is skipped without retry, including on restart. Other retryable network or service errors retain the limit of three recorded attempts per input across restarts. Use a new output directory after changing the data or model settings.
 
-The published MiniMax snapshot in `results/minimax/` contains one final response for each of the 1,463 sample IDs: 1,462 responses contain both reasoning and an answer; `Plane563_original` retains its original `finish_reason="length"` response with `content=null`. Historical attempts and retry flags have been removed from this final snapshot. The original response fields and token usage are preserved.
+The published snapshots contain one final response for every sample in each model directory: 5,852 JSON records across four models. These counts describe response completeness, not grading accuracy.
 
-The published Qwen snapshot in `results/qwen/` contains all 1,463 responses from `qwen3.8-max-0902`. Every response includes reasoning and an answer with `finish_reason="stop"`, including `Plane178_original`. Original response fields, token usage, and attempt histories are preserved.
+| Directory | Records | Reasoning and answer present | Token-limited responses |
+| --- | ---: | ---: | ---: |
+| `results/deepseek/` | 1,463 | 1,463 | 0 |
+| `results/qwen/` | 1,463 | 1,463 | 0 |
+| `results/gemini/` | 1,463 | 1,462 | 1 |
+| `results/minimax/` | 1,463 | 1,462 | 1 |
+
+Each JSON preserves the original `id`, `status`, `model`, `reasoning_content`, `content`, `usage`, and `finish_reason`. Historical attempt entries and retry flags have been removed from the final snapshots; complete records from before cleanup are archived locally under `.runtime/`. Gemini's `processed_time` is retained. No response text, answer, or usage value has been rewritten.
+
+DeepSeek contains 698 native `deepseek-flash` responses and 765 `deepseek-v4.1-flash-1017` responses from the Qwen AI gateway. Gateway records also retain `api_base_url` and the final successful attempt's `model_requested`. All 1,463 DeepSeek responses and all 1,463 `qwen3.8-max-0902` responses have reasoning, an answer, and `finish_reason="stop"`.
+
+The `gemini-4-argon` response for `Solid68_C04` retains `finish_reason="MAX_TOKENS"`, and the `MiniMax-M3.1-Flash` response for `Plane563_original` retains `finish_reason="length"` with `content=null`. Both token-limited responses are preserved with their original reasoning and usage, without filling in missing answers.
 
 Missing reasoning or answer content is saved as missing, reported in the terminal, and stops new requests; requests already in flight finish and are saved. Nonretryable provider errors also stop new requests, while a timeout only skips the affected sample. Returned reasoning and answers are stored without translation or rewriting. A local timeout does not confirm that the provider stopped computing or billing.
 
